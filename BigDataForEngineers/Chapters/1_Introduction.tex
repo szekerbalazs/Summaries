@@ -1,0 +1,61 @@
+\section{Introduction}
+
+\subsection{The three Vs of Data Science}
+
+The three Vs of Data Science are \textit{Volume, Variety} and \textit{Velocity}.
+
+\subsubsection{Volume}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}[h]{|c|c|}
+        \hline
+        kilo (k) & $1'000 = 10^3$ \\ \hline
+        Mega (M) & $1'000'000 = 10^6$ \\ \hline
+        Giga (G) & $1'000'000'000 = 10^9$ \\ \hline
+        Tera (T) & $1'000'000'000'000 = 10^{12}$ \\ \hline
+        Peta (P) & $1'000'000'000'000'000 = 10^{15}$ \\ \hline
+        Exa (E) & $1'000'000'000'000'000'000 = 10^{18}$ \\ \hline
+        Zetta (Z) & $1'000'000'000'000'000'000'000 = 10^{21}$ \\ \hline
+        Yotta (Y) & $1'000'000'000'000'000'000'000'000 = 10^{24}$ \\ \hline
+        Ronna (R) & $1'000'000'000'000'000'000'000'000'000 = 10^{27}$ \\ \hline
+        Quatta (Q) & $1'000'000'000'000'000'000'000'000'000'000 = 10^{30}$ \\ \hline
+    \end{tabular}
+    \caption{Prefixes (Powers of 10)}\label{tab:prefixes10}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}[h]{|c|c|}
+        \hline
+        kibi (ki) & $1,024 = 2^{10}$ \\ \hline
+        Mebi (Mi) & $1,048,576 = 2^{20}$ \\ \hline
+        Gibi (Gi) & $1,073,741,824 = 2^{30}$ \\ \hline
+        Tebi (Ti) & $1,099,511,627,776 = 2^{40}$ \\ \hline
+        Pebi (Pi) & $1,125,899,906,842,624 = 2^{50}$ \\ \hline
+        Exbi (Ei) & $1,152,921,504,606,846,976 = 2^{60}$ \\ \hline
+        Zebi (Zi) & $1,180,591,620,717,411,303,424 = 2^{70}$ \\ \hline
+        Yobi (Yi) & $1,208,925,819,614,629,174,706,176 = 2^{80}$ \\ \hline
+    \end{tabular}
+    \caption{Prefixes (Powers of 2)}\label{tab:prefixes2}
+\end{table}
+
+\subsubsection{Variety}
+
+There are different shapes of data. Some of them are \textit{trees, unstructured data}(text){, cubes and graphs}.
+
+
+\subsubsection{Velocity}
+
+A distortion has appeard between how much data we can store in a given volume, how fast we can read it and with which latency. Three important terms are:
+\begin{itemize}
+    \item Capacity: How much data can we store per unit of volume?
+    \item Throughput: How many bytes can we read per unit of time?
+    \item Latency: How much time do we need to wait until the bytes start arriving?
+\end{itemize}
+In recent times, Capacity increased by a factor of $200'000'000'000 = 2 \cdot 10^11$, Throughput by a factor of $20'000 = 2 \cdot 10^4$ and Latency by a factor of $150$.
+Methods to resolve this problem include parallelization and batch processing.
+
+\begin{definition}[Big Data]
+    Big Data is a portfolio of technologies that were designed to store, manage and analyze data that is too large to fit on a single machine while accomodating for the issue of growing discrepancy between capacity, throughput and latency.
+\end{definition}

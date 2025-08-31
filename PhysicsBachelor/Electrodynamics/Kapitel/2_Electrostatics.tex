@@ -1,0 +1,134 @@
+\section{Electrostatics}
+
+Fixed charge distribution and static electric field.
+\begin{align*}
+    \vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilonnull}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{\nabla} \times \vec{E} = 0
+\end{align*}
+
+\subsection{Coulomb's Law}
+
+\begin{align*}
+    \vec{F} = \frac{q}{4 \pi \epsilonnull} \frac{q_1}{\abs{\vec{x} - \vec{y}_1}^3} (\vec{x} - \vec{y}_1)
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{E} = \frac{1}{4 \pi \epsilonnull} \frac{q_1}{\abs{\vec{x} - \vec{y}_1}^3} (\vec{x} - \vec{y}_1)
+    \\
+    \vec{E} = \frac{1}{4 \pi \epsilonnull} \sum_{i=1}^N \frac{q_i}{\abs{\vec{x} - \vec{y}_i}^3} (\vec{x} - \vec{y}_i)
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{E} = \frac{1}{4 \pi \epsilonnull} \int \frac{\rho(\vec{y})}{\abs{\vec{x} - \vec{y}}^3} (\vec{x} - \vec{y}) \ d^3 \vec{y}
+\end{align*}
+
+\subsubsection{Dirac Delta}
+
+\begin{align*}
+    \intii f(x) \delta(x-y) \ dx = f(y)
+    \hspace{5pt} , \hspace{5pt}
+    \delta (\vec{x} - \vec{y}) =
+    \delta^{(D)} (\vec{x} - \vec{y}) = \prod_{i=1}^D \delta(x_i - y_i)
+\end{align*}
+
+\paragraph{Charge density} of a single charge $q$ at a position $\vec{y}$:
+$\rho(\vec{x}) = q \delta(\vec{x} - \vec{y})$.
+
+\paragraph{Charge distribution} of many point-like charges $q_i$ at positions $\vec{y}_i$:
+$\rho(\vec{x}) = \sum_i q_i \delta(\vec{x} - \vec{y}_i)$
+
+\subsection{Gauss' law from Coulomb's law}
+\begin{align*}
+    \vec{\nabla}_{\vec{x}} \frac{1}{\abs{\vec{x} - \vec{y}}} &= - \frac{(\vec{x} - \vec{y})}{\abs{\vec{x} - \vec{y}}^3}
+    \ \Rightarrow \ \vec{E} = - \vec{\nabla} \Phi(\vec{x})
+    \\
+    &\Rightarrow \
+    \Phi(\vec{x}) = \frac{1}{4 \pi \epsilonnull} \int \frac{\rho(\vec{y})}{\abs{\vec{x} - \vec{y}}} \ d^3 \vec{y}
+    \\
+    &\Rightarrow \ \vec{\nabla} \cdot \vec{E} = - \vec{\nabla}^2 \Phi = - \Delta \Phi
+    = \frac{\rho}{\epsilonnull}
+\end{align*}
+Further: $\mathbf{\nabla}^2_{\vec{x}} \frac{1}{\abs{\vec{x} - \vec{y}}}
+= - 4 \pi \delta(\vec{x} - \vec{y})$
+
+\subsubsection{Integral form of Gauss' law}
+
+\begin{align*}
+    \int_{S(V)} \vec{E} \cdot d \vec{S}
+    = \int_{V(S)} \vec{\nabla} \cdot \vec{E} \ d^3 \vec{x}
+    = \frac{1}{\epsilonnull} \int_{V(S)} \rho(\vec{x}) \ d^3 \vec{x}
+\end{align*}
+
+\subsection{Scalar potential}
+
+\begin{align*}
+    \vec{\nabla} \times \vec{E} &= - \vec{\nabla} \times \vec{\nabla} \Phi = 0
+    \\
+    \int_S \vec{\nabla} \times \vec{E} \cdot d \vec{S}
+    &= \oint_{\partial S} \vec{E} \cdot d \vec{l} = 0
+\end{align*}
+
+Field exerts a force $\vec{F} = q \vec{E} = - q \vec{\nabla} \Phi$.
+Work needed to transport a test charge from a position $\vec{x}_A$ to
+a position $\vec{x}_B$:
+\begin{align*}
+    W_{A \rightarrow B} = q \int_{\vec{x}_A}^{\vec{x}_B} \vec{\nabla} \Phi \cdot d \vec{l}
+    = q \klammer{\Phi(\vec{x}_B) - \Phi(\vec{x}_A)}
+\end{align*}
+Work done is independent of the chosen path.
+
+\subsection{Potential energy of a charge distribution}
+
+Potential energy of a system is the energy required to bring the charges to
+their positions from infinity. Discrete case:
+\begin{align*}
+    W = \frac{1}{4 \pi \epsilon_0} \sum_{i=2}^{N} \sum_{j<i} \frac{q_i q_j}{\abs{\vec{x}_i - \vec{x}_j}}
+    = \frac{1}{8 \pi \epsilon_0} \sum_{i \neq j} \frac{q_i q_j}{\abs{\vec{x}_i - \vec{x}_j}}
+\end{align*}
+Continous case:
+\begin{align*}
+    W &= \frac{1}{8 \pi \epsilon_0} \int \frac{\rho(\vec{x}) \rho(\vec{y})}{\abs{\vec{x} - \vec{y}}} \ d^3 \vec{x} d^2 \vec{y}
+    = \frac{1}{2} \int \rho(\vec{x}) \Phi(\vec{x}) \ d^3 \vec{x}
+    \\
+    &= - \frac{\epsilon_0}{2} \int \Phi(\vec{x}) \vec{\nabla}^2 \Phi(\vec{x}) \ d^3 \vec{x}
+    = \frac{\epsilon_0}{2} \int \abs{\vec{E}}^2 \ d^3 \vec{x}
+\end{align*}
+
+\paragraph{Energy density of the electric field}
+$w = \frac{\epsilon_0}{2} \abs{\vec{E}}^2$
+
+
+\subsubsection{Self-energy}
+Infinities in the total energy occur if we consider discrete distributions with
+a density $\rho(\vec{x}) = \sum_i q_i \delta(\vec{x} - \vec{x}_i)$
+
+\subsection{Charged conductors}
+
+Electrons move freely within their mass. $\vec{E}_{\text{inside}} = 0
+\Rightarrow \Phi$ const. Flux of electric field through Gauss surface:
+\begin{align*}
+    \text{Flux} = \int \vec{E} \cdot d \vec{S} = E \Delta S
+\end{align*}
+Charge enclosed:
+\begin{align*}
+    \text{Charge} = \sigma(\vec{x}) \Delta S
+\end{align*}
+with $\sigma(\vec{x})$ the charge surface density. Electric field on the
+surface:
+\begin{align*}
+    E = \frac{\sigma(\vec{x})}{\epsilon_0}
+\end{align*}
+Energy density on the surface of the conductor:
+\begin{align*}
+    w = \frac{\epsilon_0}{2} \abs{\vec{E}}^2
+    = \frac{\sigma^2(\vec{x})}{2 \epsilon_0}
+\end{align*}
+Small deformation $\Delta x \Delta S$ leads to a difference in electrostatic
+energy:
+\begin{align*}
+    \Delta W = \int_{V_{\text{out}}} w \ d^3 \vec{x} - \int_{V_{\text{out}} - \Delta x \Delta S} w \ d^3 \vec{x}
+    = - \Delta S \Delta x \frac{\sigma^2}{2 \epsilon_0}
+\end{align*}
+Force needed to undo deformation: $\Delta W = F \Delta x$. Pressure on the
+surface:
+\begin{align*}
+    \frac{\abs{F}}{\Delta S} = \frac{\abs{\Delta W}}{\Delta x \Delta S}
+    = \frac{\sigma^2}{2 \epsilonnull}
+\end{align*}

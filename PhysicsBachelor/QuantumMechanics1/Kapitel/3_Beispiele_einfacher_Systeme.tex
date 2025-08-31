@@ -1,0 +1,419 @@
+\section{Beispiele einfacher Systeme}
+
+Wir betrachten 1-dimensionale Systeme, in denen das Teilchen sich nur in
+einer Richtung bewegen kann.
+
+\subsection{Das Teilchen in der 'Box'}
+Ein Teilchen, das sich im Intervall $[0,a]$ frei bewegen kann und das Intervall
+nicht verlassen kann, wird durch folgendes Potential beschrieben.
+\begin{align*}
+    V(x) = \begin{cases}
+        0 \hspace{10pt} &0 \leq x \leq a \\
+        \infty \hspace{10pt} &\text{sonst}
+    \end{cases}
+\end{align*}
+Es folgt, dass $\psi(x) = 0$ für $x \notin [0,a]$. Für $x \in [0,a]$ muss
+gelten:
+\begin{align}\label{zeitunabhSGohnePot}
+    - \frac{\hbar^2}{2m} \frac{d^2 \psi}{d x^2} = E \psi
+\end{align}
+Weiterhin muss $\psi$ überall stetig sein. Falls dies nicht der Fall wäre,
+dann wäre $\psi'' \sim \delta'$ und somit wäre $\psi$ nicht eine Lösung der
+SG. Wegen der Stetigkeit muss gelten: $\psi(0) = \psi(a) = 0$. Es folgt die
+allgemeine Lsg.
+\begin{align*}
+    \psi (x) = \begin{cases}
+        A \cosh \klammer{\sqrt{2 m \abs{E}} \frac{x}{\hbar}} +
+            B \sinh \klammer{\sqrt{2 m \abs{E}} \frac{x}{\hbar}}
+            \hspace{10pt} &\text{falls } E < 0
+        \\
+        A + B x \hspace{10pt} &\text{falls } E = 0
+        \\
+        A \cos \klammer{\sqrt{2 m \abs{E}} \frac{x}{\hbar}} +
+            B \sin \klammer{\sqrt{2m \abs{E}} \frac{x}{\hbar}}
+            \hspace{10pt} &\text{falls } E > 0
+    \end{cases}
+\end{align*}
+mit $A$ und $B$ Konstanten. Die Randbedingungen implizieren $A=0$ und für
+$E \leq 0$ auch $B=0$; alle Lösungen mit $E \leq 0$ sind also trivial. Für
+$E > 0$ gibt es nicht triviale Lösungen mit
+\begin{align*}
+    E_n = \frac{n^2 \pi^2 \hbar^2}{2 m a^2}
+    \hspace{10pt} , \hspace{10pt}
+    \psi_n = B_n \sin \klammer{\frac{n \pi x}{a}}
+    = \sqrt{\frac{2}{a}} \sin \klammer{\frac{n \pi x}{a}}
+\end{align*}
+wobei $B_n$ durch die Normalisierung $1 = \int_0^a dx \ \psi_n^\ast \psi_n$
+bestimmt wird.
+
+Wir sehen, dass die möglichen Energieeigenwerte diskret sind. Diese Diskretheit
+folgt aus den Randbedingungen. Weiterhin sind alle Energieeigenwerte positiv,
+und insbesondere ist $E=0$ nicht zulässig. Dies folgt aus der Heisenbergschen
+Unschärferelation. Weiter hat der $n$-te angeregte Zustand $\psi_{n+1}(x)$
+gerade $n$ Nullstellen in $(0,a)$.
+
+\subsection{Teilchen im Topf}\label{Teilchen_im_Topf}
+\begin{align*}
+    V(x) = \begin{cases}
+        - V \hspace{10pt} &\text{falls } -a \leq x \leq a
+        \\
+        0 \hspace{10pt} &\text{sonst}
+    \end{cases}
+\end{align*}
+Wir interessieren uns für gebundene Zustände, d.h. $\abs{\psi(x)} \rightarrow
+0$ für $x \rightarrow \pm \infty$. Falls $x<-a$ und $x>a$, dann lautet die
+zeit-unabhängige SG wie in Gl. (\ref{zeitunabhSGohnePot}). Eine Allgemeine
+Lsg ist:
+\begin{align*}
+    \psi(x) = A e^{\kappa x} + D e^{- \kappa x}
+    \hspace{10pt} \text{wobei} \hspace{10pt}
+    E = - \frac{\hbar^2 \kappa^2}{2 m}
+    \hspace{5pt} , \hspace{5pt}
+    \kappa = \frac{\sqrt{-2mE}}{\hbar}
+\end{align*}
+Damit $\psi \rightarrow 0$ für $x \rightarrow \pm \infty$, muss $\kappa \in \R$
+sein und somit $E\stackrel{!}{<}0$. Im folgenden sei $\kappa >0$. Die Lsg
+ist somit:
+\begin{align*}
+    \psi(x) = \begin{cases}
+        A e^{\kappa x} \hspace{10pt} &\text{falls } x < -a
+        \\
+        D e^{-\kappa x} \hspace{10pt} &\text{falls } x > a
+    \end{cases}
+\end{align*}
+Für $-a < x < a$ ist die zeit-unabhängige SG:
+\begin{align*}
+    - \frac{\hbar^2}{2m} \psi'' (x) - V \psi(x) = E \psi(x)
+\end{align*}
+Die allgemeine Lsg ist von der folgenden Form:
+\begin{align*}
+    \psi(x) = B e^{i k x} + C e^{-i k x}
+    \hspace{10pt} \text{wobei} \hspace{10pt}
+    k = \frac{\sqrt{2m(V+E)}}{\hbar}
+\end{align*}
+Falls $\psi(x)$ eine gerade Fkt ist, d.h. $\psi(-x) = \psi(x)$, dann ist es
+$H \psi(x)$ auch. Selbiges gilt für ungerade Funktionen. Wir können das EW-Problem
+separat für gerade und ungerade Fkt lösen.
+
+Im folgenden betrachten wir gerade Lösungen. Für diese gilt: $A=D$ und $B=C$.
+Somit folgt:
+\begin{align*}
+    \psi(x) = \begin{cases}
+        A e^{\kappa x} \hspace{10pt} &\text{falls } x < -a
+        \\
+        2 B \cos(kx) \hspace{10pt} &\text{falls } -a < x < a
+        \\
+        A e^{- \kappa x} \hspace{10pt} &\text{falls } x > a
+    \end{cases}
+\end{align*}
+Die stetigkeit von $\psi$ und $\psi'$ bei $x = \pm a$ folgt aus:
+\begin{align*}
+    &- \frac{\hbar^2}{2m} \klammer{\psi_k' (a+\epsilon) - \psi_k'(a-\epsilon)}
+    = - \frac{\hbar^2}{2m} \int_{a-\epsilon}^{a+\epsilon} dx \ \psi_k''(x)
+    \\
+    &= \int_{a-\epsilon}^a dx \ (E+V) \psi_k (x) + \int_a^{a+\epsilon} dx \ E \psi_k(x)
+    \hspace{5pt} \stackrel{\epsilon \rightarrow 0}{\longrightarrow} 0
+\end{align*}
+Es folgt dann:
+\begin{align*}
+    A e^{-\kappa a} = 2B \cos(k a)
+    \hspace{10pt} &\text{und} \hspace{10pt}
+    \kappa A e^{-\kappa a} = 2 B k \sin(k a)
+    \\
+    \Rightarrow \kappa &= k \tan(k a)
+\end{align*}
+Weiter gilt:
+\begin{align*}
+    \kappa^2 + k^2 = \frac{2 m V}{\hbar^2}
+\end{align*}
+Definiere $\eta := \kappa a$ und $\xi := k a$. Dann vereinfachen sich die
+Bedingungen zu:
+\begin{align*}
+    \eta = \xi \tan(\xi)
+    \hspace{10pt} , \hspace{10pt}
+    \eta^2 + \xi^2 = \frac{2 m a^2 V}{\hbar^2}
+\end{align*}
+Die Anzahl der geraden gebundenen Lösungen ist gerade $N$, falls
+\begin{align*}
+    (N-1)^2 \pi^2 < \frac{2ma^2 V}{\hbar^2} \leq N^2 \pi^2
+\end{align*}
+Im Fall der ungeraden Fkt gilt $A=-D$ und $B=-C$ und somit folgt:
+\begin{align*}
+    \psi(x) = \begin{cases}
+        A e^{\kappa x} \hspace{10pt} &\text{falls } x < -a
+        \\
+        2 i B \sin(k x) \hspace{10pt} &\text{falls } -a < x < a
+        \\
+        -A e^{- \kappa x} \hspace{10pt} &\text{falls } x > a
+    \end{cases}
+\end{align*}
+Stetigkeitsbedingungen ergeben:
+\begin{align*}
+    A e^{- \kappa a} = -2 i B \sin(k a)
+    \hspace{10pt} &\text{und} \hspace{10pt}
+    \kappa A e^{- \kappa a} = 2 i B k \cos(k a)
+    \\
+    \Rightarrow \kappa &= -k \cot(k a)
+\end{align*}
+Durch $\eta$ und $\xi$ ausgedrückt:
+\begin{align*}
+    \eta = - \xi \cot(\xi)
+    \hspace{10pt} , \hspace{10pt}
+    \eta^2 + \xi^2 = \frac{2 m a^2 V}{\hbar^2}
+\end{align*}
+Es gibt keine ungerade gebundene Lösung, falls
+\begin{align*}
+    \frac{2ma^2V}{\hbar^2} \leq \frac{\pi^2}{4}
+\end{align*}
+
+\subsection{Das Stufenpotential}
+
+\begin{align*}
+    V(x) = \begin{cases}
+        0 \hspace{10pt} &\text{falls } x < 0
+        \\
+        V_0\hspace{10pt} &\text{falls } x \geq 0
+    \end{cases}
+    \hspace{20pt} \text{wobei } V_0 > 0
+\end{align*}
+Wir betrachten den Fall wo das Teilchen von links kommt und an der Stufe
+gestreut wird. Ziel: Wsk bestimmen mit der das Teilchen reflektiert bzw
+transmittiert wird.
+
+Für $x < 0$ lautet die zeit-unabhängige SG wie folgt:
+\begin{align*}
+    - \frac{\hbar^2}{2m} \frac{d^2 \psi}{d x^2} = E \psi
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \frac{d^2 \psi}{d x^2} \psi = - \frac{2mE}{\hbar^2} \psi
+\end{align*}
+Die allgemeinste Lsg ist:
+\begin{align*}
+    \psi_k (x) = A e^{\frac{i k x}{\hbar}} + B e^{- \frac{i k x}{\hbar}}
+\end{align*}
+mit $A$ und $B$ Konstanten und $k=\sqrt{2mE}$. Wir benötigen $k \in \R$
+und somit auch $E>0$. Der Term $A e^{\frac{i k x}{\hbar}}$ beschreibt eine
+von links einlaufende Welle mit Impuls $k$, wohingegen der Term $B e^{\frac{-i k x}{\hbar}}$
+die reflektierte Welle beschreibt, die mit entgegengesetztem Impuls von
+rechts nach links fliegt. Die Reflektionswahrscheinlichkeit ist dann
+$R = \abs{B/A}^2$.
+
+Für die Region $x \geq 0$ lautet die zeit-unabhängige SG wie folgt:
+\begin{align*}
+    - \frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2} \psi + V_0 \psi = E \psi
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \frac{d^2 \psi}{d x^2} = - \frac{2m}{\hbar^2} \klammer{E-V_0} \psi
+\end{align*}
+Es gibt nun zwei Fälle: $E>V_0$ und $E<V_0$.
+
+\paragraph{Fall 1: $E>V_0$.} In diesem Fall ist die allgemeine Lsg:
+\begin{align*}
+    \psi_k (x) = C e^{\frac{i l x}{\hbar}} + D e^{-\frac{i l x}{\hbar}}
+\end{align*}
+wobei $C$ und $D$ Konstanten sind und $l = \sqrt{2m(E-V_0)}$.
+Da kein Teilchen von rechts aus dem Unendlichen kommt gilt $D=0$.
+Aus der Stetigkeit folgt:
+\begin{align*}
+    A + B = C
+    \hspace{10pt} &\text{und} \hspace{10pt}
+    (A-B)k = C l
+    \\
+    \Rightarrow \hspace{10pt}
+    2A = C \klammer{1+\frac{l}{k}}
+    \hspace{10pt} &\text{und} \hspace{10pt}
+    2B = C \klammer{1-\frac{l}{k}}
+    \\
+    \Rightarrow \hspace{10pt}
+    \frac{C}{A} = \frac{2}{1+\frac{l}{k}}
+    \hspace{10pt} &\text{und} \hspace{10pt}
+    \frac{B}{A} = \frac{1-\frac{l}{k}}{1+\frac{l}{k}}
+\end{align*}
+Somit folgt für die Reflexions- und Transmissionswahrscheinlichkeit
+\begin{align*}
+    R = \abs{\frac{B}{A}}^2 = \frac{\klammer{1-\frac{l}{k}}^2}{\klammer{1+\frac{l}{k}}^2}
+    \hspace{10pt} , \hspace{10pt}
+    T = \frac{l}{k} \abs{\frac{C}{A}}^2 = \frac{4 \frac{l}{k}}{\klammer{1+\frac{l}{k}}^2}
+\end{align*}
+Falls $V_0$ relativ zu $E$ klein ist, dann ist $T \gg R$ und falls $V_0$
+relativ zu $E$ grösser wird, nimmt die Reflektionswahrscheinlichkeit zu.
+
+\paragraph{Fall 2: $E<V_0$.} Für $x<0$ ist die Lsg wie zuvor, aber für
+$x>0$ haben wir
+\begin{align*}
+    \psi_k (x) = C' e^{- \frac{\kappa x}{\hbar}} + D' e^{\frac{\kappa x}{\hbar}}
+    \hspace{15pt} \text{wobei } \kappa = \sqrt{2m(V_0-E)} \in \R_{>0}
+\end{align*}
+Damit diese Lsg nicht explodiert für $x \rightarrow \infty$, muss $D' = 0$
+gelten. Aus den Stetigkeitsbedingungen folgt:
+\begin{align*}
+    A + B = C'
+    \hspace{10pt} &\text{und} \hspace{10pt}
+    i (A-B) k = - C' \kappa
+    \\
+    \Rightarrow \hspace{10pt}
+    \frac{C'}{A} = \frac{2}{1+\frac{i \kappa}{k}}
+    \hspace{10pt} &\text{und} \hspace{10pt}
+    \frac{B}{A} = \frac{1-\frac{i \kappa}{k}}{1+\frac{i \kappa}{k}}
+\end{align*}
+Insbesondere ist $C' \neq 0$ und somit die Wahrscheinlichkeit dass sich das
+Teilchen bei $x>0$ befindet nicht gleich Null! Es ist aber $T=0$ da
+der Wahrscheinlichkeitsstrom $0$ ist weil die Wellenfunktionen rein reell ist.
+
+\subsection{Normierung und Wellenpaket}
+
+Streng genommen sind die obigen Wellenfunktionen nicht normierbar, da z.B.
+$\psi_k (x) = e^{i k x}$ nicht quadrad-integrabel ist. Dieses Problem tritt auf,
+falls die Menge der Lösungen der zeit-unabhängigen SG durch kontinuierliche
+Parameter (hier $k$) parametrisiert wird. Wir machen neu den folgenden Ansatz
+für die zeit-abhängige SG:
+\begin{align*}
+    \Psi(x,t) = \frac{1}{\sqrt{2 \pi}} \int_\R dk \ f(k) e^{i x k} e^{-i \frac{E_k}{\hbar} t}
+\end{align*}
+wobei $f(k)$ die Superposition der fundamentalen Lösungen ist der zeit-unabhängigen
+SG. Wir suchen nun solche $f(k)$ sodass $\Psi(x,t)$ quadrat-integrabel ist.
+Wir erinnern uns:
+\begin{align*}
+    &\int_\R dx \ e^{i k x} = 2 \pi \delta(k)
+    \hspace{10pt} , \hspace{10pt}
+    f \mapsto \int_\R dx \ f(x) \delta(x) = f(0)
+    \\
+    &\int_\R f(x) \delta'(x) = - f'(0)
+\end{align*}
+Weiter ist die Fouriertransformation und die inverse Fouriertransformation
+gegeben als:
+\begin{align*}
+    \tilde{f}(p) = \frac{1}{\sqrt{2 \pi}} \int dx \ e^{-i p x} f(x)
+    \hspace{10pt} , \hspace{10pt}
+    f(x) = \frac{1}{\sqrt{2 \pi}} \int dp \ e^{i p x} \tilde{f}(p)
+\end{align*}
+Mit diesen tools kann man berechnen:
+\begin{align}\label{contcond}
+    \int_\R dx \ \abs{\Psi(x,t)}^2 = \int_\R dk \ \abs{f(k)}^2
+    \stackrel{!}{=} 1
+\end{align}
+(\ref{contcond}) ist das kontinuierliche Analogon zu $\sum_n \abs{a_n}^2 = 1$.
+Des weiteren:
+\begin{align*}
+    \int dx \ \psi_k^\ast \psi_{k'} = 2 \pi \delta(k-k')
+    \hspace{10pt} \Leftrightarrow \hspace{10pt}
+    \int dx \ \psi_n^\ast (x) \psi_m (x) = \delta_{n m}
+\end{align*}
+
+\subsection{Teilchen im Topf: positive Energielösung}
+
+Wir betrachten wie in Kapitel \ref{Teilchen_im_Topf} das folgende Potential:
+\begin{align*}
+    V(x) = \begin{cases}
+        \ -V \hspace{10pt} &\text{falls } -a \leq x \leq a
+        \\
+        \ 0 \hspace{10pt} &\text{sonst}
+    \end{cases}
+\end{align*}
+aber diesmal mit positiver Energie. Klassisch erwartet man, dass das Teilchen
+nicht beeinflusst wird vom Potential. Wir nehmen an, dass das Teilchen von
+links einfliegt. Somit machen wir den folgenden Ansatz:
+\begin{align*}
+    \psi(x) = \begin{cases}
+        e^{i k x} + r e^{-i k x} \hspace{10pt} &x<-a
+        \\
+        A e^{i l x} + B e^{-i l x} \hspace{10pt} &-a<x<a
+        \\
+        t e^{i k x} \hspace{10pt} &x>a
+    \end{cases}
+\end{align*}
+wobei $R = \abs{r}^2$, $T = \abs{t}^2$ and
+\begin{align*}
+    k = \frac{\sqrt{2 m E}}{\hbar} > 0
+    \hspace{10pt} , \hspace{10pt}
+    l = \frac{\sqrt{2 m (E+V)}}{\hbar} > 0
+\end{align*}
+Durch die Klebebedingungen bei $a$ und $-a$ erhalten wir:
+\begin{align*}
+    A = \frac{1}{2} e^{-i(l-k) a} t \klammer{1 + \frac{k}{l}}
+    \hspace{10pt} &, \hspace{10pt}
+    B = \frac{1}{2} e^{i(l+k)a} t \klammer{1 - \frac{k}{l}}
+    \\
+    e^{-i k a} + r e^{i k a} = A e^{-i l a} + B e^{i l a}
+    \hspace{10pt} &, \hspace{10pt}
+    e^{-i k a} - r e^{i k a} = \frac{l}{k} \klammer{A e^{-i l a} - B e^{i l a}}
+\end{align*}
+Somit erhalten wir:
+\begin{align}\label{transmission}
+    t = \frac{e^{-2 i k a}}{\cos(2 l a) - i \frac{l^2 + k^2}{2 l k} \sin(2 l a)}
+\end{align}
+Wenn wir $l$ und $k$ einsetzen erhalten wir:
+\begin{align*}
+    T = \abs{t}^2 = \frac{1}{1 + \frac{\sin^2(2 l a) V^2}{4 E (E + V)}}
+\end{align*}
+Im Allgemeinen ist $0 \leq T \leq 1$ und somit wird das Teilchen mit $E>0$
+vom Potential beeinflusst.
+
+\subsubsection{Tunneleffekt}
+
+Der Tunneleffekt tritt dann auf, falls $V$ negativ ist (s.d. $-V > 0$) und
+$0 < E < -V$. Da $E+V < 0$, ist $l$ rein imaginär und somit:
+\begin{align*}
+    T = \frac{1}{1 - \frac{\sinh^2 \klammer{1 \abs{l} a} V^2}{4 E (E+V)}}
+    \hspace{10pt} , \hspace{10pt}
+    \abs{l} = \frac{\sqrt{2m(-E-V)}}{\hbar} \ \in \R^+
+\end{align*}
+Wir sehen dass $T$ nicht null ist für $x>a$ aber exponentiell abfällt mit
+$a$ und $-(E+V)$.
+
+\subsubsection{Resonanz}
+
+Resonanz ist der Fall der perfekten Transmission, d.h. $T=1$. Dies tritt genau
+dann auf falls $\sin^2(2 l a) = 0$, also für $l=\frac{n \pi}{2 a}$ mit $n \in \N$.
+Die zugehörigen Energien sind:
+\begin{align*}
+    E_{res} = \frac{\hbar^2 \pi^2}{8 m a^2} n^2 - V = E_0 (n \pi)^2 - V
+\end{align*}
+Die resonanten Energien können selbst für $n>0$ negativ sein. Dies ist aber
+nur eine formale Lösung da $k$ imaginär ist und somit i.A. nicht die gewünschten
+Abfalleigenschaften aufweist. Es gibt genau so viele resonante Lösungen negativer
+Energie wie gebundene Zustände. Es gibt $N$ gebundene (gerade und ungerade)
+Lösungen falls:
+\begin{align*}
+    (N-1)^2 \frac{\pi^2}{4} \leq \frac{2 m a^2 V}{\hbar^2} \leq N^2 \frac{\pi^2}{4}
+\end{align*}
+Die entsprechenden Resonanzen mit negativer Energie treten daher für $n=0,1,\dots,N-1$
+auf. Gebundene Lösungen existieren genau dann, wenn $t$ einen Pol besitzt. Die
+Bedingung dafür ist:
+\begin{align*}
+    2 \cot(2 l a) = \cot(l a) - \tan(l a) = \frac{i k}{l} - \frac{l}{i k}
+\end{align*}
+Diese Gleichung hat zwei Lösungen:
+\begin{align*}
+    \tan(l a) = - \frac{i k}{l}
+    \hspace{10pt} \text{ oder } \hspace{10pt}
+    \cot(l a) = \frac{i k}{l}
+\end{align*}
+Diese sind gerade die Bedingungen für die Existenz von geraden, bzw. ungeraden
+gebundenen Lösungen. Wir haben in Kapitel \ref{Teilchen_im_Topf}
+bereits $k$ und $\kappa$ definiert. Wir wollen nun die Beziehung zwischen jenen
+Konstanten und denen hier aufstellen: $k_{\text{dort}} = l_{\text{hier}}$ und
+$\kappa_{\text{dort}} = -i k_{\text{hier}}$. $k_{\text{hier}}$ ist imaginär und somit
+ist $\kappa_{\text{dort}}$ reell.
+
+Wir betrachten nun noch wie sich die Lösung in der Nähe der Resonanz verhält.
+Es gilt:
+\begin{align*}
+    e^{-2 i k a} \frac{1}{t} = \cos(2 l a) \eckigeklammer{1 - \frac{i}{2} \klammer{\frac{k}{l} + \frac{l}{k}} \tan(2 l a)} \approx 1
+\end{align*}
+Bei Resonanz gilt: $E=E_n$, $\cos(2 l a) = 1$ und $\tan(2 l a) = 0$. Wir entwickeln
+in $E$ und erhalten:
+\begin{align*}
+    1 -& \frac{i}{2} \frac{d}{dE} \eckigeklammer{\klammer{\frac{k}{l} + \frac{l}{k}} \tan(2 a l)}_{E_n} (E-E_n)
+    \equiv 1 - \frac{2i}{\Gamma} (E-E_n)
+    \\
+    &\text{wobei} \hspace{10pt} \frac{4}{\Gamma} = \klammer{\frac{k}{l} + \frac{l}{k}} 2 a \frac{dl}{dE} \Big|_{E_n}
+\end{align*}
+Als Funktion von $E$ verhält sich also $t(E)$ in der Nähe einer Resonanz wie
+\begin{align*}
+    e^{2 i k a} t(E) \simeq \frac{i \Gamma/2}{E - E_n + i \Gamma/2}
+\end{align*}
+somit folgt:
+\begin{align*}
+    T = \abs{t(E)}^2 \simeq \frac{\Gamma^2/4}{(E-E_n)^2 + \Gamma^2/4}
+\end{align*}
+Neu schreiben wir $t(E) = \abs{t} e^{i \delta(E)}$ wobei $\delta(E)$ eine Phase ist.
+Jedes Mal wenn eine Resonanz durchlaufen wird, wächst diese Phase um $\pi$.

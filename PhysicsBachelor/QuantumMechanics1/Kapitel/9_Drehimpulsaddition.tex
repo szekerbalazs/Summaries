@@ -1,0 +1,321 @@
+\section{Drehimpulsaddition}
+
+Wir wollen verstehen, wie sich der Zustandsraum eines Quantensystems mehrerer
+Teilchen beschreiben lässt durch den Zustandsraum der einzelnen Teilsysteme.
+
+\subsection{Tensorprodukt}
+
+Der Hilbertraum eines Systems, das aus zwei Teilsystemen zusammengesetzt ist, ist
+das Tensorprodukt der Hilberträume der Teilsysteme
+\begin{align*}
+    \H = \H^{(1)} \otimes \H^{(2)}
+\end{align*}
+Ein Beispiel ist das 2-Körperproblem. Hier gilt $L^2(\R^6) = L^2(\R^3) \otimes
+L^2(\R^3)$. D.h. der Hilbertraum der 2-Teilchen-Wellenfkten $\psi(\vec{x}_1,\vec{x}_2)$
+wird aufgespannt durch
+\begin{align*}
+    \psi^{(1)} (\vec{x}_1) \psi^{(2)}(\vec{x}_2) = \klammer{\psi^{(1)} \otimes
+    \psi^{(2)}} \klammer{\vec{x}_1 , \vec{x}_2}
+\end{align*}
+D.h. jede Fkt $\psi(x_1,x_2)$ lässt sich als Summe von Produktfunktionen schreiben.
+Wenn $e_i^{(1)}$ bzw $e_i^{(2)}$ eine Basis von $\H^{(1)}$ bzw $\H^{(2)}$ ist,
+dann ist die Basis von $\H = \H^{(1)} \otimes \H^{(2)}$ gegeben durch
+\begin{align*}
+    e_i^{(1)} \otimes e_j^{(2)}
+\end{align*}
+Somit gilt auch $\dim(\H) = \dim \klammer{\H^{(1)}} \cdot \dim \klammer{\H^{(2)}}$.
+Das Skalarprodukt ist definiert als
+\begin{align*}
+    \left\langle v_1 \otimes w_1 | v_2 \otimes w_2 \right\rangle
+    = \left\langle v_1 | v_2 \right\rangle^{(1)} \cdot
+        \left\langle w_1 | w_2 \right\rangle^{(2)}
+\end{align*}
+Ein allgemeiner Vektor in $\H^{(1)} \otimes \H^{(2)}$ ist gegeben als
+\begin{align*}
+    \sum_{m,n} v_m \otimes w_n
+    \hspace{10pt} \text{für } v_m \in \H^{(1)} \ , \ w_n \in \H^{(2)}
+\end{align*}
+
+\subsection{Addition von Drehimpulsen}
+
+Betrachten den Fall wo beide separaten Hilberträume eine (projektive) Darstellung
+der Drehgruppe tragen. Wir betrachten das Beispiel des $2$-Körperproblems. Hier
+ist der Hamiltonoperator des Gesamtsystems nicht invariant unter den separaten
+Rotationen, sondern lediglich under den gemeinsamen Rotationen. D.h. der
+Hamiltonoperator vertauscht nur mit den Generatoren der gemeinsamen Rotationen.
+Betrachte denn Fall wo die Beiden Hilberträume $\H^{(1)}$ und $\H^{(2)}$ die
+Darstellungen $U^{(i)}$ der Rotationsgruppe $SO(3)$ bzw. $SU(2)$ tragen.
+$\forall g \in SU(2)$ gilt
+\begin{align*}
+    U^{(i)} (g) : \H^{(i)} \rightarrow \H^{(i)}
+    \hspace{10pt} , \hspace{10pt}
+    U^{(i)}(g) U^{(i)}(h) = U^{(i)} (gh)
+\end{align*}
+Auf dem Tensorprodukt $\H^{(1)} \otimes \H^{(2)}$ haben wir die Darstellung der
+Produktgruppe $SU(2) \times SU(2)$ gegeben durch
+\begin{align*}
+    (g,h) &\mapsto U^{(1)} (g) \otimes U^{(2)} (h)
+    \\
+    \klammer{U^{(1)} (g) \otimes U^{(2)} (h)} (\psi_1 \otimes \psi_2)
+    &= \klammer{\klammer{U^{(1)} (g) \psi_1} \otimes \klammer{U^{(2)} (h) \psi_2}}
+\end{align*}
+Wir interessieren uns für gemeinsame Rotationen, also:
+\begin{align*}
+    g \mapsto U^{(1)} (g) \otimes U^{(2)} (g)
+\end{align*}
+Betrachte nun eine Kurve $g(t)$ mit $g(0) = \text{id}$ und den Lie-Algebra Generator
+\begin{align*}
+    \Omega = \frac{d}{dt}\Big|_{t=0} g(t) 
+\end{align*}
+Dann gilt:
+\begin{align*}
+    \klammer{U^{(1)} \otimes U^{(2)}}(\Omega)
+    = U^{(1)} (\Omega) \otimes \mathds{1} + \mathds{1} \otimes U^{(2)} (\Omega)
+    = U(\Delta (g)) (v \otimes w)
+\end{align*}
+Wobei wir die Komultiplikation definiert haben als
+\begin{align*}
+    \Delta : g \mapsto g \otimes g
+    \hspace{10pt} , \hspace{10pt}
+    \Delta(\Omega) = \Omega \otimes \mathds{1} + \mathds{1} \otimes \Omega
+\end{align*}
+Es gilt:
+\begin{align*}
+    \eckigeklammer{\Delta(\Omega_1),\Delta(\Omega_2)} &= \Delta(\eckigeklammer{\Omega_1,\Omega_2})
+    \\
+    \eckigeklammer{\klammer{U^{(1)} \otimes U^{(2)}} (\Omega_1) , \klammer{U^{(1)} \otimes U^{(2)}} (\Omega_2)}
+    &= \klammer{U^{(1)} \otimes U^{(2)}} \klammer{\eckigeklammer{\Omega_1 , \Omega_2}}
+\end{align*}
+
+% \subsection{Addition zweier $j=\frac{1}{2}$ Darstellungen}
+
+% Viellleicht noch hinzufügen für Beispiele
+
+\subsection{Die Clebsch-Gordan Reihe im allgemeinen Fall}
+
+Allgemein gilt die Zerlegung (Clebsch-Gordan Reihe):
+\begin{align*}
+    D_{j_1} \otimes D_{j_2} = D_{j_1 + j_2} \oplus D_{j_1 + j_2 - 1} \oplus \dotsb \oplus D_{\abs{j_1 - j_2}}
+\end{align*}
+
+
+\subsection{Clebsch-Gordan Koeffizienten}
+
+Wie lassen sich die verschiedenen Vektoren $|j,m\rangle$ der Darstellungen $D_j$
+durch die Vektoren des Tensorproduktes ausdrücken. Dazu bezeichnen die Vektoren
+des Tensorproduktes durch
+\begin{align*}
+    |j_1,j_2,m_1,m_2\rangle \equiv |j_1,m_1\rangle \otimes |j_2,m_2\rangle
+    \in D_{j_1} \otimes D_{j_2}
+\end{align*}
+und jene der Darstellung $D_j$ die in der Clebsch-Gordan Reihe vorkommen durch
+\begin{align*}
+    |j_1,j_1,j,m\rangle = \sum_{\stackrel{m_1,m_2}{m_1 + m_2 = m}}
+    \underbrace{\left\langle j_1,j_2,m_1,m_2 | j_1,j_2,j,m \right\rangle}_{\text{C-G Koeff.}}
+    |j_1,j_2,m_1,m_2\rangle
+\end{align*}
+Für die Clebsch-Gordan Koeffizienten gelten die Dreiecksrekursionen
+\begin{align*}
+    &\sqrt{j(j+1) - m(m+1)} \left\langle j_1 j_2 m_1 m_2 | j_1 j_2 j(m+1) \right\rangle
+    \\
+    &\hspace{5pt} = \sqrt{j_1(j_1 + 1) - m_1(m_1 -1)} \left\langle j_1 j_2 (m_1 -1) m_2 | j_1 j_2 j m \right\rangle
+    \\
+    &\hspace{10pt} + \sqrt{j_2(j_2 + 1) - m_2(m_2 - 1)} \left\langle j_1 j_2 m_1 (m_2 - 1) | j_1 j_2 j m \right\rangle
+\end{align*}
+\begin{align*}
+    &\sqrt{j(j+1) - m(m-1)} \left\langle j_1 j_2 m_1 m_2 | j_1 j_2 j(m-1) \right\rangle
+    \\
+    &\hspace{5pt} = \sqrt{j_1(j_1 + 1) - m_1(m_1 + 1)} \left\langle j_1 j_2 (m_1 + 1) m_2 | j_1 j_2 j m \right\rangle
+    \\
+    &\hspace{10pt} + \sqrt{j_2(j_2 + 1) - m_2(m_2 + 1)} \left\langle j_1 j_2 m_1 (m_2 + 1) | j_1 j_2 j m \right\rangle
+\end{align*}
+Unser Ziel ist es bei festem aber beliebigem $j$ mit $\abs{j_1 - j_2} \leq j
+\leq j_1 + j_2$ die Koeffizienten für alle $m_1$, $m_2$ zu finden.
+Wir finden die Rekursion:
+\begin{align*}
+    &\sqrt{j(j+1) - m(m-1)} \langle j_1 , j_2 , j_1 , m_2 | j_1 , j_2 , j , m-1 \rangle
+    \\
+    &= \sqrt{j_2(j_2 - 1) - m_2 (m_2 + 1)} \langle j_1 , j_2 , j_1 , m_2 + 1 | j_1 , j_2 , j , m \rangle
+\end{align*}
+
+\subsection{Physikalische Beispiele}
+
+\subsubsection{Magnetisches Moment}
+
+Ein Teilchen der Ladung $q$ ($=-e$ für Elektron) und Masse $m$, welches sich auf
+einem Orbit mit Drehimpuls $\vec{L}$ bewegt, produziert ein magnetisches Moment
+$\vec{M}$. Wir leiten dies nun her.
+
+\begin{align*}
+    \vec{E} = - \frac{1}{c} \frac{\partial \vec{A}}{\partial t} - \vec{\nabla} \Phi
+    \hspace{10pt} , \hspace{10pt}
+    \vec{B} = \vec{\nabla} \wedge \vec{A}
+    \hspace{10pt} , \hspace{10pt}
+    H = \frac{1}{2m} \klammer{\vec{p} - \frac{q}{c} \vec{A}}^2 + q \Phi
+\end{align*}
+Wobei $\vec{p} = m \dot{\vec{x}} + \frac{q}{c} \vec{A}$ der zu $\vec{x}$
+konjugierte Impuls ist. Gemäss des Korrespondenzprinzips wird $\vec{p}$ zu
+$-i \hbar \vec{\nabla}$. Somit folgt für den Hamiltonoperator:
+\begin{align*}
+    H &= - \frac{\hbar^2}{2m} \Delta + i \frac{\hbar q}{2 m c}
+    \klammer{\vec{\nabla} \cdot \vec{A} + \vec{A} \cdot \vec{\nabla}}
+    + \klammer{\frac{q^2}{2mc^2} \vec{A}^2 + q \Phi}
+    \\
+    &\stackrel{(\ast)}{=} - \frac{\hbar^2}{2m} \Delta + i \frac{\hbar q}{m c}
+    \vec{A} \cdot \vec{\nabla} + \klammer{\frac{q^2}{2mc^2} \vec{A}^2 + q \Phi}
+\end{align*}
+Wobei wir in $(\ast)$ die Coulomb-Eichung $\vec{\nabla} \cdot \vec{A} = 0$ gewählt
+haben. Das Vektorpotential eines konstanten Magnetfeldes $\vec{B}$ ist gegeben
+durch
+\begin{align*}
+    \vec{A} = - \frac{1}{2} \vec{x} \wedge \vec{B}
+\end{align*}
+Wir finden:
+\begin{align*}
+    i \frac{\hbar q}{m c} \vec{A} \cdot \vec{\nabla}
+    = i \frac{\hbar q}{2 m c} \klammer{\vec{x} \wedge \vec{\nabla}} \cdot \vec{B}
+    = - \frac{q}{2mc} \vec{L} \cdot \vec{B}
+\end{align*}
+wobei wir $\vec{L} = -i \hbar \klammer{\vec{x} \wedge \vec{\nabla}}$ verwendet haben.
+Das magnetische Moment des Teilchens ist also
+\begin{align*}
+    \vec{M} = \frac{q}{2mc} \vec{L}
+\end{align*}
+Den Zusatzterm zum Hamiltonian
+\begin{align*}
+    H_Z = - \vec{M} \cdot \vec{B}
+\end{align*}
+nennt man den Zeeman Term. Wir definieren weiter
+\begin{align*}
+    \Delta H = \klammer{\frac{q^2}{2mc^2} \vec{A}^2 + q \Phi}
+\end{align*}
+Der Zeeman Term führt dazu, dass die für rotationssymmetrische Probleme
+typische Entartung der Energieniveaus aufgehoben wird. Betrachte das Beispiel
+des Wasserstoffatoms. Die Energiezustände ohne einen Einfluss eines Magnetfeldes
+sind durch die Quantenzahlen $(n,l,m)$ wie folgt parametrisiert:
+\begin{align*}
+    E_n = - \frac{me^4}{2\hbar^2} \cdot \frac{1}{n^2}
+\end{align*}
+Wenn wir ein homogenes Magnetfeld einschalten erhalten wir
+\begin{align*}
+    E_{n,m} = E_n + \Delta E_Z
+    \hspace{10pt} , \hspace{10pt}
+    \Delta E_Z = \mu_B B_z m
+    \hspace{10pt} , \hspace{10pt}
+    \mu_B = \frac{e \hbar}{2 m_e c}
+\end{align*}
+wobei $\Delta E_Z$ ein Korrekturterm ist und $\mu_B$ das Bohr'sche Magneton
+ist.
+
+\subsection{Der anormale Zeeman Effekt}
+
+Der Spin eines Teilchens erzeugt auch ein magnetisches Moment, sogar für
+ungeladene Teilchen. Für ein Elektron:
+\begin{align*}
+    \vec{M}_{\text{el}} = -g \frac{e}{2 m c} \vec{S}
+    \hspace{10pt} , \hspace{10pt}
+    g = 2 + \frac{\alpha}{\pi} + \mathcal{O} (\alpha^2)
+    \hspace{10pt} , \hspace{10pt}
+    \alpha = \frac{e^2}{\hbar c} = \frac{1}{137.04}
+\end{align*}
+Wobei $g$ der Landé Faktor und $\alpha$ die Feinstrukturkonstante sind.
+In diesem Fall sind $\vec{M}$ und $\vec{S}$ antiparallel, da $q=-e<0$.
+Für ein Proton und ein Neutron gilt
+\begin{align*}
+    \vec{M}_{\text{prot}} &= g_p \frac{e}{2 M_p c} \vec{S}
+    \hspace{10pt} , \hspace{10pt}
+    g_p \approx 5.59
+    \\
+    \vec{M}_{\text{neut}} &= - g_n \frac{e}{2 M_n c} \vec{S}
+    \hspace{10pt} , \hspace{10pt}
+    g_n \approx 3.83
+\end{align*}
+Bewegt sich das Teilchen in einem externen Magnetfeld $\vec{B} = B e_z$, so
+erhält man den gesamten Zeemann Term.
+\begin{align*}
+    H_Z = \frac{e B_z}{2 m c} \klammer{L_z + g S_z}
+\end{align*}
+Der 'anormale Zeemann Effekt' beschreibt den Effekt, der vom Spin erzeugt wird.
+Die Quantenzahlen des Elektrons sind durch $(n,l,m,m_s)$ gegeben, wobei
+$m_s = \pm \frac{1}{2}$ die Spinquantenzahl ist. Mit $g = 2$ erhält man:
+\begin{align*}
+    \Delta E_Z = \mu_B B_z (m + 2 m_s)
+\end{align*}
+
+\subsubsection{Spin-Bahn-Kopplung}
+
+Das sich im $\vec{E}$-Feld des Kernes bewegende Elektron spürt ein Magnetfeld
+$\vec{B} = - \vec{v} \wedge \vec{E} /c$, woran das Spin-Moment koppelt. Die
+resultierende Energie ist
+\begin{align}\label{eq:SpinBahnKopplung}
+    - \frac{e}{m c^2} \vec{S} \cdot \klammer{\vec{v} \wedge \vec{E}}
+\end{align}
+Die Thomas-Präzession führt eine weitere Korrektur ein. Diese ist gerade
+das $-1/2$-fache von \cref{eq:SpinBahnKopplung}. Wir erhalten folgenden
+Ausdruck für die Spin-Bahn Kopplung:
+\begin{align*}
+    H_{\text{SO}} &=
+    \frac{-e}{2mc^2} \vec{S} \cdot \klammer{\vec{v} \wedge \vec{E}}
+    \stackrel{(\ast)}{=}
+    \frac{1}{2mc^2} \vec{S} \cdot \klammer{\vec{r} \wedge \vec{v}} \frac{1}{r} \partial_r V
+    \\
+    &= \frac{1}{2 m^2 c^2} \frac{1}{r} \frac{dV}{dr} \vec{L} \cdot \vec{S}
+\end{align*}
+Wobei wir in $(\ast)$ verwendet haben, dass $e \vec{E} = \vec{\nabla} V
+= \hat{r} \partial_r V(r)$. Der Term $\vec{L} \cdot \vec{S}$ ist under der
+gemeinsamen Rotation von $\vec{L}$ und $\vec{S}$ invariant. Es gilt:
+\begin{align*}
+    \vec{L}^2 = \hbar^2 l(l+1)
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{S}^2 = \hbar^2 \frac{1}{2} \klammer{\frac{1}{2} + 1} = \hbar^2 \frac{3}{4}
+    \\
+    \klammer{\vec{L} + \vec{S}}^2 = \hbar^2 J (J+1)
+    \hspace{10pt} &, \hspace{10pt} J = l \pm \frac{1}{2}
+\end{align*}
+Hierbei ist $J$ der Spin der Darstellung, in die sich das Tensorprodukt $D_l \otimes
+D_{\frac{1}{2}}$ zerlegt. $\vec{L}$ und $\vec{S}$ stimmen bis auf einen Faktor von
+$\hbar$ gerade mit den infinitesimalen Rotationsgeneratoren überein. $\vec{L} +
+\vec{S}$ ist derade die Wirkung dieser Generatoren auf dem Tensorprodukt. Es gilt:
+\begin{align*}
+    \vec{L} \cdot \vec{S} = \frac{1}{2} \klammer{\klammer{\vec{L} + \vec{S}}^2 - \vec{L}^2 - \vec{S}^2}
+    = \begin{cases}
+        \frac{\hbar^2}{2} l \hspace{5pt} &J=l+\frac{1}{2}
+        \\
+        - \frac{\hbar^2}{2} (l+1) \hspace{5pt} &J=l-\frac{1}{2}
+    \end{cases}
+\end{align*}
+Weiter gilt:
+\begin{align*}
+    \frac{1}{r} \partial_r V = \frac{e^2}{r^3}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \Delta E_{SB} = \frac{e^2}{2 m^2 c^2} \frac{\hbar^2}{2}
+        \left\langle \frac{1}{r^3} \right\rangle_{nl}
+    \begin{cases}
+        l \hspace{5pt} &J=l+\frac{1}{2}
+        \\
+        -(l+1) \hspace{5pt} &J=l-\frac{1}{2}
+    \end{cases}
+\end{align*}
+Da folgendes gilt:
+\begin{align*}
+    \left\langle \frac{1}{r^3} \right\rangle_{nl}
+    = \frac{1}{a_0^3} \frac{1}{n^3} \frac{1}{l \klammer{l+\frac{1}{2}} \klammer{l+1}}
+    \hspace{10pt} &, \hspace{10pt}
+    a_0 = \frac{\hbar^2}{m e^2}
+    \\
+    \frac{e^2 \hbar^2}{m^2 c^2} = \frac{e^4}{\hbar^2 c^2} \frac{\hbar^4}{e^2 m^2}
+    = \alpha^2 e^2 a_0^2
+    \hspace{10pt} &, \hspace{10pt}
+    \frac{e^4 m}{2 \hbar^2} = \frac{e^2}{2 a_0} = E_R = 13.6 \ \mathrm{eV}
+\end{align*}
+folgt:
+\begin{align*}
+    \Delta E_{SB} = \frac{\alpha^2 E_R}{2 n^3} \frac{1}{l \klammer{l+\frac{1}{2}} \klammer{l+1}}
+    \begin{cases}
+        l \hspace{5pt} &J = l+\frac{1}{2}
+        \\
+        -(l+1) \hspace{5pt} & J=l-\frac{1}{2}
+    \end{cases}
+\end{align*}
+Für kleine externe Magnetfelder ist der Spin-Bahn-Kopplungseffekt relativ
+zum Zeemann-Effekt dominant.

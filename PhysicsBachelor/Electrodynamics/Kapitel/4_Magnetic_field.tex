@@ -1,0 +1,161 @@
+\section{Magnetic Field}
+
+\subsection{Currents}
+
+Define current density $\vec{j}$ as the charge transversing a surface $d \vec{S}$
+per unit time and surface:
+\begin{align*}
+    q N_{\text{escaping}} = \vec{J} \cdot d \vec{S} dt
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \vec{J} = \rho \vec{v}
+\end{align*}
+\fat{Continuity equation}:
+\begin{align*}
+    \frac{\partial \rho}{\partial t} + \vec{\nabla} \cdot \vec{J} = 0
+\end{align*}
+
+\subsection{Magnetic field of steady currents}
+
+Assume charge density to be constant: $\frac{\partial \rho}{\partial t} = 0$.
+Therefore: $\vec{\nabla} \cdot \vec{J} = 0$. Further, the electric and
+magnetic field are constant in time:
+\begin{align*}
+    \vec{\nabla} \cdot \vec{B} = 0
+    \hspace{10pt} &, \hspace{10pt}
+    c^2 \vec{\nabla} \times \vec{B} = \frac{\vec{J}}{\epsilonnull}
+    \\
+    \Rightarrow
+    \int_{S(V)} \vec{B} \cdot d \vec{S} = 0
+    \hspace{10pt} &, \hspace{10pt}
+    c^2 \oint_{\Gamma} \vec{B} \cdot d \vec{l} = \frac{\int_{S(\Gamma)} \vec{J} \cdot d \vec{S}}{\epsilonnull}
+\end{align*}
+We define $I_{\text{through } \Gamma} \equiv \int_{S(\Gamma)} \vec{J} \cdot d \vec{S}$
+the total charge passing through the closed loop $\Gamma$ per unit time.
+We arrive at \fat{Ampere's Law}:
+\begin{align*}
+    \oint_{\Gamma} \vec{B} \cdot d \vec{l} = \frac{I_{\text{through } \Gamma}}{\epsilonnull c^2}
+\end{align*}
+
+\subsection{Vector potential}
+
+$\vec{\nabla} \cdot \vec{B} = 0$ follows automatically if
+$\vec{B} = \vec{\nabla} \times \vec{A}$. From $\vec{\nabla} \times \vec{B}
+= \frac{\vec{J}}{\epsilonnull c^2}$ we derive:
+\begin{align*}
+    \vec{\nabla}^2 \vec{A} - \vec{\nabla} \klammer{\vec{\nabla} \cdot \vec{A}}
+    = - \frac{\vec{J}}{c^2 \epsilonnull}
+\end{align*}
+
+\subsubsection{Gauge Invariance}
+
+If $\vec{\nabla} \cdot \klammer{\vec{\nabla} \cdot \vec{A}} = 0$ we would
+have a poisson equation. We can choose to eliminate this term by gauge
+invariance. Consider $\vec{A}$ and $\vec{A'}$ and a scalar functioin $f$.
+\begin{align*}
+    \vec{A'} = \vec{A} + \vec{\nabla} f
+\end{align*}
+Easy to see: $\vec{\nabla} \times \vec{A'} = \vec{\nabla} \times \vec{A} = \vec{B}$.
+Assume $\vec{\nabla} \cdot \vec{A'} \neq 0$, then:
+\begin{align*}
+    \vec{\nabla}^2 f = - \vec{\nabla} \cdot \vec{A'}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    f(\vec{r}) = \frac{1}{4 \pi} \int d^3 \vec{x} \frac{\klammer{\vec{\nabla} \cdot \vec{A'}}(\vec{x})}{\abs{\vec{r} - \vec{x}}}
+\end{align*}
+Then: $\vec{\nabla} \cdot \vec{A} = \vec{\nabla} \cdot \klammer{\vec{A'} + \vec{\nabla} f}
+= 0$. This is called \fat{Coulomb gauge}. In that gauge:
+\begin{align*}
+    \vec{\nabla}^2 \vec{A} = - \frac{\vec{J}}{c^2 \epsilonnull}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \vec{A}(\vec{x}) = \frac{1}{4 \pi \epsilonnull c^2} \int d^3 \vec{y} \frac{\vec{J}(\vec{y})}{\abs{\vec{x} - \vec{y}}}
+\end{align*}
+
+\subsection{Magnetic Dipole}
+
+Consider a steady current $\vec{J}$. We want to compute the vector potential
+and the magnetic field in a position $\vec{r}$ which is far from the
+current. First we approximate:
+\begin{align*}
+    \frac{1}{\abs{\vec{r} - \vec{x}}} = \frac{1}{r} + \frac{\vec{x} \cdot \vec{r}}{r^3} + \mathcal{O} \klammer{\frac{x^2}{r^3}}
+\end{align*}
+First term gives a zero contribution to the vector potential because
+$\int d^3 \vec{x} \vec{J} = 0$. Contribution of second term:
+\begin{align*}
+    \vec{A} &\approx \frac{1}{8 \pi \epsilonnull c^2 r^3} \int d^3 \vec{x}
+        \eckigeklammer{\vec{J} \klammer{\vec{x} \cdot \vec{r}} - \klammer{\vec{J} \cdot \vec{r}} \vec{x}}
+    \\
+    \vec{A} &= \frac{1}{4 \pi \epsilonnull c^2} \frac{\vec{m} \times \vec{r}}{r^3}
+\end{align*}
+with $\vec{m} = \vec{\mu}$ the magnetic moment
+\begin{align*}
+    \vec{\mu} = \frac{1}{2} \int d^3 \vec{x} \klammer{\vec{x} \times \vec{J}}
+\end{align*}
+Special case: steady current circulating anti-clockwise in a wire which lays
+on a plane:
+\begin{align*}
+    \vec{\mu} = \oint \frac{I}{2} \vec{x} \times d \vec{l}
+\end{align*}
+Notice: $d \vec{S} = \frac{1}{2} \vec{x} \times d \vec{l} \ \Rightarrow \
+\vec{m} = I \vec{S}$ with $\vec{S} = \int d \vec{S}$ the total area of the loop.
+
+\vspace{1\baselineskip}
+
+Special case: current created by a single charge $q$ and mass $M$ moving
+along a closed loop. We have:
+\begin{align*}
+    \vec{J} = \rho \vec{v} = q \delta \klammer{\vec{x} - \vec{r}(t)} \vec{v}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{m} = \frac{1}{2} \int d^2 \vec{x} \ \vec{x} \times \vec{J}
+        = \frac{q}{2} \vec{r} \times \vec{v}
+        = \frac{2}{2 M} \vec{L}
+\end{align*}
+with $\vec{L} = \vec{r} \times \klammer{M \vec{v}}$ the angular momentum
+of the charge. Magnetic field of a magnetic dipole:
+\begin{align*}
+    \vec{B}
+    &= \vec{\nabla} \times \vec{A}
+    = \vec{\nabla} \times \frac{\vec{m} \times \vec{r}}{r^3}
+    = - \vec{\nabla} \times \eckigeklammer{\vec{m} \times \vec{\nabla} \frac{1}{r}}
+    = \klammer{\vec{m} \cdot \vec{\nabla}} \vec{\nabla} \frac{1}{r}
+    \\
+    &= - \frac{\vec{m} - 3 \hat{r} \klammer{\hat{r} \cdot \vec{m}}}{r^3}
+\end{align*}
+
+\subsection{Relativity of the electric and magnetic field}
+
+Consider a wire on the $x$-axis producing a magnetic field
+$B = \frac{1}{2 \pi \epsilonnull c^2} \frac{I}{r}$ at a distance $r$.
+Assume induced electrons have inside have a velocity $\vec{v}$.
+Imagine another electron outside the wire to move parallel to the wire
+at a distance $r$ from it with the same velocity $\vec{v}$. Force
+acting on electron outside:
+\begin{align*}
+    F = q v B = \frac{1}{2 \pi \epsilonnull} \frac{q v I}{c^2 r}
+    = \frac{q S}{2 \pi \epsilonnull} \frac{\rho_-}{r} \frac{v^2}{c^2}
+\end{align*}
+where $I = S \rho_- v$ with $S$ the cross-section area of the wire
+and $\rho_-$ the electron charge density inside.
+
+\vspace{1\baselineskip}
+
+Now choose reference frame that moves with a relative velocity
+$\vec{v}$ along the wire. Here, electron outside is static ($v' = 0$).
+Here, magnetic component of the force must vanish. In original frame:
+$\rho = \rho_+ + \rho_- = 0$ and in the moving frame $\rho' = \rho_+'
++ \rho_-' \neq 0$.
+\begin{align*}
+    \rho_{\text{moving}} = \frac{\rho_{\text{rest}}}{\sqrt{1 - \frac{v^2}{c^2}}}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \rho_+' = \frac{\rho_+}{\sqrt{1 - \frac{v^2}{c^2}}}
+    \hspace{5pt} , \hspace{5pt}
+    \rho_-' = \rho_- \sqrt{1 - \frac{v^2}{c^2}}
+\end{align*}
+Given that $\rho_+ = - \rho_-$ we have:
+\begin{align*}
+    \rho' = - \rho_- \frac{\frac{v^2}{c^2}}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{align*}
+The new electric field and force are:
+\begin{align*}
+    E' = \frac{1}{2 \pi \epsilonnull} S \frac{\rho'}{r}
+    \hspace{10pt} , \hspace{10pt}
+    F' = \frac{F}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{align*}

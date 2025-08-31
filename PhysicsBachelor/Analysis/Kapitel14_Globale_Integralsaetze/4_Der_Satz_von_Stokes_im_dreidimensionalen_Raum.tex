@@ -1,0 +1,52 @@
+\subsection{Der Satz von Stokes im dreidimensionalen Raum}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Flächen mit Rand $S \subseteq \R^3$ sind abgeschlossene Teilmengen einer
+    $2$-dimensionalen Teilmannigfaltigkeit $M \subseteq \R^3$, so, dass der Rand von
+    $S$ relativ in $M$ eine eindimensionale Teilmannigfaltigkeit ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Eine wichtige Familie glatt berandeter Flächen sind Graphen glatter Funktionen.
+    Ist $U \subseteq \R^2$ offen und $f:U \rightarrow \R$ eine glatte Funktion, so
+    ist für jeden glatt berandeten Bereich $B \subseteq U$ der Graph
+    \begin{align*}
+        S = \geschwungeneklammer{(x,y,z) \in \R^3 \ | \ (x,y) \in B \ \text{ und } z = f(x,y)}
+    \end{align*}
+    eine glatt berandete Fläche. Die Projektion von $S$ auf $B$ ist eine Karte für
+    ganz $S$. Lokal kann jede glatt berandete Fläche als Graph beschrieben werden.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $F:U \rightarrow \R^3$ ein stetig differenzierbares Vektorfeld auf einer
+    offenen Menge $U \subseteq \R^3$. Die \fat{Wirbelstärke} oder \fat{Rotation}
+    von $F$ ist das Vektorfeld auf $U$ definiert durch
+    \begin{align*}
+        \rot (F(x)) = \begin{pmatrix}
+            \partial_2 F_3 - \partial_3 F_2 \\
+            \partial_3 F_1 - \partial_1 F_3 \\
+            \partial_1 F_2 - \partial_2 F_1
+        \end{pmatrix}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Satz von Stokes)
+
+    Sei $F$ ein stetig differenzierbares Vektorfeld auf einer offenen Teilmengen
+    $U \subseteq \R^3$. Sei $S \subseteq U$ eine glatt berandete, kompakte und
+    orientierbare Fläche. Dann gilt
+    \begin{align*}
+        \int_S \rot (F) \ dn \ = \ \int_{\partial S} F \ dt
+    \end{align*}
+}

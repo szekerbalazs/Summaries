@@ -1,0 +1,349 @@
+\documentclass[a4paper,leqno]{article}
+\input{header}
+\title{Analysis \uproman{1} und \uproman{2}}
+\author{Zusammenfassung \\ \\ Balázs Szekér \\ \href{mailto:szekerb@student.ethz.ch}{szekerb@student.ethz.ch} \\ \\
+Zusammenfassung zur Vorlesung vom Herbstsemester 2019 \\ und 
+Frühlingssemester 2020 gegeben von Peter Simon Jossen
+\\
+\\
+Eidgenössische Technische Hochschule Zürich}
+
+\renewcommand*\contentsname{Inhaltsverzeichnis}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\div}{\text{div}}
+\clubpenalty = 10000
+\widowpenalty = 10000
+
+\renewcommand{\abstractname}{Vorwort}
+\fancypagestyle{myplain}
+{
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \renewcommand\footrulewidth{0pt}
+  \fancyfoot[C]{\thepage}
+}
+
+\begin{document}  
+\begin{titlepage}
+    \maketitle
+    \thispagestyle{empty}
+\end{titlepage}  
+\newpage
+\pagenumbering{Roman}
+\thispagestyle{myplain}
+
+
+\begin{abstract}
+    Dies ist eine Sammlung von Definitionen, Sätzen, etc. aus dem Skript
+    \textit{Analysis \uproman{1} und \uproman{2}} von Manfred Einsiedler,
+    Peter Jossen und Andreas Wieser. Sie dient als Zusammenfassung
+    und Begleitung der Vorlesung \textit{Analysis \uproman{1} und \uproman{2}}, gehalten von
+    Peter Simon Jossen im Herbstsemester 2019 und Frühlingssemester 2020 an der
+    Eidgenössischen Technischen Hochschule Zürich. Diese Publikation ist weder als Ersatz zum Vorlesungsbetrieb
+    zu erachten noch als eine ausreichende Vorbereitung für die Prüfung.
+    Alle Beweise wurden weggelassen und sind im Skript \textit{Analysis \uproman{1} und \uproman{2}}
+    nachzulesen, welches Sie auf der Vorlesunghomepage
+    \footnote{\url{https://metaphor.ethz.ch/x/2020/fs/401-1262-07L/}}
+    finden.
+
+
+    \vspace{1\baselineskip}
+
+    Falls Sie Fehler finden, sei es sprachlich oder thematisch, oder
+    falls Sie Verbesserungsvorschläge haben,
+    wenden Sie sich an \href{mailto:szekerb@student.ethz.ch}{szekerb@student.ethz.ch}
+
+    \vspace{1\baselineskip}
+
+    Besten Dank
+
+    \vspace{1\baselineskip}
+
+    Balázs Szekér
+\end{abstract}
+
+
+
+\newpage
+\thispagestyle{myplain}
+\tableofcontents
+\thispagestyle{myplain}
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Mengenlehre}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel2_Mengenlehre/1_Naive_Mengenlehre.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel2_Mengenlehre/2_Funktionen_Abbildungen.tex}
+
+\pagebreak
+
+\input{Kapitel2_Mengenlehre/3_Algebraische_Strukturen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel2_Mengenlehre/4_Kardinalitaet.tex}
+
+\pagebreak
+
+\section{Die reellen Zahlen}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel3_Die_reellen_Zahlen/1_Die_Axiome_der_reellen_Zahlen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel3_Die_reellen_Zahlen/2_Intervalle.tex}
+
+\pagebreak
+
+\input{Kapitel3_Die_reellen_Zahlen/3_Komplexe_Zahlen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel3_Die_reellen_Zahlen/4_Maximum_Supremum.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel3_Die_reellen_Zahlen/5_Konsequenzen_der_Vollständigkeit.tex}
+
+\pagebreak
+
+\input{Kapitel3_Die_reellen_Zahlen/6_Modelle_und_Eindeutigkeit_der_Menge_der_reellen_Zahlen.tex}
+
+\pagebreak
+
+\section{Reellwertige Funktionen in einer Variablen}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel4_Reellwertige_Funktionen_in_einer_Variablen/1_Polynome_und_Polynomfunktionen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel4_Reellwertige_Funktionen_in_einer_Variablen/2_Reellwertige_Funktionen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel4_Reellwertige_Funktionen_in_einer_Variablen/3_Stetige_Funktionen_auf_kompakten_Intervallen.tex}
+
+\pagebreak
+
+\section{Das Riemann Integral}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel5_Das_Riemann_Integral/1_Treppenfunktionen_und_deren_Integral.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel5_Das_Riemann_Integral/2_Definition_und_erste_Eigenschaften_des_Riemann-Integrals.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel5_Das_Riemann_Integral/3_Integrierbarkeitssaetze.tex}
+
+\pagebreak
+
+\section{Folgen und Grenzwerte}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel6_Folgen_und_Grenzwerte/1_Der_metrische_Raum.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel6_Folgen_und_Grenzwerte/2_Konvergent_von_Folgen_in_einem_metrischen_Raum.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel6_Folgen_und_Grenzwerte/3_Folgen_reeller_und_komplexer_Zahlen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel6_Folgen_und_Grenzwerte/4_Die_Exponentialfunktion.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel6_Folgen_und_Grenzwerte/5_Grenzwerte_von_Funktionen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel6_Folgen_und_Grenzwerte/6_Normen_und_Konvergenz_auf_Vektorraeumen.tex}
+
+\pagebreak
+
+\section{Reihen, Funktionenfolgen und Potenzreihen}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel7_Reihen_Funktionenfolgen_und_Potenzreihen/1_Reihen_komplexer_Zahlen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel7_Reihen_Funktionenfolgen_und_Potenzreihen/2_Absolute_Konvergenz.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel7_Reihen_Funktionenfolgen_und_Potenzreihen/3_Konvergenz_von_Funktionenfolgen.tex}
+
+\pagebreak
+
+\input{Kapitel7_Reihen_Funktionenfolgen_und_Potenzreihen/4_Potenzreihen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel7_Reihen_Funktionenfolgen_und_Potenzreihen/5_Trigonometrische_Funktionen.tex}
+
+\pagebreak
+
+\section{Differentialrechnung}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel8_Differentialrechnung/1_Die_Ableitung.tex}
+
+\pagebreak
+
+\input{Kapitel8_Differentialrechnung/2_Zentrale_Saetze_der_Differentialrechnung.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel8_Differentialrechnung/3_Ableitung_trigonometrischer_Funktionen.tex}
+
+\pagebreak
+
+\section{Die Ableitung und das Riemann Integral}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel9_Die_Ableitung_und_das_Riemann_Integral/1_Der_Fundamentalsatz.tex}
+
+\pagebreak
+
+\input{Kapitel9_Die_Ableitung_und_das_Riemann_Integral/2_Integrationsmethoden.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel9_Die_Ableitung_und_das_Riemann_Integral/3_Taylorreihen.tex}
+
+\pagebreak
+
+\section{Topologische Grundbegriffe}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel10_Topologische_Grundbegriffe/1_Topologische_Raeume.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel10_Topologische_Grundbegriffe/2_Topologie_auf_metrischen_Raeumen.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel10_Topologische_Grundbegriffe/3_Kompaktheit.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel10_Topologische_Grundbegriffe/4_Topologische_Vektorraeume.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel10_Topologische_Grundbegriffe/5_Zusammenhang.tex}
+
+\pagebreak
+
+\section{Mehrdimensionale Differentialrechnung}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel11_Mehrdimensionale_Differentialrechnung/1_Die_Ableitung.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel11_Mehrdimensionale_Differentialrechnung/2_Hoehere_Ableitungen_und_Taylor_Approximation.tex}
+
+\pagebreak
+
+\input{Kapitel11_Mehrdimensionale_Differentialrechnung/3_Parameterintegrale.tex}
+
+\pagebreak
+
+\input{Kapitel11_Mehrdimensionale_Differentialrechnung/4_Wegintegrale.tex}
+
+\pagebreak
+
+\section{Anfänge der Differentialgeometrie}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel12_Anfaenge_der_Differentialgeometrie/1_Saetzte_zur_impliziten_Funktion_und_zur_inversen_Abbildung.tex}
+
+\pagebreak
+
+\input{Kapitel12_Anfaenge_der_Differentialgeometrie/2_Teilmannigfaltigkeiten_des_Euklidischen_Raumes.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel12_Anfaenge_der_Differentialgeometrie/3_Extremwertprobleme.tex}
+
+\pagebreak
+
+\section{Mehrdimensionale Integralrechnung}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel13_Mehrdimensionale_Integralrechnung/1_Das_Riemann_Integral_fuer_Quader.tex}
+
+\pagebreak
+
+\input{Kapitel13_Mehrdimensionale_Integralrechnung/2_Das_Riemann_Integral_ueber_Jordan_messbare_Mengen.tex}
+
+\pagebreak
+
+\input{Kapitel13_Mehrdimensionale_Integralrechnung/3_Mehrdimensionale_Substitutionsrege.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel13_Mehrdimensionale_Integralrechnung/4_Uneigentliche_Mehrfachintegrale.tex}
+
+\pagebreak
+
+\section{Globale Integralsätze}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel14_Globale_Integralsaetze/1_Der_Divergenzsatz_und_der_Satz_von_Green_in_der_Ebene.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel14_Globale_Integralsaetze/2_Oberflaechenintegrale.tex}
+
+\pagebreak
+
+\input{Kapitel14_Globale_Integralsaetze/3_Der_Divergenzsatz_im_dreidimensionalen_Rau,.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel14_Globale_Integralsaetze/4_Der_Satz_von_Stokes_im_dreidimensionalen_Raum.tex}
+
+\pagebreak
+
+\section{Gewöhnliche Differentialgleichungen}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel15_Gewoehnliche_Differentialgleichungen/1_Differentialgleichungsysteme.tex}
+
+\vspace{2\baselineskip}
+
+\input{Kapitel15_Gewoehnliche_Differentialgleichungen/2_Der_Satz_von_Picard_Lindeloef.tex}
+
+\end{document}

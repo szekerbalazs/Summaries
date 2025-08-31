@@ -1,0 +1,139 @@
+\subsection{Konsequenz der Vollständigkeit}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Archimedisches Prinzip)
+
+    Für jedes \xinR existeret genau ein $n \in \Z$ mit $n \leq x < n+1$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für jedes $\epsilon > 0$ existert eine ganze Zahl $n \geq 1$ so,
+    dass $\frac{1}{n} < \varepsilon$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei \xinR mit $x >0$. Dann existert eine $n \in \Z , n > 0$ mit
+    $0 < \frac{1}{n} < x$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Der \fat{ganzzahlige Anteil} $\lfloor x \rfloor$ einer Zahl 
+    \xinR ist die eindeutig bestimmte ganze Zahl $n \in \Z$ mit 
+    $n_1 \leq x < n_1 + 1$. Die durch $x \rightmapsto \floor{x}$
+    gegebene Funktion von $\R$ nach $\Z$ heisst \fat{Abrundungsfunktion}.
+    Der \fat{gebrochene Anteil} einer reellen Zahl $x$ ist 
+    $\geschwungeneklammer{x} = x - \floor{x} \in [0,1)$.
+}
+
+\pagebreak
+
+\Definition{
+
+    Eine Teilmenge $X$ von $\R$ heisst \fat{dicht} in $\R$ falls es 
+    für jedes \xinR und jedes $\delta > 0$ einen Ball $B(x,\delta)$ gibt
+    sodass $B(x,\delta) \cap X \neq \emptyset$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    $\Q$ ist dicht in $\R$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zu je zwei reellen Zahlen $a,b \in \R$ mit $a < b$ gibt es ein 
+    $r \in \Q$ mit $a < r < b$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Die Menge $\R$ ist nicht abzählbar.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $A \subset \R$ und $x \in \R$. Wir sagen, dass $x$ ein \fat{Häufungspunkt}
+    der Menge $A$ ist, falls es für jedes $\varepsilon > 0$ ein $a \in A$ mit
+    $0 < \abs{a - x} < \varepsilon$ gibt.
+
+    Der Häufungspunkt muss nicht in $A$ liegen.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    $A \subseteq \R$ ist dicht $\Leftrightarrow$ Jedes \xinR ist ein Häufungspunkt von $A$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $A \subset \R$ eine beschränkte unendliche Teilmenge. Dann
+    existert ein Häufungspunkt von $A$ in $\R$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+    \begin{align*}
+        \bigcap_{n=1}^{\infty} [n,\infty) = \emptyset
+        \quad
+        \text{  und  }
+        \quad
+        \bigcap_{n=1}^{\infty} (0,\frac{1}{n}) = \emptyset
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $\mathcal{F}$ eine nichtleere Familie von beschränkten und abgeschlossenen
+    Teilmengen von $\R$, mit folgenden Eigenschaften:
+
+    1. $\emptyset \not\in \mathcal{F}$
+
+    2. $(F_1 \in \mathcal{F}) \land (F_2 \in \mathcal{F}) \Rightarrow F_1 \cap F_2 \in \mathcal{F}$
+
+    Dann ist der Durchschnitt 
+    \begin{align*}
+        \bigcap_{F \in \mathcal{F}} F
+    \end{align*}
+    nicht leer.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+    (Intervallschachtlungsprinzip)
+
+    Sei für jedes \ninN ein nicht-leeres, abgeschlossenes, beschränktes
+    Intervall $I_n = [a_n,b_n]$ gegeben, so dass für alle natürlichen
+    Zahlen $m \leq n$ die Inklusion $I_m \supset I_n$ gilt. 
+    Dann ist der Durchschnitt
+    \begin{align*}
+        \bigcap_{n=1}^{\infty} I_n = [\text{sup}\geschwungeneklammer{a_n \ | \ n \in \N}, \text{inf}\geschwungeneklammer{b_n \ | \ n \in \N}]
+    \end{align*}
+    nicht-leer.
+}

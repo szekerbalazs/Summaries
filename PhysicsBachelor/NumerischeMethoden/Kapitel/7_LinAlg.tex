@@ -1,0 +1,314 @@
+\section{Numerische Lineare Algebra}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+\vspace{1\baselineskip}
+
+\footnotesize
+
+    \begin{tabular}{c|c}
+        \fat{Invertierbar} & \fat{Nicht invertierbar} \\
+        \hline $A$ ist regulär & $A$ ist singulär \\
+        Zeilen sind linear unabhängig & Zeile sind linear abhängig \\
+        Spalten sind linear unabhängig & Spalten sind linear abhängig \\
+        $\det A \neq 0$ & $\det A = 0$ \\
+        $A x = 0$ hat eine Lösung $x=0$ & $Ax=0$ hat $\infty$ viele Lösungen \\
+        $Ax=b$ hat eine Lösung $x = A^{-1} b$ & $Ax=b$ hat keine oder $\infty$ Lösungen \\
+        $A$ hat vollen Rang & $A$ hat Rang $r<n$ \\
+        $A$ hat $n$-nicht-Null-Pivoten & $A$ hat $r<n$ Pivoten \\
+        $\text{span} \geschwungeneklammer{A_{:,1} , \dots , A_{:,n}}$ hat dim $n$ &
+        $\text{span} \geschwungeneklammer{A_{:,1},\dots,A_{:,n}}$ hat dim $r<n$ \\
+        $\text{span} \geschwungeneklammer{A_{1,:} , \dots , A_{n,:}}$ hat dim $n$ &
+        $\text{span} \geschwungeneklammer{A_{1,:},\dots,A_{n,:}}$ hat dim $r<n$ \\
+        Alle Eigenwerte von $A$ sind $\neq 0$ & $0$ ist EW von $A$ \\
+        $0 \notin \sigma(A) =$ Spektrum von $A$ & $0 \in \sigma (A)$ \\
+        $A^H A$ ist symmetrisch positiv definit & $A^H A$ ist semidefinit \\
+        $A$ hat $n$ (positive) Singulärwerte & $A$ hat $r<n$ (positive) Singulärwerte
+    \end{tabular}
+\normalsize
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Orthogonale/Unitäre Transformationen erhalten die euklidische Norm:
+    \begin{align*}
+        \Norm{Qx}_2^2 = (Q x)^H (Q_x) = x^H Q^H Q x = x^H E_n x = \Norm{x}_2^2
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{LU-Zerlegung}}
+
+Sei $A \in \R^{n \times n}$ invertierbar, dann existieren $P,L,U \in \R^{n \times n}$, so
+dass $PA = LU$. Wobei $L$ eine untere Dreiecksmatrix mit einsen auf der Diagonalen,
+$U$ eine obere Dreiecksmatrix und $P$ eine Permutationsmatrix sind.
+
+Anwendung: Lösen von GLS
+
+$Ax = b \Leftrightarrow LU x = Pb \Leftrightarrow Lz = Pb$ (Vorwärtssubstitution) und
+$U x = z$ (Rückwärtssubstitution)
+
+Code: P,L,U = scipy.linalg.lu(A)
+
+\pagebreak
+
+\underline{\fat{Cholesky-Zerlegung}}
+
+Ist $A$ symetrisch $(a=A^T)$ und positiv definit, dann existiert eine Zerlegung
+$A=LL^T = U^T U$, wobei $L$ und $U$ untere Dreiecksmatrizen sind mit strikt positiven
+Diagonaleinträgen.
+
+Anwendung: $A=LL^T  \Rightarrow Ax = LL^T x = b \Leftrightarrow L y = b \Rightarrow$
+    finde $y \Rightarrow L^T x = y \Rightarrow$ finde $x$.
+
+Code: L = numpy.linalg.cholesky(A)
+
+\vspace{1\baselineskip}
+
+\underline{\fat{QR-Zerlegung}}
+
+Sei $A \in \R^{m \times n}$ mit $m \geq n$, dann existiert ein $\hat{Q} \in \R^{m \times n}$,
+und ein $\hat{R} \in \R^{n \times n}$, so dass $A = \hat{Q} \hat{R}$ wobei $\hat{Q}$
+orthogonale Spalten hat und $\hat{R}$ eine obere Dreiecksmatrix ist.
+(reduzierte $QR$-Zerlegung)
+
+Bem: $A = QR$, wobei $Q := (\hat{Q} \ q_{n+1} \ \dots \ q_m) \in \R^{m \times m}$ und
+$R:= (\hat{R} \ 0)^T \in \R^{m \times n}$. Mit $Q^T Q = E_m$ (orthogonal)
+(vollständige $QR$-Zerlegung)
+
+Code: Qhat, Rhat = numpy.linalg.qr(A) \ \ \ \ oder 
+
+\hspace{27pt} Q,R = numpy.linalg.qr(A,mode='complete')
+
+\vspace{1\baselineskip}
+
+\underline{Methoden}:
+
+\vspace{1\baselineskip}
+
+\fat{Gram-Schmidt-Verfahren}
+
+Orthogonalisiere die Spalten von $A$ $\Rightarrow Q$.
+Finde danach $R$, sodass gilt: $QR=A$.
+
+\vspace{1\baselineskip}
+
+QR via \fat{Rotation}:
+\footnotesize
+\begin{align*}
+    G_{ij} (\varphi) = 
+    \eckigeklammer{
+    \begin{array}{*{11}c}
+        1 & & & & & & & & & & \\
+        & \dots & & & & & & & & & \\
+        & & 1 & & & & & & & & \\
+        & & & \cos(\varphi) & & & & \sin(\varphi) & & & \\
+        & & & & 1 & & & & & & \\
+        & & & & & \ddots & & & & & \\
+        & & & & & & 1 & & & & \\
+        & & & - \sin(\varphi) & & & & \cos(\varphi) & & & \\ 
+        & & & & & & & & 1 & & \\
+        & & & & & & & & & \ddots & \\
+        & & & & & & & & & & 1
+    \end{array} 
+    }
+\end{align*}
+\normalsize
+mit $\cos(\varphi)$ an der $ii$-ten und $jj$-ten Stelle. Und $\sin(\varphi)$ an der
+$ij$-ten Stelle, sowie $- \sin(\varphi)$ an der $ji$-ten Stelle.
+Dabei gilt:
+\begin{align*}
+    r = \sqrt{x_i^2 + x_j^2}
+    \quad
+    \cos(\varphi) = \frac{x_i}{r}
+    \quad
+    \sin(\varphi) = \frac{x_j}{r}
+\end{align*}
+Dann folgt:
+\begin{align*}
+    G_{ij} (\varphi) \cdot \begin{bmatrix}
+        x_i \\ \cdots \\ x_{i-1} \\ x_i \\ x_{i+1} \\ \vdots \\ x_{j-1} \\ x_j \\ x_{j+1}
+        \\ \vdots \\ x_n
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        x_i \\ \cdots \\ x_{i-1} \\ r \\ x_{i+1} \\ \vdots \\ x_{j-1} \\ 0 \\ x_{j+1}
+        \\ \vdots \\ x_n
+    \end{bmatrix}
+\end{align*}
+Mit diesem Verfahren erhält man einen Algorithmus zur Bestimmung von $Q$.
+
+\pagebreak
+
+\fat{Housholder-Spiegelung}
+
+Sei $a$ der Startvektor := erste Spalte von $A$. Dann folgt der folgende Algorithmus:
+\begin{align*}
+    &v := \begin{cases}
+        \frac{1}{2} \klammer{a + \Norm{a}_2 e_1} \quad \text{ falls } a_1 >0 \ \ (\text{der erste Eintrag von } a)
+        \\
+        \frac{1}{2} \klammer{a - \Norm{a}_2 e_1} \quad \text{ falls } a_1 < 0
+    \end{cases}
+    \\
+    \\
+    &u := \frac{v}{\Norm{v}_2}
+    \\
+    \\
+    &Q^T := E_m - 2 u u^T
+\end{align*}
+Dies wiederholt man für alle Spalten von $A$. Dann erhält man:
+$Q = \klammer{Q_m^T \dots Q_1^T}^T = \klammer{\prod_{i=0}^{m-1} Q_{m-i}^T}^T$
+
+Am Schluss muss man noch $R$ herausfinden:
+$R = \klammer{\prod_{i=}^{m} Q_{i}^T} \cdot A$
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Singulärwertzerlegung}}
+
+Sei $A \in \C^{m \times m}$ beliebig. Dann gibt es unitäre Matrizen $V \in \C^{m \times m}$
+und $U \in \C^{n \times n}$ und die $m \times n$ Diagonalmatrix in $\sigma = \text{diag}
+(\sigma_1 , \dots , \sigma_p)$ mit $p= \min \geschwungeneklammer{m,n}$ und
+$\sigma_1 \geq \dots \sigma_p \geq 0$, sodass
+\begin{align*}
+    A = U \Sigma V^H
+\end{align*}
+
+\underline{$m=n \ \Rightarrow \ \Sigma$ ist invertierbar}:
+
+$\Rightarrow Ax=b \Leftrightarrow U \Sigma V^T x = b \Leftrightarrow x = \klammer{U \Sigma V^T}^{-1} b
+\Leftrightarrow x = V \Sigma^{-1} U^T b$
+
+Code:
+
+U,s,Vt = scipy.linalg.svd(A)
+
+Sigma.inv = np.diag(1/s)
+
+x = np.dot(Vt.T , np.dot(Sigma.inv , np.dot(U.T , y)))
+
+\vspace{1\baselineskip}
+
+\underline{$m \neq n \ \Rightarrow \ \rang(\Sigma) = r < p = \min \geschwungeneklammer{m,n}$}:
+(reduzierte SVD)
+\begin{enumerate}
+    \item Zerlege $A = U \Sigma V^T =$
+        \begin{align*}
+            A=
+            \begin{pmatrix} U_1 &  U_2 \end{pmatrix}
+            \begin{pmatrix}
+                \Sigma_r & \\ 0 & 0
+            \end{pmatrix}
+            \begin{pmatrix}
+                V_1^T \\ V_2^T
+            \end{pmatrix}
+        \end{align*}
+        mit $U_1 \in M(m \times r ; K), \ \Sigma_r \in M(r \times r; K), \ V_1^T \in M(r \times n ; K),
+        \ A \in M(m \times n;K)$, dann ist $\Sigma_r^{-1}$ wohldefiniert und ist gegeben durch:
+        \begin{align*}
+            \Sigma_r^{-1} = \begin{pmatrix}
+                \frac{1}{\sigma_1} & & \\
+                & \dots & \\
+                & & \frac{1}{\sigma_r}
+            \end{pmatrix}
+        \end{align*}
+    \item Schreibe um: $Ax=b \Leftrightarrow U_1 \Sigma_r V_1^T x = b \Leftrightarrow
+        x = V_1 \Sigma_r^{-1} U_1^T b$. Man nenne $V_1 \Sigma_r^{-1} U_1^T$ auch die
+        \fat{Pseudoinverse} von $A$.
+\end{enumerate}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Kondition}}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Konditionszahl} einer Matrix $A$ ist cond$(A) := \Norm{A^{-1}} \cdot \Norm{A}$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Matrixnorm} ist gegeben als:
+    \begin{align*}
+        \Norm{A} := \sup_{\Norm{x} \neq 0} \frac{\Norm{Ax}}{\Norm{x}} =
+            \sup_{\Norm{x}=1} \Norm{Ax}
+    \end{align*}
+}
+
+\pagebreak
+
+\Theorem{
+
+    Wenn die Singulärwerte von $A$ erfüllen:
+    \begin{align*}
+        \sigma_1 \geq \sigma_2 \geq \dots \geq \Sigma_r > \sigma_{r+1} = \sigma_p = 0
+    \end{align*}
+    dann gilt: $\rang A = r$ und:
+    \begin{align*}
+        \ker A &= \text{span} \geschwungeneklammer{v_{r+1} , \dots , v_n} \\
+        \Im A &= \text{span} \geschwungeneklammer{u_1,\dots,u_r}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Gegeben $A \in \C^{m \times n}$ mit $m>n$, finde $x \in \C^n$ mit $\Norm{x}=1$,
+    sodass $\Norm{Ax}_2$ minimal wird. Die SVD hilft, denn unitäre Matrizen erhalten die
+    $2$-Norm:
+    \begin{align*}
+        \min_{\Norm{x}=1} \Norm{Ax}_{2}^2 &= \min_{\Norm{x}=1} \Norm{U \Sigma V_x^H}_2^2
+        = \min_{\Norm{V_x^H}_2=1} = \min_{\Norm{y}_2 = 1} \Norm{\Sigma y}_2^2
+        \\
+        &= \min_{\Norm{y}_2 = 1} (\sigma_1^2 y_1^2 + \dots + \sigma_n^2 y_n^2)
+        \geq \sigma_n^2
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Sei $A \in \C^n$. Dann gilt: $\Norm{A}_2 = \sigma_1 (A)$. Falls $A$ invertierbar ist,
+    dann gilt:
+    \begin{align*}
+        \text{cond}_2 (A) = \frac{\sigma_1}{\sigma_m}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Frobeniusnorm} der $m \times n$-Matrix $A$ ist
+    \begin{align*}
+        \Norm{A}_F^2 := \sum_{i=1}^{m} \sum_{j=1}^n \abs{a_{ij}}^2
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Für die $m \times n$-Matrix $A$ mit Rang $r$ gelten die Singulärwertzerlegung
+    $A = U \Sigma V^H$ mit $m \geq n$ und $U = [\vec{u}_1 \ \dots \ u_{m}]$ und
+    $V = [v_1 \ \dots \ v_n]$. Für $k \in \geschwungeneklammer{1,\dots,r}$ sei die
+    $m \times k$-Matrix $U_k = [\vec{u}_1 \ \dots \ \vec{u}_k]$, die $n \times k$-Matrix
+    $V_k = [\vec{v}_1,\dots,\vec{v}_k]$ und die $k \times k$-Matrix $\Sigma_k :=
+    \text{diag} (\sigma_1,\dots,\sigma_k)$. Für $\standardNorm = \standardNorm_F$ und
+    $\standardNorm = \standardNorm_2$ gilt dann:
+    \begin{align*}
+        \Norm{A - U_k \Sigma_k V_k^H} \leq \Norm{A - B}
+    \end{align*}
+    für alle $m \times n$-Matrizen $B$ von Rang $k$
+}

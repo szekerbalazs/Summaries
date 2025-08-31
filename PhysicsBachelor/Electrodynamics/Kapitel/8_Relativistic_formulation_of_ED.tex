@@ -1,0 +1,152 @@
+\section{Relativistic formulation of Electrodynamics}
+
+From now on we will assume $\epsilonnull = c = 1$. The Maxwell Eq. become:
+\begin{align*}
+    \vec{\nabla} \cdot \vec{E} = \rho
+    \hspace{10pt} , \hspace{10pt}
+    \vec{\nabla} \times \vec{E} + \frac{\partial \vec{B}}{\partial t} = 0
+    \hspace{10pt} , \hspace{10pt}
+    \vec{\nabla} \cdot \vec{B} = 0
+    \hspace{10pt} , \hspace{10pt}
+    \vec{\nabla} \times \vec{B} - \frac{\partial \vec{E}}{\partial t} = \vec{j}
+\end{align*}
+We define the electromagnetic field tensor $R^{\mu \nu}$.
+\begin{align*}
+    F^{\mu \nu} = \begin{pmatrix}
+        0 & - E^1 & - E^2 & - E^3 \\
+        E^1 & 0 & - B^3 & B^2 \\
+        E^2 & B^3 & 0 & - B^1 \\
+        E^3 & - B^2 & B^1 & 0
+    \end{pmatrix}
+\end{align*}
+It has the following properties:
+\begin{align*}
+    F^{0i} = - E^i
+    \hspace{10pt} , \hspace{10pt}
+    F^{ij} &= - \epsilon_{ijk} B^k
+    \hspace{10pt} , \hspace{10pt}
+    F^{\mu \nu} = - F^{\nu \mu}
+    \\
+    B^i = - \frac{1}{2} \epsilon_{ijk} F^{jk}
+    \hspace{10pt} &, \hspace{10pt}
+    - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} = \frac{\vec{E}^2 - \vec{B}^2}{2}
+    \\
+    \epsilon_{\mu \nu \rho \sigma} F^{\mu \nu} F^{\rho \sigma} &= 8 \vec{E} \cdot \vec{B}
+\end{align*}
+We define two four-vectors. One for the charge and current densities and
+the other for the scalar potential and the vector potential.
+\begin{align*}
+    j^\mu = (\rho,\vec{j})
+    \hspace{10pt} , \hspace{10pt}
+    A^\mu \equiv \klammer{\phi,\vec{A}} = \klammer{\phi,A^1,A^2,A^3}
+\end{align*}
+We can simplify the Maxwell Eq. to:
+\begin{align*}
+    \partial_\nu F^{\nu \mu} = j^\mu
+    \hspace{10pt} , \hspace{10pt}
+    F^{\mu \nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
+\end{align*}
+We further have the followig identities:
+\begin{align*}
+    \epsilon^{\mu \nu \rho \sigma} \partial_\nu F_{\rho \sigma} = 0
+    \hspace{10pt} , \hspace{10pt}
+    \partial_\mu F_{\nu \rho} + \partial_\nu F_{\rho \mu} + \partial_\rho F_{\mu \nu} = 0
+\end{align*}
+Lastly:
+\begin{align*}
+    \partial^2 A^\nu - \partial^\nu \klammer{\partial_\mu A^\mu} = j^\mu
+\end{align*}
+
+\paragraph{Gauge Invariance}
+Gauge transformations of the vector and scalar potentials which leave Maxwell
+Eq. invariant are written in the following form with $\chi$ a scalar function.
+\begin{align*}
+    A'_\mu = A_\mu + \partial_\mu \chi
+\end{align*}
+The Lorentz gauge-fixing condition becomes
+\begin{align*}
+    \vec{\nabla} \cdot \vec{A} + \frac{\partial \phi}{\partial t} = 0
+    \hspace{5pt} \rightsquigarrow \hspace{5pt}
+    \partial_\mu A^\mu = 0
+\end{align*}
+In the Lorentz gauge, the Maxwell Eq. become:
+\begin{align*}
+    \partial^2 A^\mu = j^\mu
+\end{align*}
+In relativistic notation, the solutions for the four-vector potential take
+the form:
+\begin{align*}
+    A^\nu (x^\mu) = \frac{1}{2 \pi} \int d^4 x' j^\nu (x'^\mu) \delta \klammer{\klammer{x'^\mu - x^\mu}^2} \Theta \klammer{x^0 > x'^0}
+\end{align*}
+The electromagnetic force acting on a particle with a charge $q$ is:
+\begin{align*}
+    f^\mu = q F^{\mu \nu} \frac{d x_\nu}{d \tau}
+\end{align*}
+In the frame where the charge is moving with a velocity $\vec{v}$, the three
+dimensional force is:
+\begin{align*}
+    \vec{f} = q \gamma \klammer{\vec{E} + \vec{v} \times \vec{B}}
+\end{align*}
+
+\subsection{Energy-Momentum Tensor in the presence of an electromagnetic field}
+
+Consider a number of charges $q_n$ which interact via the electromagnetic field.
+The energy-momentum tensor is not conserved:
+\begin{align*}
+    \partial_\nu T^{\mu \nu} = G^{\mu} = F^{\mu \nu} j_{\nu}
+\end{align*}
+We define the following symmetric and gauge-invariant tensor:
+\begin{align*}
+    T_{em}^{\mu \nu} \equiv
+    F_{\ \rho}^{\mu} F^{\rho \nu} + \frac{1}{4} g^{\mu \nu} F_{\rho \sigma} F^{\rho \sigma}
+\end{align*}
+The components of the tensor are:
+\begin{align*}
+    T_{em}^{00} = \frac{\vec{E}^2 + \vec{B}^2}{2}
+    \hspace{10pt} , \hspace{10pt}
+    T_{em}^{0i} = T_{em}^{i0} = \klammer{\vec{E} \times \vec{B}}_i
+\end{align*}
+We find:
+\begin{align*}
+    \partial_\nu T_{em}^{\mu \nu} = - F^{\mu \nu} j_\nu
+\end{align*}
+We define:
+\begin{align*}
+    \Theta^{\mu \nu} \equiv T^{\mu \nu} + T^{\mu \nu}_{em}
+    = \sum_n \frac{p_n^\mu p_n^\mu}{E_n} \delta \klammer{\vec{x} - \vec{r}_n (t)}
+        + F^{\mu \rho} F_\rho^{\ \nu} \frac{g^{\mu \nu}}{4} F_{\rho \sigma} F^{\rho \sigma}
+\end{align*}
+This quantity safisfies the continuity equation:
+\begin{align*}
+    \partial_{\nu} \Theta^{\mu \nu} = 0
+\end{align*}
+The conserved four vector is:
+\begin{align*}
+    P^\mu =
+    \int d^3 \vec{x} \Theta^{\mu 0} = \sum_n p_n^\mu + \int d^3 \vec{x} T_{em}^{\mu 0}
+    = P_{charges}^\mu + P_{em}^\mu
+\end{align*}
+Where $P_{charges}^\mu$ is the four-momentum of the charges and $P_{em}^\mu$
+is the momentum carried by the electromagnetic field itself. Neither of them
+is conserved on its own, only their sum.
+
+\vspace{1\baselineskip}
+
+The energy stored in the electromagnetic field is:
+\begin{align*}
+    E_{em} = \int d^3 \vec{x} T_{em}^{00}
+\end{align*}
+Therefore, the energy density $w$ of the electromagnetic field is:
+\begin{align*}
+    w = T_{em}^{00} = \frac{\vec{E}^2 + \vec{B}^2}{2}
+\end{align*}
+The three-momentum density $\vec{S}$ of the electromagnetic field is:
+\begin{align*}
+    \vec{S} = T_{em}^{0i} = T_{em}^{i0} = \klammer{\vec{E} \times \vec{B}}_i
+\end{align*}
+The vector $\vec{S} \equiv \vec{E} \times \vec{B}$ is known as the
+Poynting vector. For $\mu=0$ we arrive at
+\begin{align*}
+    \frac{\partial w}{\partial t} + \vec{\nabla} \cdot \vec{S}
+    = - \vec{E} \cdot \vec{j}
+\end{align*}

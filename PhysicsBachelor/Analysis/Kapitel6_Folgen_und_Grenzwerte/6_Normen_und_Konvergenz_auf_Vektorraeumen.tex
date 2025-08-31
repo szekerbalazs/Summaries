@@ -1,0 +1,227 @@
+\subsection{Normen und Konvergenzen auf Vektorräumen}
+
+\vspace{1\baselineskip}
+
+In diesem Kapitel legen wir einen Körper $\K$ fest, der entweder $\R$ oder $\C$ ist.
+
+\vspace{1\baselineskip}
+
+\Definition{ 
+
+    Sei $V$ ein Vekorraum über $\K$. Eine \fat{Norm} auf $V$ ist eine Abbildung
+    $\Norm{\ \cdot \ }: V \rightarrow \R$, die folgende drei Eigenschaften erfüllt.
+    
+    (1) (Definitheit) Für alle \vinV gilt $\Norm{v} \geq 0$ und $\Norm{v}=0 \Leftrightarrow v = 0$.
+
+    (2) (Homogenität) Für alle \vinV und alle $\alpha \in \R$ (bzw $\alpha \in \C$) gilt
+        $\Norm{\alpha v} = \abs{\alpha} \Norm{v}$.
+
+    (3) (Dreiecksungleichung) Für alle $v_1 , v_2 \in V$ gilt $\Norm{v_1 + v_1} \leq \Norm{v_1} + \Norm{v_2}$.
+
+    Man nennt $V$ gemeinsam mit der Norm $\Norm{\ \cdot \ }$ einen \fat{normierten Vektorraum}.
+}
+
+\pagebreak
+
+\Beispiel{
+
+    Sei $n \in \N$. Die \fat{Maximumsnorm} oder \fat{Unendlichnorm} $\Norm{ \ \cdot \ }_{\infty}$
+    und die \fat{1-Norm} $\Norm{ \ \cdot \ }_1$ auf $\K^n$ sind definiert durch
+    \begin{align*}
+        \Norm{v}_{\infty} = \maximum \geschwungeneklammer{\abs{v_1},\abs{v_2},\dots,\abs{v_n}}
+        \quad \text{   und   } \quad
+        \Norm{v}_1 = \sum_{j = 1}^n \abs{v_j}
+    \end{align*}
+    für $v = (v_1 , \dots , v_n) \in \K^n$. Allgemeiner kann man für eine reelle Zahl $p \geq 1$
+    folgende Norm definieren
+    \begin{align*}
+        \Norm{v}_p = \klammer{\sum_{i=1}^n \abs{v_i}}^{\frac{1}{p}}
+    \end{align*}
+    Man nennt diese \fat{p-Norm}. Auf dem Vektorraum der stetigen Funktionen $f: [a,b] \rightarrow \R$
+    lässt sich folgende Norm definieren für ein $f \in V$.
+    \begin{align*}
+        \Norm{f}_1 = \intab \abs{f(x)} dx
+    \end{align*}
+    Diese Norm wird \fat{$L^1$-Norm} genannt. Allgemeiner kann man für reelle Zahlen $p \geq 1$
+    folgende Norm definieren
+    \begin{align*}
+        \Norm{f}_p = \klammer{\intab \abs{f(x)}^p \ dx}^{\frac{1}{p}}
+    \end{align*}
+    Eine solche Norm nennt man \fat{p-Norm} oder \fat{$L^p$-Norm}. Das $L$ steht für Lebesgue.
+    Die Maximumsnorm auf dem Vektorraum der stetigen Funktionen ist wie folgt definiert
+    für ein $f \in V$:
+    \begin{align*}
+        \Norm{f}_{\infty} = \maximum \geschwungeneklammer{\abs{f(x)} \ | \ x \in [a,b]}
+    \end{align*}
+    Diese nennt man auch \fat{$\infty$-Norm}, \fat{$L^{\infty}$-Norm} oder auch \fat{sup-Norm}.
+
+    \vspace{1\baselineskip}
+
+    Die \fat{Operatornorm} einer Matrix $A \in \text{Mat}_{m,n} (\R)$ ist durch
+    \begin{align*}
+        \Norm{A}_{\text{op}} = \sup \geschwungeneklammer{\Norm{Ax}_2 \ | \ x \in \R^n \text{ mit } \Norm{x}_2 \leq 1}
+    \end{align*}
+    definiert, wobei $\standardNorm_2$ für die Euklidische Norm steht. Des Weiteren gilt
+    \begin{align*}
+        \Norm{Ax}_2 \leq \Norm{A}_{\text{op}} \Norm{x}_2
+        \quad \quad \text{   und   } \quad \quad
+        \Norm{AB}_{\text{op}} \leq \Norm{A}_{\text{op}} \Norm{B}_{\text{op}}
+    \end{align*}
+    für alle $x \in \R^n$ und alle $A,B \in$Mat$_{m,n} (\R)$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein Vektorraum über $\K$ und seien $\Norm{ \ \cdot \ }_1$ und $\Norm{ \ \cdot \ }_2$
+    zwei Normen auch $V$. Wir nennen $\Norm{ \ \cdot \ }_1$ und $\Norm{ \ \cdot \ }_2$
+    \fat{äquivalent}, falls Konstanten $A > 0$ und $B>0$ existieren mit
+    \begin{align*}
+        \Norm{v}_1 \leq A \cdot \Norm{v}_2
+        \quad \text{   und   } \quad
+        \Norm{v}_2 \leq B \cdot \Norm{v}_1
+        \ \ \ \ \ \ \forall v \in V
+    \end{align*} 
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $V$ ein Vektorraum über $\R$ und $\Norm{ \ \cdot \ }$ eine Norm auf $V$. Dann ist
+    \begin{align*}
+        d: V \times V \rightarrow \R
+        \ \ \ \ \ \ \ \ \ \ \ \
+        d(v,w) = \Norm{v - w}
+    \end{align*}
+    eine Metrik auf $V$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir bezeichnen die im obigen Lemma gegebene Metrik die von der Norm $\Norm{ \ \cdot \ }$
+    \fat{induzierte Metrik} auf $V$.
+}
+
+\pagebreak
+
+\Satz{
+
+    Sei $V$ ein $\K$ Vektorraum, seien $\Norm{ \ \cdot \ }_1$ und $\Norm{ \ \cdot \ }_2$
+    Normen auf $V$. Dann sind folgende Aussagen äquivalent:
+    
+    (1) $\Norm{ \ \cdot \ }_1$ und $\Norm{ \ \cdot \ }_2$ sind äquivalent.
+
+    (2) Die Identitätsabbildungen $V_{\einsNorm} \stackrel{id}{\longrightarrow} V_{\zweiNorm}$
+        und $V_{\zweiNorm} \stackrel{id}{\longrightarrow} V_{\einsNorm}$ sind stetig.
+    
+    (3) Eine Teilmenge $U \subseteq V$ ist offen bezüglich der von $\einsNorm$ induzierten Metrik,
+        genau dann, wenn sie offen bezüglich der von $\zweiNorm$ induzierten Metrik ist.
+
+    (4) Eine Folge $(v_n)_{n=0}^{\infty}$ in $V$ konvergiert nach $w \in V$ bezüglich der
+        $\einsNorm$ genau dann, wenn $(v_n)_{n=0}^{\infty}$ gegen $w$ bezüglich der
+        $\zweiNorm$ konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\K$ ein Körper und $V$ ein Vektorraum über $\K$. Ein \fat{inneres Produkt} oder
+    \fat{Skalarprodukt} auf $V$ ist eine Abbildung
+    \begin{align*}
+        \scalprod{-}{-} : V \times V \rightarrow \K
+    \end{align*}
+    die folgende Eigenschaften erfüllt
+
+    (1) (Sesquilinearität) Für alle $u,v,w \in V$ und $\alpha , \beta \in \K$ gilt
+    \begin{align*}
+        &\scalprod{\alpha u + \beta v}{w} = \alpha \scalprod{u}{w} + \beta \scalprod{v}{w}
+        \quad \text{   und} \\
+        &\scalprod{u}{\alpha v + \beta w} = \overline{\alpha} \scalprod{u}{v} + \overline{\beta} \scalprod{u}{w}
+    \end{align*}
+    (2) (Symmetrie) Für alle $v,w \in V$ gilt $\scalprod{v}{w} = \overline{\scalprod{v}{w}}$.
+
+    (3) ((positiv)Definitheit) Für alle \vinV ist $\scalprod{v}{v}$ reell und nichtnegativ,
+        und $\scalprod{v}{v} = 0 \Leftrightarrow v = 0$.
+
+    Das $\overline{.}$ steht für die komplexe Konjugation.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Cauchy-Schwarz Ungleichung)
+
+    Sei $V$ ein Vektorraum über $\K$, sei $\scalprod{-}{-}$ ein Skalarprodukt auf $V$
+    und sei $\standardNorm: V \rightarrow \R$ gegeben durch $\Norm{v} = \sqrt{\scalprod{v}{v}}$.
+    Dann gilt die Ungleichung
+    \begin{align*}
+        \abs{\scalprod{v}{w}} \leq \Norm{v} \Norm{w}
+    \end{align*}
+    für alle $v,w \in V$. Des weiteren gilt Gleichheit genau dann, wenn $v$ und $w$ linear
+    unabhängig sind.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $V$ ein $\K$ Vekorraum, $\scalprod{-}{-}$ ein Skalarprodukt auf $V$. Dann definiert
+    $v \rightmapsto \Norm{v} := \sqrt{\scalprod{v}{v}}$ eine Norm auf $V$. Diese Norm wird
+    \fat{2-Norm} oder \fat{Euklidische Norm} genannt.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $V$ ein $\K$-Vektorraum und sei $\standardNorm$ die Norm auf $V$. Sei $(v_n)_{n=0}^{\infty}$
+    eine bezüglich der Norm $\standardNorm$ konvergierende Folge in $V$ mit Grenzwert $w \in V$. Dann
+    gilt \begin{align*}
+        \limesninf \Norm{v_n} = \Norm{w}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $V$ ein $\K$-Vektorraum und seien $\einsNorm$ und $\zweiNorm$ zwei äquivalente Normen
+    auf $V$. Sei $(v_n)_{n=0}^{\infty}$ eine Folge in $V$. Falls die Folge $(v_n)_{n=0}^{\infty}$
+    bezüglich der Norm $\einsNorm$ konvergiert, dann konvergiert sie auch bezüglich der Norm
+    $\zweiNorm$. Die Grenzwerte sind in diesem Fall gleich.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $V$ ein endlichdimensionaler $\K$-Vekorraum. Alle Normen auf $V$ sind zueinander
+    äquivalent.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $d \in \N$. Eine Folge in $\K^d$ konvergiert genau dann bezüglich der euklidischen
+    Norm, wenn sie koordinatenweise konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Heine-Borell)
+
+    Sei $d \in \N$. Jede bezüglich der euklidischen Norm beschränkte Folge in $\K^d$ besitzt
+    eine konvergierende Teilfolge, und einen Häufungspunkt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $n \in \N$. Bezüglich der euklidischen Norm ist jede Cauchy-Folge in $\K^n$ konvergent.
+}

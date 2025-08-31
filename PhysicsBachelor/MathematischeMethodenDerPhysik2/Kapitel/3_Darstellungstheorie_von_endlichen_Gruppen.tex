@@ -1,0 +1,305 @@
+\section{Darstellungstheorie von endlichen Gruppen}
+
+Es bezeichne $G$ stets eine endliche Gruppe. Alle Darstellungen werden
+endlichdimensional und komplex angenommen.
+
+\subsection{Orthogonalitätsrelationen der Matrixelemente}
+
+\begin{satz}
+    Sei $\rho: G \rightarrow \GL(V)$ eine irreduzible Darstellung der Gruppe $G$
+    der Dimension $d$. Aus der Existenz eines Skalarproduktes auf $V$ bezüglich
+    wessen $\rho$ unitär ist folgt dass für alle $g \in G$ die Matrix
+    $(\rho_{ij}(g))$ von $\rho(g)$ bezüglich einer beliebigen orthonormierten
+    Basis unitär ist: $\rho_{ij}(g^{-1}) = \overline{\rho_{ji}(g)}$
+\end{satz}
+
+\begin{satz}
+    Seien $\rho: G \rightarrow \GL(V)$, $\rho' : G \rightarrow \GL(V)$ irreduzible
+    unitäre Darstellungen einer endlichen Gruppe $G$. Es bezeichnen $(\rho_{ij}(g))$,
+    $(\rho_{kl}' (g))$ die Matrizen von $\rho(g)$, $\rho'(g)$ bezüglich orthonormierten
+    Basen $V$, bzw. $V'$.
+    \begin{enumerate}[(i)]
+        \item Sind $\rho$, $\rho'$ inäquivalent, so gilt für alle $i,j,k,l$
+            \begin{align*}
+                \frac{1}{\abs{G}} \sum_{g \in G} \overline{\rho_{ij}(g)} \rho_{kl}' (g) = 0
+            \end{align*}
+        \item Für alle $i,j,k,l$ gilt
+            \begin{align*}
+                \frac{1}{\abs{G}} \sum_{g \in G} \overline{\rho_{ij}(g)} \rho_{kl}(g) = \frac{1}{\dim V} \delta_{ik} \delta_{jl}
+            \end{align*}
+    \end{enumerate}
+\end{satz}
+
+\subsection{Charakteren}
+
+\begin{definition}[Charakter]
+    Der Charakter einer endlichdimensionalen Darstellung $\rho: G \rightarrow \GL(V)$
+    einer Gruppe $G$ ist die komplexwertige Funktion auf $G$:
+    \begin{align*}
+        \chi_\rho (g) = \tr(\rho(g)) = \sum_{j = 1}^{\dim (V)} \rho_{jj}(g)
+    \end{align*}
+    Hier sind $\rho_{ij}(g)$ die Matrixelemente bezüglich einer beliebigen
+    Basis von $G$.
+\end{definition}
+
+\begin{satz}
+    \begin{enumerate}[(i)]
+        \item $\chi_\rho (g) = \chi_{\rho} (h g h^{-1})$, äquivalent: $\chi_\rho$
+            nimmt einen konstanten Wert auf jeder Konjugationsklasse an.
+        \item Sind $\rho$, $\rho'$ äquivalente Darstellungen, so gilt $\chi_\rho = \chi_{\rho'}$
+    \end{enumerate}
+\end{satz}
+
+\begin{definition}[Konjugationsklasse]
+    Die Konjugationsklassen von $G$ sind die Mengen der Form
+    $\geschwungeneklammer{h g h^{-1} \ | \ h \in G}$, oder äquivalent
+    die Bahnen bzgl der Wirkung von $G$ auf sich selbst durch Konjugation
+    $h \cdot g = h \cdot g \cdot h^{-1}$, oder äquivalent die Äquivalenzklasse
+    bzgl. $g \sim g' \Leftrightarrow \exists h \in G : g' = h g h^{-1}$.
+\end{definition}
+
+\begin{lemma}
+    \begin{enumerate}[(i)]
+        \item $\chi_\rho (1) = \dim(V)$
+        \item $\chi_{\rho \oplus \rho'} = \chi_{\rho} + \chi_{\rho'}$
+        \item $\chi_{\rho} (g^{-1}) = \overline{\chi_\rho (g)} , \ \forall g \in G$
+    \end{enumerate}
+\end{lemma}
+
+\subsection{Der Charakter der regulären Darstellung}
+\begin{align*}
+    \chi_{reg} (g) = \begin{cases}
+        \abs{G},& \hspace{10pt} \text{falls } g = 1
+        \\
+        0,& \hspace{10pt} \text{sonst}
+    \end{cases}
+\end{align*}
+
+\subsection{Orthogonalitätsrelationen der Charakteren}
+
+\begin{definition}[Skalarprodukt]
+    Wir führen das folgende Skalarprodukt auf dem Raum $\C(G)$ aller
+    komplexwertigen Funktionen auf $G$ ein.
+    \begin{align*}
+        (f_1,f_2) = \frac{1}{\abs{G}} \sum_{g \in G} \overline{f_1(g)} f_2(g)
+    \end{align*}
+\end{definition}
+
+\begin{satz}
+    Seien $\rho$, $\rho'$ irreduzible Darstellungen der endlichen Gruppe $G$,
+    und seien $\chi_\rho$, $\chi_{\rho'}$ ihre Charakteren. Dann gilt
+    \begin{enumerate}[(i)]
+        \item Sind $\rho$, $\rho'$ inequivalent, so gilt $(\chi_\rho,\chi_{\rho'}) = 0$
+        \item Sind $\rho$, $\rho'$ äquivalent, so gilt $(\chi_\rho,\chi_{\rho'}) = 1$
+    \end{enumerate}
+\end{satz}
+
+\begin{korollar}
+    Ist $\rho = \rho_1 \oplus \dots \oplus \rho_n$ eine Zerlegung einer
+    Darstellung $\rho$ in irreduzible Darstellungen, und $\sigma$ eine
+    irreduzible Darstellung, so ist die Anzahl $\rho_i$ die äquivalent
+    zu $\sigma$ sind gleich $(\chi_\rho,\chi_\sigma)$.
+\end{korollar}
+
+\begin{korollar}
+    $\rho$ irreduzibel $\Leftrightarrow$ $(\chi_\rho,\chi_\rho) = 1$
+\end{korollar}
+
+\subsection{Zerlegung der regulären Darstellung}
+
+\begin{satz}
+    Jede irreduzible Darstellung $\sigma$ einer endlichen Gruppe $G$ kommt
+    in der regulären Darstellung vor. Hat eine irreduzible Darstellung die
+    Dimension $d$, so kommt sie $d$ mal in der regulären Darstellung vor.
+    Äquivalent: Für jede irreduzible Darstellung $\sigma$ der Dimension $d$,
+    $(\chi_\sigma,\chi_{reg}) = d$. Das ergibt sich aus:
+    \begin{align*}
+        n_\sigma = (\chi_\sigma,\chi_{reg}) = \frac{1}{\abs{G}} \sum_{g \in G} \overline{\chi_\sigma(g)} \chi_{reg}(g)
+        = \chi_\sigma (1) = d
+    \end{align*}
+\end{satz}
+
+\begin{korollar}
+    Eine endliche Gruppe $G$ besitzt endlich viele Äquivalenzklassen irreduzibler
+    Darstellungen. Ist $\rho_1,\dots,\rho_k$ eine Liste von irreduziblen
+    inäquivalenten Darstellungen, eine in jeder Äquivalenzklasse, so gilt
+    für ihre Dimensionen $d_i$:
+    \begin{align*}
+        d_1^2 + \dots + d_k^2 = \abs{G} = \sum_{j=1}^k (\dim(\rho_j))^2
+    \end{align*}
+    Es gilt $\chi_{reg}(g) = \sum_i d_i \chi_{\rho_i}(g)$. Für $g=1$ erhalten
+    wir das obere Resultat.
+\end{korollar}
+
+\begin{korollar}
+    Sei $\rho_1,\dots,\rho_k$ eine Liste irreduzibler inäquivalenter unitärer
+    Darstellungen wie im vorherigen Korollar. Es bezeichne $\rho_{\alpha,ij}(g)$,
+    $\alpha = 1,\dots,k$, $1 \leq i , j \leq d_\alpha$ die Matrixelemente von
+    $\rho_\alpha (g)$ bezüglich einer orthonormierten Basis. Dann bilden die
+    Funktionen $\rho_{\alpha,ij}$ eine orthogonale Basis von $\C(G)$.
+\end{korollar}
+
+\begin{definition}[Klassenfunktion]
+    Eine Funktion $f: G \rightarrow \C$ heisst Klassenfunktion falls
+    $f(g h g^{-1}) = f(h)$ für alle $g,h \in G$.
+\end{definition}
+
+\begin{lemma}
+    Die Klassenfunktionen sind ein UVR von $\C(G)$ und damit selbst ein
+    Hilbertraum.
+\end{lemma}
+
+\begin{korollar}
+    Sei $G$ eine endliche Gruppe. Die Charakteren $\chi_1,\dots,\chi_k$ der
+    irreduziblen Darstellungen von $G$ bilden eine orthonormierte Basis des
+    Hilbertraums der Klassenfunktionen.
+\end{korollar}
+
+\begin{korollar}
+    Eine endliche Gruppe hat so viele Äquivalenzklassen irreduzibler
+    Darstellungen wie Konjugationsklassen.
+\end{korollar}
+
+\subsection{Die Charaktertafel einer endlichen Gruppe}
+
+\begin{definition}[Charaktertafel]
+    Die Charaktertafel ist eine Tabelle
+    \begin{center}
+        \begin{tabular}{c | c c c c c}
+            $G$ & $[1]$ & $\dots$ & $c$ & $\dots$ & $[\dots]$ \\ \hline
+            $\chi_1$ & $\ddots$ & & $\ddots$ & & \\
+            $\vdots$ & & $\ddots$ & & $\ddots$ & \\
+            $\chi_j$ & & & $\chi_j(c)$ & & \\
+            $\vdots$ & $\ddots$ & & & $\ddots$ & \\
+            $\chi_k$ & & $\ddots$ & & & $\ddots$
+        \end{tabular}
+    \end{center}
+\end{definition}
+mit $[1],\dots,c,\dots,[\dots]$ den Konjugationsklassen,
+$\chi_1,\dots,\chi_j,\dots,\chi_k$ den irreduziblen Charakteren
+und $\chi_j(c)$ den Werten der Charaktere. Oft schreibt man auch die Ordnung
+der jeweiligen Äquivalenzklasse neben die Klasse und die Ordnung der Gruppe
+neben $G$. Zeilen sind orthogonal, insbesondere
+\begin{align*}
+    \klammer{\sqrt{\frac{\abs{c_j}}{\abs{G}}} \chi_i (c_j)}_{ij} \in O(n)
+\end{align*}
+Das heisst, die Matrix hat auch orthonormale Spalten. Es gelten:
+\begin{align*}
+    \sum_{\alpha=1}^k \frac{\abs{c_\alpha}}{\abs{G}} \overline{\chi_i(c_\alpha)} \chi_j (c_\alpha) &= \delta_{i,j}
+    \\
+    \sum_{j=1}^k \overline{\chi_j (c_\alpha)} \chi_j (c_\alpha) &= \frac{\abs{G}}{\abs{c_\alpha}} \delta_{\alpha,\beta}
+\end{align*}
+
+\paragraph{Tricks zum finden der Charaktertafel}
+\begin{itemize}
+    \item $\abs{G} = \sum_{j=1}^k \klammer{\dim(\rho_j)}^2$
+    \item Orthogonalität der Zeilen und Spalten
+    \item Existenz der trivialen Darstellung (und allenfalls der Vorzeichendarstellung)
+    \item 1. Spalte enthält die Dimensionen.
+\end{itemize}
+
+\subsection{Die kanonische Zerlegung einer Darstellung}
+
+\begin{satz}
+    Sei $G$ eine endliche Gruppe und $\rho_i : G \rightarrow \GL(V)$,
+    $i=1,\dots,k$ einer Liste aller inäquivalenter irreduziblen
+    Darstellungen von $G$. Sei eine Darstellung $\rho$ auf einem VR $V$
+    gegeben. Es sei $V = U_1 \oplus \dots \oplus U_n$ eine Zerlegung in
+    irreduzible invarianten Unterräume. $\forall i = 1,\dots,k$ definieren
+    wir $W_i$ als die direkte Summe aller derjenigen $U_j$, so dass
+    $\rho_{|_{U_j}}$ äquivalent zu $\rho_i$ ist. Dann ist
+    $V = W_1 \oplus \dots \oplus W_k$, wobei $W_i = 0$ sein darf.
+\end{satz}
+
+\begin{satz}
+    Die Zerlegung $V = W_1 \oplus \dots \oplus W_k$ ist unabhängig von der
+    Wahl der Zerlegung von $V$ in irreduziblen Darstellungen. Die Projektion
+    $p_i : V \rightarrow W_i$, $w_1 \oplus \dots \oplus w_k \mapsto w_i$ ist
+    gegeben durch:
+    \begin{align*}
+        p_i(v) = \frac{\dim (V_i)}{\abs{G}} \sum_{g \in G} \overline{\chi_i(g)} \rho(g) v
+    \end{align*}
+\end{satz}
+
+\begin{bemerkung}
+    Die Zerlegung $V = W_1 \oplus \dots \oplus W_k$ heisst kanonische
+    Zerlegung. Die Unterräume $W_i$ heissen isotypische Komponenten.
+\end{bemerkung}
+
+\subsection{Beispiel: Die Diedergruppe $D_n$}
+
+Jede Darstellung ist eindeutig bestimmt durch $\rho(R) =: \overline{R}$
+und $\rho(S) =: \overline{S} \in \GL(V)$. Es gilt:
+\begin{align*}
+    \overline{R}^n = \overline{S}^2 = 1
+    \hspace{10pt} , \hspace{10pt}
+    \overline{S} \overline{R} = \overline{R}^{-1} \overline{S}
+    \hspace{10pt} , \hspace{10pt}
+    R^a S^b R^{a'} S^{b'} = R^{a + a' - 2 b a'} S^{b + b'}
+\end{align*}
+
+\paragraph{Eindimensionale Darstellung $V = \C \backslash \geschwungeneklammer{0}$:}
+\begin{enumerate}[]
+    \item \underline{$n$ ungerade}: 2 (irreduzible) 1-dim Darstellungen: $\rho_{\pm}$
+    \item \underline{$n$ gerade}: 4 1-dim Darstellungen: $\rho_{\pm \pm}$
+\end{enumerate}
+
+\paragraph{Irreduzible 2-dim Darstellung $V = \C^2$:}
+Sei $v \in V$ ein EV von $\overline{R} \in \GL(2,\C)$ zum EW $\epsilon$,
+$\overline{R} v = \epsilon v$. Dann gilt: $\overline{S} \overline{R} v
+= \epsilon \overline{S} v = \overline{R}^{-1} \overline{S} v \Leftrightarrow
+\overline{R} \overline{S} v = \frac{1}{\epsilon} \overline{S} v$. D.h.
+$\overline{S} v$ ist ein EV von $\overline{R}$ zum EW $\frac{1}{\epsilon}$.
+$v,\overline{S}v$ sind linear unabhängig also eine Basis von $\C^2$. Bezüglich
+dieser Basis gilt dann:
+\begin{align*}
+    \overline{R} = \begin{pmatrix}
+        \epsilon & 0 \\ 0 & \frac{1}{\epsilon}
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \overline{S} = \begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix}
+\end{align*}
+Weiter gilt $\epsilon = e^{\frac{2 \pi i}{n} j} \ , \ j \in \Z$.
+Mit diesen $\epsilon$ können wir Darstellungen $\rho_j$ definieren.
+Wir beschränken uns auf die Werte $j=1,2,\dots,\floor{\frac{n-1}{2}}$.
+
+Für die Charaktere der Darstellungen gilt:
+\begin{align*}
+    \chi_j (R^a) = \epsilon_j^a + \epsilon_j^{-a} = 2 \cos \klammer{\frac{2 \pi j}{n} a}
+    \hspace{10pt} , \hspace{10pt}
+    \chi_j (R^a S) = 0
+\end{align*}
+Nebenrechnung: $\lambda$ $n$-te Einheitswurzel:
+\begin{align*}
+    \sum_{a=0}^{n-1} \lambda^a = \begin{cases}
+        0 \hspace{10pt} \lambda \neq 1
+        \\
+        n \hspace{10pt} \lambda = 1
+    \end{cases}
+\end{align*}
+
+Es gilt: $\klammer{\chi_i , \chi_j} = \delta_{ij}$. Somit sind die
+$\rho_i$ irreduzibel und $\rho_i , \rho_j$ sind äquivalent für $i \neq j$
+($i,j \in \geschwungeneklammer{1,\dots,\floor{\frac{n-1}{2}}}$).
+
+Die gefundene Liste von irreduziblen Darstellungen ist vollständig.
+
+\subsection{Kompakte Gruppen}
+Die "Mittelung" für die Darstellungstheorie endlicher Gruppen
+$\frac{1}{\abs{G}} \sum_{g \in G} f(g)$ lässt sich für kompakte Gruppen
+verallgemeinern zu:
+\begin{align*}
+    \int_G f(g) dg
+\end{align*}
+und wird Haar Mass genannt. Es hat folgende Eigenschaften:
+\begin{align*}
+    \int_G 1 \ dg = 1
+    \hspace{10pt} , \hspace{10pt}
+    \int_G f(g h) \ dg = \int_G f(g) \ dg \ \forall h \in G
+\end{align*}
+Es gilt Orthogonalität für Matrixelemente und Charaktere bzgl.
+\begin{align*}
+    (f_1,f_2) = \int_G \overline{f_1(g)} f_2(g) \ dg
+\end{align*}

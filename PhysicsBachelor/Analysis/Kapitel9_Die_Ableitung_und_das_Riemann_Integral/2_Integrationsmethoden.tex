@@ -1,0 +1,120 @@
+\subsection{Integrationsmethoden}
+
+\vspace{1\baselineskip}
+
+Wir legen für dieses Kapitel ein nichtleeres Intervall $I \subseteq \R$ fest, das nicht nur aus
+einem isolierten Punkt besteht. Falls nicht ausdrücklich anders erwähnt, so sind alle
+Funktionen in diesem Kapitel reellwertige Funktionen mit Definitionsbereich $I$, die auf jedem
+kompakten Intervall $[a,b] \subseteq I$ integrierbar sind. Alle Resultate gelten analog für
+komplexwertige Funktionen.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $I \subseteq \R$ ein Intervall und $f: I \rightarrow \R$ eine Funktion.
+    Dann nennen wir folgendes Integral das \fat{unbestimmte Integral} mit
+    \fat{Integrationskonstante} $C$.
+    \begin{align*}
+        \int f(x) dx = F(x) + C
+    \end{align*}    
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Seien $f$ und $g$ Funktionen, $a$ und $b$ reelle Zahlen. Aus der Linearität der Ableitung folgt
+    \begin{align*}
+        \int a f(x) + b g(x) \ dx = a \int f(x) dx \ + \ b \int g(x) dx \ + C
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Partielle Integration)
+
+    Seien $f$ und $g$ Funktionen mit Stammfunktion $F$, bzw $G$. Als \fat{partielle Integration}
+    bezeichnet man die folgende Identität
+    \begin{align*}
+        \int F(x) g(x) dx = F(x) G(x) - \int f(x) G(x) dx \ + C
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Substitutionsmethode)
+
+    Sei $J \subseteq \R$ ein weiteres Intervall und sei $f: I \rightarrow J$ eine differenzierbare
+    Funktion. Ist $G: J \rightarrow \R$ differenzierbar mit Ableitung $g = G'$, so gilt nach
+    der Kettenregel $G(f(x))' = g(f(x))f'(x)$ für alle $x \in I$. Daraus folgt
+    \begin{align*}
+        \int (g \circ f) (x) f'(x) dx = G(f(x)) + C
+    \end{align*}
+    Die Funktion $G$ ist eine Stammfunktion von $g$, es gilt also $G(u) = \int g(u) du$.
+    Als \fat{Substitutionsregel} bezeichnen wir die Identität
+    \begin{align*}
+        \int (g \circ f) (x) f'(x) dx = g(u) du + C
+    \end{align*}
+    wobei $u = f(x)$. Die Substitutionsregel wird auch \fat{Variablenwechsel} genannt, da man
+    sozusagen die Variable $u$ in $\int g(u) du$ durch $u=f(x)$ ersetzt hat.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Einige wichtige Integrationen \fat{rationaler Funktionen}. Sei dazu $a \in \R$ und $a \neq I$
+    und sei $n \geq 2 \in \N$. Dann gilt:
+    \begin{align*}
+        \int \frac{1}{x-a} dx &= \log \abs{x-a} + C
+        \\
+        \int \frac{1}{(x-a)^n} dx &= \frac{(x-a)^{1-n}}{1-n} +C
+        \\
+        \int \frac{1}{a^2 + x^2} dx &= \frac{\arctan \klammer{\frac{x}{a}}}{a} + C
+        \\
+        \int \frac{x}{a^2 + x^2} dx &= \frac{\log(a^2 + x^2)}{2} + C
+        \\
+        \int \frac{x}{(a^2 + x^2)^n} dx &= \frac{(a^2 + x^2)^{1-n}}{2 (1-n)} + C 
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $I \subseteq \R$ ein nichtleeres Intervall, und $f: I \rightarrow \R$ eine lokal integrierbare
+    Funktion. Setze $a = \inf (I)$ und $b = \sup (I)$ und wähle $x_0 \in I$. Wir definieren das
+    \fat{uneigentliche Integral} als die Summe von Grenzwerten
+    \begin{align*}
+        \intab f(x) dx = \limes{x \rightarrow a} \int_x^{x_0} f(t) dt + \limes{x \rightarrow b} \int_{x_0}^x f(t) dt
+    \end{align*}
+    falls beide dieser Grenzwerte existieren. In dem Fall sagen wir auch, dass das uneigentliche
+    Integral \fat{konvergiert}. Ansonsten nennen wir das uneigentliche Integral \fat{divergent}.
+    Wir benutzen die üblichen Konventionen für die Symbole $- \infty$ und $+ \infty$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $a \in \R$ und $f: [a,\infty) \rightarrow \R_{\geq 0}$ eine nicht-negative, lokal
+    integrierbare Funktion. Dann gilt
+    \begin{align*}
+        \int_a^{\infty} f(x) dx = \sup \geschwungeneklammer{\intab f(x) dx \ | \ b>a}
+    \end{align*} 
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Integralsatz für Reihen)
+
+    Sei $f: [0, \infty) \rightarrow \R_{\geq 0}$ eine monoton fallende Funktion. Dann gilt
+    \begin{align*}
+        \sum_{n=1}^{\infty} f(n) \geq \int_0^{\infty} f(x) dx \geq \sum_{n=0}^{\infty} f(n)
+    \end{align*}
+    Insbesondere gilt die folgende Äquivalenz
+    \begin{align*}
+        \sum_{n=0}^{\infty} f(n) \text{   konvergiert} \Longleftrightarrow \int_0^{\infty} f(x) dx \text{   konvergiert}
+    \end{align*}
+}

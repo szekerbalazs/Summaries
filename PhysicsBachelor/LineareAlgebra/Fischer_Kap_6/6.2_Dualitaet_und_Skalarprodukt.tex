@@ -1,0 +1,184 @@
+\section{Dualität und Skalarprodukte}
+\renewcommand{\phi}{\varphi}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Abbildung $\phi: V_1 \times V_k \rightarrow W$ heisst \fat{multilinear}
+    (oder \fat{$k$-linear}), wenn sie linear in jedem Argument ist, also
+
+    $\phi(v_1,\dots,v_i' + \lambda v_i'',\dots,v_n) = \phi(v_1,\dots,v_i,\dots,v_n) +
+    \lambda \phi(v_1,\dots,v_i'',\dots,v_n)$
+
+    Im Fall $k=2$ heisst $\phi$ bilinear. Für ein bilineare $b: V \rightarrow W \rightarrow K$
+    haben wir lineare Abbildungen $b_v : W \rightarrow K$ mit $w \mapsto b(v,w)$ für ein fixes
+    $v \in V$ und $b_w : V \rightarrow K$ mit $v \mapsto b(v,w)$ für ein fixes $w \in W$.
+
+    Die Abbildungen $v \mapsto b_v$ und $w \mapsto b_w$ sind ihrerseits linear, sodass man
+    lineare Abbildungen erhält:
+
+    $b': V \rightarrow W^{*}$ mit $v \mapsto b_v \in W^{*}$
+
+    $b'': W \rightarrow V^{*}$ mit $w \mapsto b_w \in V^{*}$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sind $V$ und $W$ endlichdimensional und ist $b: V \times W \rightarrow K$ eine
+    nicht ausgeartete Bilinearform, so sind die folgenden Abbildungen
+    Isomorphismen.
+
+    $b': V \rightarrow W^{*}$ und $b'': W \rightarrow V^{*}$
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    In einem euklidischen VR $V$ ist die Abbildung $\Psi: V \rightarrow V^{*}$ mit
+    $v \mapsto \scalprod{v}{ \ }$ ein kanonischer Isomorphismus.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $V$ ein euklidischer VR und $\Psi: V \rightarrow V^{*}$ der kanonische
+    Isomorphismus. Dann gilt:
+    \begin{enumerate}[{1)}]
+        \item Für jeden UVR $U \subset V$ ist $\Psi (U^{\perp}) = U^0$ mit $U^{\perp} \subset V$
+        \item Ist $\B=(v_1,\dots,v_n)$ eine Orthonormalbasis von $V$ und
+                $\B^{*}=(v_1^{*},\dots,v_n^{*})$ die duale Basis, so ist $\Psi(v_i) = v_i^{*}$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{}{
+
+    Seien $V$ und $W$ euklidische VR, und sei $F:V \rightarrow W$ eine lineare Abbildung.
+    Dazu konstruiren wir eine lineare Abbildung $F^{\text{ad}}:W \rightarrow V$ mit
+    $\scalprod{F(v)}{w} = \scalprod{v}{F(w)} \ \forall v \in V$ und $\forall w \in W$.
+    Sind $\Phi$ und $\Psi$ die kanonischen Isomorphismen, so ist dies äquivalent dazu, dass
+    folgendes Diagramm kommutiert.
+    \begin{center}
+        \begin{tikzcd}
+            V \arrow{d}[swap]{\Phi} & W \arrow{l}[swap]{F^{\text{ad}}} \arrow{d}{\Psi} \\
+            V^{*} & W^{*} \arrow{l}{F^{*}}
+        \end{tikzcd}
+    \end{center}
+    dh. $F^{\text{ad}} = \Phi^{-1} \circ F^{*} \circ \Psi$. Es gilt nämlich:
+
+    $\Psi (w) = \scalprod{ \ }{w}$ \ also \ $F^{*} (\Psi (w)) = \scalprod{F( \ )}{w}$ \ und
+
+    $F^{*} (\Psi (w)) = \Psi (F^{\text{ad}} (w)) = \scalprod{ \ }{F^{\text{ad}} (w)}$
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sind $V$ und $W$ euklidische VR mit Orthonormalbasen $\mathcal{A}$ und $\B$, so gilt
+    für jede lineare Abbildung $F: V \rightarrow W$: $M_{\mathcal{A}}^{\B} (F^{\text{ad}})=
+    \klammer{M_{\mathcal{A}}^{\B} (F)}^T $
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Ist $F: V \rightarrow W$ eine lineare Abbildung zwischen euklidischen Vektorräumen,
+    so gilt $\Im F^{\text{ad}} = (\ker F)^{\perp}$ und $\ker F^{\text{ad}} = (\Im F)^{\perp}$.
+    Insbesondere hat man im Fall $V = W$ orthogonale Zerlegungen $V = \ker F \obot \Im F^{\text{ad}}
+    = \ker F^{\ad} \obot \Im F$. Ist überdies $F$ selbstadjungiert, dh. $F = F^{\ad}$, so gilt:
+    $V = \ker F \obot \Im F$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein $\C$-VR. Sei eine sesquilineare Abbildung $s: V \times V \rightarrow \C$
+    gegeben. So erhält man wegen der Linearität im ersten Argument eine Abbildung
+    $s'': V \rightarrow V^{*}$ mit $v \mapsto \scalprod{ \ }{v}$. Ist $V$ ein unitärer VR und
+    $F \in \End (V)$, so ist die adjungierte Abbildung $F^{\ad} := \Psi^{-1} \circ F^{*}
+    \circ \Psi$ wieder $\C$-linear.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $F$ ein Endomorphismus eines unitären VR $V$. Der dazu adjungierte Endomorphismus
+    $F^{\ad}$ hat folgende Eigenschaften:
+    \begin{enumerate}[{1)}]
+        \item $\scalprod{F(v)}{w} = \scalprod{v}{F^{ad} (w)} \ \forall v,w \in V$
+        \item $\Im F^{\ad} = (\ker F)^{\perp}$ und $\ker F^{\ad} = (\Im F)^{\perp}$
+        \item Ist $\B$ eine Orthonormalbasis von $V$, so gilt $M_{\B} (F^{\ad}) =
+                \klammer{M_{\B} (F)}^{\dagger} = \overline{((M_{\B} (F))^T)}$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sowohl im reellen als auch im komplexen Fall gilt $(F^{\ad})^{\ad} = F$.
+    Insbesondere gilt auch $\scalprod{v}{F(w)} = \scalprod{F^{\ad} (v)}{w} \ \forall v,w$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein Endomorphismus $F$ eines unitären VR $V$ heisst \fat{normal}, wenn
+    $F \circ F^{\ad} = F^{\ad} \circ F$. Entsprechend heisst eine Matrix $A \in M(n \times n; \C)$
+    \fat{normal}, wenn $A \cdot A^{\dagger} = A^{\dagger} \cdot A$
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Jedes unitäre $F$ ist normal und jedes selbstadjungierte $F$ ist normal.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Ist $V$ unitär und $F \in \End (V)$ normal, so gilt
+    $\ker F^{\ad} = \ker F$ und $\Im F^{\ad} = \Im F$.
+    Insbesondere hat man eine orthogonale Zerlegung $V = \ker F \obot \Im F$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Ist $F$ normal, so ist
+    $\Eig (F;\lambda) = \Eig (F^{\ad} ; \overline{\lambda}) \ \forall \lambda \in \C$.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{ \fat{(Spektralsatz)}
+
+    Für einen Endomorphismus $F$ eines unitären $\C$-VR $V$ sind folgende Bedingungen
+    äquivalent:
+    \begin{enumerate}[{i)}]
+        \item Es gibt eine Orthonormalbasis von $V$ bestehend aus Eigenvektoren von $F$.
+        \item $F$ ist normal.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Ein $A \in M(n \times n ; \C)$ ist genau dann normal, wenn es ein $S \in U(n)$ gibt, so
+    dass $S A S^{-1}$ eine Diagonalmatrix ist.
+}

@@ -1,0 +1,146 @@
+In diesem Kapitel werden Körper thematisiert. Es wird vorausgesetzt,
+dass der Leser, bzw Leserin, mit diesem Begriff vertraut ist.
+Falls dies nicht der Fall ist, verweise ich auf die 
+Unterlagen der Linearen Algebra \uproman{1} und \uproman{2}. 
+Insbesondere möchte ich auf die Zusammenfassung 
+\textit{Linearen Algebra \uproman{1} und \uproman{2}}
+von Paul Sander verweisen.
+
+Weitere Begriffe die bekannt sein sollten, sind \textit{ganze Zahlen}
+und \textit{rationale Zahlen}.
+
+
+\subsection{Die Axiome der reellen Zahlen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $K$ ein Körper, und sei $\leq$ eine Ordnungsrelation auf 
+    der Menge $K$. Wir nennen $(K,\leq)$, oder kurz $K$, einen
+    \fat{angeordneten Körper} falls die folgenden Bedingungen
+    erfüllt sind.
+
+    \vspace{1\baselineskip}
+
+    1. Linearität der Ordnung: Für alle $x,y, \in K$ gilt $x \leq y$ oder $y \leq x$.
+
+    2. Kompatibilität von Ordnung und Addition: Für alle $x,y,z \in K$ gilt 
+    \begin{align*}
+        x \leq y \Rightarrow x + y \leq y + z
+    \end{align*}
+    3. Kompatibilität von Ordnung und Multiplikation: Für alle $x,y \in K$ gilt
+    \begin{align*}
+        (x \geq 0) \land (y \geq 0) \Rightarrow x \cdot y \geq 0
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Im Folgenden sei $(K,\leq)$ ein angeordneter Körper, und 
+    $x,y,z,w$ bezeichnen Elemente aus $K$.
+
+    \vspace{1\baselineskip}
+
+    (a) (Trichotomie) Es gilt entweder $x < y$ oder $x = y$ oder
+    $x > y$.
+    
+    (b) Falls $x < y$ und $y \leq z$ ist, dann gilt auch $x < z$.
+
+    (c) (Addition von Ungleichungen) Gilt $x \leq y$ und $z \leq w$,
+    dann gilt auch $x + z \leq y + w$. 
+
+    (d) Es gilt $x \leq y$ genau dann, wenn $0 \leq y - x$ gilt.
+
+    (e) Es gilt $x \leq 0 \Leftrightarrow 0 \leq -x$.
+    
+    (f) Es gilt $x^2 \geq 0$, und $x > 0$, falls $x \neq 0$.
+
+    (g) Es gilt $0 < 1$.
+
+    (h) Falls $0 \leq x$ und $y \leq z$, dann gilt $xy \leq xz$.
+
+    (i) Falls $x \leq 0$ und $y \leq z$, dann gilt $xy \geq xz$.
+
+    (j) Aus $0 < x \leq y$ folgt $0 < y^{-1} \leq x^{-1}$.
+
+    (k) Aus $0 \leq x \leq y$ und $0 \leq z \leq w$ folgt $0 \leq xz \leq yw$.
+
+    (l) Aus $x+y \leq x + z$ folgt $y \leq z$.
+
+    (m) Aus $xy \leq xz$ und $x > 0$ folgt $y \leq z$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(k,\leq)$ ein geordneter Körper. Der \fat{Absolutbetrag}
+    auf $K$ ist die Funktion $\abs{ \hspace*{2pt} . \hspace*{2pt}}:K \rightarrow K$ die durch
+    \begin{align*}
+        \abs{x} = \begin{cases}
+            x \quad \text{ falls } x \geq 0 
+            \\
+            -x \quad \text{ falls } x < 0
+        \end{cases}
+    \end{align*}
+    für alle $x \in K$ definiert ist. Das \fat{Signum} ist die Funktion
+    sgn: $K \rightarrow \geschwungeneklammer{-1,0,1}$ die durch
+    \begin{align*}
+        \text{sgn}(x) = \begin{cases}
+            -1 \quad \text{ falls } x < 0 \\
+            0 \quad \text{ falls } x = 0 \\
+            1 \quad \text{ falls } x > 0
+        \end{cases}
+    \end{align*}
+    für alle $x \in K$ definiert ist.
+}
+
+\pagebreak
+
+\Bemerkung{
+
+    Im Skript (Seite 46) gibt es Punkte \textit{(a)} bis \textit{(h)}. Hier werden nur
+    \textit{(g)} und \textit{(h)} erwähnt.
+
+    \vspace{1\baselineskip}
+
+    (g) \fat{Dreiecksungleichung}: Es gilt $\abs{x + y} \leq \abs{x} + \abs{y}$.
+
+    (h) Umgekehrte Dreiecksungleichung: Es gilt $\abs{y} - \abs{x} \leq \abs{x - y}$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+    (Vollständigkeitsaxiom)
+
+    Sei \angeordneterK ein angeordneter Körper. Wir sagen \angeordneterK
+    sei \fat{vollständig} oder \fat{vollständig angeordneter Körper} falls
+    Aussage (\uproman{5}) wahr ist.
+
+    \vspace{1\baselineskip}
+
+    (\uproman{5}) 
+    \indent 
+    Seien $X,Y$ nicht-leere Teilmengen von $K$ derart, dass
+    für alle \xinX und \yinY die Ungleichung $x \leq y$ gilt,
+    dann \hspace*{7mm}gibt es ein
+    $c \in K$, das zwischen $X$ und $Y$ liegt, in dem Sinn, dass für alle
+    \xinX und \yinY die 
+    Ungleichung \hspace*{7mm}$x \leq c \leq y$ gilt.
+
+    \vspace{1\baselineskip}
+
+    Die Aussage (\uproman{5}) bezeichnen wir als \fat{Vollständigkeitsaxiom}.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir nennen \fat{Körper der reellen Zahlen} jeden vollständigen
+    angeordneten Körper. Solge Körper notieren wir mit dem Symbol $\R$.
+}

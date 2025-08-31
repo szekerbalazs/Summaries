@@ -1,0 +1,211 @@
+\section{Recap Lineare Algebra \uproman{1}}
+
+\Definition{ (\fat{Gruppen})
+
+    Ein Tupel $(G,*,e)$ ist eine Gruppe falls folgendes erfüllt ist:
+    \begin{enumerate}[{\fat{G1)}}]
+        \item Assiziativität: $(a*b)*c = a*(b*c)$
+        \item Neutrales Element: $\exists e \in G$ mit
+                \begin{enumerate}[{a)}]
+                    \item $e*a = a \ \forall a \in G$
+                    \item $\forall a \in G \ \exists a' \in G$ mit $a*a' = e$
+                \end{enumerate}
+    \end{enumerate}
+    Eine Gruppe heisst \fat{abelsch}, wenn $a*b = b*a \ \forall a,b \in G$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Gruppenhomomorphismus})
+
+    Seien $(G,\circ_G,e_G)$ und $(H,\circ_H,e_H)$ zwei Gruppen. Eine Abbildung $\varphi:
+    G \rightarrow H$ heisst \fat{Gruppenhomomorphismus} wenn $\forall a,b \in G$
+    folgendes gilt:
+    \begin{align*}
+        \varphi(a \circ_G b) = \varphi(a) \circ_H \varphi(b)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Ring})
+
+    Ein \fat{Ring} ist ein Tupel $(R,+,\cdot,0)$ bestehend aus einer Menge $R$, zwei
+    Verknüpfungen $+$ und $\cdot$ und ein neutrales Element $0 \in R$ sodass:
+    \begin{enumerate}[{\fat{R1)}}]
+        \item $(R,+,0)$ ist eine abelsche Gruppe
+        \item die Multiplikation ist assoziativ
+        \item Distributivgesetz: $a \cdot (b+c) = ab + ac$ und $(a+b) \cdot c = ac + bc$.
+    \end{enumerate}
+    Ein Ring heisst \fat{kommutativ}, wenn $a \cdot b = b \cdot a \ \forall a,b \in R$.
+    Ein Element $1 \in R$ heisst \fat{Einselement}, wenn $1 \cdot a = a \cdot 1 = a
+    \forall a \in R$. 
+    Ein Element $0 \in R$ heisst \fat{Nullelement}, wenn $0 \cdot a = a \cdot 0 = 0
+    \forall a \in R$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein Ring heisst \fat{Nullteilerfrei}, wenn $\forall a,b \in R$ gilt:
+    $a \cdot b \Rightarrow a = 0$ oder $b=0$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Körper})
+
+    Ein \fat{Körper} ist ein Tupel $(K,+,\cdot,0,1)$ mit
+    \begin{enumerate}[\fat{{K1)}}]
+        \item $(K,+,0)$ ist eine abelsche Gruppe
+        \item $(K \backslash \geschwungeneklammer{0} , \cdot ,1)$ ist eine abelsche Gruppe
+        \item Distributivgesetz: $a \cdot (b+c) = ab + ac$ und $(a+b) \cdot c = ac + bc$.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Vektorraum})
+
+    Sei $K$ ein Körper. Eine Menge $V$ zusammen mit einer inneren Verknüpfung
+    $+$ und einer äusseren Verknüpfung $\cdot$ heisst \fat{$K$-Vektorraum} wenn:
+    \begin{enumerate}[{\fat{V1)}}]
+        \item $(V,+,0_V)$ eine abelsche Gruppe bildet mit $0$ als neutralem Element
+        \item Skalare Multiplikation erfüllt $\forall \lambda \in K \ \forall v,w \in V$:
+                \begin{align*}
+                    &(\lambda+\mu) v = \lambda v + \mu v
+                    \quad \quad 
+                    \lambda(\mu v) = (\lambda \mu) v
+                    \\
+                    &\lambda(v+w) = \lambda v + \lambda w
+                    \quad \quad
+                    1 \cdot v = v
+                \end{align*}
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Lineare Abbildungen})
+
+    Eine Abbildung $F: V \rightarrow W$ zwischen $K$-Vektorräumen $V,W$ heisst
+    \fat{$K$-linear}, wenn $\forall v,w \in V$ und $\lambda \in K$ gilt:
+    \begin{enumerate}[{\fat{L1)}}]
+        \item $F(v+w) = F(v) + F(w)$
+        \item $F(\lambda v) = \lambda F(v)$ 
+    \end{enumerate}
+}
+
+\Bemerkung{
+
+    Wir nennen $F$ einen
+    \begin{itemize}
+        \item \fat{Isomorphismus}, wenn $F$ bijektiv ist
+        \item \fat{Endomorphismus}, wenn $V = W$
+        \item \fat{Automorphismus}, wenn $V=W$ und $F$ bijektiv
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+    \begin{enumerate}[{a)}]
+        \item Sind $(v_i)_{i \in I}$ linear abhängig, so sind auch $(F(v_i))_{i \in I}$ linear abhängig.
+        \item Ist $F$ ein Isomorphismus, so ist auch $F^{-1}:W \rightarrow V$ linear.
+    \end{enumerate}
+}
+
+\Definition{
+
+    $\Hom_K (V,W) := \geschwungeneklammer{F:V \rightarrow W \ | \ F \text{ ist $K$-linear}}$
+    
+    \vspace{1\baselineskip}
+
+    $\text{End}(V) := \Hom(V,V)$
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $F: V \rightarrow W$ linear, so gilt:
+    \begin{enumerate}[{a)}]
+        \item $F$ surjektiv $\Leftrightarrow$ Im$(F) = W$
+        \item $F$ injektiv $\Leftrightarrow$ Ker$(F) = \geschwungeneklammer{0}$
+        \item $F$ injektiv und $v_1 , \dots , v_n \in V$ linear unabhängig, so sind auch
+                die Bilder $F(v_1) , \dots , F(v_n)$ linear unabhängig.
+    \end{enumerate}
+}
+
+\Definition{
+
+    Eine Teilmenge $X$ eines $K$-Vektorraumes $V$ heisst \fat{affiner Unterraum},
+    falls es ein $v \in V$ und einen Untervektorraum $W \subset V$ gibt, sodass
+    $X=v+W := \geschwungeneklammer{v+w \ | \ w \in W} = \geschwungeneklammer{
+    u \in V \ | \ \exists w \in W \text{ mit } u=v+w}$
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zwischen zwei endlich dimensionalen Vektorräumen gibt es genau dann einen
+    Isomorphismus, wenn $\dim (V) = \dim (W)$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (\fat{Fakrorisierungssatz})
+
+    Sei $F: V \rightarrow W$ linear und $A = (u_1,\dots,u_r,v_1,\dots,v_k)$ eine Basis
+    von $V$ mit $\ker (F) = \text{span} (v_1,\dots,v_k)$. Definieren wir
+    $U=\text{span} (u_1,\dots,u_r)$ so gilt:
+    \begin{enumerate}[{1)}]
+        \item $V=U \oplus \ker F$
+        \item Die Einschränkung $F |_U : U \rightarrow \text{Im} F$ ist ein Isomorphismus
+        \item Bezeichnet $P: V = U \oplus \ker F \rightarrow U$, $v = u + v' \mapsto u$,
+                die Projektion auf den ersten Summanden, so ist $F=(F |_U) \circ P$.
+                In Form eines Diagrammes hat man                    
+    \end{enumerate} 
+}
+\begin{center}
+    \begin{tikzcd}
+        V \arrow{d}[swap]{P} \arrow{rd}{F} & \\
+        U \arrow{r}[swap]{F |_U} & Im F \subset W
+    \end{tikzcd}
+\end{center}
+Insbesondere hat jede nichtleere Faser $F^{-1} (w)$ mit $U$ genau einen
+Schnittpunkt, und es ist $P(v) = F^{-1} (F(v)) \cap U$.
+Man kann also $F: V \rightarrow W$ zerlegen (fakrorisieren) in drei
+Anteile: Parallelprojektion, Isomorphismus und Inklusion des Bildes.
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $V$ ein $K$-VR und $U \subset V$ ein UVR. Daann kann man die Menge
+    $V/U$ auf genau eine Weise so zu einem $K$-Vektorraum machen, dass die
+    kanonische Abbildung $\varrho: V \rightarrow V/U$ gegeben durch
+    $v \mapsto v + U$ linear wird. Weiter gilt:
+    \begin{enumerate}[{1)}]
+        \item $\varrho$ ist surjektiv
+        \item $\ker \varrho = U$
+        \item $\dim V/U = \dim V - \dim U$ falls $\dim V < \infty$
+        \item Der Quotientenvekrorraum $V/U$ hat folgende universelle
+                Eigenschaft: Ist $F:V \rightarrow W$ eine lineare Abbildung
+                mit $U \subseteq \ker F$, so gibt es genau eine lineare
+                Abbildung $\overline{F}: V/U \rightarrow W$ mit
+                $F = \overline{F} \circ \varrho$. Das kann man in Form eines kommutativen
+                Diagrammes schreiben
+    \end{enumerate}
+}
+\begin{center}
+    \begin{tikzcd}
+        V \arrow{r}{F} \arrow{d}[swap]{\varrho} & W \\
+        V/U \arrow{ru}[swap]{\overline{F}} & 
+    \end{tikzcd}
+\end{center}
+Man nennt $V/U$ den \fat{Quotientenvekrorraum} von $V$ nach $U$.
+Diese Bezeichnung entspricht der Vorstellung, dass man $U$ aus $V$
+"herausdividiert", weil $U$ in $V/U$ zur Null wird.

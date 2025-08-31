@@ -1,0 +1,346 @@
+\section{Boundary condition problems in electrostatics}
+
+\subsection{Dirichlet and Neumann boundary conditions}
+
+If we know the potential on the boundary: Dirichlet B.C
+
+If we know $\vec{E} = - \vec{\nabla} \phi$ on the boundary: Neumann B.C.
+
+\subsection{Green's functions}
+
+\begin{align*}
+    \vec{\nabla}_{\vec{x}}^2 G(\vec{x},\vec{y}) = -4 \pi \delta(\vec{x} - \vec{y})
+    \hspace{10pt} , \hspace{10pt}
+    G(\vec{x},\vec{y}) = \frac{1}{\abs{\vec{x} - \vec{y}}} + F(\vec{x},\vec{y})
+\end{align*}
+such that $\vec{\nabla}_{\vec{x}}^2 F(\vec{x},\vec{y}) = 0$
+\begin{align*}
+    \Phi(\vec{y})
+    = &\frac{1}{4 \pi \epsilonnull} \int_V d^3 \vec{x} \ G(\vec{x},\vec{y}) \rho(\vec{x})
+        \\
+        &- \frac{1}{4 \pi} \int_{S(V)} d \vec{S} \cdot
+        \eckigeklammer{\Phi(\vec{x}) \vec{\nabla}_{\vec{x}} G(\vec{x},\vec{y})
+        - G(\vec{x},\vec{y}) \vec{\nabla} \Phi(\vec{x})}
+\end{align*}
+
+\subsubsection{Dirichlet boundary conditions}
+We search for a Green's function $G_D (\vec{x},\vec{y})$ which vanishes on
+the surface $S(V)$. Then we have:
+\begin{align*}
+    \Phi(\vec{y}) = \frac{1}{4 \pi \epsilonnull} \int_V d^3 \vec{x} \
+        G_D (\vec{x},\vec{y}) \rho(\vec{x})
+        - \frac{1}{4 \pi} \int_{S(V)} d \vec{S} \cdot \Phi(\vec{x})
+        \vec{\nabla}_{\vec{x}} G_D (\vec{x},\vec{y})
+\end{align*}
+
+\subsubsection{Neumann boundary conditions}
+\begin{align*}
+    \Phi(\vec{y}) =
+    &\frac{1}{4 \pi \epsilonnull} \int_V d^3 \vec{x} \ G_N (\vec{x},\vec{y}) \rho(\vec{x})
+    \\
+    &+ \frac{1}{4 \pi} \int_{S(V)} d \vec{S} \cdot G_N (\vec{x},\vec{y}) \vec{\nabla}_{\vec{x}} \Phi(\vec{x})
+    + \langle \Phi \rangle_{S(V)}
+\end{align*}
+With $\langle \Phi \rangle_{S(V)} = \frac{\int_S(V) d \vec{S} \cdot \Phi \hat{n}}{S}$
+an unimportant physical constant.
+
+\subsection{Explicit solutions}
+
+\subsubsection{Conductor filling half of space}
+
+Left side: free space, right side: conductor. Let $x_1$ point to the right,
+$x_2$ to the top and $x_3$ out of the plane. $\forall \vec{y} = (y_1,y_2,y_3)
+\in$ LHS, we define $\vec{y}^\ast = (-y_1,y_2,y_3) \in$ RHS and
+\begin{align*}
+    F(\vec{x},\vec{y}) = - \frac{1}{\vec{x} - \vec{y}}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    G(\vec{x},\vec{y}) = \frac{1}{\abs{\vec{x} - \vec{y}}} -
+        \frac{1}{\abs{\vec{x} - \vec{y}^\ast}}
+\end{align*}
+This $G$ fulfills $G = 0$ on the boundary ($y_1 = 0$) and $\vec{\nabla}^2 F
+= 4 \pi \delta(\vec{x} - \vec{y}^\ast) = 0$ because $\vec{x}$ and $\vec{y}$
+are in different half planes. Since $\abs{\vec{x} - \vec{y}^\ast} =
+\abs{\vec{y} - \vec{x}^\ast}$ we obtain:
+\begin{align*}
+    \Phi(\vec{y}) = &\frac{1}{4 \pi \epsilonnull} \int_{\text{free-space}} d^3 \vec{x} \ \eckigeklammer{\frac{\rho(\vec{x})}{\abs{\vec{x} - \vec{y}}} + \frac{-\rho(\vec{x})}{\abs{\vec{x} - \vec{y}^\ast}} }
+        \\
+        &- \frac{1}{4 \pi} \int_S d \vec{S} \cdot \Phi(\vec{x}) \vec{\nabla} \eckigeklammer{\frac{1}{\abs{\vec{x} - \vec{y}}} - \frac{1}{\abs{\vec{x} - \vec{y}^\ast}}}
+        \\
+        = &\frac{1}{4 \pi \epsilonnull} \int_{\text{free-space}} d^3 \vec{x} \ \eckigeklammer{\frac{\rho(\vec{x})}{\abs{\vec{x} - \vec{y}}} + \frac{-\rho(\vec{x})}{\abs{\vec{x}^\ast - \vec{y}}}}
+        \\
+        &- \frac{1}{4 \pi} \int_S d \vec{S} \cdot \Phi(\vec{x}) \vec{\nabla} \eckigeklammer{\frac{1}{\abs{\vec{x} - \vec{y}}} - \frac{1}{\abs{\vec{x}^\ast - \vec{y}}}}
+        \\
+        = &V + \frac{1}{4 \pi \epsilonnull} \int_{\text{free-space}} d^3 \vec{x} \ \eckigeklammer{\frac{\rho(\vec{x})}{\abs{\vec{x} - \vec{y}}} + \frac{-\rho(\vec{x})}{\abs{\vec{x}^\ast - \vec{y}}}}
+\end{align*}
+where we used that the potential $\Phi(\vec{x})$ is constant on the surface
+$S$ and takes a value of $V$. In case of discrete charges:
+\begin{align*}
+    \rho(\vec{x}) = \sum_i q_i \delta(\vec{x} - \vec{x}_i)
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \Phi(\vec{y}) = \frac{1}{4 \pi \epsilonnull} \sum_i \frac{q_i}{\abs{\vec{y} - \vec{x}}} + \frac{-q_i}{\abs{\vec{y} - \vec{x}_i^\ast}}
+\end{align*}
+
+\subsubsection{Method of images}
+
+Consider a sphere of radius $R$ around the origin. Place a charge $+q$ at
+a position $\vec{d}$ and a charge of opposite charge $-\frac{R}{d} q$ at
+a position $\frac{R^2}{d^2} \vec{d}$. Contribution of these two charges
+to the scalar potential at a position $\vec{r}$:
+\begin{align*}
+    \Phi(\vec{r}) = \frac{q}{4 \pi \epsilonnull}
+        \eckigeklammer{\frac{1}{\abs{\vec{r} - \vec{d}}}
+        - \frac{\frac{R}{d}}{\abs{\vec{r} - \frac{R^2}{d^2} \vec{d}}}}
+    \hspace{10pt} , \hspace{10pt}
+    \Phi(\vec{R}) = 0
+\end{align*}
+On the surface of a sphere with radius $R$, the potential vanishes.
+Solution for the problem with the charge $+q$ at a distance $d$ from
+the centre of a conductor of radius $R$:
+\begin{align*}
+    \Phi(\vec{r}) = \begin{cases}
+        \frac{q}{4 \pi \epsilonnull}
+        \eckigeklammer{\frac{1}{\abs{\vec{r} - \vec{d}}}
+        - \frac{\frac{R}{d}}{\abs{\vec{r} - \frac{R^2}{d^2} \vec{d}}}}
+        \hspace{10pt} &\forall \vec{r} : r \geq R
+        \\
+        0 \hspace{10pt} &\forall \vec{r} : r < R
+    \end{cases}
+\end{align*}
+General solution:
+\begin{align*}
+    \Phi(\vec{r}) = \frac{q}{4 \pi \epsilonnull} G_D (\vec{d},\vec{r})
+    \Rightarrow
+    G_D (\vec{d},\vec{r}) = \frac{4 \pi \epsilonnull}{q} \Phi(\vec{r})
+    = \frac{1}{\abs{\vec{r} - \vec{d}}} - \frac{\frac{R}{d}}{\abs{\vec{r} - \frac{R^2}{d^2} \vec{d}}}
+\end{align*}
+
+\subsection{Green's functions from Laplacian eigenfunctions}
+
+Consider eigenfunctions $\psi_n(\vec{x})$ of the Laplace operator:
+\begin{align*}
+    \vec{\nabla}^2 \psi_n = \lambda_n \psi_n
+    \hspace{10pt} , \hspace{10pt}
+    \psi_n (\vec{x}) = 0 \ \forall \vec{x} \in S(V)
+\end{align*}
+with the condition that they vanish on the boundary. Eigenvalues are not
+degenerate and real. Orthogonality condition:
+\begin{align*}
+    \int_V d^3 \vec{x} \ \psi_m^\ast (\vec{x}) \psi_n (\vec{x}) = \delta_{nm}
+\end{align*}
+Eigenfunctions form a complete basis: Any other function $f(\vec{x})$ which
+vanishes on the boundary $S(V)$ can be written as a linear superposition
+of the Laplace eigenfunctions:
+\begin{align*}
+    f(\vec{x}) = \sum_n c_n \psi_n (\vec{x})
+    \hspace{10pt} , \hspace{10pt}
+    c_n = \int_V d^3 \vec{x} \ \psi_n^\ast (\vec{x}) f(\vec{x})
+\end{align*}
+Completeness condition:
+\begin{align*}
+    \sum_n \psi_n^\ast (\vec{x}) \psi_n (\vec{x}) = \delta (\vec{x} - \vec{y})
+\end{align*}
+Green's function:
+\begin{align*}
+    G_D (\vec{x},\vec{y}) = - 4 \pi \sum_n \frac{\psi_n^\ast (\vec{y}) \psi_n (\vec{x})}{\lambda_n}
+\end{align*}
+
+\subsubsection{Infinite Space}
+\begin{align*}
+    G_D (\vec{x},\vec{y}) = \frac{1}{\abs{\vec{x} - \vec{y}}}
+    \hspace{10pt} , \hspace{10pt}
+    \psi_{\vec{k}} (\vec{x}) = \frac{1}{(2 \pi)^{\frac{3}{2}}} e^{i \vec{k} \cdot \vec{x}}
+    \hspace{10pt} , \hspace{10pt}
+    \lambda_{\vec{k}} = - \abs{\vec{k}}^2
+\end{align*}
+\begin{align*}
+    \intii dx \ e^{ixa} = 2 \pi \delta(a)
+\end{align*}
+
+\subsubsection{Orthogonal Parallelepide}
+Consider an orthogonal parallelepide with sidelengths $a \times b \times c$.
+\begin{align*}
+    \psi_{lmn} = \sqrt{\frac{8}{abc}} \sin \klammer{\frac{l \pi x}{a}}
+        \sin \klammer{\frac{m \pi x}{b}} \sin \klammer{\frac{n \pi x}{c}}
+\end{align*}
+\begin{align*}
+    \lambda_{lmn} = - \pi^2 \klammer{\frac{l^2}{a^2} + \frac{m^2}{b^2} + \frac{n^2}{c^2}}
+\end{align*}
+\begin{align*}
+    G (\vec{x},\vec{y}) = - 4 \pi \sum_{l,m,n=1}^\infty \frac{\psi_{lmn}(\vec{x}) \psi_{lmn}(\vec{y})}{\lambda_{lmn}}
+\end{align*}
+
+\subsection{Laplace operator and spherical symmetry}
+
+Spherical Laplace operator:
+\begin{align*}
+    \vec{\nabla}^2 = \frac{1}{r} \frac{\partial^2}{\partial r^2} r + \frac{\hat{A}}{r^2}
+    \hspace{10pt} , \hspace{10pt}
+    \hat{A} = \frac{1}{\sin(\theta)} \frac{\partial}{\partial \theta} \sin(\theta) \frac{\partial}{\partial \theta} + \frac{1}{\sin^2 (\theta)} \frac{\partial^2}{\partial^2 \phi}
+\end{align*}
+Setting $x = \cos(\theta)$ we obtain:
+\begin{align*}
+    \hat{A} = \frac{\partial}{\partial x} (1-x^2) \frac{\partial}{\partial x} + \frac{1}{1-x^2} \frac{\partial^2}{\partial^2 \phi}
+\end{align*}
+Separation of variables: $\psi(r,\theta,\phi) = \frac{R(r)}{r} Y(\theta,\phi)$
+\begin{align*}
+    r \eckigeklammer{\frac{1}{R} \frac{\partial^2 R}{\partial r^2} - \lambda} = - \frac{1}{Y} \hat{A} Y
+    = l(l+1)
+\end{align*}
+\begin{align*}
+    \frac{1}{R} \frac{\partial^2 R}{\partial r^2} - \frac{l(l+1)}{r} - \lambda = 0
+    \hspace{10pt} , \hspace{10pt}
+    \hat{A} Y = - l(l+1) Y
+\end{align*}
+
+\subsubsection{Radial Differential Equation}
+Ansatz $R = r^a$ yiels $a = -l,l+1$, thus:
+\begin{align*}
+    \psi(r,\theta,\phi) = \sum_l \frac{1}{r} \klammer{A_l r^{-l} + B_l r^{l+1}} Y_l (\theta,\phi)
+\end{align*}
+In the case $r \rightarrow 0$ we approximate
+\begin{align*}
+    r^{a-2} a(a-1) - l(l+1) r^{a-2} = \lambda r^a \approx 0
+\end{align*}
+because $r^a$ is of higher order than $r^{a-2}$.
+
+\subsubsection{Angular Differential Equation}
+Again separation of variables: $Y(\theta,\phi) = \Theta(\theta) \Phi(\phi)$
+\begin{align*}
+    \frac{1+x^2}{\Theta} \eckigeklammer{\frac{\partial}{\partial x} (1-x^2) \frac{\partial}{\partial x} + l(l+1)} \Theta
+    = - \frac{1}{\Phi} \frac{\partial^2 \Phi}{\partial \phi^2}
+    = - m^2
+\end{align*}
+\begin{align*}
+    \frac{\partial^2 \Phi}{\partial \phi^2} = - m^2 \Phi
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \Phi(\phi) = e^{i m \phi}
+    \ \ , \ m \in \Z
+\end{align*}
+
+\paragraph{Interlude Legendre Polynomials}
+\begin{align*}
+    P_l (x) = \frac{1}{2^l l!} \frac{d^l}{d x^l} (x^2 - 1)^l
+    = \frac{1}{2^l} \sum_{k=0}^l \binom{l}{k}^2 (x-1)^{l-k} (x+1)^k
+\end{align*}
+Normalization condition: $P_l (1) = 1$. Legendre polynomials vanish when
+integrated with any other polynomial of a lesser degree in the range $[-1,1]$:
+\begin{align*}
+    \int_{-1}^1 dx \ x^k P_l (x) = 0 \ \forall k = 0,1,\dots,(l-1)
+\end{align*}
+Orthogonality:
+\begin{align*}
+    \int_{-1}^1 dx \ P_l (x) P_m (x) = \frac{2}{2l+1} \delta_{lm}
+\end{align*}
+Legendre Polynomials form a basis for all continuous functions $f(x)$ in
+$[-1,1]$:
+\begin{align*}
+    f(x) = \sum_{n=0}^\infty c_n P_n (x)
+    \hspace{10pt} , \hspace{10pt}
+    c_n = \frac{2n+1}{2} \int_{-1}^1 dx \ P_n (x) f(x)
+\end{align*}
+Completeness condition:
+\begin{align*}
+    \sum_{n=0}^\infty P_n (x) P_n (y) \frac{2n+1}{2} = \delta (x-y)
+\end{align*}
+
+\paragraph{Associated Legendre Polynomials}
+\begin{align*}
+    P_l^m (x) &= (-1)^m (1-x^2)^{\frac{m}{2}} \frac{\partial^m}{\partial x^m} P_l (x)
+    \\
+    &= \frac{(-1)^m}{2^l l!} (1-x^2)^{\frac{m}{2}} \frac{\partial^{l+m}}{\partial x^{l+m}} (x^2 - 1)^l
+\end{align*}
+for $m = -l,-l+1,\dots,0,\dots,l-1,l$.
+\begin{align*}
+    P_l^{-m} = (-1)^m \frac{(l-m)!}{(l+m)!} P_l^m (x)
+\end{align*}
+Orthogonality condition:
+\begin{align*}
+    \int_{-1}^1 dx \ P_k^m (x) P_l^m (x) &= \frac{2(m+l)!}{(2l+1)(l-m)!} \delta_{kl}
+    \\
+    \int_{-1}^1 dx \ \frac{P_l^m (x) P_l^n}{1-x^2} &= \frac{(l+m)!}{m(l-m)!} \delta_{mn}
+    \ \text{ if } m \neq 0
+\end{align*}
+
+\paragraph{Spherical Harmonics}
+\begin{align*}
+    Y_{lm} (\theta,\phi) = \sqrt{\frac{(2l+1) (l-m)!}{4 \pi (l+m)!}} e^{i m \phi} P_l^m \klammer{\cos(\theta)}
+\end{align*}
+Orthogonality condition:
+\begin{align*}
+    \int_0^{2 \pi} d \phi \int_0^\pi d \theta \ \sin(\theta) Y_{l'm'}^\ast (\theta,\phi) Y_{lm}^\ast (\theta,\phi) = \delta_{l'l} \delta_{m'm}
+\end{align*}
+Every function of the polar and azimutal angles can be written as a linear
+superposition of spherical harmonics:
+\begin{align*}
+    f(\theta,\phi) &= \sum_{l=0}^\infty \sum_{m=-l}^l c_{lm} Y_{lm} (\theta,\phi)
+    \\
+    c_{lm} &= \int_0^{2 \pi} d \phi \int_0^\pi d \theta \ \sin(\theta) Y_{lm}^\ast (\theta,\phi) f(\theta,\phi)
+\end{align*}
+Completeness identity:
+\begin{align*}
+    \sum_{l=0}^\infty \sum_{m=-l}^l Y_{lm}^\ast (\theta' , \phi') Y_{lm} (\theta,\phi)
+    = \delta(\phi' - \phi) \delta(\cos(\theta') - \cos(\theta))
+\end{align*}
+Further $Y_{l,-m}(\theta,\phi) = (-1)^m Y_{l,m}^\ast (\theta,\phi)$.
+Now we have e general solution to the Laplace differential equation
+$\vec{\nabla}^2 \Psi (r,\theta,\phi) = 0$:
+\begin{align*}
+    \Psi(r,\theta,\phi) = \sum_l \sum_{m=-l}^l \klammer{A_{lm} r^{-l-1} + B_{lm} r^l} Y_{lm} (\theta,\phi)
+\end{align*}
+
+\subsubsection{Expansion of inverse distance in Legendre polynomials}
+Take two vectors $\vec{r}_L , \vec{r}_S$ with $r_L > r_S$, then:
+\begin{align*}
+    \abs{\vec{r}_L - \vec{r}_S}
+    &= \eckigeklammer{r_L^2 + r_S^2 - 2 r_L r_S \cos(\theta)}^{\frac{1}{2}}
+    \\
+    \frac{1}{\abs{\vec{r}_L - \vec{r}_S}^a}
+    &= \sum_{l=0}^\infty \frac{(a,l)}{l!} \frac{r_S^l}{r_L^{l+a}} P_l (\cos(\theta))
+    \hspace{10pt} \text{with } (a,l) = \frac{\Gamma(a+l)}{\Gamma(a)}
+\end{align*}
+
+\subsection{Multipole expansion}
+
+Consider charge distribution $\rho(\vec{x})$ in a volume $V'$. We are
+interested in the potential that this charge distribution creates at a
+distance $\vec{r}$ outside of the region of the charge distribution.
+\begin{align*}
+    \Phi(\vec{r}) = \frac{1}{4 \pi \epsilonnull} \int_{V'} d^3 \vec{x} \frac{\rho(\vec{x})}{\abs{\vec{x} - \vec{r}}}
+    = \frac{1}{4 \pi \epsilonnull} \sum_{l=0}^\infty \frac{1}{r^{l+1}} \int_{V'} d^3 \vec{x} \rho(\vec{x}) x^l P_l (\cos(\gamma))
+\end{align*}
+with $\gamma$ the angle between $\vec{r} \equiv (r,\theta,\phi)$ and
+$\vec{x} \equiv (x,\theta_x,\phi_x)$ and $d^3 \vec{x} = x^2 dx d \Omega_x$.
+Addition Theorem:
+\begin{align*}
+    P_l (\cos(\gamma)) = \frac{4 \pi}{1+2l} \sum_{m=-l}^l Y_{lm}^\ast (\theta_x,\phi_x) Y_{lm} (\theta,\phi)
+\end{align*}
+With this we obtain:
+\begin{align*}
+    \Phi(\vec{r}) = \frac{1}{\epsilonnull} \sum_{l=0}^\infty \frac{1}{1+2l} \frac{1}{r^{l+1}}
+        \sum_{m=-l}^l \frac{q_{lm} Y_{lm}(\theta,\phi)}{r^{l+1}}
+\end{align*}
+with
+\begin{align*}
+    q_{lm} = \int_{V'} d^3 \vec{x} \ Y_{lm}^\ast (\theta_x,\phi_x) \rho(\vec{x}) x^l
+\end{align*}
+Examples:
+\begin{align*}
+    &q_{00} = \frac{Q}{\sqrt{4 \pi}} = \sqrt{\frac{3}{4 \pi}} p_3
+    \hspace{5pt} , \hspace{5pt}
+    q_{11} = - \sqrt{\frac{3}{8 \pi}} (p_1 - i p_2)
+    \hspace{5pt} , \hspace{5pt}
+    q_{21} = \frac{1}{2} \sqrt{\frac{5}{4 \pi}} Q_{33}
+    \\
+    &q_{22} = \frac{1}{12} \sqrt{\frac{15}{2 \pi}} (Q_{11} - 2i Q_{12} - Q_{22})
+    \hspace{10pt} , \hspace{10pt}
+    q_{21} = - \frac{1}{3} \sqrt{\frac{15}{8 \pi}} (Q_{13} - i Q_{23})
+    % \\
+    % q_{21} = \frac{1}{2} \sqrt{\frac{5}{4 \pi}} Q_{33}
+\end{align*}
+with $\vec{p}$ the dipole moment and $Q_{ij}$ the quadrupole tensor.
+\begin{align*}
+    \vec{p} = (p_1,p_2,p_3) = \int d^3 \vec{x} \ \vec{x} \rho(\vec{x})
+    \hspace{5pt} , \hspace{5pt}
+    Q_{ij} = \int d^3 \vec{x} \ (x_i x_j - x^2 \delta_{ij}) \rho(\vec{x})
+\end{align*}
+

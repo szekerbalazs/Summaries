@@ -1,0 +1,543 @@
+\section{Quantum Mechanics}
+
+\paragraph{Heisenberg Uncertainty Principle}
+% If $\Delta p_x$ and $\Delta x$ are standard deviations of the momentum and position,
+% then $\Delta p_x \Delta x \geq \frac{h}{2}$. This means, position and momentum
+% uncertainties of a particle along one axis are never known simultaneously to
+% arbitrary precision.
+$\Delta p_x \Delta x \geq \frac{h}{2}$
+
+% \subsection{Wavefunction}
+% The state of every quantum system can be completely described by a complex valued
+% function $\psi(x,t)$ called the wavefunction. The probability of finding a particle
+% between $x$ and $x+dx$ is $P(x,t) dx = \abs{\psi(x,t)}^2 dx = \overline{\psi(x,t)}
+% \psi(x,t) dx$. Normalization $\intii \abs{\psi(x,t)}^2 dx = 1$.
+
+% \subsection{Basis Sets of Functions}
+
+% \paragraph{Fourier Series}
+% $\psi(x) = \sum_{n=-\infty}^\infty \psi_n e^{i 2 \pi n x / L}$ with
+% $x \in (-L/2,L/2)$ and $\psi_n = \frac{1}{L} \int_{-L/2}^{L/2} \psi(x) e^{-2\pi i n x / L} dx$
+
+% \paragraph{Discrete Bases}
+% Suppose we have a set of orthogonal functions $\phi_n(x)$. Meaning:
+% $\int_D \overline{\phi_m(x)} \phi_n(x) dx = \delta_{mn}$ with $D$ the domain
+% of the set of functions. Such a set is called a \fat{complete orthonormal basis}
+% if any function $\psi(x)$ defined on $D$ can be written as
+% $\psi(x) = \sum_n \psi_n \phi_n(x)$ with $\psi_n = \int_D \overline{\phi_n(x)}
+% \psi(x) dx$ inserting back yields $\sum_n \overline{\phi_n(x')} \phi_n(x) = \delta(x-x')$.
+% This is called the \fat{completeness condition} and must be sstisfied for the $\phi_n(x)$
+% in order to be a complete basis.
+% Properties of the delta function: $\delta(x) = 0 \ \forall x \neq 0$, $\int_{-a}^a
+% \delta(x) dx = 1$ for any $a>0$, $\delta(ax) = \frac{1}{\abs{a}} \delta(x) \
+% \forall a \in \R$ and $\int \delta(x-x') g(x') dx' = g(x)$.
+
+% \paragraph{Continuous Bases}
+% Continuous variable $\alpha \in \R$, basis vectors $\phi(\alpha,x)$. Orthogonality:
+% $\int \overline{\phi(\alpha,x)} \phi(\beta,x) dx = \delta(\alpha-\beta)$.
+% Completeness condition: $\int \overline{\phi(\alpha,x)} \phi(\alpha,x) d \alpha 
+% = \delta(x-x')$. Then $\psi(x) = \int \tilde{\psi}(\alpha) \phi(\alpha,x) d \alpha$
+% with $\tilde{\psi}(\alpha) = \int \overline{\phi(\alpha,x)} \psi(x) dx$.
+
+\subsection{Operators}
+\fat{Observables}: observable property of a system. Observables are represented by
+\fat{operators}. Suppose we have a wavefunction $\psi(x,t) = A e^{i(kx-\omega t)}$
+with $p = \hbar k$ and $E = \hbar \omega$. The \fat{Eigenstate} is the physical
+state represented by the eigenfunction.
+\begin{enumerate}[]
+    \item \fat{Position Oberator}: $\hat{x} = x$ or $-i \hbar \frac{\partial}{\partial p}$
+    \item \fat{Momentum operator}: $\hat{p} = -i \hbar \frac{\partial}{\partial x}$ of $p$
+    \item \fat{Energy operator}: $\hat{E} = i \hbar \frac{\partial}{\partial t}$
+\end{enumerate}
+% All physical observables are associated with Hermetian operators. The eigenvalue
+% of these operators give the result of all possible measurements of the
+% observable.
+
+\subsection{Operator Representation}
+% Any wavefunction can be expressed as the sum of eigenfunctionf of an observable
+% operator. If in addition the eigenvalue of all the eigenfunctions are distinct,
+% then it is possible to represent the wavefunction as a function of the eigenvalues
+% of the operator. Eigenfunctions of position operator are $\delta(x-\alpha)$
+% with eigenvalue $\alpha$. Thus, the wavefunction is representable as
+% $\psi(\alpha,t) = \int \delta(x-\alpha) \psi(x,t) dx$ and hence $\psi(x,t)$ is
+% the position operator representation of the wavefunction.
+
+\paragraph{Momentum Basis}
+We can write wave functions $\psi(x,t)$ in the momentum basis $\phi_p(x) =
+\frac{1}{\sqrt{2 \pi \hbar}} e^{i p x / \hbar}$ with the following relation.
+$\tilde{\psi}(p,t) = \frac{1}{\sqrt{2 \pi \hbar}} \int \psi(x,t) e^{-i p x / \hbar} dx$.
+% Probability of measuring the momentum of the system between $p$ and $p+dp$:
+% $P(p) dp = \abs{\tilde{\psi}(p,t)}^2 dp$.
+Backtransformation:
+$\psi(x,t) = \frac{1}{\sqrt{2 \pi \hbar}} \int \psi(p,t) e^{i p x / \hbar} dp$.
+
+% \paragraph{Spectral Theorem}
+% The eigenfunction of an operator $\hat{O}$ representing an observable form a
+% complete, orthonormal basis.
+
+\subsection{Hilbert Space and Dirac Notation}
+% Column vector: $| S(t) \rangle$, row vector: $\langle S(t) |$.
+% We find the representation of a state vector in a particular basis if we take the
+% inner product with the basis states. In \fat{Dirac notation}:
+% $\psi(x,t) = \langle x | S(t) \rangle$ where $\langle x |$ are the eigenstates
+% of the position operator $\hat{x}$. We call $\langle \ | \ \rangle$ a
+% \fat{bracket}, $\langle \ |$ the bra and $| \ \rangle$ the ket. Similarly
+% $\tilde{\psi}(p,t) = \langle p | S(t) \rangle$. We can write $| S(t) \rangle$
+% in different ways:
+% \begin{align*}
+%     | S(t) \rangle &= \int \psi(x,t) | x \rangle dx
+%         = \int \psi(x,t) \delta(x-y) dx
+%     \\
+%     &= \int \tilde{\psi}(p,t) | p \rangle dp
+%         = \int \tilde{\psi}(p,t) \frac{e^{i p x / \hbar}}{\sqrt{2 \pi \hbar}} dp
+%     \\
+%     &= \sum_n c_n (t) | \phi_n \rangle 
+%         = \sum_n c_n (t) \phi_n (x)
+%     \\
+%     c_n (t) &= \langle e_n | S(t) \rangle 
+%         = \intii \overline{\phi_n(x)} \psi(x,t) dx
+% \end{align*}
+% Orthogonality condition: $\langle \phi_n | \phi_m \rangle = \delta_{mn}$.
+% Operators can be written as $\hat{O} = | \alpha \rangle \langle \beta |$.
+\fat{Identity operator}: For a discrete basis: $\hat{I} = \sum_n | \phi_n \rangle \langle \phi_n |$,
+for a continuous basis: $\int | \phi(\alpha) \rangle \langle \phi(\alpha) | d \alpha = 1$.
+For continuous basis: $\langle \phi(\alpha) | \phi(\beta) \rangle = \delta (\alpha - \beta)$.
+
+\subsection{Quantum Measurements}
+
+% \paragraph{Spectral Theorem}
+% The eigenstates of an observable operator $\hat{O}$ form a complete basis
+% $\geschwungeneklammer{| o_n \rangle}$ (for discrete bases) or
+% $\geschwungeneklammer{| o(\alpha) \rangle}$ (for a continuous basis).
+% So any state $| \psi \rangle$ can be written as
+% $| \psi \rangle = \sum_n c_n (t) | o_n \rangle$ or
+% $| \psi \rangle = \int \psi(\alpha,t) | o(\alpha) \rangle d \alpha$
+
+% \vspace{1\baselineskip}
+
+If we make a measurement of the observable, we will get one eigenvalue as a result.
+For a discrete basis, the probability of getting the result $o_n$ is
+$\abs{\langle o_n | \psi \rangle}^2 = \abs{c_n}^2$.
+After getting this result, the state of the system becomes $| o_n \rangle$.
+This is also called \fat{collapse} of \fat{projection} of $| \psi \rangle$
+into $| o_n \rangle$.
+For a continuous basis, the probability of getting a result between $o(\alpha)$
+and $o(\alpha + d \alpha)$ is $\abs{\langle o(\alpha) | \psi \rangle}^2 d \alpha
+= \abs{\psi(\alpha,t)}^2 d \alpha$
+
+\subsection{Operator Commutation}
+If two different operators share the same eigenstate, then particles in those states
+have simultanously definite values for both of those observables.
+Suppose we have two observables that share the same eigenstate $\psi$, then
+$\hat{O} \psi = O \psi$ and $\hat{Q} \psi = Q \psi$ with $O$ and $Q$ the corresponding
+eigenvalues. We define the \fat{commutator} $\eckigeklammer{\hat{Q},\hat{O}} \equiv
+\hat{Q} \hat{O} - \hat{O} \hat{Q}$. \textit{Two observable operators can share the
+same eigenstates if and only if $\eckigeklammer{\hat{Q},\hat{O}} =
+\eckigeklammer{\hat{O},\hat{Q}} = 0$.}
+The \fat{anticommutator} is defined as
+$\geschwungeneklammer{\hat{O},\hat{Q}} = \hat{O} \hat{Q} + \hat{Q} \hat{O}$
+
+\paragraph{Identities}
+$\eckigeklammer{\hat{A},c} = 0$ , $\eckigeklammer{\hat{A},\hat{A}} = 0$ ,
+$\eckigeklammer{\hat{A},\hat{B}} = - \eckigeklammer{\hat{B},\hat{A}}$ ,
+$\eckigeklammer{\hat{A},\sum_n c_n \hat{A}^n} = 0$ ,
+$\eckigeklammer{c \hat{A},\hat{B}} = \eckigeklammer{\hat{A},c B} = c \eckigeklammer{\hat{A},\hat{B}}$ ,
+$\eckigeklammer{\hat{A},\hat{B} \pm \hat{C}} = \eckigeklammer{\hat{A},\hat{B}} \pm \eckigeklammer{\hat{A},\hat{C}}$ ,
+$\eckigeklammer{\hat{A} \hat{B} , \hat{C}} = \hat{A} \eckigeklammer{\hat{B},\hat{C}} + \eckigeklammer{\hat{A},\hat{C}} \hat{B}$ ,
+$\eckigeklammer{\hat{A} , \hat{B} \hat{C}} = \hat{B} \eckigeklammer{\hat{A},\hat{C}} + \eckigeklammer{\hat{A},\hat{B}} \hat{C}$
+
+\paragraph{Important commutators}
+$\eckigeklammer{\hat{x},\hat{p}} = i \hbar$, in 3D: $\eckigeklammer{x_i,p_j} = i \hbar \delta_{ij}$
+and $\eckigeklammer{x_i,x_j} = 0$
+
+\subsection{Measurement for degenerate observables}
+\fat{Degeneracy} is the property that  an observable operator has orthonormal
+eigenfunctions with the same eigenstate.
+
+Suppose we have a wavefunction $\psi(x)$ that describes a quantum state. This
+wavefunction can be decomposed into a basis of orthonormal eigenfunctions $\phi_n(x)$
+of an observables $\hat{O}$ each with eigenvalues $O_n$.
+$\psi(x) = \sum_n a_n \phi_n (x)$ where $a_n$ are the coefficients of the expansion.
+\begin{enumerate}
+    \item The probability of a measurement of $\hat{O}$ yielding a value $O_m$ is
+        $P(O_m) = \sum_j \abs{a_j}^2$ where the sum runs over all values of $j$
+        such that $O_m = O_j$.    
+    \item Immediately after a measurement resulting in $O_m$, the wavefunction
+        collapses to $\psi'(x) = \frac{\sum_j a_j \phi_j (x)}{\sqrt{\sum_j \abs{a_j}^2}}$
+        where again the sum runs over all values of $j$ such that $O_m = O_j$.
+\end{enumerate}
+
+\paragraph{Expectation value}
+The expectation value for an observable $\hat{O}$ for a state $| \psi \rangle$
+is given by
+$\langle \hat{O} \rangle = \langle \psi | \hat{O} | \psi \rangle
+= \int \overline{\psi(x,t)} \hat{O} \psi(x,t) dx$
+
+
+\subsection{Schrödinger Equation in 1D}
+Full Schrödinger equation in one spatial dimension is
+\begin{align*}
+    \hat{H} \psi(x,t)
+    = \klammer{\frac{\hat{p}^2}{2m} + V (\hat{x})} \psi(x,t)
+    = i \hbar \frac{\partial}{\partial t} \psi(x,t)
+\end{align*}
+With $V(\hat{x})$ the potential energy and $\hat{H}$ the hamilton operator.
+The time-\underline{indepentent} Schrödinger equation is
+\begin{align*}
+    \hat{H} \phi_E (x) = E \phi_E (x)
+\end{align*}
+This is just the eigenvalue equation of $\hat{H}$. If $\psi(x,0) = \phi_E (x)$,
+then we have the following solution to the full Schrödinger equation.
+\begin{align*}
+    \psi(x,t) = e^{-i \frac{E}{\hbar} t} \phi_E (x)
+\end{align*}
+For a system in arbitrary initial states, we can always express that initial state
+as a superposition of energy eigenstates. We can solve the S.E. for each of them
+separately and so we obtain a formula for the evolution of an arbitrary state.
+\begin{align*}
+    \psi(x,t) = \sum_n c_n e^{-i \frac{E_n}{\hbar} t} \phi_n(x)
+\end{align*}
+
+\paragraph{Phase velocity} $v = \frac{\omega}{k}$ velocity at which the phasefronts move.
+
+\paragraph{Group velocity} $v_{group} = \frac{d \omega}{d k}$ velocity of the envelope
+of the wavepackets.
+
+
+\subsection{Examples}
+
+\subsubsection{Free particle in 1-D}
+$V(\hat{x}) = 0$, result: $\psi_E(x,t) = A e^{i\klammer{kx-\frac{E}{\hbar} t}} + B e^{-i \klammer{k x + \frac{E}{\hbar} t}}$
+with $k = \sqrt{\frac{2 m E}{\hbar^2}}$
+
+\subsubsection{1-D infinite square well}
+$V = \begin{cases}
+    0 \hspace{5pt} &0 \leq x \leq a
+    \\
+    \infty \hspace{5pt} &\text{elsewhere}
+\end{cases}$
+, result: $\psi(x) = A \cos(k x) + B \sin(k x)$ with $k = \sqrt{\frac{2 m E}{\hbar^2}}$
+
+\paragraph{Continuity conditions on the wavefunction}
+\begin{enumerate}
+    \item The wavefunction $\psi(x)$ is a continuous function of $x$.
+    \item The derivative $\frac{d \psi}{d x}$ is also continuous, exept where the
+        potential is infinite.
+\end{enumerate}
+With the first condition we obtain for $\psi$ between $0 \leq x \leq a$:
+$\psi(x) = \sqrt{\frac{2}{a}} \sin(k_n a)$ with $k_n = \frac{n \pi}{a}$ and
+$n \in \N$. Thus $E_n = \frac{\hbar^2 k_n^2}{2m} = \frac{n^2 \pi^2 \hbar^2}{2 m a^2}$ 
+
+If we shift the coordinate system to $y = x - \frac{a}{2}$ such that it is centered
+at $y=0$, we obtain
+\begin{align*}
+    \psi_n (y) = \sqrt{\frac{2}{a}} \begin{cases}
+        \cos \klammer{ \frac{n \pi}{a} y} \hspace{5pt} &\text{for } n=1,3,5,\dots \text{ called \textit{even functions}}
+        \\
+        - \sin \klammer{\frac{n \pi}{a}} \hspace{5pt} &\text{for } n=2,4,6,\dots \text{ called \textit{odd functions}}
+    \end{cases} 
+\end{align*}
+
+\paragraph{Symmetry}
+Here, in shifted hamiltonian $V(-y) = V(y)$ and kinetic energy also does not change.
+Define \fat{parity operator} $\hat{\Pi}$: $\hat{\Pi} \psi(y) = \psi(-y)$. The
+parity operator commutes with the hamiltonian, thus $\hat{H}$ and $\hat{\Pi}$
+must share a set of orthogonal eigenfunctions $\phi_{\pi}$. The eigenvalues
+of $\hat{\Pi}$ are $-1$ and $1$. The eigenvalues $+1$ corresponds to \fat{even functions},
+and the eigenvalue $-1$ corresponds to \fat{odd functions}. Hence, since $\hat{H}$
+and $\Pi$ commute, the eigenfunctions of $\hat{H}$ can be broken up into two groups:
+one group with \fat{odd parity} and one with \fat{even parity}.
+
+\subsubsection{1-D finite square well}
+$V(x) = \begin{cases}
+    0 \hspace{5pt} &\abs{x} \leq a/2
+    \\
+    V_0 \hspace{5pt} &\text{elsewhere}
+\end{cases}$
+, we are looking for solutions with even parity.
+We can split the domain up into three regions:
+\begin{enumerate}[]
+    \item \fat{Region \uproman{1}}: $x < - a/2$, solution:
+        $A_{\uproman{1}} e^{-\sqrt{k_0^2 - k^2} x} + B_{\uproman{1}} e^{\sqrt{k_0^2 - k^2} x}$
+        with $k_0 = \sqrt{\frac{2 m V_0}{\hbar^2}}$ and $k = \sqrt{\frac{2 m E}{\hbar^2}}$
+    \item \fat{Region \uproman{2}}: $-a/2 \leq x \leq a/2$, solution: $A_{\uproman{2}} \cos(k x) + B_{\uproman{2}} \sin(k x)$
+        with the same $k$ as above.
+    \item \fat{Region \uproman{3}}: $x > a/2$, solution: $A_{\uproman{3}} e^{-\sqrt{k_0^2 - k^2} x} + B_{\uproman{3}} e^{\sqrt{k_0^2 - k^2} x}$
+\end{enumerate}
+
+Different solution possibilities:
+\begin{enumerate}
+    \item \underline{$E < V_0$}
+        \begin{enumerate}
+            \item \underline{Even solutions}:
+                We must have $B_{\uproman{2}} = A_{\uproman{1}} = B_{\uproman{3}} = 0$
+                and $B_{\uproman{1}} = A_{\uproman{3}}$. Further restriction:
+                $\tan(k a / 2) = \frac{\sqrt{k_0^2 - k^2}}{k}$. Find $A_{\uproman{2}}$ by
+                $\intii \abs{\psi_E (x)}^2 dx = 1$.
+            \item \underline{Odd solution}
+                We must have $A_{\uproman{2}} = 0$, $A_{\uproman{1}} = - B_{\uproman{3}}$
+                and $A_{\uproman{3}} = - B_{\uproman{1}}$. Further condition:
+                $- \cot(k a / 2) = \frac{\sqrt{k_0^2 - k^2}}{k}$
+        \end{enumerate}
+    \item \underline{$E > V_0$}
+        In this case $\sqrt{k_0^2 - k^2}$ is imaginary. For even parity we have the
+        following conditions.
+        \footnotesize
+        \begin{align*}
+            A_{\uproman{1}} e^{i \sqrt{k^2 - k_0^2} a / 2} + B_{\uproman{1}} e^{-i \sqrt{k^2 - k_0^2} a / 2} &= A_{\uproman{2}} \cos(k a / 2)
+            \\
+            -i A_{\uproman{1}} \sqrt{k^2 - k_0^2} e^{i \sqrt{k^2 - k_0^2} a / 2} + i B_{\uproman{1}} \sqrt{k^2 - k_0^2} e^{-i \sqrt{k^2 - k_0^2} a / 2} &= - A_{\uproman{2}} k \cos(k a / 2)
+        \end{align*}
+        \normalsize
+        For $E>V_0$ there are no restrictions on the allowed energies!
+        These wavefunctions are not normalizable. They are called \fat{unbounded
+        states}.
+\end{enumerate}
+In fact, bound states (for which $E<V$ at $x = \pm \infty$) we have discrete
+energy eigenvalues. Unbound states have continuous energy eigenvalues.
+
+\subsubsection{Tunneling}
+$V(x) = \begin{cases}
+    V_0 \hspace{5pt} &0 \leq x \leq a \\
+    0 \hspace{5pt} &\text{elsewhere}
+\end{cases}$
+\
+With $k = \sqrt{\frac{2 m E}{\hbar^2}}$, $k_0 = \sqrt{\frac{2 m V_0}{\hbar^2}}$ and
+$k' = \sqrt{k^2 - k_0^2}$ wo obtain:
+$\phi_E = \begin{cases}
+    A_{\uproman{1}} e^{i k x} + B_{\uproman{1}} e^{-i k x} \hspace{5pt} &x < 0
+    \\
+    A_{\uproman{2}} e^{i k' x} + B_{\uproman{2}} e^{-i k' x} \hspace{5pt} &0 \leq x \leq a
+    \\
+    A_{\uproman{3}} e^{i k x} + B_{\uproman{3}} e^{-i k x} \hspace{5pt} &x > a
+\end{cases}$
+
+And $\phi_E(x,t) = \phi_E(x) e^{-i \frac{E}{\hbar} t}$.
+Further conditions
+\begin{align*}
+    A_{\uproman{1}} + B_{\uproman{1}} &= A_{\uproman{2}} + B_{\uproman{2}}
+    \\
+    A_{\uproman{2}} e^{i k' a} + B_{\uproman{2}} e^{-i k' a} &= A_{\uproman{3}} e^{i k a}
+    \\
+    A_{\uproman{1}} k - B_{\uproman{1}} k &= A_{\uproman{2}} k' - B_{\uproman{2}} k'
+    \\
+    A_{\uproman{2}} k' e^{i k' a} - B_{\uproman{2}} k' e^{-i k' a} &= A_{\uproman{3}} k e^{i k a}
+\end{align*}
+The transmission coefficient is $T = \abs{\frac{A_{\uproman{3}}}{A_{\uproman{1}}}}^2$.
+In the case $E \ll V_0$ there is a non-zero probability that a particle goes through
+the wall.
+
+\subsubsection{Potential step}
+$V(x) = \begin{cases}
+    0 \hspace{5pt} &x<0
+    \\
+    V_0 \hspace{5pt} &x>0
+\end{cases}$,
+General solution:
+Region \uproman{1}: $\psi(x) = A_{\uproman{1}} e^{i k x} + B_{\uproman{1}} e^{-i k x}$,
+Region \uproman{2}: $\psi(x) = A_{\uproman{2}} e^{\sqrt{k_0^2 - k^2} x} + B_{\uproman{2}} e^{- \sqrt{k_0^2 - k^2} x}$,
+with $k = \sqrt{\frac{2 m E}{\hbar^2}}$ and $k = \sqrt{\frac{2 m V_0}{\hbar^2}}$
+\begin{enumerate}
+    \item \underline{$E>V_0$}:
+        Conditions: $B_{\uproman{2}} = 0$ and $i k A_{\uproman{1}} - i k B_{\uproman{1}} = i \sqrt{k^2 - k_0^2}$
+        \ yield: $A_{\uproman{2}} = \frac{2 k}{k + \sqrt{k^2 - k_0^2}} A_{\uproman{1}}$ and
+        $B_{\uproman{1}} = \frac{k - \sqrt{k^2 - k_0^2}}{k + \sqrt{k^2 - k_0^2}} A_{\uproman{1}}$.
+        Thus the reflection coefficient is $\abs{r}^2 = \abs{\frac{B_{\uproman{1}}}{A_{\uproman{1}}}}^2$
+        and the transmission coefficient is $\abs{t}^2 = \abs{\frac{A_{\uproman{2}}}{A_{\uproman{1}}}}^2$
+    \item \underline{$E<V_0$}:
+        Conditions: $A_{\uproman{2}} = 0$, $A_{\uproman{1}} + B_{\uproman{1}} = B_{\uproman{2}}$
+        and $i k A_{\uproman{1}} - i k B_{\uproman{1}} = - \sqrt{k_0^2 - k^2} B_{\uproman{2}}$.
+        Thus: $B_{\uproman{1}} = - \frac{\sqrt{k_0^2 - k^2} + i k}{\sqrt{k_0^2 - k^2} - i k} A_{\uproman{1}}$
+        and $B_{\uproman{2}} = - \frac{2 i k}{\sqrt{k_0^2 - k^2} - i k} A_{\uproman{1}}$
+\end{enumerate}
+As we can see, there is a non-zero probability to find the particle at $x>0$.
+
+\subsubsection{Harmonic Oscillator}
+$V(x) = \frac{1}{2} k x^2 =  \frac{1}{2} m \omega^2 x^2$. The \fat{resonance
+frequency} is $\omega = \sqrt{k / m}$. Hence $\hat{H} = \frac{\hat{p}^2}{2 m}
++ \frac{1}{2} m \omega^2 \hat{x}^2$. Introduce $\hat{X} = \sqrt{\frac{m \omega}{\hbar}} \hat{x}$
+and $\hat{P} = \sqrt{\frac{1}{\hbar m \omega}} \hat{p}$. Now:
+$\hat{H} = \frac{\hbar \omega}{2} \klammer{\hat{X}^2 + \hat{P}^2}$. If we factor this
+out: $\hat{H} = \frac{\hbar \omega}{2} \klammer{\hat{X}^2 + i \hat{X} \hat{P} - i \hat{P} \hat{X} + \hat{P}^2 - i \klammer{\hat{X} \hat{P} - \hat{P} \hat{X}}}$
+with $-i \klammer{\hat{X} \hat{P} - \hat{P} \hat{X}} = 1$. Further define:
+$\hat{a} \equiv \frac{1}{\sqrt{2}} \klammer{\hat{X} + i \hat{P}}$ and
+$\hat{a}^\dagger \equiv \frac{1}{\sqrt{2}} \klammer{\hat{X} - i \hat{P}}$. Thus:
+$\hat{H} = h \omega \klammer{\hat{a}^\dagger \hat{a} + \frac{1}{2}}$. Important
+property: $\eckigeklammer{\hat{a},\hat{a}^\dagger} = 1$. In conclusion:
+$c_{n-} \hat{a} | n \rangle = | n - 1 \rangle$ and
+$c_{n+} \hat{a}^\dagger | n \rangle = | n + 1 \rangle$.
+The energies of the eigenstates $| n \rangle$ are $E_n = \hbar \omega \klammer{n + \frac{1}{2}}$
+and the eigenvalues of $\hat{a}^\dagger \hat{a}$ are $n=0,1,2,\dots$
+
+\paragraph{Ground states}
+$| 0 \rangle$ is a ground state because it has the lowest energy. For
+$\psi_0(x) = \langle x | 0 \rangle$ it has to be true that $\hat{a} \psi_0(x) = 0$.
+Thus we obtain: $\psi_0 (x) = \klammer{\frac{m \omega}{\pi \hbar}}^{1/4} e^{- \frac{m \omega}{2 \hbar} x^2}$
+
+\paragraph{Excited state eigenfunctions}
+Obtain by applying $\hat{a}^\dagger$. We find $c_{n+} = \frac{1}{\sqrt{n+1}}$
+and $c_{n-} = \frac{1}{\sqrt{n}}$. Therefore:
+$\hat{a}^\dagger | n \rangle = \sqrt{n + 1} | n + 1 \rangle$ and
+$\hat{a} | n \rangle = \sqrt{n} | n -1 \rangle$. So in general we obtain:
+$\psi_n (x) = \klammer{\frac{m \omega}{\pi \hbar}}^{1/4} \frac{1}{\sqrt{2^n n!}} H_n(X) e^{-X^2 / 2}$
+with $X = \sqrt{\frac{m \omega}{\hbar}} x$ and $H_n(X)$ are the Hermite polynomials.
+$\eckigeklammer{\hat{a}^\dagger \hat{a} , \hat{a}^\dagger} = \hat{a}^\dagger$,
+$\eckigeklammer{\hat{a}^\dagger \hat{a} , a} = - a$.
+
+% \paragraph{Ladder operators}
+% Lowering operator $\hat{a}$ and raising operator $\hat{a}^\dagger$.
+% $\eckigeklammer{\hat{a},\hat{a}^\dagger} = 1$. $\hat{a} |n\rangle = \sqrt{n} |n-1\rangle$,
+% $\hat{a}^\dagger |n\rangle = \sqrt{n+1} |n+1\rangle$.
+% $\eckigeklammer{\hat{a}^\dagger \hat{a} , \hat{a}^\dagger} = \hat{a}^\dagger$,
+% $\eckigeklammer{\hat{a}^\dagger \hat{a} , a} = - a$.
+
+\paragraph{Expectation value of the harmonic oscillator}
+We can redefine the position and momentum operators:
+$\hat{x} = \sqrt{\frac{\hbar}{2 m \omega}} (\hat{a}^\dagger + \hat{a})$
+and $\hat{p} = i \sqrt{\frac{m \omega \hbar}{2}} (\hat{a}^\dagger - \hat{a})$.
+Since the eigenstates of $\hat{a}$ and $\hat{a}^\dagger$ are orthogonal, we obtain:
+$\langle \hat{x} \rangle = \langle n | \hat{x} | n \rangle = 0$,
+$\langle \hat{x}^2 \rangle = \langle n | \hat{x}^2 | n \rangle = \frac{\hbar}{2 m \omega} (2n+1)$
+and $\langle \hat{p} \rangle = \langle n | \hat{p} | n \rangle = 0$,
+$\langle \hat{p}^2 \rangle = \langle n | \hat{p}^2 | n \rangle = \frac{\hbar m \omega}{2} (2n+1)$.
+Further:
+$\Delta x = \sqrt{\langle \hat{x}^2 \rangle - \langle \hat{x} \rangle^2} = \sqrt{\frac{\hbar}{2 m \omega}} \sqrt{2n+1}$
+and
+$\Delta p = \sqrt{\langle \hat{p^2} \rangle - \langle \hat{p} \rangle^2} = \sqrt{\frac{\hbar m \omega}{2}} \sqrt{2n+1}$
+Thus: $\Delta x \Delta p = \frac{\hbar}{2} (2n+1)$
+
+\paragraph{Coherent states}
+Ground state is not the only minimum uncertainty state. A coherent state is a
+superposition of eigenstates of the Hamiltonian. At time $t=0$:
+$\psi_\alpha = | \alpha \rangle = e^{- \abs{\alpha}^2 / 2} \sum_n^\infty \frac{\alpha^n}{\sqrt{n!}} \phi_n(x)
+= \sum_n^\infty \frac{\alpha^n}{\sqrt{n!}} | n \rangle$ with $\alpha = \abs{\alpha} e^{i \phi}$.
+We can find: $\langle \hat{x} \rangle = \langle \alpha | \hat{x} | \alpha \rangle =
+\sqrt{\frac{\hbar}{2 m \omega}} \klammer{\alpha e^{i \omega t} + \overline{\alpha} e^{-i \omega t}}
+= \sqrt{\frac{2 \hbar}{m \omega}} \abs{\alpha} \cos(\omega t + \phi)$
+
+
+\subsection{Schrödinger Equation in 3D}
+
+$i \hbar \frac{\partial \Psi}{\partial t} = \hat{H} \Psi$ with
+$\hat{H} = \frac{1}{2 m} \abs{\hat{\vec{p}}}^2 + V(\hat{\vec{r}})$ where
+$\hat{\vec{r}} = (\hat{x},\hat{y},\hat{z})$ and
+$\hat{\vec{p}} = (\hat{p}_x , \hat{p}_y , \hat{p}_z)$.
+In the position representation: $\hat{p} = - i \hbar \nabla$. So the Schrödinger
+equation becomes: $i \hbar \frac{\partial \Psi}{\partial t} = - \frac{\hbar^2}{2 m}
+\nabla^2 \Psi + V \Psi$.
+
+\paragraph{Operator commutation}
+All operators for different cartesian coordinates commute.
+$\eckigeklammer{\hat{x},\hat{p}_y} = \eckigeklammer{\hat{x},\hat{p}_z} = 0$.
+\underline{But}:
+$\eckigeklammer{\hat{x},\hat{p}_x} = \eckigeklammer{\hat{y},\hat{p}_y} =
+\eckigeklammer{\hat{z},\hat{p}_z} = i \hbar$.
+
+% \paragraph{Normalization condition}
+% $\int \abs{\Psi(\vec{r},t)}^2 dx dy dz = 1$
+
+
+\subsection{Symmetry}
+
+\paragraph{Tranformations of wavefunctions and operators in space}
+Take wavefunction $\psi(\vec{r})$. If we act a transformation on it, we get a new
+wavefunction $\psi'(\vec{r})$. This transformation can be represented with an operator
+$\hat{Q}$: $\psi' = \hat{Q} \psi$. So if we have an operator $\hat{O}$ in the $\psi$
+basis, we can transform it into the $\psi'$ basis: $\hat{O}' = \hat{Q}^\dagger \hat{O} \hat{Q}$.
+
+\paragraph{Parity operator in $3D$}
+$\hat{\Pi} \psi(\vec{r}) = \psi'(\vec{r}) = \psi(-\vec{r})$. Cartesian coordinates:
+$\hat{\Pi} \psi(x,y,z) = \psi(-x,-y,-z)$, spherical coordinates:
+$\hat{\Pi} \psi(r,\theta,\phi) = \psi(r,\pi - \theta, \phi + \pi)$.
+Position operator: $\hat{x}' = - \hat{x}$, $\hat{y}' = - \hat{y}$, $\hat{z}' = - \hat{z}$.
+$\hat{\vec{r}}' = - \hat{\vec{r}}$. $\hat{\vec{p}}' = -\hat{\vec{p}}$.
+$\hat{\vec{L}}' = -\hat{\vec{L}}$. Thus: $\eckigeklammer{\hat{\Pi},\hat{\vec{L}}} = 0$
+and $\eckigeklammer{\hat{\Pi},\hat{L}_x} = 0 \eckigeklammer{\hat{\Pi},\hat{L}_y} =
+\eckigeklammer{\hat{\Pi},\hat{L}_z} = 0$. For spherical harmonics:
+$\hat{\Pi} Y_{lm} = (-1)^l Y_{lm}$
+
+\paragraph{Rotation operator}
+A rotation about the $z$-axis by an angle $\varphi$ in position representation:
+$\hat{R}_z(\delta) 1 - \delta \frac{\partial}{\partial \phi} = 1 - \frac{i \delta}{\hbar} \hat{L}_z$.
+Rotation about an arbitrary axis $\hat{n}$ is given by $\hat{R}_{\hat{n}}(\varphi)
+= e^{- \frac{i \varphi}{\hbar} \hat{n} \cdot \vec{L}}$
+
+\paragraph{Selection rules}
+Suppose $\hat{\Pi}^\dagger V(x) \hat{\Pi} = V(x)$, then
+$\eckigeklammer{V,\hat{\Pi}} = 0$ and $\eckigeklammer{\hat{H},\hat{\Pi}} = 0$.
+Then the non-degenerate eigenstates $| \psi_n \rangle$ of $\hat{H}$ satisfy
+$\hat{\Pi} | \psi_n \rangle = \pm | \psi_n \rangle$.
+If $H_{i,f}(t) = \langle \phi_i | \hat{H}(t) | \phi_f \rangle
+= \int \phi_i(\vec{r}) \hat{H}(t,\vec{r}) \phi_f(\vec{r}) d^3 r = 0$, then
+the transition isn't allowed. If the integrand is odd under parity, the integral is
+is zero. \fat{First selection rule}: $\langle \psi_{n'l'm'} | \hat{\vec{r}} | \psi_{nlm} \rangle = 0$
+if $l+l'$ is even.
+$\eckigeklammer{L_z , z} = 0$, $\eckigeklammer{L_z ,y} = -i \hbar x$,
+$\eckigeklammer{L_z ,x } = i \hbar $,
+$\eckigeklammer{L_z , x + iy} = \hbar (x+iy)$,
+$\eckigeklammer{L_z , x - iy} = - \hbar (x-iy)$
+Thus, selection rule will depend on polatization of light.
+$l' - l = \pm 1$ has to be fulfilled.
+
+\paragraph{Linearly polarized light in the $z$ direction}
+% $\langle \psi_{n'l'm'} | \hat{z} | \psi_{nlm} \rangle = 0$ unless $m' = m$.
+For linearly polarized light along the $z$ direction, transitions cannot happen
+unless the $m$ quantum numbers of the initial and final state are the same.
+
+\paragraph{Circularly polarized light in the plane perpendicular to the $z$ direction}
+% $\langle \psi_{n'l'm'} | \hat{x} + i \hat{y} | \psi_{nlm} \rangle = 0$ unless
+% $m' = m+1$ and $\langle \psi_{n'l'm'} | \hat{x} - i \hat{y} | \psi_{nlm} \rangle = 0$
+% unless $m' = m-1$. Thus, 
+For circularly polarized light, transitions are forbidden
+unless they are between states that defer by $1$ in their $m$ quantum number.
+
+
+\subsection{quantum statistical Physics}
+$N$ particles with total energy $E$. Collection of single-particle states.
+$g_j$ of these have energy $\epsilon_j$. What are the number of atoms $n_j$ with
+energy $\epsilon_j$? If we have $g_j$ states with the same energy,
+$n_j = g_j \cdot N \cdot P_j = g_j N \frac{e^{-\beta \epsilon_j}}{Z}$.
+How many ways are there to put $n_1$ particles into $g_1$ states and
+$n_2$ particles into $g_2$ states, etc? If the number of ways to put $n_j$ particles
+into $g_j$ states is $\omega_j(n_j)$, then we have:
+$\Omega_{\geschwungeneklammer{n_j}} = \prod_j \omega_j(n_j)$
+
+\paragraph{Fermions}
+Each of the $g_j$ states can only accomodate one particle. So:
+$\omega_j(n_j) = \frac{g_j !}{n_j ! (g_j - n_j)!}$. Important:
+particles are indistinguishable but the states are distinguishable. So:
+$\Omega_{\geschwungeneklammer{n_j}} = \prod_j \frac{g_j !}{n_j ! (g_j - n_j)!}$.
+Assume $n_j , g_j , g_j - n_j \gg 1$, then:
+$\ln \Omega_{\geschwungeneklammer{n_j}} = \sum_j \eckigeklammer{\ln(g_j !) - \ln(n_j !) - \ln((g_j - n_j)!)}
+\approx \sum_j \eckigeklammer{g_j \ln(g_j) - n_j \ln(n_j) - (g_j - n_j) \ln(g_j - n_j)}$.
+Constraints: $\sum_j n_j = N$ and $\sum_j n_j \epsilon_j = E$. With lagrange multipliers
+we obtain: $n_j = \frac{g_j}{e^{\beta (\epsilon_j - \mu)} + 1}$ with
+$\beta = \frac{1}{k_B T}$ and $\mu$ the \fat{chemical potential}.
+$n_j$ is called \fat{Fermi-Dirac Distribution}. $\mu(T=0)$ is the \fat{Fermi energy}.
+
+\paragraph{Bosons}
+How many ways are there to devie $n_j$ identical particles into $g_j$ bins.
+$\omega_j (n_j) = \frac{(n_j + g_j - 1)!}{n_j ! (g_j - 1)!}$,
+$\Omega_{\geschwungeneklammer{n_j}} = \prod_j \frac{(n_j + g_j - 1)!}{n_j ! (g_j - 1)!}$,
+hence $n_j = \frac{g_j -1}{e^{\beta(\epsilon_j - \mu)}-1} \approx
+\frac{g_j}{e^{\beta(\epsilon_j - \mu)} -1}$ since we assumed $g_j \gg 1$.
+
+\paragraph{Average energy in a mode with frequency $\omega$}
+$\langle \epsilon \rangle = \frac{\hbar \omega}{e^{\beta \hbar \omega} - 1}$, so
+the number of photons in that mode is just $n = \frac{\langle \epsilon \rangle}{\hbar \omega}
+= \frac{1}{e^{\beta \hbar \omega} -1}$
+
+\paragraph{Bose-Einstein Distribution}
+$n_\omega = \frac{V \omega^2}{\pi^2 c^3} \frac{d \omega}{e^{\beta \hbar \omega} -1}
+= \frac{\rho(\omega) d \omega}{\hbar \omega} \cdot V$
+
+\paragraph{Classical limit}
+$n_j \ll g_j$: $n_j \approx \frac{g_j}{e^{\beta (\epsilon_j - \mu)}}$
+With this, we already lost the information wheter it is a fermion or a boson.
+$N = \sum_j n_j \approx \sum_j \frac{g_j}{e^{\beta(\epsilon_j - \mu)}} \Rightarrow
+\frac{1}{e^{-\beta \mu}} = \frac{N}{\sum_j g_j e^{-\beta \epsilon_j}} = \frac{N}{Z}
+\Rightarrow n_j = N g_j \frac{e^{-\beta \epsilon_j}}{Z}$ which agrees with the
+classical result.
+
+
+

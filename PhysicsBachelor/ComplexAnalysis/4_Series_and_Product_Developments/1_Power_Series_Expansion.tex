@@ -1,0 +1,90 @@
+\subsection{Power Series Expansion}
+
+\begin{theorem}[Weierstrass]
+    Suppose that $f_n(z)$ is analytic in the region $\Omega_n$, and that the
+    sequence $\geschwungeneklammer{f_n(z)}$ converges to a limit function $f(z)$ in a
+    region $\Omega$, uniformaly on every compact subset of $\Omega$. Then $f(z)$ is
+    analytic in $\Omega$. Moreover, $f_n' (z)$ converges uniformaly to $f'(z)$ on
+    every compact subset of $\Omega$.
+\end{theorem}
+
+\begin{corollary}
+    Let $\sum_{n=1}^\infty f_n$ be a series of analytic functions in $U \subseteq \C$
+    a region. Assume $\sum_{n=1}^\infty f_n \rightarrow f: U \rightarrow \C$ uniformaly
+    on every compact subset of $U$. (Which means that $S_m (z) = f_1(z) + \dots + f_m(z)$
+    converges uniformaly locally to $f$.) Then, $f$ is analytic in $U$ and $\forall k
+    \in \N : \ \sum_{n=0}^\infty f_n^{(k)} (z) = f^{k} (z)$.
+\end{corollary}
+
+\begin{theorem}
+    If the functions $f_n(z)$ are analytic and $\neq 0$ in a region $\Omega$, and
+    if $f_n(z)$ converges to $f(z)$, uniformaly on every compact subset of $\Omega$,
+    then $f(z)$ is either identically zero or never equal to zero in $\Omega$. 
+\end{theorem}
+
+\begin{theorem}[Taylor]
+    If $f(z)$ is analytic in the region $\Omega$, containing $z_0$, then the
+    representation
+    \begin{align*}
+        f(z) = f(z_0) + \frac{f'(z_0)}{1!} (z-z_0) + \dots + \frac{f^{(n)}(z_0)}{n!} (z-z_0)^n + \dots
+    \end{align*}
+    is valid in the largest open disk of center $z_0$ contained in $\Omega$.
+\end{theorem}
+
+\begin{definition}[Laurent Series]
+    A \fat{Laurent Series} is given by
+    \begin{align*}
+        \sum_{n=-\infty}^\infty a_n \klammer{z-z_0}^n
+    \end{align*}
+    for a $z_0 \in \C$.
+\end{definition}
+
+\begin{definition}[Radius of Convergence]
+    The \fat{radius of convergence} is given by
+    \begin{align*}
+        \rho_+ &:= \frac{1}{\limsup_{n \rightarrow \infty} \sqrt[n]{\abs{a_n}}}
+        \\
+        \rho_- &:= \limsup_{n \rightarrow \infty} \sqrt[n]{\abs{a_n}}
+    \end{align*}
+    Assume $\rho_+ > \rho_-$. Then the Laurent series $\sum_{n \in \Z} a_n (z-z_0)^n$
+    converges (locally) uniformaly and absolutely in
+    $A = \geschwungeneklammer{z \in \C : \rho_- \abs{z-z_0} < \rho_+}$
+\end{definition}
+
+\begin{theorem}
+    Let $A$ be as before. Let $f: A \rightarrow \C$ be analytic. Then $f$ can be
+    expanded to a Laurent series in $A$ and the series is (locally) uniformaly
+    and absolutely convergent. The expansion is unique.
+    \begin{align*}
+        f(z) = \sum_{n \in \Z} a_n (z-z_0)^n
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If $f: \Omega \backslash \geschwungeneklammer{z_0} \rightarrow \C$ is
+    analytic and has an isolated singularity at $z_0$, then
+    \begin{enumerate}[(i)]
+        \item $z_0$ is removable $\Leftrightarrow \limes{z \rightarrow z_0} (z-z_0)f(z) = 0$
+            $\Leftrightarrow \limes{z \rightarrow z_0} \sum_{k=-\infty}^\infty a_k (z-z_0)^{k+1} = 0$
+            $\Leftrightarrow \forall k \leq -1: a_k =0$
+            $\Leftrightarrow f(z) = \sum_{k=0}^\infty a_k (z-z_0)^k$ and
+            $S(z) = \sum_{k=-\infty}^0 a_k (z-z_0)^k \equiv 0$ is the so called \fat{essential
+            part}.
+        \item $z_0$ is a pole of order $n$ $\Leftrightarrow \limes{z \rightarrow z_0}
+            (z-z_0)^n f(z) \in \C \backslash \geschwungeneklammer{0}$
+            $\Leftrightarrow \limes{z \rightarrow z_0} \sum_{k=-\infty}^\infty a_k (z-z_0)^{n+k}
+                \in \C \backslash \geschwungeneklammer{0}$
+            $\Leftrightarrow \forall k < -n : a_k = 0$
+            $\Leftrightarrow f(z) = \sum_{k=-n}^\infty a_k (z-z_0)^k$.
+            The essential part consists of only finitely many terms.
+        \item $z_0$ is an essential singularity $\Leftrightarrow z_0$ is not
+            removable and not a pole $\Leftrightarrow f(z) = \sum_{k=-\infty}^\infty
+            a_k (z-z_0)^k$ where $a_k \neq 0 \ \forall k < 0$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    Let $f$ be analytic in $\geschwungeneklammer{z : R_1 < \abs{z} < R_2}$ can be
+    written as $f(z) = \sum_{n=0}^\infty A_n (z-z_0)^n$
+\end{theorem}
+

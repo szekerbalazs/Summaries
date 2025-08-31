@@ -1,0 +1,45 @@
+\section{Bootstrap}
+
+\vspace{-5pt}
+
+\subsection{Non-parametric BS}
+
+$\Expec^* \eckigeklammer{\hat{\theta}_n^*} \approx \frac{1}{B} \sum_{i=1}^B \hat{\theta}_n^{*(i)}$, $\Var^* (\hat{\theta_n^*}) \approx \frac{1}{B-1} \sum_{i=1}^B \klammer{\hat{\theta}_n^{*(i)} - \Expec^* \eckigeklammer{\hat{\theta}_n^*}}^2$
+
+$\alpha-$quantile of distr. of $\hat{\theta}_n^* \approx \alpha$-quantile of $\hat{\theta}_n^{*(1)},\dots,\hat{\theta}_n^{*(B)}$
+
+\vspace{5pt}
+
+\fat{Bootstrap CI:} $\eckigeklammer{2 \hat{\theta}_n - q_{1-\alpha/2}^*, 2 \hat{\theta}_n - q_{\alpha/2}^*}$ , $q_{\alpha}^* = \alpha$-BS-quant. of $\hat{\theta}_n^*$
+
+\vspace{-5pt}
+
+\subsection{Double Bootstrap}
+
+\fat{Algorithm} \{
+Repeat M times: \{
+    Draw $Z_1^*,\dots,Z_n^* \sim P_n$,
+    Compute $\hat{\theta}^*$,
+    a) [Compute $I^{**} (1-\alpha)$]: Repeat $B$ times: \{
+        
+    Generate $Z_1^{**},\dots,Z_n^{**} \sim P^*$,
+    Compute $\hat{\theta}^{**}$
+    \}
+
+    $I^{**} (1-\alpha) = \eckigeklammer{2 \hat{\theta} - q_{1-\alpha/2}^{**} ,  2 \hat{\theta} - q_{\alpha/2}^{**}}$
+
+    b) [Check Coverage]:
+    cover$^{*(m)} (1-\alpha) := \id_{\eckigeklammer{\hat{\theta} \in I^{**} (1-\alpha)}} \in \geschwungeneklammer{0,1}$
+\}
+
+$p^* (\alpha) = \frac{1}{M} \sum_{m=1}^M \text{cover}^{*(m)} (1-\alpha) \approx \mathbb{P} \eckigeklammer{\hat{\theta} \in I^{**} (1-\alpha) }$
+\}
+
+\vspace{2pt}
+
+Vary $\alpha$ to find $\alpha'^*$ s.t. $p^* (\alpha'^*) = 1-\alpha$
+
+\vspace{-5pt}
+
+\subsection{Model based BS}
+Instead of resampling the data like in non-parametric BS, estimate $\theta$ by $\hat{\theta}$ with LS or MLE and then sample $Z_1^*,\dots,Z_n^* \stackrel{iid}{\sim} \mathbb{P}_{\hat{\theta}}$. Construct CI like in non-param BS. \textcolor{green}{if $n$ small $\Rightarrow$ non-param-BS poor}, \textcolor{red}{sensitive to model-misclassification}

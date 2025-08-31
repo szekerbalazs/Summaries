@@ -1,0 +1,125 @@
+\subsection{Cauchy's Integral Formula}
+
+\begin{theorem}
+    If a piecewise differentiable closed curve $\gamma$ does not pass through the point
+    $a$, then the following is true.
+    \begin{align*}
+        \int_\gamma \frac{dz}{z-a} = 2 \pi i
+    \end{align*}
+    Equivalent: $a \in \C$ and $C = \geschwungeneklammer{z \in \C : \abs{z-a} < r}$
+    \begin{align*}
+        \int_C \frac{dz}{z-a} = 2 \pi i
+    \end{align*}
+\end{theorem}
+
+\begin{definition}[Winding Number]
+    Let $\gamma$ be a closed piecewise differentiable curve and $a \notin \gamma$.
+    Then we define the so called \fat{winding number} $\eta(\gamma,a)$ as
+    \begin{align*}
+        \eta(\gamma,a) := \frac{1}{2 \pi i} \int_\gamma \frac{1}{z-a} \ dz
+    \end{align*}
+    This number is always an integer.
+\end{definition}
+
+\begin{proposition}
+    If $\gamma$ lies inside of a circle, then $\eta(\gamma,a) = 0$ for all points
+    $a$ outside of the same circle.
+\end{proposition}
+
+\begin{theorem}
+    Let $\gamma$ be a closed curve in $\C$. If $a,b \in \C$ are in the same region
+    determined by $\gamma$, then $\eta(\gamma,a) = \eta(\gamma,b)$.
+\end{theorem}
+
+\begin{theorem}[Cauchy's Integral Formula]
+    Let $f: \Delta \rightarrow \C$ be analytic in an open disk $\Delta \subset \C$
+    and let $\gamma$ be a closed curve in $\Delta$. For any point $a \notin \gamma$
+    the following is true.
+    \begin{align*}
+        \eta(\gamma,a) f(a) = \frac{1}{2 \pi i} \int_\gamma \frac{f(z)}{z-a} \ dz
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Cauchy's Integral Formula]
+    Let $f$ be analytic on an open disk $\Delta$ and let $\gamma$ be a closed
+    curve in $\Delta$. If $z \in \gamma$ and $\eta(\gamma,z) = 1$ the following
+    is true.
+    \begin{align*}
+        f(z) = \frac{1}{2 \pi i} \int_\gamma \frac{f(\xi)}{\xi - z} \ d \xi
+    \end{align*}
+\end{theorem}
+
+\begin{corollary}
+    Let $f, \Delta$ and $\gamma$ be as above. Assume $\eta(\gamma,a) = 1$. If $a \neq b$,
+    then we can write:
+    \begin{align*}
+        \frac{1}{2 \pi i}
+        \int_\gamma \frac{f(z)}{(z-a)(z-b)} \ dz
+        = \frac{1}{2 \pi i (a-b)} \klammer{\int_\gamma \frac{f(z)}{z-a} \ dz -
+            \int_\gamma \frac{f(z)}{z-b} \ dz}
+        = \frac{1}{a-b} \klammer{\eta(\gamma,a) f(a) - \eta(\gamma,b) f(b)}
+    \end{align*}
+    Since $\frac{1}{(z-a)(z-b)} = \frac{1}{a-b} \klammer{\frac{1}{z-a} - \frac{1}{z-b}}$.
+    If however $a=b$, then:
+    \begin{align*}
+        \frac{1}{2 \pi i} \int_\gamma \frac{f(z)}{(z-a)^2} \ dz
+        = \eta(\gamma,a) f'(a)
+    \end{align*}
+\end{corollary}
+
+\begin{theorem}
+    With the above conditions the following is true.
+    \begin{align*}
+        f^{(n)} (z) = \frac{n!}{2 \pi i} \int_\gamma \frac{f(\xi)}{(\xi -z)^{n+1}} \ d \xi
+    \end{align*}
+\end{theorem}
+
+\begin{lemma}
+    Suppose that $\phi(\xi)$ is continuous on the arc $\gamma$. Then the function
+    \begin{align*}
+        F_n (z) = \int_\gamma \frac{\varphi(\xi)}{(\xi-z)^n} \ d \xi
+    \end{align*}
+    is analytic in each of the regions determined by $\gamma$, and its derivative
+    is $F_n'(z) = n F_{n+1} (z)$.
+\end{lemma}
+
+\begin{theorem}
+    If $f: \Omega \rightarrow \C$ is analytic and $C$ is a circle in $\Omega$ for all
+    $z$ in the inside of $C$ it is true that
+    \begin{align*}
+        f(z) = \frac{1}{2 \pi i} \int_C \frac{f(\xi)}{\xi - z} \ d \xi
+        \ \ \text{ and } \ \
+        f^{(n)} (z) = \frac{n!}{2 \pi i} \int_C \frac{f(\xi)}{(\xi - z)^{n+1}} \ d \xi
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If $f: \Omega \rightarrow \C$ is analytic in $\Omega \subseteq \C$ a region,
+    then $f$ has $n$ derivatives.
+\end{theorem}
+
+\begin{theorem}[Morera's Theorem]
+    Let $f: \Omega \rightarrow \C$ be continuous in a region $\Omega$. If for all
+    closed paths $\gamma$ it is true that $\int_\gamma f(z) \ dz = 0$, then $f$
+    is analytic in $\Omega$.
+\end{theorem}
+
+\begin{theorem}
+    Let $f$ be analytic in a region containing $C = \geschwungeneklammer{z :
+    \abs{z-a} < r}$ and the inside of $C$. Further, let $\max_{z \in C} \abs{f(z)}
+    \leq M$. Then
+    \begin{align*}
+        f^{(n)} (a) = \frac{n!}{2 \pi i} \int_C \frac{f(\xi)}{(\xi - z)^n} \ d \xi
+        \leq \frac{n!}{2 \pi} M \frac{1}{r^n} \int_C \abs{d \xi}
+        \leq \frac{n!}{2 \pi} M \frac{1}{r^n} 2 \pi
+        \leq \frac{n! M}{r^n}
+    \end{align*}
+    If $f$ is analytic in $B(a,r')$ and $\abs{f(z)} < M \ \forall z \in C$ where
+    $C = \geschwungeneklammer{z : \abs{z-a} < r}$ with $r<r'$, then
+    $\abs{f^{(n)} (z)} \leq M \frac{n!}{r^n}$.
+\end{theorem}
+
+\begin{theorem}[Liouville's Theorem]
+    If $f: \C \rightarrow \C$ is analytic in all $\C$ and bounded, then $f$ must
+    be constant.
+\end{theorem}

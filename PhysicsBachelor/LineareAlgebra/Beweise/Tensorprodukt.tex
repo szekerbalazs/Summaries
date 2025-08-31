@@ -1,0 +1,55 @@
+\subsection{Tensorprodukt}
+
+Wir wählen Basen $\left(v_{i}\right)_{i \in I}$ von $V$ und
+$\left(w_{j}\right)_{j \in J}$ von $W$ und definieren $V \otimes W$ als den
+Vektorraum der endlichen Linearkombinationen von formalen Ausdrücken der Form
+$v_{i} \otimes w_{j} .$ Präziser ausgedrückt betrachten wir den $K$ -Vektorraum
+\[
+\operatorname{Abb}(I \times J, K)=\{\tau: I \times J \rightarrow K\}
+\]
+$V \otimes W:=\{\tau: I \times J \rightarrow K: \tau(i, j) \neq 0 \text { für nur endlich
+viele }(i, j) \in I \times J\}$
+Dann ist $v_{i} \otimes w_{j} \in V \otimes W$ die Abbildung, deren Wert an der einzigen
+Stelle $(i, j)$ gleich 1 und sonst 0 ist. Offenbar ist
+$\left(v_{i} \otimes w_{j}\right)_{(i, j) \in I \times J}$ eine Basis von $V \otimes W$,
+denn für $\tau \in V \otimes W$ gilt
+\[
+\tau=\sum_{i, j} \tau(i, j)\left(v_{i} \otimes w_{j}\right)
+\]
+wobei nur endlich viele Summanden $\neq 0$ sind. Also haben wir ein Erzeugendensystem. Ist
+\[
+\tau:=\sum_{i, j} \alpha_{i j}\left(v_{i} \otimes w_{j}\right)=0
+\]
+so gilt $\tau(i, j)=\alpha_{i j}=0,$ weil die Nullabbildung überall den Wert Null hat.
+Zur Definition von $\eta$ genügt es
+\[
+\eta\left(v_{i}, w_{j}\right):=v_{i} \otimes w_{j}
+\]
+zu setzen. sind beliebige Vektoren
+\[
+v=\sum_{i}^{\prime} \lambda_{i} v_{i} \in V \quad \text { und } \quad
+w=\sum_{j} \mu_{j} w_{j} \in W
+\]
+gegeben, so ist wegen der Bilinearität von $\eta$
+\[
+v \otimes w:=\eta(v, w)=\eta\left(\sum_{i}^{\prime} \lambda_{i} v_{i},
+\sum_{j}^{\prime} \mu_{j} w_{j}\right)=\sum_{i, j}^{\prime} \lambda_{i} \mu_{j}\left(v_{i}
+\otimes w_{j}\right)
+\]
+Nun zur universellen Eigenschaft: Ist $\xi: V \times W \rightarrow U$ gegeben, so betrachten
+wir die Vektoren $u_{i j}:=\xi\left(v_{i}, w_{j}\right) \in U .$ Wegen der Bedingung
+$\xi=\xi_{\otimes} \circ \eta$ muss
+\[
+\xi_{\otimes} \circ \eta (v_i , w_j) = \xi_{\otimes}\left(v_{i} \otimes w_{j}\right)=u_{i j}
+\]
+sein. Es gibt genau eine lineare Abbildung $\xi_{\otimes}: V \otimes W \rightarrow U$
+mit dieser Eigenschaft. Weiter ist 
+\[
+\xi_{\otimes}\left(\sum_{i, j}^{\prime} \alpha_{i j}\left(v_{i} \otimes w_{j}\right)\right)=
+\sum_{i, j}^{\prime} \alpha_{i j} u_{i j}
+\]
+Also ist $\xi_{\otimes}(v \otimes w)=\xi(v, w)$ für alle $(v, w) \in V \times W,$ und die
+universelle Eigenschaft ist bewiesen.
+
+Der Zusatz über die Dimensionen ist klar, denn besteht $I$ aus $m$ und $J$ aus Elementen, so besteht $I \times J$ aus $m \cdot n$ Elementen.
+

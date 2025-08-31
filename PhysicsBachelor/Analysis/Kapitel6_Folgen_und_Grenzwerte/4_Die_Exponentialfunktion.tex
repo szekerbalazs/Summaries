@@ -1,0 +1,73 @@
+\subsection{Die Exponentialfunktion}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei \xinR eine reelle Zahl. Die Folge reeller Zahlen $\aFolge$ gegeben durch
+    \begin{align*}
+        a_n = \klammer{1 + \frac{x}{n}}^n
+    \end{align*}
+    ist konvergent, und ihr Grenzwert ist eine positive reelle Zahl.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Exponentialfunktion} $\exp: \R \rightarrow \R_{\geq 0}$ ist die durch
+    \begin{align*}
+        \exp (x) = \limesninf \klammer{1 + \frac{x}{n}}^n
+    \end{align*}
+    für alle \xinR definierte Funktion. Die \fat{Euersche Zahl} $e \in \R$ ist definiert als
+    \begin{align*}
+        e = \exp (1) = \limesninf \klammer{1 + \frac{1}{n}}^n
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Die Exponentialfunktion $\exp : \R \rightarrow \R_{> 0}$ ist bijektiv, streng monoton
+    steigend, und stetig. Ausserdem gilt:
+    \begin{align*}
+        \exp (0) &= 1 \\
+        \exp (-x) &= \exp (x)^{-1} \ \ \text{für alle \xinX} \\
+        \exp (x + y) &= \exp (x) \exp (y) \ \ \text{für alle } x,y \in \R
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Der Logarithmus $\log : \R_{> 0} \rightarrow \R$ ist eine streng monoton wachsende,
+    stetige und bijektive Funktion. Des weiteren gilt:
+    \begin{align*}
+        \log (1) &= 0 \\
+        \log (a^{-1}) &= - \log(a) \ \ \text{für alle } a \in \R_{> 0} \\
+        \log (a b) &= \log (a) + log (b) \ \ \text{für alle } a,b \in \R_{> 0}
+    \end{align*}
+    Diese Funktion ist die eindeutige Umkehrfunktion von $\exp: $.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{ (Bernoulli Ungleichung)
+
+    Sei $a \in \R$ mit $a \geq -1$. Dann gilt für alle \ninN:
+    \begin{align*}
+        \klammer{1 + a}^n \geq 1 + n \cdot a
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für eine positive Zahl $a > 0$ und beliebigen Exponenten \xinR schreiben wir
+    \begin{align*}
+        a^x := \exp (x \log (a))
+    \end{align*}
+}

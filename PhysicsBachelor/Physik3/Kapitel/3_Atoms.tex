@@ -1,0 +1,70 @@
+\section{Atoms}
+
+\paragraph{Elements}
+${^A_Z}G$: $A$ is the mass of the atom, $G$ is the symbol of the element and $Z$
+is the atomic number (number of protons).
+
+\paragraph{Mass spectrometer}
+$\vec{E} = E \vec{e}_y$ , $\vec{B} = B \vec{e}_y$ , $\vec{v} = v \vec{e}_z$ ,
+$\vec{F} = q \klammer{\vec{E} + \vec{v} \times \vec{B}}$. Thus
+$m \frac{d^2 y}{d t^2} = q E \Rightarrow y = \frac{q E t^2}{2 m}$ and
+$m \frac{d^2 x}{d t^2} = - q B v \Rightarrow x = - \frac{q B v t^2}{2 m}$.
+Since $t = l/v$ we obtain $y = \frac{m}{q} \frac{2 E x^2}{B^2 l^2}$. Where $l$ is
+the length of the condensator (interaction length). This is a parabola. Depending
+on the ratio $m/q$ the particle will land somewhere else.
+
+\paragraph{Scattering}
+Assume we scatter atoms with radius $r_1$ and $r_2$, then they can't get
+closer than $r_1 + r_2$. Then the \fat{scattering cross section} is
+$\sigma = \pi (r_1 + r_2)^2$. The \fat{flux} is defines as
+$F = \frac{\Delta N_p}{A \Delta t}$. Rate of hitting objects is
+$R = F \sigma$. Using a \textit{collection} of atoms as target:
+probability of two atoms lining up is small, rate of interactions is then
+$R = F \sigma N_A$ with $N_A$ the number of atoms interacting with the beam.
+Assume atoms have a uniform density $n$ within the volume. Probability that
+a single incident atom will get scattered: $P_S = n \sigma d x$.
+Change in number of atoms in the beam is $d N = - N \sigma n dx$. After a
+distance $x$, the number of remaining particles is $N(x) = N(0) e^{-n \sigma x}$.
+Number of particles over a time $T$ through the entire cylinder is then
+$N(L) = N(0) e^{- \sigma n L}$, thus: $\sigma = \frac{\ln \klammer{\frac{N(p)}{N(L)}}}{n L}$.
+
+\paragraph{Rutherford Scattering}
+Shooting $\alpha$ particles at atom. Coulomb force acting:
+$\vec{F} = \frac{k}{r^2} \hat{r}$ with $k = \frac{2 Z e^2}{4 \pi \epsilon_0}$
+with charge electron charge $e$ and atomic number $Z$. Since force is central,
+angular momentum needs to be conserved, resulting in $m v_0 b = m \dot{\phi} r^2
+\Rightarrow \frac{1}{r^2} = \frac{\dot{\phi}}{v_0 b} \Rightarrow \vec{F} =
+\frac{k \dot{\phi}}{v_0 b} \hat{r} \Rightarrow F_{\perp} = \frac{k \dot{\phi}}{v_0 b}
+\sin(\phi) \Rightarrow m \dot{v}_{\perp} = \frac{k \dot{\phi}}{v_0 b} \sin(\phi)$
+Integrate this over a long period of time, $t_1$ long before interaction,
+$t_2$ long after interaction. At $t_1$: $v_\perp = 0$. At $t_2$:
+$v_\perp (t_2) = v_0 \sin(\theta)$, $\phi = \phi_2 = \pi - \theta$, so:
+$\int_{t_1}^{t_2} \frac{d v_\perp}{dt} dt = \int_{t_1}^{t_2} \frac{k}{m v_0 b} \sin(\phi) \frac{d \phi}{dt} dt$
+resulting in $\int_0^{v_0 \sin(\theta)} d v_\perp = \int_0^{\pi-\theta} \frac{k \sin(\phi)}{m v_0 b} d \phi$
+resulting in $v_0 \sin(\theta) = \frac{k}{m v_0 b} \klammer{1 + \cos(\theta)}$
+meaning $b = \frac{k}{m v_0^2} \cot \klammer{\frac{\theta}{2}}$.
+Now the goal is to find the distribution of particles over deflection angle.
+If we have a flux of particles $F = R/A$, then $d R = F \cdot 2 \pi b \ db
+= \pi F \klammer{\frac{k}{m v_0^2}}^2 \frac{\cos(\theta/2)}{\sin^3(\theta/2)} d \theta$.
+The differential \fat{solid angle} is defined as $d \Omega = d A_{det} / r_{det}^2$,
+with $d A_{det}$ the projection area of the detector and $r_{det}$ the distance
+to the detector. $d \Omega = \sin(\theta) d \theta d \gamma$ with $d \gamma$ the
+azimuthal angle interval giving the size along the direction orthogonal to $d \theta$.
+So we obtain $d R = \frac{F}{4} \klammer{\frac{k}{m v_0^2}}^2 \frac{1}{\sin^4(\theta/2)} d \Omega$.
+Differential cross section: $d R = F d \sigma \Rightarrow d \sigma =
+\frac{1}{4} \klammer{\frac{k}{m v_0^2}}^2 \frac{1}{\sin^4(\theta/2)} d \Omega$.
+$d \sigma$ is called \textit{Rutherford's differential cross section scattering
+formula}.
+
+\vspace{1\baselineskip}
+
+\fat{$d \dot{N} = F d \sigma$} with $dN$ the change in the rate of particles
+through some differential area $d \sigma$ and $F$ the flux.
+
+\vspace{1\baselineskip}
+
+$b = \frac{k}{m v_0^2} \cot(\theta/2)$ for $ \sim 1 \mathrm{fm} \ll b \ll r_a$
+
+\vspace{1\baselineskip}
+
+$d \Omega = 2 \pi \sin(\theta) d \theta$

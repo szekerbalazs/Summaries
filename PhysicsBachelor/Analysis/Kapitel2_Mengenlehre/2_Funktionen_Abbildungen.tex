@@ -1,0 +1,140 @@
+\subsection{Funktionen und Abbildungen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien \X und \Y Mengen. Eine \fat{Funktion} von \X nach \Y
+    ist eine Teilmenge $F$ des karesischen Produktes $X \times Y$
+    mit der Eigenschaft, dass es für jedes \xinX genau ein \yinY
+    mit $(x,y) \in F$ gibt:
+    \begin{align*}
+        \forall x \in X \ \exists! \ y \in Y : (x,y) \in F
+    \end{align*}
+    Wir bezeichnen die Menge \X als \fat{Definitionsbereich} und 
+    die Menge \Y als \fat{Wertebereich} oder auch als \fat{Zielbereich}.
+}
+
+\Definition{
+
+    Die Menge $F$ ist gegeben durch
+    \begin{align*}
+        F = \geschwungeneklammer{(x,f(x)) | x \in X}
+    \end{align*}
+    gegeben und wird \fat{Graph} von $f$ bezeichnet.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei \X eine Menge und sei $A$ eine Teilmenge von \X. Die
+    Funktion $\iota_A : A \rightarrow X$ die durch $\iota_A(a) = a \ \forall a \in A$
+    gegeben ist, nennt man \fat{Inklusionsabbildung} von $A$ nach
+    \X. Die Inklusionsabbildung $\iota_X : X \rightarrow X$ wird
+    \fat{Identität} von \X genannt, und als $id_X : X \rightarrow X$
+    geschrieben. Die Funktion $\mathds{1}_A : X \rightarrow \geschwungeneklammer{0,1}$
+    gegeben durch
+    \begin{align*}
+        \mathds{1}_A (x) = \begin{cases}
+            0 \quad \text{ für } x \not\in A \\
+            1 \quad \text{ für } x \in A
+        \end{cases}
+    \end{align*}
+    wird \fat{charakteristische Funktion} von $A$ genannt. Für 
+    zwei Mengen \X und \Y wird die \fat{Menge aller Abbildungen} von 
+    \X nach \Y als $Y^X$ geschrieben, formaler
+    \begin{align*}
+        Y^X = \geschwungeneklammer{f \ | \ f: X \rightarrow X \text{ ist eine Funktion}}
+    \end{align*}
+    Grund der Notation ist unter anderem die folgende Behauptug. 
+    Falls \X und \Y endliche Mengen sind mit $m$, respektive $n$
+    Elementen für zwei natürliche Zahlen $m,n \in \N$, so hat 
+    $Y^X$ genau $n^m$ Elemente.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: X \rightarrow Y$ eine Funktion, und sei $A$ eine
+    Teilmenge von \X. Die Verknüpfung $f \circ \iota_A$ von $f$
+    mit der Inklusionsabbildung $\iota_A : A \rightarrow X$ nennt
+    man \fat{Einschränkung} von $f$ auf $A$. Man notiert diese 
+    Funktion als 
+    \begin{align*}
+        f|_A : A \rightarrow Y
+    \end{align*}
+    Es gilt $f|_A (a) = f(a) \ \forall a \in A$. Dennoch betrachten
+    wir $f|_A$ und $f$ als verschiedene Funktionen, da ihre 
+    Definitionsbereich nicht derselbe ist - ausgenommen natürlich
+    man hätte $A = X$ und also $\iota_A = id_X$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: X \rightarrow Y$ eine Funktion. Wir nennen $f$
+
+    \vspace{1\baselineskip}
+
+    1. \fat{injektiv} oder eine \fat{Injektion} falls $f(x_1) = f(x_2) \Rightarrow x_1 = x_2 \ \forall x_1,x_2 \in X$ gilt.
+
+    2. \fat{surjektiv} oder eine \fat{Surjektion} falls $\forall \ y \in Y \ \exists x \in X$ mit $f(x) = y$
+
+    3. \fat{bijektiv} oder eine \fat{Bijektion}, falls sie suejektiv und injektiv ist.
+
+    \vspace{1\baselineskip}
+
+    Ist $f$ bijektiv, so wird die Funktion $g: Y \rightarrow X$, 
+    die eindeutig durch 
+    \begin{align*}
+        g \circ f = id_X 
+        \quad
+        und 
+        \quad
+        f \circ g = id_X
+    \end{align*}
+    bestimmt ist, \fat{Umkehrabbildung} von $f$, oder zu $f$
+    \fat{inverse Funktion} genannt. Es ist also $g(y)$ das 
+    eindeutig bestimmte Element \xinX mit $f(x) = y$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Seien $f: X \rightarrow Y$ und $g: Y \rightarrow Z$ Funktionen.
+
+    1. Falls $f$ und $g$ injektiv sind, dann ist auch $g \circ f$ injektiv.
+    
+    2. Falls $g \circ f$ injektiv ist, dann ist auch $f$ injektiv.
+
+    3. Falls $f$ und $g$ surjektiv sind, dann ist auch $g \circ f$ surjektiv.
+    
+    4. Falls $g \circ f$ surjektiv ist, dann ist auch $g$ surjektiv.
+
+    5. Falls $f$ und $g$ bijektiv sind, dann ist auch $g \circ f$
+        bijektiv un des gilt $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.    
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Für eine Funktion $f: X \rightarrow Y$ und eine Teilmenge $A \subset X$
+    schreiben wir
+    \begin{align*}
+        f(A) = \geschwungeneklammer{y \in Y \ | \ \exists x \in A : f(x)=y}
+    \end{align*}
+    und nennen diese Teilmenge von \Y das \fat{Bild} von $A$ 
+    bezüglich der Funktion $f$. Für eine Teilmenge $B \subset Y$
+    schreiben wir 
+    \begin{align*}
+        f^{-1}(B) = \geschwungeneklammer{x \in X \ | \ \exists y \in B : f(x) = y}
+    \end{align*}
+    und nennen diese Teilmenge von \X das \fat{Urbild} von $B$
+    bezüglich der Funktion $f$.
+}
+

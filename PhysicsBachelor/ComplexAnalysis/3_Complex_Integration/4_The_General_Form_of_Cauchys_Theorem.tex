@@ -1,0 +1,64 @@
+\subsection{The General Form of Cauchy's Theorem}
+
+\begin{definition}[Simply Connected]
+    A region $\Omega$ is \fat{simply connected} if and only if its complements with respect to the
+    extended plane is connected. (Equivalent: If $\Omega$ has no holes.)
+\end{definition}
+
+\begin{theorem}
+    A region $\Omega$ is simply connected if and only if $\eta(\gamma,a) = 0$ for
+    all cycles $\gamma$ in $\Omega$ and all points $a \notin \Omega$.
+\end{theorem}
+
+\begin{definition}[Homology]
+    A cycle $\gamma$ in an open set $\Omega$ is said to be \fat{homologous to zero}
+    with respect to $\Omega$ if $\eta(\gamma,a) = 0 \ \forall a \in \Omega^C$.
+    In symbols we write $\gamma \sim 0$ (mod $\Omega$). We say that $\gamma_1 \sim \gamma_2$
+    if and only if $\gamma_1 - \gamma_2 \sim 0$ mod $\Omega$.
+\end{definition}
+
+\begin{theorem}[General Cauchy's Theorem]
+    If $f(z)$ is analytic in $\Omega$, then
+    \begin{align*}
+        \int_\gamma f(z) \ dz = 0
+    \end{align*}
+    for every cycle $\gamma$ which is homologous to zero in $\Omega$.
+\end{theorem}
+
+\begin{corollary}
+    If $f(z)$ is analytic in a simply connected region $\Omega$, then
+    \begin{align*}
+        \int_\gamma f(z) \ dz = 0
+    \end{align*}
+    holds for all cycles in $\Omega$.
+\end{corollary}
+
+\begin{corollary}
+    If $f(z)$ is analytic and $\neq 0$ in a simply connected region $\Omega$,
+    then it is possible to define single-valued analytic branches of $\log(f(z))$
+    and $\sqrt[n]{f(z)}$ in $\Omega$.
+\end{corollary}
+
+\begin{definition}[Multiply Connected]
+    A region which is not simply connected is called \fat{multiply connected}.
+    More precisely, $\Omega$ is said to have the \fat{finite connectivity} $n$ if
+    the complement of $\Omega$ has exactly $n$ components and \fat{infinite connectivity}
+    if the complement has infinitely many complements. (Colloquially speaking:
+    A region of connectivity $n$ arises by punching $n$ holes in the Riemann sphere.)
+\end{definition}
+
+\begin{definition}[Modules of Periodicity]
+    Let $f: \Omega \rightarrow \C$ be analytic and $\Omega$ be multiply connected.
+    Then we can write
+    \begin{align*}
+        \int_\gamma f \ dz
+        = \int_{c_1 \gamma_1 + \dots + c_{n-1} \gamma_{n-1}} f \ dz
+        = c_1 \int_{\gamma_1} f \ dz + \dots + c_{n-1} \int_{\gamma_{n-1}} f \ dz
+    \end{align*}
+    The numbers
+    \begin{align*}
+        P_i = \int_{\gamma_i} f \ dz
+    \end{align*}
+    depend only on the function and not on $\gamma$. They are called \fat{modules
+    of periodicity} or \fat{period of $f$}.
+\end{definition}

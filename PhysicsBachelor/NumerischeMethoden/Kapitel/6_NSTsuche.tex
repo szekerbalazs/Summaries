@@ -1,0 +1,357 @@
+\section{Nullstellensuche}
+
+\vspace{1\baselineskip}
+
+Geg.: $F: U \subset \R^n \rightarrow \R^n$ eine beliebige Funktion
+
+Ges.: $x^{\star} \in \R^n$ s.d. $F(x^{\star}) = 0$
+
+\vspace{1\baselineskip}
+
+\Definition{ (Iteratives Verfahren)
+
+    Ein Iteratives Verfahren ist ein Algorithmus definiert durch:
+
+    - Einen Startwert $x_0$
+
+    - Eine Iterationsvorschrift $x_{k+1} = \phi (x_k)$
+
+    - Eine Abbruchbedingung, wie zB.
+
+        \hspace{10pt} - Max. Anzahl Schritte
+
+        \hspace{10pt} - Absolute Toleranz: $\Norm{x_{k+1} - x_k} <$ abstol
+
+        \hspace{10pt} - Relative Toleranz: $\frac{\Norm{x_{k+1} - x_k}}{\Norm{x_{k+1}}} <$ reltol
+
+    Somit erzeugt es eine Folge $x_1 , \dots , x_N$ von approximierten Lösungen zu einem
+    Problem.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\limes{k \rightarrow \infty} x_k = x^\star$ für ein $x^\star$.
+    Dann ist der \fat{Fehler} definiert als: $e_k := \Norm{x^\star - x_k}$.
+    In der Regel ist $x^\star$ nicht bekannt. Dann: $x^\star \approx x_N$ für
+    $N>>1$, $e_k \approx \Norm{x_N - x_k}$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Konvergenzordnung $p$)
+
+    Sei $c>0$ sodass $e_{k+1} \leq c e_k^p$. Dann folgt die Berechnung:
+    \begin{align*}
+        \begin{rcases}
+            e_{k+1} \approx c e_{k}^p \\
+            e_k \approx c e_{k-1}^p
+        \end{rcases}
+        \Rightarrow
+        p \approx \frac{\log \klammer{\frac{e_{k+1}}{e_k}}}{\log \klammer{\frac{e_k}{e_{k-1}}}}
+        =: p_k
+    \end{align*}
+    \underline{Achtung}! $p$ ist ein Array mit einträgen $[p_1,\dots,p_{N-2}]$.
+    Wähle für $p$ einfach den letzten "vernünftigen" Eintrag.
+
+    \vspace{1\baselineskip}
+
+    \underline{Wichtig}! Dies ist nicht die selbe Konvergenzordnung wie bei DGL oder
+    Quadratur.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    $x^{(k+1)} = \Phi (x^{\star})$ heisst \fat{linear konvergent} nach $x^\star$, falls
+    es ein $L < 1$ gibt, sodass:
+    \begin{align*}
+        \Norm{x^{(k+1)} - x^{\star}} \leq L \Norm{x^{(k)} - x^\star}
+        \ \ \ \forall k \in \N
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+    \begin{align*}
+        \Norm{x^{(k+1)} - x^{\star}} \leq L \Norm{x^{(k)} - x^\star} \leq L^{k+1} \Norm{x^{(0)} - x^\star}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    \fat{Konvergenzordnung $p$} des Iterativen Verfahrens heisst, es gibt ein $C>0$, sodass
+    \begin{align*}
+        \Norm{x^{(k+1)} - x^\star} \leq C \cdot \Norm{x^{(k)} - x^\star}^p
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Bei linearer Konvergenz und bekanntem $L$ kann man folgende Abschätzung machen:
+    \begin{align*}
+        \Norm{x^{(k+1)} - x^\star} \leq \frac{1}{1-L} \Norm{x^{(k+1)} - x^{(k)}}
+    \end{align*}
+}
+
+\pagebreak
+
+\underline{\fat{Fixpunktiteration}}
+
+\vspace{1\baselineskip}
+
+\fat{Vorgehen}
+
+Wähle ein $\phi(x)$. Iteratives Verfahren mit Iterationsvorschrift:
+$x_{k+1} = \phi (x)$
+
+\vspace{1\baselineskip}
+
+\fat{Konvergenz}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Funktion $\phi$ heisst \fat{Kontraktion}, falls es ein $L>1$ gibt, so dass
+    $\Norm{\phi(x) - \phi(y)} \leq L \Norm{x-y}$ für alle $x,y$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wenn $x^\star$ ein Fixpunkt der Kontraktion $\phi$ ist, dann ist
+    \begin{align*}
+        \Norm{x^{(k+1)} - x^\star} = \Norm{\phi (x^{(k)}) - \phi(x^\star)}
+        \leq L \Norm{x^{(k)} - x^\star}
+    \end{align*}
+    Das heisst, dass das iterative Verfahren $x^{k+1} = \phi (x^k)$ mindestens linear
+    konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $D \subset \K^n$ ($\K = \R , \C$), mit $D$ abgeschlossen, und $\phi:D \rightarrow D$
+    einer Kontraktion. Dann existiert ein eindeutiger Fixpunkt $x^\star$, also
+    $\phi(x^\star) = x^\star$. Dieser ist der Grenzwert der Folge $x^{(k+1)} = \phi(x^{(k)})$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Hinreichende Bedingung für lokale lineare Konvergenz einer Fixpunktiteration)
+
+    Es Sei $U$ konvex und $\phi:U \subset \R^n \rightarrow \R^n$ stetig differenzierbar
+    mit $L := \sup_{x \in U} \Norm{D \phi(x)} < 1$ wobei ($D \phi (x)$ die Jacobi-Matrix
+    von $phi$ ist). Wenn $\phi(x^\star) = x^\star$ für $x^\star \in U$, dann konvergiert
+    die Fixpunktiteration $x^{(k+1)} = \phi(x^{(k)})$ gegen $x^\star$ lokal mindestens
+    linear.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $\phi: \R^n \rightarrow \R^n$ mit $\phi(x^\star) = x^\star$ und $\phi$ stetig
+    differenzierbar in $x^\star$. Ist $\Norm{D\phi(x^\star)} < 1$, dann konvergiert die
+    Fixpunktiteration $x^{(k+1)} = \phi (x^{(k)})$ lokal (mindestens) linear, mit
+    $L = \Norm{D \phi (x^\star)}$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $U \subset \R$ ein Intervall und $\phi: U \rightarrow \R$ $(m+1)$-mal differenzierbar
+    mit $\phi(x^\star) = x^\star \in U$. Sei weiterhin $\phi^{(l)} (x^{\star}) = 0$ für
+    $l=1,\dots,m$ ($m \geq 1$). Dann konvergiert die Fixpunktiteration
+    $x^{(k+1)} = \phi(x^{(k)})$ gegen $x^\star$ lokal der Ordnung $p \geq m+1$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Konvergiert die Kontraktion $\phi$ linear mit dem Faktor $L<1$, dann gilt die
+    folgende Abschätzung:
+    \begin{align*}
+        \Norm{x^\star - x^{(k)}} \leq \frac{L^{k-l}}{1-L} \Norm{x^{(l+1)} - x^{(l)}}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Bisektionsverfahren (Intervallhalbierungsverfahren)}}
+
+\vspace{1\baselineskip}
+
+\underline{Idee}: Zwischenwertsatz:
+$F:[a,b] \rightarrow \R$ stetig mit $F(a) F(b) < 0 \Rightarrow \exists x^\star \in [a,b]$
+sodass $F(x^\star) = 0$
+
+\underline{Vorgehen}:
+Iteratives Verfahren mit der Iterationsvorschrift:
+
+- Intervall halbieren $m=\frac{a+b}{2}$
+
+- Suche Intervall mit unterschiedlichen Vorzeichen:
+$F(a) F(m) < 0$ oder $F(m) F(b) < 0$
+
+- Weiter mit Intervall "$<0$"
+
+\vspace{1\baselineskip}
+
+Konvergiert immer. Lineare Konvergenz. Keine verallgemeinerung in mehreren
+Dimensionen.
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Newtonverfahren}}
+
+\vspace{1\baselineskip}
+
+\underline{Idee}
+Approximation von $F$ durch Tangente bei $x_k$ (Taylor):
+
+$F(x) \approx \tilde{F} (x) := F(x_k) + F'(x) \cdot (x-x_k) \stackrel{!}{=} 0$
+
+\underline{Vorgehen}:
+(Newtonverfahren)
+
+Iteratives Verfahren mit Iterationsvorschrift:
+$x_{k+1} = x_k - \frac{F(x_k)}{F'(x_k)}$
+
+\vspace{1\baselineskip}
+
+\underline{Mehrdimensional}
+
+Gleiche Idee: $x_{k+1} = x_k - DF(x_k)^{-1} F(x_k) := x_k - s_k$
+Aber $DF(x_k) := (\frac{\partial F_i}{\partial x_j})_{ij} \in \Mat(n \times n;\R)$
+"Berechne nie das Inverse einer Matrix!"
+
+\underline{Vorgehen}
+(Mehrdimensionales Newtonverfahren)
+
+Iteratives Verfahren mit Iterationsvorschrift:
+
+- $\vec{s}_k =$ Lösung des linearen GLS $DF(\vec{x}_k) \vec{s}_k = F (\vec{x}_k)$
+
+- $\vec{x}_{k+1} = \vec{x}_k - \vec{s}_k$
+
+Newtonverfahren = Fixpunktiteration mit $\phi(x) = x- \frac{F(x)}{F'(x)}$
+$\Rightarrow$ lokal mindestens quadratische Konvergenz.
+
+\vspace{1\baselineskip}
+
+\underline{Sekantenverfahren}
+
+Falls $F'$ unbekannt: $F'(x) \approx \frac{F(x_k) - F(x_{k-1})}{x_k - x_{k-1}}$
+
+Konvergenzordnung: $p \approx 1.62$
+
+Beachte: 2. Startwert benötigt. Mehrdimensional nicht möchlich.
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Gedämpftes Newtonverfahren}}
+
+\vspace{1\baselineskip}
+
+\underline{Idee}:
+Dämfung von $s_k$ mit einem Dämpfungsparameter $\lambda_k \in (0,1]$
+
+Es wird das maximale $\lambda_k$ gewählt, so dass
+\begin{align*}
+    \Norm{\frac{F \klammer{x^{(k)} - \lambda^{(k)} \frac{F(x^{(k)})}{DF(x^{(k)})}}}{DF(x^{k})}}_2
+    \leq
+    \klammer{1-\frac{\lambda^{(k)}}{2}} \Norm{\frac{F(x^{(k)})}{DF(x^{(k)})}}_2
+\end{align*}
+Praxis: $\lambda_k = 1 \rightarrow \frac{1}{2} \rightarrow \frac{1}{4} \rightarrow \dots$
+bis die obere Bedingung erfüllt ist.
+
+\vspace{1\baselineskip}
+
+\underline{Vorgehen}:
+(Gedämpftes Newtonverfahren)
+
+Iteratives Verfahren mit Iterationsvorschrift:
+
+- $\vec{s}_k =$ Lösung von $DF(\vec{x}_k) \vec{s}_k = F(\vec{x}_k)$ oder in 1D: $\frac{F(x_k)}{F'(x_k)}$
+
+- $\lambda_k = \max \geschwungeneklammer{\frac{1}{2^n} \ | \ n \in \N_0 \text{ und erfüllt obige Bedingung}}$
+(in jedem Iterstionsschritt neu berechnen!)
+
+- $\vec{x}_{k+1} = \vec{x}_k - \lambda_k \vec{s}_k$
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Quasi-Newtonverfahren}}
+
+\vspace{1\baselineskip}
+
+\underline{Broyden Verfahren}
+
+Setze $J_0 = DF(x_0) \in M(n \times n , \R)$ und löse für $k=1,2,\dots$
+\begin{align*}
+    \begin{cases}
+        J_k \cdot s_k = F(x_k) \ \Leftrightarrow s_k = \text{solve} (J_k , F(x_k))
+        \\
+        x_{k+1} = x_k - s_k
+        \\
+        J_{k+1} = J_k + \frac{1}{\Norm{s_k}^2} F(x_{k+1}) (-s_k)^T
+    \end{cases}
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\underline{Sherman-Morrison-Formel}
+\begin{align*}
+    J_{k+1}^{-1} = J_k^{-1} + \frac{J_k^{-1} F(x_{k+1}) s_k^T J_k^{-1}}{\Norm{s_k}^2 - s_k^T J_k^{-1} F(x_{k+1})}
+\end{align*}
+
+\vspace{1\baselineskip}
+
+Daraus entsteht folgende \underline{Iteration}:
+\begin{enumerate}
+    \item Schritt:
+        \begin{align*}
+            \begin{cases}
+                J_0 = DF(x_0) \\
+                s_0 = \text{solve} (J_0 , F(x_0)) \\
+                x_1 = x_0 - s_0
+            \end{cases}
+        \end{align*}
+    \item Schritt:
+        \begin{align*}
+            \begin{cases}
+                J_1^{-1} = J_0^{-1} + \frac{J_0^{-1} F(x_{1}) s_0^T J_0^{-1}}{\Norm{s_0}^2 - s_0^T J_0^{-1} F(x_{1})}
+                \\
+                s_1 = J_1^{-1} F(x_1)
+                \\
+                x_2 = x_1 - s_1
+                \\
+                \vdots
+            \end{cases}
+        \end{align*}
+\end{enumerate}
+
+\underline{Alternativ}
+\begin{align*}
+    s_{k+1} = J_{k+1}^{-1} F(x_{k+1})= J_{k}^{-1} F(x_{k+1}) + \frac{J_k^{-1} F(x_{k+1}) s_k^T J_k^{-1} F(x_{k+1})}{\Norm{s_k}^2 - s_k^T J_k^{-1} F(x_{k+1})}
+\end{align*}
+Wir definieren nun $w_k := J_{k}^{-1} F(k+1)$ (Lsg. des GLS $J_k w_k = F(x_{k+1})$)
+und $z_k := s_k^T w_k$.
+Dann folgt:
+\begin{align*}
+    S_{k+1} = \klammer{1 + \frac{z_k}{\Norm{s_k}^2 - z_k}} w_k
+\end{align*}
+

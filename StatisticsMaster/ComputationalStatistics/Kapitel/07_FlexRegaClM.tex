@@ -1,0 +1,63 @@
+\section{Flexible Regr. and Class. Methods}
+
+\vspace{-5pt}
+
+\subsection{Additive Models}
+Model: $g_{add} (x) = \mu + \sum_{j=1}^p g_j (x_j)$ with $\mu \in \R$, $g_j : \R \rightarrow \R$, $\Expec [g_j (x_j)] = 0 \ \forall j=1,\dots,p$. $g_j$'s are non-parametric. Not affected by curse of dimensionality.
+
+\vspace{5pt}
+
+\fat{Backfitting}
+Def: $S_j : (U_1,\dots,U_n)^T \mapsto (\hat{U}_1,\dots,\hat{U}_n)^T$. The index $j$ means the smoothing is done against the $j$-th predictor/parameter.
+
+\fat{Algorithm}: 1) $\hat{\mu} := \frac{1}{n} \sum_{i=1}^n Y_i$ and $g_j (.) = 0$ $\forall j=1,\dots,p$
+
+2) Cycle through indices: $j=1,\dots,p,1,\dots,p,1,\dots$ while computing: $\hat{\vec{g}}_j = S_j \klammer{\vec{Y} - \hat{\mu} \id - \sum_{k \neq j} \hat{\vec{g}}_k}$ where $\hat{\vec{g}}_j = (\hat{g}_j (X_{1j}),\dots,\hat{g}_j (X_{nj}))^T$ and stop if $\frac{\Norm{\hat{\vec{g}}_{j,new} - \hat{\vec{g}}_{j,old}}_2}{\Norm{\hat{\vec{g}}_{j,old}}_2} \leq \text{tol}$ (e.g. tol=$10^{-6}$)
+
+3) Normalize: $\tilde{g}_j (.) = \hat{g}_j (.) - \frac{1}{n} \sum_{i=1}^n \hat{g}_j (X_{ij})$
+
+\vspace{-5pt}
+
+\subsection{Neural Networks}
+Activation Functions: 1) Softmax: $\hat{\pi} \klammer{Y=k | \vec{X} = \vec{x}} = \frac{\exp (g_k (\vec{x}))}{\sum_j \exp(g_j(\vec{x}))}$ , 2) Sigmoid: $\phi(t) = \frac{e^t}{1+e^t} = \frac{1}{1+e^{-t}}$ , 3) ReLU: $\phi(t) = \max \geschwungeneklammer{0,t}$
+
+\vspace{-5pt}
+
+\subsection{Classification \& Regression Trees (CART)}
+Model: $g_{tree} (\vec{x}) = \sum_{r=1}^M \beta_r \id_{[\vec{x} \in \mathcal{R}_r]}$ is a piecewise constant fct. with $\mathcal{P} = \mathcal{R}_1 \sqcup \dots \sqcup \mathcal{R}_M$ is a partition of $\R^p$.
+
+\vspace{5pt}
+
+\fat{Parameter Estimation} Regression and Binary Classification: $\hat{\beta}_r = \frac{\sum_{i=1}^n Y_i \id_{[\vec{x}_i \in \mathcal{R}_r]}}{\sum_{i=1}^n \id_{[\vec{x}_i \in \mathcal{R}_r]}}$ , $J$ Class Problem: $\hat{\beta}_r^{j} = \frac{\sum_{i=1}^n \id_{[Y_i =  j]} \id_{[\vec{x}_i \in \mathcal{R}_r]}}{\sum_{i=1}^n \id_{[\vec{x}_i \in \mathcal{R}_r]}}$
+
+\vspace{5pt}
+
+\fat{Search Algorithm} Restict partition $\mathcal{P}$ of $\R^p$ to axes parallel rectangles $\mathcal{R}_r$. 1) $M=1$, $\mathcal{P} = \geschwungeneklammer{\mathcal{R}} = \geschwungeneklammer{\R^p}$ , 2) Refine $\mathcal{R}$ into $\mathcal{R}_{left} \sqcup \mathcal{R}_{right}$ along one of the $p$ dimensions s.t. $-\log(\mathcal{L})$ is maximally reduced. Update $\mathcal{P} = \geschwungeneklammer{\mathcal{R}_1,\mathcal{R}_2} = \geschwungeneklammer{\mathcal{R}_{left},\mathcal{R}_{right}}$ , 3) Refine $\mathcal{P}$ by finding $\mathcal{R}_k$ and its split s.t. $-\log(\mathcal{L})$ is maximally reduced and update again: $\mathcal{P} = \mathcal{P}_{old} \backslash \R_{k} \cup \geschwungeneklammer{\mathcal{R}_{k,1},\mathcal{R}_{k,2}}$ , 4) Iterate step 3 for large nbr M , 5) Prune the tree until reasonable size.
+
+\vspace{5pt}
+
+\fat{Tree representation}
+Select "best" tree by applying "cost complexity (=cp) pruning". Penalized goodness of fit: $R_\alpha (\tau) = R(\tau) + \alpha \cdot \text{size}(\tau)$. Here, size$(\tau)$ is the number of leaves in the tree $\tau$ and $R(.)$ is quality of fit measure. The \fat{best tree}: $\tau (\alpha) := \argmin_{\tau \subset \tau_M} R_{\alpha} (\tau)$. $\geschwungeneklammer{\tau(\alpha) | \alpha \in [0,\infty)}$ is a nested set and the same as the subsets of $\tau_M \supseteq \dots \supset \tau_{\emptyset}$. For model selection we need to select best $\alpha$ or its normalization $cp = \frac{\alpha}{R(\tau_{\emptyset})}$ using CV.
+
+\vspace{5pt}
+
+\fat{1SE Rule}
+Take smallest tree s.t. its error is at msot one std error larger than the minimal one.
+
+\vspace{5pt}
+
+\fat{Pros and Cons}
+\textcolor{red}{Greedy-tree-type altorithm produces unstable splits $\Rightarrow$ if one split is "wrong", everything below it will be "wrong".}
+
+\vspace{-5pt}
+
+\subsection{Random Forests}
+\fat{Algorithm} 1) Draw $n_{tree}$ BS samples from original $\mathcal{D}$. 2) $\forall$ BS samples grow an unpruned classif./regr. tree (maybe use nodesize to lower bound the \#datapoints per node) s.t. at each node randomly sample $m_{try}$ of the pred. var. and chose best split from among these vars. 3) Pred. new data by aggregating predictions of the $n_{tree}$ trees (majority vote for classif. and average for regr.)
+
+\vspace{5pt}
+
+\fat{Remark} Bagging: $m_{try} = p$
+
+\vspace{5pt}
+
+\fat{Estimation of error} 1) At each BS iteration predict on OOB data. 2) Aggregate OOB pred. $\Rightarrow$ Calculate error rate

@@ -1,0 +1,157 @@
+\section{Dualräume}
+
+\Definition{
+
+    Ist $V$ ein $K$-VR, so heisst
+    \begin{align*}
+        V^{*} := \Hom_K (V,K) = \geschwungeneklammer{\varphi:V \rightarrow K: \ \varphi \text{ linear}}
+    \end{align*}
+    der \fat{Dualraum} von $V$. Die Elemente von $V^{*}$ heissen Linearformen auf $V$.
+    Sei $\B = (v_1,\dots,v_n)$ eine Basis von $V$. So gibt es zu jedem $i \in \geschwungeneklammer{1,\dots,n}$
+    genau eine lineare Abbildung $v_i^{*} : V \rightarrow K$ mit $v_i^{*} (v_j) = \delta_{ij}$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für jede Basis $\B = (v_1,\dots,v_n)$ von $V$ ist $\B^{*} = (v_1^{*} ,\dots,v_n^{*})$
+    eine Basis von $V^{*}$. Man nennt $\B^{*}$ die zu $\B$ \fat{duale Basis}.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zu jedem \vinV mit $v \neq 0$ gibt es ein $\varphi \in V^{*}$ mit $\varphi(v) \neq 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zu jeder Basis $\B = (v_1,\dots,v_n)$ von $V$ gibt es einen Isomorphismus
+    $\Psi_{\B}: V \rightarrow V^{*}$ mit $\Psi_{\B}(v_i) = v_i^{*}$.
+}
+
+\fat{Vorsicht!}
+Dieser Isomorphismus hängt von der Auswahl der Basis ab, ebenso ist $\varphi$ aus dem ersten
+Korollar abhängig von der Ergänzung.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ist $V$ ein $K$-VR und $U \subset V$ ein UVR, so heisst
+    \begin{align*}
+        U^0 := \geschwungeneklammer{\varphi \in V^{*} : \varphi (u) = 0 \ \forall u \in U} \subset V^{*}
+    \end{align*}
+    der zu $U$ \fat{orthogonale Raum} (oder der \fat{Annullator} von $U$).
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Für jeden UVR $U \subset V$ gilt $\dim U^0 = \dim V - \dim U$. Genauer gilt:
+    Ist $(u_1,\dots,u_k)$ Basis von $U$ und $B=(u_1,\dots,u_k,v_1,\dots,v_r)$ Basis von $V$,
+    so bilden die Linearformen $v_1^{*},\dots,v_r^{*}$ aus $\B^{*}$ eine Basis von $U^0$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{}{
+
+    Seien $V$ und $W$ $K$-VR und seien $F$ und $\psi$ lineare Abbildungen. Es gelte
+    \begin{center}
+        \begin{tikzcd}
+            V \arrow{r}{F} \arrow{dr}[swap]{\psi \circ F} & W \arrow{d}{\psi} \\
+            & K
+        \end{tikzcd}
+    \end{center}
+    Dann ist $\psi \in W^{*}$ und es folgt $\psi \circ F \in V^{*}$. Also können eine
+    \fat{duale Abbildung} $F^{*}: W^{*} \rightarrow V^{*}$ mit $\psi \mapsto F^{*}(\psi)
+    := \psi \circ F$ erklären. Aus
+    \begin{align*}
+        F^{*}(\lambda_1 \psi_1 + \lambda_2 + \psi_2) &= (\lambda_1 \psi_1 + \lambda_2 \psi_2) \circ F
+        \\
+        &= \lambda(\psi_1 \circ F) + \lambda_2 (\psi_2 \circ F)
+        \\
+        &= \lambda F^{*} (\psi_1) + \lambda_2 F^{*} (\psi_2)
+    \end{align*}
+    folgt die Linearität von $F^{*}$. Also hat man noch abstrakter eine Abbildung
+    $\Hom_K (V,W) \rightarrow \Hom_K (W^{*},V{*})$ mit $F \mapsto F^{*}$, die ein
+    Vektorraumisomorphismus ist.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Gegeben seien $K$-VR $V$ und $W$ mit Basen $\mathcal{A}$ und $\mathcal{B}$, sowie eine
+    lineare Abbildung $F: V \rightarrow W$. Dann gilt 
+    \begin{align*}
+        M_{\mathcal{A}^{*}}^{\B^{*}} (F^{*}) = \klammer{M_{\mathcal{A}}^{\B} (F)}^T 
+    \end{align*}     
+    Kurz ausgedrückt: Die duale Abbildung wird
+    bezüglich der dualen Basen durch die transponierte Matrix beschriebe.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Ist $F: V \rightarrow W$ eine lineare Abbildung zwischen endlichdimensionalen VR, so
+    gilt
+    \begin{align*}
+        \Im F^{*} = \klammer{\ker F}^0
+        \quad \text{  und  } \quad
+        \ker F^{*} = \klammer{\Im F}^{0}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Unter den obigen Voraussetzungen gilt $\rang F^{*} = \rang F$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für jede Matrix $A \in M(n \times n ; K)$ gilt: Zeilenrang $A = $ Spaltenrang $A$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Den Dualraum kann man zu jedem VR bilden, also auch zu $V^{*}$. Auf diese Weise erhält man
+    zu $V$ den \fat{Bidualraum} $V^{**} := (V^{*})^{*} = \Hom (V^{*},K)$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Für jeden endlichdimensionalen $K$-VR $V$ ist die kanonische Abbildung
+    $\iota: V \rightarrow V^{**}$ ein Isomorphismus. Man kann also $V$ mit $V^{**}$
+    identifizieren und in suggestiver Form $V(\varphi) = \varphi(v)$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für jede lineare Abbildung $F: V \rightarrow W$ gilt $F^{**} = F$.
+    (Sofern man $V$ und $V^{**}$ und $W$ und $W^{**}$ jeweils mit $\iota$ identifizieren kann.)
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für jeden UVR $W \subset V$ gilt $(W^0)^0 = W \subset V \cong V^{**}$.
+}

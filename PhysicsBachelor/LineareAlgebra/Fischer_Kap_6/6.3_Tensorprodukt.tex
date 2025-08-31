@@ -1,0 +1,480 @@
+\section{Tensorprodukt}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Seien $V$ bzw. $W$ Vektorräume über $K$ mit Basen $(v_i)_{i \in I}$ bzw. $(w_j)_{j \in J}$.
+    Ist $U$ ein weiterer $K$-VR, so gibt es zu einer beliebigen vorgegebenen Familie
+    $(u_{ij})_{(i,j) \in I \times J}$ in $U$ genau eine bilineare Abbildung
+    $\xi: V \times W \rightarrow U$ \ mit \ $\xi (v_i , w_j) = u_{ij}$ \  $\forall (i,j) \in I \times J$
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{}{
+
+    Seien $V$ und $W$ Vektorräume über $K$. Dann gibt es einen $K$-VR \
+    $V \otimes_K W$ zusammen mit einer bilinearen Abbildung \
+    $\eta : V \times W \rightarrow V \times_K W$ \ die folgende universelle Eigenschaft
+    haben: Zu jedem $K$-VR $U$ zusammen mit einer bilinearen Abbildung
+    $\xi : V \times W \rightarrow U$ gibt es genau eine lineare Abbildung
+    $\xi_{\otimes} : V \otimes_K W \rightarrow U$ mit $\xi = \xi_{\otimes} \circ \eta$.
+    Das kann man durch ein kommutatives Diagramm illustrieren:
+    \begin{center}
+        \begin{tikzcd}
+            V \times W \arrow{d}[swap]{\eta} \arrow{rd}{\xi} & \\
+            V \otimes_K W \arrow{r}[swap]{\xi_{\otimes}} & U
+        \end{tikzcd}
+    \end{center}
+    Weiter gilt: Falls $\dim V , \dim W < \infty$, so ist
+    
+    $\dim (V \otimes_K W) = (\dim V) \cdot (\dim W)$.
+
+    Falls klar ist, welches $K$ Grundkörper ist, schreibt man nur $\otimes$ statt $\otimes_K$.
+    Man nennt $V \otimes_K W$ das \fat{Tensorprodukt} von $V$ und $W$ über $K$. Die Elemente
+    von $V \otimes_K W$ heissen \fat{Tensoren}.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ \fat{(Rechenregeln für Tensoren)}
+
+    Ist $\eta: V \times W \rightarrow V \otimes W$ und $v \otimes w := \eta (v,w)$, so gilt
+    für $v,v' \in V$, $w,w' \in W$ und $\lambda \in K$:
+    \begin{enumerate}[{a)}]
+        \item $v \otimes w + v' \otimes w = (v+v') \otimes w$ und $v \otimes w + v \otimes w' = v \otimes (w + w')$
+        \item $(\lambda \cdot v) \otimes w = v \otimes (\lambda \cdot w) = \lambda \cdot (v \otimes w)$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{}{
+
+    Der VR $V \otimes W$ ist durch die universelle Eigenschaft eindeutig bis auf einen
+    eindeutigen Isomorphismus bestimmt. Sei $V \tilde{\otimes} W$ und $\tilde{\eta}:
+    V \times W \rightarrow V \tilde{\otimes} W$ ein anderes Paar aus $VR$ und bilinearen
+    Abbildungen, das die universelle Eigenschaft erfüllt. Dann gibt es Abbildungen:
+    \begin{center}
+        \begin{tikzcd}
+            & V \times W \arrow{ld}[swap]{\tilde{\eta}} \arrow{rd}{\eta} & \\
+            V \tilde{\otimes} W \arrow[rr, shift right, swap, "\exists ! \tilde{\eta}_{\otimes}"] & &
+            V \otimes W \arrow[ll, shift right, swap,"\exists ! \eta_{\otimes}"]
+        \end{tikzcd}
+    \end{center}
+    Betrachte:
+    \begin{center}
+        \begin{tikzcd}
+            & V \times W \arrow{ld}[swap]{\eta} \arrow{rd}{\eta} & \\
+            V \otimes W \arrow[rr, shift left, "\text{id}"] \arrow[rr, shift right, swap, "\eta_{\otimes} \circ \tilde{\eta}_{\otimes}"] & &
+            V \otimes W 
+        \end{tikzcd}
+    \end{center}
+    Es ist $\eta_{\otimes} \circ \tilde{\eta}_{\otimes} \circ \eta = \eta_{\otimes} \circ \tilde{\eta} = \eta$.
+    Wegen der Eindeutigkeit der universellen Eigenschaft gilt also
+    $\eta_{\otimes} \circ \tilde{\eta}_{\otimes} = \id_{V \tilde{\otimes} W}$.
+    Man spricht deswegen normalerweise von \underline{dem} Tensorprodukt $V \otimes W$
+    von $V$ und $W$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $s: V \times W \rightarrow K$ eine Bilinearform. Schreibe $\Bil (V,W;K)$ für den
+    VR solcher bilinearer Abbildungen, also $s \in \Bil (V,W;K)$. Wir erhalten die
+    lineare Abbildung $s_{\otimes} : V \otimes W \rightarrow K$ mit $s(v,w) = s(v \otimes w)$.
+    Also $s_{\otimes} \in (V \otimes W)^{*}$. Die Abbildung $\Bil (V,W;K) \rightarrow (V \otimes W)^{*}$
+    mit $s \mapsto s_{\otimes}$ ist wieder linear. Sei umgekehrt $\phi \in (V \otimes W)^{*}$,
+    dann ist $\phi \circ \eta \in \Bil (V,W;K)$ mit $\eta: V \times W \rightarrow V \otimes W$
+    bilinear. Die Abbildungen $\Bil (V,W;K) \rightarrow (V \otimes W)^{*}$ mit $s \mapsto s_{\otimes}$
+    und $(V \otimes W)^{*} \rightarrow \Bil (V,W;K)$ mit $\phi \mapsto \phi \circ \eta$ sind
+    zueinander invers.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für zwei Linearformen $\phi \in V^{*}$ und $\psi \in W^{*}$ ist das Produkt
+    \begin{align*}
+        \phi \cdot \psi : V \times W \rightarrow K \quad \text{mit} \quad (v,w) \mapsto \phi (v) \cdot \psi (v)
+    \end{align*}
+    eine Bilinearform, die zugehörige Abbildung
+    \begin{align*}
+        (\phi \cdot \psi)_{\otimes} : V \otimes W \rightarrow K \quad \text{ mit } \quad
+        v \otimes w \mapsto \phi(v) \cdot \psi (w)
+    \end{align*}
+    ist linear, also ist $(\phi \cdot \psi)_{\otimes} \in (V \otimes W)^{*}$.
+    Die so entstandene Abbildung
+    \begin{align*}
+        V^{*} \times W^{*} \rightarrow (V \otimes W)^{*} \quad \text{ mit } \quad
+        (\phi,\psi) \mapsto (\phi \cdot \psi)_{\otimes}
+    \end{align*}
+    ist wiederum bilinear, dh. sie wird zu einer linearen
+    Abbildung
+    \begin{align*}
+        V^{*} \otimes W^{*} \rightarrow (V \otimes W)^{*} \quad \text{ mit } \quad
+        \phi \otimes \psi \mapsto (\phi \cdot \psi)_{\otimes}
+    \end{align*}
+    Das $\phi \otimes \psi$ eine Linearform auf $V \otimes W$ erklärt, kann man auch sehen:
+    \begin{align*}
+        (\phi \otimes \psi)(v \otimes w) := \phi (v) \cdot \psi (w)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Die durch Multiplikation mit Skalaren in $W$ erhaltene Abbildung
+    \begin{align*}
+        V^{*} \times W \rightarrow \Hom (V,W) \quad &\text{mit} \quad
+        (\phi , w) \mapsto \phi ( \ ) \cdot w
+        \\
+        \text{wobei} \quad \phi ( \ ) \cdot w : V \rightarrow W \quad &\text{mit} \quad
+        v \mapsto \phi (v) \cdot w
+    \end{align*}
+    ist bilinear, dazu gehört die lineare Abbildung
+    \begin{align*}
+        V^{*} \otimes W \rightarrow \Hom (V,W) \quad \text{ mit } \quad
+        \phi \otimes w \mapsto \phi ( \ ) \cdot w
+    \end{align*}
+    Das kann man wieder kürzer ausdrücken durch
+    \begin{align*}
+        (\phi \otimes w)(v) := \phi (v) \cdot w
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sind $V$ und $W$ endlich-dimensionale VR, so sind die beiden kanonischen Abbildungen
+    \begin{align*}
+        &\alpha: V^{*} \otimes W^{*} \rightarrow (V \otimes W)^{*}
+        \quad \text{und} \quad \\
+        &\beta: V^{*} \otimes W^{*} \rightarrow \Hom (V,W)
+    \end{align*}
+    Isomorphismen.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    $V^{*} \otimes W^{*} \cong (V \otimes W)^{*}$ und $(V \otimes W)^{*} \cong \Bil (V,W;K)$
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $u \in K^m \otimes K^n \cong J^{m \cdot n}$, also
+    $u = \sum_{i=1}^{m} \sum_{j=1}^{n} u_{ij} e_i \otimes e_j$ mit $e_i \in K^m$ und
+    $e_j \in K^n$ Basisvektoren. Die Koordinaten $u_{ij}$ kann man auf drei Weisen
+    aufschreiben:
+    \begin{enumerate}[{(i)}]
+        \item Als Matrix $(u_{ij})_{ij} \in \Mat (m \times n ; K)$
+        \item Als $m \cdot n$ Vektor wobei man die Basen von $K^m \otimes K^n$ wie folgt
+                ordnet: $e_1 \otimes e_1 , e_2 \otimes e_1 ,\dots, e_m \otimes e_1,
+                e_1 \otimes e_2 ,\dots, e_m \otimes e_2,\dots,e_1 \otimes e_n ,\dots,
+                e_m \otimes e_n$.
+        \item Als $m \cdot n$ Vektor wobei man die Basen von $K^m \otimes K^n$ wie folgt
+                ordnet: $e_1 \otimes e_1 , e_1 \otimes e_2 ,\dots, e_1 \otimes e_n,
+                e_2 \otimes e_1,\dots, e_2 \otimes e_1,\dots,e_m \otimes e_1 ,\dots,
+                e_m \otimes e_n$.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sind $V$ und $W$ $K$-VR, so heisst eine bilineare Abbildung
+    \begin{align*}
+        \xi: V \times V \rightarrow W
+    \end{align*}
+    \fat{symmetrisch}, wenn $\xi (v,v') = \xi (v' ,v)$ für alle $v,v' \in V$
+    \fat{alternierend}, wenn $\xi (v,v) = 0$ für alle $v \in V$
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $\xi$ alternierend, so gilt $\xi (v',v) = - \xi (v,v') \ \forall v,v' \in V$.
+    Im Fall char$(K) \neq 2$ gilt auch die Umkehrung (also
+    alternierend $\Leftrightarrow$ schiefsymmetrisch).
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    $S(V) := \text{span} (v \otimes v' - v' \otimes v)_{v,v' \in V} \subset V \otimes V$
+    \ \ und
+
+    $A(V) := \text{span} (v \otimes v)_{v \in V} \subset V \otimes V$
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Für jedes bilineare $\xi : V \times V \rightarrow W$ gilt:
+
+    $\xi$ symmetrisch $\Leftrightarrow \ S(V) \subset \ker \xi_{\otimes}$
+
+    $\xi$ alternierend $\Leftrightarrow \ A(V) \subset \ker \xi_{\otimes}$
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{}{
+
+    Für jeden $K$-VR $V$ mit $\dim V \geq 2$ gibt es einen $K$-VR $V \wedge V$ zusammen mit
+    einer alternierenden Abbildung $\wedge : V \times V \rightarrow V \wedge V$,
+    die folgende universelle Eigenschaft haben: zu jedem $K$-VR $W$ zusammen mit einer
+    alternierenden Abbildung $\xi : V \times V \rightarrow W$ gibt es genau eine lineare
+    Abbildung $\xi_{\wedge}$ derart, dass das Diagramm
+    \begin{center}
+        \begin{tikzcd}
+            V \times V \arrow{d}[swap]{\wedge} \arrow{rd}{\xi} & \\
+            V \wedge V \arrow{r}[swap]{\exists ! \ \xi_{\wedge}} & W
+        \end{tikzcd}
+    \end{center}
+    kommutiert. Ist $(\BasisV)$ eine Basis von $V$, so ist durch $v_i \wedge v_j :=
+    \wedge(v_i,v_j)$ mit $1 \leq i < j \leq n$ eine Basis von $V \wedge V$ gegeben.
+    Insbesondere ist
+    \begin{align*}
+        \dim (V \wedge V) = \binom{n}{2} = \frac{n (n-1)}{2}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Rechenregeln für das äussere Produkt)
+
+    Für $v,v',w,w' \in V$ und $\lambda \in K$ gilt:
+    \begin{enumerate}[{a)}]
+        \item $(v+v') \wedge w = v \wedge w + v' \wedge w$ und $v \wedge (w+w') = v \wedge w + v \wedge w'$
+        \item $(\lambda v) \wedge w = v \wedge (\lambda w) = \lambda (v \wedge w)$
+        \item $v \wedge v = 0$ und $v' \wedge v = - v \wedge v'$ 
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{}{
+
+    Zu jedem $K$-VR $V$ gibt es einen $K$-VR $V \vee V$ und eine symmetrische bilineare
+    Abbildung $\vee : V \times V \rightarrow V \vee V$ mit folgender universellen
+    Eigenschaft: Sei $\xi: V \times V \rightarrow W$ symmetrisch (und bilineare), dann
+    gibt es genau eine lineare Abbildung $\xi_{\vee} \rightarrow W$, sodass
+    \begin{center}
+        \begin{tikzcd}
+            V \times V \arrow{d}[swap]{\vee} \arrow{rd}{\xi} & \\
+            V \vee V \arrow{r}[swap]{\exists ! \ \xi_{\vee}} & W
+        \end{tikzcd}
+    \end{center}
+    kommutiert. Ist $(\BasisV)$ eine Basis von $V$, so bilden die Vektoren
+    $v_i \vee v_j = \vee (v_i , v_j)$ mit $1 \leq i \leq j \leq n$ eine Basis von
+    $V \vee V$. Insbesondere ist
+    \begin{align*}
+        \dim (V \vee V) = \binom{n+1}{2} = \frac{n(n+1)}{2}
+    \end{align*}
+    $V \vee V$ heisst 2. symmetrische Potenz von $V$ (Symmetrischer Produktraum).
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{}{
+
+    Sei nun $\Bil (V;K) = \Bil (V,V;K)$ der Raum der bilinearen Abbildungen
+    $V \times V \rightarrow K$ und $\text{Alt}^2 (V,K) \subset \Bil (V;K)$ der UVR der
+    alternierenden Bilinearformen und $\text{Sym}^2 (V;K) \subset \Bil (V;K)$ der UVR der
+    symmetrischen Bilinearformen. Dann haben wir folgende Abbildungen:
+    \begin{center}
+        \begin{tikzcd}
+            V^{*} \wedge V^{*} \arrow{r}{(1a)} & \text{Alt}^2 (V;K) \arrow{r}{(2a)} \arrow{d} & (V \wedge V)^{*} \arrow{d} \\
+            V^{*} \otimes V^{*} \arrow{u} \arrow{d} \arrow{r}{(1)} & \Bil (V;K) \arrow{r}{\stackrel{(2)}{\cong}} & (V \otimes V)^{*} \\
+            V^{*} \vee V^{*} \arrow{r}{(1s)} & \text{Sym}^2 (V;K) \arrow{u} \arrow{r}{\stackrel{(2s)}{\cong}} & (V \vee V)^{*} \arrow{u}
+        \end{tikzcd}
+    \end{center}
+    Die Abbildungen $(2a)$, $(2s)$ und $(2)$ erhalten wir aus der universellen Eigenschaften.
+    Die Abbildung $(1a)$ ist definiert durch
+    \begin{align*}
+        V^{*} \wedge V^{*} &\rightarrow \text{Alt}^2 (V;K) \\
+        (\phi , \psi) &\mapsto \klammer{(v,w) \mapsto \phi (v) \psi (w) - \phi (w) \psi (v)}
+    \end{align*}
+    Die Abbildung $(1s)$ ist
+    \begin{align*}
+        V^{*} \vee V^{*} &\rightarrow \text{Sym}^2 (V;K) \\
+        (\phi , \psi) &\mapsto \klammer{(v,w) \mapsto \phi(v) \psi(w) + \phi(w) \psi(v)}
+    \end{align*}
+}
+
+\Satz{
+
+    Ist $\dim V < \infty$, so ist $(1a)$ ein Isomorphismus, und falls zusätlich
+    $\text{char} (K) \neq 2$, so ist $(1s)$ auch ein Isomorphismus.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $V,V',W,W'$ $K$-VR und $F: V \rightarrow V'$, $G: W \rightarrow W'$ lineare
+    Abbildungen. Dann ist das Tensorprodukt der Abbildungen $F$ und $G$ die eindeutig
+    definierte lineare Abbildung
+    \begin{align*}
+        F \otimes G : V \otimes W \rightarrow V' \otimes W'
+    \end{align*}
+    so dass $(F \otimes G)(v \otimes w) = F(v) \otimes G(w) \ \forall v \in V, \ w \in W$.
+    Etwas ausführlicher sind die linearen Abbildungen $V \otimes W \rightarrow V' \otimes W'$
+    nach der universellen Eigenschaft für $V \otimes W$ bijektiv zu den linearen Abbildungen
+    $V \times W \rightarrow V' \otimes W'$. Die bilineare Abbildung $(v,w) \mapsto F(v) \otimes
+    G(w)$ entspricht dabei der linearen Abbildung $F \otimes G$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Für $V,V',W,W'$ endlich dimensionale $K$-VR ist das Tensorprodukt von Abbildungen
+    \begin{align*}
+            &\otimes : \Hom_K (V,V') \otimes \Hom_K (W,W') \\
+            &\hspace{60pt} \rightarrow \Hom_K (V \otimes W , V' \otimes W')
+    \end{align*}
+    ein Vektorraumisomorphismus.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wir wollen uns nun anschauen, wie die Matrix von $F \otimes G$ bezüglich einer Basis
+    aussieht. Sei $\operatorname{dazu} \mathcal{A}=\left(v_{1}, \ldots, v_{m}\right)$ eine
+    Basis von $V, \mathcal{A}^{\prime}=\left(v_{1}^{\prime}, \ldots, v_{m^{\prime}}^{\prime}\right)$
+    eine Basis von $V^{\prime}, \mathcal{B}=\left(w_{1}, \ldots, w_{n}\right)$ eine Basis
+    von $W$ und $\mathcal{B}^{\prime}=\left(w_{1}^{\prime}, \ldots, w_{n^{\prime}}^{\prime}\right)$
+    eine Basis von $W^{\prime} .$ Seien $A=\left(a_{i j}\right)=M_{\mathcal{A}^{\prime}}^{\mathcal{A}}(F)$
+    und $B=\left(b_{i j}\right)=M_{\mathcal{B}^{\prime}}^{\mathcal{B}}(G)$ die entsprechenden
+    Matrizen von $F$ und $G .$ Eine Basis von $V \otimes W$ ist gegeben durch die Familie
+    $\mathcal{A} \times \mathcal{B}:=\left(v_{i} \otimes w_{j}\right)_{i=1, \ldots, n}$. Um
+    die Koordinaten von Vektoren bezüglich dieser Basis als Spaltenvektoren schreiben zu können,
+    und entsprechend auch Matrizen aufschreiben zu können, müssen wir die Elemente dieser Basis
+    noch ordnen. Genauer: Wir hatten die Matrix einer Abbildung definiert bezüglich Basen,
+    deren Indexmenge $1,2 \ldots$ war. Wir müssen also die Indexmenge in der Familie
+    $\mathcal{A} \times \mathcal{B}$ noch von $\{1, \ldots, m\} \times$ $\{1, \ldots, n\}$
+    auf die Indexmenge $\{1, \ldots, m n\}$ abändern. Es gibt hierfür zwei natürliche Möglichkeiten:
+    \begin{itemize}
+        \item Wir können die Ordnung
+                \[
+                \mathcal{C}_{1}:=\left(v_{1} \otimes w_{1}, v_{2} \otimes w_{1}, \ldots, v_{m} \otimes w_{1}, v_{1} \otimes w_{2}, \ldots, v_{m} \otimes w_{n}\right)
+                \]
+                verwenden, und entsprechend die Ordnung
+                \[
+                \mathcal{C}_{1}^{\prime}:=\left(v_{1}^{\prime} \otimes w_{1}^{\prime}, v_{2}^{\prime} \otimes w_{1}^{\prime}, \ldots, v_{m^{\prime}}^{\prime} \otimes w_{1}^{\prime}, v_{1}^{\prime} \otimes w_{2}^{\prime}, \ldots, v_{m^{\prime}}^{\prime} \otimes w_{n^{\prime}}^{\prime}\right)
+                \]
+                für die entsprechende Basis von $V^{\prime} \otimes W^{\prime}$
+        \item Wir können die Ordnung
+                \[
+                \mathcal{C}_{2}:=\left(v_{1} \otimes w_{1}, v_{1} \otimes w_{2}, \ldots, v_{1} \otimes w_{n}, v_{2} \otimes w_{1}, \ldots, v_{m} \otimes w_{n}\right)
+                \]
+                verwenden, und entsprechend die Ordnung
+                \[
+                \mathcal{C}_{2}^{\prime}:=\left(v_{1}^{\prime} \otimes w_{1}^{\prime}, v_{1}^{\prime} \otimes w_{2}^{\prime}, \ldots, v_{1}^{\prime} \otimes w_{n^{\prime}}^{\prime}, v_{2}^{\prime} \otimes w_{1}^{\prime}, \ldots, v_{m^{\prime}}^{\prime} \otimes w_{n^{\prime}}^{\prime}\right)
+                \]
+                für die entsprechende Basis von $V^{\prime} \otimes W^{\prime}$
+    \end{itemize}
+
+    \vspace{1\baselineskip}
+
+    In jedem Falle ist
+    \[
+    (F \otimes G)\left(v_{i} \otimes w_{j}\right) = F(v_i) \otimes G(w_j) =\sum_{i^{\prime}=1}^{m^{\prime}} \sum_{j^{\prime}=1}^{n^{\prime}} a_{i^{\prime} i} b_{j^{\prime} j} v_{i^{\prime}}^{\prime} \otimes w_{j^{\prime}}^{\prime}
+    \]
+    Übersetzt in Matrizenform heisst dies: \\
+    \[
+    \begin{array}{l}
+    M_{C_{1}^{\prime}}^{C_{1}}(F \otimes G)=\left(\begin{array}{cccc}
+    A b_{11} & A b_{12} & \cdots & A b_{1 n} \\
+    A b_{21} & A b_{22} & \cdots & A b_{2 n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    A b_{n^{\prime} 1} & A b_{n^{\prime} 2} & \cdots & A b_{n^{\prime} n}
+    \end{array}\right) \\  \in M\left(m^{\prime} n^{\prime} \times m n, K\right) \\ \\
+    M_{C_{2}^{\prime}}^{C_{2}}(F \otimes G)=\left(\begin{array}{cccc}
+    a_{11} B & a_{12} B & \cdots & a_{1 m} B \\
+    a_{21} B & a_{22} B & \cdots & a_{2 m} B \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m^{\prime} 1} B & a_{m^{\prime 2} 2} B & \cdots & a_{m^{\prime} m} B
+    \end{array}\right) \\ \in M\left(m^{\prime} n^{\prime} \times m n, K\right)
+    \end{array}
+    \]
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $G$ eine Gruppe und $V$ ein $K$-VR. Dann ist eine Darstellung von $G$ auf $V$ ein
+    Gruppenhomomorphismus $\rho : G \rightarrow \GL (V)$ wobei $\GL (V)$ die Gruppe der
+    Vektorraumisomorphismen von $V$ ist. Man sagt auch \textit{$G$ wirkt auf $V$}.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $G$ eine endliche Gruppe und $\rho$ eine Darstellung von $G$ auf dem $K$-VR $V$.
+    Nehme an, dass char$(K)$ die Gruppenordnung $\abs{G}$ nicht teilt, also dass
+    $\abs{G} \neq 0$ in $K$ ist. Dann ist die kanonische Abbildung $V^G \rightarrow V_G$
+    ein Isomorphismus,, und die inverse Abbildung ist gegeben durch die
+    Symmetrisierung
+    \begin{align*}
+        \Sigma_G : V_G &\rightarrow V^G \\
+        v + U &\mapsto \frac{1}{\abs{G}} \sum_{g \in G} \rho (g) (v)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wir wenden dies nun an auf das symmetrische und äussere Produkt. Sei dazu immer
+    vereinfachend $K$ ein Körper der Charakteristik $0,$ so dass die entsprechende
+    Voraussetzung im Satz immer erfült ist, und so dass wir alternierende Bilinearformen
+    mit schiefsymmetrischen identifizieren können. Das symmetrische Produkt haben wir als die
+    Koinvarianten definiert
+        \[
+        \vee^{n} V=\left(\otimes^{n} V\right)_{S_{n}} = \nicefrac{\otimes^n V}{S^n (v)}
+        \]
+    wobei hier die Wirkung der symmetrischen Gruppe $S_{n}$, ohne Vorzeichen,
+    zu Grunde gelegt ist. Das äussere Produkt kann man analog definieren als die Koinvarianten
+        \[
+        \wedge^{n} V=\left(\otimes^{n} V\right)_{S_{n}}
+        \]
+    wobei nun aber die Darstellung mit Vorzeichen verwendet wird. (Man beachte, dass die
+    Darstellung in der Notation unterschlagen wird, und dass hier char $(K)=0$ angenommen ist.
+    Je nach Kontext und Anwendung wird das symmetrische bzw. äussere Produkt manchmal auch
+    als Invarianten definiert. Dies ist gerechtfertigt durch den obigen Satz, der insbesondere
+    besagt, dass (Achtung: in Charakteristik 0) Invarianten und Koinvarianten natürlich
+    identifiziert werden können,
+        \[
+        \left(\otimes^{n} V\right)_{S_{n}} \cong\left(\otimes^{n} V\right)^{S_{n}}
+        \]
+    Der Raum der Bilinearformen auf dem endlich dimensionalen
+    Vektorraum $V$ sind z.B. identifiziert mit
+    $(V \otimes V)^{*} \cong V^{*} \otimes V^{*} .$ Die symmetrischen Bilinearformen sind
+    gerade die, die invariant sind unter der $S_{2}$ -Wirkung (ohne Vorzeichen)
+        \[
+        \mathrm{Sym}^{2}(V ; K) \cong\left(V^{*} \otimes V^{*}\right)^{S_{2}} \subset \mathrm{Bil}(V ; K)
+        \]
+    Wir haben gesehen, dass man dies identifizieren kann mit
+    $V^{*} \vee V^{*}=\left(V^{*} \otimes V^{*}\right)_{S_{2}}$ falls char $(K) \neq 2$
+    Analoges gilt für das äussere Produkt, wobei man dabei in diesem Fall noch die
+    Beschränkung an die Charakteristik fallen lassen konnte.
+}

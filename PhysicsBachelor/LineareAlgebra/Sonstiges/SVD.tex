@@ -1,0 +1,264 @@
+\section{Die Singulärwertzerlegung}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\K = \R$ oder $\C$ und $A \in M (m \times n , \K)$ eine reelle oder komplexe Matrix.
+    Dann gibt es Matrizen $U \in O(m)$ (für $\K = \R)$ bzw $U \in U(m)$ (für $\K = \C$) und
+    $V \in O(n)$ bzw. $V \in U(n)$ und eine "diagonale" Matrix $K \in M(m \times n , \R)$
+    der Form
+    \begin{align*}
+        D = \begin{pmatrix}
+            \sigma_1 & 0 & \dots & 0 \\
+            0 & \sigma_2 & \ddots & \vdots \\
+            \vdots & \ddots & \ddots & \vdots
+        \end{pmatrix}
+    \end{align*}
+    mit Diagonaleinträgen $\sigma_j \in \R$, $\sigma_j \geq 0$ so dass $A = U D V^{\dagger}$.
+    Diese Zerlegung heisst \fat{Singulärwertzerlegung} von $A$, und die nichtnegativen reellen
+    Zahlen $\sigma_1 , \dots, \sigma_{\min \geschwungeneklammer{m,n}}$ heissen
+    \fat{Singulärwerte} von $A$. In der Regel ordnet man die Singulärwerte so, dass
+    $\sigma_1 \geq \dots \geq  \sigma_{\min \geschwungeneklammer{m,n}}$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Alternativ)
+
+    Zu $A \in M(m \times n , \K)$ vom Rang $r$ gibt es Matrizen $\tilde{U} \in M(m \times r,\K)$
+    und $\tilde{V} \in M(n \times r , \K)$ mit orthonormalen Spalten und Zahlen
+    $\sigma_1 \geq \dots \geq \sigma_r > 0$ so dass $A = \tilde{U} \tilde{D} (\tilde{V})^{\dagger}$
+    mit
+    \begin{align*}
+        \tilde{D} = \begin{pmatrix}
+            \sigma_1 & 0 & \dots & 0 \\
+            0 & \sigma_2 & \ddots & \vdots \\
+            \vdots & \ddots & \ddots & 0 \\
+            0 & \dots & 0 & \sigma_r
+        \end{pmatrix}
+    \end{align*}
+    Um diese Zerlegung aus obiger Definition zu erhalten, ordnet man zunächst die Singulärwerte
+    wie angegeben. Dann definiert man $\tilde{U}$ als die ersten $r$ Spalten von $U$ und
+    $\tilde{V}$ als die ersten $r$ Spalten von $V$. Umgekehrt erhält man $U$ aus $\tilde{U}$
+    einfach, indem man die durch die Spalten von $\tilde{U}$ gegebene orthonormale Familie zu
+    einer Orthonormalbasis des $\K^m$ fortsetzt.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    \begin{itemize}
+        \item Der Rang von $A$ ist gleich dem Rang von $D$.
+        \item Der Rang von $A$ ist die Anzahl der nicht verschwindenden Singulärwerte von $A$.
+        \item Die ersten $\min \geschwungeneklammer{m,n}$ Spalten von $U$ (bzw $V$) sind linke
+                bzw. rechte \fat{Singulärvektoren} von $A$. Genauer nennt man \fat{Einheitsvektoren}
+                $u \in \K^m$, $v \in \K^n$ linke bzw. rechte Singulärvektoren zum Singulärwert
+                $\sigma \in \R_{\geq 0}$ falls gilt: $A v = \sigma u$ und $A^{\dagger} u = \sigma v$.
+        \item Man kann die Singulärwertzerlegung auch nochmals äquivalent "matrixfrei" umformulieren:
+            Sei $F \in \Hom (V,W)$ eine lineare Abbildung zwischen den endlichdimensionalen unitären
+            bzw. euklidisch VR $V$ und $W$. Dann gibt es Orthonormalbasen $\A$ von $V$ und $\B$ von $W$
+            so dass $M_{\B}^{\A} (F) = D \in M(n \times m , \R)$ Diagonalform hat mit nichtnegativen
+            reellen Diagonaleinträgen.
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $A \in M(m \times n , \K)$ eine beliebige Matrix vom Rang $r$. Dann sind die hermitischen
+    (bzw. symmetrischen) Matriizen $A^{\dagger} A$ und $A A^{\dagger}$ positiv semidefinit und
+    haben Rang $r$. Genauer gilt, dass $\ker A^{\dagger} A = \ker A$ und dass
+    $\Im A A^{\dagger} = \Im A$
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Die Singulärwerte von $A$ sind durch $A$ eindeutig bestimmt. Sei nämlich
+    $A = U D V^{\dagger}$ eine Singulärwertzerlegung von $A$. Dann gilt:
+    $AA^{\dagger} = UDD^T U^{\dagger}$. Also sind die Singulärwerte von $A$ gerade die
+    Wurzeln der grössten $\min \geschwungeneklammer{m,n}$ Eigenwerte von $AA^{\dagger}$
+    (und $A^{\dagger} A$).
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $A \in M(m \times n , \K)$ eine Matrix und $\sigma_1 \geq \dots \geq \sigma_p \geq 0$
+    die Singulärwerte von $A$ mit $p:= \min \geschwungeneklammer{m,n}$. Dann gilt:
+    \begin{align*}
+        \sigma_j = \min_{\stackrel{U \subset \K^n}{\dim U = n-j+1}}
+            \max_{\stackrel{u \in U}{u \neq 0}} \frac{\Norm{A u}}{\Norm{u}}
+        = \min_{\stackrel{U \subset K^m}{\dim U = m-j+1}} \max_{\stackrel{u \in U}{u \neq 0}}
+            \frac{\Norm{A^{\dagger} u}}{\Norm{u}}
+    \end{align*}
+    wobei $A^{\dagger} u \in \K^m$ und $u \in \K^n$. Insbesondere gilt:
+    \begin{align*}
+        \sigma_1 = \max_{\stackrel{u \in \K^n}{u \neq 0}} \frac{\Norm{A u}}{\Norm{u}}
+        = \max_{\stackrel{u \in \K^n}{\Norm{u} = 1}} \Norm{A u}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Spektralnorm} (oder $2$-Norm) von $A \in M(m \times n , \K)$ ist der maximale
+    Singulärwert von $A$:
+    \begin{align*}
+        \Norm{A}_2 := \sigma_1 (A) = \max_{\stackrel{u \in \K^n}{u \neq 0}} \frac{\Norm{A u}}{\Norm{u}}
+        = \max_{\stackrel{u \in \K^n}{\Norm{u} = 1}} \Norm{A u}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Dies ist einfach die von der üblichen $2$-Norm auf $\K^m$ bzw. $\K^n$ abgeleitete natürliche
+    Operatornorm. Allgemeiner kann man für $F \in \Hom (V,W)$ mit $V,W$ (sagen wir) endlichdimensionalen
+    normierten (nicht Null-)VR die folgende Norm erklären
+    \begin{align*}
+        \Norm{F}_{V,W} := \max_{\stackrel{v \in V}{v \neq 0}} \frac{\Norm{F(v)}_W}{\Norm{v}_V}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir suchen das (bzw. ein) $x \in \K^n$ das den Fehler $\Norm{Ax-b}$ minimiert, bzw
+    äquivalen den quadratischen Fehler $E(x):= \Norm{Ax-b}^2$ minimiert. Aus der Analysis
+    wissen wir, dass ein solches $x$ erfüllt $0 = DE(x)$ (Ableitung von $E$). Das heisst,
+    es muss für alle $h \in \K^n$ gelten:
+    \begin{align*}
+        0 &= DE(x) h = D((Ax-b)^{\dagger} (Ax-b)) h \\
+        &= D (x^{\dagger} A^{\dagger} A x - b^{\dagger} A x - x^{\dagger} A^{\dagger} b + b^{\dagger} b) h \\
+        &= h^{\dagger} A^{\dagger} A x + x^{\dagger} A^{\dagger} A h - b^{\dagger} A h - h^{\dagger} A^{\dagger} b \\
+        &= 2 \Re (h^{\dagger} (A^{\dagger} A x - A^{\dagger} b))
+    \end{align*}
+    Also muss gelten: $A^{\dagger} A x = A^{\dagger} b$. Falls $A^{\dagger} A$ invertierbar ist,
+    so ist $x = (A^{\dagger} A)^{-1} A b$. Sei nun $A = \tilde{U} \tilde{D} \tilde{V}^{\dagger}$
+    die Singulärwertzerlegung in der reduzierten Form, insbesondere ist also $\tilde{D} \in
+    M(r \times r ; \R)$ invertierbar. Dann folgt: $\tilde{V} \tilde{D}^2 \tilde{V}^{\dagger} x
+    = \tilde{V} \tilde{D} \tilde{U}^{\dagger} b$. Diese Gleichung hat die Lösung:
+    $x = \tilde{V} \tilde{D}^{-1} \tilde{U}^{\dagger} b$, dann folgt:
+    $\tilde{V} \tilde{D}^2 \tilde{V}^{\dagger} \tilde{V} \tilde{D}^{-1} \tilde{U}^{\dagger} b
+    = \tilde{V} \tilde{D} \tilde{U}^{\dagger} b$. Man nennt die Matrix
+    $\tilde{V} \tilde{D}^{-1} \tilde{U}^{\dagger}$ auch \fat{Pseudoinverse} von $A$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $A = (a_{ij}) \in M(m \times n,\K)$ eine Matrix. Dann definieren wir die
+    \fat{Frobenius-Norm} von $A$ als
+    \begin{align*}
+        \Norm{A}_F := \sqrt{\sum_{i=1}^m \sum_{j=1}^n \abs{a_{ij}}^2} = \sqrt{\tr (A^{\dagger} A)}
+    \end{align*}
+    wobei hier $\tr$ die Spur ist, das heisst die Summe der Diagonalelemente. Dies ist einfach
+    die übliche $2$-Norm auf $\K^{m \cdot n} \cong M(m \times n, \K)$. Dies kommt von folgendem
+    Skalarprodukt auf dem Raum $M(m \times n,\K)$.
+    \begin{align*}
+        \scalprod{A}{B} = \tr (A^T \overline{B}) = \tr (B^{\dagger} A)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{ (Eigenschaften tr)
+
+    \begin{itemize}
+        \item $\tr (B^T) = \tr (B)$
+        \item $\tr (B^\dagger) = \tr (\overline{B^T}) = \overline{ \tr (B)}$
+        \item $\tr (AB) = \tr (BA)$ für $A \in M(m \times n ; \K)$ und $B \in M(n \times m; \K)$
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $A \in M(m \times n,\K)$ eine Matrix und $U \in M(m \times m , \K)$ und
+    $V \in M(n \times n, \K)$ unitär bzw. orthogonal. Dann gilt
+    \begin{align*}
+        \Norm{A}_F = \Norm{UAV}_F = \Norm{UAV^{\dagger}}_F = \Norm{D}_F
+        = \sqrt{\sigma_1^2 + \dots + \sigma_p^2}
+    \end{align*}
+    falls $\sigma_1 , \dots , \sigma_p$ (mit $p= \min \geschwungeneklammer{m,n}$) die
+    Singulärwerte von $A$ sind.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{ (Eckart-Young-Mirsky)
+
+    Sei $A = UDV^{\dagger}$ die Singulärwertzerlegung von $A$ und seien die Singulärwerte
+    $\sigma_1 \geq \sigma_2 \geq \dots $ wie oben der Grösse nach sortiert. Seien
+    $u_1 , u_2 , \dots , u_m \in \K^m$ die Spalten von $U$ und $v_1 , \dots , v_n \in \K^n$
+    die Spalten von $V$ und seien $U_k = (u_1 \ \dots \ u_k) \in M(m \times k , \K)$ und
+    $V_k ( v_1 \ \dots \ v_k) \in M(n \times k,\K)$ die Matrizen bestehend aus ersten $k$
+    Spalten von $U$ bzw. $V$. Sei
+    \begin{align*}
+        A_k := U_k D_k V_k^{\dagger} = \sum_{j=1}^k \sigma_j u_j v_j^{\dagger}
+    \end{align*}
+    mit
+    \begin{align*}
+        D_k = \begin{pmatrix}
+            \sigma_1 & & 0 \\
+            & \ddots & \\
+            0 & & \sigma_k
+        \end{pmatrix}
+        \in M(k \times k , \R)
+    \end{align*}
+    Dann gilt für jede Matrix $B \in M(m \times n , \K)$ vom Rang höchstens $k$, dass
+    \begin{align*}
+        \Norm{A-B}_F \geq \Norm{A-A_k} = \sqrt{\sum_{j=k+1}^r \sigma_j^2}
+    \end{align*}
+    Also ist $A_k$ eine Lösung des Optimierungsproblemes.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Tatsächlich kann man hier auch die Frobeniusnorm durch die Spektralnorm ersetzen,
+    man hat also für das gleiche $A_k$ und alle $B$ vom Rang $\leq k$ auch
+    \begin{align*}
+        \Norm{A-B}_2 \geq \Norm{A-A_k} = \sigma_{k+1}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Seien $A,B \in M(m \times n,\K)$ und $i,j = 1,2,\dots$ beliebig. Dann gilt
+    \begin{align*}
+        \sigma_{i+j-1} (A+B) \leq \sigma_i (A) + \sigma_j (B)
+    \end{align*}
+    Falls hierbei ein Index grösser ist als $\min \geschwungeneklammer{m,n}$ so definiert
+    man den entsprechenden Singulärwert als $0$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    $\sigma_1 (A-A_j) = \sigma_{j+1} (A) \ \forall A \in M(m \times n , \K)$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $A \in M(n \times n , \R)$ eine quadratische reelle Matrix und $A=UDV^{T}$ die
+    Singulärwertzerlegung. Dann minimiert $R_0 = UV^T$ den Abstand $\Norm{A-R}_F$
+    unter allen orthogonalen Matrizen $R \in O(n)$.
+}

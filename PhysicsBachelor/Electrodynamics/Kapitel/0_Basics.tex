@@ -1,0 +1,68 @@
+\section{Basics}
+
+\begin{align*}
+    \partial_x \delta(x-y) = - \partial_y \delta(x-y)
+    \hspace{10pt} , \hspace{10pt}
+    \epsilon_{kij} \epsilon_{klm} = \delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}
+\end{align*}
+\begin{align*}
+    a \times (b \times c) &= (a \cdot c) b - (a \cdot b) c
+    \\
+    (a \times b) \cdot (c \times d) &= (a \cdot c) (b \cdot d) - (a \cdot d) (b \cdot c)
+    \\
+    R a \times R b = R (a \times b)
+    \hspace{10pt} &, \hspace{10pt}
+    \nabla \times \nabla \psi = 0
+    \\
+    \nabla \times (\nabla \times A) &= \nabla \klammer{\nabla \cdot A} - \Delta A
+    \\
+    \nabla (A \cdot B) = (A \cdot \nabla) B &+ (B \cdot \nabla) A + A \times (\nabla \times B) + B \times (\nabla \times A)
+\end{align*}
+with $a,b,c,d$ vectors, $A,B$ vector fields, $R \in SO(3)$ and $\psi$ a
+scalar potential.
+
+\subsection{Spherical Coordinates}
+\begin{align*}
+    \vec{e}_r \times \vec{e}_\theta = \vec{e}_\varphi
+    \hspace{10pt} , \hspace{10pt}
+    \vec{e}_\theta \times \vec{e}_\varphi = \vec{e}_r
+    \hspace{10pt} , \hspace{10pt}
+    \vec{e}_\varphi \times \vec{e}_r = \vec{e}_\theta
+\end{align*}
+For $\vec{V} = (V_r,V_\theta,V_\varphi)$:
+\begin{align*}
+    \vec{\nabla} \cdot \vec{V} &=
+    \frac{1}{r^2} \frac{\partial (r^2 V_r)}{\partial r}
+        + \frac{1}{r \sin(\theta)} \frac{\partial (\sin(\theta) V_\theta)}{\partial \theta}
+        + \frac{1}{r \sin(\theta)} \frac{\partial V_\varphi}{\partial \varphi}
+    \\
+    \vec{\nabla} \times \vec{V} &=
+    \frac{1}{r \sin(\theta)} \eckigeklammer{\frac{\partial (\sin(\theta) V_\varphi)}{\partial \theta} - \frac{\partial V_\theta}{\partial \varphi}} \vec{e}_r
+    \\
+        &\hspace{10pt} + \frac{1}{r} \eckigeklammer{\frac{1}{\sin(\theta)} \frac{\partial V_r}{\partial \varphi} - \frac{\partial(r V_\varphi)}{\partial r}} \vec{e}_{\theta}
+        + \frac{1}{r} \eckigeklammer{\frac{\partial(r V_\theta)}{\partial r} - \frac{\partial V_r}{\partial \theta}} \vec{e}_\varphi
+\end{align*}
+
+\subsection{Cylinder Coordinates}
+\begin{align*}
+    \vec{e}_r \times \vec{e}_\phi = \vec{e}_z
+    \hspace{10pt} , \hspace{10pt}
+    \vec{e}_\phi \times \vec{e}_z = \vec{e}_r
+    \hspace{10pt} , \hspace{10pt}
+    \vec{e}_z \times \vec{e}_r = \vec{e}_\phi
+\end{align*}
+For $\vec{V} = (V_r,V_\phi,V_z)$:
+\begin{align*}
+    \vec{\nabla} \cdot \vec{V} &=
+    \frac{1}{r} \frac{\partial(r V_r)}{\partial r} + \frac{1}{r} \frac{\partial V_\phi}{\partial \phi} + \frac{\partial V_z}{\partial z}
+    \\
+    \vec{\nabla} \times \vec{V} &=
+    \eckigeklammer{\frac{1}{r} \frac{\partial V_z}{\partial \phi} - \frac{\partial V_\phi}{\partial z}} \vec{e}_r
+    + \eckigeklammer{\frac{\partial V_r}{\partial z} - \frac{\partial V_z}{\partial r}} \vec{e}_\phi
+    + \frac{1}{r} \eckigeklammer{\frac{\partial(r V_\phi)}{\partial r} - \frac{\partial V_r}{\partial \phi}} \vec{e}_z
+\end{align*}
+
+
+
+
+

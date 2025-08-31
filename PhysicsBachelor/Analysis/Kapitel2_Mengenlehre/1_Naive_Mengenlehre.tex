@@ -1,0 +1,119 @@
+\subsection{Naive Mengenlehre}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    (1) Eiene \fat{Menge} besteht aus beliebigen unterscheidbaren Elementen.
+
+    (2) Eine Menge ist unverwechselbar dursch ihre \fat{Elemente} bestimmt.
+
+    (3) Eine Menge ist nicht Element ihrer selbst.
+
+    (4) Jede Aussage $A$ über Elemente einer Menge $X$ definiert die 
+        Menge der Elemente in $X$ fpr die die Aussage $A$ \hspace*{13pt} wahr ist, 
+        notiert $\geschwungeneklammer{x \in X | \text{A gilt für x}}$
+}
+
+\vspace{1\baselineskip}
+
+
+\Definition{
+
+    Mengen von Mengen wird \fat{Familien} von Mengen genannt.
+    Seltener braucht man auch die Bezeichnung \fat{Kollektion}
+    oder \fat{Ansammlung}.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $P$ und $Q$ Mengen. Wir sagen, dass $P$ \fat{Teilmenge} von $Q$
+    ist, und schreiben $P \subset Q$, falls für alle $x \in P$ auch 
+    $x \in Q$ gilt. Wir sagen, dass P eine \fat{echte Teilmenge} von $Q$
+    ist und schreiben $P \subsetneq Q$, falls $P$ eine Teilmenge von $Q$, 
+    aber nicht gleich $Q$ ist. Wir schreiben $P \not\subset Q$, falls $P$
+    keine Teilmenge von $Q$ ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $P$ und $Q$ Mengen. Der \fat{Durchschnitt} $P \cap Q$, die
+    \fat{Vereinigung} $P \cup Q$, das \fat{relative Komplement} $P \backslash Q$
+    und die symmetrische Differenz $P \Delta Q$ sind durch 
+    \begin{align*}
+        &P \cap Q = \geschwungeneklammer{x \ | \ x \in P \land x \in Q}
+        \\
+        &P \cup Q = \geschwungeneklammer{x \ | \ x \in P \lor x \in Q}
+        \\
+        &P \backslash Q = \geschwungeneklammer{x \ | \ x \in P \land x \not\in Q}
+        \\
+        &P \Delta Q = (P \cup Q) \backslash (P \cap Q) = \geschwungeneklammer{x \ | \ x \in P \text{ XOR } x \in Q}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\mathcal{A}$ eine Familie von Mengen, also eine Menge deren Elemente
+    selbst Mengen sind. Dann definieren wir die \fat{Vereinigung} als
+    \begin{align*}
+        \bigcup_{A \in \mathcal{A}} A = \geschwungeneklammer{x \ | \ \exists A \in \mathcal{A}: x \in A}
+    \end{align*}
+    respektive den \fat{Durchschnitt} der Menge $\mathcal{A}$ als
+    \begin{align*}
+        \bigcap_{A \in \mathcal{A}} A = \geschwungeneklammer{x \ | \ \forall A \in \mathcal{A}: x \in A}
+    \end{align*}
+    Falls $\mathcal{A} = \geschwungeneklammer{A_1,A_2, \dots}$, dann 
+    schreiben wir auch
+    \begin{align*}
+        \bigcup_{n=1}^{\infty} A_n = \geschwungeneklammer{x \ | \ \exists n \in \N : x \in A_n}
+        \\
+        \bigcap_{n=1}^{\infty} A_n = \geschwungeneklammer{x \ | \ \forall n \in \N : x \in A_n}
+    \end{align*}
+    für die Vereinigung, und den Durchschnitt der Menge in $\mathcal{A}$.
+}
+
+\pagebreak
+
+\Definition{
+
+    Zwei Mengen $A,B$ heissen \fat{disjunkt}, falls $A \cap B = \emptyset$ gilt.
+    Für eine Kollektion $\mathcal{A}$ von Mengen, sagen wir, dass die Menge in 
+    $\mathcal{A}$ \fat{paarweise disjunkt} sind, falls für alle $A_1,A_2 \in \mathcal{A}$
+    mit $A_1 \neq A_2$ gilt $A_1 \cap A_2 = \emptyset$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ eine Menge. Die \fat{Potenzmenge} $\mathcal{P}(X)$ von $X$
+    ist die Menge aller Teilmengen von $X$, das heisst
+    \begin{align*}
+        \mathcal{P}(X) = \geschwungeneklammer{Q \ | \ Q \text{ ist eine Menge und } Q \subset X}
+    \end{align*}
+}
+
+\Definition{
+
+    Für zwei Mengen $X$ und $Y$ ist das \fat{kartesische Produkt}
+    $X \times Y$ die Menge aller geordneten Paare $(x,y)$ wobei
+    $x \in X$ und $y \in Y$. In Symbolen,
+    \begin{align*}
+        X \times Y = \geschwungeneklammer{(x,y) \ | \ x \in X \land y \in Y}
+    \end{align*}
+
+    Allgemeiner, sei $I$ eine Indexmenge, und für jedes $i \in I$
+    sei $X_i$ eine Menge. Das \fat{Produkt} der Familien von Mengen
+    $\geschwungeneklammer{X_i | i \in I}$ definieren wir als
+    \begin{align*}
+        \prod_{i \in I} X_i = \geschwungeneklammer{(x_i)_{i \in I} \ | \ \forall i \in I \ : \ x_i \in X_i}
+    \end{align*}
+    Für eine Zahl $n \leq 1$ und eine Menge $X$ definieren wir $X^n$
+    als das $n$-fache kartesische Produkt von $X$ mit sich selbst.
+}

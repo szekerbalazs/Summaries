@@ -1,0 +1,210 @@
+\section{Ausgleichsrechnung}
+
+\Bemerkung{
+
+    cond$(A^T A) =$ cond$(A^2)$
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Norm minimieren: finde $x$ sodass $A^T A x = A^T b$
+}
+
+\vspace{1\baselineskip}
+
+\fat{Ausgleichsrechnung}
+
+Geg.: Daten $(t_i,y_i) \in \R^2$, $i \in \geschwungeneklammer{1,\dots,m}$, Modell
+$f_{\vec{x}}: \R \rightarrow \R$, $f_{\vec{x}} (t) = \vec{y}$
+
+Ges. Parameter $\vec{x} = (x_1,\dots,x_n)$, so dass die Daten und das Modell am besten passen.
+\begin{align*}
+    \text{Wir wollen}:
+    \begin{pmatrix}
+        f_{\vec{x}} (t_1) \\ \vdots \\ f_{\vec{x}} (t_m)
+    \end{pmatrix} = \begin{pmatrix}
+        y_1 \\ \vdots \\ y_m
+    \end{pmatrix} \Leftrightarrow
+    \underbrace{
+    \begin{pmatrix}
+        \abs{f_{\vec{x}} (t_1) - y_1} \\ \vdots \\ \abs{f_{\vec{x}} (t_m) - y_m}
+    \end{pmatrix}
+    }_{:=\vec{R} = \text{Residuum / Residuenvektor}}
+    = \vec{0}
+\end{align*}
+Bei der Ausgleichsrechnung: $m > n$. Das erste GLS ist somit überbestimmt und es gibt keine
+Lösung. Stattdessen erhalten wir das Minimierungsproblem:
+
+\fat{Least Squares Problem}: $\vec{x^\star} = \text{argmin}_{\vec{x}} \sum_{i=1}^{m}
+    \abs{f_{\vec{x}} (t_i) - y_i}^2 = \text{argmin}_{\vec{x}} \Norm{\vec{R}}_2^2$
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Lineare Ausgleichsrechnung}}
+
+Falls $f_{\vec{x}}$ linear im Parameter $\vec{x}$, also $f_{\vec{x}} (t) = x_1 b_1 (t) +
+\dots + x_n b_n (t)$ für Basisfunktionen $b_j(t)$ (nicht notwendigerweise linear in $t$),
+dann handelt es sich um \fat{lineare Ausgleichsrechnung}. Für diesen Spezialfall lässt sich
+das Problem umschreiben zu:
+\begin{align*}
+    \underbrace{\begin{pmatrix}
+        b_1(t_1) & \dots & b_n(t_1) \\
+        \vdots& \ddots & \vdots \\
+        b_1(t_m) & \dots & b_n(t_n)
+    \end{pmatrix}}_{:= A \in M(m \times n;K)}
+    \underbrace{\begin{pmatrix}
+        x_1 \\ \vdots \\ x_n
+    \end{pmatrix}}_{:= \vec{x}}
+    = \underbrace{\begin{pmatrix}
+        y_1 \\ \vdots \\ x_m
+    \end{pmatrix}}_{:= \vec{b}}
+    \Leftrightarrow
+    A \vec{x} = \vec{b}
+    \Leftrightarrow
+    \Norm{A \vec{x} - \vec{b}} = 0
+\end{align*}
+Da $m>n$ ist GLS $A \vec{x} = \vec{b}$ wie im allgemeinen Fall überbestimmt. Wir lösen also
+Stattdessen das für den linearen Fall umschriebene \fat{Least Squares Problem}:
+
+$x^\star = \text{argmin}_{\vec{x}} \Norm{A \vec{x} - \vec{b}}_2^2$
+
+Code: numpy.linalg.lstsq(A,b)[0]
+
+\vspace{1\baselineskip}
+
+\underline{Normalengleichung}
+
+Idee: Bestimme Minimum durch: $\grad (\Norm{A \vec{x} - \vec{b}}_2^2) \stackrel{!}{=} 0$
+
+$\vec{x^\star} = \text{argmin} \Norm{A \vec{x} - \vec{b}}_2^2 \Leftrightarrow A^T A \vec{x^\star} = A^T \vec{b}$
+
+Code: ATA = np.dot(A.T,A)
+
+\hspace{27pt} ATb = np.dot(A.T,b)
+
+\hspace{27pt} xstar = numpy.linalg.solve(ATA,ATb)
+
+\vspace{1\baselineskip}
+
+\underline{QR-Zerlegung}
+
+Idee: $A = QR = \hat{Q} \hat{R}$
+
+$\Norm{A \vec{x} - \vec{b}}_2^2 = \Norm{Q R \vec{x} - \vec{b}}_2^2 = \Norm{R \vec{x} - Q^T \vec{b}}_2^2$
+
+$= \Norm{\hat{R} \vec{x} - \hat{Q}^T \vec{b}}_2^2 + \Norm{\begin{pmatrix}
+    q_{n+1} \\ \vdots \\ q_m
+\end{pmatrix} \vec{b}}_2^2$
+
+Minimiere den von $\vec{x}$ abhängigen Teil exakt:
+
+$\vec{x^\star} = \text{argmin} \Norm{A \vec{x} - \vec{b}}_2^2
+\Leftrightarrow \hat{R} \vec{x^\star} = \hat{Q}^T \vec{b}$
+
+Code: Qhat,Rhat = numpy.linalg.qr(A)
+
+\hspace{27pt} xstar = numpy.linalg.solve(Rhat , dot(Qhat.T , b))
+
+\vspace{1\baselineskip}
+
+\underline{Singulärwertzerlegung}
+
+Idee: $A=U \Sigma V^T = \begin{pmatrix} U_1 & | & U_2 \end{pmatrix} \begin{pmatrix}
+    \Sigma_r  & 0 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} V_1^T \\ \hline V_2^T \end{pmatrix}$
+
+Dabei ist $r = \rang A =$ Anzahl Singulärwerte $\neq 0$, $u_1 \in \R^{m \times r}$,
+$V_1 \in \R^{n \times r}$. Analoge Überlungen wie bei QR liefert:
+
+$\vec{x^\star} = \text{argmin} \Norm{A \vec{x} - \vec{b}}_2^2 \Leftrightarrow \vec{x^\star} =
+V_1 \Sigma_r^{-1} U_1^T \vec{b}$
+
+Code: psinvA = numpy.linalg.pinv(A)
+
+\hspace{27pt} xstar = dot(psinvA,b)
+
+\vspace{1\baselineskip}
+
+\underline{Allgemeines Vorgehen}
+\begin{enumerate}
+    \item Daten implementieren: t = np.array$([t_1,\dots,t_m])$, y = np.array$([y_1,\dots,y_m])$
+    \item Basisfunktionen und $A$ bestimmmen:
+    
+            b = lambda s: np.array$([b_1(s),\dots,b_n(s)])$,
+    
+            A = np.array$([b(s) \text{ for $s$ in $t$}])$
+    \item Ausgleichsrechnung lösen: lstsq, red. QR oder SVD
+    \item Lösung plotten:
+
+            tnew = np.linspace(t[0],t[-1],1000)
+
+            f = lambda t : np.dot(x,b(t))
+
+            plt.plot(t,y)
+
+            plt.plot(tnew,f(tnew))
+\end{enumerate}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Nichtlineare-Ausgleichsrechnung}}
+
+$f_{\vec{x}}$ ist nicht linear in $\vec{x}$. Ziel: Minimierung der Quadrate:
+$\vec{x^\star} = \text{argmin}_{\vec{x}} \sum_{i=1}^{m} \abs{f_{\vec{x}}(t_i) - y_i}^2$
+
+Definiere:
+\begin{align*}
+    F(\vec{x}) &:= \begin{pmatrix}
+        f_{\vec{x}} (t_1) - y_1 \\ \vdots \\ f_{\vec{x}} (t_m) - y_m
+    \end{pmatrix}
+    \\
+    \phi(\vec{x}) &:= \frac{1}{2} \Norm{F(\vec{x})}_2^2 \rightarrow
+    \vec{x^\star} = \text{argmin}_{\vec{x}} \sum_{i=1}^{m} \abs{f_{\vec{x}}(t_i) - y_i}^2
+    \\ &\Leftrightarrow \vec{x^\star} = \text{argmin} \phi(\vec{x})
+\end{align*}
+Code: xstar = scipy.optimize.leastsq$(F,x_0)$[0]
+
+mit $x_0$ einem guten Startwert, oftmals reicht ein Einervektor: x0 = np.ones(n)
+
+\vspace{1\baselineskip}
+
+\underline{Newton Verfahren}
+
+Idee: $\phi(\vec{x})$ minimal $\Leftrightarrow \grad (\phi(\vec{x})) = 0 \Rightarrow$
+bestimme NST mit Newtonverfahren. Wir brauchen dazu auch die Ableitung von
+$\grad (\phi(\vec{x}))$, also die Hessematrix.
+
+Vorgehen:
+
+- $\grad (\phi(\vec{x})) := (DF( \vec{x}))^T F(\vec{x})$
+
+- $Hess (\phi(\vec{x})) := (DF(\vec{x}))^T DF(\vec{x}) + \sum_{j=1}^{m} F_j (\vec{x}) Hess(F_j(\vec{x}))$
+
+- $x^\star =$ Newton$(\grad(\phi) , Hess(\phi) , \vec{x}_0 , \text{tol} , \text{maxit})$
+
+\vspace{1\baselineskip}
+
+\underline{Gauss-Newton Verfahren}
+
+Idee: Taylor: $F(\vec{x}) \approx F(\vec{x}) + DF(\vec{x})(\vec{x} - \vec{x}_k) =:
+F(\vec{x}_k) + DF(\vec{x}_k) \vec{s}$
+
+Minimiere also stattdessen $\Norm{F(\vec{x})} \approx \Norm{F(\vec{x}_k) + DF(\vec{x}_k) \vec{s}}
+= \Norm{DF(\vec{x}_k) \vec{s} - (- F(\vec{x}_k))}$
+
+Lineares Ausgleichsproblem lösen
+
+Vorgehen:
+Iteratives Verfahren mit Iterationsvorschrift:
+
+- $\vec{s}_k =$ Lösung des linearen Ausgleichsproblems
+
+$\vec{s} = \text{argmin}_{\vec{s}} \Norm{DF(\vec{x}_k) - (- F(\vec{x}))}$
+
+- $\vec{x}_{k+1} = \vec{x}_k + \vec{s}_k$
+
+
+
+
+

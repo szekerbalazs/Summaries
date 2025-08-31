@@ -1,0 +1,87 @@
+\subsection{Absolute Konvergenz}
+
+\vspace{1\baselineskip}
+
+Die Definition von absoluter Konvergenz, so wie die erste Proposition, sind im vorherigen
+Kapitel zu finden.
+
+\vspace{2\baselineskip}
+
+\Korollar{ (Majorantenkriterium von Weierstrass)
+
+    Sei $\aFolge$ eine komplexe und $(b_n)_n$ eine reelle Folge mit $\abs{a_n} \leq b_n$ für
+    alle hinreichend grossen $n \in \N$. Falls $\sum_{n=1}^{\infty} b_n$ konvergiert,
+    dann ist $\sum_{n=1}^{\infty} a_n$ absolut konvergent, und daher auch konvergent. 
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Cauchy-Wurzelkriterium)
+
+    Sei $\aFolge$ eine Folge komplexer Zahlen und
+    \begin{align*}
+        \alpha = \limsupninf \sqrt[n]{\abs{a_n}} \in \R \cup \geschwungeneklammer{\infty}
+    \end{align*}
+    ("Grösster Häufungspunkt"). Dann gilt:
+
+    Falls $\alpha < 1$, so konvergiert $\sum_{n=1}^{\infty} a_n$ absolut.
+
+    Falls $\alpha > 1$, so divergiert $\sum_{n=1}^{\infty} a_n$.
+    
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (D'Alemberts Quotientenkriterium)
+
+    Sei $\aFolge$ eine Folge komplexer Zahlen mit $a_n \neq 0$ für alle n $n \in \N$,
+    so dass
+    \begin{align*}
+        \alpha = \limesninf \frac{\abs{a_{n+1}}}{\abs{a_n}}
+    \end{align*}
+    existiert. Dann gilt:
+    
+    Falls $\alpha < 1$, dann konvergiert $\sum_{n=1}^{\infty} a_n$ absolut.
+
+    Falls $\alpha > 1$, dann divergiert $\sum_{n=1}^{\infty} a_n$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Umordnungssatz für absolut konvergente Reihen)
+
+    Sei $\sum_{n=0}^{\infty} a_n$ eine absolut konvergente Reihe komplexer Zahlen.
+    Sei $\varphi: \N \rightarrow \N$ eine Bijektion. Dann ist die Reihe
+    $\sum_{n=0}^{\infty} a_{\varphi (n)}$ absolut konvergent und es gilt
+    \begin{align*}
+        \sum_{n=0}^{\infty} a_n = \sum_{n=0}^{\infty} a_{\varphi (n)}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Produktsatz)
+
+    Seien $\sum_{n=0}^{\infty} a_n$ und $\sum_{n=0}^{\infty} b_n$ absolut konvergente Reihen,
+    und sei eine Bijektion $\alpha : \N \rightarrow \N \times \N$ durch
+    $\alpha (n) = (\varphi (n) , \psi (n))$ gegeben. Dann gilt
+    \begin{align*}
+        \klammer{\sum_{n=0}^{\infty} a_n} \klammer{\sum_{n=0}^{\infty} b_n}
+        = \sum_{n=0}^{\infty} a_{\varphi (n)} b_{\psi (n)}
+    \end{align*}
+    und die Reihe auf der rechten Seite konvergiert absolut.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Cauchy-Produkt)
+
+    Falls $\sum_{n=0}^{\infty} a_n$ und $\sum_{n=0}^{\infty} b_n$ absolut konvergente
+    Reihen mit komplexen Gliedern sind, dann gilt:
+    \begin{align*}
+        \sum_{n=0}^{\infty} \klammer{\sum_{k=0}^{n} a_{n-k} b_k}
+        = \klammer{\sum_{n=0}^{\infty} a_n} \klammer{\sum_{n=0}^{\infty} b_n}
+    \end{align*}
+    wobei die Reihe $\sum_{n=0}^{\infty} \klammer{\sum_{k=0}^{n} a_{n-k} b_k}$
+    absolut konvergent ist.
+}

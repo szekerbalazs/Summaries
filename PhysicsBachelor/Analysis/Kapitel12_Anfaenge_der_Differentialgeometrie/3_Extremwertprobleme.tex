@@ -1,0 +1,103 @@
+\subsection{Extremwertprobleme}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $M \subseteq \R^n$ eine Teilmannigfaltigkeit der Dimension $k$, und $p \in M$.
+    Der Raum der \fat{Normalvektoren} an $M$ bei $p$ ist definiert als das
+    orthogonale Komplement
+    \begin{align*}
+        N_p M = (T_p M)^{\perp} = \geschwungeneklammer{w \in \R^n \ | \ \scalprod{w}{v} = 0 \ \text{ für alle } v \in T_p M}
+    \end{align*}
+    zum Tangentialraum $T_p M \subseteq \R^n$. Dies ist ein Vektorraum der Dimension
+    $n-k$. Als \fat{Normalenbündel} bezeichnen wir
+    \begin{align*}
+        N M = (T M)^{\perp} = \geschwungeneklammer{(p,v) \in \R^n \times \R^m \ | \ p \in M \ , \ w \in (T_p M)^{\perp}}
+    \end{align*}
+    und definieren wie auch für das Tangentialbündel die kanonische Projektion und
+    den Nullschnitt.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $M$ als Niveaumenge gegeben und $M = F^{-1} (0)$, mit $F: U \rightarrow \R^m$,
+    so, dass $0$ ein regulärer Wert ist. Sei $p \in M$. Dann ist also $DF(p): \R^n
+    \rightarrow \R^m$ surjektiv (hat vollen Rang) und $T_p M = $Ker$DF(p)$.
+    Konkret:
+    \begin{align*}
+        DF(p) = \begin{pmatrix}
+            \grad F_1 (p) \\ \vdots \\ \grad F_m (p)
+        \end{pmatrix}
+    \end{align*}
+    Also folgt:
+    \begin{align*}
+        v \in T_p M \Leftrightarrow DF(p) v = 0 \Leftrightarrow \scalprod{\grad F_i (p)}{v} = 0 \ \forall i = 1,\dots,m
+    \end{align*}
+    Also folgt $\grad F_i (p) \in N_p M \ \forall i = 1,\dots,m$. Da $DF(p)$ Rang$=m$
+    hat, also vollen Rang, bilden die Vektoren $\geschwungeneklammer{\grad F_i (p) \ | \ i = 1,\dots,m}$
+    eine Basis von $N_p M$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^n$ offen und $M \subseteq U$ eine Teilmannigfaltigkeit von
+    $\R^n$. Sei $f: U \rightarrow \R$ eine differenzierbare Funktion. Angenommen
+    $f |_{M}$ nimmt in $p \in M$ ein lokales Extremum an. Dann ist $\grad f(p)$
+    ein Normalvektoren an $M$ bei $p$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{ (Kochrezept für Extremabestimmung)
+
+    Strategie um lokale Extrema von $f: U \rightarrow \R$ auf einer Teilmenge $M$
+    zu finden (Extrema unter Nebenbedingungen):
+    \begin{enumerate}[{1)}]
+        \item Berechne $N_p M$ für (fast) alle $p \in M$.
+        \item Finde alle $p \in M$ mit $\grad f(p) \in N_p M$. Diese Punkte $p$ sind
+                dann Kandidaten für lokale Extrema.
+        \item Alle Punkte $p \in M$ an denen $N_p M$ nicht definiert ist, oder $f$
+                nicht differenzierbar ist, sind auch Kandidaten.
+        \item Entscheide ad-hoc ob und welche Kandidaten Extrema sind.
+    \end{enumerate}
+}
+
+\pagebreak
+
+\Definition{ (Lagrange Multiplikatoren)
+
+    Sei $U \subseteq \R^n$ offen, $F: U \rightarrow \R^m$ mit $0$ als regulären
+    Wert und definiere $M = F^{-1} (0)$ als eine Mannigfaltigkeit der Dimension
+    $k = n-m$. Sei $f: U \rightarrow \R$ von Klasse $C^1$. Die zu $f$ und $F$
+    assoziierte \fat{Lagrange Funktion} ist
+    \begin{align*}
+        &L: U \times \R^m \rightarrow \R \\
+        &L(x,\lambda) = f(x) - \scalprod{\lambda}{F(x)} = f(x) - \sum_{j=0}^{n-k} \lambda_j F_j (x)
+    \end{align*}
+    Die Komponenten $\lambda \in \R^m$ werden \fat{Lagrange-Multiplikatoren} genannt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $U \subseteq \R^n$ offen und $M = \geschwungeneklammer{x \in U \ | \ F(x) = 0}$
+    eine $k$-dimensionale Teilmannigfaltigkeit gegeben als Nullstellenmenge einer
+    glatten Funktion $F: U \rightarrow \R^m$ mit regulärem Wert $0$. Sei
+    $f: U \rightarrow \R$ eine differenzierbare Funktion, für die $f |_M$ in $p \in M$
+    ein lokales Extremum annimmt, und sei $L$ die zu $F$ und $f$ gehörige
+    Lagrange-Funktion. Dann existieren Lagrange-Multiplikatoren $\lambda \in \R^m$,
+    so, dass die Gleichungen
+    \begin{align*}
+        \partial_{x_i} L (p, \lambda) = 0
+        \quad \quad \text{   und   } \quad \quad
+        \partial_{\lambda_j} L(p,\lambda) = 0
+    \end{align*}
+    für alle $i \in \geschwungeneklammer{1,\dots,n}$ und $j \in \geschwungeneklammer{1,\dotsm}$
+    erfüllt sind.
+}

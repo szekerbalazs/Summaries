@@ -1,0 +1,125 @@
+\section{Steife DGL}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine DGL ist steif, falls shc das Verhalten der numerischen Lösungen eines expliziten
+    Verfahrens ab einem bestimmten $N$ bzw. $h$ komplett verändert.
+}
+
+\vspace{1\baselineskip}
+
+\fat{Vorgehen}
+(Wie zeigt man dass eine DGL steif ist?)
+
+Wir müssen zeigen, dass sich ab einem $h$ bzw. $N$ das Verhalten komplett ändert:
+\begin{itemize}
+    \item \fat{Analytisch}: Direkt die Definition eines expliziten Verfahrens
+        (am einfachsten eE) verwenden und dies soweit umformen, bis man eine
+        Fallunterscheidung des Konvergenzverhaltens in Abhängigkeit von $h$ hat.
+    \item \fat{Numerisch}: Man implementiert ein beliebiges explizites Verfahren
+        (am besten eM, eE geht auch) und probiert verschiedene $N$, bzw $h$ aus.
+        (zB. $10$ bis $10^6$)
+\end{itemize}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Stabilitätsbegriffe}}
+
+\vspace{1\baselineskip}
+
+\fat{Testgleichung}
+
+Die eindimensionale DGL $\dot{y} = \lambda y =: f(y)$ mit $\lambda \in \R$ oder
+$\lambda \in \C$ heisst die \fat{Testgleichung}. Damit definieren wir:
+
+\vspace{1\baselineskip}
+
+\fat{Stabilitätsfunktion}
+
+Die Funktion $S: D \subset \C \rightarrow \C$ heisst \fat{Stabilitätsfunktion} eines
+Verfahrens, falls für einen Zeitschritt des Verfahrens angewandt auf die Testgleichung
+$\dot{y} = \lambda y$ gilt: $y_{k+1} = S(z) y_k$ mit $z := \lambda \cdot h$.
+
+\vspace{1\baselineskip}
+
+\fat{Stabilitätsgebiet}
+
+$S_{\Psi} := \geschwungeneklammer{z \in D \ | \ \abs{S(z)} < 1} \subset \C$
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für ein $s$-stufiges RK-Ein-Schritt-Verfahren mit Butcher-Tableau
+    \begin{tabular}{c|c}
+        $\vec{c}$ & $A$ \\
+        \hline & $(\vec{b})^T$
+    \end{tabular}
+    gilt:
+    $S(z) = \frac{\det \klammer{E_n - z A + z \vec{1} \cdot (\vec{b})^T}}{\det \klammer{E_n - z A}}$
+    wobei $\vec{1} = (1,\dots,1)^T \in \R^n$
+}
+
+\vspace{1\baselineskip}
+
+\fat{Vorgehen}
+(Allgemeine Berechnung)
+
+Bei RK-Verfahren: $S(z)$ mit Formel, sonst:
+
+- Schreibe Def. des Verfahrens $y_{k+1} = F(\text{Verfahren},y_k)$ auf
+
+- Setze für $f(y)$ überall $\lambda y$ ein
+
+Forme so lange um, bis man die Formel $y_{k+1} = S(\lambda h) y_k = S(z) y_k$ erreicht hat
+
+Berechnung von $S_{\Psi}$ direkt mit Definition $\abs{S(z)} < 1$
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein Verfahren heisst \fat{A-stabil}, falls die (ganze) linke komplexe Ebene im
+    Stabilitätsgebiet des Verfahrens ist. $\C^- \subset S_{\Psi}$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein Verfahren heisst \fat{L-stabil}, falls sie A-stabil ist und
+    $S(-\infty) = \limes{z \rightarrow - \infty} S(z) = 0$
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Radau Verfahren}}
+
+\vspace{1\baselineskip}
+
+\fat{ROW2} (Ordnung 2)
+
+In jedem Schritt: Berechne $k_1 , k_2$ welche durch diese lineare Gleichungen definiert sind:
+\begin{align*}
+    (E_n - a h J) \vec{k}_1 &= \vec{f} (\vec{y}_i) \\
+    (E_n - a h J) \vec{k}_2 &= \vec{f} (\vec{y}_i + \frac{h}{2} \vec{k}_1) - a h J \vec{k}_1 \\
+    \vec{y}_{i+1} &= \vec{y}_i + h \vec{k}_2
+\end{align*}
+mit $a = \frac{1}{2 + \sqrt{2}}$ und $J = Df(\vec{y_i})$ die Jacobi-Matrix von $f$ an der
+letzten Stelle.
+
+\vspace{1\baselineskip}
+
+\fat{ROW3} (Ordnung 3)
+
+Analog mit drei linearen GLS:
+\begin{align*}
+    (E_n - a h J) \vec{k}_1 &= \vec{f} (\vec{y}_i) \\
+    (E_n - a h J) \vec{k}_2 &= \vec{f} (\vec{y}_i + \frac{h}{2} \vec{k}_1) - a h J \vec{k}_1 \\
+    (E_n - a h J) \vec{k}_3 &= \vec{f} (\vec{y}_i + h \vec{k}_2) - d_{31} h J \vec{k}_1 - d_{32} h J \vec{k}_2 \\
+    \vec{y}_{i+1} &= \vec{y}_i + \frac{h}{6} \klammer{\vec{k}_1 + 4 \vec{k}_2 + \vec{k}_3}
+\end{align*}
+mit $a = \frac{1}{2 + \sqrt{2}}$, $d_{31} = - \frac{4+ \sqrt{2}}{2 + \sqrt{2}}$,
+$d_{32} = \frac{6+ \sqrt{2}}{2 + \sqrt{2}}$ und $J = Df(\vec{y_i})$

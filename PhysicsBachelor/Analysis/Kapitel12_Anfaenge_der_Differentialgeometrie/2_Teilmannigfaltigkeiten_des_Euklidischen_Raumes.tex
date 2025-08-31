@@ -1,0 +1,110 @@
+\subsection{Teilmannigfaltigkeiten des Euklidischen Raumes}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $0 \leq k \leq n$ für $n \geq 1$. Eine Teilmenge $M \subseteq \R^m$ ist eine
+    $k$-dimensionale \fat{Teilmannigfaltigkeit}, falls für jeden Punkt $p \in M$
+    eine offene Umgebung $U_p$ in $\R^n$ von $p$ und ein Diffeomorphismus
+    $\varphi_p : U_p \rightarrow V_p = \varphi_p (U_p)$ auf eine weitere offene
+    Teilmenge $V_p \subseteq \R^n$ existiert, so dass
+    \begin{align*}
+        \varphi_p (U_p \cap M)
+        = \geschwungeneklammer{y \in V_p \ | \ y_i = 0 \text{ für alle } i>k}
+        = V_p \cap \R^k \times \geschwungeneklammer{0}^{n-k}
+    \end{align*}
+    gilt. Wir nennen den Diffeomorphismus $\varphi$ eine \fat{Karte} von $M$ um $p$,
+    und den zu $\varphi$ inversen Diffeomorphismus $\varphi^{-1}:V \rightarrow U_p$
+    eine \fat{Parametrisierung} von $M$ um $p$. Eine Familie von Karten
+    $(U_i , V_i , \varphi_i)_{i \in I}$ nennen wir Atlas, falls jeder Punkt von $M$
+    im Definitionsbereich eine Karte ist.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Eine Teilmenge $M \subseteq \R^n$ ist genau dann eine $k$-dimensionale
+    Teilmannigfaltigkeit, wenn es zu jedem Punkt $p \in M$ eine offene Umgebung
+    $U_p$ von $p$ in $\R^n$, eine glatte Funktion $f_p : \tilde{U}_p \rightarrow \R^{n-k}$
+    auf einer offenen Teilmenge $\tilde{U}_p \subseteq \R^k$ und eine Permutation
+    $\sigma \in \mathcal{S}_n$ gibt, so dass
+    \begin{align*}
+        M \cap U_p = P_{\sigma} (\text{Graph}(f_p))
+    \end{align*}
+    gilt. Hierbei bezeichnet $P_{\sigma} : \R^n \rightarrow \R^n$ die von $\sigma$
+    induzierte Permutation der Koordinaten.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Satz vom konstanten Rang)
+
+    Sei $U \subseteq \R^n$ offen, und $F: U \rightarrow \R^m$ eine glatte Funktion.
+    Die Nullstellenmenge $M = \geschwungeneklammer{p \in U \ | \ F(p) = 0}$ ist eine
+    $(n-m)$-dimensionale Teilmannigfaltigkeite von $\R^n$, falls für alle $p \in M$
+    die lineare Abbildung $DF(p): \R^n \rightarrow \R^m$ surjektiv ist.
+    Das heisst, die Jacobi-Matrix muss vollen Rang haben, also Rang $m$, für alle
+    $p \in M$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subset \R^n$ offen und sei $f: U \rightarrow \R^m$ eine differenzierbare
+    Funktion. Ein Punkt $x \in U$ heisst \fat{kritischer Punkt} von $f$, falls
+    $Df(x)$ Rang kleiner als $\min (m,n)$ hat, andernfalls nennt man $x \in U$ einen
+    \fat{regulären Punkt} der Abbildung $f: U \rightarrow \R^m$. Das Bild eines
+    kritischen Punktes unter $f$ nennt man einen \fat{kritischen Wert}; Punkte in
+    $\R^m$ im Komplement der kritischen Werte von $f$ heissen \fat{reguläre Werte}.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $M \subseteq \R^n$ eine $k$-dimensionale Teilmannigfaltigkeit. Der
+    \fat{Tangentialraum} von $M$ bei $p \in M$ ist durch
+    \begin{align*}
+        T_p M = \geschwungeneklammer{\gamma'(0) \ | \ \gamma: (-\delta , \delta) \rightarrow M \ \text{ differenzierbar mit } \gamma(0) = p \ , \ \delta>0}
+    \end{align*}
+    definiert. Das \fat{Tengentialbündel} von $M$ ist durch
+    \begin{align*}
+        TM = \geschwungeneklammer{(p,v) \in \R^n \times \R^m \ | \ p \in M \ , \ v \in T_p M}
+    \end{align*}
+    Die Abbildung $\pi: T M \rightarrow M$ gegeben durch $\pi (p,v) = p$
+    heisst \fat{kanonische Projektion}, und die Abbildung $0_M : M \rightarrow T M$
+    gegeben durch $0_M (p) = (p,0)$ heisst \fat{Nullschnitt}. Eine Abbildung
+    $s: M \rightarrow TM$ heisst \fat{Schnitt} von $TM$ oder auch \fat{Vektorfeld}
+    auf $M$, falls $\pi \circ s = $ id$_M$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $M \subseteq \R^n$ eine $k$-dimensionale Teilmannigfaltigkeit. Seien
+    $U,V \subseteq \R^n$ offen und sei $\psi: V \rightarrow U$ ein Diffeomorphismus
+    mit $U \cap M = \psi (V \cap \R^k)$. Dann ist die Abbildung
+    $T \psi : (V \cap \R^k) \times \R^k \rightarrow T(M \cap U)$ gegeben durch
+    \begin{align*}
+        T \psi (y,h) = \klammer{\psi(y),D \psi (y)(h)}
+    \end{align*}
+    eine Bijektion. Insbesondere ist für $p = \psi (y_0)$ der Tangentialraum
+    $T_p M = $Im$D \psi (y_0)$ ein $k$-dimensionaler Untervektorraum von $\R^n$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^n$ offen, $F: U \rightarrow \R^m$ eine glatte Funktion und
+    $M = F^{-1} (0)$. Falls für alle $p \in M$ die lineare Abbildung
+    $DF(p): \R^n \rightarrow \R^m$ surjektiv ist, so ist das Tengentialbündel
+    der Mannigfaltigkeit $M$ gegeben durch
+    \begin{align*}
+        TM = \geschwungeneklammer{(p,v) \in U \times \R^n \ | \ F(p) = 0 \text{  und  } DF(p)(v) = 0}
+    \end{align*}
+}

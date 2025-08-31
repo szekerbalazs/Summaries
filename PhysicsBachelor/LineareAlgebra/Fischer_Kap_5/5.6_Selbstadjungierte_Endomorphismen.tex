@@ -1,0 +1,157 @@
+\section{Selbstadjungierte Endomorphismen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein endlichdimensionaler euklidischer bzw. unitärer VR bezeichnet. Zu einem
+    $F \in \End (V)$ definieren wir den \fat{adjungierten Endomorphismus} $F^{\text{ad}}$,
+    charakterisert durch
+    \begin{align*}
+        \scalprod{F(v)}{w} = \scalprod{v}{F^{\text{ad}} (w)}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Es gilt $M_{\mathcal{B}} (F^{\text{ad}}) = \klammer{M_{\mathcal{B}} (F)}^{\dagger}$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein Endomorphismus $F$ eines euklidischen bzw. unitären VR $V$ heisst \fat{selbstadjungieret},
+    wenn
+    \begin{align*}
+        \scalprod{F(v)}{w} = \scalprod{v}{F(w)} \quad \forall v,w \in V
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $F$ ein Endomorphismus von $V$ und $\mathcal{B}$ eine Orthonormalbasis. Dann gilt:
+    $F$ selbstadjungieret $\Leftrightarrow$ $M_{\mathcal{B}} (F)$ symmetrisch bzw. hermitisch.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Ist $F$ selbstadjungieret, so sind (auch im komplexen Fall) alle Eigenwerte reell.
+    Insbesondere hat eine hermitische Matrix nur reelle Eigenwerte.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Ist $F$ ein selbstadjungiereter Endomorphismus eines euklidischen bzw. unitären VR, so
+    gibt es eine Orthonormalbasis von $V$, die aus Eigenvektoren von $F$ besteht.
+    Insbesondere ist $F$ diagonalisierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Ist $A \in M(n \times n ; \K)$ eine symmetrische bzw. hermitische Matrix, so
+    gibt es eine orthogonale bzw. unitäre Matrix $S$, so dass
+    \begin{align*}
+        S^{\dagger} \cdot A \cdot S = \begin{pmatrix}
+            \lambda_1 & & 0 \\
+            & \ddots & \\
+            0 & & \lambda_n
+        \end{pmatrix}
+    \end{align*}
+    mit $\lambda_1,\dots,\lambda_n \in \R$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sind $\lambda_1,\dots,\lambda_k$ die verschiedenen Eigenwerte eines selbstadjungierten
+    oder unitären Endomorphismus $F$ von $V$, so ist
+    \begin{align*}
+        V = \text{Eig} (F;\lambda_1) \obot \dots \obot \text{Eig} (F;\lambda_k)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\large \fat{Algorithmus zur Berechnung einer Orthonormalbasis aus Eigenvektoren} \normalsize
+
+\begin{enumerate}[{1)}]
+    \item Man bestimme die Linearfaktorzerlegung des charakteristischen Polynoms
+            $P_F = \pm (t-\lambda_1)^{r_1} \cdot \dots \cdot (t-\lambda_k)^{r_k}$
+            wobei $\lambda_1,...,\lambda_k$ paarweise verschieden sind.
+    \item Für jeden Eigenwert $\lambda$ der Vielfachheit $r$ bestimme man eine Basis von
+            Eig$(F;\lambda)$ durch Lösen eines linearen Gleichungssystems.
+    \item Man orthonormalisiere die in $2)$ erhaltene Basen mit dem Gram-Schmidt Verfahren
+            und zwar unabhängig voneinander in den verschiedenen Eigenräumen.
+    \item Die $k$ Basen der Eigenräume aus $3)$ bilden zusammen die gesuchte Basis aus
+            Eigenvektoren von $V$.
+\end{enumerate}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $A \in M(n \times n \ ; K)$. Wenn wie eine Orthonormalbasis $\mathcal{B} = (v_1,\dots,v_n)$
+    haben, so gilt
+    \begin{align*}
+        T:=
+        \begin{pmatrix}
+            \vdots & & \vdots \\
+            v_1 & \dots & v_n \\
+            \vdots & & \vdots  
+        \end{pmatrix}
+        = T_{\mathcal{K}}^{\mathcal{B}}
+    \end{align*}
+    und
+    \begin{align*}
+        T^T A T = \begin{pmatrix}
+            \lambda_1 & & 0 \\
+            & \ddots & \\
+            0 & & \lambda_n
+        \end{pmatrix}
+        := D
+    \end{align*}
+    oder analog $T \cdot D \cdot T^T = A$.    
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Jede symmetrische Matrix $A \in M(n \times n \ ; \R)$ hat einen reellen Eigenwert.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{ (Sazt von Courant-Fischer)
+
+    Sei $V$ ein endlich dimensionaler euklidischer oder unitärer VR mit $n = \dim V$ und
+    $F \in \End (V)$ ein selbstadjungiereter Endomorphismus. (Also gilt $\scalprod{x}{Fx}
+    = \scalprod{x}{Fx}$.) Seien die Eigenwerte von
+    $F$ der Grösse nach geordnet $\lambda_1 \leq \dots \leq \lambda_n$. Dann gilt
+    \begin{align*}
+        \lambda_k = 
+        \min_{\stackrel{U \subset V}{\dim U = k}} \max_{\stackrel{x \in U}{x \neq 0}} \frac{\scalprod{x}{Fx}}{\scalprod{x}{x}}
+        \ = \
+        \max_{\stackrel{U \subset V}{\dim U = n-k+1}} \min_{\stackrel{x \in U}{x \neq 0}} \frac{\scalprod{x}{Fx}}{\scalprod{x}{x}}
+    \end{align*}
+    Die erste Extremisierung wird dabei über UVR $U \subset V$ der angegebenen Dimension
+    durchgeführt, die zweite über nicht-verschwindende Vektoren in $U$. Man beachte, dass
+    für den grössten und kleinsten Eigenwert insbesondere gilt
+    \begin{align*}
+        \lambda_n = \max_{\stackrel{x \in V}{x \neq 0}} \frac{\scalprod{x}{Fx}}{\scalprod{x}{x}}
+        \\
+        \lambda_1 = \min_{\stackrel{x \in V}{x \neq 0}} \frac{\scalprod{x}{Fx}}{\scalprod{x}{x}}
+    \end{align*}
+}

@@ -1,0 +1,94 @@
+\subsection{Analytic Functions}
+
+\begin{definition}[Derivative]
+    The \fat{derivative} of a function $f$ is defined as
+    \begin{align*}
+        f'(a) = \limes{x \rightarrow a} \frac{f(x) - f(a)}{x-a}
+        = \limes{h \rightarrow 0} \frac{f(a+h) - f(a)}{h}
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Let $f: \C \rightarrow \R$ be a function. If we now want to calculate the derivative,
+    of $f$ at a point $z_0$, then we can approach $z_0$ from different sides, in particular
+    purely imaginary and purely real. That means:
+    \begin{align*}
+        f'(z_0) &= \limes{\stackrel{h \rightarrow 0}{h \in \R}} \frac{f(z_0 + h) - f(z_0)}{h}
+        \in \R
+        \\
+        f'(z_0) &= \limes{\stackrel{h \rightarrow 0}{h \in \R}} \frac{f(z_0 + h) - f(z_0)}{i h}
+        \in \C
+    \end{align*}
+    In order for this to be true, $f'(z_0)$ has to be zero. Thus, a real function of a
+    complex variable either has derivative zero, or else the the derivative does
+    not exist.
+\end{theorem}
+
+\begin{theorem}
+    If we write $z(t) = x(t) + i y(t)$ we find $z'(t) = x'(t) + i y'(t)$.
+\end{theorem}
+
+\begin{definition}[Analytic/Holomorphic]
+    A complex function $f$ is called \fat{analytic} or \fat{Holomorphic} if $f$
+    possesses a derivative wherever the function is defined.
+\end{definition}
+
+\begin{definition}[Cauchy-Riemann Equations]
+    Let $f$ be an analytic function.
+    If we write $f(z) = f(x,y) = u(x) + i v(y)$ we obtain the \fat{Cauchy-Riemann Equations}.
+    \begin{align*}
+        \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+        \hspace{20pt}
+        \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x}
+    \end{align*}
+    Derivation:
+    \begin{align*}
+        f'(z) &= \limes{h \rightarrow 0} \frac{f(z+h) - f(z)}{h} = \frac{\partial f}{\partial x} = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x}
+        \\
+        f'(z) &= \limes{k \rightarrow 0} \frac{f(z+ik) - f(z)}{i k} = -i \frac{\partial f}{\partial y} = -i \frac{\partial u}{\partial y} + \frac{\partial v}{\partial y}
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    All analytic functions fulfil the Cauchy-Riemann Equations.
+\end{lemma}
+
+\begin{theorem}
+    Derivatives of analytic functions are again analytic.
+\end{theorem}
+
+\begin{definition}[Harmonic]
+    A function $f$ that fulfils the Laplace equation $\Delta f = 0$ is called
+    \fat{harmonic}.
+\end{definition}
+
+\begin{theorem}
+    All analytic functions are harmonic. In particular
+    for $f = u + i v$, both $u$ and $v$ are harmonic.
+\end{theorem}
+
+\begin{definition}[Harmonic Conjugate]
+    If two harmonic functions $u$ and $v$ satisfy the Cauchy-Riemann equations,
+    then $v$ is the \fat{harmonic conjugate} of $u$.
+\end{definition}
+
+\begin{theorem}
+    If $u(x,y)$ and $v(x,y)$ have continuous first-order partial derivatives which
+    satisfy the Cauchy-Riemann differential equations, then $f(z) = u(z) + i v(z)$
+    is analytic with continuous derivative $f'(z)$, and conversely.
+\end{theorem}
+
+\begin{theorem}[Luca's Theorem]
+    If all zeros of a polynomial $P(z)$ lie in a half plane, then all
+    zeros of the derivative $P'(z)$ lie in the same half plane.
+\end{theorem}
+
+\begin{theorem}
+    Let $P(z)$ be a polynomial of degree $n$ and let $Q(z)$ be a polynomial of degree
+    $m$. We define $R(z) = \frac{P(z)}{Q(z)}$. The following statements are true.
+    \begin{enumerate}[(i)]
+        \item If $m>n$, then $R(z)$ has a zero of order $m-n$ at $\infty$.
+        \item If $m<n$, then $R(z)$ has a pole of order $n-m$ at $\infty$.
+        \item If $n=m$, then $R(\infty) = \frac{a_n}{b_n}$.
+    \end{enumerate}
+\end{theorem}

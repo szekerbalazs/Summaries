@@ -1,0 +1,57 @@
+\documentclass[a4paper,leqno,twocolumn]{article}
+\input{header}
+\input{macros.tex}
+
+\renewcommand{\epsilon}{\varepsilon}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\usepackage[skins,theorems]{tcolorbox}
+
+\begin{document}
+
+\tcbset{highlight math style={enhanced, sharp corners=uphill,
+  colframe=red!75!black,colback=red!5!white,arc=0pt,boxrule=1pt}}
+
+\input{Kapitel/1_Wellen.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/2_Elektrostatik.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/3_Elektrische_Leiter.tex}
+
+\input{Kapitel/4_Kondensatoren.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/5_Elektrische_Stroeme.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/6_Schaltkreise.tex}
+
+\input{Kapitel/7_Relativitaetstheorie.tex}
+
+\input{Kapitel/8_Felder_bewegter_Ladungen.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/9_Magnetische_Felder.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/10_Magnetische_Induktion.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/11_Wechselstroeme.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/12_Maxwellgleichungen_und_elektromagnetische_Wellen.tex}
+
+\input{Kapitel/13_Elektrische_und_magnetische_Felder_in_Materie.tex}
+
+\end{document}

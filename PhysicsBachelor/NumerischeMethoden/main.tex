@@ -1,0 +1,50 @@
+\documentclass[a4paper,leqno,twocolumn]{article}
+\input{header}
+\input{macros.tex}
+
+\renewcommand{\epsilon}{\varepsilon}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\usepackage[skins,theorems]{tcolorbox}
+
+\begin{document}
+
+\tcbset{highlight math style={enhanced, sharp corners=uphill,
+  colframe=red!75!black,colback=red!5!white,arc=0pt,boxrule=1pt}}
+
+
+\input{Kapitel/1_Quadratur.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/2_ODE.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/3_Strukturerhaltung.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/4_RK.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/5_Steife_DGL.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/6_NSTsuche.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/7_LinAlg.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/8_Ausgleichsrechnung.tex}
+
+\vspace{1\baselineskip}
+
+\input{Kapitel/9_EW_Probleme.tex}
+
+\end{document}

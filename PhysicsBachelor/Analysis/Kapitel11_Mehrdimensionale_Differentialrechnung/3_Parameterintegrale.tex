@@ -1,0 +1,151 @@
+\subsection{Parameterintegrale}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $a<b$ reelle Zahlen, sei $U \subseteq \R^n$ offen, und
+    $f: U \times [a,b] \rightarrow \R$ eine Funktion. Ein Integral der Form
+    \begin{align*}
+        F(x) = \intab f(x,t) dt
+    \end{align*}
+    wird als \fat{Parameterintegral} bezeichnet. Dabei ist $x$ der \fat{Parameter}
+    und $t$ die \fat{Integrationsvariable}. Wir setzen voraus, dass die Funktion $f$
+    in $n+1$ Variablen zumindest stetig ist, so, dass insbesondere für jedes fixe
+    $x \in U$ die Abbildung $t \mapsto f(x,t)$ stetig, und somit Riemann-integrierbar
+    ist.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $U \subseteq \R^n$ eine offene Teilmenge, $a<b$ reelle Zahlen und
+    $f: U \times [a,b] \rightarrow \R$ stetig. Dann definiert das Parameterintegral
+    \begin{align*}
+        F(x) = \intab f(x,t) dt
+    \end{align*}
+    eine stetige Funktion $F: U \rightarrow \R$. Falls die partielle Ableitung
+    $\partial_k f$ für $k = 1,\dots,n$ existieren und auf $U \times [a,b]$
+    stetig sind, dann ist $F$ stetig differenzierbar, und es gilt
+    für alle $x \in U$ und $k \in \geschwungeneklammer{1,\dots,n}$:
+    \begin{align*}
+        \partial_k F(x) = \intab \partial_k f(x,t) dt
+    \end{align*}    
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+   Sei $U \subset \R^n$ offen, seien $a<b$ reelle Zahlen und sei $f: U \times (a,b) \rightarrow \R$
+   stetig mit stetigen partiellen Ableitungen $\partial_k f$ für $k \in \geschwungeneklammer{1,\dots,n}$.
+   Seien $\alpha,\beta:U \rightarrow (a,b)$ stetig differenzierbar. Dann ist das
+   Parameterintegral mit veränderlichen Grenzen
+   \begin{align*}
+       F(x) = \int_{\alpha(x)}^{\beta(x)} f(t,x) dt
+   \end{align*}
+   stetig differenzierbar auf $U$, und es gilt für alle $x \in U$
+   \begin{align*}
+       \partial_k F(x) = f(x,\beta(x)) \partial_k \beta(x) - f(x,\alpha(x)) \partial_k \alpha(x) + \int_{\alpha(x)}^{\beta(x)} \partial_k f(x,t) dt
+   \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+   Die durch das Parameterintegral
+   \begin{align*}
+       J_n (x) = \frac{1}{\pi} \int_0^\pi \cos(x \sin(t) - nt) dt
+   \end{align*}
+   definierte Funktion $J_n : (0, \infty) \rightarrow \R$ wird \fat{Bessel-Funktion
+   erster Gattung} genannt, und löst die Differentialgleichung
+   \begin{align*}
+       x^2 u''(x) + x u'(x) + (x^2 - n^2) u(x) = 0
+   \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+   Die \fat{Bessel-Funktion zweiter Gattung} ist durch das uneigentliche Integral
+   \begin{align*}
+       Y_n (x) = \frac{1}{\pi} \int_0^{\pi} \sin(x \sin(t) - nt) x \sin(t) dt
+                    - \frac{1}{\pi} \int_0^{\infty} \klammer{\exp (t) + (-1)^n \exp (-n t)} \exp (-x \sinh(t)) dt
+   \end{align*}
+   für $x \in (0,\infty)$ definiert. Es kann gezeigt werden, dass $Y_n$ die Differentialgleichung
+   in der obigen Definition auch erfüllt. Des Weiteren sind $J_n$ und $Y_n$ linear
+   unabhängig.
+}
+
+\pagebreak
+
+\Definition{
+
+   Sei $f: \R \rightarrow \R$ stetig. Der \fat{Träger} oder \fat{Support} von $f$
+   ist definiert als
+   \begin{align*}
+       \text{supp} (f) = \overline{\geschwungeneklammer{x \in \R \ | \ f(x) \neq 0}}
+   \end{align*}
+   Die Funktion $f$ hat \fat{kompakten Träger} genau dann, wenn $f(x)=0 \ \forall x \in \R$
+   mit $\abs{x}>R$ für ein $R >> 0$. 
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+   Sei $f: \R \rightarrow \R$ stetig und sei $\psi: \R \rightarrow \R$ stetig mit
+   kompaktem Träger. Die \fat{Faltung} von $f$ mit $\psi$ ist die Funktion
+   $\psi \circ f: \R \rightarrow \R$ gegeben durch
+   \begin{align*}
+       (\psi \circ f)(x) = \intii \psi(x-y) f(y) dy
+   \end{align*}
+   Falls supp$(\psi) \subseteq [-R,R]$, dann ist folgendes ein eigentliches Integral
+   \begin{align*}
+       \int_{-R-\abs{x}}^{+R + \abs{x}} \psi (x-y) f(y) dy
+   \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+   \begin{enumerate}
+       \item Es gilt $\psi \circ f = f \circ \psi$.
+       \item Die Faltung ist kommutativ, assoziativ und bilinear (distributiv). Das heisst, es bildet einen Ring ohne Einselement.
+       \item Ist $f$ stetig und $\psi$ glatt, dann ist $\psi \circ f$ auch glatt und es gilt
+                \begin{align*}
+                    \frac{\partial}{\partial x} (\psi \circ f)(x) = (\psi' \circ f)(x)
+                \end{align*}
+   \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+   Wir nennen \fat{Glättungskern} eine Funktion $\psi: \R \rightarrow \R$ mit
+   \begin{enumerate}[{1)}]
+       \item $\psi$ ist glatt.
+       \item supp$(\psi) \subseteq [- \delta , +\delta]$ für kleines $\delta$.
+       \item $\psi(x) \geq 0 \ \forall x \in \R$
+       \item $\intii \psi (x) dx = 1$ 
+   \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+   Ist $\psi$ ein Glättungskern mit supp$(\psi) \subseteq [-\delta,+\delta]$, dann ist
+   $2 \psi (2x)$ ein Glättungskern mit Support in $[-\frac{\delta}{2},\frac{\delta}{2}]$.
+   Im Allgemeinen gilt:
+   \begin{align*}
+       \psi_n = 2^n \psi(2^n x) \subseteq [-\delta \cdot s^{-n} , \delta \cdot 2^{-n}]
+   \end{align*}
+   Setzen wir $f_n = \psi_n \circ f: \psi_n (x) = 2^n \psi (2^n x)$, so konvergiert
+   $\fFolge$ gleichmässig gegen $f$ auf jedem kompakten Intervall.
+}

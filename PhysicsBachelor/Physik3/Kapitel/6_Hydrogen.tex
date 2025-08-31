@@ -1,0 +1,244 @@
+
+\section{Hydrogen}
+
+\subsection{Hydrogen atom Schrödinger Equation}
+% If we have a central potential, meaning $V(\vec{r}) = V(\Norm{r}) = V(r)$,
+% then we can use separation of variables to solve SE: $\psi(r,\theta,\phi) =
+% R(r) Y(\theta,\phi)$. We obtain:
+% \begin{enumerate}[]
+%     \item $\frac{1}{R} \frac{\partial}{\partial r} \klammer{r^2 \frac{\partial R}{\partial r}} - \frac{2 m r^2}{\hbar} \klammer{V(r) - E} = l(l+1)$
+%     \item $\frac{1}{Y} \eckigeklammer{\frac{1}{\sin(\theta)} \frac{\partial}{\partial \theta} \klammer{\sin(\theta) \frac{\partial Y}{\partial \theta}} + \frac{1}{\sin^2(\theta)} \frac{\partial^2 Y}{\partial \phi^2}} = -l(l+1)$
+% \end{enumerate}
+% Thus
+% \begin{enumerate}[]
+%     \item $Y_l^m (\theta,\phi) = \sqrt{\frac{2l+1}{4 \pi} \frac{(l-m)!}{(l+m)!}} e^{i m \phi} P_l^m (\cos(\theta))$
+%     \item $R(r)$ has to be solved ad hoc because it is dependent on $V(r)$. But with
+%         $u(r) = r R(r)$, we can simplify to: $- \frac{\hbar^2}{2m} \frac{\partial^2 u}{\partial r^2} + \eckigeklammer{V(r) + \frac{\hbar^2}{2m} \frac{l(l+1)}{r^2}} u = E u$
+% \end{enumerate}
+
+First few spherical harmonics:
+\begin{align*}
+    Y_0^0 = \frac{1}{\sqrt{4 \pi}}
+    \hspace{5pt} , \hspace{5pt}
+    Y_1^0 = \sqrt{\frac{3}{4 \pi}} \cos(\theta)
+    \hspace{5pt} , \hspace{5pt}
+    Y_1^{\pm 1} = \mp \sqrt{\frac{3}{8 \pi}} \sin(\theta) e^{\pm i \phi}
+    \\
+    Y_2^0 = \sqrt{\frac{5}{16 \pi}} \klammer{3 \cos^2(\theta) - 1}
+    \hspace{5pt} , \hspace{5pt}
+    Y_2^{\pm 1} = \mp \sqrt{\frac{15}{8 \pi}} \sin(\theta) \cos(\theta) e^{\pm i \phi}
+    \\
+    Y_2^{\pm 2} = \sqrt{\frac{15}{32 \pi}} \sin^2(\theta) e^{\pm 2 i \phi}
+\end{align*}
+
+First few radial solutions:
+\begin{align*}
+    R_{10}(r) &= 2 \klammer{\frac{1}{a_0}}^{3/2} e^{-r/a_0}
+    \hspace{5pt} , \hspace{5pt}
+    R_{20}(r) = 2 \klammer{\frac{1}{2 a_0}}^{3/2} \klammer{1 - \frac{r}{2 a_0}} e^{-r/(2a_0)}
+    \\
+    R_{21}(r) &= \frac{2}{\sqrt{3}} \klammer{\frac{1}{2a_0}}^{3/2} \klammer{\frac{r}{2 a_0}} e^{-r/(2 a_0)} 
+\end{align*}
+
+% \paragraph{Normalization condition}
+% $\int_0^\pi \int_0^{2 \pi} \overline{Y_l^m} Y_{l'}^{m'} \sin(\theta) d \theta d \phi = \delta_{ll'} \delta_{mm'}$
+
+
+% \subsubsection{Radial equation for Coulomb potential}
+% Assume proton remains motionless. $V(r) = \frac{-1}{4 \pi \epsilonnull} \frac{1}{r}$
+% \begin{align*}
+%     - \frac{\hbar^2}{2 m_e} \frac{\partial^2 u}{\partial r^2} + \eckigeklammer{
+%     - \frac{e^2}{4 \pi \epsilonnull} \frac{1}{r} + \frac{\hbar^2}{2 m_e} \frac{l(l+1)}{r^2}} u
+%     = E u
+% \end{align*}
+% $V(r) \rightarrow 0$ for $r \rightarrow \infty$. We only have bound states if
+% $E<0$. Only consider those cases. Define $\kappa = \sqrt{\frac{-2 m_e E}{\hbar}} \in \R$.
+% Then:
+% \begin{align*}
+%     \frac{1}{\kappa^2} \frac{\partial^2 u}{\partial r^2} = \eckigeklammer{
+%         1 - \frac{m_e e^2}{2 \pi \epsilonnull \hbar^2 \kappa} \frac{1}{\kappa r} + \frac{l(l+1)}{(\kappa r)^2}}
+%         u
+% \end{align*}
+% Define $\rho = \kappa r$ and $\rho_0 = \frac{m_e e^2}{2 \pi \epsilonnull \hbar^2 \kappa}$
+% Thus the ODE becomes:
+% \begin{align*}
+%     \frac{\partial^2 u}{\partial \rho^2} = \eckigeklammer{1 - \frac{\rho_0}{\rho} + \frac{l(l+1)}{\rho^2}} u
+% \end{align*}
+% For $\rho \rightarrow \infty$: $\frac{\partial^2 u}{\partial \rho^2} = u$. Thus
+% $u = A e^{-\rho}$. ($B=0$ because would not be bound.) As $\rho \rightarrow 0$:
+% $\frac{\partial^2 u}{\partial \rho^2} = \frac{l(l+1)}{\rho^2} u$. Thus
+% $u = C \rho^{l+1}$. Thus we obtain: $u(\rho) = \rho^{l+1} e^{-\rho} V(\rho)$.
+% We can write $V(\rho) = \sum_{j=0}^\infty c_j \rho^j$. With some inserting we obtain:
+% $c_{j+1} = \eckigeklammer{\frac{2(j+l+1) - \rho_0}{(j+1)(j+2l+2)}} c_j$. Further
+% calculations yield:
+
+\paragraph{Energy}
+$E_n = - \eckigeklammer{\frac{m_e}{2 \hbar^2} \klammer{\frac{e^2}{4 \pi \epsilonnull}}^2} \frac{1}{n^2}
+= \frac{E_1}{n^2}$. With $E_1 = -13.6 \mathrm{eV} = - R_e$ the ground state energy.
+
+\paragraph{Bohr radius}
+$\kappa = \klammer{\frac{m_e e^2}{4 \pi \epsilonnull \hbar^2}} \frac{1}{n} = \frac{1}{a n}$
+with $a_0 = \frac{4 \pi \epsilonnull \hbar^2}{m_e e^2}$ the Bohr radius.
+
+\paragraph{Full spatial wavefunction}
+$\Psi_{nlm} (r,\theta,\phi) = R_{nl}(r) Y_l^m (\theta,\phi)$
+where $n,l,m$ are \fat{quantum numbers}. $n$ is called \fat{principle quantum number}.
+\underline{Energy only depends on $n$}. $l = 0,1,2,\dots,n-1$ and $m = -l,-l+1,\dots,
+0,\dots,l-1,l$. Number of degenerate eigenstates: $n^2$.
+$n$ is the orbital energy level, $l$ the shape and $m$ the number of spatial orientations
+that the orbital can assume. The larger $n$ is, the larger is $E_n$ (because of
+the negative sign).
+
+% \paragraph{Ground state energy}
+% $E_1 = - \eckigeklammer{\frac{m}{2 \hbar^2} \klammer{\frac{e^2}{4 \pi \epsilonnull}}^2}
+% = -13.6 \mathrm{eV} = - \mathrm{R_e}$
+
+% \paragraph{Wavefunction including normalization}
+% $Y_{nlm} (r,\theta,\phi) = \sqrt{\klammer{\frac{2}{n a}}^3 \frac{(n-l-1)!}{2n(n+l)!}} e^{-\frac{r}{n a}} \klammer{\frac{2r}{n a}}^l
+% L_{n-l-1}^{2l+1} \klammer{\frac{2 r}{n a}} Y_l^m (\theta,\phi)$
+
+\subsection{Angular Momentum}
+$\vec{L} = \vec{x} \times \vec{p}$, $\eckigeklammer{L_x , L_y} = i \hbar L_z$,
+$\eckigeklammer{L_y , L_z} = i \hbar L_x$, $\eckigeklammer{L_z , L_y} = i \hbar = L_y$,
+$\eckigeklammer{L^2 , L_x} = 0$, $\eckigeklammer{L^2 , L_y} = 0$,
+$\eckigeklammer{L^2 , L_z} = 0$, $L^2 | l,m \rangle = \hbar^2 l (l+1) | l,m \rangle$,
+$L_z | l,m \rangle = \hbar m | l,m \rangle$.
+Construct new operator:
+$L_{\pm} \equiv L_x \pm i L_y$ for which:
+$\eckigeklammer{L_z , L_{\pm}} = \pm \hbar L_{\pm}$ and
+$\eckigeklammer{L^2 , L_{\pm}} = 0$. In general:
+$L_{\pm} |l,m \rangle = A_{l,\pm}^m |l,m \pm 1 \rangle$ with
+$A_{l,\pm}^m = \hbar \sqrt{l(l+1) - m(m \pm 1)}$.
+Due to causality constraints we find
+$m_{max} = \mu$ s.t. $L_+ |l,\mu \rangle = 0$ and
+$m_{min} = \mu'$ s.t. $L_- |l,\mu' \rangle = 0$. Also:
+$L_{\pm} L_{\mp} = L^2 - L_z^2 \pm \hbar L_z$ and
+$L^2 |l,\mu \rangle = \hbar^2 \mu (\mu + 1) |l,\mu \rangle$
+so we find $\mu = l$ and $\mu' = - l$. Possible values for $l$ and $m$:
+$l = 0,\frac{1}{2},1,\frac{3}{2},2,\dots$ and $m=-l,-l+1,\dots,l-1,l$.
+In position representation we define the \fat{angular momentum operator}
+$\vec{L} = -i \hbar (\vec{r} \times \vec{\nabla})$ where
+$\vec{\nabla} = \hat{r} \frac{\partial}{\partial r} + \hat{\theta} \frac{1}{r}
+\frac{\partial}{\partial \theta} + \hat{\phi} \frac{1}{r \sin(\theta)} \frac{\partial}{\partial \phi}$
+Hamiltonian can be rewritten as
+$H = \frac{1}{2 m r^2} \eckigeklammer{- \hbar^2 \frac{\partial}{\partial r} \klammer{r^2 \frac{\partial}{\partial r}} + L^2} + V$
+Thus: $H \psi = E \psi$ , $L^2 \psi = \hbar^2 l(l+1) \psi$ , $L_z \psi = \hbar m \psi$.
+
+
+\subsection{Time-independent Perturbation Theory}
+Write Hamiltonian as $\hat{H} = \hat{H}_0 + \delta \hat{H}$ where $\hat{H}_0$
+can be solved exactly and $\delta \hat{H}$ is a small perturbation, meaning:
+If $| \psi_n^0 \rangle$ is an eigenstate of $\hat{H}_0$ s.t.
+$\hat{H}_0 | \psi_n^0 \rangle = E_n^0 | \psi_n^0 \rangle$, then the time independent
+S.E. can be written as $\hat{H} | \psi_n \rangle = E_n | \psi_n \rangle$
+wher $E_n = E_n^0 + \delta E_n$, $\abs{\delta E_n} \ll E_n^0 \ \forall n$
+and $| \psi_n \rangle = | \psi_n^0 \rangle + | \delta \psi_n \rangle$,
+$\abs{\delta \psi_n} \ll \abs{\psi_n^0}$. Hence
+$\hat{H}_0 | \delta \psi_n \rangle + \delta \hat{H} | \psi_n^0 \rangle =
+E_n^0 | \delta \psi_n \rangle + \delta E_n | \psi_n^0 \rangle$. Since
+$\geschwungeneklammer{| \psi_n^0 \rangle}$ is a complete basis we can write
+$| \delta \psi_n \rangle = \sum_l c_l | \psi_l^0 \rangle$. Thus
+$E_m^0 + \langle \psi_m^0 | \delta \hat{H} | \psi_n^0 \rangle = E_n^0 c_m +
+\delta E_n \langle \psi_n^0 | \psi_m^0 \rangle$.
+\begin{enumerate}[]
+    \item \underline{If $n=m$}: $\langle \psi_n^0 | \delta H | \psi_n^0 \rangle = \delta E_n$.
+        This means, the correction to the energy of the eigenstate caused by the perturbation
+        is just the expectation value of $\delta \hat{H}$ for the original eigenstate.
+    \item \underline{if $n \neq m$}: $\langle \psi_m^0 | \delta \hat{H} | \psi_n^0 \rangle
+        = c_m (E_n^0 - E_m^0) \ \Rightarrow \ c_m = \frac{\langle \psi_m^0 | \delta \hat{H} | \psi_n^0 \rangle}{E_n^0 - E_m^0}$
+        With these coefficients we can then write $| \delta \psi_n  \rangle$.
+        Problem if $E_n^0 = E_m^0$. Could be if there is degeneracy.
+\end{enumerate}
+
+\subsection{Degenerate Perturbation Theory}
+The above problem can be resolved if $\langle \psi_m^0 | \delta \hat{H} | \psi_n^0 \rangle = 0$
+The case if $| \psi_n^0 \rangle$ and $| \psi_m^0 \rangle$ were also eigenstates
+of $\delta \hat{H}$. Then: $\delta \hat{H} | \psi_n^0 \rangle = \delta E_n | \psi_n^0 \rangle$
+and $\delta \hat{H} | \psi_m^0 \rangle = \delta E_m | \psi_m^0 \rangle$. This means,
+perturbed eigenstates $| \psi_n \rangle$ and $| \psi_m \rangle$ are just
+$| \psi_n^0 \rangle$ and $| \psi_m^0 \rangle$. If we have a set of $N$ degenerate
+eigenstates $\geschwungeneklammer{| \psi_{kl}^0 \rangle}$ of $\hat{H}_0$ with
+eigenenergy $E_k^0$, then any linear combination of these states is also an
+eigenstate of $\hat{H}_0$ with energy $E_k$. That means, $\geschwungeneklammer{| \psi_{kl}^0 \rangle}$
+forms a basis for a so called \fat{$N$-dimensional degenerate subspace}.
+$\hat{p}^2 = 2 m (\hat{H}_0 - \hat{V})$
+
+\subsection{Time-depentent Perturbation Theory}
+Suppose we can write $\hat{H} = \hat{H}_0 + \hat{H}_1 (t)$ with $\hat{H}_0$ a
+time-independent Hamiltonian, and $\hat{H}_1 (t)$ is a time-dependent perturbation.
+If $\hat{H}_1 (t) = 0$, then $| \psi(t) \rangle = \sum_n c_n e^{-i \omega_n t} | \phi_n \rangle$
+with $\omega_n = \frac{E_n}{\hbar}$ and $\geschwungeneklammer{| \phi_n \rangle}$
+energy eigenstates. If $\hat{H}_1 (t) \neq 0$, then
+$| \psi(t) \rangle = \sum_n c_n (t) e^{-i \omega_n t} | \phi_n \rangle$, such that
+$\frac{\partial c_m}{\partial t} = \frac{1}{i \hbar} \sum_n c_n e^{-i(\omega_n - \omega_m) t} \langle \phi_m | \hat{H}_1 (t) | \phi_n \rangle$.
+The system cannot transition from the state $j$ to the state $n$ if
+$\langle \phi_j | H | \phi_m \rangle = 0$.
+
+Suppose an atom encounters an electromagnetic wave. The electric field of the wave
+has a sinusiodal time dependence, while the atom has an electric dipole moment
+$\vec{p}_0$: $\vec{E} = E_0 \cos(\omega t) \hat{k}$ and $\vec{p}_0 = - e \vec{r}$.
+Then: $\hat{H}_1 (t) = - \vec{p_0} \cdot \vec{E} = e E_0 \hat{\vec{r}} \cdot \hat{k}
+\cos(\omega t)$
+
+If an atom starts in the state $| \phi_a \rangle$, the probability that it ends
+up in the state $| \phi_b \rangle$ at time $t$ is:
+$P_{a \rightarrow b} (t) = \abs{c_b (t)}^2 \approx \frac{\abs{V_{ab}}^2}{\hbar^2}
+\klammer{\frac{t}{2}}^2 \text{sinc}^2 \eckigeklammer{\klammer{\omega_0 - \omega} \frac{t}{2}}$
+with $V_{ab} = \langle \phi_a | e E_0 \vec{r} \cdot \hat{k} | \phi_b \rangle$ and
+$\omega_0 = \omega_a - \omega_b$
+
+\subsection{Zeeman Effect}
+$\vec{\mu}_p = \frac{g_p e}{2 m_p} \vec{s}_p \ll \vec{\mu} = \frac{g_s e}{2 m_e} \vec{s}$.
+The perturbed hamiltonian is: $\delta \hat{H} = - \vec{\mu} \cdot \vec{B}$. If the
+magnetic field points along the $z$-axis: $\delta \hat{H} = \frac{g_s e B}{2 m_e} \hat{s}_z$.
+Spin eigenstates $| \frac{1}{2} , \pm \frac{1}{2} \rangle$ are the eigenstates of
+$s_z$, so: $\delta E_+ = \frac{g_s e \hbar B}{4 m_e}$ and
+$\delta E_- = \frac{g_s e \hbar B}{4 m_e} = - \frac{g_s}{2} \mu_B B$.
+In general: For any particle with magnetic moment $\vec{\mu} = g_j \frac{\mu_B}{\hbar} \vec{J}$
+where $\vec{J}$ is the angular momentum operator, the energy shift is given by
+$\delta E = \mu_B g_j m_j B$.
+
+For a magnetic field along the $x$-direction:
+$\delta \hat{H}_{zm} = \frac{g_s e B}{2 m_e} \hat{s}_x$. Use eigenstates of
+$\hat{s}_x$ to calculate $\delta E$. ($|+\rangle = \frac{1}{\sqrt{2}} (1,1)$ and
+$|-\rangle = \frac{1}{\sqrt{2}} (1,-1)$) $\delta E_+ = \frac{g_s}{2} \mu_B B$ and
+$\delta E_- = - \frac{g_s}{2} \mu_B B$.
+
+\subsection{Dipole allowed transitions}
+\begin{itemize}
+    \item $\Delta l = \pm 1$ and $\Delta m = 0$ for linearly ($\pi$) polarized light.
+    \item $\Delta l = \pm 1$ and $\Delta m = +1$ for right handed ($\sigma^+$) circularly polarized light.
+    \item $\Delta l = \pm 1$ and $\Delta m = -1$ for left handed ($\sigma^-$) circularly polarized light.
+\end{itemize}
+
+\subsection{Hyperfine splitting in Hydrogen}
+Magnetic moment of the hydrogen nucleus also generates a magnetic field which
+interacts with the electron spin. In classical electrodynamics, a magnetic moment
+$\vec{\mu}$ generates a magnetic field: $\vec{B}$
+%  = \frac{\mu_0}{4 \pi r^3} \eckigeklammer{3 (\vec{\mu}_p \cdot \hat{r}) \hat{r} - \vec{\mu}_p} + \frac{2}{3}
+% \mu_0 \vec{\mu}_p \delta^3 (\vec{r})$
+% with $\vec{\mu}_p = \frac{g_p e}{2 m_e} \vec{s}_p$.
+Hamiltonian of the electron: $\delta \hat{H}_{hf} = - \vec{\mu} \cdot \vec{B}$
+% = \frac{\mu_0 g_p g_s e^2}{16 \pi m_p m_e}
+% \frac{3 (\vec{s}_p \cdot \hat{r}) (\vec{s}_e \cdot \hat{r}) - \vec{s}_p \cdot \vec{s}_e}{r^3}
+% + \frac{\mu_0 g_p g_s e^2}{6 m_p m_e} \vec{s}_p \cdot \vec{s}_e \delta^3 (r)$.
+% Energy shift:
+% $E_{hf} = \frac{\mu_0 g_p g_s e^2}{16 \pi m_p m_e} \left\langle \psi_{100} , m_s \Big|
+% \frac{3 (\vec{s}_p \cdot \hat{r}) (\vec{s}_e \cdot \hat{r}) - \vec{s}_p \cdot \vec{s}_e}{r^3}
+% \Big| \psi_{100} , m_s \right\rangle + \frac{\mu_0 g_p g_s e^2}{6 m_p m_e} \langle
+% m_s | \vec{s}_p \cdot \vec{s}_e | m_s \rangle \abs{\psi_{100} (r=0)}^2$.
+% For $l=0$: $E_{hf} = \frac{\mu_0 g_p g_s e^2}{6 \pi m_p m_e a^3}
+% \langle \vec{s}_p \cdot \vec{s}_e \rangle$. We have $\vec{s}_p \cdot \vec{s}_e =
+% \frac{1}{2} \klammer{s^2 - s_p^2 - s_e^2}$, since both electron and proton have spin
+% $\frac{1}{2}$ we have $s_p^2 = s_e^2 = \frac{3}{4} \hbar^2$. Possible values of
+% $S^2$ are: $S^2 = 2 \hbar^2$ (\textit{triplet}, $m_s = -1,0,2$) and
+% $S^2 = 0$ (\textit{singlet},$m_s = 0$). Their energies are:
+% $E_{hf} = \underbrace{\frac{\mu_0 g_p g_s e^2 \hbar^2}{6 \pi m_p m_e a^3}}_{:= \Delta E} \cdot \begin{cases}
+%     \frac{1}{4} \hspace{5pt} &\text{triplet} \\
+%     - \frac{3}{4} \hspace{5pt} &\text{singlet}
+% \end{cases}$
+% A photon is emitted when the electron transition from the triplet to the singlet
+% state has frequency and wavelength $\nu = \frac{\Delta E}{h}$, $\lambda = \frac{c}{\nu}
+% = 21 \mathrm{cm}$.
+
+

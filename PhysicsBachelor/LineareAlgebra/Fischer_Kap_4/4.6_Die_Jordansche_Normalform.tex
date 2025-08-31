@@ -1,0 +1,241 @@
+\section{Die Jordansche Normalform}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\lambda$ ein Eigenwert von $F \in$ End$(V)$ und $\dim V = n < \infty$. Dann
+    definieren wir den \fat{Hauptraum} (verallgemeinerter Eigenraum) von $F$ bzgl $\lambda$
+    als
+    \begin{align*}
+        \text{Hau} (F;\lambda) = \ker \klammer{F- \lambda id}^r
+    \end{align*}
+    wobei $r$ die algebraische Vielfachheit von $\lambda$ ist.
+    (d.h. $P_F (t) = (t-\lambda)^r \cdot (\dots)$)
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Es gilt Eig$(F,\lambda) = \ker (F - \lambda \text{id}) \subset$ Hau$(F; \lambda)$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (\fat{Satz über die Hauptraumzerlegung})
+
+    Sei $F \in$ End$_K (V)$ und
+    \begin{align*}
+        P_F = \pm (t-\lambda_1)^{r_1} \cdot \dots \cdot (t-\lambda_k)^{r_k}
+    \end{align*}
+    mit paarweise verschiedenen $\lambda_1 , \dots , \lambda_k \in K$.
+    Es sei $V_i :=$ Hau$(F;\lambda_i) \subset V$ für jedes $\lambda_i$
+    der Hauptraum. Dann gilt:
+    \begin{enumerate}[1)]
+        \item $F(V_i) \subset V_i$ und $\dim V_i = r_i$ für $i = 1,\dots,k$
+        \item $V = V_1 \oplus \dots \oplus V_k$
+        \item $F$ hat eine Zerlegung $F = F_D + F_N$ mit
+                \begin{enumerate}[a)]
+                    \item $F_D$ diagonalisierbar
+                    \item $F_N$ nilpotent
+                    \item $F_D \circ F_N = F_N \circ F_D$
+                \end{enumerate}
+        \item $F_D$ und $F_N$ lassen sich als Polynome in $F$ schreiben.
+                Insbesondere kommutieren sie mit $F$.
+        \item Die Zerlegung $F=F_D + F_N$ ist eindeutig wenn man a),b) und c)
+                verlangt.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $A \in M(n \times n; K)$, so dass
+    $P_A = \pm (t-\lambda_1)^{r_1} \cdot \dots \cdot (t-\lambda_k)^{r_k}$.
+    Dann gibt es eine invertierbare Matrix $S \in$ GL$(n;K)$ derart, dass
+    \begin{align*}
+        S A S^{-1} = \begin{pmatrix}
+            \lambda_1 E_{r_1} + N_1 & & 0 \\
+            & \ddots & \\
+            0 & & \lambda_k E_{r_k} + N_k
+        \end{pmatrix}
+        := \tilde{A}
+    \end{align*}
+    mit $\lambda_i E_{r_i} + N_i$ Blöcken für alle $i = 1,\dots,k$
+    welche wie folgt gegeben sind:
+    \begin{align*}
+        \lambda_i E_{r_i} + N_i = \begin{pmatrix}
+            \lambda_i & & * \\
+            & \ddots & \\
+            0 & & \lambda_i
+        \end{pmatrix}
+        \in M(r_i \times r_i \ ; K)
+    \end{align*}
+    mit nilpotenten $N_i$. Insbesondere ist $\tilde{A} = D + N$, wobei
+    $D$ eine Diagonalmatrix und $N$ nilpotent (strikte obere Dreiecksmatrix)
+    ist. Und es gilt $D \cdot N = N \cdot D$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{ (Lemma von Fitting)
+
+    Zu einem $G \in$ End$_K (V)$ betrachten wir die beiden Zahlen
+    \begin{align*}
+        &d:= \min \geschwungeneklammer{l \in \N : \ \ker(G^l) = \ker (G^{l+1})}
+        \\
+        &r:= \mu(P_G \ ; 0)
+    \end{align*}
+    wobei $G^0 :=$ id$_V$. Dann gilt:
+    \begin{enumerate}[1)]
+        \item $d = \min \geschwungeneklammer{l: \ \text{Im} \ G^l = \text{Im} \ G^{l+1}}$
+        \item $\ker \ G^{d+1} = \ker \ G^{d}$, $\Im \ G^{d+1} = \Im \ G^d$ für alle $i \in \N$.
+        \item Die Räume $U := \ker \ G^d$ und $W:= \Im \ G^d$ sind $G$-invariant.
+        \item $(G | U)^d = 0$ und $G |_W : W \rightarrow W$ ist ein Isomorphismus.
+        \item Für das Minimalpolynom von $G |_U$ gilt $M_{G |_U} = t^d$.
+        \item $V = U \oplus W$, $\dim U = \mu(P_G,0) = r\geq d$, $\dim W = n-r$.
+    \end{enumerate}
+    Insbesondere gibt es eine Basis $\mathcal{B}$ von $V$, so dass
+    \begin{align*}
+        M_{\mathcal{B}} (G) = \begin{pmatrix}
+            N & 0 \\
+            0 & C
+        \end{pmatrix}
+        \quad \text{   mit   } \
+        N^d = 0
+        \ \text{ und } \
+        C \in \GL (n-r \ ; K)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir definieren die \fat{Jordanmatrix} als
+    \begin{align*}
+        J_k := \begin{pmatrix}
+            0 & 1 & & 0 \\
+            & \ddots & \ddots & \\
+            & & \ddots & 1 \\
+            0 & & & 0
+        \end{pmatrix}
+        \in M(k \times k \ ; K)
+    \end{align*}
+    $J_k$ ist nilpotent und $(J_k)^k = 0$. $k$ ist die minimale Potenz mit dieser Eigenschaft.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Sei $G$ ein nilpotenter Endomorphismus eines $K$-VR $V$ und $d:= \min
+    \geschwungeneklammer{l: G^l = 0}$. Dann gibt es eindeutig bestimmte Zahlen
+    $s_1,\dots,s_d \in \N$ mit
+    \begin{align*}
+        s_1 + 2 \cdot s_2 + 3 \cdot s_3 + \dots + d \cdot s_d = r = \dim V
+    \end{align*}
+    und eine Basis $\mathcal{B}$ von $V$, so dass
+    \begin{align*}
+        M_{\mathcal{B}} (G) = \begin{pmatrix}
+            J_d & & & & & & & & & \\
+            & \ddots & & & & & & & & \\
+            & & J_d & & & & & & & \\
+            & & & J_{d-1} & & & & 0 & & \\
+            & & & & \ddots & & & & & \\
+            & & & & & J_{d-1} & & & & \\
+            & & & & & & \ddots & & & \\
+            & & & 0 & & & & J_1 & & \\
+            & & & & & & & & \ddots & \\
+            & & & & & & & & & J_1 \\
+        \end{pmatrix}
+    \end{align*}
+    mit $s_d$-mal $J_d$, $s_{d-1}$-mal $J_{d-1}$, \dots , $s_1$-mal $J_1$.
+    Beachte: $J_1 = 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Jordansche Normalform})
+
+    Sei $F \in \End_K (V)$ derart, dass das charakteristische Polynom in Linearfaktoren
+    zerfällt, also
+    \begin{align*}
+        P_F = \pm (t-\lambda_1)^{r_1} \cdot \dots \cdot (t-\lambda_k)^{r_k}
+    \end{align*} 
+    mit paarweise verschiedenen $\lambda_1,\dots,\lambda_k \in K$. Dann gibt es eine Basis
+    $\mathcal{B}$ von $V$, so, dass
+    \begin{align*}
+        M_{\mathcal{B}} (F) = \begin{pmatrix}
+            \lambda_1 E_{r_1} + N_1 & & 0 \\
+            & \ddots & \\
+            0 & & \lambda_k E_{r_k} + N_k
+        \end{pmatrix}
+    \end{align*}
+    Mit $\lambda_i E_{r_i} + N_i$ als Blöcken, wobei $N_i$ für $1,\dots,k$ in der
+    Normalform ist. Ausgeschrieben bedeutet das
+    \begin{align*}
+        \lambda_i E_{r_i} + N_i =
+        \begin{pmatrix}
+            J_k (\lambda_i) & 0 & \\
+            & J_k (\lambda_i) & 0 \\
+            & & J_k (\lambda_i)
+        \end{pmatrix}
+    \end{align*}
+    mit
+    \begin{align*}
+        J_k (\lambda_i) = \begin{pmatrix}
+            \lambda_i & 1 & & \\
+            & \ddots & \ddots & \\
+            & & \ddots & 1 \\
+            & & & \lambda_i
+        \end{pmatrix}
+    \end{align*}
+    und Nullen auf der Nebendiagonalen, wo keine $1$-en sind.
+    Solch $J_k$ nennt man \fat{Jordanblöcke} der Länge $d$ zu $\lambda_i$.
+    der oberste und grösste Jordanblock in $\lambda_i R_{r_i} + N_i$ hat die
+    Grösse $d_i$ mit
+    \begin{align*}
+        1 \leq d_i = \min \geschwungeneklammer{l: N_i^l = 0} \leq r_i
+    \end{align*}
+    das ist die Vielfachheit der Nullstelle $\lambda_i$ im Minimalpolynom von
+    $F$. Für $1 \leq j \leq d_i$ seien $s_j^{(i)} \geq 0$ die Anzahl der Jordanblöcke
+    der Grösse $j$ zu $\lambda_i$ in $\lambda_i E_{r_i} + N_i$. Es ist $s_{d_i}^{(i)} \leq 1$,
+    und durch Abzählung der Längen folgt:
+    \begin{align*}
+        d_i s_{d_i}^{(i)} + (d-1) s_{d_i -1}^{(i)} + \dots + s_1^{(i)} = r_i
+    \end{align*}
+    Des Weiteren gilt: $r_1 + \dots + r_k = n$.
+
+    Die Reihenfolge der Jordanblöcke ist unwesentlich, da sie durch eine Permutation der
+    Basisvektoren beliebig verändert werden kann.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für ein $F \in \End_k (V)$ sind folgende Bedingungen äquivalent:
+    \begin{enumerate} [i)]
+        \item $F$ ist diagonalisierbar
+        \item $M_F = (t-\lambda_1) \cdot \dots \cdot (t-\lambda_k)$, wobei $\lambda_1,\dots,
+                \lambda_k$ die verschiedenen Eigenwerte von $F$ bezeichnen.
+        \item Es gibt paarweise verschiedene $\lambda_1,\dots\lambda_m \in K$, so, dass
+                \begin{align*}
+                    (F-\lambda_1 \id_V) \circ \dots \circ (F-\lambda_m \id_V) = 0 \in \End_K (V)
+                \end{align*}
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Allgemein gilt für ein $F \in \End_K (V)$:
+    \begin{align*}
+        M_F (t) = (t-\lambda_1)^{d_1} \cdot \dots \cdot (t-\lambda_k)^{d_k}
+    \end{align*}
+    wobei $d_i$ die Länge des grössten Jordanblockes zu $\lambda_i$ ist.
+}

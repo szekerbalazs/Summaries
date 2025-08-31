@@ -1,0 +1,169 @@
+\subsection{Das Riemann-Integral über Jordan-messbare Mengen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Teilmenge $B$ von $\R^n$ heisst \fat{Jordan-messbar}, falls es einen
+    abgeschlossenen Quader $Q$ in $\R^n$ mit $B \subseteq Q$ gibt, so dass die
+    charakteristische Funktion $\mathds{1}_B$ auf $Q$ Riemann-integrierbar ist. Das
+    \fat{Volumen} oder \fat{Jordan-Mass} von $B$ ist in diesem Fall wie folgt definiert
+    \begin{align*}
+        \vol (B) = \int_Q \mathds{1}_B dx
+    \end{align*}
+    Dieses ist unabhängig von der Wahl von $Q$, solange $B \subseteq Q$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Jordan-Messbarkeit $\neq$ Lebesque-Messbarkeit.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (zum Lebesgue-Kriterium)
+
+    Eine Teilmenge $B \subset \R^n$ ist genau dann Jordan-messbar, wenn $B$ beschränkt
+    ist und der Rand $\partial B$ eine Nullmenge ist. Sind $B_1 , B_2 \subset \R^n$
+    Jordan-messbar, so sind auch $B_1 \cup B_2 , B_1 \cap B_2$ und $B_1 \backslash B_2$
+    Jordan-messbar.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $Q \subset R^{n-1}$ ein abgeschlossener Quader und seien $f_- , f_+ :
+    Q \rightarrow \R$ Riemann integrierbar, und sei $D \subseteq \Q$ Jordan-messbar.
+    Dann ist die folgende Menge Jordan-messbar
+    \begin{align*}
+        B = \geschwungeneklammer{(x,y) \in \R^n \ | \ x \in D , f_- (x) \leq y \leq f_+ (x)}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $B \subseteq \R^n$ eine Jordan-messbare Teilmenge und sei $f$ eine reellwertige
+    Funktion auf $B$. Dann heisst $f$ \fat{Riemann-integrierbar}, falls es einen
+    abgeschlossenen Quader $Q \subseteq \R^n$ mit $B \subseteq Q$ gibt, so dass die
+    durch
+    \begin{align*}
+        f_{!}(x) = \begin{cases}
+            f(x) \quad &\text{ falls } x \in B \\
+            0 \quad &\text{ falls } x \in Q \backslash B
+        \end{cases}
+    \end{align*}
+    gegebene Funktion $f_{!}:Q \rightarrow \R$ Riemann-integrierbar ist. Wir
+    schreiben in diesem Fall
+    \begin{align*}
+        \int_B f \ dx \ = \ \int_Q f_{!} \ dx
+    \end{align*}
+    und nennen diese Zahl das \fat{Riemann-Integral} von $f$ über $B$.
+    Dieses ist unabhängig von der Wahl von $Q$ und es gilt Linearität, Monotonie
+    und Dreiecksungleichung für $\int_B (-) \ dx$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Lebesgue-Kriterium)
+
+    Sei $B \subseteq \R^n$ Jordan-messbar und sei $f:B \rightarrow \R$ beschränkt.
+    Dann ist $f$ genau dann Riemann-integrierbar, wenn $f$ auf $B$ fast überall
+    stetig ist, das heisst, wenn die Menge der Unstetigkeitsstellen von $f$ eine
+    Nullmenge ist. Insbesondere ist jede beschränkte Funktion auf einer
+    Jordan-messbaren Menge Riemann-integrierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sind $B_1 , B_2 \subseteq \R^n$ Jordan-messbar und $f: B_1 \cup B_2 \rightarrow \R$
+    eine Riemann-integrierbare Funktion. Dann sind $f |_{B_1}$ und $f |_{B_2}$
+    Riemann-integrierbar und es gilt
+    \begin{align*}
+        \int_{B_1 \cup B_2} f \ dx = \int_{B_1} f \ dx + \int_{B_2} f\ dx - \int_{B_1 \cap B_2} f \ dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Fubini)
+
+    Seien $P \subseteq \R^n$ und $Q \subseteq \R^m$ abgeschlossene Quader, und
+    $f: P \times Q \rightarrow \R$ eine Riemann-integrierbare Funktion. Für
+    $x \in P$, schreibe $f_x : Q \rightarrow \R$ für die Funktion
+    $f_x (y) = f(x,y)$, und definiere
+    \begin{align*}
+        F_- (x) = \sup \mathcal{U} (f_x)
+        \quad \quad \text{   und   } \quad \quad
+        F_+ (x) = \inf \mathcal{O} (f_x)
+    \end{align*}
+    Es existiert eine Nullmenge $N \subseteq P$ so, dass für alle $x \notin N$ die
+    Funktion $f_x$ Riemann-integrierbar ist, also
+    \begin{align*}
+        F_- (x) = F_+ (x) = \int_Q f_x (y) dy = \int_Q f(x,y) dy
+    \end{align*}
+    gilt. Die Funktion $F_-$ und $F_+$ auf $P$ sind beide Riemann-integrierbar, und
+    es gilt
+    \begin{align*}
+        \int_{P \times Q} f(x,y) d(x,y) = \int_P F_- (x) dx = \int_Q F_+ (x) dx
+        = \int_P \int_Q f(x,y) dy dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $Q = [a_1,b_1] \times \dots \times [a_n , b_n]$ ein Quader und sei
+    $f:Q \rightarrow \R$ Riemann-integrierbar. Dann gilt
+    \begin{align*}
+        \int_Q f dx = \int_{a_1}^{b_1} \dots \int_{a_n}^{b_n} f(x_1 , \dots , x_n) dx_n \dots dx_1
+    \end{align*}
+    falls alle Parameterintegrale existieren. Andernfalls können die Parameterintegrale
+    durch Suprema von Untersummen oder auch durch Infima von Obersummen ersetzt werden.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $D \subseteq \R^{n-1}$ eine Jordan-messbare Menge, seien
+    $\varphi_- , \varphi_+ : D \rightarrow \R$ Riemann-integrierbar und sei
+    $B \subseteq \R^n$ die Jordan-messbare Teilmenge
+    \begin{align*}
+        B = \geschwungeneklammer{(x,y) \in D \times \R \ | \ \varphi_- (x) \leq y \leq \varphi_+ (x)}
+    \end{align*}
+    Für jede Riemann-integrierbare Funktion $f$ auf $B$ gilt
+    \begin{align*}
+        \int_B f(x,y) d(x,y) = \int_D \klammer{\int_{\varphi_- (x)}^{\varphi_+ (x)} f(x,y) dy} dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Prinzip von Cavalieri)
+
+    Sei $B \subseteq [a,b] \times \R^{n-1}$ eine beschränkte und Jordan-messbare Menge.
+    Dann gilt
+    \begin{align*}
+        \vol (B) = \intab \vol (B_t) dt
+    \end{align*}
+    wobei für $t \in [a,b]$ die Teilmenge $B_t \subseteq \R^{n-1}$ durch
+    $B_t = \geschwungeneklammer{y \in \R^{n-1} \ | \ (t,y) \in B}$
+    gegeben ist, und für fast alle $t \in [a,b]$ Jordan-messbar ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $C \subseteq \R^n$ eine Jordan-messbare Teilmenge, $\lambda \in \R$, dann ist
+    $\lambda C = \geschwungeneklammer{\lambda x \ | \ x \in C}$ auch messbar und es
+    gilt $\vol (\lambda C) = \abs{\lambda}^n \cdot \vol (C)$.
+}

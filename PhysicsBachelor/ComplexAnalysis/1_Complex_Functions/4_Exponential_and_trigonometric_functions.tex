@@ -1,0 +1,57 @@
+\subsection{Exponential and Trigonometric Functions}
+
+\begin{definition}[Complex Logarithm]
+    For a complex number $w$, we define the \fat{complex logarithm} as
+    \begin{align*}
+        \log (w) = \log \klammer{\abs{w}} + i \arg (w)
+    \end{align*}
+    As we can see, $\log$ is \fat{multivalued}, since $e^{ix} = e^{ix + i 2 \pi  k} \ \forall k \in \Z$.
+    Thus
+    \begin{align*}
+        \log (e^{ix}) = \log \klammer{\abs{e^{ix}}} + i (x+2\pi k)
+        = \log(1) + i (x + 2 \pi k)
+        = i \klammer{x + 2 \pi k} \ \forall k \in \Z
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Inverse Sine and Cosine]
+    The \fat{inverses} of $\sin$ and $\cos$ are given by
+    \begin{align*}
+        \arccos (w) &= -i \log \klammer{w \pm \sqrt{w^2 - 1}}
+            = \pm i \log \klammer{w + \sqrt{w^2 -1}}
+        \\
+        \arcsin (w) &= \frac{\pi}{2} - \arccos (w)
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Branch Cut]
+    A \fat{branch cut} is a part of a set where a multivalues function is not defined.
+    At this point, two branches are separated.
+\end{definition}
+
+\begin{example}[Square Root]
+    Let $f$ be $f(z) = \sqrt{z}$. Say $z=r e^{i \theta}$. Since $e^{i \theta} =
+    e^{i (\theta + 2 \pi)}$, we have two legitimate solutions.
+    \begin{align*}
+        \sqrt{z}= \begin{cases}
+            \sqrt{r e^{i \theta}} = \sqrt{r} e^{i \theta/2}
+            \\
+            \sqrt{r e^{i (\theta + 2 \pi)}} = \sqrt{r} e^{i \theta /2 + i \pi}
+            = - \sqrt{r} e^{i \theta/2}
+        \end{cases}
+    \end{align*}
+    To make $g(w) = w^2$ injective, we have to restrict $\theta \in
+    \klammer{-\frac{\pi}{2} , \frac{\pi}{2}}$. With this restriction we now can
+    compute $f(z)$ uniquely. We call such a restriction of the domain a \fat{branch}.
+    Note that there are only two branches of the square root, namely $(0,2\pi)$ and
+    $(2\pi,4\pi)$. All other branches deliver the same result as one of these two.
+    $(0,2\pi)$ maps to $(0,\pi)$ and $(2\pi,4\pi)$ maps to $(\pi,2\pi)$. All other
+    branches are equivalent to these branches because they are the same modulo $2\pi$.
+\end{example}
+
+\begin{example}[Logarithm]
+    The logarithm is also a multivalued function. Analogously to the squareroot
+    we can define branch cuts anywhere between $0$ and $2\pi$. The specialty about
+    the logarithm is, that we have infinitely many branches.
+\end{example}
+

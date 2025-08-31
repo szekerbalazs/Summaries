@@ -1,0 +1,714 @@
+\section{Darstellungen von Lie-Gruppen}
+
+\subsection{Definitionen}
+
+\begin{definition}[Darstellung einer Lie-Gruppe]
+    Eine Darstellung einer Lie-Gruppe $G$ auf einem ($\R$ oder $\C$) endlichdimensionalen
+    VR $V \neq 0$ ist ein stetiger Homomorphismus $\rho: G \rightarrow \GL(V)$.
+    Stetigkeit bedeutet, dass die Matrixelemente von $\rho(g)$ bezüglich einer
+    beliebigen Basis stetig von $g \in G$ abhängen.
+\end{definition}
+
+\begin{definition}[komplex/reell]
+    Eine Darstellung heisst komplex oder reell wenn $V$ ein komplexer bzw.
+    reeller VR ist.
+\end{definition}
+
+\begin{definition}[Dimension]
+    Die Dimension einer Darstellung ist die Dimension des Darstellungsraums $V$.
+\end{definition}
+
+Wenn nichts anderes gesagt, betrachten wir komplexe Darstellungen.
+
+
+\subsection{Beispiele}
+
+Die Gruppe $U(1) = \geschwungeneklammer{z \in \C \ | \ \abs{z} = 1} \cong SO(2)
+\cong S^1$ ist eine kompakte abelsche Lie-Gruppe. Also ist jede Darstellung
+vollständig reduzibel. Die irreduziblen Darstellungen sind eindimensional.
+
+\begin{satz}
+    Für jedes $n \in \Z$ ist $\rho_n: U(1) \rightarrow \GL(\C) \backslash \geschwungeneklammer{0}$,
+    $z \mapsto z^n$ eine Darstellung von $U(1)$. Jede irreduzible Darstellung
+    von $U(1)$ ist äquivalent zu $\rho_n$ für geeignetes $n$.
+\end{satz}
+
+Die Gruppe $SU(2)$ der unitären $2 \times 2$ Matrizen der Determinante $1$ ist
+ebenfalls kompakt aber nicht abelsch. Wir haben also wiederum vollständige
+Reduzibilität. $SU(2)$ ist eine kompakte Lie-Gruppe.
+
+\begin{satz}
+    Für jedes $n=0,1,2,\dots$ existiert eine irreduzible Darstellung $\rho_n :
+    SU(2) \rightarrow \GL(V_n)$ der Dimension $n+1$. Jede irreduzible Darstellung
+    von $SU(2)$ ist äquivalent zu $\rho_n$ für geeignetes $n$.
+\end{satz}
+
+Wir konstruieren nun diese Darstellungen. Sei $\C[z_1,\dots,z_n]_k$ der VR
+der Polynome in $z_1,\dots,z_n$ die homogen sind vom Grad $k$. Das heisst
+$p(\lambda z_1,\dots,\lambda z_n) = \lambda^k p(z_1,\dots,z_n)$. Die Basis
+ist gegeben durch $z^\alpha$ mit $\alpha = (\alpha_1,\dots,\alpha_2)$ und
+$\abs{\alpha} = n$. Wir setzen $V_n = \C[z_1,z_2]_n = \text{span} \geschwungeneklammer{
+z_1^n , z_1^{n-1} z_2,\dots,z_2^n}$. Sei ferner $\rho_n : SU(2) \rightarrow
+\GL(V_n)$ definiert durch $\klammer{\rho_n (A)(p)}(z) = p\klammer{A^{-1} z}$.
+Hierbei ist $A \in SU(2)$, $p \in V_n$ und $z=(z_1,z_2)^T$. Es ist klar, dass
+die rechte Seite wieder ein Polynom in $z_1,z_2$ ist homogen vom Grad $n$.
+Die Darstellungseigenschaft ist erfüllt:
+\begin{align*}
+    \klammer{\rho_n(A) \rho_n(B) p}(z) &=
+    \klammer{\rho_n(B) p} \klammer{A^{-1} z}
+    = p \klammer{B^{-1} A^{-1} z}
+    \\
+    &= p \klammer{\klammer{A B}^{-1} z}
+    = \klammer{\rho_n(A B) p}(z)
+\end{align*}
+Stetigkeit:
+\begin{align*}
+    A &= \begin{pmatrix}
+        a & b \\ c & d
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \det(A) = 1
+    \hspace{10pt} , \hspace{10pt}
+    A^{-1} = A^\ast = \begin{pmatrix}
+        \overline{a} & \overline{c} \\ \overline{b} & \overline{d}
+    \end{pmatrix}
+    \\
+    &\Rightarrow p(A^{-1} z) = p \klammer{A^{-1} \begin{pmatrix}
+        z_1 \\ z_2
+    \end{pmatrix}} = p \klammer{\begin{pmatrix}
+        \overline{a} z_1 + \overline{c} z_2 \\
+        \overline{b} z_1 + \overline{d} z_2
+    \end{pmatrix}}
+\end{align*}
+Die Koeffizienten sind Polynome in $\overline{a},\overline{b},\overline{c},
+\overline{d}$ und damit stetige Funktionen von $a,b,c,d$.
+
+\begin{bemerkung}
+    Die Darstellung $\rho_{2j}$ ($j=0,1/2,1,3/2,\dots$) heisst Spin $j$
+    Darstellung in der phsyikalischen Literatur.
+\end{bemerkung}
+
+\begin{bemerkung}
+    Es gilt: $\rho_n (-A) = (-1)^n \rho_n (A)$. Also definiert für $n$
+    gerade, und nur dann, $\rho_n$ eine Darstellung von $SU(2) \backslash
+    \geschwungeneklammer{\pm \mathds{1}} \cong SO(3)$.
+\end{bemerkung}
+
+\subsection{Darstellungen von Lie-Algebren}
+
+\begin{lemma}
+    Sei $\rho: G \rightarrow \GL(V)$ eine Darstellung einer Lie-Gruppe $G$.
+    Dann bildet $\rho$ Einparametergruppen nach Einparametergruppen ab.
+\end{lemma}
+
+\begin{definition}
+    Sei $\rho: G \rightarrow \GL(V)$ eine Darstellung und $X \in \Lie(G)$.
+    Definiere:
+    \begin{align*}
+        \rho_\ast (X) = \frac{d}{dt} \Big|_{t=0} \rho \klammer{\exp(t X)}
+        \in \Lie (\GL(V)) = \gl(V)
+    \end{align*}
+    $\rho_\ast$ ist eine Abbildung $\Lie(G) \rightarrow \gl(V)$.
+\end{definition}
+
+\begin{definition}
+    Sei $\g$ eine Lie-Algebra über $\R$ oder $\C$. Eine Darstellung
+    von $\g$ auf einen VR $V \neq \geschwungeneklammer{0}$ ist ein
+    (Lie-Algebra-) Homomorphismus / eine $\R$- (bzw. $\C$-) lineare Abbildung
+    $\tau: \g \rightarrow \gl(V)$, so dass
+    \begin{align*}
+        \eckigeklammer{\tau(X),\tau(Y)}  = \tau(\eckigeklammer{X,Y})
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Invariant]
+    Ein UR $U \subseteq V$ heisst invariant falls $\tau(X) U \subseteq U$
+    $\forall X \in \g$.
+\end{definition}
+
+\begin{definition}[Irreduzibel]
+    Eine Darstellung heisst irreduzibel, wenn die einzigen invarianten
+    UR $U = \geschwungeneklammer{0}$ und $U=V$ sind.
+\end{definition}
+
+\begin{definition}[Vollständig reduzibel]
+    Eine Darstellung heisst vollständig reduzibel, falls
+    $V = V_1 \oplus \dotsb \oplus V_k$ mit $V_1,\dots,V_k$ den invarianten
+    UR, so dass die Einschränkungen von $\tau$ auf $V_1,\dots,V_k$ irreduzibel
+    sind.
+\end{definition}
+
+\begin{definition}[komplex/reell]
+    Darstellungen heissen komplex bzw reell je nach dem ob $V$ komplex
+    oder reell ist.
+\end{definition}
+
+\begin{satz}
+    Sei $\rho: G \rightarrow \GL(V)$ eine Darstellung der Lie-Gruppe $G$.
+    Dann ist $\rho_\ast$ eine Darstellung der reellen Lie-Algebren $\Lie(G)$.
+    Die Einschränkung von $\rho$ auf die Einskomponente $G_0$ von $G$ ist
+    eindeutig durch $\rho_\ast$ bestimmt.
+\end{satz}
+
+\begin{satz}
+    Sei $\rho: G \rightarrow \GL(V)$ Darstellung einer zusammenhängenden
+    Lie-Gruppe $G$. Dann ist $\rho$ genau dann irreduzibel (bzw. vollständig
+    reduzibel) wenn $\rho_\ast$ irreduzibel (bzw. vollständig reduzibel) ist.
+\end{satz}
+
+\begin{beispiel}[Triviale Darstellung]
+    $V = \C$, $\rho_\ast (X) = 0 \ \forall X \in \g$, $\rho(g) = 1$.
+\end{beispiel}
+
+\begin{beispiel}[Adjungierte Darstellung]
+    Sei $\text{Ad}: G \rightarrow \GL(\g)$,
+    \begin{align*}
+        \text{Ad} (g) X = g X g^{-1}
+    \end{align*}
+    die adjungierte Darstellung von $G$ auf $\g = \Lie(G)$. Die adjungierte
+    Darstellung von $\g$ ist $\ad = \text{Ad}_\ast$:
+    \begin{align*}
+        \ad (X) Y = \frac{d}{dt} \Big|_{t=0} \exp (t X) Y \exp(-tX) = \eckigeklammer{X,Y}
+    \end{align*}
+\end{beispiel}
+
+\begin{bemerkung}
+    \begin{itemize}
+        \item $\rho_\ast$ ist die Ableitung von $\rho: G \rightarrow \GL(V)$
+            an der Stelle $1$. Also
+            \begin{align*}
+                \rho_\ast = d \rho(1) : T_1 G = \Lie(G) \rightarrow T_1 \GL(V) = \gl(V)
+            \end{align*}
+        \item Die Aussagen oben bleiben richtig, wenn man $\GL(V)$ durch allgemeinere
+            Lie-Gruppen ersetzt. Für $\rho: G \rightarrow H$ einem Homomorphismus
+            von Lie-Gruppen ist
+            \begin{align*}
+                \rho_\ast = dp(1) : \Lie(G) = T_1 G \rightarrow \Lie(G) = T_1 H
+            \end{align*}
+            ein Lie-Algebra-Homomorphismus.
+    \end{itemize}
+\end{bemerkung}
+
+\subsection{Irreduzible Darstellungen von $SU(2)$}
+
+\begin{lemma}
+    \begin{enumerate}[(i)]
+        \item Jedes $Z \in \sl(n,\C)$ kann eindeutig als $Z=X+iY$
+            geschrieben werden mit $X,Y \in \su(n)$.
+        \item Sei $\tau$ eine (komplexe) Darstellung von $\su(n)$ auf $V$.
+            Dann definiert
+            \begin{align*}
+                \tau_\C (X+iY) = \tau(X) + i \tau(Y)
+            \end{align*}
+            eine $\C$-lineare Darstellung der Lie-Algebra $\sl(n,\C)$, deren
+            Einschränkung auf $\su(n)$ mit $\tau$ übereinstimmt.
+        \item $\tau_\C$ ist genau dann irreduzibel (vollständig reduzibel)
+            wenn $\tau$ irreduzibel (vollständig reduzibel) ist.
+    \end{enumerate}
+    Die Darstellung $\tau_\C$ heisst Komplexifizierung von $\tau$. Oft
+    wird die Vereinfachung der Notation $\tau$ statt $\tau_\C$ geschrieben.
+\end{lemma}
+
+\begin{theorem}
+    Wir klassifizieren die endlichdimensionalen irreduziblen komplexen
+    $\C$-linearen Darstellungen von $\sl(2,\C) = \geschwungeneklammer{
+    X \in \Mat(2,\C) \ | \ \tr(X) = 0}$. Eine Basis von $\sl(2,\C)$ ist
+    \begin{align*}
+        h = \begin{pmatrix}
+            1 & 0 \\ 0 & -1
+        \end{pmatrix}
+        \hspace{10pt} , \hspace{10pt}
+        e = \begin{pmatrix}
+            0 & 1 \\ 0 & 0
+        \end{pmatrix}
+        \hspace{10pt} , \hspace{10pt}
+        f = \begin{pmatrix}
+            0 & 0 \\ 1 & 0
+        \end{pmatrix}
+    \end{align*} 
+\end{theorem}
+
+\begin{lemma}
+    $[h,e] = 2e$ , $[h,f] = -2f$ , $[e,f] = h$
+\end{lemma}
+
+\begin{korollar}
+    Ist $\tau: \sl(2,\C) \rightarrow \gl(V)$ eine $\C$-lineare Darstellung,
+    so erfüllen
+    \begin{align}\label{7.1}
+        H = \tau(h)
+        \hspace{10pt} , \hspace{10pt}
+        E = \tau(e)
+        \hspace{10pt} , \hspace{10pt}
+        F = \tau(f)
+    \end{align}
+    die Relationen
+    \begin{align}\label{7.2}
+        [H,E] = 2 E
+        \hspace{10pt} , \hspace{10pt}
+        [H,F] = -2F
+        \hspace{10pt} , \hspace{10pt}
+        [E,F] = H
+    \end{align}
+    Umgekehrt, sind $H,E,F$ lineare Selbstabbildungen eines komplexen VR $V$,
+    die (\ref{7.2}) erfüllen, so existiert eine eindeutige $\C$-lineare
+    Darstellung $\tau: \sl(2,\C) \rightarrow \gl(V)$, so dass (\ref{7.1}) gilt.
+\end{korollar}
+
+Sei $(\tau,V)$ eine irreduzible Darstellung von $\sl(2,\C)$ und $\lambda \in \C$
+der Eigenwert von $H$ mit dem grössten Realteil, $v_0$ ein Eigenvektor zu
+$\lambda$: $H v_0 = \lambda v_0$ mit $v_0 \neq 0$.
+
+\begin{lemma}
+    \begin{enumerate}[(i)]
+        \item $E v_0 = 0$.
+        \item Sei $v_k = F^k v_0$. Dann gilt:
+            \begin{align*}
+                H v_k &= (\lambda - 2k) v_k
+                \\
+                E v_k &= k (\lambda - k + 1) v_{k-1}
+            \end{align*}
+    \end{enumerate}
+\end{lemma}
+
+Das heisst, $\text{span} (v_0,v_1,\dots)$ ist ein invarianter UR, also wegen
+der Irreduzibilität von $V$ gilt $V = \text{span} (v_0,v_1,\dots)$. Die
+Vektoren $v_0,v_1,\dots$ sind linear unabhängig, denn sie gehören zu
+verschiedenen EW von $H$. Also ist $V$ nur dann endlichdimensionalen, wenn ein
+$n \geq 0$ existiert mit $v_{n+1} = 0$. Sei $v_{n+1} =0$, und $v_m \neq 0$
+für $m \leq n$. Dann ist $0 = E v_{n+1} = (n+1)(\lambda-n)v_n$ was nur
+möglich ist wenn $\lambda = n = 1,2,\dots$.
+
+\begin{satz}
+    Sei $n=1,2,\dots$ und $v_0,\dots,v_n$ die Standardbasis von $V_n = \C^{n+1}$.
+    Dann definiert
+    \begin{align*}
+        H v_m &= (n-2m) v_m \\
+        E v_m &= m(n+1-m) v_{m-1} \\
+        F v_m &= v_{m+1}
+    \end{align*}
+    eine irreduzible Darstellung $\tau_n$ von $\sl(2,\C)$. Jede komplexe
+    $(n+1)$-dimensionale irreduzible Darstellung von $\sl(2,\C)$ ist
+    äquivalent zu $\tau_n$.
+\end{satz}
+
+\begin{bemerkung}
+    Die Operatoren $E,F$ werden oft Auf- und Absteigeoperatoren genannt.
+\end{bemerkung}
+
+Wir zeigen nun, dass alle so konstruierten Darstellungen $\tau_n$ aus
+Darstellungen $\rho_n$ von $SL(2,\C)$ kommen. Sei $U_n = \C [z_1,z_2]_n$ der
+Raum aller homogenen Polynome in zwei Variablen $(z_1,z_2) \in \C^2$ vom
+Grad $n$. $U_n$ hat Dimension $n+1$ mit Basis $z_1^n,z_1^{n-1} z_2 ,\dots,
+z_1 z_2^{n-1} , z_2^n$.
+
+Wir definieren die Darstellung $\rho_n : SL(2,\C) \rightarrow U_n$
+gegeben durch:
+\begin{align*}
+    \klammer{\rho_n (A) p}(z) = p \klammer{A^{-1} z}
+\end{align*}
+mit $A \in SL(2,\C) , \ p \in U_n = \C[z_1,z_2] , \ z=(z_1,z_2)$. Dies ist
+eine Darstellung und ist insbesondere stetig. Wir berechnen $\rho_{n\ast}:
+\sl(2,\C) \rightarrow \gl(U_n)$
+\begin{align*}
+    \klammer{\rho_{n \ast}(h)p}(z) &= \klammer{- z_1 \frac{\partial}{\partial z_1} + z_2 \frac{\partial}{\partial z_2}} p(z)
+    \\
+    \klammer{\rho_{n \ast}(e)p}(z) &= - z_2 \frac{\partial}{\partial z_1} p(z)
+    \\
+    \klammer{\rho_{n \ast}(f)p}(z) &= - z_1 \frac{\partial}{\partial z_2} p(z)
+\end{align*}
+Wir sehen, dass diese Darstellung äquivalent ist zur Darstellung $\tau_n$
+vom obigen Satz. Der Isomorphismus ist
+\begin{align*}
+    V_n &\rightarrow U_n
+    \\
+    v_m &\mapsto \frac{(-1)^m}{(n-m)!} z_1^m z_2^{n-1}
+\end{align*}
+wobei $m=0,1,\dots,n$. Wir wollen noch zeigen, dass die Darstellung
+von $SU(2)$ $\rho_n$ unitär ist bzgl. eines geeigneten Skalarproduktes.
+Dazu reskalieren wir die Basis $\geschwungeneklammer{v_m}$. Sei
+\begin{align*}
+    u_m = \lambda_m v_m
+    \hspace{10pt} \text{ mit }
+    \lambda_m = \sqrt{\frac{(n-m)!}{m!}}
+\end{align*}
+Dann hat man:
+\begin{align*}
+    H u_m &= (n-2m) u_m \\
+    E u_m &= \sqrt{m(n+1-m)} u_{m-1} \\
+    F u_{m-1} &= \sqrt{m(n+1-m)} u_m
+\end{align*}
+Es gilt $H^\ast = H$ und $E^\ast = F$, wobei $\ast$ bezüglich des Skalarproduktes
+definiert ist, in dem $\geschwungeneklammer{u_i}$ eine ONB ist. Allgemeiner gilt
+dann $\rho_{n \ast}(X)^\ast = \rho_{n \ast} (X^\ast)$ für $X \in \sl(2,\C)$
+und speziell $\rho_{n \ast}(X)^\ast = \rho_{n \ast} (X^\ast) = - \rho_{n \ast} (X)$
+für $X \in \su(2)$. Es folgt, dass $\rho_n$ eine unitäre Darstellung von $SU(2)$
+ist.
+
+\begin{satz}
+    Zu jedem $n=1,2,\dots$ gibt es bis auf Äquivalenz genau eine irreduzible
+    Darstellung $(\rho_n,U_n)$ von $SU(2)$ der Dimension $n+1$. Dabei ist
+    \begin{align*}
+        U_n = \geschwungeneklammer{\sum_{m=0}^n c_m z_1^m z_2^{n-m}
+        \ \Big| \ c_m \in \C} = \C[z_1,z_2]_n
+    \end{align*}
+    der Raum der homogenen Polynome vom Grad $n$ in zwei Unbekannten,
+    und für $A \in SU(2)$, $f \in U_n$
+    \begin{align*}
+        \klammer{\rho_n (A)f}(z) = f(A^{-1} z)
+    \end{align*}
+    $\rho_n$ ist unitär bezüglich des Skalarproduktes in dem die Basis
+    \begin{align*}
+        \frac{z_1^m z_2^{n-m}}{\sqrt{m! (n-m)!}}
+    \end{align*}
+    orthonormiert ist.
+\end{satz}
+
+\begin{bemerkung}
+    Allgemein nennt man eine Darstellung $\tau: \g \rightarrow \gl(V)$
+    ($\g$ reelle Lie-Algebra, $V$ ein $\C$-VR) unitär, falls $\tau(X)^\ast
+    = - \tau(X) \ \forall X \in \g$ wobei $(-)^\ast$ bzgl eines Skalarproduktes
+    genommen wird.
+\end{bemerkung}
+
+\begin{bemerkung}
+    Jede Darstellung $\rho$ von $SO(3)$ auf $V$ induziert eine Darstellung
+    $\rho \circ \varphi$ von $SU(2)$, wobei $\varphi: SU(2) \rightarrow SO(3)$
+    der in \ref{Hom_SU2_SO3} definierte Homomorphismus ist. Die Darstellung
+    $\rho \circ \varphi$ hat die Eigenschaft $\rho \circ \varphi(-\mathds{1}) =
+    \rho \circ \varphi(\mathds{1}) = \mathds{1}$, da $-\mathds{1} \in \ker(\varphi)$.
+    Umgekehrt definiert jede Darstellung von $SU(2)$, die erfüllt $\rho(-\mathds{1})
+    = \mathds{1}$, eine Darstellung von $SO(3) \cong SU(2) /
+    \geschwungeneklammer{\pm \mathds{1}}$. Also haben wir eine 1:1-Korrespondenz
+    zwischen den Darstellungen von $SO(3)$ und den Darstellungen von $SU(2)$,
+    die $\rho(-\mathds{1}) = \mathds{1}$ erfüllen. Man prüft leicht, dass
+    dabei die irreduziblen Darstellungen wieder auf irreduzible abgebildet werden.
+    Die irreduzible Darstellung von $SO(3)$ entsprechen also den irreduziblen
+    Darstellungen von $SU(2)$, die $\rho(-\mathds{1}) = \mathds{1}$ erfüllen.
+    Wegen $\rho_n(-\mathds{1}) = (-1)^n$ sind dies gerade die $\rho_n$ mit
+    $n$ gerade, bzw die irreduziblen Darstellungen von $SU(2)$ ungerader
+    Dimension.
+\end{bemerkung}
+
+\subsection{Harmonische Polynome und Kugelfunktionen}
+
+\begin{definition}[$H_l$]
+    Sei $H_l$ der raum der homogenen Polynome von Grad $l$ in drei
+    Unbekannten $x_1,x_2,x_3$:
+    \begin{align*}
+        H_l = \geschwungeneklammer{\sum_{\stackrel{\abs{\alpha} = l}{\alpha \in \N^3}} c_\alpha x^\alpha \ | \ c_\alpha \in \C}
+        = \C[x_1,x_2,x_3]_l
+    \end{align*}
+\end{definition}
+
+\begin{korollar}
+    Der VR $H_l$ hat Dimension $\dim(H_l) = \frac{1}{2} (l+1)(l+2)$.
+    Ist $P(x) \in H_l$ so ist es auch $P(R^{-1} x)$ für alle $R \in SO(3)$.
+    Wir haben also eine Darstellung von $SO(3)$ auf $H_l$
+    \begin{align*}
+        \klammer{\rho(R) f}(x) = f \klammer{R^{-1} x}
+    \end{align*}
+\end{korollar}
+
+\begin{lemma}
+    \begin{align*}
+        (f,g) = \int_{\abs{x}=1} \overline{f(x)} g(x) d \Omega(x)
+    \end{align*}
+    ist ein Skalarprodukt auf $H_l$. Die Darstellung $\rho$ ist unitär
+    bezüglich $( \ , \ )$.
+\end{lemma}
+
+\begin{bemerkung}
+    Der Laplaceoperator $\Delta = \sum_{i=1}^3 \frac{\partial^2}{\partial x_i^2}$
+    bildet $H_l$ ab nach $H_{l-2}$.
+\end{bemerkung}
+
+\begin{definition}[$V_l$]
+    Definiere den Raum $V_l$ der harmonischen Polynome in $H_l$.
+    \begin{align*}
+        V_l = \geschwungeneklammer{f \in H_l \ | \ \Delta f = 0}
+    \end{align*}
+    Die Dimension von $V_l$ erfüllt
+    \begin{align*}
+        \dim(V_l) \geq \dim(H_l) - \dim(H_{l-2}) = 2l+1
+    \end{align*}
+\end{definition}
+
+\begin{bemerkung}
+    Für $r^2 = x_1^2 + x_2^2 + x_3^2$ gilt:
+    \begin{align*}
+        H_l = r^2 H_{l-1} \dsumme V_l
+    \end{align*}
+\end{bemerkung}
+
+\begin{satz}
+    Es gilt die orthogonale Summenzerlegung
+    \begin{align*}
+        H_l = \bigoplus_{k=0}^{\floor{l/2}} r^{2k} V_{l-2k}
+    \end{align*}
+    in paarweise orthogonale, $SO(3)$-invariante Unterräume, und dim
+    $V_l = 2l+1$.
+\end{satz}
+
+\paragraph{Darstellungen von $SO(3)$ auf $V_l$}
+
+Diese Darstellung definiert eine Darstellung $\rho$ von $SU(2)$:
+\begin{align*}
+    \klammer{\rho(A)u}(x) = \mathfrak{u} \klammer{\varphi(A)^{-1} a}
+    \hspace{10pt} \mathfrak{u} \in V_l \hspace{2pt} , \hspace{2pt}
+    A \in SU(2) \hspace{2pt} , \hspace{2pt} \varphi: SU(2) \rightarrow SO(3)
+\end{align*}
+und $\varphi \klammer{\exp \klammer{-i \sum_{j=0}^3 \sigma_j n_j \vartheta/2}}
+= R(n,\vartheta)$, $\abs{n} = 1$. Berechne die entsprechende Lie-Algebra Darstellung
+$\tau$. Sei
+\begin{align*}
+    X = \sum_j \alpha_j (-i \sigma_j)
+    = \begin{pmatrix}
+        -i \alpha_3 & -i \alpha_1 - \alpha_2 \\
+        -i \alpha_1 + \alpha_2 + i \alpha_3
+    \end{pmatrix}
+    \in \su(2)
+    \hspace{10pt} , \hspace{5pt} \alpha \in \R^3
+\end{align*}
+Sei $\alpha = n \vartheta /2$ mit $\abs{n} = 1$. Dann ist
+\begin{align*}
+    \klammer{\tau(X)u}(x) &= \frac{d}{dt} \Big|_{t=0} u(R(n,t \vartheta)^{-1} x)
+    \\
+    R(n,\vartheta)^{-1} x &= R(n,-\vartheta)x = (x \cdot n) n + \klammer{x - (x \cdot n) n} \cos(\vartheta)
+    \\ &\hspace{10pt} - n \wedge x \sin(\vartheta)
+    \\
+    \frac{d}{dt} \Big|_{t=0} R(n,t \vartheta)^{-1} x &= - n \wedge x \vartheta = - 2 \alpha \wedge x
+\end{align*}
+Aus der Kettenregel folgt: \small
+\begin{align*}
+    &\klammer{\tau(X)u}(x) = -2 \sum_{\beta=1}^3 (\alpha \wedge x)_{\beta} \frac{\partial u}{\partial x_\beta} (x)
+    \\
+    &= 2 \klammer{\klammer{\alpha_3 x_2 - \alpha_2 x_3} \frac{\partial}{\partial x_1}
+        + \klammer{\alpha_1 x_3 - \alpha_3 x_1} \frac{\partial}{\partial x_2}
+        + \klammer{\alpha_2 x_1 - \alpha_1 x_2} \frac{\partial}{\partial x_3}} u
+\end{align*}
+\normalsize
+Wir rechnen $\tau_\C$ aus: $H,E,F$ entsprechen $\alpha(0,0,i), \ \alpha
+= \klammer{\frac{i}{2},-\frac{1}{2},0}, \ \alpha = \klammer{\frac{i}{2},
+\frac{1}{2},0}$. Also:
+\begin{align*}
+    \tau_\C (h) = H &= - 2i \klammer{x_i \frac{\partial}{\partial x_2} - x_2 \frac{\partial}{\partial x_1}}
+    \\
+    \tau_\C (e) = E &= x_3 \klammer{\frac{\partial}{\partial x_1} + i \frac{\partial}{\partial x_2}} - (x_1 + i x_2) \frac{\partial}{\partial x_3}
+    \\
+    \tau_\C (f) = F &= x \klammer{- \frac{\partial}{\partial x_1} + i \frac{\partial}{\partial x_2}} + (x_1 - i x_2) \frac{\partial}{\partial x_3}
+\end{align*}
+In $V_l$ kennen wir das harmonische Polynom $v_0 = (x_1 + i x_2)^l$. Es erfüllt
+$H v_0 = 2 l v_0$ und $E v_0 = 0$. Die Vektoren $v_m = F^m v_0$ spannen eine
+irreduzible Darstellung von $\sl(2,\C)$ der Dimension $2l+1$ auf. Da $\dim(V_l)
+= 2l+1$ gilt, ist $v_m$ eine Basis von $V_l$. Es folgt, dass $V_l$ eine $2l+1$
+dimensionale unitäre Darstellung von $SU(2)$ ist. Eine orthonormierte Basis
+finden wir wie folgt: Die Norm im Quadrat von $(x_1 + i x_2)^l$ is:
+\begin{align*}
+    \Norm{(x_1 + i x_2)^l}^2 &= \int_{S^2} (x_1^2 + x_2^2)^l d \Omega(x)
+    = \int_0^\pi \int_0^{2 \pi} \klammer{\sin(\vartheta)}^{2l+1} \ d \vartheta d \varphi
+    \\
+    &= 2 \pi \int_{-1}^1 (1-x^2)^l \ dx
+    = 4 \pi \frac{2^{2l} l!^2}{(2l+1)!}
+\end{align*}
+Also hat $u_ll(x_1,x_2,x_3)$ Norm eins und die rekursiv definierten Polynome
+$u_{l,l-j} (x_1,x_2,x_3)$ sind orthonormiert.
+\begin{align}
+    u_{ll} (x_1,x_2,x_3) &= \sqrt{\frac{(2l+1)!}{4 \pi}} \frac{(-1/2)^l}{l!} (x_1 + i x_2)^l
+    \label{ull}
+    \\
+    u_{l,l-j} (x_1,x_2,x_3) &= \frac{F u_{l,l-j+1} (x_1,x_2,x_3)}{\sqrt{j (2l+1-j)}}
+    \label{ullj}
+\end{align}
+
+\begin{satz}
+    Die Darstellung von $SU(2)$ auf dem Raum $V_l$ der harmonischen, homogenen
+    Polynomen vom Grad $l$ in drei Unbekannten ist irreduzibel und unitär
+    bezüglich $(f,g) = \int_{S^2} \overline{f} g \ d \Omega$. (\ref{ull}),
+    (\ref{ullj}) definiert eine orthonormierte Basis und es gilt
+    \begin{align*}
+        H u_{lm} &= 2 m u_{lm}
+        \\
+        E u_{lm} &= \sqrt{(l-m)(l+m+1)} u_{l,m+1}
+        \\
+        F u_{lm} &= \sqrt{(l-m+1)(l+m)} u_{l,m-1}
+    \end{align*}
+\end{satz}
+
+\begin{definition}[Kugelfunktion]
+    Eine Kugelfunktion $Y: S^2 \rightarrow \C$ von Index $l$ ist die
+    Einschränkung auf $S^2 \subset \R^3$ eines homogenen harmonischen
+    Polynoms vom Grad $l$.
+\end{definition}
+
+Es bezeichne $\hat{V}_l$ den VR der Kugelfunktionen von Index $l$. Also ist
+$Y = Y(\vartheta,\varphi)$ genau dann in $\hat{V}_l$ wenn $r^l Y(\vartheta,
+\varphi) \in V_l$. Eine orthonormierte Basis von $\hat{V}_l$ ist also durch
+$Y_{lm}(\vartheta,\varphi)$ gegeben.
+\begin{align*}
+    Y_{lm} (\vartheta,\varphi) &= r^{-l} u_{lm}(r,\vartheta,\varphi)
+    \\
+    &:=
+    u_{lm} (r \sin(\vartheta),\cos(\varphi),r \sin(\vartheta) \sin(\varphi),
+    r \cos(\varphi))
+\end{align*}
+Insbesondere haben wir
+\begin{align*}
+    Y_ll(\vartheta,\varphi) &= \sqrt{\frac{(2l+1)!}{4 \pi}} \frac{(-2)^l}{l!} \klammer{\sin(\vartheta)}^l e^{il\varphi}
+    \\
+    H Y_{lm} &= 2 m Y_{lm}
+    \\
+    E Y_{lm} &= \sqrt{(l-m)(l+m+1)} Y_{l,m+1}
+    \\
+    F Y_{lm} &= \sqrt{(l-m+1)(l+m)} Y_{l,m-1}
+\end{align*}
+wobei in die Operatoren $H,E,F$ Kugelkoordinaten einzusetzen sind:
+\begin{align*}
+    H &= \frac{2}{i} \frac{\partial}{\partial \varphi}
+    \hspace{10pt} , \hspace{10pt}
+    E = e^{i \varphi} \klammer{\frac{\partial}{\partial \vartheta} + i \cot(\vartheta) \frac{\partial}{\partial \varphi}}
+    \\
+    F &= e^{-i \varphi} \klammer{- \frac{\partial}{\partial \vartheta} + i \cot(\vartheta) \frac{\partial}{\partial \varphi}}
+\end{align*}
+Es folgt, dass $Y_{lm}$ die Form $Y_{lm}(\vartheta,\varphi) = F_{lm}(\vartheta) e^{i m \varphi}$
+hat. Die Orthonormalitätsrelation ist
+\begin{align*}
+    \int_0^\pi \int_0^{2 \pi} \overline{Y_{lm}(\vartheta,\varphi)} Y_{l'm'} (\vartheta,\varphi) \sin(\vartheta) \ d \vartheta d \varphi
+    = \delta_{ll'} \delta_{mm'}
+\end{align*}
+Der sphärische Laplace Operator $\Delta_{S^2}$ auf $C^\infty (S^2)$ ist durch
+die Formel für den Laplace Operator in Kugelkoordinaten definiert.
+\begin{align*}
+    \Delta = \frac{\partial^2}{\partial r^2} + \frac{2}{r} \frac{\partial}{\partial r} + \frac{1}{r^2} \Delta_{S^2}
+    \hspace{10pt} , \hspace{10pt}
+    \Delta_{S^2} = \frac{\partial^2}{\partial \theta^2} + \cot(\vartheta) \frac{\partial}{\partial \theta} + \frac{1}{\sin^2(\theta)} \frac{\partial^2}{\partial \varphi^2}
+\end{align*}
+
+\begin{satz}
+    Die Funktionen $Y_{lm} (\vartheta,\varphi)$ bilden für $l=0,1,2,\dots$
+    und $m = -l,-l+1,\dots,l$ eine orthonormierte Basis von $L^2 (S^2,d \Omega)$.
+\end{satz}
+
+\subsection{Tensorprodukte von $SU(2)$ Darstellungen}
+
+\begin{definition}[ONB im Hilbertraum]
+    Eine ONB im Hilbertraum ist ein orthonormales System $\geschwungeneklammer{e_i}_{i \in I}$
+    welches vollständig ist, d.h. $\forall f$ mit $\langle f, e_i \rangle = 0$
+    folgt $f=0$.
+\end{definition}
+
+\begin{definition}[Tensorprodukt]
+    Das Tensorprodukt von zwei endlichdimensionalen Darstellungen $(\rho,V),
+    (\rho',V')$ einer Gruppe $G$ ist die Darstellung $\rho \otimes \rho'$
+    auf dem Tensorprodukt $V \otimes V'$, die durch die Formel
+    \begin{align*}
+        (\rho \otimes \rho')(g) &= \rho(g) \otimes \rho'(g)
+        \\ \Rightarrow \
+        \klammer{\rho(g) \otimes \rho'(g)}(v \otimes v')
+        &= \klammer{\rho(g)v} \otimes \klammer{\rho'(g) v'}
+    \end{align*}
+    gegeben wird. Es folgt aus den Tensorprodukteigenschaften, dass diese Formel
+    eine Darstellung defineirt, und dass die Assoziativität $(\rho \otimes \rho')
+    = \rho'' = \rho \otimes \klammer{\rho' \otimes \rho''}$ gilt, wenn die
+    Darstellungsräume $(V \otimes V') \otimes V''$, $V \otimes (V' \otimes V'')$
+    durch $(v \otimes v') \otimes v'' = v \otimes (v' \otimes v'')$ identifiziert
+    wird.
+\end{definition}
+
+
+\begin{definition}[Tensorprodukt]
+    Das Tensorprodukt von zwei Darstellungen $(\tau,V), \ (\tau',V')$ eine
+    Lie-Algebra $\g$ ist die Darstellung $\tau \otimes \tau'$ von $\g$ auf
+    $V \otimes V'$ so dass
+    \begin{align*}
+        \klammer{\tau \otimes \tau'}(x) &= \tau(x) \otimes 1_{V'} + 1_V \otimes \tau'(x)
+        \\
+        \klammer{(\tau \otimes \tau')(x)}(v \otimes v') &= \tau(x)(v) \otimes v' + v \otimes \klammer{\tau'(x)v'}
+    \end{align*}
+    Dies ist wie folgt motiviert: Ist $G$ eine Lie Gruppe mit Lie-Algebra $\g$,
+    so wird die Daratellung $(\rho \otimes \rho')_\ast$ durch
+    \begin{align*}
+        (\rho \otimes \rho')_\ast (X) = \rho_\ast (X) \otimes 1_{V'} + 1_V \otimes \rho_\ast' (X)
+        \ \forall X \in G
+    \end{align*}
+    gegeben. Es ist nämlich nach der Produktregel:
+    \begin{align*}
+        &\frac{d}{dt} \Big|_{t=0} \klammer{\exp(t \rho_\ast (X)) \otimes
+            \exp(t \rho_\ast' (X))}
+        \\
+        &= \frac{d}{dt} \Big|_{t=0} \exp(t \rho_\ast (X)) \otimes 1_{V'}
+        + 1_V \otimes \frac{d}{dt} \Big|_{t=0} \exp(t \rho_\ast' (X))
+    \end{align*}
+\end{definition}
+
+Die Grundsätliche Frage ist: Für $2$ irreduzible Darstellungen $\rho,\rho'$:
+Wie spaltet man $\rho \otimes \rho'$ in eine Summe irreduzibler Darstellungen
+auf?
+
+Wir betrachten den Fall $G = SU(2)$. Sei $\rho = \rho_{n'} \otimes \rho_{n''}$.
+Dann ist $v_0',\dots,v_{n'}'$ eine Basis vom Darstellungsraum von $\rho_{n'}$,
+und $v_0'',\dots,v_{n''}''$ eine Basis vom Darstellungsraum von $\rho_{n''}$
+mit
+\begin{align*}
+    H v_j' = (n' - 2j) v_j'
+    \hspace{10pt} , \hspace{10pt}
+    E v_j' = j(n' + 1 - j) v_{j-1}'
+    \hspace{10pt} , \hspace{10pt}
+    F v_j' = v_{j+1}'
+\end{align*}
+und analog für $\rho_{n''}$. Eine Basis des Darstellungsraumes von $\rho_{n'}
+\otimes \rho_{n''}$ ist also $W := (v_j' \otimes v_k'')_{\stackrel{j=0,\dots,n'}{k=0,\dots,n''}}$.
+Es gilt:
+\begin{align*}
+    H(v_j' \otimes v_k'')
+    &= H(v_j') \otimes v_k'' + v_j' \otimes H(v_k'')
+    \\
+    &= \klammer{n' + n'' - 2(j+k)} (v_j' \otimes v_k'')
+\end{align*}
+Also ist $W$ eine Basis aus Eigenvektoren von $H$. Die Eigenwerte sind $n' +
+n'' - 2l$ mit $l=0,\dots,n'+n''$ und $v_j' \otimes v_k''$ mit $j+k=l$,
+$j \in \geschwungeneklammer{0,\dots,n'}$, $k \in \geschwungeneklammer{0,\dots,n''}$.
+Wir möchten nun schreiben: $\rho_{n'} \otimes \rho_{n''} \cong \rho_{n_1}
+\oplus \dotsb \oplus \rho_{n_r}$ In jeder dieser Darstellungen gibt es einen
+EV von $H$ der zusätzlich im Kern von $E$ liegt. Dieser erfüllt jeweils
+$H w = n_j w$ und $E w = 0$. Wir suchen also Vektoren
+\begin{align*}
+    w=\sum_{j=0}^l a_j v_j' \otimes v_{l-j}''
+\end{align*}
+s.d. $E w = 0$. Wir nehmen zunächst an, dass $l \leq \min(n',n'')$, s.d. alle
+$v_j',v_{l-j}''$ die in $w$ vorkommen wohldefiniert sind. Man findet durch
+Korffizientenvergleich:
+\begin{align*}
+    a_j = (-1)^j \frac{(n'-j)! (n'' - l + j)!}{j! (l-j)!}
+\end{align*}
+Die Dimension des Lösungsraumes des lin GLS $H w = n_j w$, $E w = 0$ ist
+aber die Vielfachheit von der irreduziblen Darstellung $\rho_n$, in der
+Zerlegung $\rho_{n'} \otimes \rho_{n''} = \rho_{n_1} \oplus \dotsb \oplus
+\rho_{r_n}$. Wir haben gefunden: $\forall l = 0,\dots,\min(n',n'')$
+und $n=n'+n''-2l$ ist diese Vielfachheit also gleich $1$. Betrachte aber die
+Dimension der gefundenen Summanden
+\begin{align*}
+    \sum_{l=0}^{\min(n',n'')}
+    &\stackrel{\text{o.B.d.A} \ n' \geq n''}{=}
+    (n' + n'' + 1)(n'' + 1) - 2 \frac{n'' (n'' + 1)}{2}
+    \\
+    &= (n'' + 1) (n' + 1)
+    = \dim(\rho_{n'} \otimes \rho_{n''})
+\end{align*}
+
+\begin{satz}[Cebsch-Gordon Zerlegung]
+    Die Zerlegung eines Tensorproduktes von irreduziblen Darstellungen
+    von $SU(2)$ (bzw. von $\su(2),\sl(2,\C)$) der Dimensionen $n'+1$, $n''+1$
+    ist:
+    \begin{align*}
+        \rho_{n'} \otimes \rho_{n''} \cong
+        \rho_{n' + n''} \oplus \rho_{n' + n'' - 1} \oplus \dotsb \oplus
+        \rho_{\abs{n' - n''}}
+    \end{align*}    
+    Die irreduzible Unterdarstellung der Dimension $n'+n''+1-2l$ ist aufgespannt
+    durch $w_l,Fw_l,\dots,F^{n'+n''-2l} w_l$ wobei, bezüglich der oben definierten
+    Basen,
+    \begin{align*}
+        w_l = \sum_{j=0}^l (-1)^j \frac{(n' - j)! (n'' - l + j)!}{j! (l-j)!} v_j' \otimes v_{l-j}''
+    \end{align*}
+\end{satz}

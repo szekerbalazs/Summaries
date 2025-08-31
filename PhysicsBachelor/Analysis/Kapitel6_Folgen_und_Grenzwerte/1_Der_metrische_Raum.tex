@@ -1,0 +1,203 @@
+\subsection{Der metrische Raum}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein \fat{metrischer Raum} $(X,d)$ ist eine Menge $X$ gemeinsam mit einer
+    Abbildung $d: X \times X \rightarrow \R$, die die \fat{Metrik} auf $X$
+    genannt wird und die folgenden drei Eigenschaften erfüllt.
+
+    \vspace{1\baselineskip}
+
+    1. Definitheit: Für alle $x_1,x_1 \in X$ gilt $d(x_1 , x_2) \geq 0$ und $d(x_1 , x_2) = 0 \Leftrightarrow x_1 = x_2$
+
+    2. Symmetrie: Für alle $x_1 , x_2 \in X$ gilt $d(x_1 , x_2) = d(x_2 , x_1)$
+
+    3. Dreiecksungleichung: Für alle $x_1 , x_2 x_3 \in X$ gilt $d(x_1 , x_3) \leq d(x_1 , x_2) + d(x_2 , x_3)$
+
+    \vspace{1\baselineskip}
+
+    Eine Metrik $d$ auf einer Menge $X$ weist je zwei Punkten ihre 
+    \fat{Distanz} oder \fat{Abstand} zu.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Standardmetrik} $d$ ist definiert durch 
+    \begin{align*}
+        d(x_1 , x_2) = \abs{x_1 - x_2}
+    \end{align*}
+    für alle $x_1 , x_2 \in X$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{diskrete Metrik} $d$ auf einer Menge $X$ ist definiert durch
+    \begin{align*}
+        d(x_1 , x_2) = \begin{cases}
+            1 \quad \text{ falls } x_1 \neq x_2 \\
+            0 \quad \text{ falls } x_1 = x_2
+        \end{cases}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir setzen $X = \C$ und definieren die \fat{Manhatten-Metrik} $d_{NY}$ auf $X$ durch
+    \begin{align*}
+        d_{NY} (z_1 , z_2) = \abs{x_1 - x_2} + \abs{y_1 - y_2}
+    \end{align*}
+    für komplexe Zahlen $z_1 = x_1 + i y_1$ und $z_2 = x_2 + i y_2$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine weitere Metrik auf $\C$ ist die \fat{französische Eisenbahn Metrik}
+    $d_{SNFC}$, definiert durch
+    \begin{align*}
+        d_{SNFC} (z_1, z_2) = \begin{cases}
+            \abs{z_1 - z_2} \quad &\text{ falls } z_1 , z_2 \text{ linear abhängig über $\R$ sind}
+            \\
+            \abs{z_1} + \abs{z_2} \quad &\text{ falls } z_1 , z_2 \text{ linear unabhängig über $\R$ sind}
+        \end{cases}
+    \end{align*}
+    für alle $z_1 , z_2 \in \C$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum, $x_0 \in X$, $r \geq 0$ reell.
+    Wir nennen die Teilmenge
+    \begin{align*}
+        B(x_0 , r) = \geschwungeneklammer{x \in X \ | \ d(x_0 ,x) < r}
+    \end{align*}
+    "offener Ball mit Zentrum $x_0$ und Radius $r$".
+}
+
+\pagebreak
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum, $A \subseteq X$ eine Teilmenge.
+    Wir sagen $A$ sei beschränkt falls eine reelle Zahl $R \geq 0$ existiert
+    mit 
+    \begin{align*}
+        d(x,y) \leq R \ \forall x,y \in A
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $x_0 \in X$, so ist $A \subseteq X$ beschränkt $\Leftrightarrow$ $\exists R \geq 0$ mit $A \subseteq B(x_0, R)$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum und $A \subseteq X$. Wir sagen $A$ sei
+    \fat{offen} in $X$, falls $\forall x_0 \in A \ \exists \delta > 0$ mit
+    $B(x_0 , \delta) \subseteq A$. Wir nennen $B \subseteq X$ 
+    \fat{abgeschlossen} in $X$, falls $X \backslash B$ offen in $X$ ist.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $(X,d)$ ein metrischer Raum. Jede Vereinigung offener Teilmengen
+    von $X$ ist offen. Jeder \underline{endliche} Durchschnitt offener
+    Teilmengen von $X$ ist offen.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,d_x)$ und $(Y,d_y)$ metrische Räume. Eine Funktion $f: X \rightarrow Y$
+    heisst \fat{stetig} im Punkt $x_0 \in X$, falls
+    \begin{align*}
+        \forall \varepsilon > 0 \ \exists \delta > 0 \text{ mit } d_x(x,x_0) < \delta \Rightarrow d_y ( f(x) , f(x_0)) < \varepsilon \ \forall x \in X
+    \end{align*}
+    $f$ ist stetig auf $X$ falls $f$ stetig in jedem Punkt $x_0 \in X$ ist.
+
+    \vspace{1\baselineskip}
+
+    Ist $X \subseteq \R$ und $Y \subseteq \R$ mit der Standardmetrik
+    $d(x,y) = \abs{x-y}$ auf $X$ und $\R$, so erhalten wir den bekannten
+    Stetigkeitsbegriff.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,d_x)$ und $(Y,d_y)$ metrische Räume. Eine Funktion $f: X \rightarrow Y$
+    heisst \fat{gleichmässig stetig}, falls
+    \begin{align*}
+        \forall \varepsilon > 0 \ \exists \delta > 0 \text{ mit } d_x (x_1 , x_2) < \delta \Rightarrow d_y (f(x_1) , f(x_2)) < \varepsilon \ \forall x_1 , x_2 \in X
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,d_x)$ und $(Y,d_y)$ metrische Räume. Eine Funktion $f: X \rightarrow Y$
+    heisst \fat{Lipschitz stetig}, falls
+    \begin{align*}
+        \exists L > 0 \text{ (reell) mit } d_y (f(x_1) , f(x_2)) \leq L \cdot d_x (x_1 , x_2)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,d_x)$ und $(Y,d_y)$ metrische Räume. Eine Funktion $f: X \rightarrow Y$
+    heisst \fat{Isometrie}, falls
+    \begin{align*}
+        d_y (f(x_1) , f(x_2)) = d_x (x_1 , x_2) \ \forall x_1 , x_2 \in X
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    $f$ ist eine Isometrie $\Rightarrow$ $f$ ist Lipschitz-stetig
+    $\Rightarrow$ $f$ ist gleichmässig stetig $\Rightarrow$ $f$ ist stetig
+}
+
+\pagebreak
+
+\Proposition{
+
+    Seien $(X,d)$ und $(Y,d)$ metrische Räume und $f: X \rightarrow Y$
+    eine Funktion. Dann sind äquivalent:
+
+    \begin{enumerate}
+        \item $f$ ist stetig.
+        \item Für jede offene Teilmenge $U \subseteq Y$ ist das Urbild $f^{-1} (U) \subseteq X$
+                offen. $f^{-1} = \geschwungeneklammer{x \in X \ | \ f(x) \in U}$.
+        \item Ist $(x_n)_{n=0}^{\infty}$ eine konvergente Folge in $X$ mit
+                Grenzwert $a \in X$, so ist $(f(x_n))_{n=0}^{\infty}$ konvergent,
+                mit Grenzwert $f(a)$.
+        \item Für alle \xinX und $\forall \epsilon > 0$ existiert ein $\delta > 0$ so, dass
+                $d(x,x_1) < \delta \ \Rightarrow \ d(f(x),f(x_1)) < \epsilon$.
+    \end{enumerate}
+
+}

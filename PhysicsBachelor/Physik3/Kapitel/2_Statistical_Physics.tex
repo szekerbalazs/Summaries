@@ -1,0 +1,192 @@
+\section{Statistical Physics}
+
+A single macrostate can be consistant with many microstates. A single microstate,
+however, always specifies a single macrostate. A microstate contains all the
+information about the macrostate, but not vice versa.
+
+\paragraph{Fundamental postulate of statistical physics}
+\textit{"For a closed system, every microstate which satisfies the global constraint is
+equally likely to be occupied."} "closed system" = system that does not exchange
+matter with the outside but it can exchange energy, "global constraint" = system
+has a particular set of values for global variables such as the particle number,
+volume, energy, etc. Systems that fulfil this postulate are said to be in a
+\fat{thermodynamic equilibrium}. Further postulates: \textit{"Over a sufficiently
+long period of time, a system will sample every microstate compatible with the
+global constraints with equal property."}, \textit{"The macrostate occupied in
+thermodynamic equilibrium is the one with the largest number of microstates."}
+
+\paragraph{Variance}
+$\Delta z = \sqrt{\langle z^2 \rangle - \langle z \rangle^2}$. 
+The factorial width $\Delta z / \langle z \rangle$ decreases as $1/\sqrt{N}$.
+
+\paragraph{Ideal gas law}
+$p V = N k_B T = N m \langle v_x^2 \rangle$
+
+\paragraph{Temperature}
+For an isolated system with two chambers with energies $U_i$ and numbers of
+particles $N_i$, we have:
+\begin{align*}
+    \frac{1}{\Omega_1} \klammer{\frac{\partial \Omega_1}{\partial U_1}}_{N_1}
+    = \frac{1}{\Omega_2} \klammer{\frac{\partial \Omega_2}{\partial U_2}}_{N_2}
+    &\Leftrightarrow
+    \klammer{\frac{\partial}{\partial U_1} \ln (\Omega_1)}_{N_1}
+    = \klammer{\frac{\partial}{\partial U_2} \ln (\Omega_2)}_{N_2}
+    \\
+    \klammer{\frac{\partial \sigma_1}{\partial U_1}}_{N_1}
+    &= \klammer{\frac{\partial \sigma_2}{\partial U_2}}_{N_2}
+\end{align*}
+Where $\Omega_i$ is the number of microstates corresponding to the macrostates
+specified by $N_i$ and $U_i$. The total number of microstates is given by
+$\Omega(N_1 , N_2 , U_1 , U_2) = \Omega(N_1 , U_1) \cdot \Omega(N_2 , U_2)$.
+We define $\sigma = \ln (\Omega)$. This relation between two systems must hold, 
+when thermodynamic equilibrium is reached. Temperature is defined as
+\begin{align*}
+    \frac{1}{T} = k_B \klammer{\frac{\partial \sigma}{\partial U}}_{N,V}
+\end{align*}
+Definitions: $\tau = k_B T$, $\beta = 1 / \tau = 1 / k_B T$.
+
+\paragraph{Entropy}
+$S = k_B \sigma = k_b \ln (\Omega) = - k_B \sum_s p_s \log(p_s) =
+\frac{\partial}{\partial T} \klammer{k_B T \ln(Z)}$
+
+\paragraph{Boltzmann factor and partition function}
+Probability of finding a system in thermal equilibrium in a microstate with energy
+$\epsilon$ is proportional to $e^{-\beta \epsilon}$, called Boltzmann factor.
+Absolute probability of finding the system in a microstate with energy $\epsilon$
+\begin{align*}
+    P(\epsilon) = \frac{e^{-\beta \epsilon}}{Z}
+    \hspace{10pt} , \hspace{10pt}
+    Z = \sum_s e^{-\beta \epsilon_s}
+    \hspace{10pt} , \hspace{10pt}
+    U = \langle \epsilon \rangle - \frac{\partial}{\partial \beta} (\ln (Z))
+\end{align*}
+where $Z$ is called \fat{partition function}. $U$ is the average energy of the system.
+The continuous form of the partition function is:
+\begin{align*}
+    Z
+    = \sum_{E_s} \Omega (E_s) e^{-\beta E_s}
+    = \int_0^\infty f(E) e^{-\beta E} \ d E
+\end{align*}
+
+\paragraph{Partition function}
+Partition function for a single particle in $3D$:
+\begin{align*}
+    Z_{sp}
+    = \frac{V}{h^3} \klammer{\frac{2 \pi m}{\beta}}^{3/2}
+    = V \klammer{\frac{2 \pi m k_B T}{h^2}}^{3/2}
+\end{align*}
+where $V$ = volume and $h$ = Plank constant. For \underline{distinguishable}
+particles: $Z_D = Z_{sp}^N$.
+For \underline{indistinguishable particles}: $Z_I = \frac{1}{N!} Z_{sp}^N$.
+
+\paragraph{Heat Capacity}
+$\frac{1}{C} = \frac{\partial T}{\partial E} \Leftrightarrow
+C = \frac{\partial E}{\partial T}$
+
+\paragraph{Average Energy}
+$\langle E^k \rangle = \frac{1}{Z} \int_0^\infty E^k p(E) \ dE$
+
+\paragraph{Variance}
+$(\Delta E)^2 = \langle E^2 \rangle - \langle E \rangle^2 = \frac{\partial^2 \log(Z)}{\partial \beta^2}$
+
+\paragraph{Equipartition Theorem}
+\textit{Each term in the energy that is quadratic in some coordinate contributes
+$k_B T / 2$ to the average energy per particle.}
+
+\paragraph{Gases of polyatomic molecules}
+Internal degrees of freedom also contribute to the energy $U$. Each distinguishable,
+independent rotation axis gives \underline{one} extra quadratic term to the
+microstate energy. Each vibration mode gives \underline{two} such terms: one for
+the displacement, and one for the momentum.
+
+\paragraph{Maxwell-Boltzmann distribution}
+Total number of microstates with momentum magnitude between $p$ and $p + dp$ is
+$g(p) dp = \frac{4 \pi V p^2 dp}{h^3}$ with $g(p)$ the multiplicity function.
+Probability of finding a particle with momentum between $p$ and $p+dp$ as
+$P(p) dp = \frac{4 \pi V p^2 dp}{h^3} \cdot \frac{e^{-\beta p^2 /2m}}{Z_{sp}}$.
+Expected number of particles in the gas with speeds between $v$ and $v+dv$:
+\begin{align*}
+    n(v) dv = 4 \pi N v^2 dv \klammer{\frac{m}{2 \pi k_B T}}^{3/2} e^{-m v^2 / 2 k_B T}
+\end{align*}
+Average speed of a particle in an ideal gas: $\langle v \rangle =
+\frac{\int_0^\infty v n(v) dv}{N} = \sqrt{\frac{8 k_B T}{\pi m}}$.
+Most probable speed (maximum of distribution): $v_{max} = \sqrt{\frac{2 k_B T}{m}}$.
+\underline{Important}: speed $v$ is the \textit{magnitude} of the particles speed.
+For $v_x$: $\langle v_x \rangle = 0$, $\langle v_x^2 \rangle = \frac{k_B T}{m}$
+
+\paragraph{Blackbody Radiation}
+A blackbody is an object that absorbs all light that hits it. In order to stay
+in thermal equilibrium with its surrounding, the blackbody also needs to emit
+light. Consider a rectangular box as a blackbody. Then the $1D$-solution to the
+waveequation is given as: $E(x,t) = \vec{E}_0 \sin(k_x x) e^{i \omega t}$,
+where $k_x = \frac{n \pi}{L_x}$ with $n=1,2,\dots$ and $L_x$ the length of the
+box in $x$-direction. In $3D$:
+\begin{align*}
+    \vec{E}(x,y,z,t) = \begin{pmatrix}
+        E_{0,x} \cos(k_x x) \sin(k_y y) \sin(k_z z) \\
+        E_{0,y} \sin(k_x x) \cos(k_y y) \sin(k_z z) \\
+        E_{0,z} \sin(k_x x) \sin(k_y y) \cos(k_z z)
+    \end{pmatrix} \cdot e^{i \omega t}
+\end{align*}
+$\vec{k} = \klammer{\frac{n_x \pi}{L_x} , \frac{n_y \pi}{L_y} , \frac{n_z \pi}{L_z}}$,
+$n_x,n_y,n_z \in \N$, $\omega = c \cdot \abs{\vec{k}}$, $\vec{E}_{0} \cdot k = 0$.
+Number of modes with wavevector magnitudes between $k$ and $k+dk$ is then given by
+\begin{align*}
+    g(k) \ dk = \frac{V}{\pi^2} k^2 \ dk
+    \hspace{10pt} , \hspace{10pt}
+    g(\nu) \ d \nu = \frac{8 \pi V}{c^3} \nu^2 \ d \nu
+\end{align*}
+
+\paragraph{Rayleigh-Jeans Law}
+Energy density of the electromagnetic field:
+\begin{align*}
+    u = \frac{1}{2} \klammer{\epsilonnull E^2 + \frac{1}{\munull} B^2}
+\end{align*}
+Each allowed mode with wavevector $\vec{k}$ and polarization $\vec{\epsilon}$ of the
+EM field inside the cavity with an $E$-field amplitude $E_{\vec{k},\vec{\epsilon}}$
+and magnetic field amplitude $B_{\vec{k},\vec{\epsilon}}$ has an energy
+\begin{align*}
+    \epsilon_{\vec{k},\vec{\epsilon}} = \frac{V}{4} \klammer{\epsilonnull E_{\vec{k},\vec{\epsilon}}^2 + \frac{1}{\munull} B_{\vec{k},\vec{\epsilon}}^2}^2
+\end{align*}
+Total EM energy: $\epsilon = \sum_{\vec{k},\vec{\epsilon}} \epsilon_{\vec{k},\vec{\epsilon}}$ ,
+$\langle \epsilon_{\vec{k},\vec{\epsilon}} \rangle = k_B T$,
+energy density inside the box for all modes within a cycle frequency between $\nu$
+and $\nu + d \nu$ is then
+\begin{align*}
+    \rho(\nu) \ d \nu &= k_B T \cdot \frac{g(\nu) \ d \nu}{V} = k_B T \cdot \frac{8 \pi \nu^2}{c^3} \ d \nu
+    \\
+    \rho(\omega) \ d \omega &= k_B T \cdot \frac{\omega^2}{\pi^2 c^3} \ d \omega
+\end{align*}
+Problem: if $\omega \rightarrow \infty$, then $\rho(\omega) \rightarrow \infty$.
+
+\paragraph{The Planck Distribution}
+Idea to solve ultraviolet catastrophe: only discrete values of energies are
+allowed. Assumption: energies are multiples of $\hbar \omega$. Then the
+partition function becomes:
+\begin{align*}
+    Z = \sum_{n=0}^\infty e^{-\beta n \hbar \omega} = \frac{1}{1 - e^{-\beta \hbar \omega}}
+\end{align*}
+The average energy is then:
+\begin{align*}
+    \langle \epsilon \rangle = - \frac{\partial}{\partial \beta} (\ln(Z))
+    = \frac{\hbar \omega}{e^{\beta \hbar \omega} - 1}
+    \approx k_B T \ \text{ (if } k_b T \gg \hbar \omega )
+\end{align*}
+Now the energy distribution (Plank distribution ) is given by
+\begin{align*}
+    \rho(\omega) \ d \omega &= \frac{\hbar \omega^3}{\pi^2 c^3} \frac{d \omega}{e^{\beta \hbar \omega} -1}
+    \\
+    \rho(\nu) &= \frac{\langle E(\nu) \rangle g(\nu)}{V^2} \ \text{(If 2D), if 1D: V}
+\end{align*}
+Total EM energy density: (Stefan-Boltzmann Law)
+\begin{align*}
+    u = \int_0^\infty \rho(\nu) \ d \nu= \frac{U}{V} =
+    \underbrace{\frac{8 \pi^5 k_B^4}{15 h^3 c^3}}_{:= a} T^4
+    = a T^4
+\end{align*}
+Emitted power per unit area of the blackbody surface
+\begin{align*}
+    j(T) = \underbrace{\frac{a c}{4}}_{:= \sigma} T^4  
+    = \sigma T^4
+\end{align*}
+$\sigma$ is called Stefan's constant.

@@ -1,0 +1,147 @@
+\subsection{Höhere Ableitungen und Taylor-Approximationen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen und sei $f:U \rightarrow \R^m$ eine stetige differenzierbare
+    Funktion. Dies bedeutet, dass die partielle Ableitung von $f$ auf ganz $U$ existieren
+    und stetige Funktionen auf $U$ sind. Die totale Ableitung von $f$ können wir als
+    eine stetige Funktion
+    \begin{align*}
+        Df : U \rightarrow \Hom (\R^n , \R^m)
+    \end{align*}
+    betrachten. Falls die Vektorwertige Funktion auf $U$ selbst wieder stetig
+    differenzierbar ist, so sagen wir, $f$ sei \fat{zweimal stetig differenzierbar}.
+    Die Ableitung von $Df$ ist dann eine stetige Funktion
+    \begin{align*}
+        D^2 f : U \rightarrow \Hom \klammer{\R^n , \Hom (\R^n , \R^m)}
+    \end{align*}
+    die wir \fat{zweite totale Ableitung} von $f$ nennen.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen, $f:U \rightarrow \R^m$ eine Funktion und $d \geq 1$.
+    Wir sagen, dass $f$ \fat{$d$-mal stetig differenzierbar} ist, falls für alle
+    $j_1 , \dots , j_d \in \geschwungeneklammer{1,\dots,n}$ die partielle Ableitung
+    \begin{align*}
+        \partial_{j_1} \partial_{j_2} \dots \partial_{j_d} f(x)
+    \end{align*}
+    an jedem Punkt $x \in U$ existiert, und in Abhängigkeit von $x \in U$ eine
+    stetige Funktion auf $U$ definiert. Wir schreiben
+    \begin{align*}
+        C^d (U, \R^m) = \geschwungeneklammer{f: U \rightarrow \R^m \ | \ f \text{ ist $d$-mal stetig differenzierbar}}
+    \end{align*}
+    für den Vektorraum der $d$-mal stetig differenzierbaren $\R^m$-wertigen Funktionen
+    auf $U$. Wir nennen die Funktion $f$ \fat{glatt}, falls $f$ beliebig oft stetig
+    differenzierbar ist. Wir schreiben
+    \begin{align*}
+        C^{\infty} (U,\R^m) = \geschwungeneklammer{f: U \rightarrow \R^m \ | \ f \text{ ist $d$-mal stetig differenzierbar für alle } d\geq 1}
+    \end{align*}
+    für den Vektorraum der glatten $\R^m$-wertigen Funktionen auf $U$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Satz von Schwarz)
+
+    Sei $U \subseteq \R^n$ offen und $f: U \rightarrow \R$ eine zweimal stetig
+    differenzierbare Funktion. Dann gilt $\partial_j \partial_k f = \partial_k \partial_j f$
+    für alle $j,k \in \geschwungeneklammer{1,\dots,n}$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Es gilt:
+    \begin{align*}
+        &\partial_k \partial_j = D^2 f(x) (e_j , e_k) \\
+        &\partial_j \partial_k = D^2 f(x) (e_k , e_j)
+    \end{align*}
+    Von vorher wissen wir, dass die linken Seiten der Gleichungen auch gleich sind,
+    und somit folgt, da die bilineare Abbildung symmetrisch ist:
+    \begin{align*}
+        D^2 f(x) (v,w) = D^2 f(x) (w,v)
+    \end{align*}
+}
+
+\pagebreak
+
+\Definition{
+
+    Die \fat{Hesse-Matrix} $H(x) = (H_{ij} (x))_{ij} \in \Mat_{n,n} (\R)$ bei
+    $x \in U$ einer zweimal stetig differenzierbaren Funktion $f: U \rightarrow \R$
+    ist gegeben durch
+    \begin{align*}
+        H_{ij} (x) = \partial_i \partial_j f(x)
+        = \klammer{\frac{\partial^2 f}{\partial x_i \partial x_j} (x)}_{i,j = 1,\dots,n}
+        = \begin{pmatrix}
+            \frac{\partial^2 f}{\partial x_1 \partial x_1} (x) & \dots & \frac{\partial^2 f}{\partial x_1 \partial x_n} (x) \\
+            \vdots & \ddots & \vdots \\
+            \frac{\partial^2 f}{\partial x_n \partial x_1} (x) & \dots & \frac{\partial^2 f}{\partial x_n \partial x_n} (x)
+        \end{pmatrix}
+    \end{align*}
+    für $i,j \in \geschwungeneklammer{1,\dots,n}$. Der Satz von Schwarz besagt, dass
+    $H(x)$ eine symmetrische Matrix ist.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Taylor)
+
+    Sei $U \subseteq \R^n$ offen und $f:U \rightarrow \R$ eine $(d+1)$-mal stetig
+    differenzierbare Funktion. Sei $x \in U$ und $h \in \R^n$, so dass $x+t h \in U$
+    für alle $t \in [0,1]$. Dann gilt
+    \begin{align*}
+        f(x+h) = f(x) + \sum_{k=1}^d \frac{1}{k!} D^k f(x) (h,\dots,h) + \int_0^1 \frac{(1-t)^d}{d!} D^{d+1} f(x+th) (h,\dots,h) dt
+    \end{align*}
+    Man nennt dies die \fat{Taylor Entwicklung mit Restglied} von $f$ an der Stelle $x$.
+    Der Hauptterm
+    \begin{align*}
+        P(h) = f(x) + \sum_{k=1}^d \frac{1}{k!} D^k f(x) (h,\dots,h)
+    \end{align*}
+    ist gerade wie in der eindimensiomalen Taylor-Approximation eine Polynomiale
+    Funktion, diesmal allerdings in $d$ Variablen. Dabei ist $D^k f(x) (h,\dots,h)$
+    gerade der homogene Teil vom Grad $k$. Das Integral
+    \begin{align*}
+        R(h) = \int_0^1 \varphi^{d+1}(t) \frac{(1-t)^d}{d!} dt
+    \end{align*}
+    heisst \fat{Restglied}. Die Abschätzung $R(h) = O(\Norm{h}^{d+1})$ folgt aus dem
+    eindimensiomalen Fall.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^n$ offen, $f:U \rightarrow \R^m$ eine Funktion und sei
+    $x_0 \in U$ ein Punkt an dem $f$ differenzierbar ist und ein lokales
+    Extremum annimmt. Dann ist $Df(x_0) = 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $A \in \Mat_{n,n} (\R)$ symmetrisch. Wir sagen, $A$ sei \fat{positiv definit},
+    falls alle Eigenwerte von $A$ positiv (und reell) sind. A ist \fat{negativ definit},
+    falls alle Eigenwerte kleiner als $0$ sind. Sonst ist $A$ \fat{indefinit}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $U \subseteq \R^n$ offen, $f: U \rightarrow \R^m$ zweimal stetig differenzierbar,
+    und sei $x_0 \in U$ mit $Df(x_0) = 0$. Sei $H(x_0)$ die Hesse Matrix von $f$ im
+    Punkt $x_0$.
+    \begin{enumerate}
+        \item Ist $H(x_0)$ positiv definit, so nimmt $f$ bei $x_0$ ein striktes lokales Minimum an.
+        \item Ist $H(x_0)$ negativ definit, so nimmt $f$ bei $x_0$ ein striktes lokales Maximum an.
+        \item Ist $H(x_0)$ indefinit und nicht ausgeartet/ nicht singulär (=kein Eigenwert ist $0$), so hat $f$ bei $x_0$ kein lokales Extremum.
+    \end{enumerate}
+}

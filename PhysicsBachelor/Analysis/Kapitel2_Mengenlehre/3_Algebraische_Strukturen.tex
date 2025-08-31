@@ -1,0 +1,114 @@
+\subsection{Algebraische Strukturen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein \fat{kommutatives Monoid} ist ein Tripel $(M,m_0,f)$ bestehend aus 
+    einer Menge $M$, einem Element $m_0 \in M$ und einer Abbildung
+    $f: M \times M \rightarrow M$ die folgende Eigenschaften erfüllen.
+
+    \vspace{1\baselineskip}
+
+    1. Neutrales Element: $f(x,m_0) = f(m_0,x) = x \ \forall x \in M$
+
+    2. Kommutativität: $f(x,f(y,z)) = f(f(x,y),z) \ \forall x,y,z \in M$
+
+    3. Assiziativität: $f(x,y) = f(y,x) \ \forall x,y \in M$
+
+    \vspace{1\baselineskip}
+
+    Wir nennen die Funktion $f$ \fat{Addition} und $m_0$ \fat{neutrales Element}
+    oder \fat{Null}, und schreiben üblicherweise $x+y$ anstelle
+    von $f(x,y)$ und $0$ anstelle von $m_0$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ eine Menge. Eine \fat{Relation} auf \X ist eine Teilmenge
+    $R \subset X \times X$. Wir schreiben auch $xRy$ falls $(x,y) \in R$.
+    Wenn $\sim$ eine Relation ist, dann schreiben wir auch 
+    $x \not\sim y$ für $\neg (x \sim y)$. Eine Relation $\sim$ heisst:
+
+    \vspace{1\baselineskip}
+
+    1. \fat{Reflexiv}: Falls $\forall x \in X : x \sim x$
+
+    2. \fat{Transitiv}: Falls $\forall x,y,z \in X: ((x \sim y) \land (y \sim z)) \Rightarrow x \sim z$
+
+    3. \fat{Symmetrisch}: Falls $\forall x,y \in X : x \sim y \Rightarrow y \sim x$
+
+    4. \fat{Antisymmetrisch}: Falls $\forall x,y \in X: ((x \sim y) \land (y \sim x)) \Rightarrow x = y$
+
+    \vspace{1\baselineskip}
+
+    Eine Relation heisst \fat{Äquivalenzrelation}, falls sie reflexiv, transitiv 
+    und symmetrisch ist. Eine Relation heisst \fat{Ordnungsrelation}, falls sie 
+    reflexiv, transitiv und antisymmetrisch ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\sim$ ein Äquivalenzrelation auf einer Menge $X$. Dann wird für \xinX
+    die Menge
+    \begin{align*}
+        [x]_\sim = \geschwungeneklammer{y \in X \ | \ y \sim x}
+    \end{align*}
+    die \fat{Äquivalenzklasse} von $x$ genannt. Weiter heisst die Menge aller
+    Äquivalenzklassen
+    \begin{align*}
+        X /_\sim = \geschwungeneklammer{[x]_\sim \ | \ x \in X}
+    \end{align*}
+    \fat{Quotient} oder die \fat{Quotientenmenge} von $X$ modulo $\sim$. 
+    Ein Element \xinX wird auch \fat{Repräsentant} seiner Äquivalenzklasse
+    $[x]_\sim$ genannt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei \X eine Menge. Eine \fat{Partition} von $X$ ist eine Familie $\mathcal{P}$ 
+    von nicht leeren, paarweise disjunkten Teilmengen von $X$, so dass
+    \begin{align*}
+        X = \bigcup_{P \in \mathcal{P}} P
+    \end{align*}
+    gilt. Mit anderen Worten: Mengen $P \in \mathcal{P}$ sind nicht leer, und jedes 
+    Element von $X$ ist Element von genau einem $P \in \mathcal{P}$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $X$ eine nicht leere Menge. Äquivalenzrelationen auf $X$ und 
+    Partitionen von $X$ entsprechen einander im folgenden Sinne:
+    Für eine gegebene Äquivalenzrelation $\sim$ auf $X$ ist die Menge
+    \begin{align*}
+        P = \geschwungeneklammer{[x]_\sim \ | \ x \in X}
+    \end{align*}
+    eine Partition von $X$. Umgekehrt definiert für eine gegebene Partition
+    $P$ von $X$
+    \begin{align*}
+        x \sim y \ \Leftrightarrow \ \exists p \in P : x \in p  \land y \in p
+    \end{align*}
+    für \xyinX eine Äquivalenzrelation auf $X$. Wir erhalten eine kanonische
+    Bijektion zwischen der Menge aller Äquivalenzrelationen auf \X und der Menge
+    aller Partitionen von $X$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Funktion $f$ heisst \fat{wohldefiniert}, falls $f$ nicht von der Wahl
+    der Repräsentanten $x$ der Äquivalenzklasse $[x]_\sim$ abhängt und 
+    jedem Element $[x]_\sim$ des Definitionsbereichs $X/_\sim$ das eindeutig
+    bestimmte Element $f([x]_\sim)$ zuordnet.
+}
+
+\vspace{1\baselineskip}

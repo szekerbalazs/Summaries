@@ -1,0 +1,109 @@
+\subsection{Treppenfunktionen und deren Integral}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine \fat{Zerlegung} von $[a,b]$ ist eine endliche Menge von Punkten
+    \begin{align*}
+        a = x_0 < x_1 < \dots < x_{n-1} < x_n = b
+    \end{align*}
+    mit $n \in \N$. Die Punkte $x_0 , \dots , x_n \in [a,b]$ werden Teilungspunkte
+    der Zerlegung genannt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Zerlegung $a = y_0 < y_1 < \dots < y_{n-1} < y_m = b$ wird 
+    \fat{Verfeinerung} von $a = x_0 < x_1 < \dots < x_{n-1} < x_n = b$
+    genannt, falls 
+    \begin{align*}
+        \geschwungeneklammer{x_0 , x_1 , \dots , x_{n-1} , x_n } \subseteq \geschwungeneklammer{y_0 , y_1 , \dots , y_{m-1}} , y_m
+    \end{align*}
+    gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Funktion $f: [a.b] \rightarrow \R$ heisst \fat{Treppenfunktion},
+    falls es eine Zerlegung $a = x_0 < x_1 < \dots < x_{n-1} < x_n = b$
+    von $[a,b]$ gibt, so, dass für $k=1,2,\dots,n$ die Einschränkung von 
+    $f$ auf das offene Intervall $(x_{k-1},x_k)$ konstant ist. Wir sagen in dem
+    Fall auch die Funktion $f$ sei eine Treppenfunktion bezüglich der 
+    Zerlegung $a = x_0 < x_1 < \dots < x_{n-1} < x_n = b$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $f_1$ und $f_2$ Treppenfunktionen auf $[a,b]$ und seien $s_1, s_2 \in \R$.
+    Dann sind auch $s_1 f_1 + s_2 f_2$ und $f_1 \cdot f_2$ Treppenfunktionen.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+ 
+    Die Menge aller Treppenfunktionen auf $[a,b]$
+    \begin{align*}
+        \mathcal{T F}([a,b]) = \geschwungeneklammer{f \in \mathcal{F}([a,b]) \ | \ f \text{ ist eine Treppenfunktion}}
+    \end{align*}
+    ist ein Vektorraum, oder genauer, ein Untervektorraum des Vektorraums
+    $\mathcal{F}([a,b])$ der reellwertigen Funktionen auf $[a,b]$.
+    Da das Produkt zweier Treppenfunktionen wiederum eine Treppenfunktion ist,
+    bilden die Treppenfunktionen einen Ring.
+    Des Weiteren sind Treppenfunktionen beschränkt, da sie endliche Wertemengen
+    haben.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: [a,b] \rightarrow \R$ eine Treppenfunktion bezüglich einer Zerlegung
+    $a = x_0 < x_1 < \dots < x_{n-1} < x_n = b$ von $[a,b]$. Wir definieren
+    das \fat{Integral} von $f$ auf $[a,b]$ als die reelle Zahl
+    \begin{align*}
+        \intab f(x) dx = \csum{k=1}{n} c_k (x_k - x_{k-1})
+    \end{align*}
+    wobei $c_k$ den Wert von $f$ auf dem Intervall $(x_{k-1},x_k)$ bezeichnet.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $a = y0 < y_1 < \dots < y_{m-1} < y_m = b$ eine weitere Zerlegung
+    von $[a,b]$ befüglich welcher $f$ eine Treppenfunktion ist, so muss gelten:
+    \begin{align*}
+        \csum{k=1}{n} c_k (x_k - x_{k-1}) = \csum{k=1}{m} d_k (y_k - y_{k-1})
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Die Abbildung $\int : \mathcal{T F} ([a,b]) \rightarrow \R$ ist linear.
+    Das heisst, für alle $f,g \in \mathcal{T F}([a,b])$ und $\alpha , \beta \in \R$
+    ist $\alpha f + \beta g$ eine Treppenfunktion, und es gilt
+    \begin{align*}
+        \intab (\alpha f + \beta g)(x) dx = \alpha \intab f(x) + \beta \intab g(x) dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $f$ und $g$ Treppenfunktionen auf $[a,b]$ mit $f \leq g$. Dann
+    gilt:
+    \begin{align*}
+        \intab f dx \leq \intab g dx
+    \end{align*}
+}

@@ -1,0 +1,413 @@
+\section{Verallgemeinerung der Jordanschen Normalform}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Setze für ein $A \in M(k \times k,\K)$:
+    \begin{align*}
+        A^{\otimes s} := \begin{pmatrix}
+            A & & 0 \\
+            & \ddots & \\
+            0 & & A
+        \end{pmatrix}
+        \in M(ks \times ks ; \K)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{}{
+
+    Sei $F \in \End (V)$ und $V$ ein $\K$-VR mit $\dim V = n < \infty$ dessen charakteristisches
+    Polynom in Linearfaktoren zerfällt. ($P_F (t) = \pm (t-\lambda_1)^{r_1} \cdot \dots \cdot
+    (t-\lambda_k)^{r_k}$) mit $\lambda_1 , \dots , \lambda_k$ den paarweise verschiedenen
+    Eigenwerten. Sei $V_j = \ker ((F-\lambda_j \id)^{r_j})$ der zu $\lambda_j$ gehörige
+    Verallgemeinerte Eigenraum und $d_{jr} = \dim \ker ((F-\lambda_j \id_V)^r)$ für
+    $r=1,2,\dots$ und setze $d_{jr} = 0$ für $r \leq 0$. Dann gilt:
+    \begin{enumerate}[{(i)}]
+        \item $\dim V_j = r_j$ und $V$ zerfällt in die $F$-invarianten UVR $V_j$: $V = V_1 \otimes \dots \otimes V_k$
+        \item Es gibt eine Basis $\B$ von $V$, so dass $M_{\B} (F) = $
+        
+        
+            \begin{align*}
+                \begin{pmatrix}
+                    J_1 (\lambda_1)^{\oplus s_{11}} \\
+                    & J_2 (\lambda_1)^{\oplus s_{12}} \\
+                    & & \ddots \\
+                    & & & J_{r_1} (\lambda_1)^{\oplus s_{1 r_1}} \\
+                \end{pmatrix}
+                \\
+                \begin{pmatrix}                
+                    J_1 (\lambda_2)^{\oplus s_{21}} \\
+                    & \ddots \\
+                    & & J_{r_k} (\lambda_k)^{\oplus s_{k r_k}}
+                \end{pmatrix}
+            \end{align*}
+
+            \vspace{1\baselineskip}
+
+            \fat{Achtung! Eine Matrix, hat nicht als ganzes Platz!}
+
+            \vspace{1\baselineskip}
+
+            Dabei gilt $s_{jr} = 2d_{jr} - d_{j (r+1)} - d_{j (r-1)}$
+        \item Das Minimalpolynom ist $M_F (t) = (t-\lambda_1)^{l_1} \cdot \dots \cdot (t-\lambda_k)^{l_k}$
+            mit $l_j$ dem grössten Intex mit $s_{j l_j} \neq 0$.
+    \end{enumerate}
+    Man beachte auch, dass (wie wir gezeigt haben) für $r>r_{j}$ gilt, dass
+    $d_{j r}=d_{j r_{j}}=\operatorname{dim} V_{j} .$ Insbesondere ist auch $s_{j r}=0$ für
+    $r>r_{j} .$ Ausserdem gilt
+    \[
+    r_{j}=\operatorname{dim} V_{j}=s_{j 1}+2 s_{j 2}+\cdots r_{j} s_{j r_{j}}
+    \]
+    Wir wollen auch kurz an die Konstruktion der Basis $\mathcal{B}$ erinnern. Wir brauchen
+    dazu nur den Fall zu betrachten, dass alle Eigenwerte gleich sind, indem wir separat Basen
+    auf jedem $V_{j}$ definieren. Sei also der notationellen Einfachheit halber gleich $k=1$
+    oben, und setze $s_{r}:=s_{1 r}$ und $G:=\left(F-\lambda_{1} i d_{V}\right) .$ Dann
+    betrachten wir die Untervektorräume
+    \[
+    \{0\}=U_{0} \subset U_{1} \subset \cdots \subset U_{d}=V
+    \]
+    $\operatorname{mit} U_{r}=\operatorname{Ker} G^{r}$ und für ein $d \leq n$ so dass
+    $U_{d}=V .$ Dann wählen wir $w_{1}^{(d)}, \ldots, w_{s_{d}}^{(d)} \in U_{d}=V$ so, dass
+    die
+    Bilder in $U_{d} / U_{d-1}$ eine Basis von $U_{d} / U_{d-1}$ bilden. Dann wählen wir
+    $w_{1}^{(d-1)}, \ldots, w_{s_{d-1}}^{(d-1)} \in U_{d-1}$ so, dass die Bilder von
+    \[
+    G w_{1}^{(d)}, \ldots, G w_{s_{d}}^{(d)}, w_{1}^{(d-1)}, \ldots, w_{s_{d-1}}^{(d-1)} \in U_{d-1}
+    \]
+    eine Basis von $U_{d-1} / U_{d-2}$ bilden, usw. Unsere Basis ist dann
+    \begin{align*}
+        \B = ( w_1^{(1)} , \dots , w_{s_1}^{(1)} , G w_1^{(2)} , w_1^{(2)} , \dots , 
+            G w_{s_2}^{(2)} , w_{s_2}^{(2)} , \dots , \\  G^{d-1} w_{s_d}^{(d)} , \dots ,
+            G w_{s_d}^{(d)} , w_{s_d}^{(d)} )
+    \end{align*}
+    Wir wollen die jeweils "höchsten" Vektoren $w_{i}^{(j)}$ auch zyklische Vektoren nennen,
+    um sie von den anderen Basiselementen zu unterscheiden, die durch anwenden von $G$
+    erhalten werden.
+
+    Aus der Konstruktion folgt auch die Formel in $(ii)$. Genauer ist $s_{r}$ eindeutig bestimmt
+    durch die Rekursionsformel (absteigende Rekursion)
+    \[
+    s_{r}=\operatorname{dim} U_{r}-\operatorname{dim} U_{r-1}-\left(s_{r+1}+\cdots+s_{d}\right)
+    \]
+    Diese Rekursion wird gelöst durch $s_{r}=2 \operatorname{dim} U_{r}-\operatorname{dim}
+    U_{r-1}-\operatorname{dim} U_{r+1},$ denn mit $d_{r}:=\operatorname{dim} U_{r}=d_{1 r}$
+    gilt
+    \[
+    \begin{aligned}
+    s_{d} &=\operatorname{dim} U_{d}-\operatorname{dim} U_{d-1}=2 \operatorname{dim}
+    U_{d}-\operatorname{dim} U_{d-1}-\operatorname{dim} U_{d+1} \\
+    s_{r} &=d_{r}-d_{r-1}-\left(s_{r+1}+\cdots+s_{d}\right) \\
+    &=d_{r}-d_{r-1}-\underbrace{\left(-d_{r}+2 d_{r+1}-d_{r+2}+\cdots-d_{d-1}+2
+    d_{d}-d_{d+1}\right)}_{\text {Teleskopsumme }} \\
+    &=d_{r}-d_{r-1}-(-d_{r}+d_{r+1}+d_{d}-\underbrace{d_{d+1}}_{=d_{d}}) \\
+    &=2 d_{r}-d_{r-1}-d_{r+1}
+    \end{aligned}
+    \]
+}
+
+\Satz{
+
+    Sei $f \in \R [t]$ ein reelles Polynom vom Grad $n \geq 1$. Dann hat $f$ eine Zerlegung
+    $f = a(t-\lambda_1) \dots (t-\lambda_k) \cdot g_1 \dots g_m$,
+    wobei $a \in \R$ und die $\lambda_j \in \R$ die reellen NST sind und die $g_j \in \R [t]$
+    normierte quadratische Polynome ohne reelle NST sind. Insbesondere ist hier $n=k+2m$ und
+    falls $n$ ungerade ist, muss $f$ mindestens eine reelle NST haben.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei nun $F \in \End (V)$ ein Endomorphismus des endlich dimensionalen $\R$-VR $V$.
+    Fasst man die gleichen Faktoren wie im obigen Satz zusammen, hat man eine Faktorisierung
+    des charakteristischen Polynoms
+    
+    $P_F (t) = \pm (t-\lambda_1)^{r_1} \dots (t-\lambda_k)^{r_k}
+    \cdot g_1^{q_1} \dots g_m^{q_m}$,
+    
+    wobei $\lambda_1 , \dots , \lambda_k$ die paarweise
+    verschiedenen reellen NST sind und $g_1 , \dots , g_m \in \R [t]$ paarweise
+    verschiedene normierte quadratische reelle Polynome ohne reelle NST. Es gilt insbesondere
+
+    $n=\dim V = r_1 + \dots + r_k + 2 \klammer{q_1 + \dots + q_m}$
+
+    Betrachte nun einen quadratischen Faktor $g_j$ mit nicht-reellen NST $\mu_j ,
+    \overline{\mu}_j \in \C \backslash \R$. Sei $\mu_j= a_j + i b_j$ mit $a_j , b_j \in \R$.
+    Dann ist
+
+    $g_j = t^2 - 2 \Re (\mu_j) t + \abs{\mu_j}^2 = t^2 - 2 a_j t + a_j^2 + b_j^2
+    = (t-a_j)^2 + b_j^2 = P_{A_j} (t)$
+
+    das charakteristische Polynom der Matrix
+    \begin{align*}
+        A_j := \begin{pmatrix}
+            a_j & b_j \\
+            -b_j & a_j
+        \end{pmatrix}
+    \end{align*}
+    Beachte auch, dass diese Matrix eine Drehstreckung beschreibt, also von er Form $c R$ ist
+    mit $c = \sqrt{a_i^2 + b_i^2} \in \R_{>0}$, $R \in SO(2)$. Schliesslich definieren wir noch
+    für $A \in M(2 \times 2,\R)$ die Block-Jordanmatrix
+    \begin{align*}
+        J_r (A):= \begin{pmatrix}
+            A & E_2 & & & \\
+            & A & E_2 & & \\
+            & & \ddots & \ddots & \\
+            & & & \ddots & E_2 \\
+            & & & & A
+        \end{pmatrix}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Sei $F \in \End (V)$ für einen $\K$-VR $V$ mit $n = \dim V < \infty$. Sei
+    $P_F (t) = \pm (t-\lambda_1)^{r_1} \dots (t-\lambda_k)^{r_k} \cdot g_1^{q_1} \dots g_m^{q_m}$
+    das charakteristische Polynom. Sei $V_j = \ker (F-\lambda_j \id_V)^{r_j}$ für
+    $j=1,\dots,k$ und $V_j' = \ker (g_j (F))^{q_j}$ für $j=1,\dots,m$. Sei ausserdem
+    $d_{jr} = \dim \ker (F-\lambda_j \id_V)^r$ und $d'_{jr} \dim \ker (g_j (F)^r)$ für
+    $r=1,2,\dots$ und setze $d_{jr} = d'_{jr} = 0$ für $r \leq 0$. Dann gilt:
+    \begin{enumerate}[{(i)}]
+        \item Es gilt $\dim V_j = r_j$ und $\dim V'_j = 2 q_j$ und $V$ zerfällt wie folgt in
+                $F$-invariante UVR: $V = V_1 \oplus \dots \oplus V_k \oplus V_1' \dots \oplus V_m'$
+        \item Es gibt eine reelle Basis $\B$ von $V$, sodass $M_{\mathbb{B}} (F) =$
+        
+                \hspace{1cm}
+
+                \begin{align*}
+                    &\begin{pmatrix}
+                        J_1 (\lambda_1)^{\oplus s_{11}} & \\
+                        & \ddots & \\
+                        & & J_{r_k} (\lambda_k)^{\oplus s_{k r_k}} \\
+                        & & & J_1 (A_1)^{\oplus s'_{11}} \\
+                        & & & & J_2 (A_1)^{\oplus s'_{12}}
+                    \end{pmatrix}
+                    \\
+                    &\begin{pmatrix}
+                        \ddots \\
+                        & J_{q_1} (A_1)^{\oplus s'_{1q_1}} \\
+                        & & J_1 (A_2)^{\oplus s'_{2q_1}} \\
+                        & & & \ddots \\
+                        & & & & J_{q_m} (A_m)^{\oplus s'_{mq_m}}
+                    \end{pmatrix}
+                \end{align*}
+
+                \vspace{1\baselineskip}
+
+                \fat{Eine Matrix, hat nicht als ganzes platz!}
+
+                \vspace{1\baselineskip}
+
+                für $A_j$ wie im obigen Korollar. Dabei gilt: $s_{jr} = 2d_{jr} - d_{j (r+1)}
+                d_{j (r-1)}$ für $j=1,\dots,k$ und alle $r$ und
+                $2s'_{jr} = 2 d'_{jr} - d'_{j(r+1)} - d'_{j (r-1)}$ für $j=1,\dots,m$ und alle $r$.
+        \item Das Minimalpolynom ist $M_F (t) = (t-\lambda_1)^{l_1} \dots (t-\lambda_k)^{l_k} \cdot
+                g_1^{l'_1} \dots g_m^{l'_m}$ mit $l_j$ bzw. $l'_j$ den grössten Indizes mit jeweils
+                $s_{j l_j} \neq 0$ bzw. $s'_{s l'_j} \neq 0$. 
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zwei reelle Matrizen sind \fat{ähnlich} (über $\R$) genau wenn ihre charakteristischen
+    Polynome übereinstimmen und zusätzlich alle Zahlen $d_{jr},d'_{jr}$ wie im Theorem.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zwei reelle Matrizen sind ähnlich über $\R$ genau dann, wenn sie ähnlich über $\C$ sind.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Jede reelle Matrix ist ähnlich zu ihrer Transponierten.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f = t^n + a_{n-1} t^{n-1} + \dots + a_1 t + a_0 \in \K[t]$ ein Polynom vom Grad
+    $n \geq 0$. Dann ist die \fat{Begleitmatrix} von $f$ die folgende $n \times n$ Matrix:
+    \begin{align*}
+        B_f := \begin{pmatrix}
+            -a_{n-1} & 1 & 0 & \dots & 0 \\
+            -a_{n-2} & 0 & 1 & \ddots & \vdots \\
+            \vdots & \vdots & \ddots & \ddots & 0 \\
+            -a_1 & 0 & \dots & 0 & 1 \\
+            -a_0 & 0 & \dots & 0 & 0 
+        \end{pmatrix}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Das charakteristische und das Minimalpolynom von $B_f$ sind gleich $f$, bis auf Vorzeichen
+    $(-1)^n P_{B_f} = M_{B_f} = f$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    \begin{itemize}
+        \item Sei $R$ ein kommutativer Ring und $f,g \in R \backslash \geschwungeneklammer{0}$.
+                Dann heisst \fat{$f$ teilt $g$}, oder in Symbolen $f \mid g$, falls ein $h \in R$
+                existiert mit $fh = g$. Falls $f$ das Element $g$ nicht teilt schreiben wir
+                $f \nmid g$.
+        \item Ein \fat{Ideal} $I \subset R$ des kommutativen Ringes $R$ ist ein Unterring, für
+                den zusätzlich $I R \subset I$ gilt. Äquivalent und expliziter:
+                Für $f,g \in I$, $h \in R$ ist $f-g \in I$ und $fh \in I$.
+                Für $I_1 , I_2 \subset R$ Ideale sind $I_1 \cap I_2$ und $I_1 + I_2$ auch wieder
+                Ideale.
+        \item Für jeden Körper $K$ ist der Polynomring $K[t]$ ein Hauptidealring. Konkret gibt es
+                zu jedem Ideal $\geschwungeneklammer{0} \neq I \subset K[t]$ ein eindeutiges
+                normiertes Polynom kleinsten Grades in $I$ und heisst Minimalpolynom von $I$.
+        \item Für jeden Körper $K$ ist $K[t]$ ein faktorieller Ring, dh. er hat keine Nullteiler:
+                aus $fg = 0$ folgt $f=0$ oder $g=0$.
+    \end{itemize}
+    Für Polynome $f,g \in K[t]$ mit ($f,g \neq 0$) definieren wir den \fat{grössten gemeinsamen
+    Teiler} ggT$(f,g) \in K[t]$ von $f$ und $g$ als das normierte Polynom vom grössten Grad,
+    das sowohl $f$ als auch $g$ teilt. Dies ist auch das Minimalpolynom von $fK[t]+gK[t]$,
+    also ggT$(f,g) = M_{fK[t]+gK[t]}$. Insbesondere existieren in diesem Fall also
+    $a,b \in K[t]$ so dass ggT$(f,g)=af+bg$.
+
+    \vspace{1\baselineskip}
+
+    Ebenso definieren wir das \fat{kleinste gemeinsame Vielfaches} kgV$(f,g)$ als das
+    Polynom vom kleinsten Grad, dass sowohl von $f$ als auch von $g$ geteilt wird.
+    Es ist dann kgV$(f,g) = M_{fK[t] \cap gK[t]}$ das Minimalpolynom des Schnittes der von $f$
+    und $g$ erzeugten Ideale.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Für ein Polynom $f \in K[t]$ positiven Grades sind äquivalent:
+    \begin{itemize}
+        \item Aus $f=gh$ folgt, dass ein $0 \neq c \in K$ existiert, so dass $f=cg$ oder
+            $f=ch$. (Also hat $f$ keine nichttrivialen Teiler, also nur die Teiler $c$ und $cf$
+            für $0 \neq x \in K$. Man sagt auch $f$ ist \fat{irreduzibel}.)
+        \item Aus $f \mid gh$ (für $0 \neq g,h \in K[t]$) folgt, dass $f \mid g$  oder $f \mid h$.
+            (amsn sagt in diesem Fall auch $f$ ist \fat{prim})
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Primfaktorzerlegung für Polynome)
+
+    Sei $0 \neq f \in K[t]$ ein Polynom. Dann gibt es irreduzible normierte Polynome
+    (positiven Grades) $p_1,\dots,p_n \in K[t]$ (mit $n \geq 0$) und ein $0 \neq c \in K$
+    so dass $f=c \cdot p_1 \dots p_n$. Diese Faktorisierung ist eindeutig, bis auf der
+    Anordnung  der $p_j$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein Ideal $I \subset R$ in einem kommutativen Ring $R$ heisst \fat{maximal}, falls
+    $I \neq R$ und es kein Ideal $J$ gibt, so dass $I \subsetneq J \subsetneq R$.
+    $I$ heisst \fat{prim}, falls $I \neq R$ und für alle $f,g \in R$ gilt
+    $fg \in I \Rightarrow f \in I \ \lor \ g \in I$.
+
+    Im Fall $R=K[t]$ folgt direkt aus der Definition, dass ein Ideal ein Primideal ist,
+    genau dann, wenn sein Minimalpolynom prim ist.
+
+    Ebenso ist das Ideal maximal, genau dann, wenn sein Minimalpolynom keine nicht-trivialen
+    Teiler hat, also irreduzibel ist.
+    
+    Also sind für $K[t]$ die Primideale und die maximalen Ideale identisch.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $I \subsetneq R$ ein Ideal im kommutativen Ring mit Eins $R$. Dann gilt:
+    \begin{itemize}
+        \item I ist maximal genau dann, wenn $R/I$ mit der von $R$ geerbten Addition und
+            Multiplikation ein Körper ist.
+        \item I ist genau dann prim, wenn $R/I$ nullteilerfrei ist.
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Jordansche Normalform)
+
+    Wir definieren nun die Matrix
+    \begin{align*}
+        \tilde{E}_n := \begin{pmatrix}
+            0 & 0 & \dots & 0 \\
+            \vdots & \ddots & \ddots & \vdots \\
+            0 & 0 & \ddots & 0 \\
+            1 & 0 & \dots & 0
+        \end{pmatrix}
+        \in M(n \times n, K)
+    \end{align*}
+    mit einem Eintrag $1$ unten links und sonst nur Nullen. Ausserdem definieren wir
+    für $A \in M (n \times n , K)$
+    \begin{align*}
+        \tilde{J}_r := \begin{pmatrix}
+            A & \tilde{E}_n & & & \\
+            & A & \tilde{E}_n & & \\
+            & & \ddots & \ddots & \\
+            & & & \ddots & \tilde{E}_n \\
+            & & & & A
+        \end{pmatrix}
+    \end{align*}
+    Für ein irreduzibles normiertes Polynom $f$ nennen wir $\tilde{J}_r (B_f)$ den zu
+    $f$ gehörigen Jordanblock der grösse $nr$.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{ (Jordansche Normalform)
+
+    Sei $V$ ein endlichdimensionaler $K$-VR und $F \in \End (V)$. Sei
+    $P_F = \pm p_1^{r_1} \dots p_k^{r_k}$ die Faktorisierung des charakteristischen
+    Polynoms in irreduzible normierte Polynome $p_1,\dots,p_k$, die wir als paarweise
+    verschieden annehmen können. Dann gibt es eine Basis $\B$ von $V$, so dass
+    $M_{\B}$ blockdiagonal ist, wobei die Blöcke auf der Blockdiagonalen alle
+    Jordanblöcke von der Form $\tilde{J}_r (B_{p_j})$ sind mit $j=1,\dots,k$ und
+    $r=1,\dots,r_j$. Sei dabei $s_{jr}$ die Anzahl der Jordanblöcke von der Grösse
+    $\tilde{J}_r (B_{p_j})$. Dann gilt für alle $j$
+    \begin{align*}
+        \sum_{r=1}^{r_j} s_{jr} = r_j \cdot \deg p_j = \sum_{j=1}^{r_j} s_{jr} \cdot \deg p_j \cdot r
+    \end{align*}
+    und
+    \begin{align*}
+        s_{jr} = \frac{1}{\deg p_j} ( 2 \dim \ker (p_j (F)^r) - \dim \ker (p_j (F)^{r+1}) \\ - \dim \ker (p_j (F)^{r-1}))
+    \end{align*}
+    Insbesondere ist also die Jordansche Normalform wieder eindeutig,, bis auf Permutation der
+    Diagonalblöcke.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $V$ ein endlichdimensionaler $K$-VR und $F \in \End (V)$. Sei 
+    $P_F = \pm p_1^{r_1} \dots p_k^{r_k}$ die Faktorisierung des charakteristischen
+    Polynoms von $F$ in irreduzible Polynome. Sei $V_j := \ker \klammer{p_j^{r_j} (F)}$.
+    Dann zerfällt $V$ in die direkte Summe der $F$-invarianten UVR $V_j$;
+    $V=V_1 \oplus \dots \oplus V_k$. Ferner gilt für das charakteristische Polynom
+    der Einschränkung $F \mid V_j$ von $F$ auf den invarianten UVR $V_j$, dass
+    $P_{F \mid V_j} = \pm p_j^{r_j}$. Insbesondere ist also $\dim_K (V_j) = r_j \cdot \deg p_j$.
+}

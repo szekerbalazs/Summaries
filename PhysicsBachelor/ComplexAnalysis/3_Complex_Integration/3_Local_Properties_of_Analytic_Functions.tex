@@ -1,0 +1,302 @@
+\subsection{Local Properties of Analytic Functions}
+
+\begin{theorem}
+    Cauchy's integral formula still holds if $f$ has singularities
+    $\geschwungeneklammer{a_j}_{j \in J}$. The function $f$ is analytic
+    in $\Delta \backslash \geschwungeneklammer{a_j}_{j \in J}$ provided that
+    $\limes{z \rightarrow a_j} (z-a_j)f(z) = 0 \ \forall j \in J$ as long as
+    $\geschwungeneklammer{a_j}_{j \in J} \cap \gamma = \emptyset$ and
+    $\geschwungeneklammer{a_j}_{j \in J} \cap \geschwungeneklammer{z} = \emptyset$.
+\end{theorem}
+
+\begin{definition}[Removable Singularity]
+    Suppose that $f(z)$ is analytic in the region $\Omega'$ obtained by omitting
+    a point $a$ from the region $\Omega$. A necessary and sufficient condition that
+    there exists an analytic function in $\Omega$ which coincided with $f(z)$ in
+    $\Omega'$ is that $\limes{z \rightarrow a} (z-a)f(z-a) = 0$. The extended function
+    is uniquely determined by
+    \begin{align*}
+        f(a) = \frac{1}{2 \pi i} \int_C \frac{f(\xi)}{\xi - a} \ d \xi
+    \end{align*}
+    where $C$ is a circle with $a$ in the inside of $C$ and $C$ and the inside of $C$
+    being in $\Omega$. We call this a \fat{removable singularity}.
+\end{definition}
+
+\begin{theorem}
+    If $f: \Omega \rightarrow \C$ is analytic in a region $\Omega$ containing $a$,
+    then for any $n>0$ integer
+    \begin{align*}
+        f(z) = f(a) + \frac{(z-a)}{1!} f'(a) + \dotsb + \frac{(z-a)^{n-1}}{(n-1)!} f^{(n-1)} (a)
+            + (z-a)^n f_n (a)
+    \end{align*}
+    where $f_n(z)$ is analytic in $\Omega$ and is given by
+    \begin{align*}
+        f_n (z) = \frac{1}{2 \pi i} \int_C \frac{f(\xi)}{(\xi - a)^n (\xi - z)} \ d \xi
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If $f: \Omega \rightarrow \C$ is analytic and $\exists a \in \Omega$ such that
+    $f(a) = 0$ and $f^{(n)} (a) = 0$, then $f = 0$ in all of $\Omega$.
+\end{theorem}
+
+\begin{definition}[Order of a Zero]
+    Take $f: \Omega \rightarrow \C$ analytic and not identically zero. Let $a$ be
+    a zero of $f$. Then, $\exists h$ such that $f^{(h)} (a) \neq 0$. Then, $a$ is a
+    so called \fat{zero of order $h$}.
+\end{definition}
+
+\begin{theorem}
+    If $f(a)$ and all derivatives $f^{(n)} (a)$ vanish, we can write
+    \begin{align*}
+        f(z) = f_n(z) (z-a)^n
+    \end{align*}
+    with $f_n(a) \neq 0$. Then $\exists \delta > 0$ such that $f_n(z) \neq 0 \
+    \forall z : \abs{a-z} < \delta$. Thus, $f(z)$ is non zero in a punctured
+    neighborhood of $a$.
+\end{theorem}
+
+\begin{definition}[Isolated Zeros]
+    The zeros of an analytic function which does not vanish identically are \fat{isolated}.
+\end{definition}
+
+\begin{definition}[Isolated Singularity]
+    We consider a function $f(z)$ which is analytic in a neighborhood of $a$, exept
+    perhaps at $a$ itself. In other words, $f(z)$ shall be analytic in a region
+    $0 < \abs{z-a} < \delta$. The point $a$ is called an \fat{isolated singularity}
+    of $f(z)$.
+\end{definition}
+
+\begin{definition}[Pole]
+    If $\limes{z \rightarrow a} f(z) = \infty$, the point $a$ is said to be a \fat{pole}
+    of $f(z)$, and we set $f(a) = \infty$.
+\end{definition}
+
+\begin{definition}[Order of a Pole]
+    There exists a $\delta' \leq \delta$ such that $f(z) \neq 0$ for
+    $0<\abs{z-a}<\delta'$. In this region the function $g(z) = \frac{1}{f(z)}$ is
+    defined and analytic. But the singularity of $g(z)$ at $a$ is removable, and
+    $g(z)$ has an analytic extension with $g(a) = 0$. Since $g(z)$ does not vanish
+    identically, the zero at $a$ has a finite order, and we can write $g(z) =
+    (z-a)^h g_h (z)$ with $g_h (a) \neq 0$. The number $h$ is the \fat{order of the
+    pole}, and $f(z)$ has the representation $f(z) = (z-a)^{-h} f_h(z)$ where
+    $f_h(z) = \frac{1}{g_h(z)}$ is analytic and different from zero in a neighborhood
+    of $a$.
+\end{definition}
+
+\begin{definition}[Meromorphic]
+    A function $f(z)$ which is analytic in a region $\Omega$, exept for poles,
+    is said to be \fat{meromorphic} in $\Omega$.
+    More precisely, to every $a \in \Omega$ there shall exist a neighborhood
+    $\abs{z-a} < \delta$, contained in $\Omega$, such that either $f(z)$ is
+    analytic in the whole neighborhood, of else $f(z)$ is analytic for
+    $0<\abs{z-a}<\delta$, and the isolated singularity is a pole.
+\end{definition}
+
+\begin{theorem}
+    If $f(z)$ is identically zero in a subregion of $\Omega$, then it is identically
+    zero in $\Omega$, and the same is true if $f(z)$ vanishes on an arc which does
+    not reduce to a point.
+\end{theorem}
+
+\begin{theorem}
+    Define the following two conditions. Let $\alpha \in \R$.
+    \begin{align*}
+        (1) \hspace{20pt} &\limes{z \rightarrow a} \abs{z-a}^\alpha \abs{f(z)} = 0
+        \\
+        (2) \hspace{20pt} &\limes{z \rightarrow a} \abs{z-a}^\alpha \abs{f(z)} = \infty
+    \end{align*}
+    If $(1)$ holds for a certain $\alpha$, then it holds for all larger $\alpha$, and
+    hence for some integer $m$. Then $(z-a)^m f(z)$ has a removable singularity and
+    vanishes for $z=a$. Either $f(z)$ is identically zero, in which case $(1)$ holds
+    for all $\alpha$, or $(z-a)^m f(z)$ has a zero of finite order $k$. In the latter
+    case it follows at once that $(1)$ holds for all $\alpha > h = m - k$, while $(2)$
+    holds for all $\alpha < h$.
+    
+    Assume that $(2)$ holds for some $\alpha$; then it
+    holds for all smaller $\alpha$, and hence for some integer $n$. The function
+    $(z-a)^n f(z)$ has a pole of finite order $l$, and setting $h=n+l$ we find again
+    that $(1)$ holds for $\alpha > h$ and $(2)$ for $\alpha < h$.
+
+    There are three possibilities here.
+    \begin{enumerate}[(i)]
+        \item Condition $(1)$ holds for all $\alpha$ and $f(z)$ vanishes identically.
+            This case is not very interesting.
+        \item There exists an integer $h$ such that $(1)$ holds for $\alpha > h$ and
+            $(2)$ for $\alpha < h$. In this case we call $h$ the \fat{algebraic order}
+            of $f(z)$ at $a$. It is positive in the case of a pole, negative in case of a
+            zero and zero if $f(z)$ is analytic but not $0$ at $a$.
+        \item Neither $(1)$ nor $(2)$ holds for any $\alpha$. In this case the point $a$
+            is called an \fat{essential isolated singularity}. In the neighborhood of
+            an essential singularity $f(z)$ is at the same time unbounded and comes
+            arbitrarily close to zero.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Weierstrass]
+    An analytic function comes arbitrarily close to any complex value in every neighborhood
+    of an essential singularity. Equivalent is: If $a$ is an essential singularity of $f$,
+    $\forall \epsilon > 0$ (sufficiently small) $\geschwungeneklammer{f(z) : z \in B(a,\epsilon)}$
+    is dense in $\C$.
+\end{theorem}
+
+\paragraph{Overview Singularities}
+\begin{align*}
+    \limes{z \rightarrow a} f(z) \ \text{ exists? } \begin{cases}
+        \text{Yes: } \ &\limes{z \rightarrow a} \frac{1}{f(z)} \ \text{ exists? }
+        \begin{cases}
+            \text{Yes: Removable}
+            \\
+            \text{No: Zero}
+        \end{cases}
+        \\
+        \text{No: } \ &\limes{z \rightarrow a} \frac{1}{f(z)} \ \text{ exists? }
+        \begin{cases}
+            \text{Yes: Pole}
+            \\
+            \text{No: Essential}
+        \end{cases}
+    \end{cases}
+\end{align*}
+
+\subparagraph{Removable Singularity}
+Show $\limes{z \rightarrow a} (z-a) f(z) = 0$ and find analytic extension of $f$ in $a$.
+
+\subparagraph{Zero}
+Find $n \geq 1$, $n \in \N$ such that $f(z) = (z-a)^n f_n (z)$ with $f_n(a) \neq 0$ and
+$f_n$ analytic in $a$. We want $n$ to satisfy
+\begin{align*}
+    \limes{z \rightarrow a} (z-a)^{-k} f(z) &= 0 \ \forall k < n
+    \\
+    \limes{z \rightarrow a} (z-a)^{-k} f(z) &= \infty \ \forall k > n
+    \\
+    \limes{z \rightarrow a} (z-a)^{-k} f(z) &= f_n (a) \neq 0 \ \text{ if } n=k
+\end{align*}
+$n$ can be found inductively by deriving $f$. Meaning
+$f(a) = f'(a) = \dots = f^{(n-1)} (a) = 0$ but $f^{(n)} (a) \neq 0$.
+
+\subparagraph{Poles}
+Show $\limes{z \rightarrow a} \abs{f(z)} = \infty$. $f$ has a pole of order $n$
+$\Leftrightarrow$ $\frac{1}{f}$ has a zero of order $n$. We do the same as for
+the zeros for $\frac{1}{f}$. We want to find $n \geq 1$, $n \in \N$ such that
+$f(z) = (z-a)^{-n} f_n(z)$, $f_n(a) < \infty$ and $f_n$ analytic in $a$ and
+\begin{align*}
+    \limes{z \rightarrow a} f(z) (z-a)^k &= 0 \ \forall k > n
+    \\
+    \limes{z \rightarrow a} f(z) (z-a)^k &= \infty \ \forall k < n
+\end{align*}
+
+\subparagraph{Essential Singularity}
+Show that $a$ is not removable and not a pole. Weierstrass Theorem: Show that
+$f \klammer{D(a,r) \backslash \geschwungeneklammer{a}} = \C$.
+
+\subparagraph{Classification}
+For $n \in \Z$ let $\limes{z \rightarrow a} (z-a)^n f(z) \in \C \backslash
+\geschwungeneklammer{0}$.
+\begin{align*}
+    n \geq 1 &\Rightarrow a \text{ is a pole of order } n
+    \\
+    n \leq -1 &\Rightarrow a \text{ is a zero of order } -n
+    \\
+    n = 0 &\Rightarrow a \text{ is a removable singularity}
+    \\
+    n \text{ does not exist } &\Rightarrow a \text{ is an essential singularity}
+\end{align*} 
+
+Find the type of singularity by its expansion. First note, if $f$ has a pole at $a$
+of order $n$, $f(z) = (z-a)^{-n} f_n(z)$, where $f_n$ is analytic in $a$
+\begin{align*}
+    f_n (z) &= \sum_{k=0}^\infty \frac{f_n^{(k)} (a)}{k!} (z-a)^k
+    \\
+    f(z) &= \frac{f_n (a)}{(z-a)^n} + \frac{f_n'(a)}{(z-a)^{n-1}} + \dots + \frac{f_n^{(n-1)} (a)}{(n-1)! (z-a)}
+        + \sum_{k=1}^\infty \frac{f_n^{(k)} (a)}{k!} (z-a)^{k-1}
+\end{align*}
+We call $S(z) = \sum_{k<0} a_k (z-a)^k$ the \fat{essential / principle part} of $f$.
+If $S(z)$ is a finite sum $S(z) = \sum_{k=-m}^{-1} a_k (z-a)^k$, then $a$ is a pole
+of order $m$.
+If $\limes{z \rightarrow a} (z-a) f(z) = 0 \ \Rightarrow \ \limes{z \rightarrow a} f(z)
+\in \C \backslash \geschwungeneklammer{0} \ \Rightarrow \ f$ admits a Taylor expantion.
+If $S \equiv 0$, $a$ is removable. If $S$ is an infinite sum, $a$ is essential.
+
+
+\begin{theorem}
+    Let $f(z)$ be an analytic functin which is not identcaly zero in an open disk
+    $\Delta$. Let $\gamma$ be a closed curve in $\Delta$ such that $f(z) \neq 0$ on
+    $\gamma$. Suppose $f$ has only finitely many zeros $z_1,z_2,\dots,z_n$ in $\Delta$.
+    In this case, we can write $f(z) = (z-z_1)(z-z_2) \dots (z-z_n) g(z)$ where $g$
+    is analytic and $\neq 0$ in $\Delta$. The \fat{logarithmic derivative} is given
+    as
+    \begin{align*}
+        \frac{f'(z)}{f(z)} &= \frac{1}{z-z_1} + \frac{1}{z-z_2} + \dots + \frac{1}{z-z_n}
+            + \frac{g'(z)}{g(z)}
+    \end{align*}
+    Since $g(z) \neq 0$ in $\Delta$, Cauchy's theorem yields
+    \begin{align*}
+        \int_\gamma \frac{g'(z)}{g(z)} \ dz = 0
+    \end{align*}
+    So we find:
+    \begin{align*}
+        \eta(\gamma,z_1) + \eta(\gamma,z_2) + \dots + \eta(\gamma,z_n) =
+        \frac{1}{2 \pi i} \int_\gamma \frac{f'(z)}{f(z)} \ dz
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    Let $z_j$ be the zeros of a function $f(z)$ which is analytic in a disk $\Delta$
+    and does not vanish identically, each zero being counted as many times as its
+    order indicates. For every closed curve $\gamma$ in $\Delta$ which does not pass
+    through a zero
+    \begin{align*}
+        \sum_j \eta(\gamma,z_j) = \frac{1}{2 \pi i} \int_\gamma \frac{f'(z)}{f(z)} \ dz
+    \end{align*}
+    where the sum has only a finite number of terms $\neq 0$. Let $w = f(z)$ be
+    the function that maps $\gamma$ onto a closed curve $\Gamma$ in the $\omega$-plane,
+    and we find
+    \begin{align*}
+        \int_\Gamma \frac{d w}{w} = \int_\gamma \frac{f'(z)}{f(z)} \ dz
+    \end{align*}
+    Hence, we arrive at $\eta(\Gamma,0) = \sum_j \eta(\gamma,z_j)$.
+\end{theorem}
+
+\begin{theorem}
+    Take the same conditions as above. Let each $\eta(\gamma,z_j)$ be either $0$ or $1$.
+    Then, we can derive a formula for the total number of zeros enclosed by $\gamma$.
+    This is the case, if $\gamma$ is a circle. Donate the names $z_j(a)$ to the roots
+    of the equation $f(z) = a$ for some arbitrary complex value. We then obtain
+    \begin{align*}
+        \sum_j \eta(\gamma,z_j(a)) = \frac{1}{2 \pi i} \int_\gamma \frac{f'(z)}{f(z) - a} \ dz
+    \end{align*}
+    Hence,
+    \begin{align*}
+        \eta(\Gamma,a) = \sum_j \eta(\gamma , z_j(a))
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If $a$ and $b$ are in the same region determined by $\Gamma$, we know that
+    $\eta(\Gamma,a) = \eta(\Gamma,b)$, and hence we have also $\sum_j \eta(\gamma,z_j(a))
+    = \sum_j \eta(\gamma,z_j(b))$. If $\gamma$ is a circle, it follows that $f(z)$ takes
+    the value $a$ and $b$ equally many times inside of $\gamma$.
+\end{theorem}
+
+\begin{theorem}
+    Suppose that $f(z)$ is analytic at $z_0$, $f(z_0) = w_0$, and that $f(z) -w_0$
+    has a zero of order $n$ at $z_0$. $\forall \epsilon > 0$ small enough, $\exists
+    \delta > 0$ such that for all $a$ with $\abs{a-w_0} < \delta$ the equation
+    $f(z) - a$ has exactly $n$ roots in the dist $\abs{z-z_0} < \epsilon$. 
+\end{theorem}
+
+\begin{corollary}
+    A nonconstant analytic function maps open sets onto open sets.
+\end{corollary}
+
+\begin{theorem}[Maximum Principle]
+    If $f(z)$ is analytic and nonconstant in a region $\Omega$, then its absolute
+    value $\abs{f(z)}$ has no maximum in $\Omega$.
+\end{theorem}
+
+\begin{theorem}
+    If $f(z)$ is defined and continuous on a closed bounded set $E$ and analytic
+    on the interior of $E$, then the maximum of $\abs{f(z)}$ on $E$ is attained
+    on the boundary of $E$.
+\end{theorem}

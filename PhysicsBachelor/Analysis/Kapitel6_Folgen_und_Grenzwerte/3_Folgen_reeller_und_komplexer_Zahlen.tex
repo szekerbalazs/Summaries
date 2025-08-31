@@ -1,0 +1,215 @@
+\subsection{Folgen reeller und komplexer Zahlen}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $D \subseteq \R$ eine Teilmenge, $f: D \rightarrow \C$ eine Funktion und
+    $x_0 \in D$. Die Funktion $f$ ist genau dann stetig bei $x_0$, wenn für jede
+    konvergente Folge $(y_n)_{n=0}^{\infty}$ in $D$ mit $\limes{n \rightarrow \infty}
+    y_n = x_0$ auch die Folge $(f(y_n))_{n=0}^{\infty}$ konvergiert und
+    $\limes{n \rightarrow \infty} f(y_n) = f(x_0)$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Grob gesagt ist der Inhalt dieses Satzes, dass eine Funktion $f: D \rightarrow \R$
+    genau dann stetig ist, wenn sie konvergente Folgen auf konvergenten Folgen abbildet,
+    mit dem richtigen Grenzwert. Dies bezeichnet man auch als \fat{Folgenstetigkeit}.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{ (Rechenregeln)
+
+    Seien $(x_n)_{n=0}^{\infty}$ und $(y_n)_{n=0}^{\infty}$ konvergente Folgen, dann gilt:
+    \begin{align*}
+        (x_n)_{n=0}^{\infty} + (y_n)_{n=0}^{\infty} &= (x_n + y_n)_{n=0}^{\infty}
+        \\
+        \alpha \cdot (x_n)_{n=0}^{\infty} &= (\alpha x_n)_{n=0}^{\infty} \ \forall \alpha \in \C
+        \\
+        \limesninf (x_n + y_n) &= \limesninf x_n + \limesninf y_n
+        \\
+        \limesninf (x_n y_n) &= (\limesninf x_n) (\limesninf y_n)
+        \\
+        \limesninf (\alpha x_n) &= \alpha \limesninf x_n \ \forall \alpha \in \C
+        \\
+        \limesninf (x_n^{-1}) &= (\limesninf x_n)^{-1}
+    \end{align*}
+    Bei letzterem ist wichtig: $x_n \neq = 0 \ \forall n \in \N$ und $\limesninf x_n \neq 0$.
+    Ausserdem konvergieren alle obigen Folgen. Insbersondere bildet die Menge der konvergenten
+    Folgen in $\R^{\N}$ einen Unterraum und Bildung des Grenzwertes ist eine lineare Abbildung
+    von diesem Unterraum nach $\R$
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $(x_n)_{n=0}^{\infty}$ und $(y_n)_{n=0}^{\infty}$ Folgen reeller Zahlen mit Grenzwerten
+    $A = \limesninf x_n$ und $B = \limesninf y_n$.
+
+    1. Falls $A < B$, dann existiert ein $N \in \N$, so dass $x_n < y_n$ für alle $n \geq N$.
+
+    2. Falls $x_n \leq y_n$ für alle $n \in \N$, dann gilt $A \leq B$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{ (Sandwich)
+
+    Es seien $\xFolge$, $\yFolge$ und $\zFolge$ Folgen reeller Zahlen, so dass für ein
+    \NinN \ die Ungleichung $\x_n \leq \y_n \leq z_n$ für alle $n \geq N$ gelten. Angenommen
+    $\xFolge$ und $\zFolge$ sind konvergent und haben den selben Grenzwert. Dann ist auch
+    die Folge $\yFolge$ konvergent und es gilt:
+    \begin{align*}
+        \limesninf x_n = \limesninf y_n = \limesninf z_n
+    \end{align*}
+}
+
+\pagebreak
+
+\Bemerkung{
+    
+    Beschränkte Folgen reeller Zahlen besitzen immer mindestens einen Häufungspunkt,
+    oder äquivalent dazu, konvergierende Teilfolgen. Ausserdem sind monotone und Beschränkte
+    Folgen stets konvergent.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Eine monotone Folge reeller Zahlen $\xFolge$ konvergiert genau dann, wenn sie
+    beschränkt ist. Falls die Folge $\xFolge$ monoton wachsend ist, so gilt
+    \begin{align*}
+        \limesninf x_n = \supremum \geschwungeneklammer{x_n \ | \ n \in \N}
+    \end{align*}
+    und falls die Folge $\xFolge$ monoton fallend ist, so gilt entsprechend
+    \begin{align*}
+        \limesninf x_n = \infimum \geschwungeneklammer{x_n \ | \ n \in \N}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Folge $\xFolge$ in $\R$ heisst \fat{monoton steigend}, falls $x_n \leq x_m$ für alle
+    $n \leq m \ \in \N$. Analoge Definition ür streng monoton steigend.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Jede monotone und beschränkte Folge konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\xFolge$ eine beschränkte Folge reeller Zahlen. Die reellen Zahlen definiert durch
+    \begin{align*}
+        \limsupninf x_n = \limesninf \klammer{\supremum \geschwungeneklammer{x_k \ | \ k \geq n}}
+        \quad \text{  und  } \quad
+        \liminfninf x_n = \limesninf \klammer{\infimum \geschwungeneklammer{x_k \ | \ k \geq n}}
+    \end{align*}
+    heissen \fat{Limes superior}, respektive \fat{Limes inferior} der Folge $\xFolge$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Der Limes Superior $A = \limsup_{ \rightarrow \infty} x_n$ einer beschränkten Folge reeller
+    Zahlen $\xFolge$ erfüllt folgende Eigenschaften: Für alle $\epsilon > 0$ gibt es nur endlich
+    viele Folgenglieder $x_n$ mit $x_n > A + \epsilon$, und unendlich viele Folgenglieder
+    $x_n$ mit $x_n > A - \epsilon$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Jede beschränkte Folge reeller Zahlen hat einen Häufungspunkt, und besitzt konvergente
+    Teilfolgen.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Jede beschränkte Teilfolge in $\R$ besitzt einen Häufungspunkt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Eine beschränkte Folge $\xFolge$ in $\R$ konvergiert genau dann, wenn folgendes gilt:
+    \begin{align*}
+        \limsupninf x_n = \liminfninf x_n
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Jede Cauchy-Folge konvergiert in $\R$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Uneigentliche Grenzwerte)
+
+    Sei $xFolge$ eine Folge reeller Zahlen. Wir sagen $\xFolge$ \fat{divergiert gegen $+\infty$},
+    und wir schreiben
+    \begin{align*}
+        \limesninf x_n = + \infty
+    \end{align*}
+    falls für jede reelle Zahl $R > 0$ ein \ninN existert, so, dass $x_n > R$ für alle
+    $n \geq N$ gilt. Genauso sagen wir, dass $\xFolge$ \fat{gegen $-\infty$ divergiert},
+    falls für jede reelle Zahl $R < 0$ ein \NinN existert, so, dass $x_n < R$ für alle
+    $n \geq N$ gilt. In beiden Fällen sprechen wir von \fat{uneigentlichen Grenzwerten}.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $\zFolge$ eine Folge in $\C$ mit $z_n = x_n + i y_n$. Also $x_n = \text{Re} (z_n)$,
+    $y_n = \text{Im} (z_n)$. Dann gelten folgende Äquivalenzen:
+    
+    (1) $\zFolge$ konvergiert gegebn $C = A + B i$ $\Leftrightarrow$ $\xFolge$ konvergiert gegen $A$ und $\yFolge$ konvergiert gegen $B$.
+
+    (2) $\zFolge$ ist beschränkt $\Leftrightarrow$ $\xFolge$ und $\yFolge$ sind beschränkt.
+
+    (3) $\zFolge$ ist Cauchy $\Leftrightarrow$ $\xFolge$ und $\yFolge$ sind Cauchy
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Jede Cauchy-Folge konvergiert in $\C$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Jede Cauchy-Folge in $\C$ konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    $\R$ und $\C$ sind vollständige metrische Räume.
+}
+

@@ -1,0 +1,125 @@
+\section{Maxwellgleichungen und elektromagnetische Wellen}
+
+\vspace{1\baselineskip}
+
+\fat{Maxwellgleichungen}:
+\begin{enumerate}
+    \item $\vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilonnull}$ \quad (Gauss/Coulomb)
+    \item $\vec{\nabla} \cdot \vec{B} = 0$ \quad (Nicht-Existenz von magnetischen Monopolen)
+    \item $\vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}$ \quad (Faraday'sches Gesetz)
+    \item $\vec{\nabla} \times \vec{B} = \munull \vec{J} + \munull \epsilonnull \frac{\partial \vec{E}}{\partial t}$
+            \quad (Ampèr'sches Gesetz)
+    \item $\vec{\nabla} \cdot \vec{J} = - \frac{\approx \rho}{\partial t}$ \quad (Kontinuitätsgleichung)
+\end{enumerate}
+In Integralform:
+\begin{align*}
+    &\int_A \vec{E} d \vec{A} = \frac{q_{\text{innen}}}{\epsilonnull} \\
+    &\int_A \vec{B} d \vec{A} = 0 \\
+    &\oint_C \vec{E} d \vec{l} = - \frac{d}{dt} \int_A \vec{B} d \vec{A} \\
+    &\oint_C \vec{B} d \vec{l} = \munull I + \munull \epsilonnull \int \frac{\partial \vec{E}}{\partial t} d \vec{A}
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{Die \underline{homogene} Wellengleichung und deren Lösungen}:
+Im Vakuum: $\rho = 0$ und $\vec{J} = 0$ $\Rightarrow$ \fat{homogene Maxwellgleichungen}:
+\begin{enumerate}
+    \item $\vec{\nabla} \cdot \vec{E} = 0$
+    \item $\vec{\nabla} \cdot \vec{B} = 0$
+    \item $\vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}$
+    \item $\vec{\nabla} \times \vec{B} = \munull \epsilonnull \frac{\partial \vec{E}}{\partial t}$
+\end{enumerate}
+
+\pagebreak
+
+\fat{Elektromagnetische Wellen}:
+\begin{itemize}
+    \item Es gilt $\abs{\vec{E}} = c \cdot \abs{\vec{B}}$
+    \item Elektromagnetische Wellen breiten sich mit Lichtgeschwindigkeit $c =
+            \frac{1}{\sqrt{\epsilonnull \munull}}$ aus und das Licht ist eine elektromagnetische
+            Welle.
+    \item Das elektrische und magnetische stehen orthogonal zueinander und zur Ausbreitungsrichtung.
+            Insbesondere gilt: $\vec{E} = \vec{B} \times c \hat{k}$ oder $\vec{B} =
+            \frac{\vec{k}}{\omega} \times \vec{E}$ \ \ wobei $\hat{k}$ der Einheitsvektor in
+            der Ausbreitungsrichtung der Welle ist.
+\end{itemize}
+
+\vspace{1\baselineskip}
+
+Der \fat{Pointing-Fluss} ist $S = \frac{1}{\munull} \langle E B \rangle$ und allgemeiner ist
+der \fat{Pointing-Vektor} (Vektorielle Energieflussdichte):
+\begin{align*}
+    \vec{S} = \frac{1}{\munull} \vec{E} \times \vec{B}
+\end{align*}
+Der Betrag $\abs{\vec{S}}$ ist gerade die Intensität.
+
+\vspace{1\baselineskip}
+
+\fat{Pointing-Theorem}:
+
+Wenn $\vec{S}$ der Pointing-vektor ist und $u_{em}$ die Energiedichte, dann gilt:
+\begin{align*}
+    \frac{\partial(u_{mech} + u_{em})}{\partial t} + \vec{\nabla} \cdot \vec{S} = 0
+\end{align*}
+Im Vakuum gilt:
+\begin{align*}
+    \frac{\partial u_{em}}{\partial t} + \vec{\nabla} \cdot \vec{S} = 0
+\end{align*}
+
+\vspace{1\baselineskip}
+
+Elektromagnetische Wellen sind invariant unter beliebiger Lorentz-Transformation.
+
+\vspace{1\baselineskip}
+
+\fat{Wellengleichung für Potentiale}:
+\begin{align*}
+    \vec{B} = \vec{\nabla} \times \vec{A}
+    \quad \quad \text{  und  } \quad \quad
+    \vec{E} = - \frac{\partial \vec{A}}{\partial t} - \vec{\nabla} \phi
+\end{align*}
+mit $\phi$ dem elektrischen Potential.
+
+\vspace{1\baselineskip}
+
+\fat{Lorenz-Eichung}:
+\begin{align*}
+    \vec{\nabla} \cdot \vec{A} = - \epsilonnull \munull \frac{\partial \phi}{\partial t}
+    \quad \quad \Longrightarrow \quad \quad
+    \Delta \phi - \epsilonnull \munull \frac{\partial^2 \phi}{\partial t^2} = \frac{\rho}{\epsilonnull}
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{Wellengleichung für das Vektorpotential}
+\begin{align*}
+    \Delta \vec{A} - \epsilonnull \munull \frac{\partial^2 \vec{A}}{\partial t^2} = - \munull \vec{J}
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{D'Alembert Operator}:
+$\Box := \Delta - \epsilonnull \munull \frac{\partial^2}{\partial t^2}$
+
+\vspace{1\baselineskip}
+
+\fat{Retardierte Potentiale}
+\begin{align*}
+    \vec{A} (\vec{r},t) = \frac{\munull}{4 \pi} \int_{\R^3} \frac{\vec{J} (\vec{r'} , t- \nicefrac{\abs{\vec{r}-\vec{r'}}}{c}}{\abs{\vec{r}-\vec{r'}}} dV'
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{Der Hertz'sche Dipol}:
+\begin{itemize}
+    \item Der \fat{Dipolmoment} ist $\vec{P} = Q \cdot \vec{l}$ oder $p(t)=p_0 \sin(\omega t)$ mit:
+    \item Variierende Ladung: $Q(t) = Q_0 \sin(\omega t)$
+    \item Strom $I(t) = I_0 \cos(\omega t)$ wobei $I_0 = \omega Q_0 = \frac{\omega p_0}{l}$
+
+    \pagebreak
+
+    \item \fat{Momentaner Energietransport} durch \underline{Kugelschale A}:
+            \begin{align*}
+                P = \int_A \frac{1}{\munull} (\vec{E} \times \vec{B}) \cdot d \vec{a}
+            \end{align*}
+\end{itemize}

@@ -1,0 +1,222 @@
+\section{Orthogonale und unitäre Endomorphismen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein euklidischer bzw. unitärer VR und $F$ ein Endomorphismus von $F$. Dann heisst
+    $F$ \fat{Orthogonal} bzw. \fat{unitär}, wenn
+    \begin{align*}
+        \scalprod{F(v)}{F(w)} = \scalprod{v}{w} \ \forall v,w \in V
+    \end{align*}
+}
+
+\Bemerkung{
+
+    Ein orthogonales bzw. unitäres $F \in \End (V)$ hat folgende weitere Eigenschaften
+    \begin{enumerate} [{a)}]
+        \item $\Norm{F(v)} = \Norm{v} \ \forall v \in V$
+        \item $v \perp w \Rightarrow F(v) \perp F(w)$
+        \item $F$ ist Isomorphismus und $F^{-1}$ ist orthogonal bzw. unitär.
+        \item Ist $\lambda \in \K$ Eigenwert von $F$, so ist $\abs{\lambda} = 1$
+        \item Sei $G \in \End (V)$ auch orthogonal/unitär, dann ist $F \circ G$ wieder orthogonal/unitär.
+    \end{enumerate}
+}
+
+\Lemma{
+
+    Ist $F \in \End (V)$ mit $\Norm{F(v)} = \Norm{v} \ \forall v \in V$, so ist $F$
+    orthogonal bzw. unitär. 
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Matrix $A \in \GL (n:\R)$ heisst \fat{orthogonal}, falls $A^{-1} = A^T$ und
+    entsprechend heisst $A \in \GL (n;\C)$ \fat{unitär}, wenn $A^{-1} = \overline{(A^T)} = A^{\dagger}$.
+    Es gilt, $\abs{\det A}^2 = 1 \Rightarrow \det A = \pm 1$. Man nennt $A$ \fat{eigentlich
+    orthogonal}, wenn $\det A = +1$. Das heisst, $A$ ist orientierungstreu. Es gibt drei Gruppen
+    von orthogonalen Matrizen
+    \begin{enumerate}
+        \item \fat{(orthogonale Gruppe)}
+        
+                $O(n) := \geschwungeneklammer{A \in \GL (n;\R) : \ A^{-1} = A^T}$
+        \item \fat{(spezielle orthogonale Gruppe)}
+        
+                $SO(n) := \geschwungeneklammer{A \in O(n): \ \det A = 1}$
+        \item \fat{(unitäre Gruppe)} 
+        
+            $U(n) := \geschwungeneklammer{A \in \GL (n; \C) : \ A^{-1} = \overline{(A^T)}}$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für $A \in M(n \times n ; \K)$ sind folgende Bedingungen äquivalent:
+    \begin{enumerate}[{i)}]
+        \item $A$ ist orthogonal bzw. unitär
+        \item Die Spalten von $A$ sind eine Orthogonalbasis von $\K^n$.
+        \item Die Zeilen von $A$ sind eine Orthogonalbasis von $\K^n$.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $V$ ein euklidischer, bzw unitärer VR mit einer Orthogonalbasis $\mathcal{B}$ und $F$
+    ein Endomorphismus von $V$. Dann gilt:
+    $F$ orthogonal (bzw. unitär) $\Leftrightarrow$ $M_{\mathcal{B}} (F)$ orthogonal (bzw. unitär)
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Ist $A \in O(2)$, so gibt es ein $\alpha \in [0,2\pi[$, so dass
+    \begin{align*}
+        A = \begin{pmatrix}
+            \cos (\alpha) & - \sin (\alpha) \\
+            \sin (\alpha) & \cos (\alpha)
+        \end{pmatrix}
+        \quad \text{  oder  } \quad
+        A = \begin{pmatrix}
+            \cos (\alpha) & \sin (\alpha) \\
+            \sin (\alpha) & - \cos (\alpha)
+        \end{pmatrix}
+    \end{align*}
+    Im ersten Fall ist $A \in SO(2)$, die Abbildung ist eine \fat{Drehung}. Im zweiten
+    Fall ist $\det A = -1$, die Abbildung ist eine \fat{Spiegelung}.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $\det A = +1$, so gibt es nur im Fall $\alpha = 0$ oder $\alpha = \pi$ Eigenwerte,
+    nämlich $+1$ bzw. $-1$ mit jeweils Vielfachheit $2$. Ist $\det A = -1$, so gibt es
+    Eigenwerte $+1$ und $-1$ und die zugehörigen Eigenvektore stehen senkrecht aufeinander.
+}
+
+\Bemerkung{
+
+    Sie $F: \R^3 \rightarrow \R^3$ orthogonal. Dan hat $P_F$ Grad $3$ und insbesondere eine
+    reelle NST, also hat $F$ einen reellen Eigenwert $\lambda = \pm 1$. Sei $w_1$ ein
+    Eigenvektor dazu (o.B.d.A $\Norm{w_1} = 1$). Nun können wir ihn zu einer Orthogonalbasis
+    $(w_1 , w_2 , w_3)$ ergänzen. Bezeichnet $W \subset \R^3$ die von $w_2$ und $w_3$
+    aufgespannte Ebene, so folgt, dass $F(W) = W$ Also ist
+    \begin{align*}
+        M_{\mathcal{B}} (F) = \begin{pmatrix}
+            \lambda_1 & 0 & 0 \\
+            0 & A' & \\
+            0 & & 
+        \end{pmatrix} =: A
+    \end{align*}
+    mit $A' \in SO(2)$. Weiter ist $\det A = \lambda_1 \cdot \det A'$. Nun gibt es eine
+    Fallunterscheidung: Sei $\det F = \det A = +1$.
+    \begin{enumerate}
+        \item Ist $\lambda_1 = -1$, so muss $\det A' = -1$ sein. Daher kann man $w_2$ und $w_3$
+                als Eigenvektoren zu den Eigenwerten $\lambda_2 = +1$ und $\lambda_3 = -1$
+                wählen, dh.
+                \begin{align*}
+                    A = \begin{pmatrix}
+                        -1 & 0 & 0 \\
+                        0 & 1 & 0 \\
+                        0 & 0 & -1
+                    \end{pmatrix}
+                \end{align*}
+        \item Ist $\lambda_1 = +1$, so muss auch $\det A' = +1$ sein, also gibt es ein
+                $\alpha \in [0,2 \pi[$, so dass
+                \begin{align*}
+                    A = \begin{pmatrix}
+                        1 & 0 & 0 \\
+                        0 & \cos (\alpha) & - \sin (\alpha) \\
+                        0 & \sin (\alpha) & \cos (\alpha)
+                    \end{pmatrix}
+                \end{align*}
+    \end{enumerate}
+    Ist $\det F = -1$, so gibt es bei geeigneter Wahl von $w_2$ und $w_3$ für $A$ die
+    Möglichkeiten
+    \begin{align*}
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & -1
+        \end{pmatrix}
+        \quad \text{  und  } \quad
+        \begin{pmatrix}
+            -1 & 0 & 0 \\
+            0 & \cos (\alpha) & - \sin (\alpha) \\
+            0 & \sin (\alpha) & \cos (\alpha)
+        \end{pmatrix}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Jeder unitäre Endomorphismen $F$ eines unitären VR besitzt eine Orthogonalbasis aus
+    Eigenvektoren von $F$. Insbesondere ist er diagonalisierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zu $A \in U(n)$ gibt es ein $S \in U(n)$ mit
+    \begin{align*}
+        \overline{(S^T)} \cdot A \cdot S = \begin{pmatrix}
+            \lambda_1 & & 0 \\
+            & \ddots & \\
+            0 & & \lambda_n
+        \end{pmatrix}
+    \end{align*}
+    wobei $\lambda_i \in \C$ mit $\abs{\lambda_i} = 1 \ \forall i = 1,\dots,n$.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Ist $F$ ein orthogonaler Endomorphismus eines euklidischen VR $V$, so gibt es in $V$
+    eine Orthogonalbasis $\mathcal{B}$ derart, dass für $j=1,\dots,k$:
+    \begin{align*}
+        M_{\mathcal{B}} (F) = \begin{pmatrix}
+            +1 & & & & & & & & \\
+            & \ddots & & & & & & & \\
+            & & +1 & & & & 0 & & \\
+            & & & -1 & & & & & \\
+            & & & & \ddots & & & & \\
+            & & & & & -1 & & & \\
+            & & 0 & & & & A_1 & & \\
+            & & & & & & & \ddots & \\
+            & & & & & & & & A_k 
+        \end{pmatrix}
+    \end{align*}
+    mit
+    \begin{align*}
+        A_j = \begin{pmatrix}
+            \cos (\vartheta_j) & - \sin (\vartheta_j) \\
+            \sin (\vartheta_j) & \cos (\vartheta_j)
+        \end{pmatrix}
+        \in SO(2)       
+    \end{align*}
+    mit $\vartheta_j \in [0,2 \pi[$ aber $ \vartheta_j \neq 0 , \pi$
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Zu einem orthogonalen Endomorphismus $F$ eines euklidischen VR $V$ mit $\dim V \geq 1$
+    gibt es stets einen UVR $W \subset V$ mit
+    \begin{align*}
+        F(W) \subset W
+        \quad \text{  und  } \quad
+        1 \leq \dim W \leq 2
+    \end{align*}
+}

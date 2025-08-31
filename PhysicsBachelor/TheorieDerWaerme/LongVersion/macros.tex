@@ -1,0 +1,224 @@
+% ==== General Commands ====
+
+\newcommand{\sframebox}[1]{
+        \framebox[500pt][l]{\parbox{490pt}{
+            #1
+        }
+    }
+
+}
+
+\newcommand{\cframebox}[2]{
+        \fbox{\parbox{#1pt}{
+            #2
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+% ====== Maths ======
+
+
+% ==== Formats ====
+\newcommand{\boldline}[1]{\textbf{\underline{#1}}}
+\newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand{\lowroman}[1]{\romannumeral#1\relax}
+\newcommand{\fat}[1]{\textbf{#1}}
+\newcommand{\Loesung}{\begin{center}\textbf{Lösung}\end{center}}
+
+\newcommand{\Korollar}[1]{\textbf{Korollar} \vspace{1\baselineskip} #1}
+\newcommand{\Beispiel}[1]{\textbf{Beispiel} \vspace{1\baselineskip} #1}
+\newcommand{\Beweis}[1]{\textbf{Beweis} \vspace{1\baselineskip} #1}
+\newcommand{\Proposition}[1]{\textbf{Proposition} \vspace{1\baselineskip} #1}
+\newcommand{\Satz}[1]{\textbf{Satz} \vspace{1\baselineskip} #1}
+\newcommand{\Definition}[1]{\textbf{Definition} \vspace{1\baselineskip} #1}
+\newcommand{\Lemma}[1]{\textbf{Lemma}\vspace{1\baselineskip} #1}
+\newcommand{\Bemerkung}[1]{\textbf{Bemerkung} \vspace{1\baselineskip} #1}
+\newcommand{\Theorem}[1]{\textbf{Theorem} \vspace{1\baselineskip} #1}
+
+
+
+
+% ==== mathsymbols ====
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\eS}{\mathbb{S}}
+\newcommand{\X}{$X$ }
+\newcommand{\Y}{$Y$ }
+\newcommand{\x}{$x$ }
+\newcommand{\y}{$y$ }
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
+\renewcommand{\S}{\mathcal{S}}
+\renewcommand{\P}{\mathcal{P}}
+
+
+
+% ==== math operators ====
+\newcommand{\klammer}[1]{\left( #1 \right)} 
+\newcommand{\eckigeklammer}[1]{\left[ #1 \right]}
+\newcommand{\geschwungeneklammer}[1]{\left\{ #1 \right\}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\scalprod}[2]{\left\langle #1 , #2 \right\rangle}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert} 
+\newcommand{\Norm}[1]{\left\vert\left\vert #1 \right\vert\right\vert}
+\newcommand{\intab}{\int_a^b}
+\newcommand{\intii}{\int_{-\infty}^\infty} 
+\newcommand{\cint}[2]{\int_{#1}^{#2}}
+\newcommand{\csum}[2]{\sum_{#1}^{#2}}
+\newcommand{\limes}[1]{\lim\limits_{#1}}
+\newcommand{\limessup}[1]{\limsup\limits_{#1}}
+\newcommand{\limesinf}[1]{\liminf\limits_{#1}}
+\newcommand{\limesninf}{\limes{n \rightarrow \infty}}
+\newcommand{\limsupninf}{\limessup{n \rightarrow \infty}}
+\newcommand{\liminfninf}{\limesinf{n \rightarrow \infty}}
+\newcommand{\standardNorm}{\Norm{ \ \cdot \ }}
+\newcommand{\einsNorm}{\Norm{ \ \cdot \ }_1}
+\newcommand{\zweiNorm}{\Norm{ \ \cdot \ }_2}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Mat}{\text{Mat}}
+\newcommand{\grad}{\text{grad}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\supp}{\text{supp}}
+\newcommand{\rot}{\text{rot}}
+\renewcommand{\div}{\text{div}}
+
+
+
+% ==== Analysis ====
+\newcommand{\supremum}{\text{sup}}
+\newcommand{\infimum}{\text{inf}}
+\newcommand{\maximum}{\text{max}}
+\newcommand{\minimum}{\text{min}}
+
+\newcommand{\xinX}{$x \in X$ }
+\newcommand{\yinY}{$y \in Y$ }
+\newcommand{\xyinX}{$x,y \in X$ }
+\newcommand{\yinX}{$y \in X$ }
+\newcommand{\xinR}{$x \in \R$ }
+\newcommand{\xyinR}{$x,y \in \R$ }
+\newcommand{\zinC}{$z \in \C$ }
+\newcommand{\ninN}{$n \in \N$ }
+\newcommand{\NinN}{$N \in \N$}
+\newcommand{\angeordneterK}{$(K,\leq)$ }
+\newcommand{\xFolge}{(x_n)_{n=0}^{\infty}}
+\newcommand{\yFolge}{(y_n)_{n=0}^{\infty}}
+\newcommand{\zFolge}{(z_n)_{n=0}^{\infty}}
+\newcommand{\aFolge}{(a_n)_{n=0}^{\infty}}
+\newcommand{\fFolge}{(f_n)_{n=0}^{\infty}}
+
+\newcommand{\XsubR}{$X \subset \R$ }
+\newcommand{\XsubeqR}{$X \subseteq \R$ }
+
+\newcommand{\XFam}{\mathcal{X}}
+\newcommand{\PFam}{\mathcal{P}}
+
+\newcommand{\offenesintervall}[2]{$\left( #1 , #2 \right)$ }
+\newcommand{\abgeschlossenesintervall}[2]{$\left( #1 , #2 \right)$ }
+
+\newcommand{\XTopRaum}{(X,\tau)}
+
+
+% ==== Lineare Algebra ====
+\newcommand{\vinV}{$v \in V$ }
+\newcommand{\uinU}{$u \in U$ }
+\newcommand{\winW}{$w \in W$ }
+\newcommand{\vwinV}{$v,w \in V$ }
+
+\newcommand{\BasisV}{v_1 , \dots , v_n}
+\newcommand{\BasisU}{u_1 , \dots , u_n}
+\newcommand{\BasisW}{w_1 , \dots , w_n}
+
+\newcommand{\transpose}[1]{#1^t}
+\newcommand{\inverse}[1]{#1^{-1}}
+\newcommand{\ddvec}[3]{\left( #1,#2,#3 \right)}
+\newcommand{\tdvec}[2]{\left( #1 , #2 \right)}
+
+\newcommand{\Edrei}{\begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{pmatrix}}
+
+\newcommand{\id}{\text{id}}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\End}{\text{End}}
+\renewcommand{\Im}{\text{Im}}
+\renewcommand{\Re}{\text{Re}}
+\renewcommand{\ker}{\text{Ker}}
+\newcommand{\rang}{\text{rang}}
+\newcommand{\ad}{\text{ad}}
+\newcommand{\Eig}{\text{Eig}}
+\newcommand{\Bil}{\text{Bil}}
+\newcommand{\sign}{\text{sign}}
+\newcommand{\tr}{\text{tr}}
+
+
+
+% ====== Physics ======
+
+% ==== Physicssymbols ====
+\newcommand{\epsilonnull}{\epsilon_0}
+\newcommand{\munull}{\mu_0}
+\newcommand{\rn}{r_0}
+\newcommand{\Rn}{R_0}
+\newcommand{\rhonull}{\rho_0}
+\newcommand{\Rhonull}{\varrho_0}
+
+
+% ==== Notation ====
+\newcommand{\Etot}{E_{\text{Tot}}}
+\newcommand{\Wtot}{W_{\text{Tot}}}
+\newcommand{\Ftot}{F_{\text{Tot}}}
+\newcommand{\vtot}{v_{\text{Tot}}}
+\newcommand{\atot}{a_{\text{Tot}}}
+\newcommand{\mtot}{m_{\text{Tot}}}
+\newcommand{\Mtot}{M_{\text{Tot}}}
+
+\newcommand{\Ekin}{E_{\text{Kin}}}
+\newcommand{\Epot}{E_{\text{Pot}}}
+\newcommand{\Edef}{E_{\text{Def}}}
+
+\newcommand{\Fg}{F_g}
+\newcommand{\FN}{F_N}
+\newcommand{\Fz}{F_z}
+\newcommand{\FC}{F_C}
+
+\newcommand{\xn}{x_0}
+\newcommand{\xN}{x_n}
+\newcommand{\vn}{v_0}
+\newcommand{\vN}{v_n}
+\newcommand{\an}{a_0}
+\newcommand{\aN}{a_n}
+
+\newcommand{\dt}{\Delta t}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dv}{\Delta v}
+\newcommand{\da}{\Delta a}
+\newcommand{\dE}{\Delta E}
+\newcommand{\dW}{\Delta W}
+\newcommand{\dF}{\Delta F}
+
+
+% ==== Relativity ====
+\newcommand{\relsqrt}{\sqrt{1-\frac{v^2}{c^2}}}
+\newcommand{\relgamma}{\frac{1}{\relsqrt}}
+
+
+% ==== Constants ====
+\newcommand{\g}{9.81}
+
+
+

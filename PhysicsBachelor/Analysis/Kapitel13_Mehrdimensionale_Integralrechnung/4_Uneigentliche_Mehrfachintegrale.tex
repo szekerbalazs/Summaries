@@ -1,0 +1,124 @@
+\subsection{Uneigentliche Mehrfachintegrale}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $B \subseteq \R^n$. Eine \fat{Ausschöpfung} von $B$ ist eine Folge Jordan-messbarer
+    Teilmengen $(B_m)_{m=0}^{\infty}$ mit
+    \begin{align*}
+        B_0 \subseteq B_1 \subseteq B_2 \subseteq B_3 \subseteq \dots
+        \quad \quad \quad \text{     und     } \quad \quad \quad
+        B = \bigcup_{m=0}^{\infty} B_m
+    \end{align*}
+    und wir nennen $B$ \fat{ausschöpfbar}, falls solch eine Ausschöpfung existiert.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Jede offene Teilmenge $U \subseteq \R^n$ ist ausschöpfbar. Insbesondere gibt
+    es eine Ausschöpfung $(K_m)_{m=0}^{\infty}$ von $U$ durch kompakte
+    Jordan-messbare Teilmengen.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $B \subseteq \R^n$ ausschöpfbar, und sei $f: B \rightarrow \R$ eine Funktion.
+    Wir sagen, dass $f$ auf $B$ \fat{uneigentlich Riemann-integrierbar} ist, falls für
+    jede Ausschöpfung $(B_{m})_{m=0}^{\infty}$ von $B$ mit der Eigenschaft, dass für
+    alle $m \in \N$ die Einschränkung $f |_{B_m}$ Riemann-integrierbar ist, der
+    Grenzwert
+    \begin{align*}
+        \int_B f dx := \limes{m \rightarrow \infty} \int_{B_m} f dx
+    \end{align*}
+    existeirt und von der Wahl solch einer Ausschöpfung unabhängig ist. Diesen
+    Grenzwert nennen wir in dem Fall das \fat{uneigentliche Integral} von $f$
+    über $B$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $B \subseteq \R^n$ eine Jordan-messbare Teilmenge, sei $(B_m)_{m=0^{\infty}}$
+    eine Ausschöpfung von $B$ und sei $f: B \rightarrow \R$ eine Riemann-integrierbare
+    Funktion. Dann gelten
+    \begin{enumerate}[{1)}]
+        \item $\vol (B) = \limes{m \rightarrow \infty} vol(B_m)$
+        \item $\int_B f dx = \limes{m \rightarrow \infty} \int_{B_m} f dx$
+    \end{enumerate}
+    Insbesondere ist $f$ über $B$ uneigentlich Riemann-integrierbar, und das
+    uneigentliche Riemann-Integral ist das gewöhnliche Riemann-Integral.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $B \subseteq \R^n$ eine Teilmenge, sei $f:B \rightarrow \R_{\geq 0}$ eine
+    Funktion und sei $(B_m)_{m=0}^{\infty}$ eine Ausschöpfung von $B$ so dass $f |_{B_m}$
+    für jedes $m \in \N$ Riemann-integrierbar ist. Falls der Grenzwert
+    \begin{align*}
+        I = \limes{m \rightarrow \infty} \int_{B_m} f dx
+    \end{align*}
+    existiert, so ist $f$ uneigentlich Riemann-integrierbar und das uneigentliche
+    Riemann-Integral ist gleich $I$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $B$ ausschöpfbar und $f: B \rightarrow \R$ eine Funktion, so ist $f$ uneigentlich
+    Riemann-integrierbar, falls
+    \begin{align*}
+        f_+ = \max (f,0)
+        \quad \quad \text{   und   } \quad \quad
+        f_- = \max (-f,0)
+    \end{align*}
+    uneigentlich Riemann-integrierbar sind. Des weiteren gilt $f = f_+ - f_-$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Das uneigentliche Integral in mehreren Variablen ist nicht kompatibel mit dem
+    uneigentlichen Integral in einer Variablen.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Seien $X,Y \subseteq \R^n$ offene Teilmengen und sei $\Phi: X \rightarrow \Y$ ein
+    Diffeomorphismus. Sei $f: Y \rightarrow \R$ eine uneigentlich Riemann-integrierbare
+    Funktion. Dann ist die Funktion $(f \circ \Phi) \abs{\det (D \Phi)}$ uneigentlich
+    Riemann-integrierbar und es gilt
+    \begin{align*}
+        \int_Y f \ dx = \int_X (f \circ \Phi) \abs{\det(D \Phi)} \ dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Beispiel{ (Gauss'sche Glockenkurve)
+
+    Sei $f: \R \rightarrow \R$ eine Funktion gegeben durch $f(x) = \exp (-x^2)$.
+    Man nennt diese Funktion \fat{Dichtefunktion}.
+    Dann ist die Stammfunktion gegeben als
+    \begin{align*}
+        F(x) = \frac{1}{\sqrt{\pi}} \int_{-\infty}^{x} \exp (-t^2) dt
+    \end{align*}
+    Diese Funktion heisst \fat{Verteilungsfunktion} der Normalverteilung.
+    Wenn wir den Grenzwert des Integrals mit $x \rightarrow \infty$ berechnen
+    wollen, erhalten wir
+    \begin{align*}
+        I = \intii \exp (-t^2) dt = \sqrt{\pi}
+    \end{align*}
+    Am einfachsten berechnet man dies, indem man $I^2$ berechnet.
+}

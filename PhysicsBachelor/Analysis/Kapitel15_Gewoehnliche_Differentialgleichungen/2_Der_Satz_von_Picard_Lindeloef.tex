@@ -1,0 +1,152 @@
+\subsection{Der Satz von Picard-Lindelöf}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $d \geq 1$, $U \subseteq \R \times \R^d$ offen, $(t_0,x_0) \in U$ und
+    $F:U \rightarrow \R^d$ stetig. Angenommen $F$ ist "lokal Lipschitz-stetig im Ort",
+    das heisst, für alle $(t_1,x_1) \in U$ existieren $\epsilon>0$ und $L \geq 0$,
+    so dass für alle $(t,x_2),(t,x_3) \in B((t_1,x_1),\epsilon) \cap U$ die
+    Abschätzung
+    \begin{align*}
+        \Norm{F(t,x_2) - F(t,x_3)} \leq L \Norm{x_2 - x_3}
+    \end{align*}
+    gilt. Dann existert ein (nicht unbedingt beschränktes) Intervall $I = I_{max}
+    = (a,b) \subseteq \R$ mit $t_0 \in I$ und eine differenzierbare Funktion
+    $u: I \rightarrow \R^d$ mit folgenden Eigenschaften:
+    \begin{enumerate}
+        \item Es gilt $(t,u(t)) \in U$ für alle $t \in I$, und $u$ ist eine Lösung
+                des Anfangswertproblems
+                \begin{align*}
+                    \begin{cases}
+                        u'(t) = F(t,u(t)) \quad \text{   für alle } t \in I \\
+                        u(t_0) = x_0
+                    \end{cases}
+                \end{align*}
+        \item Für jede weitere Lösung $v:J \rightarrow \R^d$ desselben Anfangswertproblems
+                definiert auf einm offen Intervall $J$ mit $t_0 \in J$ gilt
+                $J \subseteq I$ und $u |_J = v$.
+        \item Die Grenzwerte $\limes{t \rightarrow a} (t,u(t))$ und
+                $\limes{t \rightarrow b} (t,u(t))$ existieren nicht in $U$.
+    \end{enumerate}
+}
+
+\Bemerkung{
+
+    Die Hypothesen sind erfüllt, wenn $F$ von Klasse $C^1$ ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Informell besagt der Satz von Picard-Lindelöf, dass jedes Anfangswertproblem
+    für ein im Ort lokal Lipschitz-stetiges Vektorfeld eine eindeutige Lösung hat.
+}
+
+\pagebreak
+
+\Korollar{
+
+    Sie $d \geq 1$ und $a_0 , \dots , a_{d-1} \in C^{\circ} (D,\R)$ für $D \in \R$ offen,
+    $t_0 \in D$, $x_0 \in \R^d$. Dann existert ein maximales offenes Intervall
+    $I \subseteq \R$ mit $t_0 \in I$ zusammen mit $u:I \rightarrow \R^d$ eindeutig
+    bestimmt durch
+    \begin{align*}
+        &u^{(d)} + a_{d-1} u^{(d-1)} + \dots + a_1 u' + a_0 u = 0 \\
+        &\begin{pmatrix}
+            u(t_0) \\ u'(t_0) \\ \vdots \\ d^{(d-1)} (t_0)
+        \end{pmatrix}
+        = x_0
+    \end{align*}
+    Insbesondere gilt $\dim \ker(L) = d$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $r>0$, $t_0 \in \R$, $x_0 \in \R^d$ und sei
+    \begin{align*}
+        F: (t_0 - r , t_0 + r) \times B(x_0 , r) \rightarrow \R^d
+    \end{align*}
+    eine stetige Funktion. Angenommen es existieren Konstanten $C \geq 1$ und $L>0$
+    so dass
+    \begin{align*}
+        \Norm{F(t,x)} \leq C
+        \quad \quad \text{     und     } \quad \quad
+        \Norm{F(t,x_1) - F(t,x_2)} \leq L \Norm{x_1 - x_2}
+    \end{align*}
+    für alle $t \in (t_0 - r , t_0 + r)$ und $x,x_1,x_2 \in B(x_0 ,r)$ gilt.
+    Dann existiert für jedes $\delta>0$ mit $\delta< \min
+    \geschwungeneklammer{\frac{r}{2C} , \frac{r}{2L}}$ eine eindeutige differenzierbare
+    Funktion $u: [t_0 - \delta , t_0 + \delta] \rightarrow B(x_0 ,r)$ die folgendes
+    erfüllt:
+    \begin{align*}
+        \begin{cases}
+            &u(t_0) = x_0 \\
+            &u'(t) = F(t,u(t)) \quad \text{ für alle } t \in (t_0 - \delta , t_0 + \delta)
+        \end{cases}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $[a,b] \subseteq \R$ ein Intervall, $f,g: [a,b] \rightarrow \R$ stetige
+    Funktionen mit $f$ differenzierbar auf $(a,b)$ und $f'(t) = g(t) \ \forall t \in (a,b)$.
+    Dann ist $f$ bei $b$ linksseitig ableitbar und $f'(b) = g(b)$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Die Quasilineare Partielle Differentialgleichung in zwei Variablen)
+
+    Sei $u(x,y)$ eine Funktion in zwei Variablen mit
+    \begin{align*}
+        F \klammer{x,y,u,\frac{\partial u}{\partial x} , \frac{\partial u}{\partial y}}
+    \end{align*}
+    eine Funktion in $5$ Variablen und linear in den "letzten beiden. Seien
+    $a,b,c$ Funktionen in $3$ Variablen sodass die folgende Gleichung erfüllt ist
+    \begin{align*}
+        a(x,y,u) \cdot \frac{\partial u}{\partial x} + b(x,y,u) \cdot \frac{\partial u}{\partial y} = c(x,y,u)
+        \quad \Longleftrightarrow \quad
+        a(x,y,u) \cdot \frac{\partial u}{\partial x} + b(x,y,u) \cdot \frac{\partial u}{\partial y} - c(x,y,u) =0 
+    \end{align*}
+    Wir definieren eine Funktion $F$ in $3$ Variablen und einen Normalenvektor $n$
+    an dem Graphen von $u$ im Punkt $(x,y,z)$.
+    \begin{align*}
+        &F(x,y,z) = \begin{pmatrix}
+            a(x,y,z) \\ b(x,y,z) \\ c(x,y,z)
+        \end{pmatrix}
+        \\
+        &n(x,y,z) = \begin{pmatrix}
+            \frac{\partial u}{\partial x} \\ \frac{\partial u}{\partial y} \\ -1
+        \end{pmatrix}
+    \end{align*}
+    Es gilt $n(x,y,z) = \grad (u(x,y) - z)$. Damit vereinfacht sich die Differentialgleichung
+    zu
+    \begin{align*}
+        \scalprod{F(x,y,u)}{n(x,y,u)} = 0
+    \end{align*}
+    Der Graph von $u$ "fliesst" entlang dem Vektorfeld $F$, i.e.: Für alle $(x,y,z)$
+    mit $z = u(x,y)$ im Graphen von $u$ ist $F(x,y,z)$ tangential an den Graphen.
+}
+
+\pagebreak
+
+\Satz{ (Cauchy-Kovalevskaya)
+
+    Sei $F = \begin{pmatrix} a \\ b \\ c \end{pmatrix}$ ein Vektorfeld auf (einer
+    offenen Menge in) $\R^3$ mit $a(x,y,z) \neq 0$. Dann hat die Differentialgleichung
+    \begin{align*}
+        \begin{cases}
+            a \frac{\partial u}{\partial x} + b \frac{\partial u}{\partial y} = c \\
+            u(0,y) = f(y)
+        \end{cases}
+    \end{align*}
+    (mit $f$ gegeben von Klasse $C^1$) eine eindeutige Lösung für kleine $x$,
+    i.e. $\abs{x} < T(y)$.
+}

@@ -1,0 +1,119 @@
+\subsection{Fundamental Theorems}
+
+\begin{theorem}
+    If $f(z) = u(t) + i v(t)$ is a continuous function, defined on an interval $(a,b)$,
+    then we set
+    \begin{align*}
+        \int_a^b f(t) \ dt = \int_a^b u(t) \ dt + i \int_a^b v(t) \ dt
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    Let $\gamma$ be a piecewise differentiable arc with the equation $z = z(t)$
+    with $a \leq t \leq b$. If the function $f(z)$ is defined and continuous
+    on $\gamma$, then $f(z(t))$ is also continuous and we can set
+    \begin{align*}
+        \int_\gamma f(z) \ dz = \int_a^b f(z(t)) z'(t) \ dt
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    Let $-\gamma$ be the opposite arc of $\gamma$. That means, $-\gamma(z) = \gamma(-z)$.
+    However, for $-\gamma$, $t$ is in the interval $-b \leq t \leq -a$. Thus:
+    \begin{align*}
+        \int_{-\gamma} f(z) \ dz = - \int_\gamma f(z) \ dz
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If an arc $\gamma$ consists of many subarcs $\gamma_1,\dots,\gamma_n$, then
+    \begin{align*}
+        \int_\gamma f \ dz = \int_{\gamma_1 + \dots + \gamma_n} f \ dz
+        = \int_{\gamma_1} f \ dz + \dots + \int_{\gamma_n} f \ dz
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    \begin{align*}
+        \int_\gamma f \ \overline{dz} = \overline{\int_\gamma \overline{f} \ dz}
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If $f = u + i v$, then we can write
+    \begin{align*}
+        \int_\gamma f \ dz = \int_\gamma (u \ dx - v \ dy) + i \int_\gamma (u \ dy + v \ dx)
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If two arcs $\gamma_1$ and $\gamma_2$ have the same initial points and the same
+    end point, we require
+    \begin{align*}
+        \int_{\gamma_1} p \ dx + q \ dy = \int_{\gamma_2} p \ dx + q \ dy
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    The integral over any closed curve vanishes.
+\end{theorem}
+
+\begin{theorem}
+    The line integral $\int_\gamma p \ dx + q \ dy$, defined in $\Omega$, depends
+    only on the end points of $\gamma$ if and only if there exists a function
+    $U(x,y)$ in $\Omega$ with the partial derivatives $\frac{\partial U}{\partial x} = p$,
+    $\frac{\partial U}{\partial y} = q$.
+\end{theorem}
+
+\begin{definition}[Exact Differential]
+    An expression $p \ dx + q \ dy$ which can be written as
+    $d U = \frac{\partial U}{\partial x} \ dx + \frac{\partial U}{\partial y} \ dy$
+    is called an \fat{exact differential}.
+\end{definition}
+
+\begin{theorem}
+    An integral depends only on the end points if and only if the integrand is an exact
+    differential.
+\end{theorem}
+
+\begin{theorem}
+    A function $f$ is an exact differential if and only if there exists a function
+    $F$ in $\Omega$ such that
+    \begin{align*}
+        \frac{\partial F(z)}{\partial x} = f(z)
+        \ \ \ \
+        \frac{\partial F(z)}{\partial y} = i f(z)
+    \end{align*}
+    If this is true, $F$ fulfills the Cauchy-Riemann equations.
+\end{theorem}
+
+\begin{theorem}
+    The integral $\int_\gamma f \ dz$, with continuous $f$, depends only on the
+    end points of $\gamma$ if and only if $f$ is the derivative of an analytic
+    function in $\Omega$.
+\end{theorem}
+
+\begin{theorem}
+    If the function $f(z)$ is analytic on $R$, then
+    \begin{align*}
+        \int_{\partial R} f(z) \ dz = 0
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    Let $f(z)$ be analytic on the set $R'$ obtained from a rectangle $R$ by
+    omitting a finite number of interior points $\xi_j$. If it is true that
+    $\limes{z \rightarrow \xi_j} (z-\xi_j) f(z) = 0 \ \forall j$, then
+    \begin{align*}
+        \int_{\partial R} f(z) \ dz = 0
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Cauchy's Theorem on a disk]
+    If $f(z)$ is analytic in an open disk $\Delta = \geschwungeneklammer{z \in \C :
+    \abs{z - z_0} < r}$, then
+    \begin{align*}
+        \int_\gamma f(z) \ dz = 0
+    \end{align*}
+    for every closed curve $\gamma$ in $\Delta$.
+\end{theorem}

@@ -1,0 +1,137 @@
+\subsection{Potenzreihen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $K$ ein Körper. Eine \fat{Potenzreihe} mit Koeffizienten in $\K$ ist eine Folge
+    $\aFolge$ in $\K$, suggestiv geschrieben als Reihe
+    \begin{align*}
+        f(T) = \sum_{n=0}^{\infty} a_n T^n
+    \end{align*}
+    wobei $T$ als \fat{Variable} bezeichnet wird und $a_n \in \K$ als \fat{Koeffizient}.
+    Addition und Multiplikation sind wie folgt definiert.
+    \begin{align*}
+        \sum_{n=0}^{\infty} a_n T^n + \sum_{n=0}^{\infty} b_n T^n
+        &= \sum_{n=0} (a_n + b_n) T^n
+        \\
+        \klammer{\sum_{n=0}^{\infty} a_n T^n} \klammer{\sum_{n=0}^{\infty} b_n T^n}
+        &= \sum_{n=0}^{\infty} \klammer{\sum_{k=0}^{n} a_{n-k} b_k} T^n
+    \end{align*}
+    Wir schreiben $K$\textlbrackdbl$T$\textrbrackdbl \ für den dadurch entstehenden Ring
+    von Potenzreihen mit Koeffizienten in $\K$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f(T) = \sum_{n=0}^{\infty} a_n T^n \in \C $\textlbrackdbl$ T $\textrbrackdbl \
+    eine formale Potenzreihe mit komplexen Koeffizienten. Der \fat{Konverenzradius} von $f$
+    ist die Zahl $R \in \R_{\geq 0}$ oder das Symbol $R = \infty$, definiert duch
+    \begin{align*}
+        \rho = \limsupninf \sqrt[n]{\abs{a_n}}
+        \quad \quad \text{    und    } \quad \quad
+        R = \begin{cases}
+            0 \ \ \text{   falls } \rho = \infty
+            \\
+            \rho^{-1} \ \ \text{   falls } 0 < \rho < \infty
+            \\
+            \infty \ \ \text{   falls } \rho = 0
+        \end{cases}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $\sum_{n=0}^{\infty} a_n T^n \in \C$\textlbrackdbl$T$\textrbrackdbl eine Potenzreihe
+    mit positivem Konvergenzradius $R$, und sei $r$ eine positive reelle Zahl mit $r < R$.
+    Schreibe $D = \overline{B(0,r)}$ und $f_n : D \rightarrow \C$ für die Funktion gegeben
+    durch $f_n(z) = \sum_{k=0}^n a_n z^k$.
+
+    (1) Die Reihe $\sum_{n=0}^{\infty} a_n z^n$ konvergiert absolut für alle \zinC
+    mit $\abs{z} < R$, und divergiert für alle \zinC mit $\abs{z} > R$.
+
+    (2) Für $z \in B(0,R)$, setze $f(z) = \sum_{n=0}^{\infty} a_n z^n$. Die Folge von
+    Funktionen $\fFolge$ konvergiert gleichmässig gegen die Funktion $f|_D$ auf $D$.
+
+    Insbesondere definiert die Potenzreihe die stetige Abbildung $f: B(0,R) \rightarrow \C$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Seien $D \subseteq \R$, $f_n : D \rightarrow \R$ für alle $n=0,1,2,\dots$
+    (Anstatt $\R$ kann man auch $\C$ nehmen) und $f: D \rightarrow \R$.
+    Angenommen $f_n$ ist stetig für alle $n \geq 0$ und $\forall \epsilonnull \ \exists N \in \N$
+    mit $\Norm{f_n - f}_{\infty} < \epsilonnull \ \forall n \geq N$. (i.e.
+    $\limesninf f_n = f$ bezüglich der Norm $\standardNorm_{\infty}$)
+    Dann ist $f$ stetig.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $\sum_{n=0}^{\infty} a_n T^n$ eine Potenzreihe mit $a_n \neq 0$ für alle $n \in \N$.
+    Der Konvergenzradius $R$ ist gegeben durch
+    \begin{align*}
+        R = \limesninf \frac{a_n}{a_{n+1}}
+    \end{align*}
+    falls dieser Grenzwert existiert.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $R \geq 0$, und seien $f(T) = \sum_{n=0}^{\infty}$ und $g(T) = \sum_{n=0}^{\infty} b_n T^n$
+    Potenzreihen mit Kovergenzradius mindestens $R$. Dann haben die Summe $f(T) + g(T)$
+    und das Produkt $f(T) g(T)$ Konverenzradien mindestens $R$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $[a,b] \subseteq \R$ ein Intervall mit $a < b$. Sei $\fFolge$ eine Folge
+    stetiger Funktionen auf $[a,b]$ und $f: [a,b] \rightarrow \R$ stetig mit
+    $\limesninf f_n = f$ bezüglich $\standardNorm_{\infty}$. Dann gilt
+    \begin{align*}
+        \limesninf \intab f_n \ dx = \intab f \ dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Abel'scher Grenzwertsatz)
+
+    Sei $\sum_{n=0}^{\infty} a_n T^n \in \C$\textlbrackdbl$T$\textrbrackdbl eine Potenzreihe
+    mit positivem Konvergenzradius $R$, derart, dass die Reihe $\sum_{n=0}^{\infty} a_n R^n$
+    konvergiert. Dann gilt
+    \begin{align*}
+        \limes{\stackrel{t \rightarrow R}{t < R}} \sum_{n=0}^{\infty} a_n t^n = \sum_{n=0}^{\infty} a_n R^n
+    \end{align*}
+    Anders ausgedrückt: Dann ist die Funktion $f: (-R,R] \rightarrow \C$ gegeben durch
+    $f(t) = \sum_{n=0}^{\infty} a_n t^n$ ist stetig bei $R$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $f(T) = \sum_{n=0}^{\infty} a_n T^n \in \C$\textlbrackdbl$T$\textrbrackdbl eine
+    Potenzreihe mit Konverenzradius $R>0$. Dann hat die Potenzreihe
+    \begin{align*}
+        F(T) = \sum_{n=0}^{\infty} \frac{a_n}{n+1} T^{n+1}
+    \end{align*}
+    denselben Konverenzradius $R$, und es gilt
+    \begin{align*}
+        \intab f(x) dx = F(b) - F(a) \ \ \ \ \forall a,b \in (-R,R)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}

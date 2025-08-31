@@ -1,0 +1,43 @@
+\section{Das Vektorprodukt im $\R^3$}
+
+\Definition{
+
+    Wir definieren das \fat{Vektorprodukt} als eine Abbildung
+    \begin{align*}
+        &\R^3 \times \R^3 \rightarrow \R^3 \\
+        &(x,y) \mapsto x \times y := (x_2 y_x - x_3 y_2 , x_3 y_1 - x_1 y_3 , x_1 y_2 - x_2 y_1)
+    \end{align*}
+    mit
+
+    (1) $(x+x') \times y = x \times y + x' \times y$
+
+        \hspace{17pt} $x \times (y+y') = x \times y + x \times y'$
+
+        \hspace{17pt} $\lambda x \times y = \lambda (x \times y)$
+
+        \hspace{17pt} $x \times \lambda y = \lambda (x \times y)$
+        
+    (2) $y \times y = - y \times x$ also $x \times x = 0$
+
+    (3) $x \times y = 0 \Leftrightarrow x,y$ sind linear abhängig
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für $x,y,z \in \R^3$ gilt:
+    \begin{align*}
+        &\scalprod{x \times y}{z} = \det \begin{pmatrix}
+            x_1 & x_2 & x_3 \\
+            y_1 & y_2 & y_3 \\
+            z_1 & z_2 & z_3
+        \end{pmatrix}
+        \\
+        &\scalprod{x \times y}{x} = \scalprod{x \times y}{y} = 0
+        \\
+        &\Norm{x \times y}^2 = \Norm{x}^2 \Norm{y}^2 - \scalprod{x}{y}^2
+        \\
+        &\Norm{x \times y} = \Norm{x} \cdot \Norm{y} \cdot \sin \angle (x,y)
+    \end{align*}
+}

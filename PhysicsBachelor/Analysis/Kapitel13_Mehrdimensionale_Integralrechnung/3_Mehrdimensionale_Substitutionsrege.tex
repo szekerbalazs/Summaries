@@ -1,0 +1,127 @@
+\subsection{Mehrdimensionale Substitutionsregel}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $n \geq 1$ und $U \subseteq \R^n$ offen. Der \fat{Träger} oder \fat{Support}
+    einer Funktion $f:U \rightarrow \R$ ist die Menge
+    \begin{align*}
+        \supp (f) = \overline{\geschwungeneklammer{x \in U \ | \ f(x) \neq 0}} \subseteq U
+    \end{align*}
+    Achtung! Der Abschluss liegt in $U$. Im Allgemeinen ist dies nicht das selbe wie
+    der Abschluss davon in $\R^n$. Wir sagen, dass $f$ \fat{kompakten Träger} hat,
+    falls $\supp (f)$ eine kompakte Teilmenge von $U$ ist. Hat $f$ kompakten Träger,
+    so ist $\supp (f)$ beschränkt und damit ist $f(x) = 0$ für alle $x \in U \backslash Q$
+    für ein grosses Quader $Q$. Wir definieren weiter das Integral
+    \begin{align*}
+        \int_U f dx = \int_{Q \cap U} f |_{Q \cap U} dx
+    \end{align*}
+    als Integral über $f$ über einen Quader, der $\supp (f)$ enthält, falls es existiert,
+    und nennen in dem Fall $f$ Riemann-integrierbar. Dabei braucht $U$ nicht unbedingt
+    beschränkt oder Jordan-messbar zu sein.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Seien $X,Y \subseteq \R^n$ offene Teilmengen, sei $\Phi: X \rightarrow Y$ ein
+    $C^1$-Diffeomorphismus und sie $f: Y \rightarrow \R$ eine Riemann-integrierbare
+    Funktion mit kompaktem Träger. Dann ist die Funktion $\Phi^{*} f: X \rightarrow \R$
+    gegeben durch $(\Phi^{*} f)(x) = (f \circ \Phi(x)) \cdot \abs{\det (D \Phi (x))}$
+    Riemann-integrierbar, hat kompakten Träger, und es gilt
+    \begin{align*}
+        \int_Y f(y) dy = \int_X (f \circ \Phi (x)) \cdot \abs{\det (D \Phi (x))} dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $X$ und $Y$ offene Teilmengen von $\R^n$ und sei $\Phi: X \rightarrow Y$
+    ein Homeomorphismus. Sei $f:Y \rightarrow \R$ eine Funktion und schreibe
+    $g = f \circ \Phi$.
+    \begin{enumerate}
+        \item Ist $f$ Riemann-integrierbar, so ist auch $g$ Riemann-integrierbar.
+        \item Es gilt $\supp(g) = \Phi^{-1} (\supp (f))$.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $T: \R^n \rightarrow \R^n$ eine invertierbare lineare Abbildung die durch eine
+    obere Dreiecksmatrix gegeben ist, und sei $f: \R^n \rightarrow \R$ eine stetige
+    Funktion mit kompaktem Träger. Dann gilt
+    \begin{align*}
+        \int_{\R^n} f(x) dx = \abs{\det (T)} \int_{\R^n} f(T(x)) dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $L: \R^n \rightarrow \R^n$ eine invertierbare lineare Abbildung und
+    $f: \R^n \rightarrow \R$ eine Riemann-integrierbare Funktion. Dann ist
+    $f \circ L$ Riemann-integrierbar, und es gilt
+    \begin{align*}
+        \int_{\R^n} f(x) dx = \abs{\det (L)} \int_{\R^n} f(L(x)) dx
+    \end{align*}
+}
+
+\Korollar{
+
+    Sei $L: \R^n \rightarrow \R^n$ eine lineare Abbildung und $B \subseteq \R^n$ eine
+    Jordan-messbare Teilmenge. Dann ist $L(B)$ Jordan-messbar, und es gilt
+    $\vol(L(B)) = \abs{\det L} \vol (B)$.
+}
+
+\pagebreak
+
+\Korollar{
+
+    Sei $L \in \Mat_n (\R)$ mit Spalten $v_1 , \dots , v_n \in \R^n$. Dann ist das
+    \fat{Parallelotop}
+    \begin{align*}
+        P = L([0,1]^n) = \geschwungeneklammer{\sum_{i=1}^{n} s_i v_i \ | \ 0 \leq s_i \leq 1}
+    \end{align*}
+    Jordan-messbar und es gilt $\vol (P) = \abs{\det (L)} = \sqrt{\text{gram}(v_1 ,\dots, v_n)}$.
+    Hierbei ist gram die \fat{Gramsche Determinante}.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Seien $X \subseteq \R^n$ und $Y \subseteq \R^n$ offen, und sei $\Phi:X \rightarrow Y$
+    ein $C^1$-Diffeomorphismus. Sei $Q_0 \subseteq X$ ein achsenparalleler abgeschlossener
+    Würfel mit Kantenlänge $2r>0$ und Mittelpunkt $x_0 \in X$. Wir setzen
+    $y_0 = \Phi(x_0)$, $L = D \Phi (x_0)$ und
+    \begin{align*}
+        \sigma = \max \geschwungeneklammer{\Norm{D \Phi (x) - L}_{\text{op}} \ | \ x \in Q_0}
+    \end{align*}
+    Für jede reelle Zahl $s$ mit $\sigma \Norm{L^{-1}}_{\text{op}} \sqrt{n} \leq s < 1$
+    gilt
+    \begin{align*}
+        y_0 + (1-s)L(Q_0 - x_0) \subseteq \Phi (Q_0) \subseteq y_0 + (1+s)L(Q_0-x_0)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Seien $X,Y \subseteq \R^n$ offen, sei $\Phi:X \rightarrow Y$ ein $C^1$-Diffeomorphismus
+    und sei $K_0 \subseteq X$ eine kompakte Teilmenge. Dann existiert für jedes
+    $\epsilon \in (0,1)$ ein $\delta > 0$ mit folgender Eigenschaft. Für jeden Würfel
+    $Q_0$ mit Mittelpunkt $x_0$, Kantenlänge kleiner als $\delta$ und $Q_0 \cap K_0
+    \neq \emptyset$ gilt
+    \begin{align*}
+        \frac{\vol (\Phi (Q_0))}{1 + \epsilon} \leq \abs{\det D \Phi (x_0)} \vol (Q_0)
+        \leq \frac{\vol (\Phi (Q_0))}{1- \epsilon}
+    \end{align*}
+}

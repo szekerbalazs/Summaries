@@ -1,0 +1,428 @@
+\section{Die Drehgruppe und die Lorentzgruppe}
+
+\subsection{Isometrien des Euklidischen Raums}
+
+\begin{definition}[Euklidischer Raum]
+    Der Euklidische Raum ist der VR $\R^3$ versehen mit dem Skalarprodukt
+    $x \cdot y = x_1 y_1 + x_2 y_2 + x_3 y_3$.
+\end{definition}
+
+\begin{definition}[Euklidischer Abstand]
+    Der Euklidische Abstand zwischen zwei Punkten $x$ und $y$ ist
+    $d(x,y) = \abs{x - y}$ wobei $\abs{x} = \sqrt{x \cdot x}$.
+\end{definition}
+
+\begin{definition}[Isometrie]
+    Eine Isometrie des Euklidischen Raums ist eine bijektive Abbildung
+    $f: \R^3 \rightarrow \R^3$, die Abstände erhält: $d(f(x),f(y)) = d(x,y)
+    \ \forall x,y$. Insbesondere sind Isometrien stetige Abbildungen.
+\end{definition}
+
+\begin{satz}
+    Sei $f$ eine Isometrie des Euklidischen Raums. Dann ist $f$ von der Form
+    $f(x) = R x + a$ wobei $R \in O(3)$ und $a \in \R^3$. Dies gilt in
+    beliebigen Dimensionen.
+\end{satz}
+
+\subsection{Die Drehgruppe $SO(3)$}
+
+Die Spiegelung $P: x \mapsto - x$ ($P = - \mathds{1}$) hat Determinante
+$-1$ und jede Matrix in $O(3)$ ist von der Form $R$ oder $P R = - R$ für
+$R \in SO(3)$. Da $P$ mit allen $O \in O(3)$ kommutiert, können wir
+identifizieren: $O(3) \cong SO(3) \times \Z_2$. Jede Matrix in $SO(3)$
+ist von der Form:
+\begin{align*}
+    O R_3 (\vartheta) O^{-1}
+    \hspace{10pt} , \hspace{10pt}
+    R_3 (\vartheta) = \begin{pmatrix}
+        \cos(\vartheta) & - \sin(\vartheta) & 0 \\
+        \sin(\vartheta) & \cos(\vartheta) & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    O \in SO(3)
+\end{align*}
+Die Matrix $R_3 (\vartheta)$ entspricht einer Drehung um die Achse $e_3'
+= n = O e_3$ mit Winkel $\vartheta$. Der Drehwinkel $\vartheta$ wird im
+Gegenuhrzeigersinn gemessen. Die Matrix $R(n,\vartheta) = O R_3 (\vartheta)
+O^{-1}$ wird Drehung um $n$ mit Winkel $\vartheta$ genannt. Es gilt
+$R(-n,\vartheta) = R(n,2 \pi - \vartheta)$.
+
+\begin{lemma}
+    Sei $O \in SO(3)$ und $n = O e_3$. Dann ist
+    \begin{align*}
+        R(n,\vartheta) x &= O R_3 (\vartheta) O^{-1} x
+        \\
+        &= (x \cdot n) n + \eckigeklammer{x - (x \cdot n) n} \cos(\vartheta)
+            + n \wedge x \ \sin(\vartheta)
+    \end{align*}
+\end{lemma}
+
+\begin{lemma}
+    \begin{enumerate}[(i)]
+        \item $R(n,\vartheta) = R(-n,-\vartheta) = R(n,-\vartheta)^{-1}$
+        \item $R(n_1,\vartheta_1)R(n_2,\vartheta_2) = R(n_2',\vartheta_2) R(n_1,\vartheta_1)$,
+            wobei $n_2' = R(n_1,\vartheta_1) n_2$. 
+    \end{enumerate}
+\end{lemma}
+
+\subsection{Die Eulerwinkel}
+
+\begin{definition}
+    $R_j(\alpha) = R(e_j , \alpha)$
+\end{definition}
+
+\begin{satz}
+    $R_1(\vartheta)$ und $R_3(\vartheta)$ erzeugen die Gruppe $SO(3)$.
+\end{satz}
+
+\begin{satz}
+    Jedes $A \in SO(3)$ lässt sich schreiben als
+    \begin{align*}
+        A = R_3 (\varphi) R_1 (\vartheta) R_3 (\psi)
+    \end{align*}
+    mit $\varphi \in [0,2 \pi[ \ , \ \varphi \in [0,\pi] \ , \ \psi \in
+    [0,2 \pi[$. Die Winkel $\varphi,\vartheta,\psi$ heissen Eulerwinkel.
+    Es gilt: $\vartheta = \angle (e_3,e_3')$, $\varphi = \angle(e_1,e)$,
+    $\psi = \angle (e,e_1')$. Hierbei ist $e$ ein Einheitsvektor längs der
+    Geraden, welche durch Schneiden der durch $e_1$,$e_2$ aufgespannte Ebene
+    und der durch $e_1'$,$e_2'$ aufgespannten Ebene entsteht. Mit $e_i' =
+    A e_i$.
+\end{satz}
+
+\subsection{Der Homomorphismus $SU(2) \rightarrow SO(3)$}\label{Hom_SU2_SO3}
+
+Die Gruppe $SU(2)$ kann geometrisch als dreidimensionale Sphäre $S^3$ aufgefasst
+werden.
+
+\begin{lemma}
+    Jede Matrix $A \in SU(2)$ ist von der Form
+    \begin{align*}
+        A = \begin{pmatrix}
+            \alpha & \beta \\ - \overline{\beta} & \overline{\alpha}
+        \end{pmatrix}
+        \hspace{10pt} , \hspace{10pt}
+        \alpha,\beta \in \C
+        \hspace{10pt} , \hspace{10pt}
+        \abs{\alpha}^2 + \abs{\beta}^2 = 1
+    \end{align*}
+\end{lemma}
+
+\begin{definition}[$H_0$]
+    $H_0$ ist der reelle Vektorraum aller hermitischen spurfreien $2 \times 2$
+    Matrizen. Also:
+    \begin{align*}
+        H_0 = \geschwungeneklammer{
+            \begin{pmatrix}
+                z & x - i y \\ x + i y & -z
+            \end{pmatrix}
+            \ \Big| \ x,y,z \in \R
+        }
+    \end{align*}
+    Es ist $\dim(H_0) = 3$. Für $X,Y \in H_0$ definieren wir das Skalarprodukt
+    $(X,Y) = \frac{1}{2} \tr(XY)$. Für $A \in SU(2)$ definiere die lineare
+    Abbildung $\phi(A) : H_0 \rightarrow H_0$ durch
+    \begin{align*}
+        \phi(A) X = A X A^\ast = A X A^{-1}
+    \end{align*}
+    $\phi(A)X$ ist hermitesch und spurfrei.
+\end{definition}
+
+\begin{satz}
+    \begin{enumerate}[(i)]
+        \item $\phi(AB) = \phi(A) \phi(B)$ , $A,B \in SU(2)$
+        \item $\klammer{\phi(A)X,\phi(A)Y} = \klammer{X,Y}$ , $A \in SU(2)$, $X,Y \in H_0$
+    \end{enumerate}
+\end{satz}
+
+Wir betrachten die ONB von $H_0$ gegeben durch die Pauli-Matrizen. Mittels
+dieser Basis identifizieren wir $\klammer{\R^3 , (\cdot,\cdot)_{std}}
+\stackrel{\cong}{\longrightarrow} \klammer{H_0,(\cdot,\cdot)}$
+\begin{align*}
+    x = (x_1,x_2,x_3)^T \mapsto \hat{x} = \sum_{i=1}^3 x_i \sigma_i
+\end{align*}
+wobei $\sigma_i$ die Pauli-Matrizen sind:
+\begin{align*}
+    \sigma_1 = \begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \sigma_2 = \begin{pmatrix}
+        0 & -i \\ i & 0
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \sigma_3 = \begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}
+\end{align*}
+Diese Matrizen sind eine ONB, denn $\tr(\sigma_i \sigma_j) = 2 \delta_{ij}$.
+
+\vspace{1\baselineskip}
+
+Wir bezeichnen ebenfalls mit $\phi(A) \in O(3)$ die Matrix von $\phi(A)$ in
+der ONB $\sigma_1,\sigma_2,\sigma_3$. Da $SU(2)$ zusammenhängend ist (Jede
+Matrix $A \in SU(2)$ ist von der Form $A_1$ mit $A_t = B \begin{pmatrix}
+    e^{i t \theta} & 0 \\ 0 & e^{-i t \theta}
+\end{pmatrix} B^{-1}$, $B \in SU(2)$, und der Weg $t \mapsto A_t$ verbindet
+$\mathds{1}$ mit $A$) und $\phi$ stetig ist, folgt $\det(\phi(A)) = 1 \
+\forall A \in SU(2)$, also definiert $\phi$ eine Homomorphismus
+$\phi: SU(2) \rightarrow SO(3)$.
+
+\begin{satz}
+    $\phi: SU(2) \rightarrow SO(3)$ ist surjektiv mit Kern
+    $\geschwungeneklammer{\pm \mathds{1}}$. Also ist
+    \begin{align*}
+        SU(2) / \geschwungeneklammer{\pm \mathds{1}} \cong SO(3)
+    \end{align*}
+\end{satz}
+
+\begin{bemerkung}
+    Es gilt:
+    \begin{align*}
+        R(n,\theta) = \phi(\mathds{1} \cos(\theta/2) - i \hat{n} \sin(\theta/2))
+        \hspace{10pt} , \hspace{10pt}
+        n \in \R^3
+        \hspace{10pt} , \hspace{10pt}
+        \abs{n} = 1
+    \end{align*}
+\end{bemerkung}
+
+\subsection{Der Minkowski-Raum}
+
+Der Minkowski-Raum (auch Raumzeit) ist $\R^4$ versehen mit der symmetrischen
+nicht degenerierten Bilinearform
+\begin{align*}
+    (x,y) = x^0 y^0 - x^1 y^1 - x^2 y^2 - x^3 y^3
+    \hspace{10pt} , \hspace{10pt} x,y \in \R^4
+\end{align*}
+
+Ein Vektor $x \in \R^4$ heisst zeitartig falls $(x,x) > 0$, raumartig falls
+$(x,x) < 0$ und lichtartig falls $(x,x) = 0$. Die Menge der lichtartigen
+Vektoren heisst Lichtkegel $K$.
+
+
+\subsection{Die Lorentzgruppe}
+
+Die Lorentzgruppe $O(1,3)$ ist die Gruppe aller linearen Transformationen von
+$\R^4$ die die Minkowskimetrik erhalten:
+\begin{align*}
+    O(1,3) = \geschwungeneklammer{A \in \GL(4,R) \ | \ (A x , A y) = (x,y)
+    \hspace{5pt} , \hspace{5pt} \forall x,y \in \R^4}
+\end{align*}
+
+Äquivalent ist
+\begin{align*}
+    O(1,3) = \geschwungeneklammer{A \in \GL(4,\R) \ | \ A^T g A = g}
+    \hspace{5pt} \text{mit} \hspace{5pt}
+    g = \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & -1
+    \end{pmatrix}
+\end{align*}
+
+Also insbesondere $\det(A) = \pm 1 \ \forall A \in O(1,3)$.
+
+\begin{definition}
+    Eine Basis $b_0,\dots,b_3$ von $\R^4$ heisst orthonormiert (bzgl der
+    Minkowskimetrik) falls $(b_i,b_j) = g_{ij}$ für alle $i,j = 0,\dots,3$.
+\end{definition}
+
+\begin{satz}
+    Sind $(b_i)_{i=0}^3$, $(b_i')_{i=0}^3$ zwei orthonormierte Basen vom
+    Minkowskiraum $\R^4$, so existiert genau eine Lorentztransformation 
+    $A$, so dass $b_j' = A b_j$.
+\end{satz}
+
+\begin{korollar}
+    Eine $4 \times 4$ Matrix ist genau dann in $O(1,3)$ wenn ihre Spalten
+    bzgl der Minkowskimetrik orthonormiert sind.
+\end{korollar}
+
+\subsection{Beispiele von Lorentztransformationen}
+
+\paragraph{(a) Orthogonale Transformationen von $\R^3$}
+Ist $R \in O(3)$ eine orthogonale Transformation, so ist die $4 \times 4$
+Matrix
+\begin{align*}
+    R := \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & & & \\
+        0 & & R & \\
+        0 & & & 
+    \end{pmatrix}
+\end{align*}
+eine Lorentztransformation. Wir können also $O(3)$ als Untergruppe von $O(1,3)$
+auffassen.
+
+\paragraph{(b) Lorentzboost}
+Der Lorentzboost in der $3$-Richtung mit Rapidität $\chi \in \R$ ist die
+Lorentztransformation
+\begin{align*}
+    L(\chi) = \begin{pmatrix}
+        \cosh(\chi) & 0 & 0 & \sinh(\chi) \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & \\
+        \sinh(\chi) & 0 & 0 & \cosh(\chi)
+    \end{pmatrix}
+    \hspace{5pt} \in O(1,3)
+\end{align*}
+Da $\cosh(\chi)^2 - \sinh(\chi)^2 = 1$, sind die Spalten orthonormiert. Weiter
+gilt $L(\chi_1) L(\chi_2) = L(\chi_1 + \chi_2)$. Also bilden diese Matrizen eine
+zu $\R$ isomorphe Untergruppe.
+
+\paragraph{(c) Diskrete Lorentztransformationen}
+Die Lorentztransformationen $P$ ("Raumspiegelung") und $T$ ("Zeitumkehr")
+\begin{align*}
+    P = \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & -1
+    \end{pmatrix} = g
+    \hspace{10pt} , \hspace{10pt}
+    T = \begin{pmatrix}
+        -1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1
+    \end{pmatrix}
+    = - g
+\end{align*}
+bilden mit $1$ und $PT$ eine abelsche Untergruppe der Ordnung $4$.
+
+\begin{lemma}
+    Für alle Lorentztransformationen $A$ gilt:
+    \begin{align*}
+        A^T = P A^{-1} P = T A^{-1} T = g A^{-1} g
+    \end{align*}
+\end{lemma}
+
+\begin{korollar}
+    Eine $4 \times 4$ Matrix ist genau dann in $O(1,3)$ wenn ihre Zeilen
+    bezüglich der Minkowskimetrik orthonormiert sind.
+\end{korollar}
+
+
+\subsection{Strukturen der Lorentzgruppe}
+
+\begin{definition}[$O_+ (1,3)$]
+    Sei $O_+ (1,3) = \geschwungeneklammer{A \in O(1,3) \ | \ A_{00} > 0}$.
+    Solche Transformationen heissten orthochron, d.h. zeitrichtungerhaltend.
+\end{definition}
+
+\begin{definition}[$Z_+$]
+    Sei $Z_+ \subset \R^4$ die Menge der Zeitartigen Vektoren $x$ mit $x^0 > 0$.
+\end{definition}
+
+\begin{satz}
+    $O_+ (1,3)$ ist eine Untergruppe von $O(1,3)$. Sie besteht aus den
+    Lorentztransformationen die $Z_+$ nach $Z_+$ abbilden.
+\end{satz}
+
+\begin{definition}[$SO_+ (1,3)$]
+    Die orthocrhone spezielle Lorentzgruppe $SO_+(1,3)$ ist die Gruppe der
+    orthochronen Lorentztransformationen mit Determinante $1$.
+    \begin{align*}
+        SO_+ (1,3) := \geschwungeneklammer{A \in O_+ (1,3) \ | \ \det(A) = 1}
+    \end{align*}
+    Insbesondere ist $SO(3) \subset SO_+ (1,3)$.
+\end{definition}
+
+\begin{satz}
+    Jede Lorentztransformation liegt in genau einer der folgenden Klassen:
+    $SO_+ (1,3)$ , $\geschwungeneklammer{P X \ | \ X \in SO_+ (1,3)}$ ,
+    $\geschwungeneklammer{T X \ | \ X \in SO_+ (1,3)}$ oder
+    $\geschwungeneklammer{P T X \ | \ X \in SO_+ (1,3)}$.
+\end{satz}
+
+Wenn $X \in SO_+ (1,3)$, dann ist
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|cc}
+         & $\det = 1$ & $\det = -1$ \\ \hline
+        $A_{00} > 0$ & $X$ & $PX$ \\
+        $A_{00} < 0$ & $PTX$ & $TX$
+    \end{tabular}
+\end{table}
+
+\begin{lemma}
+    Jede orthochrone spezielle Lorentztransformation ist von der Form
+    $R_1 L(\chi) R_2$, mit $\chi \in \R$ und $R_1 , R_2 \in SO(3)$.
+\end{lemma}
+
+\begin{bemerkung}
+    Es folgt, dass $SO_+ (1,3)$ zusammenhängend ist, da die stetige Abbildung
+    \begin{align*}
+        SO(3) \times \R \times SO(3) &\rightarrow SO_+ (3)
+        \\
+        (R_1,\chi,R_2) &\mapsto R_1 L(\chi) R_2
+    \end{align*}
+    surjektiv ist, und die linke Seite zusammenhängend. Das heisst $O(1,3)$
+    hat also die $4$ Zusammenhangskomponenten $SO_+ (1,3)$ , $P SO_+ (1,3)$
+    , $T SO_+ (1,3)$ , $P T SO_+ (1,3)$.
+\end{bemerkung}
+
+
+\subsection{Intertiale Bezugssysteme}
+
+In der speziellen Relativitätstheorie heisst eine orthonormierte Basis $(b_i)$
+ein (inertiales) Bezugssystem. Ein Punkt $x$ im Minkowskiraum heisst Ereignis.
+Die Koordinaten von $x$ im Bezugssystem $(b_i)$ sind $x = \sum x^i b_i$
+gegeben. Ein Punktteilchen wird in einem Bezugssystem durch eine Bahn (auch
+Weltlinie genannt) $\vec{x}(t)$ beschrieben, die die Raumkoordinaten als
+Funktion der Zeit angibt.
+\begin{align*}
+    x^0 = c t \hspace{10pt} , \hspace{10pt} \vec{x} = \vec{x} (t)
+    \hspace{10pt} , \hspace{10pt} t \in \R
+\end{align*}
+Für Teilchen mit $v<c$ ist die Weltlinie eine Kurve im Minkowskiraum, deren
+Tangentialvektor $dx/dt$ stets zeitartig ist. Ist $(b_i')$ ein zweites
+Bezugssystem und $\Lambda \in O(1,3)$ mit $b_i = \Lambda b_i' = \sum_j
+\Lambda_{ji} b_j$, so werden die Koordinaten $x'^{i}$ eines Ereignis im
+Bezugssystem $(b_i)$ durch die Lorentztransformation $\Lambda$ gegeben:
+
+\begin{align*}
+    x'^{i} = \sum_j = \Lambda_{ij} x^j
+\end{align*}
+
+\subsection{Der Isomorphismus $SL(2,\C) / \geschwungeneklammer{\pm 1} \rightarrow SO_+ (1,3)$}
+
+\begin{definition}[$H$]
+    Der vierdimensionale Raum $H$ ist der Raum aller hermitischen
+    $2 \times 2$ Matrizen. Diese haben die Form
+    \begin{align*}
+        \hat{x} = \begin{pmatrix}
+            x^0 + x^3 & x^1 - i x^2 \\
+            x^1 + i x^2 & x^0 - x^3
+        \end{pmatrix}
+        = x^0 \mathds{1} + \sum_{j=1}^3 x^j \sigma_j
+    \end{align*}
+    mit $x \in \R^4$ und $\sigma_i$ den Pauli Matrizen.
+\end{definition}
+
+\begin{lemma}
+    Für alle $x \in \R^4$ gilt $(x,x) = \det(\hat{x})$
+\end{lemma}
+
+\begin{satz}
+    Für jede Matrix $A \in \text{SL}(2,\C)$ definieren wir die lineare Abbildung
+    von $H$ nach $H$: $X \mapsto A X A^\ast$. Also gibt es eine lineare Abbildung
+    $\phi(A)$ von $\R^4$ nach $\R^4$, so dass
+    \begin{align*}
+        A \hat{x} A^\ast &= \widehat{\phi(A) x}
+    \end{align*}
+    Es gilt: $\det(A X A^\ast) = \det(A) \det(X) \det(A^\ast) = \det(x)
+    \abs{\det(A)}^2 = \det(X)$ für $A \in SL(2,\C)$. Es folgt, dass
+    $\phi(A) \in O(1,3)$.
+\end{satz}
+
+\begin{satz}
+    Die Abbildung $\phi$ ist ein surjektiver Homomorphismus von $SL(2,\C)$
+    nach $SO_+ (1,3)$ mit Kern $\geschwungeneklammer{\pm 1}$. Also induziert
+    $\phi$ einen Isomorphismus $SL(2,\C) / \geschwungeneklammer{\pm 1}
+    \rightarrow SO_+ (1,3)$. Die Einschränkung von $\phi$ auf $SU(2) \subset
+    SL(2,\C)$ ist der Homomorphismus $SU(2) \rightarrow SO(3)$.
+\end{satz}

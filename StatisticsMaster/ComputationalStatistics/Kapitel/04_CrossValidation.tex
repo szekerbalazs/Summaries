@@ -1,0 +1,15 @@
+\section{Cross Validation}
+
+\vspace{-5pt}
+
+\subsection{Properties of different CV-Schemas}
+
+\fat{One rand. Split into $\mathcal{D}_{\text{train}}$ and $\mathcal{D}_{\text{test}}$:} \textcolor{red}{Depends on \underline{one} split, proportion $\frac{\mathcal{D}_{\text{test}}}{\mathcal{D}_{\text{train}}}$ is arbitrary, bias \underline{and} var is poor.} \textcolor{green}{ok in clear cut cases, fast}
+\fat{LOOCV:} \textcolor{green}{approx. unbiased estim for GE.} \textcolor{red}{$n-1$ instead of $n$ training samples $\Rightarrow$ slight bias. High Var: Strong correlation of $m_{n-1}^{(-i)}(.)$ and $m_{n-1}^{(-j)}(.)$}
+\fat{L-d-OCV} \textcolor{red}{higher Bias than LOOCV} \textcolor{green}{lower Var than LOOCV}
+\fat{K-fold CV} \textcolor{red}{larger bias than LOOCV, larger Var than LdOCV, unclear if Var better than LOOCV}
+
+\vspace{-5pt}
+
+\subsection{Computational Shortcut}
+Setup: fitting cubic smoothing spline or least squares param estimat. $\klammer{\hat{m}(x_1),\dots,\hat{m}(x_n)}^T = S \vec{Y}$, for LOOCV: $\frac{1}{n} \sum_{i=1}^n \klammer{Y_i - \hat{m}_{n-1}^{(-i)}}^2 = \frac{1}{n} \sum_{i=1}^n \klammer{\frac{Y_i - \hat{m}(x_i)}{1-S_{ii}}}^2$. \textcolor{green}{Can compute CV score by fitting $\hat{m}(.)$ \underline{once on full set}! Computing $S_{ii} \ \forall i$ takes $\mathcal{O}(n)$ operations.} Generalized CV: $\frac{1}{n} \sum_{i=1}^n \klammer{Y_i - \hat{m}(x_i)}^2 / \klammer{1 - \frac{1}{n} \tr(S)}^2$

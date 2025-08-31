@@ -1,0 +1,53 @@
+\section{High Dimensional Regression}
+
+\vspace{-5pt}
+
+\subsection{Ridge Regression}
+
+\vspace{-4pt}
+
+Assume $X$ and $Y$ are centered. (If not, center them). Optim problem:
+$\hat{\beta}^\lambda = \argmin_{\beta \in \R^p} \geschwungeneklammer{\Norm{Y - X \beta}_2^2 + \lambda \Norm{\beta}_2^2} = \klammer{X^T X + \lambda \id}^{-1} X^T Y$.
+Note: $\lambda = 0$: Bias$=0$, $\Var = \sum_{i=1}^{d} \frac{\sigma_\epsilon^2}{\sigma_i^2}$, $\lambda \rightarrow \infty$: Bias$\rightarrow \Norm{w^*}_2^2$, $\Var \rightarrow 0$.
+$\hat{\beta}^\lambda$ is biased, but has smaller variance than $\hat{\beta}^{LS}$. $\MSE(\hat{\beta}^\lambda) < \MSE (\hat{\beta}^{LS})$
+
+\vspace{3pt}
+
+\fat{$X$ only orthogonal pred} $\Rightarrow \ X^T X$ diagonal: $(X^T X)_{kk} = d_k^2$, $D^2 := X^T X$. Then: $\hat{\beta}_k^\lambda = \frac{1}{d_k^2 + \lambda} (X^T y)_k = \frac{d_k^2}{d_k^2 + \lambda} \hat{\beta}^{OLS}_k$
+
+\vspace{3pt}
+
+\fat{$X$ non-orthogonal pred} Use SVD: $X = UDV^T$. Rotate: $\tilde{X} = X V$ (orthogonal). Then: $\hat{\tilde{\beta}}^\lambda = \klammer{V^T X^T X V + \lambda \id}^{-1} V^T X^T Y$
+
+\vspace{3pt}
+
+\fat{Kernel Ridge Regression}
+$\beta = X^T \alpha$ and $K = X X^T$:
+$\hat{\alpha} = \argmin_{\alpha \in \R^n} \Norm{Y - K \alpha}_2^2 + \lambda \alpha^T K \alpha$
+$\Rightarrow K \hat{\alpha} = K \klammer{K + \lambda \id}^{-1} Y$
+
+\vspace{-7pt}
+
+\subsection{LASSO Regression}
+
+\vspace{-4pt}
+
+$\hat{\beta}^\lambda = \argmin_{\beta \in \R^p} \geschwungeneklammer{\Norm{Y - X \beta}_2^2 + \lambda \Norm{\beta}_1}$, 
+Biased estimator
+
+\vspace{2pt}
+
+\fat{$X$ orthogonal} $X^T X$ diag: $\hat{\beta}_k^\lambda = \sign(\hat{\beta}_k^{OLS}) \cdot \max \geschwungeneklammer{0,\abs{\hat{\beta}_k^{OLS}}-\frac{\lambda}{2}}$
+
+\vspace{2pt}
+
+\fat{Elastic Lasso}
+$\hat{\beta}^{\lambda_1,\lambda_2} = \argmin_{\beta \in \R^p} \Norm{Y - X \beta}_2^2 + \lambda_2 \Norm{\beta}_2^2 + \lambda_1 \Norm{\beta}_1$
+Equiv: $\hat{\beta}^{\lambda_1,\lambda_2} = \argmin_{\beta \in \R^p} \Norm{Y - X \beta}_2^2$ s.t. $(1-\alpha) \Norm{\beta}_1 + \alpha \Norm{\beta}_2^2 \leq s$
+with $\alpha = \frac{\lambda_2}{\lambda_2 + \lambda_1} \in [0,1]$
+
+\vspace{2pt}
+
+\fat{Group Lasso}
+$p$ pred. are grouped into $L$ groups of size $p_l$. $\vec{\beta} = (\vec{\beta}_1,\dots,\vec{\beta}_L)^T$ and $X$ made of $L$ blocks of col's $X_l$: $X \beta = \sum_{l=1}^{L} X_l \beta_l$. Hence:
+$\hat{\beta}^{GL}_\lambda = \argmin_{\beta \in \R^p} \Norm{Y - \sum_{l=1}^{L} X_l \beta_l}_2^2 + \lambda \sum_{l=1}^{L} \sqrt{p_l} \Norm{\beta_l}_2$

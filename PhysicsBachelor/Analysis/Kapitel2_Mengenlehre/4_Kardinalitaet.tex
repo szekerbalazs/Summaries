@@ -1,0 +1,149 @@
+\subsection{Kardinalität}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien \X und \Y zwei Mengen. Wir sagen, dass $X$ und $Y$ \fat{gleichmächtig}
+    sind, geschrieben $X \sim Y$ oder $\abs{X} = \abs{Y}$, falls es eine
+    Bijektion $f: X \rightarrow Y$ gibt. Wir sagen dass $Y$ \fat{mächtiger}
+    als $X$ ist, und schreiben $X \underset{\sim}{<} Y$, falls es eine 
+    Injektion $f: X \rightarrow Y$ gibt. Wir sagen in dem Fall auch $X$
+    sei \fat{schmächtiger} als $Y$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir sagen $X$ ist \fat{abzählbar} (unendlich), falls $\abs{X} = \abs{\N}$.
+
+    Wir sagen, dass $X$ \fat{unendlich} ist, falls $\abs{\N} \leq \abs{X}$.
+
+    Wir sagen, dass $X$ \fat{überabzählbar}  ist, falls $\abs{\N} < \abs{X}$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Cantors Diagonalargument)
+
+    Sei $X$ eine Menge. Dann ist die $\mathcal{P}(X)$ mächtiger als $X$ und nicht gleichmächtig
+    zu $X$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Cantor, Schröder, Bernstein)
+
+    Seien $X$ und $Y$ Mengen, so dass $X \underset{\sim}{<} Y$ und 
+    $Y \underset{\sim}{<} X$. Dann gilt $X \sim Y$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir sagen, dass die Kardinalität der leeren Menge Null ist, und schreiben
+    $\abs{\emptyset} = 0$. Sei $X$ eine Menge und $n \geq 1$ eine natürliche
+    Zahl. Wir sagen die Menge $X$ habe Kardinalität $n$, und schreiben 
+    $\abs{X} = n$, falls $X$ gleichmächtig zu $\geschwungeneklammer{1, \dots ,n}$
+    ist. In diesem Fall nennen wir $X$ eine \fat{endliche Menge} und schreiben
+    $\abs{X} < \infty$. Ist $X$ nicht endlich, so nennen wir $X$ eine 
+    \fat{unendliche Menge}. Die Menge heisst \fat{abzählbar unendlich}, falls 
+    sie gleichmächtig zu $\N$ ist. Die Kardinalität von $\N$ wird auch $\aleph_0$, 
+    gesprochen \fat{Aleph-0}, genannt.
+}
+
+\vspace{1\baselineskip}
+
+\textbf{Auswahlaxiom}
+
+\vspace{1\baselineskip}
+
+Variante (1)
+
+Seien $X$ und $Y$ Mengen, und sei $f:X \rightarrow Y$ eine surjektive
+Funktion. Dann existiert eine Funktion $g:Y \rightarrow X$ mit der 
+Eigenschaft $f \circ g = id_Y$
+
+Die Funktion $g$ in dieser Verion des Auswahlaxioms nennt man einen
+\fat{Schnitt} von $f$. 
+
+\vspace{1\baselineskip}
+
+Variante (2)
+
+Sei $Y$ eine Menge, und $\mathcal{X}$ eine Familie von nichtleeren Teilmengen von $Y$.
+Dann gibt es eine Funktion $\alpha : X \rightarrow Y$ mit der Eigenschaft
+dass $\alpha(X) \in X$ für alle $X \in \mathcal{X}$ gilt.
+Die Funktio $\alpha$ in dieser Version nennt man \fat{Auswahlfunktion}, 
+da sie der Auswahl eines Elementes $\alpha(X)$ in jeder der nichtleeren 
+Mengen $X \in \mathcal{X}$ gleichkommt. 
+
+\pagebreak
+
+Variante (3)
+
+Sei $\mathcal{X} = \geschwungeneklammer{X_i \ | \ i \in I}$ einer Familie von 
+nichtleeren Mengen. Dann ist das Produkt
+\begin{align*}
+    \prod_{i \in I} X_i
+\end{align*}
+nicht leer.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,\leq)$ eine geordnete Menge. Ein Element \xinX heisst \fat{maximal}
+    falls für alle \yinX gilt: $x \leq y \Rightarrow x = y$. Ein Element 
+    $m \in X$, so dass $x \leq m$ für alle \xinX gilt, dann heisst 
+    $m \in X$ \fat{Maximum} von $X$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X, \leq)$ eine geordnete Menge, und sei $A \subseteq X$ eine 
+    Teilmenge. Ein Element \xinX heiss \fat{obere Schranke} von $A$ falls
+    $a \leq x$ für alle $a\in A$ gilt. Ein Element \xinX heisst 
+    \fat{untere Schranke} von A falls $x \leq a$ für alle $a \in A$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,\leq)$ eine geordnete Menge. Eine Teilmenge $K \subseteq X$
+    heisst \fat{Kette}, falls für alle $x, y \in K$ gilt:
+    $x \leq y$ oder $y \leq x$. Wir sagen $(X,\leq)$ sei \fat{induktiv}
+    geordnet, falls jede Kette in $X$ eine obere Schranke besitzt.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+    (Zorn's Lemma)
+
+    Sei $(X,\leq)$ eine induktiv geordnete Menge. Dann existiert ein maximales
+    Element in $X$.
+}
+
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Hausdorff'sches Maximumprinzip)
+
+    Sei $(X, \leq)$ eine geordnete Menge. Dann existiert eine maximale Kette 
+    in $X$. Das heisst, es existiert eine Kette $M \subseteq X$, so dass 
+    \begin{align*}
+        M \subseteq L \ \Rightarrow \ M = L
+    \end{align*}
+    für jede Kette $L \subseteq X$ gilt.
+}
+
+

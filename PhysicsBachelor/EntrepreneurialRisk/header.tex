@@ -1,0 +1,137 @@
+% ==== Inputs and Usepackages ====
+
+\input{macros.tex}
+
+\usepackage{tablefootnote}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+%\usepackage{mathabx}
+\usepackage{MnSymbol}
+\usepackage{xfrac}
+\usepackage{nicefrac}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{latexsym}
+\usepackage{setspace}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+ \usetikzlibrary{matrix}
+ \usetikzlibrary{calc}
+ \usetikzlibrary{circuits.ee.IEC}
+\usepackage{circuitikz}
+
+\usepackage{a4wide}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+% \usepackage[ngerman]{datetime}
+\usepackage[utf8]{inputenc}
+\usepackage{subcaption}
+
+
+
+
+
+% ==== Page Settings ====
+
+\hoffset = -0.45 in
+\voffset = 0 in
+\textwidth = 490pt
+\textheight = 700pt
+\setlength{\headheight}{23pt}
+\setlength{\headwidth}{490pt}
+\marginparwidth = 0 pt
+\topmargin = -0.5 in
+\setlength{\parindent}{0cm}
+
+
+
+
+
+% ==== Kopfzeile-Pre-Settings ====
+
+\newcommand{\raw}{
+    \lhead[Fach \\ Prof]{Fach \\ Prof}
+    \chead[Serie xx \\ Übungsleiter]{Serie xx \\ Übungsleiter} 
+    \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+    \newcommand\tit{\Titel{Titel}}
+}
+
+% \newcommand{\Physics}[1]{
+%     \lhead[Physics \uproman{3} \\ Y. Chu]{Physics \uproman{3} \\ Y. Chu}
+%     \chead[Exercise Sheet #1 \\ M. Grau]{Exercise Sheet #1 \\ M. Grau} 
+%     \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+%     \newcommand\tit{\Titel{Phyics \uproman{3} Exercise Sheet #1}}
+% }
+
+% \newcommand{\ComplAnal}[1]{
+%     \lhead[Complex Analysis \\ A. Bandeira]{Complex Analysis \\ A. Bandeira}
+%     \chead[Exercise Sheet #1 \\ M. Vogel]{Exercise Sheet #1 \\ M. Vogel} 
+%     \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+%     \newcommand\tit{\Titel{Complex Analysis Exercise Sheet #1}}
+% }
+
+% \newcommand{\MMP}[1]{
+%     \lhead[Methoden der mathematischen Physik \uproman{1} \\ T. H. Willwacher]{Methoden der mathematischen Physik \uproman{1} \\ T. H. Willwacher}
+%     \chead[Serie #1 \\ P. P. Pérez Velasco]{Serie #1 \\ P. P. Pérez Velasco} 
+%     \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+%     \newcommand\tit{\Titel{Methoden der mathematischen Physik \uproman{1} Serie #1}}
+% }
+
+% \newcommand{\AlgMech}[1]{
+%     \lhead[Allgemeine Mechanik \\ N. Beisert]{Allgemeine Mechanik \\ N. Beisert}
+%     \chead[Serie #1 \\ H. Bertle]{Serie #1 \\ H. Bertle} 
+%     \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+%     \newcommand\tit{\Titel{Allgemeine Mechanik Serie #1}}
+% }
+
+\newcommand{\Praktikum}[1]{
+    \lhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+    \chead[Physics \\ Lab]{Physics \\ Lab}
+    \rhead[Noemi Ritzmann \\ 19-938-430]{Noemi Ritzmann \\ 19-938-430}
+    \newcommand\tit{\Titel{#1}}
+}
+
+\newcommand{\TDW}[1]{
+    \lhead[Theorie der Wärme \\ R. Renner]{Theorie der Wärme \\ R. Renner}
+    \chead[Serie #1 \\ Übungsleiter]{Serie #1 \\ Übungsleiter} 
+    \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+    \newcommand\tit{\Titel{Theorie der Wärme Serie #1}}
+}
+
+\newcommand{\ED}[1]{
+    \lhead[Electrodynamics \\ C. Anastasiou]{Electrodynamics \\ C. Anastasiou}
+    \chead[Serie #1 \\ Simon Kuhn]{Serie #1 \\ Simon Kuhn} 
+    \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+    \newcommand\tit{\Titel{Electrodynamics Exercise Sheet #1}}
+}
+
+\newcommand{\MMP}[1]{
+    \lhead[Methoden der mathematischen Physik \uproman{2} \\ T. H. Willwacher]{Methoden der mathematischen Physik \uproman{2} \\ T. H. Willwacher}
+    \chead[Serie #1 \\ R. Kaufmann]{Serie #1 \\ R. Kaufmann} 
+    \rhead[Balázs Szekér \\ 19-926-815]{Balázs Szekér \\ 19-926-815}
+    \newcommand\tit{\Titel{Methoden der mathematischen Physik \uproman{2} Serie #1}}
+}
+
+
+
+
+% ==== Presettings for files ====
+
+% \author{Balázs Szekér}
+% \newdateformat{myformat}{\THEDAY{ten }\monthname[\THEMONTH], \THEYEAR}
+
+
+\pagestyle{fancy}
+
+\cfoot{\thepage}
+

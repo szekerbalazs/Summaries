@@ -1,0 +1,306 @@
+\subsection{Der Divergenzsatz und der Satz von Green in der Ebene}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen und sei $F: U \rightarrow \R^n$ ein differenzierbares
+    Vektorfeld auf $U$. Die \fat{Divergenz} (Quellenstärke) von $F$ ist die Funktion
+    div$(F) : U \rightarrow \R$ gegeben durch
+    \begin{align*}
+        \text{div} (F) = \text{tr} (Df) = \partial_1 F_1 + \partial_2 F_2 + \dots + \partial_n F_n
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\gamma = (\gamma_1 , \gamma_2) : [a,b] \rightarrow \R^2$ ein stückweise stetig
+    differenzierbarer Pfad. Sei $t \in [a,b]$ so, dass $\gamma$ bei $t$ differenzierbar
+    ist. Wir schreiben
+    \begin{align*}
+        n_{\gamma} (t) = \klammer{\gamma_2' (t) , - \gamma_1' (t)}
+    \end{align*}
+    und bezeichnen diesen Vektor als \fat{Aussennormale} oder \fat{Normalenvektor}
+    an $\gamma$ im Punkt $\gamma (t)$. Dieser Vektor zeigt bezüglich der Laufrichtung
+    nach rechts. Wichtig ist, dass die Laufrichtung immer im gegenuhrzeigersinn
+    ist, damit die Aussennormale tatsächlich nach aussen zeigt.
+    Für $v = (v_1 , v_2) \in \R^2$ ist gilt:
+    \begin{align*}
+        \scalprod{v}{n_{\gamma'(t)}} = v_1 \gamma_2' (t) - v_2 \gamma_1' (t)
+        = \det \begin{pmatrix}
+            v_1 & \gamma_1' (t) \\
+            v_2 & \gamma_2' (t)
+        \end{pmatrix}
+        = v \times \gamma' (t)
+        = v \wedge \gamma' (t)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen, sei $F: U \rightarrow \R^n$ ein stetiges Vektorfeld
+    auf $U$ und $\gamma: [a,b] \rightarrow \R^2$ ein stückweise stetig differenzierbarer
+    Pfad. Das \fat{Flussintegral} von $F$ entlang $\gamma$ ist das Integral
+    \begin{align*}
+        \int_{\gamma} F \ dn_{\gamma} = \intab \scalprod{F (\gamma (t))}{n_{\gamma} (t)} dt
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^2$ offen und $B \subseteq U$ beschränkt und zusammenhängend
+    mit glattem Rand. Sei $F: U \rightarrow \R^2$ von Klasse $C^1$. Dann gilt
+    \begin{align*}
+        \int_B \text{div} F(x) \ dx = \int_{\partial B} F \ dn = \int_{\gamma} F \ dn_{\gamma}
+    \end{align*}
+    für eine Kurve $\gamma: [a,b] \rightarrow U$ die $\partial B$ parametrisiert.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Das Flussintegral bleibt unter Reparametrisierung eines Pfades unverändert.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^2$ offen und sei $F: U \rightarrow \R^2$ ein stetig differenzierbares
+    Vektorfeld und $B = [a,b] \times [c,d] \subseteq U$ ein Rechteck. Dann gilt
+    \begin{align*}
+        \int_B \div (F) \ dx = \int_{\partial B} F \ dn
+    \end{align*}
+}
+
+\pagebreak
+
+\Korollar{
+
+    Sei $U \subseteq \R^2$ offen und sei $F: U \rightarrow \R^2$ ein stetig
+    differenzierbares Vektorfeld. Dann gilt für alle $x_0 \in U$
+    \begin{align*}
+        \div (F)(x_0) = \limes{h \rightarrow 0} \frac{1}{4 h^2} \int_{\partial \klammer{x_0 + [-h,h]^2}} F \ dn
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^2$ offen und $F$ ein stetig differenzierbares Vektorfeld
+    auf $U$. Seien $a<b$ und $c<d$ reelle Zahlen, so, dass das Rechteck
+    $[a,b] \times [c,d]$ in $U$ enthalten ist, und sei $\varphi: [a,b] \rightarrow [c,d]$
+    stetig und stückweise stetig differenzierbar. Dann gilt
+    für den Bereich $B = \geschwungeneklammer{(x,y) \in U \ | \ x \in [a,b] , \ c \leq y \leq \varphi (x)}$
+    \begin{align*}
+        \int_B \div (F) \ dx = \int_{\partial B} F \ dn
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine abgeschlossene Teilmenge $B \subseteq \R^n$ heisst ein \fat{glatt berandeter
+    Bereich}, falls es für jeden Punkt $p \in B$ eine offene Umgebung $U_p$ in $\R^n$
+    von $p$ gibt und ein glatter Diffeomorphismus $\varphi_p : U_p \rightarrow V_p
+    = \varphi_p (U_p)$ auf eine weitere offene Teilmenge $V_p \subseteq \R^n$ existiert,
+    so dass folgendes gilt
+    \begin{align*}
+        \varphi_p (U_p \cap B) = \geschwungeneklammer{y \in V_p \ | \ y_n \leq 0}
+    \end{align*}
+}
+
+\Korollar{
+
+    Aus der obigen Definition folgt insbesondere, dass der Rand $\partial B$ eines
+    glatt berandeten Bereichs $B$ eine $n-1$-dimensionale Teilmannigfaltigkeit von
+    $\R^n$ ist.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Wenn ein Bereich $B$ lokal um jeden Punkt aussieht wie das Gebiet unter dem Graphen einer
+    glatten reellwertigen Funktion in $(n-1)$ Variablen, geeignet rotiert, dann ist
+    der Bereich $B$ glatt berandet.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $F: \R^n \rightarrow \R$ eine glatte Funktion mit Null als regulären Wert.
+    Dann ist die abgeschlossene Teilmenge
+    \begin{align*}
+        B = \geschwungeneklammer{x \in \R^n \ | \ F(x) \geq 0}
+    \end{align*}
+    glatt berandet und $\partial B = \geschwungeneklammer{u \in \R^n \ | \ F(u) = 0}$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $K \subseteq \R^n$ kompakt und sei $U_1 , \dots , U_N$ eine (endliche) offene
+    Überdeckung von $K$. Dann existieren glatte Funktionen $\eta_0 , \dots , \eta_N :
+    \R^n \rightarrow [0,1]$ mit:
+    \begin{enumerate}[{1)}]
+        \item $\supp (\eta_0) \subseteq \R^n \backslash K$
+        \item $\supp (\eta_i) \subseteq U_i$ für $i = 1, \dots , N$
+        \item $\eta_0 + \dots + \eta_N = 1$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $f: \R^n \rightarrow \R$ eine stetige Funktion. Sei $\psi : \R^n \rightarrow \R$
+    eine glatte Funktion mit kompaktem Träger. Dann ist die durch
+    \begin{align*}
+        (\psi * f)(x) = \int_{\R^n} \psi (x-y) f(y) dy
+    \end{align*}
+    definierte Funktion $\psi * f : \R^n \rightarrow \R$ glatt, mit Träger in
+    $\supp (\psi) + \supp(f)$.
+}
+
+\pagebreak
+
+\Lemma{
+
+    Sei $f: \R^n \rightarrow \R$ stetig, $K \subseteq \R^n$ kompakt und $\epsilon>0$.
+    Dann existieren $\delta \in (0,\epsilon)$ und eine glatte Funktion $\psi:
+    \R^n \rightarrow [0,\infty)$ so dass
+    \begin{align*}
+        \abs{x-y} < \delta \Longrightarrow \abs{f(x) - f(y)} < \epsilon
+        \quad , \quad 
+        \supp (\psi) \subseteq B(0,\delta)
+        \quad \text{ und } \quad
+        \int_{\R^n} \psi \ dx \ = 1
+    \end{align*}
+    für alle $x \in K$ und $y \in \R^n$ gilt. Für jede solche Funktion $\psi$
+    gilt $\abs{(\psi * f)(x) - f(x)} \leq \epsilon$ für alle $x \in K$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $B \subseteq \R^2$ abgeschlossen. Eine \fat{Parametrisierung des Randes} von
+    $B$ ist eine endliche Kollektion stetig differenzierbarer Wege
+    $\gamma_k : [a_k,b_k] \rightarrow \partial B$ mit folgenden Eigenschaften:
+    \begin{enumerate}
+        \item (Überdeckend) Es gilt $\partial B = \bigcup_{k=1}^{K} \gamma_k \klammer{[a_k,b_k]}$.
+        \item (Keine Überschneidungen ausser an den Enden) Falls $\gamma_j (s) = \gamma_k (t)$
+                für $(j,s) \neq (k,t)$ gilt, so gilt $s \in \geschwungeneklammer{a_j , b_j}$
+                und $t \in \geschwungeneklammer{a_k , b_k}$.
+        \item (Aufeinanderfolgend) Für jedes $j \in \geschwungeneklammer{1,\dots,K}$ existiert
+                genau ein $k \in \geschwungeneklammer{1,\dots,K}$ mit $\gamma_j (b_j)
+                = \gamma_k (a_k)$.
+        \item (Regularität) Es gilt $\gamma_k'(t) \neq 0$ für alle $k$ und $t \in (a_k,b_k)$.
+    \end{enumerate}
+    Die Parametrisierung $\gamma_1, \dots ,  \gamma_K$ heisst \fat{positiv orientiert},
+    wenn für jedes $k$ und jedes $t \in (a_k,b_k)$ ein $\epsilon>0$ existiert, so dass
+    $\gamma(t) + \lambda n_{\gamma} (t) \in B^{\circ}$ für alle $\lambda \in (0,\epsilon)$.
+    Dabei ist $n_{\gamma} (t) = \klammer{- \gamma_2'(t),\gamma_1'(t)}$
+    die Aussennormale an $\gamma$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^2$ offen und $B \subseteq \R^2$ eine kompakte Teilmenge,
+    deren Rand eine positiv orientiert Parametrisierung $\gamma_1 : [a_1 , b_1]
+    \rightarrow \partial B \ , \dots , \ \gamma_K : [a_k,b_k] \rightarrow \partial B$
+    besitzt. Sei $F: U \rightarrow \R^2$ ein stetig differenzierbares Vektorfeld
+    definiert auf einer offenen Umgebung $U$ von $B$. Das \fat{Wegintegral} oder
+    \fat{Arbeitsintegral} von $F$ entlang $\partial B$ ist durch
+    \begin{align*}
+        \int_{\partial B} F \ dt \ = \sum_{k=1}^{K} \int_{a_k}^{b_k} \scalprod{F(\gamma_k (t))}{\gamma_k' (t)} dt
+    \end{align*}
+    definiert. Das \fat{Flussintegral} von $F$ durch den Rand $\partial B$ ist durch
+    \begin{align*}
+        \int_{\partial B} F \ dn \ = \sum_{k=1}^{K} \int_{a_k}^{b_k} \scalprod{F(\gamma_k (t))}{n_{\gamma} (t)} dt
+    \end{align*}
+    definiert. Diese Integrale sind unabhängig von der Wahl der positiv orientierten
+    Parametrisierung.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Divergenzsatz in der Ebene)
+
+    Sei $U \subseteq \R^2$ offen und $B \subseteq U$ glatt berandet und kompakt.
+    Sei $F: U \rightarrow \R^2$ ein Vektorfeld der Klasse $C^1$. Dann gilt
+    \begin{align*}
+        \int_B \div(F) dx = \int_{\partial B} F \ dn
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Der Satz gilt auch für Bereiche $B \subseteq \R^2$ die durch das Innere von
+    Rechtecken $R_i$ abgedeckt werden kann, so dass $B \cap R_i$ geeignet rotiert
+    das Gebiet unter einem Graphen einer stückweise stetig differenzierbaren Funktion
+    ist. Salopp heisst die, das $B$ "endlich viele Ecken" haben kann.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Satz von Green)
+
+    Sei $f: U \rightarrow \R^2$ ein stetig differenzierbares Vektorfeld auf einer
+    offenen Menge $U \subseteq \R^2$. Dann gilt für jeden glatt berandeten, kompakten
+    Bereich $B \subseteq U$
+    \begin{align*}
+        \int_B \rot (F) dx = \int_{\partial B} F \ dt
+    \end{align*}
+    Wobei $\rot (F) = \partial_2 F_1 (x) - \partial_1 F_2 (x)$
+}
+
+\pagebreak
+
+\Definition{
+
+    Wir sagen, dass ein stetig differenzierbares Vektorfeld $F:U \rightarrow \R^2$
+    \fat{rotationsfrei} ist, falls $\rot (F) = 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Dass $F$ rotationsfrei ist, bedeutet in anderen Worten gerade, dass $F$ die
+    Integrabilitätsbedingung erfüllt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Jordanscher Kurvensatz)
+
+    Sei $\gamma: [0,1] \rightarrow \R^2$ ein glatter, regulärer, einfacher,
+    geschlossener Weg. Dann kann man das Komplement von $\Gamma = \gamma([0,1])$
+    eindeutig als disjunkte Vereinigung
+    \begin{align*}
+        \R^2 \backslash \Gamma = \text{Inn}(\Gamma) \cup \text{Auss}(\Gamma)
+        \quad , \quad
+        \text{Inn} (\Gamma) \cap \text{Auss}(\Gamma) = \emptyset
+    \end{align*}
+    schreiben, wobei dasd Innere $\text{Inn}(\Gamma)$ eine offene, beschränkte,
+    zusammenhängende Teilmenge und das Äussere $\text{Auss}(\Gamma)$ eine offene,
+    unbeschränkte, zusammenhängende Teilmenge ist. Des Weiteren gilt
+    $\partial \text{Inn} (\gamma) = \partial \text{Auss} (\gamma) = \Gamma$.
+}

@@ -1,0 +1,124 @@
+\subsection{Modelle und Eindeutigkeit der Menge der reellen Zahlen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir schreiben $C(0) = \geschwungeneklammer{x \in \Q \ | \ x > 0}$, und nennen
+    \fat{Dedekind-Schnitt} jede nicht leere, von unten beschränkte Teilmenge
+    $C$ von $\Q$ mit der Eigenschaft, dass $C = C(0) + C$, also
+    \begin{align*}
+        C = \geschwungeneklammer{x + c \ | \ x \in C(0), c \in C}
+    \end{align*}
+    gilt. Wir schreiben $\mathcal{D}$ für die Menge aller Dedekind-Schnitte.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für jede rationale Zahl $q$ ist die Menge $C(q) = \geschwungeneklammer{x \in \Q \ | \ q < x}$
+    ein Dedekindschnitt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Dedekind)
+
+    Mit der Addition, Multipliation und der Ordnungsrelation, dem 
+    Nullelement $C(0)$ und dem Einselement $C(1)$ bildet die Menge
+    der Dedekind-Schnitte $\mathcal{D}$ einen vollständigen,
+    angeordneten Körper. Die Rechenoperationen sind wir folgt gegeben:
+
+    \vspace{1\baselineskip}
+
+    Addition: $C(p+q) = C(p) + C(q)$
+
+    Multipliation: $C(pq) = C(p)C(q)$
+
+    Ordnungsrelation: $p \leq q \Rightarrow C(p) \leq C(q)$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $C$ und $D$ Dedekind-Schnitte. Die \fat{Summe} von $C$ und $D$
+    ist der Dedekind-Schnitt 
+    \begin{align*}
+        C + D = \geschwungeneklammer{c + d \ | \ c \in C , d \in D}
+    \end{align*}
+    Wir sagen $C$ ist \fat{kleiner} als $D$ und schreiben $C \leq D$
+    falls $C \supseteq D$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Mit der Operation $+$ ist die Menge der Dedekind-Schnitte $\mathcal{D}$
+    dine kommutative Gruppe mit neutralem Element $C(0)$. Ausserdem gilt
+
+    1. $C \leq D$ oder $D \leq C$ für alle $C,D \in \mathcal{D}$
+
+    2. $C \leq D \Rightarrow C + E \leq D + E$ für alle $C,D,E \in \mathcal{D}$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $C$ und $D$ Dedekind-Schnitte. Das \fat{Produkt} von $C$ und $D$
+    ist der Dedekind-Schnitt
+    \begin{align*}
+        C D = \begin{cases}
+            \geschwungeneklammer{c d \ | \ c \in C , d \in D} \ &\text{ falls } C(0) \leq C \text{ und } C(0) \leq D
+            \\
+            - \geschwungeneklammer{c d \ | \ c \in -C , d \in D} \ &\text{ falls } C(0) \geq C \text{ und } C(0) \leq D
+            \\
+            - \geschwungeneklammer{c d \ | \ c \in C , d \in -D} \ &\text{ falls } C(0) \leq C \text{ und } C(0) \geq D
+            \\
+            \geschwungeneklammer{c d \ | \ c \in -C , d \in -D} \ &\text{ falls } C(0) \geq C \text{ und } C(0) \geq D
+        \end{cases}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Mit der vorher eingeführten Addition, Multipliation und Ordnungsrelation,
+    dem Nullelement $C(0)$ und dem Einselement $C(1)$ bildet die Menge der 
+    Dedekind-Schnitte $\mathcal{D}$ einen angeordneten Körper.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Der angeordnete Körper $(\mathcal{D}, \leq)$ ist vollständig.
+}
+
+\pagebreak
+
+\Satz{
+    (Eindeutigkeit der reellen Zahlen)
+
+    Seien $(\R, \leq)$ und $(\eS,\leq)$ vollständig angeordnete Körper.
+    Dann existiert genau eine Abbildung $\Phi : \R \rightarrow \eS$, die die 
+    folgenen Eigenschaften erfüllt:
+
+    \vspace{1\baselineskip}
+
+    1. Additivität: $\Phi (0) = 0$ und $\Phi(x+y) = \Phi (x) + \Phi (y)$ für alle \xyinR
+
+    2. Multiplikativität: $\Phi (1) = 1$ und $\Phi(x y) = \Phi(x) \Phi(y)$ für alle \xyinR
+
+    3. Monotonie: $x \leq y \ \Rightarrow \Phi(x) \leq \Phi(y)$ für alle \xyinR 
+
+    \vspace{1\baselineskip}
+
+    Diese Abbildung $\Phi$ ist bijektiv. Eine solche Abbildung nennt man auch
+    \fat{Isomorphismus}.
+}

@@ -1,0 +1,75 @@
+\subsection{Der Fundamentalsatz}
+
+\vspace{1\baselineskip}
+
+Wir legen für dieses Kapitel ein kompaktes Intervall $I \subseteq \R$ fest, das nicht leer ist
+und nicht aus einem einzelnen Punkt besteht. Integrierbar heisst Riemann-integrierbar.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Funktion $f : I \rightarrow \R$ heisst \fat{lokal integrierbar}, falls für alle
+    $a<b \in I$ die eingeschränkte Funktion $f|_{[a,b]}$ integrierbar ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $a \in I$ und $f: I \rightarrow \R$ lokal integrierbar. Wir nennen $F: I \rightarrow \R$
+    gegeben durch
+    \begin{align*}
+        F(x) = \int_a^x f(f) dt = \begin{cases}
+            \ \int_a^x f(t) dt \quad &\text{    falls } a<x \\
+            \ 0 \quad &\text{ falls } a=x \\
+            \ - \int_a^x f(t) dt \quad &\text{ falls } a>x
+        \end{cases}
+    \end{align*}
+    ein \fat{partikuläres/ spezielles Integral} von $f$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Fundamentalsatz der Interal- und Differentialrechnung)
+
+    Sei $f: I \rightarrow \R$ eine integrierbare Funktion und sei $F$ ein partikuläres
+    Integral von $f$ gegeben durch:
+    \begin{align*}
+        F(x) = \int_a^x f(t) dt = - \int_x^a f(t) dt
+    \end{align*}
+    Falls $f$ bei $x_0 \in I$ stetig ist, so ist $F$ bei $x_0$ differenzierbar, und es gilt
+    $F'(x) = f(x)$. Wir nennen die Funktion $F$ \fat{Stammfunktion} von $f$. Jede stetige
+    Funktion $f: I \rightarrow \R$ besitzt so eine Stammfunktion. Zwei Stammfunktionen von $f$
+    unterscheiden sich durch eine Konstante.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    $D: C^1 (I) \rightarrow C^0 (I)$ ist surjektiv.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Fundamentalsatz der Differential- und Integralrechnung)
+
+    Sei $f: I \rightarrow \R$ stetig und $F: I \rightarrow \R$ eine Stammfunktion von $f$.
+    Dann gilt
+    \begin{align*}
+        \intab f(t) dt = F(b) - F(a)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $f(x) = \sum_{n=0}^{\infty} a_n x^n$ eine Potenzreihe mit Konvergenzradius $R>0$.
+    Dann ist $f: (-R,R) \rightarrow \R$ differenzierbar und es gilt
+    \begin{align*}
+        f'(x) = \sum_{n=1}^{\infty} n a_n x^{n-1}
+    \end{align*}
+    für alle $x \in (-R,R)$, wobei die Potenzreihe rechts ebenfalls Konvergenzradius $R$ hat.
+}

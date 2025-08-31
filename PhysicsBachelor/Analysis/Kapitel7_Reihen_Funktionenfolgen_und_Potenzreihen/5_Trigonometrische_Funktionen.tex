@@ -1,0 +1,242 @@
+\subsection{Trigonometrische Funktionen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Exponentialreihe} ist die Formale Potenzreihe $\sum_{n=0}^{\infty} \frac{T^n}{n!}
+    \in \C$\textlbrackdbl$T$\textrbrackdbl. Aus dem Quotientenkriterium folgt, dass der
+    Konvergenzradius $R$ unendlich ist. Das heisst, sie konvergiert absolut für alle \zinC
+    und die Funktion $f: \C \rightarrow \C$ gegeben durch $f(z) = \sum_{n=0}^{\infty} \frac{z^n}{n!}$
+    ist stetig.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Die obige Definition gilt auch für alle $x \in \R$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für $a \leq b \in \R$ gilt:
+    \begin{align*}
+        \intab \exp (x) dx = \exp (b) - \exp (a)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{komplexe Exponentialabbildung} ist die Funktion $f: \C \rightarrow \C$ gegeben durch
+    \begin{align*}
+        \exp (z) = \sum_{k=0}^{\infty} \frac{1}{n!} z^n
+    \end{align*}
+    für alle $z \in \C$. Für eine positive reelle Zahl $a \in \R_{>0}$ und \zinC schreiben wir
+    $a^z = \exp (z \log (a))$, und insbesondere auch $e^{z} = \exp (z)$ für alle $z \in \C$.
+}
+
+\pagebreak
+
+\Satz{
+
+    Die komplexe Exponentialabbildung $\exp : \C \rightarrow \C$ ist stetig. Des Weiteren gilt
+    \begin{align*}
+        \exp (z+w) = \exp(z) \exp (w)
+        \quad \text{     und     } \quad
+        \abs{\exp (z)} = \exp (\text{Re} (z))
+    \end{align*}
+    für alle $z,w \in \C$. Insbesondere gilt $\abs{\exp (i y)} = 1$ für alle $y \in \R$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir definieren die \fat{Sinusfunktion} und die \fat{Kosinusfunktion} bei \zinC durch
+    \begin{align*}
+        \sin (z) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} z^{2n+1}
+        \quad \text{     und     } \quad
+        \cos (z) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} z^{2n}
+    \end{align*}
+    Die beiden Potenzreihen konvergieren auf ganz $\C$ und definieren stetige Funktionen.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Die Sinusfunktion ist \fat{ungerade}, das heisst es gilt $\sin (-z) = - \sin (z)$,
+    und die Kosinusfunktion ist \fat{gerade}, es gilt $\cos (-z) = \cos (z)$ für alle
+    $z \in \C$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Für alle \zinC gelten folgende Relationen zwischen Exponential, Sinus- und Kosinusfunktion.
+    \begin{align*}
+        \exp (iz) &= \cos (z) + i \sin (z)
+        \\
+        \sin (z) &= \frac{\exp (iz) - \exp (-iz)}{2i}
+        \\
+        \cos (z) &= \frac{\exp (iz) + \exp (-iz)}{2}
+    \end{align*}
+    Insbesondere gelten für alle $z,w \in \C$ die folgenden Additionsformeln:
+    \begin{align*}
+        \sin (z+w) &= \sin(z) \cos(w) + \cos(z) \sin(w)
+        \\
+        \cos (z+w) &= \cos(z) \cos(w) - \sin(z) \sin(w)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Im Fall $z=w \in \C$ ergeben sich insbesondere \fat{Winkelverdopplungsformeln}
+    \begin{align*}
+        \sin(2z) = 2 \sin(z) \cos(z)
+        \quad \text{     und     } \quad
+        \cos(2z) = \cos(z)^2 - \sin(z)^2
+    \end{align*}
+    Im Fall $w=-z$ folgt die \fat{Kreisgleichung} für Sinus und Kosinus für alle $z \in \C$.
+    \begin{align*}
+        1 = \cos(z)^2 + \sin(z)^2
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Es gibt genau eine Zahl $\pi \in (0,4)$ mit $\sin(\pi) = 0$. Für diese Zahl gilt
+    \begin{align*}
+        \exp (2 \pi i) = 1
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für alle \zinC gelten
+    \begin{align*}
+        \sin (z + \frac{\pi}{2}) &= \cos (z) \hspace{100pt} \cos(z + \frac{\pi}{2}) = - \sin(z)
+        \\
+        \sin (z+\pi) &= - \sin(z) \hspace{96pt} \cos(z + \pi) = - \cos(z)
+        \\
+        \sin(z+2\pi) &= \sin(z) \hspace{99pt} \cos(z+2\pi) = \cos(z)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Der Sinus und der Kosinus sind periodisch mit Periode $2\pi$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Mit Hilfe der komplexen Exponentialfunkion können wir komplexe Zahlen in
+    \fat{Polarkoordinaten} ausdrücken, das heisst, in der Form
+    \begin{align*}
+        z = r \exp(i\theta) = r \cos (\theta) + i r \sin(\theta)
+    \end{align*}
+    wobei $r$ der Abstand vom Ursprung $0 \in \C$ zu $z$ ist, also der Betrag $r = \abs{z}$
+    von $z$, und $\theta$ der Winkel, der zwischen den Halbgeraden $\R_{\geq 0}$ eingeschlossen
+    ist. Falls $z \neq 0$ gilt, so ist der Winkel $\theta$ eindeutig bestimmt, und wird als
+    \fat{Argument} von $z$ bezeichnet und als $\theta = \arg (z)$ geschrieben. Die Menge der
+    komplexen Zahlem mit Absolutbetrag Eins ist demnach
+    \begin{align*}
+        \eS^1 = \geschwungeneklammer{z \in \C \ | \ \abs{z} = 1}
+        = \geschwungeneklammer{\exp(i \theta) \ | \ \theta \in [0,2 \pi)}
+    \end{align*}
+    und wird als der \fat{Einheitskreis} in $\C$ bezeichnet.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{ (Existenz von Polarkoordinaten)
+
+    Für alle $z \in \C^{\times}$ existieren eindeutig bestimmte reelle Zahlen $r > 0$ und
+    $\theta \in [0,2 \pi)$ mit $z = r \exp (i \theta)$
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    In Polarkoordinaten lässt sich die Multiplikation auf $\C$ neu interpretieren. Sind
+    $z = r \exp (i \varphi)$ und $w = s \exp (i \psi)$ komplexe Zahlen, dann gilt
+    \begin{align*}
+        z w = r s \exp(i(\varphi + \psi))
+    \end{align*}
+    Bei Multiplikation von komplexen Zahlen multiplizieren sich die Längen der Vektoren und
+    addieren sich die Winkel.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Tangensfunktion} und die \fat{Kotangensfunktion} sind durch
+    \begin{align*}
+        \tan(z) = \frac{\sin(z)}{\cos(z)}
+        \quad \text{     und     } \quad
+        \cot(z) = \frac{\cos(z)}{\sin(z)}
+    \end{align*}
+    definiert, für alle \zinC mit $\cos(z) \neq 0$, beziehungsweise $\sin(z) \neq 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Der \fat{Sinus Hyperbolicus} und der \fat{Kosinus Hyperbolicus} sind die durch
+    die Potenzreihen
+    \begin{align*}
+        \sinh (z) = \sum_{k=0}^{\infty} \frac{z^{2k+1}}{(2k+1)!}
+        \quad \quad \text{     und     } \quad \quad
+        \cosh (z) = \sum_{k=0}^{\infty} \frac{z^{2k}}{(2k)!}
+    \end{align*}
+    definierten Funktionen. Es gilt
+    \begin{align*}
+        \sinh (z) = - i \sin(iz) = \frac{e^z - e^{-z}}{2}
+        \quad \quad \text{     und     } \quad \quad
+        \cosh (z) = \cos(iz) = \frac{e^z + e^{-z}}{2}
+    \end{align*}
+    und also $\exp(z) = \cosh(z) + \sinh(z)$ für alle $z \in \C$. Der \fat{Tangens} und der
+    \fat{Kotangens Hyperbolicus} sind durch
+    \begin{align*}
+        \tanh(z) = \frac{\sinh(z)}{\cosh(z)} = \frac{e^z - e^{-z}}{e^z + e^{-z}}
+        \quad \quad \text{     und     } \quad \quad
+        \coth(z) = \frac{\cosh(z)}{\sinh(z)} = \frac{e^z - e^{-z}}{e^z - e^{-z}}
+    \end{align*}
+    für alle \zinC mit $\cosh(z) \neq 0$, beziehungsweise mit $\sinh(z) \neq 0$. Die Funktionen
+    $\sinh$ und $\tanh$ sind ungerade und $\cosh$ ist gerade. Es gelten folgende Additionsformeln
+    \begin{align*}
+        \sinh(z+w) &= \sinh(z) \cosh(w) + \cosh(z) \sinh(w)
+        \\
+        \cosh(z+w) &= \cosh(z) \cosh(w) + \sinh(z) \sinh(w)
+    \end{align*}
+    für alle $z,w \in \C$, sowie die Hyperbelgleichung
+    \begin{align*}
+        \cosh^2(z) - \sinh^2 (z) = 1
+    \end{align*}
+    für alle $z \in \C$. Des Weiteren gilt
+    \begin{align*}
+        \intab \sinh(x) dx = \cosh(b) - \cosh(a)
+        \quad \quad \text{     und     } \quad \quad
+        \intab \cosh(x) dx = \sinh(b) - \sinh(a)
+    \end{align*}
+    für alle $a<b \in \R$.
+}

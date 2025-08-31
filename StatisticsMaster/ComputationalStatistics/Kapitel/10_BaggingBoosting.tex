@@ -1,0 +1,48 @@
+\section{Bagging \& Boosting}
+
+\vspace{-5pt}
+
+\subsection{Bagging}
+Consider a tree algorithm yielding $\hat{g}(.): \R^p \rightarrow \R$.
+
+\vspace{5pt}
+
+\fat{Algorithm} 1) Generate BS samples: $(X_1^*,Y_1^*),\dots,(X_n^*,Y_n^*)$ and compute $\hat{g}^* (.)$. 2) Repeat 1 B times: $\hat{g}^{*1} (.), \dots, \hat{g}^{*B} (.)$. 3) Aggregate: $\hat{g}_{Bag} (.) = \frac{1}{B}\sum_{i=1}^B \hat{g}^{*i} (.) \approx \Expec^* \eckigeklammer{\hat{g}}^*(.)$
+
+\vspace{5pt}
+
+\fat{Remark} $\Expec \eckigeklammer{\klammer{Y-\hat{f}_{Bag}(X)}^2} \leq \Expec \eckigeklammer{\klammer{Y-\hat{f}^* (X)}^2} = \Expec \eckigeklammer{\klammer{Y-\hat{f}_{Bag}(X)}^2} + \underbrace{\Expec \eckigeklammer{\klammer{\hat{f}_{Bag} (X) - f^* (X)}^2}}_{=Var(f^* (X))}$
+
+\vspace{5pt}
+
+\fat{Bagging for trees}
+Setup: Regr.Trees s.t. exactly $m$ training samples are in each leaf node. Model: $\hat{Y}(x) = \sum_{i=1}^n w_i Y_i$ where $w_i = \frac{1}{m} \id_{\geschwungeneklammer{x_i \& x \ \text{in same leaf}}}$. Hence: $\hat{Y}_{Bag} (x) = \sum_{i=1}^n \klammer{\frac{1}{B} \sum_{b=1}^B w_i^{*b}} Y_i = \sum_{i=1}^n w_{bag,i} Y_i$ where $w_i^{*b} \in \geschwungeneklammer{0,\frac{1}{m}}$.
+
+\vspace{5pt}
+
+\fat{Remark} $\Var \klammer{\hat{Y}_{bag} (X)} = \sigma^2 \sum_{i=1}^m w_{bag,i}^2 \leq \sigma^2 \sum_{i=1}^m w_i^2 = \Var \klammer{\hat{Y}(x)}$ Hence Bagging is a Variance reducing technique.
+
+\vspace{-5pt}
+
+\subsection{Boosting}
+Boosting is a bias reducing technique.
+
+\vspace{5pt}
+
+\fat{AdaBoost} $g: \R^p \rightarrow \geschwungeneklammer{-1,1}$, $Y \in \geschwungeneklammer{-1,1}$, Idea: upweight observations previous model got wrong.
+
+1) Initialize obs. weights $w_i = \frac{1}{N} \ \forall i=1,\dots,N$
+
+2) For $m=1,\dots,M$: a) Fit classifier $\hat{g}_m (.)$ using $w_i$, b) Compute weighted error: $err_m = \frac{\sum_{i=1}^N w_i \id_{\geschwungeneklammer{Y_i \neq \hat{g}_m (x_i)}}}{\sum_{i=1}^N w_i}$, c) Compute $\alpha
+_m = \log \klammer{\frac{1-err_m}{err_m}}$, d) Set weights: $w_i = w_i \cdot \exp \klammer{\alpha_m \cdot \id_{\geschwungeneklammer{Y_i \neq \hat{g}_m (x_i)}}}$
+
+3) Final Model: $\hat{G} (x) = \sign \klammer{\sum_{m=1}^M \alpha_m \hat{g}_m (x)}$
+
+\vspace{5pt}
+
+\fat{Gradient Boosting}
+Goal: $G(x) = g_0 (x) + \sum_{m=1}^M \gamma \cdot g_m(x)$
+
+1) Initialize $G(x) = g_0 (x)$
+
+2) For $m=1,\dots,M$: a) $\forall i=1,\dots,N$: $r_{im} = - \frac{\partial \mathcal{L} (y_i,G(x_i))}{\partial G(x_i)}$, b) fit Model $g_m (x_i)$ to $r_{im}$, c) set $G(x) = G(X) + \gamma g_m(x)$ for $\gamma \in (0,1]$

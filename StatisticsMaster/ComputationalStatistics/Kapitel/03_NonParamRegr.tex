@@ -1,0 +1,45 @@
+\section{Non Parametric Regression}
+
+\vspace{-5pt}
+
+Model: $Y_i = m(x_i) + \epsilon_i$ with $\Expec\eckigeklammer{\epsilon_i} = 0, \ \Var(\epsilon_i) = \sigma_{\epsilon}^2$ and $m(x) = \Expec\eckigeklammer{Y|X=x}$
+
+\vspace{-5pt}
+
+\subsection{Kernel Regression Estimator}
+$\hat{f}_X (x) = \frac{1}{nh} \sum_{i=1}^n K \klammer{\frac{x-x_i}{h}}$, $\hat{f}_{X,Y} (x,y) = \frac{1}{nh^2} \sum_{i=1}^n K \klammer{\frac{x-x_i}{h}} K \klammer{\frac{y-Y_i}{h}}$. Hence: $m(x) = \frac{\sum_{i=1}^n K \klammer{\frac{x-x_i}{h}}Y_i}{\sum_{i=1}^n K \klammer{\frac{x-x_i}{h}}} = \frac{\sum_{i=1}^n w_i (x) Y_i}{\sum_{i=1}^n w_i (x)}$ (\fat{Nadaraya-Watson})
+
+\vspace{5pt}
+
+\fat{Role of h} $h\rightarrow \infty \ \Rightarrow \ m(x) \approx \text{const}$, $h \rightarrow 0 \ \Rightarrow \ m(x) \approx \delta_x$.
+
+$h_{opt} = n^{-1/5} \klammer{\frac{\sigma_\epsilon^2 \int K^2 (z) dz}{\klammer{m'' (x) \int z^2 K(z) dz}^2}}^{1/
+5}$
+
+\vspace{4pt}
+
+\fat{Inference for underlying Reg. Curve (Hat Matrix)}
+Def: $S: \R^n \rightarrow \R^n$, $(Y_1,\dots,Y_n) \mapsto (\hat{m}(x_1),\dots,\hat{m}(x_n)) := \hat{\vec{m}} (\vec{x}) = \hat{Y}$. Hence $\hat{Y} = S Y$. Note: $S_{r,s} = w_s (x_r)$ where $w_i (x) = \frac{K \klammer{\frac{x-x_i}{h}}}{\sum_{j=1}^n K \klammer{\frac{x-x_i}{h}}}$ and $m(x)=\sum_{i=1}^n w_i (x) Y_i$. Thus: $\Cov\klammer{\hat{\vec{m}}(\vec{x})} = \sigma_\epsilon^2 S S^T$, Note: $\tr(S) = p = \text{deg. of freedom}$. Estim of $\sigma_\epsilon^2$: $\hat{\sigma}_{\epsilon}^2 = \frac{1}{n-df} \sum_{i=1}^n (Y_i - \hat{m}(x_i))^2$. Hence: $\widehat{s.e.} (\hat{m}(x_i)) = \sqrt{\widehat{\Var}(\hat{m}(x_i))} = \hat{\sigma}_\epsilon \sqrt{(SS^T)_{ii}}$ resulting in: $\hat{m}(x_i) \sim \mathcal{N} \klammer{\Expec\eckigeklammer{\hat{m}(x_i)},\sigma_\epsilon^2 SS^T}$. The Conf Int for $\hat{m}$ (not $m$) is given as: $I = \hat{m}(x_i) \pm 1.96 \cdot \widehat{s.e.}(\hat{m}(x_i))$
+
+\vspace{-5pt}
+
+\subsection{Local Polynomial (LOESS)}
+$\hat{\beta} (x) = \argmin_{\beta \in \R^p} \sum_{i=1}^n K \klammer{\frac{x-x_i}{h}} \klammer{Y_i - \beta_1 - \sum_{j=2}^{p} \beta_j (x-x_i)^{j-1}}^2$.
+
+Weighted LS: $w = \alpha \klammer{1 - \klammer{\frac{dist}{maxdist}}^3}^3$, $\alpha < 1$ $\Rightarrow$ $\hat{\beta}(x) = \klammer{X^T W X}^{-1} X^T W Y$
+
+\vspace{-5pt}
+
+\subsection{Smoothing Splines and Penalized Regression}
+
+\fat{Penalized RSS} minimize $\sum_{i=1}^n (Y_i - m(x_i))^2 + \lambda \int m''(x)^2 dx$
+
+
+$\lambda = 0$: $m$ can be any fct interpolating $\mathcal{D}$, $\lambda = \infty$: linear regression.
+For $0 < \lambda < \infty$: Cubic Spline Solution: Let $a \leq x_1 \leq \dots \leq x_n \leq b$, $g: [a,b] \rightarrow \R$ is a cubic spline if: a) $\forall$ Intervals $(a,x_1),\dots,(x_n,b)$ $g$ is a cubic polynomial, b) $g$ has two continuous derivatives on $[a,b]$. $g$ is called "natural" if $g''(a) = g''(b) = g'''(a) = g'''(b) = 0$
+
+\vspace{4pt}
+
+\fat{Smoothing Spline Solution}
+$m_\lambda (x) = \sum_{j=1}^n \beta_j B_j (x)$ where $B_j(.)$ are basis fcts of natural splines. Estim $\beta$ with penalized RSS. Def $B \in \R^{n \times n}$ s.t. $j$-th col: $B_{.,j} = \klammer{B_j (x_1),\dots,B_j(x_n)}^T$. Def $\Omega_{j,k} = \int B_j''(z) B_k''(z) dz$. Then: $\hat{\beta} = \klammer{B^T B + \lambda \Omega}^{-1} B^T Y$ and $\hat{Y} = S_\lambda Y$ where $S_\lambda=B\klammer{B^T B + \lambda \Omega}^{-1} B^T$. Remark: $S_\lambda = S_\lambda^T$, hence: Eig$(S_\lambda) \subset \R$
+

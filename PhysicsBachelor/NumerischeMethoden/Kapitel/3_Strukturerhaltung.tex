@@ -1,0 +1,109 @@
+\section{Strukturerhaltung}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Funktion $I : D \rightarrow \R$ heisst \fat{ersts Integral/Invariante} der DGL,
+    wenn $I(y(t)) \equiv$ const. für jede Lösung $y=y(t)$ der DGL.
+    Eine notwendige und hinreichende Bedingung für differenzierbares erstes Integral der
+    DGL ist
+    $$
+        \grad I(y) f(t,y) = 0 \quad \quad \text{ für alle } (t,y) \in [t_0,T] \times D
+    $$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $H: \R \times \R \rightarrow \R$ mit $H=H(q,p)$ stetig differenzierbar, dann ist
+    das \fat{autonome Hamilton-System} das folgende System von DGL:
+    \begin{align*}
+        \begin{cases}
+            \dot{q_j} = \frac{\partial H}{\partial p_j} (q,p)
+            \\
+            \dot{p_j}(t) = - \frac{\partial H}{\partial q_j} (q,p)
+        \end{cases}
+        \quad \quad \text{ für } j=1,2,\dots,d
+    \end{align*}
+    Die Hamilton Funktion $H$ ist ein erstes Integral des dazugehörigen autonomen
+    Hamilton-Systems. Die mehrdimensionale Verallgemeinerung der Hamilton-Systeme lautet:
+    \begin{align*}
+        \begin{cases}
+            \dot{\vec{q}} (t) = \nabla_p H(\vec{q},\vec{p})
+            \\
+            \dot{\vec{p}} (t) = - \nabla_q H(\vec{q},\vec{p})
+        \end{cases}
+    \end{align*}
+    Zusätzlich kann der Hamiltonian $H(q,p,t)$ explizit von der Zeit abhängen. Die DGL
+    bleiben gleich, doch dann ist $H$ nicht mehr erhalten.
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Splitting-Verfahren}}
+
+Geg.: AWP 1. Ordnung, autonom: $\dot{\vec{y}} = f(y)$ und $\vec{y}(t_0) = y_0$
+das nur schwer oder gar nicht analytisch lösbar ist.
+
+Wenn DGL nicht autonom ist, muss man autonomisieren.
+
+\vspace{1\baselineskip}
+
+\fat{Evolutionsoperatoren}
+
+$\Phi^{t_0,t} : D \subset \R^n \rightarrow D$ heisst Evolutionsoperator zur DGL
+$\dot{\vec{y}} = \vec{f}(t,\vec{y})$, wenn $\forall \vec{y}_0 \in D$ gilt:
+$\Phi^{t_0 , t} \vec{y}_0 = \vec{y} (t)$ eine Lösung des AWP $\dot{\vec{y}}=\vec{f}(t,\vec{y})$,
+$\vec{x}(t_0) = \vec{y}_0$ ist.
+
+Für autonome DGL gilt: $\Phi^{t_0 , t} = \Phi^{0,t-t_0} := \Phi^{t-t_0} := \Phi^h$
+
+Numerische Verfahren liefern den diskreten Evolutionsoperator $\Psi^h \approx \Phi^h$
+
+\vspace{1\baselineskip}
+
+Geg.: Autonome, separierte DGL $\dot{\vec{y}} = \vec{f}_a (\vec{y}) + \vec{f}_b (\vec{y})$,
+$\vec{y}(t_0) = \vec{y}_0$
+
+Mit bekannten Evolutionsoperatoren $\Phi_a^h$ zu $\dot{\vec{y}} = \vec{f}_a (\vec{y})$ und
+$\Phi_b^h$ zu $\dot{\vec{y}} = \vec{f}_b (\vec{y})$
+
+Ges.: Lösung $\vec{y}(t)$ des AWP 1. Ordnung
+
+Idee: Zerlege ein kompliziertes Problem in zwei Teilprobleme
+
+\vspace{1\baselineskip}
+
+\fat{Lie-Trotter-Splitting}: $\Psi_1^h = \Phi_a^h \circ \Phi_b^h$ oder $\Psi_1^h = \Phi_b^h \circ \Phi_a^b$
+
+\fat{Strange-Splitting}: $\Phi_2^h = \Phi_a^{\nicefrac{h}{2}} \circ \Phi_b^h \circ \Phi_a^{\nicefrac{h}{2}}$
+
+\fat{Allgemein}: $\Psi_s^h = \prod_{i=1}^{s} \Phi_b^{b_i h} \cdot \Phi_a^{a_i h}$ mit
+        $\sum_{i=1}^{s} b_i = \sum_{i=1}^{s} a_i = 1$
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Das Splittingverfahren kann als Verallgemeinerung des Störmer-Verlet Verfahren
+    betrachtet werden. Sind $\Phi_a$ und $\Phi_b$ nicht bekannt, können diskrete
+    Evolutionsoperatoren $\Psi_a$ und $\Phi_b$ verwendet werde.
+}
+
+\vspace{1\baselineskip}
+
+\fat{Processing}
+\begin{align*}
+    \hat{\Psi} = \Pi^h \circ \Psi^h \circ \klammer{\Pi^h}^{-1}
+\end{align*}
+Dabei ist $\Pi^h$ der \fat{post-processor} und $\klammer{\Pi^h}^{-1}$ der \fat{pre-processor}.
+Der Vorteil dieser Schreibweise:
+\begin{align*}
+    \klammer{\hat{\Psi}^h}^n = \Pi^h \circ \klammer{\Psi^h}^n \circ \klammer{\Pi^h}^{-1}
+\end{align*}
+Vorteile falls:
+$\hat{\Psi}^h$ genauer als $\Psi^h$,
+$\Pi^h$, $\klammer{\Pi^h}^{-1}$ günstig,
+keine/wenige Ausgaben der Lösung vor Endschritt gewünscht.

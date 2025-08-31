@@ -1,0 +1,372 @@
+\section{Special Relativity}
+
+In special relativity different coordinate systems are related via
+Lorentz transformations:
+\begin{align*}
+    x^\mu \rightarrow x^{\mu'} = \Lambda_{\ \nu}^\mu x^\nu + \rho^\mu
+    \hspace{10pt} \text{with} \hspace{10pt}
+    x^\mu = \begin{pmatrix}
+        x^0 \\ x^1 \\ x^2 \\ x^3
+    \end{pmatrix}
+    = \begin{pmatrix}
+        c t \\ x^1 \\ x^2 \\ x^3
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \Lambda_{\ \nu}^\mu \equiv \frac{\partial x'^\mu}{\partial x^\nu}
+\end{align*}
+$\Lambda_{\ \nu}^\mu$ satisfies: $\Lambda^\mu_{\ \rho} \Lambda_{ \ \sigma}^\nu g_{\mu \nu}
+= g_{\rho \sigma}$ with $g_{\mu \nu}$ the metric:
+\begin{align*}
+    g_{\mu \nu} = \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & -1
+    \end{pmatrix}
+\end{align*}
+
+\subsection{Proper Time}
+
+Lorentz transformations leave invariant "proper-time" intervals which are
+defined as
+\begin{align*}
+    d \tau^2 \equiv c^2 dt^2 - d \vec{x}^2 = g_{\mu \nu} dx^{\mu} dx^\nu
+\end{align*}
+Further relations:
+\begin{align*}
+    d \tau^2 = d \tau'^2
+    \hspace{10pt} &, \hspace{10pt}
+    g_{\rho \sigma} = g_{\mu \nu} \frac{\partial x^\mu}{\partial x_\rho} \frac{\partial x^\nu}{\partial x_\sigma}
+    \\
+    \frac{\partial x'^{\mu}}{\partial x^\sigma} \frac{\partial x^\sigma}{\partial x'^{\nu}} = \delta_{\mu \nu}
+    \hspace{10pt} &, \hspace{10pt}
+    \frac{\partial^2 x'^{\mu}}{\partial x^\epsilon \partial x^\rho} = 0
+\end{align*}
+
+\subsection{Subgroups of Lorentz transformations}
+
+Group properties: $x^\mu \stackrel{(\Lambda_1,\rho_1)}{\longrightarrow}
+x'^{\mu} \stackrel{(\Lambda_2 , \rho_2)}{\longrightarrow} x''^{\mu}$. Then
+for $x^\mu \stackrel{(\Lambda_3 , \rho_3)}{\longrightarrow} x''^\mu$ we have:
+\begin{align*}
+    \Lambda_{3 \rho}^\mu \equiv \Lambda_{2 \nu}^\mu \Lambda_{1 \rho}^\nu
+    \hspace{10pt} , \hspace{10pt}
+    \rho_3^\mu = \Lambda_{2 \nu}^\mu \rho_1^\nu + \rho_2^\mu
+    \hspace{10pt} , \hspace{10pt}
+    x''^\mu = \Lambda_{3 \nu}^\mu x^\nu + \rho_3^\mu
+\end{align*}
+The set of all Lorentz transformations is called the inhomogeneous Lorentz
+group or the Poincare' group. The subset of transformations with $\rho^\mu = 0$
+is known as the homogeneous Lorentz group. Here:
+\begin{align*}
+    (\Lambda_{\ 0}^0)^2 - \sum_{i=1}^3 (\Lambda_{\ 0}^i)^2 = 1
+    \ \Rightarrow \ (\Lambda_{\ 0}^0)^2 \geq 1
+    \\
+    g = \Lambda^T g \Lambda \ \Rightarrow \ \det (\Lambda)^2 = 1
+    \ \Rightarrow \ \det(\Lambda) = \pm 1
+\end{align*}
+The subgroup of transformations with $\det(\Lambda) = 1$ and $\Lambda_{\ 0}^0 \geq 1$
+is known as the proper group of Lorentz transformations. Transformations with
+$\Lambda_0^0 \geq 1$ are known as orthochronous Lorentz transformations
+(preserve right flow of time).
+
+Assume a reference frame $O$ in which a particle appears at rest and $O'$
+a reference frame in where the particle appears to move with a velocity
+$\vec{v}$. Then:
+\begin{align*}
+    dx'^\mu = \Lambda_{\ \nu}^\mu dx^\nu = \Lambda_{\ 0}^\mu = ct
+    \hspace{10pt} , \hspace{10pt}
+    dt' = \Lambda_{\ 0}^0 dt
+    \hspace{10pt} , \hspace{10pt}
+    dx'^i = \Lambda_{\ 0}^i c dt
+    \\
+    v^i \equiv \frac{dx'^i}{dt'} = c \frac{\Lambda_{\ 0}^i}{\Lambda_{\ 0}^0}
+    \ \Rightarrow \ \Lambda_{\ 0}^i = \frac{v^i}{c} \Lambda_{\ 0}^0
+    \hspace{10pt} , \hspace{10pt}
+    \Lambda_{\ 0}^0 = \gamma
+    \ \Rightarrow \ \Lambda_{\ 0}^i = \gamma \frac{v^i}{c}
+\end{align*}
+For coordinate systems $O$ and $O'$ with parallel axes we find that
+\begin{align*}
+    \Lambda_{\ j}^i = \delta_j^i + \frac{v^i v^j}{v^2} (\gamma - 1)
+    \hspace{10pt} , \hspace{10pt}
+    \Lambda_{\ j}^0 = \gamma \frac{v^j}{c}
+\end{align*}
+The group of Rotations:
+\begin{align*}
+    \Lambda_{\ 0}^0 = 1
+    \hspace{5pt} , \hspace{5pt}
+    \Lambda_{\ 0}^i = \Lambda_{\ i}^0 = 0
+    \hspace{5pt} , \hspace{5pt}
+    \Lambda_{\ j}^i = R_{ij}
+    \hspace{10pt}
+    \text{with } \det(R) = 1
+    \hspace{5pt} , \hspace{5pt}
+    R^T R = 1
+\end{align*}
+
+\subsection{Time dilation}
+
+Consider an inertial observer $O$ which looks as a clock at rest. Here:
+\begin{align*}
+    d t = \Delta t
+    \hspace{10pt} , \hspace{10pt}
+    d \vec{x} = 0
+    \hspace{10pt} , \hspace{10pt}
+    d \tau = c \Delta t
+\end{align*}
+A second observer sees the clock with velocity $\vec{v}$. Here:
+\begin{align*}
+    dt' = \Delta t'
+    \hspace{10pt} , \hspace{10pt}
+    d \vec{x}' = \vec{v} dt'
+    \hspace{10pt} , \hspace{10pt}
+    d \tau' = c \Delta t' \sqrt{1 - \frac{\vec{v}^2}{c^2}}
+\end{align*}
+So we find:
+\begin{align*}
+    \Delta t' = \frac{\Delta t}{\sqrt{1 - \frac{\vec{v}^2}{c^2}}}
+    = \gamma \Delta t
+\end{align*}
+
+\subsection{Doppler Effect}
+
+Take moving clock to be a lightsource with frequency $\omega = \frac{2 \pi}{\Delta t}$.
+For observer where light source is moving with velocity $\vec{v}$:
+$dt' = \gamma \Delta t$ and the distance of the observer from the light
+source increased by $v_r dr'$ where $v_r$ is the component of the velocity
+of the light source along the direction of sight of the observer. Time
+elapsing between the reception of two seccessive light wave fronts from the
+observer:
+\begin{align*}
+    c dt_0 = c dt' + v_r dt'
+\end{align*}
+Frequency measured by the observer: ($\star$ case if $v_r = v$)
+\begin{align*}
+    \omega' = \frac{2 \pi}{dt_0} = \frac{\sqrt{1 - \frac{v^2}{c^2}}}{1 + \frac{v_r}{c}} \omega
+    \hspace{10pt} \stackrel{\star}{=} \sqrt{\frac{1 - \frac{v}{c}}{1 + \frac{v}{c}}} \omega
+\end{align*}
+
+\subsection{Particle dynamics}
+
+Question: How to compute relativistic force. Newtonian expressions for the
+force should be valid if a particle is at rest. An elegant solution is to
+define a relativistic force acting on a particle as
+\begin{align*}
+    f^\mu = m c^2 \frac{d^2 x^\mu}{d \tau^2}
+\end{align*}
+with $m$ the mass of the particle. If the particle is at rest: $d \tau = c dt$.
+Therefore, in the restframe of the particle:
+\begin{align*}
+    f_{\text{rest}}^0 = m c \frac{d^2 t}{d t^2} = 0
+    \hspace{10pt} , \hspace{10pt}
+    f_{\text{rest}}^i = m \frac{d^2 x^i}{d t^2} = F_{\text{Newton}}^i
+    \hspace{10pt} , \hspace{10pt} i = 1,2,3
+\end{align*}
+where $\vec{F}_{\text{Newton}}$ is the force-vector known from Newtonian
+mechanics. The time component vanishes. Under Lorentz transformation
+\begin{align*}
+    f'^\mu = \Lambda_{\ \nu}^\mu f^\nu
+\end{align*}
+Transformation from the rest frame of a particle to a frame where the particle
+moves with a velocity $\vec{v}$, we have
+\begin{align*}
+    f^\mu = \Lambda_{\ \nu}^\mu (\vec{v}) f_{\text{rest}}^\nu
+\end{align*}
+With
+\begin{align*}
+    \Lambda_{\ 0}^0 (\vec{v}) = \gamma
+    \hspace{7pt} , \hspace{7pt}
+    \Lambda_{\ 0}^i (\vec{v}) = \Lambda_{\ i}^0 (\vec{v}) = \gamma \frac{v^i}{c}
+    \hspace{7pt} , \hspace{7pt}
+    \Lambda_{\ j}^i (\vec{v}) = \delta_j^i + \frac{v^i v^j}{v^2} (\gamma - 1)
+\end{align*}
+Therefore:
+\begin{align*}
+    \vec{f} = \vec{F}_{\text{Newton}} + (\gamma - 1) \frac{\vec{v} \klammer{\vec{F}_{\text{Newton} \cdot \vec{v}}}}{v^2}
+    \hspace{10pt} , \hspace{10pt}
+    f^0 = \gamma \frac{\vec{v} \cdot \vec{F}_{\text{Newton}}}{c}
+    = \frac{\vec{v}}{c} \cdot \vec{f}
+\end{align*}
+In Newtonian mechanics we can calculate the trajectory $\vec{x}(t)$ of a
+particle by solving a differential equation. Analogously we could solve for
+$x^\mu = x^\mu (\tau)$. Therefore, we need to find $\tau = \tau(x^0)$. A second
+constraint is:
+\begin{align*}
+    \Omega \equiv g_{\mu \nu} \frac{d^2 x^\mu}{d \tau^2} \frac{d x^\nu}{d \tau}
+    = \frac{2}{m c^2} g_{\mu \nu} f^\mu \frac{d x^\mu}{d \tau}
+\end{align*}
+The rhs is a Lorentz invariant quantity. We can derive this in the rest frame.
+Here $x^\mu = (c t,\vec{0})$ and $f^\mu = (0,\vec{F}_{\text{Newton}})$.
+\begin{align*}
+    \frac{d \Omega}{d \tau} = \frac{2}{m c^2} \klammer{f^0 \frac{d x^0}{d \tau} - \vec{f} \cdot \vec{x}} = 0
+\end{align*}
+Therefore, $\Omega$ is always a constant. $\Omega(\tau) = \Omega(\tau) =$
+constant $= 1$.
+
+\subsection{Energy and momentum}
+
+The relativistic four-momentum is given as:
+\begin{align*}
+    p^\mu = m c \frac{d x^\mu}{d \tau}
+    \hspace{10pt} , \hspace{10pt}
+    p^0 = m \gamma c
+    \hspace{10pt} , \hspace{10pt}
+    p^i = m \gamma v^i
+\end{align*}
+with $d \tau = \frac{c \mathds{d} t}{\gamma}$. We identify the relativistic
+energy of a particle with
+\begin{align*}
+    E = c p^0 = m \gamma c^2
+\end{align*}
+We obtain the relation:
+\begin{align*}
+    E = \sqrt{\vec{p}^2 c^2 + m^2 c^4}
+\end{align*}
+
+\subsection{The inverse of a Lorentz transformation}
+
+We define the inverse of the metric matrix $g_{\mu \nu}$ as $g^{\mu \nu}$.
+\begin{align*}
+    g^{\mu \nu} g_{\nu \rho} = \delta^\mu_{\ \nu}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    g^{\mu \nu} = g_{\mu \nu} = \text{diag}(1,-1,-1,-1)
+\end{align*}
+The inverse of a Lorentz transformation $\Lambda_{\ \nu}^\mu$ is
+$\Lambda_\mu^{\ \nu}$.
+\begin{align*}
+    \Lambda_\mu^{\ \nu} \equiv g_{\mu \rho} g^{\nu \sigma} \Lambda_{\ \sigma}^\rho
+\end{align*}
+If $\Lambda_{\ \nu}^\mu$ is a velocity $\vec{v}$ boost transformation, then
+\begin{align*}
+    \Lambda_0^{\ 0} (\vec{v}) = \gamma
+    \hspace{5pt} , \hspace{5pt}
+    \Lambda_i^{\ 0} (\vec{v}) = \Lambda_0^{\ i} (\vec{v}) = - \gamma \frac{v^i}{c}
+    \hspace{5pt} , \hspace{5pt}
+    \Lambda_i^{\ j} (\vec{v}) = \delta_i^j + \frac{v^i v^j}{v^2} (\gamma - 1)
+\end{align*}
+Therefore: $\Lambda_\mu^{\ \nu} (\vec{v}) = \Lambda_{\ \nu}^\mu (- \vec{v})$.
+
+\subsection{Vectors and Tensors}
+
+\paragraph{Contravariant vectors} transform according to the rule:
+\begin{align*}
+    V^\mu \rightarrow V'^\mu = \Lambda_{\ \nu}^\mu V^\nu
+\end{align*}
+These are vectors that transform the same way as space-time coordinates $x^\mu$.
+
+\paragraph{Covariant vectors} transform according to the rule
+\begin{align*}
+    U_\mu = \Lambda_\mu^{\ \nu} U_\nu
+\end{align*}
+Derivatives $\frac{\partial}{\partial x^\mu}$ transform in this way.
+These transformations transform according to the inverse Lorentz
+transformation.
+
+\paragraph{Dual Vectors} For every contravariant vector $U^\mu$ there
+is a dual vector which is covariant.
+\begin{align*}
+    U_\mu = g_{\mu \nu} U^\nu
+    \hspace{10pt} , \hspace{10pt}
+    U^\rho = g^{\rho \mu} U_\mu
+\end{align*}
+The scalar product of a contravariant and a covariant vector is invariant
+under Lorentz transformation.
+\begin{align*}
+    A \cdot B \equiv A^\mu B_\mu = A_\mu B^\mu
+\end{align*}
+The D'Alembert operator $\Box \equiv \partial^2 \equiv \partial_\mu \partial^\mu
+= \frac{1}{c^2} \frac{\partial^2}{\partial t^2} - \vec{\nabla}^2$ is invariant
+under Lorentz transformation.
+
+\paragraph{Tensor} We define a tensor with multiple "up" and/or "down"
+indices to be an object $T^{\mu_1 \mu_2 \dots}_{\nu_1 \nu_2 \dots}$
+which transforms as
+\begin{align*}
+    T_{\nu_1 \nu_2 \dots}^{\mu_1 \mu_2 \dots} \rightarrow
+    \Lambda_{\ \rho_1}^{\mu_1} \Lambda_{\ \rho_2}^{\mu_2} \dots
+    \Lambda_{\nu_1}^{\ \sigma_1} \Lambda_{\nu_2}^{\ \sigma_2} \dots
+    T_{\sigma_1 \sigma_2 \dots}^{\rho_1 \rho_2 \dots}
+\end{align*}
+
+\subsection{Currents and densities}
+
+For $n$ particles with charges $q_n$ and positions $\vec{r}_n (t)$ the
+charge and current density are:
+\begin{align*}
+    \rho(\vec{x},t) &= \sum_n q_n \delta(\vec{x} - \vec{r}_n (t))
+    \\
+    \vec{j} &= \sum_n q_n \frac{d \vec{r}_n (t)}{dt} \delta(\vec{x} - \vec{r}_n (t))
+    = \sum_n q_n \frac{d \vec{x}}{dt} \delta(\vec{x} - \vec{r}_n (t))
+\end{align*}
+We can combine the charge and current densities into one object:
+\begin{align*}
+    j^\mu \equiv \klammer{c \rho , \vec{j}}
+    \hspace{5pt} \text{ with } \hspace{5pt}
+    j^\mu (\vec{x},t) = \sum_n q_n \frac{d x^\mu}{dt} \delta(\vec{x} - \vec{r}_n (t))
+\end{align*}
+This is a contravariant four-vector. $\delta$-function in four-dimensions:
+\begin{align*}
+    \delta(x^\mu - y^\mu) &= \delta(x^0 - y^0) \delta(\vec{x} - \vec{y})
+    = \frac{1}{c} \delta(t_x - t_y) \delta(\vec{x} - \vec{y})
+    \\
+    \delta(U'^\mu) &= \delta(\Lambda^\mu_{\ \nu} U^\nu) = \frac{\delta(U^\nu)}{\abs{\det(\Lambda)}}
+    = \delta(U^\nu)
+\end{align*}
+Current-density in integralform:
+\begin{align*}
+    j^\mu (\vec{x},t) &= \sum_n q_n \int dt' \frac{dx^\mu}{dt'} \delta(\vec{x} - \vec{r}_n(t)) \delta(t' - t)
+    \\
+    &= c \sum_n q_n \int dt' \frac{dx^\mu}{dt'} \delta(x^\mu - r^\mu_n (t))
+    \\
+    &= c \sum_n q_n \int d \tau \frac{dx^\mu}{d \tau} \delta(x^\mu - r_n^\mu (\tau))
+\end{align*}
+Continuity equation:
+\begin{align*}
+    \frac{\partial \rho}{\partial t} + \vec{\nabla} \cdot \vec{j} = 0
+    \hspace{10pt} \rightarrow \hspace{10pt}
+    \partial_\mu j^\mu = 0
+\end{align*}
+
+\subsection{Energy-Momentum tensor}
+
+For $n$ particles at positions $\vec{r}_n (t)$ the energy density and
+"energy-current density" is:
+\begin{align*}
+    \text{energy density} &= \sum_n E_n(t) \delta(\vec{x} - \vec{r}_n (t))
+    \\
+    \text{energy current density} &= \sum_n E_n (t) \frac{d \vec{r}_n}{dt} \delta(\vec{x} - \vec{r}_n (t))
+\end{align*}
+Combine the two:
+\begin{align*}
+    \sum_n E_n(t) \frac{d r^\nu_n}{dt} \delta(\vec{x} - \vec{r}_n (t))
+\end{align*}
+We define the "Energy-momentum Tensor" as
+\begin{align*}
+    T^{\mu \nu} \equiv \sum_n p_n^\mu \frac{d r_n^\mu}{dt} \delta(\vec{x} - \vec{r}_n (t))
+    = \sum_n \int d \tau p_n^\mu \frac{d x_n^\nu}{d \tau} \delta(x^\rho - r_n^\rho (\tau))
+\end{align*}
+It transforms as the product of two-four vectors under Lorentz transformation
+\begin{align*}
+    T'^{\mu \nu} = \Lambda^\mu_{\ \rho} \Lambda^\nu_{\ \sigma} T^{\rho \sigma}
+\end{align*}
+It is symmetric: $T^{\mu \nu} = T^{\nu \mu}$ and takes the form:
+\begin{align*}
+    T^{\mu \nu} \equiv \sum_n \frac{p_n^\mu p_n^\nu}{E_n} \delta(\vec{x} - \vec{r}_n(t))
+\end{align*}
+We arrive at the equation:
+\begin{align*}
+    \partial_\nu T^{\mu \nu} = G^\mu =
+    \sum_n \frac{\partial p_n^\mu}{\partial t} \delta(\vec{x} - \vec{r}_n)
+    = \sum_n \frac{\partial \tau}{\partial t} f_n^\mu (t) \delta(\vec{x} - \vec{r}_n)
+\end{align*}
+with $G^\mu$ the "density of force". For free particles, $p_n^\mu =$constant.
+Therefore, $\partial_\nu T^{\mu \nu} = 0$. Energy momentum Tensor is also conserved
+if the particles interact only at the points where they collide with each other.
+If the continuity equation is satisfied, then the following vector is conserved.
+\begin{align*}
+    P^\mu \equiv \int d^3 \vec{x} T^{\mu 0} = \text{const}
+    =
+    P^\mu = \sum_n \int d^3 \vec{x} p_n^\mu \delta(\vec{x} - \vec{r}_n (t))
+    = \sum_n p_n^\mu
+\end{align*}

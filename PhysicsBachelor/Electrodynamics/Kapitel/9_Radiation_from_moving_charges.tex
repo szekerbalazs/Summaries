@@ -1,0 +1,196 @@
+\section{Radiation from moving charges}
+
+Radiation is a physical phenomenon due to accelerated or decelerated electric
+charges.
+
+\subsection{The vector potential from a moving charge}
+
+A moving charge $q$ has a current density
+\begin{align*}
+    j^\mu (x) = \klammer{q \delta \klammer{\vec{x} - \vec{r}(t)} , q \frac{d \vec{r}}{dt} \delta(\vec{x} - \vec{r}(t))}
+\end{align*}
+In explicit covariant form:
+\begin{align*}
+    j^\mu = q \int d \tau \ v^\mu \delta \klammer{x^\rho - r^\rho (\tau)}
+\end{align*}
+with $v^\mu = \frac{d r^{\mu}}{d \tau}$. With this result we obtain:
+\begin{align*}
+    A^\mu = \int d^4 x' G_{ret} \klammer{x-x'} j^\mu (x')
+\end{align*}
+with $G_{ret}$ the retarded Green's function:
+\begin{align*}
+    G_{ret} (x-x') = \frac{1}{2 \pi} \delta \klammer{\klammer{x-x'}^2} \Theta(x^0 > x'^0)
+\end{align*}
+So we obtain:
+\begin{align*}
+    A^\mu (x) = \frac{q}{2 \pi} \int d \tau \ v^\mu (\tau) \delta \klammer{\klammer{x - r(\tau)}^2} \Theta \klammer{x^0 > r^0 (\tau)}
+\end{align*}
+Further:
+\begin{align*}
+    \delta \klammer{\klammer{x - r(\tau)}^2} = \frac{\delta(\tau - \tau_0)}{\abs{\frac{\partial}{\partial \tau}_{| \tau = \tau_0} \klammer{x - r(\tau)}^2 }}
+\end{align*}
+We define $R \equiv x - r(\tau)$. We obtain:
+\begin{align*}
+    \frac{\partial}{\partial t} R^2 = - 2 (x-r(\tau)) \cdot v(\tau)
+\end{align*}
+All together:
+\begin{align*}
+    A^\mu (x) = \frac{q}{4 \pi} \int d \tau \ \frac{\delta(\tau-\tau_0) v^\mu (\tau)}{\klammer{x - r(\tau)} \cdot v(\tau)}
+    = \frac{q}{4 \pi} \frac{v^\mu}{v \cdot \klammer{x - r(\tau)}} \Big|_{retarded}
+\end{align*}
+The subscript \textit{retarded} denotes that all quantities in this expression
+must be computed at a retarded proper time $\tau = \tau_0$ and not at the current
+time of the measurement.
+
+In the restframe where $v^\mu = (1,\vec{0})$ we recover the Coulomb potential.
+\begin{align*}
+    A^\mu (x) = \frac{q}{4 \pi} \frac{(1,\vec{0})}{\abs{\vec{x} - \vec{r}(\tau)}}
+\end{align*}
+
+\subsection{The electromagnetic field tensor from a moving charge}
+
+We define $R^\mu = x^\mu - r^\mu (\tau_0)$. Because the greens function requires
+$R^2 = 0$ and $R^0 >0$ it follows that $R^0 = \abs{\vec{R}}$. Therefore we can
+write $R^\mu \equiv (R^0 ,\vec{R}) = \abs{\vec{R}} \klammer{1 , \hat{n}}$ with
+$\hat{n} = \frac{\vec{R}}{\abs{\vec{R}}}$. It is also true that $\vec{B} =
+\vec{n} \times \vec{E}$ and
+\begin{align*}
+    \vec{E} = \frac{q}{4 \pi (1-\hat{n} \cdot \vec{v})^3} \cdot
+    \geschwungeneklammer{\frac{(1-\vec{v}^2)}{\abs{\vec{R}}^2} (\hat{n} - \vec{v})
+    + \frac{1}{\abs{\vec{R}}} \hat{n} \times \eckigeklammer{\klammer{\hat{n} - \vec{v}} \times \dot{\vec{v}}}}
+    \Bigg|_{retarded}
+\end{align*}
+
+\subsection{Radiation from an accelerated charge in its rest frame:
+Larmor's formula}
+
+If $\dot{\vec{v}} \neq 0$ and $\vec{v} = 0$ (or very small) then:
+\begin{align*}
+    \vec{E} = \frac{q}{4 \pi} \klammer{\frac{1}{\abs{\vec{R}}^2} \hat{n} + \frac{1}{\abs{\vec{R}}} \hat{n} \times \eckigeklammer{\hat{n} \times \dot{\vec{v}}}}
+\end{align*}
+The pointing vector becomes:
+\begin{align*}
+    \vec{S} = \vec{E} \times \vec{B} =
+    \abs{\vec{E}}^2 \hat{n} - \klammer{\vec{E} \cdot \hat{n}} \cdot \vec{E}
+\end{align*}
+Inserting the $E$-field at the rest frame and expanding in $\frac{1}{\abs{\vec{R}}}$:
+\begin{align*}
+    \vec{S} &= \hat{n} \frac{q^2}{16 \pi^2 \abs{\vec{R}}^2} \abs{\hat{n} \times \klammer{\hat{n} \times \dot{\vec{v}}}}^2 + \mathcal{O} \klammer{\frac{1}{\abs{\vec{R}}^3}}
+    \\
+    &= \hat{n} \frac{q^2}{16 \pi^2 \abs{\vec{R}}^2} \abs{\dot{\vec{v}}}^2 \sin^2 (\Theta) + \mathcal{O} \klammer{\frac{1}{\abs{\vec{R}}^3}}
+\end{align*}
+where $\Theta$ is the angle between $\hat{n}$ and $\dot{\vec{v}}$:
+$\dot{\vec{v}} \cdot \hat{n} = \abs{\dot{\vec{v}}} \cos(\Theta)$.
+
+The power (energy per unit time) $dP$ emitted through a segment $d \vec{A}$
+of a closed surface around the retarded position of the charge $q$ is given
+by
+\begin{align*}
+    dP \equiv \frac{dW}{dt} = \vec{S} \cdot d \vec{A}
+\end{align*}
+For a segment of a sphere with radius $\abs{\vec{R}}$ centered around the
+retarded position of the charge, we have:
+\begin{align*}
+    d \vec{A} = \hat{n} \abs{\vec{R}}^2 d \Omega
+    \hspace{10pt} , \hspace{10pt}
+    d \Omega = \sin(\Theta) d \Theta d \phi
+\end{align*}
+and therefore:
+\begin{align*}
+    \frac{dP}{d \Omega} = \frac{q^2}{16 \pi^2} \abs{\dot{\vec{v}}}^2 \sin^2 (\Theta)
+    + \mathcal{O} \klammer{\frac{1}{\abs{\vec{R}}}}
+\end{align*}
+The radiation power, i.e. the power which is radiated at infinitely large distances,
+per solid angle $d \Omega$ is:
+\begin{align*}
+    \frac{d P_{rad.}}{d \Omega} = \frac{q^2}{16 \pi^2} \abs{\dot{\vec{v}}}^2 \sin^2(\Theta)
+\end{align*}
+The total power radiated at all solid angles surrounding the retarded position
+of the charge is:
+\begin{align*}
+    P_{rad.} = \int d \Omega \ \frac{dP_{rad}}{d \Omega}
+    = \frac{q^2}{4 \pi} \frac{2}{3} \abs{\dot{\vec{v}}}^2
+    = \frac{q^2}{4 \pi \epsilonnull} \frac{2}{3} \frac{\abs{\dot{\vec{v}}}^2}{c}
+\end{align*}
+In the last equality we took $c \neq 1$ and $\epsilonnull \neq 1$.
+This is known as Larmor's formula.
+
+\subsection{Radiation from an accelerated charge with a relativistic velocity}
+
+The power of radiation $\text{Power} = \frac{\text{Energy}}{\text{Time}}$
+is invariant under Lorentz transformation. Larmor's formula reads:
+\begin{align*}
+    P_{rad.} = \frac{q^2}{4 \pi} \frac{2}{3} \abs{\dot{\vec{v}}}^2
+    = \frac{q^2}{4 \pi} \frac{2}{3 m^2} \klammer{\frac{d \vec{p}}{dt}}^2
+\end{align*}
+Relativistic force in the rest frame: $\frac{d p^\mu}{d \tau} = \klammer{0,\frac{d \vec{p}}{d t}}$.
+Therefore: $\frac{dp_\mu}{d \tau} \frac{d p^\mu}{d \tau} = - \klammer{\frac{d \vec{p}}{d t}}^2$.
+Thus we can write:
+\begin{align*}
+    P_{rad.} = - \frac{q^2}{4 \pi} \frac{2}{3 m^2} \frac{d p_\mu}{d \tau}
+        \frac{d p^\mu}{d \tau}
+\end{align*}
+In the frame where the particle moves with a velocity $\vec{v}$:
+
+\begin{align*}
+    P_{rad.} = \frac{q^2}{4 \pi} \frac{2}{3} \gamma^6 \eckigeklammer{\abs{\dot{\vec{v}}}^2
+        - \abs{\vec{v} \times \dot{\vec{v}}}^2}
+\end{align*}
+
+\subsubsection{Circular motion}
+
+In this case: $\vec{v} \perp \dot{\vec{v}}$. So we obtain:
+\begin{align*}
+    P_{rad.} = \frac{q^2}{4 \pi} \frac{2}{3} \gamma^4 \abs{\dot{\vec{v}}}^2
+\end{align*}
+So a particle radiates constantly energy with $P_{rad.} \sim \gamma^4$.
+
+\subsubsection{Linear accelerators}
+
+In this case: $\vec{v} \parallel \dot{\vec{v}}$. So we obtain:
+\begin{align*}
+    P_{rad.} = \frac{q^2}{4 \pi} \frac{2}{3} \gamma^6 \abs{\dot{\vec{v}}}^2
+\end{align*}
+So $P_{rad.} \sim \gamma^6$.
+
+\subsection{Angular distribution of radiation from a linearly accelerated
+relativistic charge}
+
+The electric field of an accelerated charge is:
+\begin{align*}
+    \vec{E} = \frac{q}{4 \pi \klammer{1 - \hat{n} \cdot \vec{v}}^3} \frac{1}{\abs{\vec{R}}} \hat{n}
+        \times \eckigeklammer{\klammer{\hat{n} - \vec{v}} \times \dot{\vec{v}}}
+        + \mathcal{O} \klammer{\frac{1}{\abs{\vec{R}}^2}}
+        \Bigg|_{retarded}
+\end{align*}
+For $\vec{v} \parallel \dot{\vec{v}}$:
+\begin{align*}
+    \vec{E} = \frac{q}{4 \pi \klammer{1 - \hat{n} \cdot \vec{v}}^3} \frac{1}{\abs{\vec{R}}} \hat{n}
+        \times \eckigeklammer{\hat{n} \times \dot{\vec{v}}}
+        + \mathcal{O} \klammer{\frac{1}{\abs{\vec{R}}^2}}
+        \Bigg|_{retarded}
+\end{align*}
+The Poynting vector is:
+\begin{align*}
+    \vec{S} = \hat{n} \frac{q}{16 \pi^2 \abs{\vec{R}}^2} \frac{\abs{\hat{n} \times \klammer{\hat{n} \times \dot{\vec{v}}}}}{\klammer{1 - \hat{n} \cdot \vec{v}}^6}
+        + \mathcal{O} \klammer{\frac{1}{\abs{\vec{R}}^3}}
+\end{align*}
+The power of radiation through a solid angle $d \Omega$ at a retarded
+distance $\abs{\vec{R}}$ is:
+\begin{align*}
+    \frac{d P_{rad.}}{d \Omega} = \frac{q^2}{16 \pi^2} \abs{\dot{\vec{v}}}^2
+        \frac{\sin^2(\Theta)}{\klammer{1 - v \cos(\Theta)}^6}
+\end{align*}
+where $\Theta$ is the angle between the direction of the emitted radiation
+and the velocity of the particle. In the case where $v \approx c = 1$ and
+$\Theta \rightarrow 0$ the denominator tends towards zero the thus the whole
+fraction tends to infinity. Therefore, radiation tends to be collinear.
+\begin{align*}
+    1 - v \cos(\Theta) &\approx \frac{1}{2 \gamma^2} \klammer{1 + \gamma^2 \Theta^2}
+    \\
+    \frac{d P_{rad.}}{d \Omega} &\approx \frac{q^2}{16 \pi^2} \abs{\dot{\vec{v}}}^2
+        \frac{\klammer{\gamma \Theta}^2}{\klammer{1 + (\gamma \Theta)^2}^6}
+\end{align*}
+The distribution vanishes for small and large values of $\gamma \Theta$.
+It is maximal for $\gamma \Theta = 1/\sqrt{5}$. We conclude that the radiation
+is emitted within a characteristic angle $\Theta \sim \frac{1}{\gamma}$.

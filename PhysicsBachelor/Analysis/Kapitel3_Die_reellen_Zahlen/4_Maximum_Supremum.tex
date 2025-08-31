@@ -1,0 +1,122 @@
+\subsection{Maximum und Supremum}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Teilmenge $X \in \R$ ist \fat{von oben beschränkt}, falls es ein
+    $s \in \R$ gibt mit $x \leq s$ für alle $x \in X$. Ein solches $s \in \R$
+    nennt man eine \fat{obere Schranke} von $X$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X \subseteq \R$ eine Teilmenge. Ein Element $x_1 \in X$ heisst
+    \fat{Maximum} von $X$ falls für alle \xinX die Ungleichung
+    $x \leq x_1$ gilt. Wir schreiben
+    \begin{align*}
+        x_1 = \text{max}(X)
+    \end{align*}
+    falls das Maximum von $X$ existert und gleich $x_1$ ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Das Maximum ist eindeutig. Das bedeutet wenn $x_1$ und $x_2$
+    beide Maxima einer Teilmenge sind, folgt 
+
+    $x_1 \leq x_2 \land x_1 \geq x_2 \Rightarrow x_1 = x_2$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die Begriffe \fat{von unten beschränkt} und \fat{untere Schranke}
+    sowie \fat{Minimum} sind analog definiert. Wir schreiben
+    \begin{align*}
+        x_0 = \text{min}(X)
+    \end{align*}
+    falls das Minimum von $X$ existert und gleich $x_0$ ist. Eine
+    Teilmenge $X \subseteq \R$ heisst \fat{beschränkt}, falls sie 
+    von oben und von unten beschränkt ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei \XsubeqR eine Teilmenge und sei $A := \geschwungeneklammer{a \in \R \ | \ x \leq a \ \forall x \in X}$
+    die Menge aller oberen Schranken von $X$. Falls das Minimum $x_0 =$ min$(A)$
+    existert, dann nennen wir dieses Minimum \fat{Supremum} von $X$,
+    und wir schreiben $x_0 =$ sup$(X)$.
+}
+
+\pagebreak
+
+\Satz{
+
+    Sei \XsubR eine von oben beschränkte, nicht leere Teilmenge.
+    Dann existert ein Supremum von $X$.    
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $X$ und $Y$ von oben beschränkte, nicht leere Teilmengen von 
+    $\R$, und schreibe
+    \begin{align*}
+        X + Y := \geschwungeneklammer{x + y \ | \ x \in X, y \in Y}
+        \quad
+        \text{  und  }
+        \quad
+        X Y := \geschwungeneklammer{x y \ | \ x \in X , y \in Y}
+    \end{align*}
+    Die Mengen $X \cup Y$, $X \cap Y$ und $X + Y$ sind von oben beschränkt,
+    und falls $x \geq 0$ für alle \xinX und $y \geq 0$ für alle \yinY gilt,
+    so ist auch $X Y$ von oben beschränkt.
+
+    \vspace{1\baselineskip}
+    
+    (1) Es gilt sup$(X \cup Y)$ = max$\geschwungeneklammer{\text{sup}(X),\text{sup}(Y)}$.
+
+    (2) Falls $X \cap Y$ nicht leer ist, so gilt sup$( X \cap Y) \leq$ min$\geschwungeneklammer{\text{sup}(X),\text{sup}(Y)}$.
+
+    (3) Es gilt sup$(X + Y) =$ sup$(X)$ $+$ sup$(Y)$.
+
+    (4) Falls $x \geq 0$ für alle \xinX und $y \geq 0$ für alle $y \in Y$,
+    so gilt sup$(X Y)$ $=$ sup$(X)$sup$(Y)$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Für eine von unten beschränkte, nicht leere Teilmenge \XsubeqR wird
+    die grösste untere Schranke von $X$ auch als \fat{Infimum} inf$(X)$
+    von $X$ genannt. Es gilt die zum vorherigen Satz analoge 
+    Existenzaussage für das Infimum. Alternativ kann man das Infimum von
+    $X$ als
+    \begin{align*}
+        - \text{sup}\geschwungeneklammer{-x \ | \ x \in X}
+    \end{align*}
+    definieren. Überhaupt kann man dadurch praktisch alle Aussagen über 
+    Infima auf Aussagen über Suprema 
+    
+    zurückführen.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ eine Teilmenge von $\R$. Falls \XsubR nicht von oben beschränkt
+    ist, dann definieren wir sup$(X) = \infty$. Falls $X$ leer ist, setzen
+    wir sup$(\emptyset) = - \infty$. Wir nennen in diesem Zusammenhang
+    $\infty$ und $- \infty$ \fat{uneigentliche Werte}.
+}

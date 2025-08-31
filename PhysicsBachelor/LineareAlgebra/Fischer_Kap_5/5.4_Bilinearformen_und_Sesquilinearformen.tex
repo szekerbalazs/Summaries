@@ -1,0 +1,318 @@
+\section{Bilinearformen und Sesquilinearformen}
+
+\Definition{
+
+    Sei $K$ ein Körper und seien $V_1,V_2,W$ $K$-VR. eine Abbildung
+    $s: V_1 \times V_2\rightarrow W$ gegeben durch $(v,w) \mapsto s(v,w)$
+    heisst \fat{Bilinearform}, wenn gilt:
+    \begin{enumerate}[{\fat{B1}}]
+        \item $s(\alpha_1 v_1 + \alpha_2 v_2 , w) = \alpha_1 s(v_1,w) + \alpha_2 s(v_2,w)$
+        \item $s(v,\beta_1 w_1 + \beta_2 w_2) = \beta_1 s(v,w_1) + \beta_2 s(v,w_2)$
+    \end{enumerate}
+    Die Abbildung $s$ heisst \fat{symmetrisch}, falls $s(v,w) = s(w,v)$
+    und \fat{alternierend} oder \fat{schiefsymmetrisch}, wenn $s(w,v) = - s(v,w)$.    
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein endlich dimensionaler $K$-VR, $s: V \times V \rightarrow K$ eine Bilinearform
+    und sei $\mathcal{B} = (v_1,\dots,v_n)$ eine geordnete Basis von $V$. Die darstellende
+    Matrix von $s$ bezüglich $\mathcal{B}$ ist $M_{\mathcal{B}} (s) =: A = (a_{ij})_{ij}
+    \in M(n \times n \ ;K)$ definiert durch
+    \begin{align*}
+        a_{ij} = s(v_i,v_j)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $s$ eine Bilinearform auf $V$ mit Basis $\mathcal{B}$ und $\Phi_{\mathcal{B}}:
+    K^n \rightarrow V$ das zugehörige Koordinatensystem. Wir betrachten die Matrix
+    $A = M_{\mathcal{B}} (s)$ und für $v,w \in V$ die Koordinaten $x = \Phi_{\mathcal{B}}^{-1} (v)$,
+    $y = \Phi_{\mathcal{B}}^{-1} (w)$. Dann gilt:
+    \begin{align*}
+        s(v,w) = x^T A y
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $V$ ein endlichdimensionaler $K$-VR und $\mathcal{B}$ eine Basis. Dann ist die
+    Abbildung
+    $ s \mapsto M_{\mathcal{B}} (s) $
+    von den Bilinearformen auf $V$ in $M(n \times n \ ;K)$ bijektiv, und $s$ ist genau dann
+    symmetrisch, wenn $M_{\mathcal{B}} (s)$ symmetrisch ist.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Gegeben seien $A,B \in M(n \times n \ ; K)$ derart, dass
+    \begin{align*}
+        x^T A y = x^T B y
+    \end{align*}
+    für alle Spaltenvektoren $x,y \in K^n$. Dann ist $A=B$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{ (\fat{Transformationsformel})
+
+    Sei $V$ ein endlichdimensionaler VR mit Basen $\mathcal{A}, \mathcal{B}$ und sei
+    $T_{\mathcal{A}}^{\mathcal{B}}$ die entsprechende Transformationsmatrix. Für jede
+    Bilinearform $s$ auf $V$ gilt dann:
+    \begin{align*}
+        M_{\mathcal{B}} (s) = \klammer{T_{\mathcal{A}}^{\mathcal{B}}}^T \cdot M_{\mathcal{A}} (s) \cdot T_{\mathcal{A}}^{\mathcal{B}}
+    \end{align*}
+    Man beachte, dass für einen \underline{Endomorphismus} $F$ von $V$ gilt:
+    \begin{align*}
+        M_{\mathcal{B}} (F) = \klammer{T_{\mathcal{A}}^{\mathcal{B}}}^{-1} \cdot M_{\mathcal{A}} (F) \cdot T_{\mathcal{A}}^{\mathcal{B}}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ist $s:V \times V \rightarrow K$ eine symmetrische Bilinearform, so erhält man
+    daraus eine Abbildung $q: V \rightarrow K$ gegeben durch $v \mapsto q(v) := s(v,v)$.
+    Sie heisst die zu $s$ gehörige \fat{quadratische Form}. Da $s$ bilinear ist, folgt:
+    $q(\lambda v) = \lambda^2 q(v)$. Ist insbesondere $V = K^n$ und $s$ durch eine
+    symmetrische Matrix $A=(a_{ij})$ gegeben, so ist
+    \begin{align*}
+        q(x_1,\dots,x_n) = \sum_{i,j = 1}^n a_{ij} x_i x_j = \sum_{i=1}^n a_{ii} x_i^2
+        + \sum_{1 \leq i < j \leq n} 2 a_{ij} x_i x_j
+    \end{align*}
+    das ist ein homogenes quadratisches Polynom.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{ (\fat{Polarisierung})
+
+    Ist char$(K) \neq 2$, so gilt für jede symmetrische Bilinearform $s$ und die
+    zugehörige quadratische Form $q$ auf $V$
+    \begin{align*}
+        s(v,w) = \frac{1}{2} (q(v+w) - q(v) - q(w))
+    \end{align*}
+    Insbesondere ist $s$ also aus $q$ rekonstruierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein komplexer VR. Eine Abbildung $F: V \rightarrow V$ heisst \fat{semilinear},
+    wenn für $v,w \in V$ und $\lambda \in \C$ gilt:
+    \begin{align*}
+        F(v+\lambda w) = F(v) + \overline{\lambda} F(w)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein komplexer VR. Eine Abbildung $s: V \times V \rightarrow \C$ heisst
+    \fat{sesquilinear}, wenn sie linear im ersten Argument ist, und semilinear
+    im zweiten, dh.
+    \begin{enumerate}[{\fat{S1}}]
+        \item $s(v+\lambda v' ,w) = s(v,w) + \lambda s(v',w)$
+        \item $s(v,w+\lambda w') = s(v,w) +  \overline{\lambda} s(v,w')$
+    \end{enumerate}
+    Die Abbildung heisst \fat{hermitisch}, wenn zusätlich
+    \begin{enumerate} [{\fat{H}}]
+        \item $s(w,v) = \overline{s(v,w)}$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{ (Matrix Schreibweise)
+
+    Ist $\mathcal{A}$ Basis von $V$ und $A = M_{\mathcal{A}} (s) = \klammer{s(v_i,v_j)}_{ij}$,
+    $v=\Phi_{\mathcal{A}} (x)$ und $w= \Phi_{\mathcal{A}} (y)$, so ist
+    \begin{align*}
+        s(v,w) = x^T A \overline{y}
+    \end{align*}
+    Ist $\mathcal{B}$ eine weitere Basis, $B = M_{\mathcal{B}} (s)$ und
+    $T = T_{\mathcal{A}}^{\mathcal{B}}$, so hat man die \fat{Transformationsformel}
+    \begin{align*}
+        B = T^T A \overline{T}
+    \end{align*}
+    Weiter ist die Sesquilinearformen $s$ genau dann hermitisch, wenn die Matrix
+    $A=M_{\mathcal{A}} (s)$ hermitisch ist, dh.
+    \begin{align*}
+        A^T = \overline{A} \Longleftrightarrow A = \overline{(A^T)} = A^{\dagger}
+    \end{align*}
+    Schliesslich hat man auch noch im Komplexen für Sesquilinearformen eine
+    Polarisierung
+    \begin{align*}
+        s(v,w) = \frac{1}{4} \klammer{q(v+w) - q(v-w) + i q(v+iw) - i q(v-iw)}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\K = \R$ oder $\K = \C$. Sei $V$ ein $\K$-VR und $s: V \times V \rightarrow \K$
+    eine symmetrische Bilinearform (bzw. hermitische Form). Dann heisst $s$
+    \fat{positiv definit}, wenn $s(v,v) > 0$ für jedes $v \in V$ mit $v \neq 0$.
+    Man beachte, dass auch im hermitischen Fall $s(v,v) \in \R$ ist.
+    Eine symmetrische (bzw. hermitische) Matrix $A$ heisst \fat{positiv definiert},
+    wenn $x^T A \overline{x} >0$ für jeden Spaltenvektore $x \neq 0$ aus $\K^n$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Zur Abkürzung nennt man eine positiv definite symmetrische Bilinearform
+    bzw. hermitische Form ein \fat{Skalarprodukt}, und einen reellen bzw Komplexen
+    Vektorraum zusammen mit einem Skalarprodukt einen \fat{euklidischen} ($\K=\R$) bzw
+    \fat{unitären} ($\K = \C$) Vektorraum.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein euklidischer bzw. unitärer VR mit Skalarprodukt $\scalprod{ \ }{ \ }$.
+    Wir definieren die \fat{Norm} als $\Norm{v} = \sqrt{\scalprod{v}{v}}$
+    und die \fat{Metrik} als $d(v,w) = \Norm{w-v}$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Ungleichung von Cauchy-Schwarz)
+
+    Ist $V$ ein euklidischer bzw unitärer VR, so gilt $\forall v,w \in V$
+    \begin{align*}
+         \abs{\scalprod{v}{w}} \leq \Norm{v} \cdot \Norm{w}
+    \end{align*}
+    und die Gleichheit gilt genau dann, wenn $v$ und $w$ linear abhängig sind.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein euklidischer bzw unitärer VR.
+    \begin{enumerate}[{a)}]
+        \item Zwei Vektoren $v,w \in V$ heissen \fat{orthogonal} $v \perp w \Leftrightarrow \scalprod{v}{w} = 0$
+        \item Zwei UVR $U,W \subset V$ heissen \fat{orthogonal} $U \perp W \Leftrightarrow u \perp w \ \forall u \in U \ , \ \forall w \in W$
+        \item Ist $U \subset V$ ein UVR, so definiert man sein \fat{orthogonales Komplement}
+                $U^{\perp} := \geschwungeneklammer{v \in V \ : \ v \perp u \ \forall u \in U}$.
+                Es gilt $U^{\perp} \subset V$.
+        \item Eine Familie $(\BasisV)$ in $V$ heisst \fat{orthogonal}, wenn $v_i \perp v_j \ \forall i \neq j$.
+                Sie heisst \fat{orthonormal}, falls zusätlich $\Norm{v_i} = 1 \ \forall i$. Und
+                \fat{Orthonormalbasis}, falls sie auch eine Basis ist, dh. eine Basis mit $\scalprod{v_i}{v_j} = \delta_{ij}$
+        \item Ist $V = V_1 \oplus \dots \oplus V_k$, so heisst die direkte Summe \fat{orthogonal}: $V = V_1 \obot \dots \obot V_k$ falls $V_i \perp V_j \ \forall i \neq j$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $(\BasisV)$ eine orthogonale Familie in $V$ und $v_i \neq 0 \ \forall i$, so gilt:
+    \begin{enumerate}[{a)}]
+        \item Die Familie $(\alpha_1 v_1 , \dots , \alpha_n v_n$ mit $\alpha_i := \Norm{v_i}^{-1}$ ist orthonormal.
+        \item $(\BasisV)$ ist linear unabhängig.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $(\BasisV)$ eine Orthonormalbasis von $V$ und \vinV beliebig. Setze man
+    $\lambda_i := \scalprod{v}{v_i}$ so ist $v = \lambda_1 v_1 + \dots + \lambda_n v_n$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (\fat{Orthonormalisierungssatz})
+
+    Sei $V$ ein endlichdimensionaler euklidischer bzw. unitärer VR und $W \subset V$
+    ein UVR mit Orthonormalbasis $(w_1,\dots,w_m)$. Dann gibt es eine Ergänzung zu einer Orthonormalbasis
+    $(w_1,\dots,w_m,w_{m+1},\dots,w_n)$ von $V$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Jeder endlichdimensionaler euklidische bzw. unitäre VR besitzt eine Orthonormalbasis.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Ist $W$ UVR eines euklidischen bzw. unitären VR $V$, so gilt: $V = W \obot W^{\perp}$
+    und $\dim V = \dim W + \dim W^{\perp}$.
+}
+
+\vspace{1\baselineskip}
+
+\large \fat{Gram-Schmidt Algorithmus} \normalsize
+
+\vspace{1\baselineskip}
+
+Sei eine Basis $(\BasisV)$ von $V$ gegeben. Ziel ist es, eine ONB zu bauen.
+Gehe dafür wie folgt vor:
+\begin{enumerate}[{1)}]
+    \item Setze $w_1 = \frac{1}{\Norm{v_1}} \cdot v_1$
+    \item Setze $w_2 = \frac{1}{\Norm{w_2'}} \cdot w_2'$ \ mit  $w_2' = v_2 - \scalprod{v_2}{w_1} \cdot w_1$
+    \item ...
+    \item Setze $w_n = \frac{1}{\Norm{w_n'}} \cdot w_n'$ \ mit $w_n' = v_n - \scalprod{v_n}{w_1} \cdot w_1 - \dots - \scalprod{v_n}{w_{n-1}} \cdot w_{n-1}$
+\end{enumerate}
+So erhält man eine ONB $(\BasisW)$ von $V$.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $V$ ein endlichdimensionaler VR und seien $v_1,\dots,v_m \in V$ gegeben, wobei
+    $m \leq n$. Dann nennt man
+    \begin{align*}
+        G(v_1,\dots,v_m) := \det \begin{pmatrix}
+            \scalprod{v_1}{v_1} & \dots & \scalprod{v_1}{v_m} \\
+            \vdots & \ddots & \vdots \\
+            \scalprod{v_m}{v_1} & \dots & \scalprod{v_m}{v_m}
+        \end{pmatrix}
+    \end{align*}
+    die \fat{Gramsche Determinante} von $v_1,\dots,v_m$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Es gilt stets $G(v_1,\dots,v_m) \geq 0$ und $G(v_1,\dots,v_m) > 0 \Leftrightarrow
+    (v_1,\dots,v_m)$ linear unabhängig.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Ungleichung von Hadamard})
+
+    Seien $v_1,\dots,v_m$ beliebige Vektoren in einem $n$-dimensionalen Vektorraum $V$ mit
+    $m \leq n$. Dann ist
+    \begin{align*}
+        \vol (v_1,\dots,v_m) \leq \Norm{v_1} \cdot \dots \cdot \Norm{v_m}
+    \end{align*}
+    und Gleichheit besteht genau dann, wenn die $v_i$ paarweise orthogonal sind, dh.
+    wenn der aufgespannte Spat ein Quadrat ist.
+}
+
+

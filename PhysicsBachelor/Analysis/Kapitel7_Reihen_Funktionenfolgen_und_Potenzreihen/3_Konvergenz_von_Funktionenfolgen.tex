@@ -1,0 +1,46 @@
+\subsection{Konvergenz von Funktonenfolgen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D$ eine Menge, sei $\fFolge$ eine Folge von Funktionen $f_n : D \rightarrow \C$,
+    und sei $f: D \rightarrow \C$ eine Funktion. Wir sagen die Folge $\fFolge$ konvergiert
+    \fat{punktweise} gegen $f$, falls für jedes $x \in D$ die Folge komplexer Zahlen
+    $(f_n (x))_{n=0}^{\infty}$ gegen $f(x)$ konvergiert. Wir bezeichnen die Funktion
+    $f$ in dem Fall als den \fat{punktweisen Grenzwert} der Folge $\fFolge$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D$ eine Menge, sei $\fFolge$ eine Folge von Funktionen $f_n : D \rightarrow \C$,
+    und sei $f: D \rightarrow \C$ eine Funktion. Wir sagen die Folge $\fFolge$ konvergiert
+    \fat{gleichmässig} gegen $f$, falls für jedes $\epsilon > 0$ ein \NinN existiert, so
+    dass für alle $n \geq N$ und alle $x \in D$ die folgende Abschätzung gilt.
+    \begin{align*}
+        \abs{f_n (x) - f(x)} < \epsilon
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $D \subset \C$ und sei $\fFolge$ eine Folge stetiger Funktionen
+    $f_n : D \rightarrow \C$ die gleichmässig gegen $f: D \rightarrow \C$ konvergiert.
+    Dann ist $f$ stetig.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $[a,b]$ ein Intervall und sei $(f_n : [a,b] \rightarrow \C)_{n=0}^\infty$ eine
+    Folge integrierbarer Funktionen die gleichmässig gegen eine Funktion
+    $f: [a,b] \rightarrow \C$ konvergiert. Dann ist $f$ integrierbar und es gilt:
+    \begin{align*}
+        \intab f \ dx \ = \ \limesninf \intab f_n \ dx
+    \end{align*}
+}

@@ -1,0 +1,134 @@
+\subsection{Point Set Topology}
+
+\begin{definition}[Metric Space]
+    A set $S$ is a \fat{metric space} if there is defined, for every pair $x,y \in S$,
+    a nonnegative real number $d(x,y)$ in such a way that the following conditions
+    are fulfilled:
+    \begin{enumerate}
+        \item $d(x,y) = 0$ if and only if $x=y$
+        \item $d(y,x) = d(x,y)$
+        \item $d(x,z) \leq d(x,y) + d(y,z)$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Neighborhood]
+    A set $Y \subseteq X$ is called a \fat{neighborhood} of $y \in X$ if it contains a ball
+    $B(y,\delta)$.
+\end{definition}
+
+\begin{definition}[Open Set]
+    A set is \fat{open} if it is a neighborhood of each of its elements.
+\end{definition}
+
+\begin{theorem}
+    The following stetements are true.
+    \begin{enumerate}[(i)]
+        \item The intersection of a finite number of open sets is open.
+        \item The union of any collection of open sets is open.
+        \item The union of a finite number of closed sets is closed.
+        \item The intersection of any collection of closed sets is closed.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}[Interior]
+    The \fat{interior} $\text{Int} (X)$ of a set $X$ is the largest open set contained in $X$.
+\end{definition}
+
+\begin{definition}[Closure]
+    The \fat{closure} $X^-$ or $\overline{X}$ of a set $X$ is the smalles closed set which
+    contains $X$. A point belongs to the closure of $X$ if and only if all its
+    neighborhoods intersect $X$.
+\end{definition}
+
+\begin{definition}[Boundry]
+    The \fat{boundry} $\partial X$ of $X$ is the closure minus the interior. A point belongs to the
+    boundry of $X$ if and only if all its neighborhoods intersect both $X$ and $X^C$.
+\end{definition}
+
+\begin{definition}[Connectedness]
+    A subset of a metric space is \fat{connected} if it cannot be represented as the
+    union of two disjoint relatively open sets none of which is empty.
+    (A set $S$ if connected if and only if $\not\exists A,B$ open and non-empty such
+    that $A \cup B = S$ and $A \cap B = \emptyset$.)
+\end{definition}
+
+\begin{theorem}
+    A open set is connected if it cannot be decomposed into two open sets, and a
+    closed set is connected if it cannot be decomposed into two closed sets.
+\end{theorem}
+
+\begin{theorem}
+    The nonempty connected subsets of $\R$ are the intervals.
+\end{theorem}
+
+\begin{theorem}
+    Any closed and bounded nonempty set of real numbers has a minimum and a maximum.
+\end{theorem}
+
+\begin{theorem}
+    A nonempty open set in the plane is connected if and only if any two of its
+    points can be joined by a polygon which lies in the set.
+\end{theorem}
+
+\begin{definition}[Region]
+    A nonempty connected open set is called \fat{region}.
+\end{definition}
+
+\begin{definition}[Completeness]
+    A metric space is said to be \fat{complete} if every Cauchy sequence is convergent.
+\end{definition}
+
+\begin{definition}[Compactness]
+    A set $X$ is \fat{compact} if and only if every open covering of $X$ contains
+    a finite subcovering. Equivalent: $S$ is compact if and only if for any open
+    covering of $S$ there exists a finite subcovering $O_x$ open, such that
+    $S \subseteq \bigcup_{x \in X} O_x$.
+\end{definition}
+
+\begin{definition}[Totally Bounded]
+    A set $X$ is \fat{totally bounded} if, $\forall \epsilon >0$, $X$ can be covered by
+    finitely many balls of radius $\epsilon$.
+\end{definition}
+
+\begin{theorem}
+    A set is compact if and only if it is complete and totally bounded.
+\end{theorem}
+
+\begin{theorem}
+    A subset of $\R$ or $\C$ is compact if and only if it is closed and bounded.
+\end{theorem}
+
+\begin{theorem}
+    A metric space is compact if and only if every infinite sequence has a limit point.
+\end{theorem}
+
+\begin{definition}[Continuity]
+    A function is \fat{continuous} if and only if the inverse image of every open set is open.
+    Equivalent: A function is continuous if and only if the inverse image of every
+    closed set is closed.
+\end{definition}
+
+\begin{theorem}
+    Under a continuous mapping the image of every compact set is compact, and
+    consequently closed.
+\end{theorem}
+
+\begin{theorem}
+    A continuous real-valued function on a compact set has a maximum and a minimum.
+\end{theorem}
+
+\begin{theorem}
+    Under a continuous mapping the image of any connected set is connected.
+\end{theorem}
+
+\begin{definition}[Uniform Continuity]
+    A function is called \fat{uniformally continuous} if
+    \begin{align*}
+        \forall \epsilon > 0 \ \exists \delta > 0 : \forall x_1,x_2 : \ d(x_1,x_2) <
+        \delta \Rightarrow d(f(x_1),f(x_2)) < \epsilon
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    On a compact set every continuous function is uniformally continuous.
+\end{theorem}

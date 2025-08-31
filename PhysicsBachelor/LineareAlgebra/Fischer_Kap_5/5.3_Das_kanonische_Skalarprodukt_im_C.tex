@@ -1,0 +1,38 @@
+\section{Das kanonische Skalarprodukt im $\C^n$}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir definieren das \fat{kanonische Skalarprodukt} als eine Abbildung
+    $\C^n \times \C^n \rightarrow \C$ gegeben durch
+    \begin{align*}
+        (z,w) \mapsto \scalprod{z}{w}_{\C} := z^T \overline{w} = \sum_{j=1}^n z_j \overline{w}_j
+    \end{align*}
+    mit folgenden Eigenschaften (Sei $\scalprod{ \ }{ \ }$ immer $\scalprod{ \ }{ \ }_{\C}$):
+
+    (1) $\scalprod{z+z'}{w} = \scalprod{z}{w} + \scalprod{z'}{w}$
+
+    \hspace{13pt} $\scalprod{z}{w+w'} = \scalprod{z}{w} + \scalprod{z}{w'}$
+
+    \hspace{13pt} $\scalprod{\lambda z}{w} = \lambda \scalprod{z}{w}$
+
+    \hspace{13pt} $\scalprod{z}{\lambda w} = \overline{\lambda} \scalprod{z}{w}$
+
+    (2) $\scalprod{w}{z} = \overline{\scalprod{z}{w}}$
+
+    (3) $\scalprod{z}{z} \in \R_{\geq 0}$ und $\scalprod{z}{z} = 0 \Leftrightarrow z=0$
+
+    für $z,z',w,w' \in \C^n$ und $\lambda \in \C$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir können analog die \fat{Norm} in $\C^n$ definieren:
+    \begin{align*}
+        \C^n &\rightarrow \R_{\geq 0} \\
+        z &\mapsto \Norm{z} := \sqrt{\scalprod{z}{z}_{\C}}
+    \end{align*}
+}

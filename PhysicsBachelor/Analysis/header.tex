@@ -1,0 +1,65 @@
+% ==== Inputs and Usepackages ====
+
+\input{macros.tex}
+
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+%\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{nicefrac}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+%\usepackage{mathabx}
+\usepackage{MnSymbol}
+\usepackage{xfrac}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{latexsym}
+\usepackage{setspace}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+ \usetikzlibrary{matrix}
+ \usetikzlibrary{calc}
+
+\usepackage{a4wide}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+\usepackage[ngerman]{datetime}
+\usepackage[utf8]{inputenc}
+
+
+
+
+
+% ==== Page Settings ====
+
+\hoffset = -0.45 in
+\voffset = 0 in
+\textwidth = 500pt
+\textheight = 700pt
+\setlength{\headheight}{23pt}
+\setlength{\headwidth}{500pt}
+\marginparwidth = 0 pt
+\topmargin = -0.75 in
+\setlength{\parindent}{0cm}
+
+
+
+
+
+% ==== Presettings for files ====
+
+\newdateformat{myformat}{\THEDAY{ten }\monthname[\THEMONTH], \THEYEAR}
+
+
+\pagestyle{fancy}
+
+\cfoot{\thepage}
+\lfoot{\href{mailto:szekerb@student.ethz.ch}{szekerb@student.ethz.ch}}
+\rfoot{Balázs Szekér}

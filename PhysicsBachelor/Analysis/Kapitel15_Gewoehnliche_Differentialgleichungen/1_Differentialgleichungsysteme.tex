@@ -1,0 +1,220 @@
+\subsection{Differentialgleichungssysteme}
+
+\vspace{1\baselineskip}
+
+Wir fixieren ein offenes, nichtleeres Intervall $I \subseteq \R$ und $x_0 \in I$.
+Wir schreiben $C^{\infty} (I)$ für den $\C$-Vektorraum aller glatten Funktionen
+$I \rightarrow \C$.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir schreiben $D: C^{\infty} (I) \rightarrow C^{\infty} (I)$ für die Ableitung
+    $Df = f'$, aufgefasst als $\C$-linearer Endomorphismus des Vektorraums $C^{\infty} (I)$.
+    Ein linearer \fat{Differentialoperator} der Ordnung $d \geq 0$ ist eine lineare
+    Abbildung
+    \begin{align*}
+        L: C^{\infty} (I) \rightarrow C^{\infty} (I)
+        \quad , \quad \quad
+        \sum_{i=0}^{d} L = a_i D^{i}
+    \end{align*}
+    die sich als Linearkombination von $D^0 =$ id, $D^1 = D$, $D^2 = D \circ D$, \dots \
+    mit Koeffizienten $a_i \in C^{\infty} (I)$ schreibt. Als lineare, gewöhnliche
+    \fat{Differentialgleichung} der Ordnung $d$ bezeichnen wir die Gleichung $Lu=g$
+    für einen vorgegebenen Differentialoperator $L$ und eine vorgegebene
+    \fat{Störfunktion} $g \in C^{\infty} (I)$. Als \fat{Anfangswertproblem} bezeichnet
+    man das lineare Gleichungssystem bestehend aus dieser Differentialgleichung und
+    $d$ Gleichungen
+    \begin{align*}
+        &Lu = g \\
+        &u(x_0) = w_0 \quad , \quad Du(x_0) = w_1 \quad , \dots , \quad D^{d-1} u(x_0) = w_{d-1}
+    \end{align*}
+    für vorgegebene \fat{Anfangswerte} $w_0 , w_1 , \dots , w_{d-1} \in \R$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Um die Lösung der homogenen Differentialgleichung $Lu = 0$ zu finden, setzen wir
+    $u(x) = \exp (\alpha x)$ für ein $\alpha \in \C$. Damit gilt $D^{i} u = \alpha^{i} u$
+    und
+    \begin{align*}
+        Lu \ = \ \sum_{i=0}^{d} a_i D^{i} u \ = \ \sum_{i=1}^{d} a_i \alpha^{i} u
+    \end{align*}
+    Daher ist $u(x) = \exp (\alpha x)$ genau dann eine Lösung der Differentialgleichung
+    $Lu=0$, wenn $\alpha \in \C$ eine Nullstelle des sogenannten \fat{charakteristischen
+    Polynoms} des Operators $L$
+    \begin{align*}
+        p(T) = T^d + a_{d-1} T^{d-1} + \dots + a_0 \in \C [T]
+    \end{align*}
+    ist. Ist $\alpha$ eine reelle Nullstelle von $p(T)$, dann ist durch $u(x) = \exp (\alpha x)$
+    eine reellwertige Lösung gegeben. Bei reellen Koeffizienten und einer komplexen
+    Nullstelle $\alpha = \beta + \gamma i \ \in \C$ mit $\beta , \gamma \in \R$ ist
+    $\overline{\alpha} = \beta - \gamma i$ ebenso eine Nullstelle von $p(T)$. Dann
+    sind alle Linearkombinationen $s \exp (\alpha) + t \exp(\overline{\alpha} x)$
+    und insbesondere
+    \begin{align*}
+        \frac{\exp (\alpha x) + \exp (\overline{\alpha} x)}{2} = \exp (\beta x) \cos (\gamma x)
+        \quad , \quad
+        \frac{\exp (\alpha x) + \exp (\overline{\alpha} x)}{2i} = \exp (\beta x) \sin (\gamma x)
+    \end{align*}
+    Lösungen von $Lu=0$. Man beachte, dass $\exp (\alpha x)$ und $\exp (\overline{\alpha} x)$
+    gleichen $\C$-Unterraum von Lösungen zu $Lu=0$ aufspannen wie $\exp (\beta x) \cos(\gamma x)$
+    und $\exp(\beta x) \sin (\gamma x)$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Wir betrachten nun den Fall, in dem das charakteristische Polynom des
+    Differentialoperators $L$ eine mehrfache Nullstelle hat. Dazu untersuchen wir
+    Linearkombinationen von Funktionen des Types $f(x) = x^n \exp (\alpha x)$.
+
+    Hierbei ist $n$ die Vielfachheit einer Nullstelle $\alpha$. Als Lösungsansatz
+    summieren wir über all die Nullstellen und alle Vielfachheiten. Angenommen
+    wir haben zwei Nullstellen $\lambda_1$ und $\lambda_2$ mit Vielfachheiten
+    $\mu_1$ bzw $\mu_2$. Dann ist der Ansatz von $u$ gegeben als
+    \begin{align*}
+        u = \sum_{i=0}^{\mu_1 -1} c_i x^{i} e^{\lambda_1 x} \ + \ \sum_{j=0}^{\mu_2 -1} c_j x^{j} e^{\lambda_2 x}
+    \end{align*}
+    wobei $c_i$ und $c_j$ Koeffizienten sind, welche mit den Anfangsbedingungen
+    herausgefungen werden müssen. Wichtig ist, dass die Koeffizienten in den beiden
+    Summen verschieden sind. Die Notation ist etwas ungünstig, da mehrere Koeffizienten
+    den gleichen Intex haben könnten.
+}
+
+\pagebreak
+
+\Definition{
+
+    Wir bezeichnen den $\C$-Vektorraum der von diesen Funktionen aufgespannt wird,
+    also
+    \begin{align*}
+        \text{PE}_{\C} (I) = \langle x^n \exp (\alpha x) \ | \ n \in \N \ , \ \alpha \in \C \rangle
+    \end{align*}
+    als Raum der \fat{Exponentialpolynome}. Zusammen mit der üblichen Multiplikation
+    bilden Exponentialpolynome eine $\C$-Algebra. Die Ableitung definiert eine
+    $\C$-lineare Abbildung
+    \begin{align*}
+        D: \text{PE}_{\C} (I) \rightarrow \text{PE}_{\C} (I)
+        \quad , \quad \quad
+        D(x^n e^{\alpha x}) = n x^{n-1} e^{\alpha x} + \alpha x^n e^{\alpha x}
+    \end{align*}
+    die die Leibnitz-Regel $D(fg) = D(f) g + f D(g)$ erfüllt.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Die Funktion $\geschwungeneklammer{x \mapsto x^n \exp (\alpha x) \ | \ n \in N , \alpha \in \C}$
+    bilden eine Basis des $\C$-Vektorraums $\text{PE}_{\C} (I)$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $p \in \C [T]$ ein Polynom von Grad $d \geq 1$, das mittels
+    \begin{align*}
+        p(T) = a \prod_{j=1}^{k} (T-\alpha_j)^{d_j}
+    \end{align*}
+    in $d$ Linearfaktoren zerfällt, wobei wie annehmen, dass $\alpha_i \neq \alpha_j$
+    für $i \neq j$ gilt. Sei $L=p(D)$ der Differentialoperator mit charakteristischem
+    Polynom $p$. Dann hat die zugehörige homogene Differentialgleichung $Lu =0$
+    die $d$ linear unabhängigen Lösungen $u(x) = x^n \exp(\alpha_j x)$ für
+    $0 \leq n \leq n_j$ und $1 \leq j \leq k$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wir wenden uns nun den inhomogenen Problem zu. Für ein Polynom $p(T) \in \C [T]$
+    und eine Störfunktion $g \in \text{PE}_{\C} (I)$ gibt es ein einfaches Verfahren,
+    mit dem man eine Lösung $u_0$ der inhomogenen Differentialgleichung $p(D)u = g$
+    finden kann.
+    \begin{enumerate}
+        \item Falls $g(t) = q(t) e^{\alpha t}$ für ein Polynom $q$ vom Grad $n$ und
+                $\alpha \in \C$ mit $p(\alpha) \neq 0$, dann definiert man $u_0 (t)
+                =Q(t)e^{\alpha t}$, wobei $Q(T)$ ein Polynom vom Grad $n$ mit noch zu
+                bestimmenden Koeffizienten ist. Nun berechnet man $p(D)u_0$ und
+                bestimmt Koeffizienten so dass $p(D)u_0 = g$ gilt.
+        \item Falls $g(x) = q(x) e^{\alpha x}$ für ein Polynom $q(T)$ vom Grad $n$ und
+                $\alpha \in \C$ mit $p(\alpha) = 0$, dann wiederholt man obiges Verfahren,
+                allerdings mit dem Ansatz $u_0 (t) = Q(t) t^m e^{\alpha t}$, wobei $m$
+                die Vielfachheit der Nullstelle $\alpha$ von $p(T)$ angibt.
+        \item Ein allgemeines $g \in \text{PE}_{\C} (I)$ lässt sich als Linearkombination
+                von Ausdrücken wie oben darstellen. Auf Grund der Linearität von $p(D)$
+                kann man also obiges Verfahren für Summanden der Form $q(x) e^{\alpha x}$
+                in $g$ anwenden und dann die resultierenden Lösungsfunktionen addieren.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $I \subseteq \R$ ein Intervall, $U \subseteq I \times \R^d$ offen und
+    $F: U \rightarrow \R^d$ eine stetige Funktion. Eine Differentialgleichung
+    der Form
+    \begin{align*}
+        u'(t) = F(t,u(t))
+    \end{align*}
+    für eine unbekannte Funktion $u$ bezeichnen wir als $d$-\fat{dimensionale
+    Differentialgleichungssysteme erster Ordnung}. Dabei ist der Definitionsbereich
+    einer Lösung $u$ möglicherweise nur ein Teilintervall von $I$. Damit die obere
+    Gleichung überhaupt Sinn ergibt, muss $(t,u(t)) \in U$ für alle $t$ im
+    Definitionsbereich von $u$ gelten. Zu $(t_0 , x_0) \in U$ nennen wir die
+    Gleichung
+    \begin{align*}
+        u'(t) = F(t,u(t))
+        \quad , \quad \quad
+        u(t_0) = x_0
+    \end{align*}
+    ein \fat{Anfangswertproblem} zum \fat{Anfangswert} $x_0$ bei $t_0 \in I$.
+    Die Differentialgleichung heisst \fat{autonom}, falls $F$ konstant bezüglich
+    der Variablen $t$ ist.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $A \in \Mat_d (\R)$, $x_0 \in \R^d$ und $t_0 \in \R$. Das Anfangswertproblem
+    für differenzierbare Funktionen $u: \R \rightarrow \C^d$
+    \begin{align*}
+        u'(t) = Au
+        \quad , \quad \quad
+        u(t_0) = x_0
+    \end{align*}
+    hat die eindeutig bestimmte Lösung $u(t) = \exp(A(t-t_0))x_0$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (\fat{Trennung der Variablen / Variablenseparation})
+
+    Gegeben sei eine Differentialgleichung erster Ordnung in der Form
+    \begin{align*}
+        u'(t) = f(t) g(u(t))
+    \end{align*}
+    für Funktionen $f$ und $g$. Solch eine Differentialgleichung bezeichnet man als
+    \fat{separierbar}, da auf der rechten Seite ein Produkt von zwei Funktionen steht,
+    von denen eine nur von der Variablen $t$, und die andere nur von der "Variablen"
+    $u=u(t)$ abhängt. Wir teilen durch $g(u(t))$ und integrieren:
+    \begin{align*}
+        \int \frac{u'(t)}{g(u(t))} \ dt \ = \ \int f(t) \ dt \ + C
+    \end{align*}
+    Im Integral linkerhand können wir die Substitution $s=u(t)$ vornehmen. Ist also
+    $G$ eine Stammfunktion von $\frac{1}{g}$ und $F$ eine Stammfunktion von $f$, so
+    erhalten wir $G(u(t)) = F(t) + C$ für eine Integrationskonstante $C$. Falls
+    $G$ invertierbar ist, ergibt sich damit die Lösung
+    \begin{align*}
+        u(t) = G^{-1}(F(t) + C)
+    \end{align*}
+    der Differentialgleichung.
+}

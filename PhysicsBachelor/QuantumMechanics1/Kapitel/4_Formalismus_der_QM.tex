@@ -1,0 +1,277 @@
+\section{Der Formalismus der Quantenmechanik}
+
+
+Da die SG eine lineare DGL ist, gilt das Superpositionsprinzip. Somit ist
+der Lösungsraum ein komplexer VR. Wichtig ist, dass die Elemente des VR
+normierbar sind, d.h. $\langle \Psi(x,t) | \Psi(x,t) \rangle = 1 \ \forall t$.
+Formal bedeutet dies, dass der komplexe VR der Lösungen ein inneres Produkt
+besitzen muss. Einen solchen VR nennt man Hilbertraum.
+
+\subsection{Der Hilbertraum}
+
+Sei $\H$ ein komplexer VR. $\H$ ist ein Hilbertraum, falls $\H$ eine positiv-definite
+sesquilineare Form (Skalarprodukt) besitzt, bzgl deren Norm $\H$ vollständig ist.
+Das Skalarprodukt $\langle \cdot | \cdot \rangle$ ist eine Abbildung
+\begin{align*}
+    \langle \cdot | \cdot \rangle : \H \times \H \rightarrow \C
+\end{align*}
+mit den folgenden Eigenschaften für $\psi, \chi, \chi_i \in \H$ und $\alpha,\beta \in \C$:
+\begin{enumerate}[(i)]
+    \item Linearität im 2. Argument: $\langle \psi | \alpha \chi_1 + \beta \chi_2 \rangle
+        = \alpha \langle \psi | \chi_1 \rangle + \beta \langle \psi | \chi_2 \rangle$
+    \item Komplexe Konjugation: $\overline{\langle \psi | \chi \rangle} = \langle \chi | \psi \rangle$
+    \item Anti-Linearität im 1. Argument: $\langle \chi_1 + \beta_2 \chi_2 | \psi \rangle
+        = \alpha^\ast \langle \chi_1 | \psi \rangle + \beta^\ast \langle \chi_2 | \psi \rangle$
+    \item Positive Definitheit: $\langle \psi | \psi \rangle \geq 0$ und
+        $\langle \psi | \psi \rangle = 0 \ \Rightarrow \ \psi = 0$.
+\end{enumerate}
+Wir definieren die Norm $\Norm{\psi} = \sqrt{\langle \psi | \psi \rangle}$.
+Es gilt:
+\begin{align*}
+    \abs{\langle \phi | \psi \rangle}^2 &\leq \langle \phi | \phi \rangle \cdot \langle \psi | \psi \rangle
+    \hspace{10pt} \text{(Cauchy-Schwarz Ungleichung)}
+    \\
+    \Norm{\psi + \phi} &\leq \Norm{\psi} + \Norm{\phi}
+    \hspace{20pt} \text{(Dreiecksungleichung)}
+\end{align*}
+Ein komplexer VR $\H$ mit einem Skalarprodukt ist ein Hilbertraum, falls $\H$ bzgl.
+der obigen Norm vollständig ist: dies bedeutet, dass jede Cauchy Folge von
+Vektoren $\phi_n \in \H$ zu einem Element in $\H$ konvergiert:
+$\limes{n \rightarrow \infty} \phi_n = \phi \in \H$. $\eckigeklammer{\text{Def. Cauchy-Folge: }
+\forall \epsilon > 0 \ \exists N \in \N : \ \forall n,m > N: \Norm{\phi_n - \phi_m}
+< \epsilon}$
+
+\subsection{Der $L^2$ Raum}
+
+Der Hilbertraum, der der Wellenmechanik zu Grunde liegt, ist der Raum der
+quadratintegrablen Funktionen, der $L^2$ Raum.
+\begin{align*}
+    L^2 \klammer{\R^f} = \geschwungeneklammer{f: \R^f \rightarrow \C \ \ \Big| \ \int dx \ \abs{f(x)}^2 < \infty}
+\end{align*}
+Wir definieren das Skalarprodukt durch:
+\begin{align*}
+    \langle f | g \rangle = \int_\R dx \ f^\ast (x) g(x)
+\end{align*}
+Es gelten die VR-Operationen:
+\begin{align*}
+    (f+g)(x) = f(x) + g(x)
+    \hspace{10pt} , \hspace{10pt}
+    (\lambda f)(x) = \lambda f(x)
+\end{align*}
+
+\subsection{Separable Hilberträume}
+
+$L^2 (\R)$ ist ein unendlich-dimensionaler und separabler Hilbertraum. D.h.
+er besitzt eine abzählbar unendliche Basis $f_n$. D.h. $\forall f \in L^2(\R)$
+gilt
+\begin{align*}
+    f = \sum_{n=1}^\infty c_n f_n \hspace{5pt} , \hspace{10pt} c_n \in \C
+\end{align*}
+Wann immer ein Hilbertraum eine abzählbare Basis besitzt, lässt sich eine orthonormale
+Basis konstruieren s.d. $\langle f_n | f_m \rangle = \delta_{mn}$.
+ONB kann mit Schmidt'schem Orthogonalisierungsverfahren konstruiert werden:
+\begin{align*}
+    h_1 = f_1 / \Norm{f_1}
+    \hspace{10pt} , \hspace{10pt}
+    g_2 = f_2 - \langle h_1 | f_2 \rangle h_1
+    \hspace{10pt} , \hspace{10pt}
+    h_2 = g_2 / \Norm{g_2}
+    \\
+    g_3 = f_3 - \langle h_1 | f_3 \rangle h_1 - \langle h_2 | f_3 \rangle h_2
+    \hspace{10pt} , \hspace{10pt}
+    h_3 = g_3 / \Norm{g_3}
+\end{align*}
+
+\subsection{Operatoren und Observable}
+
+Physikalische Observablen entsprechen Differentialoperatoren, die auf
+Wellenfunktionen wirken. Der Impuls- und Ortsoperator sind gegeben als:
+\begin{align}
+    \hat{p} : L^2(\R) \rightarrow L^2(\R)
+    \hspace{10pt} &, \hspace{10pt}
+    f(x) \mapsto \hat{p} f(x) = -i \hbar \frac{\partial f(x)}{\partial x} \label{Impulsoperator}
+    \\
+    \hat{x} : L^2(\R) \rightarrow L^2(\R)
+    \hspace{10pt} &, \hspace{10pt}
+    f(x) \mapsto \hat{x} f(x) = x \cdot f(x) \label{Ortsoperator}
+\end{align}
+Beides sind lineare Operatoren, d.h. $\hat{p}(\lambda f + \mu g) = \lambda \hat{p}(f)
++ \mu \hat{p}(g)$.
+
+\vspace{1\baselineskip}
+
+Der Erwartungswert einer physikalischen Observablen $A$ ist gegeben durch
+$\langle A \rangle_{\Psi} \equiv \langle \Psi | A \Psi \rangle =
+\langle A \Psi | \Psi \rangle \in \R$.
+
+\vspace{1\baselineskip}
+
+Für die Fälle $\Psi = \Psi_1 + \Psi_2$ und $\Psi = \Psi_1 + i \Psi_2$ gilt
+$\langle \Psi_1 | A \Psi_2 \rangle = \langle A \Psi_1 | \Psi_2 \rangle$.
+Solche Operatoren nennt man \textit{symmetrisch}. Wir definieren den
+\textit{adjungierten Operator} $B^\dagger$ zu $B$ durch:
+$\langle f | B g \rangle = \langle B^\dagger f | g \rangle \ \forall f,g \in \H$.
+Falls $A$ \textit{selbst-adjungiert} ist, also $A^\dagger = A$, dann ist $A$ auch
+symmetrisch. Im allgemeinen gilt die Umkehrung nicht, da im unendlich dimensionalen
+Selbst-Adjungiertheit eine stärkere Bedingung ist als Symmetrie. Selbst-Adjungiertheit
+impliziert auch, dass der UR, auf dem $A$ definiert ist, mit demjenigen übereinstimmt,
+auf dem $A^\dagger$ definiert ist.
+
+Im endlichdimensionalen Fall, d.h. $\H = \C^n$, können wir die Operatoren $A$ durch
+eine Matrix $M(A)$ beschreiben. Wir wählen hierzu eine ONB. Die Matrix des
+adjungierten Operators $A^\dagger$ ist dann gegeben durch:
+$M(A^\dagger) = \overline{M(A)^t} = M(A)^\dagger$. Die Observablen entsprechen
+also gerade den hermiteschen Matrizen.
+
+\subsection{Messung, Erwartungswert und Dirac Notation}
+
+Nehme an, der Hilbertraum $\H$ sei endlichdimensional mit Dimension $N$. Jeder
+selbst-adjungierte Operator kann dann diagonalisiert werden; somit können wir
+eine Basis von $\H$ aus EV von $A$ finden. Bezeichne die EV von $A$ mit
+$\psi_n$ und die EW mit $\lambda_n$ für $n = 1,\dots,N$.
+\begin{align*}
+    A \psi_n = \lambda_n \psi_n
+\end{align*}
+OBdA sind $\psi_n$ normiert: $\langle \psi_n | \psi_n \rangle$. Des weiteren
+müssen die EW $\lambda_n \in \R$ reell sein und es gilt:
+\begin{align*}
+    \langle \psi_n | \psi_m \rangle = \delta_{mn}
+\end{align*}
+Wir führen die \textit{Dirac-Notation} ein. Die Vektoren im Hilbertraum $ | a \rangle
+\in \H$ werden als 'kets' bezeichnet. Entsprechend sind die 'bras'
+$\langle a | \in \H^\ast$ Elemente des Dualsraumes. Somit ist deren Komposition,
+auch 'bracket' genannt $\langle a | (|b \rangle) \equiv \langle a | b \rangle$
+eine Zahl.
+
+Wir definieren die \textit{Spektralprojektoren}. Betrachte
+\begin{align*}
+    P_n = | \psi_n \rangle \langle \psi_n | \ : \ \H \rightarrow \H
+\end{align*}
+Da $P_n^2 = P_n$, ist $P_n$ ein \textit{Projektor}. Ausserdem projiziert
+$P_n$ auf den Eigenraum $| \psi_n \rangle$. Des weiteren ist die
+Spektralzerlegung von $A$ gegeben durch:
+\begin{align*}
+    A = \sum_n \lambda_n P_n = \sum_n \lambda_n | \psi_n \rangle \langle \psi_n |
+\end{align*}
+Somit ist der Erwartungswert von $A$ in dem Zustand $\psi$ gegeben als:
+\begin{align*}
+    \langle A \rangle_{\psi}
+    = \sum_n \lambda_n \langle \psi | \psi_n \rangle \langle \psi_n | \psi \rangle
+    = \sum_n \lambda_n \abs{\langle \psi | \psi_n \rangle}^2
+\end{align*}
+Mit dieser Erkenntniss, können wir die Postulate der QM allgemeiner formulieren zu:
+\begin{enumerate}[(i')]
+    \item Der Raum der Zustände ist der Hilbertraum $\H$, auf dem ein selbst-adjungierter
+        Hamiltonoperator $H$ definiert ist. Das System wird zu jeder Zeit $t$ durch
+        einen Strahl im Hilbertraum beschrieben; ein Strahl $\psi(t)$ ist die
+        Äquivalenzklasse von normierten Vektoren $\chi$ mit $\langle \chi | \chi
+        \rangle = 1$, wobei $\chi_1 \sim \chi_2$ falls $\chi_1 = e^{i \alpha} \chi_2$.
+    \item Die Zeitentwicklung wird durch die SG beschrieben:
+        \begin{align*}
+            i \hbar \frac{\partial}{\partial t} \psi(t) = H \psi(t)
+        \end{align*}
+    \item Observable werden durch selbst-adjungierte Operatoren $A$ beschrieben.
+    \item Die möglichen Ergebnisse einer Messung von $A$ sind die verschiedenen
+        EW $\lambda_n$.
+    \item Die Wsk., dass als Messergebnis $\lambda$ auftritt ist:
+        \begin{align*}
+            W(\lambda) = \sum_{\lambda_m = \lambda} \abs{\langle \psi_m | \psi \rangle}^2
+        \end{align*}
+        Der Erwartungswert von $A$ im Zustand $\psi$ ist $\langle \psi | A | \psi \rangle$.
+\end{enumerate}
+
+\subsection{Verallgemeinerung auf $\infty$-dimensionale Hilberträume}
+
+Das \textit{Spektrum} $\sigma(A)$ eines selbst-adjungierten Operators
+$A: \H \rightarrow \H$ enthält $\lambda \in \sigma(A)$, falls $\forall \epsilon > 0
+\ \exists \psi_\epsilon \in \H$ normierbar ($\langle \psi_\epsilon | \psi_\epsilon \rangle$),
+s.d. $\Norm{(A - \lambda) \psi_\epsilon} \leq \epsilon$. Falls $\lambda$ ein EW ist
+von $A$, dann ist natürlich $\lambda \in \sigma(A)$. Das Spektrum ist die
+Verallgemeinerung des Konzeptes der Eigenwerte für den $\infty$-dim. Fall.
+Das Spektrum $\sigma(A)$ eines selbst-adjungierten Operators ist immer eine
+Teilmenge der reellen Zahlen.
+\begin{enumerate}[]
+    \item Postulat: Die möglichen Resultate einer Messung der Observablen $A$
+        ist das Spektrum von $A$.
+\end{enumerate}
+Das Spektrum kann diskrete oder kontinuierlich sein, oder beide Teile enthalten.
+Beispielsweise:
+\begin{enumerate}[]
+    \item Freies Teilchen: $\sigma(x) = \sigma(p) = \R$, $\sigma(H) = \R_{\geq 0}$
+    \item Potentialtopf: $\sigma(H) = \geschwungeneklammer{E_1,\dots,E_N} \cup \R_{\geq}$
+    \item Harmonischer Oszillator: $\sigma(H) = \geschwungeneklammer{\hbar \omega \klammer{\frac{1}{2} + n} \ : \ n=1,2,\dots}$
+\end{enumerate}
+
+Falls das Spektrum distret ist, dann gilt:
+\begin{align*}
+    f(A) := \sum_{a \in \sigma(A)} f(a) P_a
+\end{align*}
+wobei $f: \R\rightarrow \C$ eine Funktion und $f(A): \H \rightarrow \H$ ein
+Operator ist. Diese Zuordnung hat folgende Eigenschaften:
+\begin{align*}
+    (\alpha_1 f_1 + \alpha_2 f_2)(A) &= \alpha_1 f_1 (A) + \alpha_2 f_2(A)
+    \hspace{5pt} , \hspace{10pt} \alpha_1 , \alpha_2 \in \C
+    \\
+    (f_1 f_2)(A) &= f_1(A) f_2(A)
+    \\
+    \overline{f}(A) &= f(A)^\dagger
+    \\
+    f(A) &= \begin{cases}
+        \mathds{1} \hspace{10pt} &\text{für } f(x) = 1
+        \\
+        A \hspace{10pt} &\text{für } f(x) = x
+    \end{cases}
+\end{align*}
+Der \textit{Spektralsatz} besagt, dass es auch im $\infty$-dim. Fall eine eindeutige
+Zuordnung $f \mapsto f(A)$ gibt die die obigen Eigenschaften erfüllt. Und
+falls $A$ selbst-adjungiert ist gibt es solch eine Zuordnung auch falls das
+Spektrum nicht diskret ist.
+
+Sei $I \subset \R$ ein Intervall und $P_I(x)$ dessen charakteristische Fkt.
+Dann ist $P_I (A)$ ein orthogonaler Projektor: $P_I (A) = P_I(A)^\dagger
+= P_I (A)^2$. Für disjunkte Intervalle $I_1$ und $I_2$ gilt:
+$P_{I_1 \bigcup I_2} (A) = P_{I_1} (A) + P_{I_2}(A)$. Für jeden Zustand $| \psi \rangle
+\in \H$ ist dann $W_{\psi} (I) = \langle \psi | P_I (A) | \psi \rangle$ ein
+Wahrscheinlichkeitsmass auf $\R$, d.h.
+\begin{align*}
+    W_{\psi}(I) &= \Norm{P_I(A) \psi}^2 \geq 0
+    \\
+    W_{\psi} (I_1 \cup I_2) &= W_{\psi} (I_1) + W_\psi (I_2)
+    \hspace{10pt} \text{für } I_1 \cap I_2 = \emptyset
+    \\
+    W_{\psi} (\R) &= 1
+\end{align*}
+Interpretation: $W_\psi(I)$ ist die Wahrscheinlichkeit, dass $A$ im Zustand
+$| \psi \rangle$ einen Messwert $a \in I$ annimmt.
+
+Weiter definieren wir den Erwartungswert von $A$ im Zustand $\psi$ durch:
+\begin{align*}
+    \langle A \rangle_\psi = \int \lambda \ dW_\psi ((-\infty,\lambda])
+    = \langle \psi | A | \psi \rangle
+\end{align*}
+
+\subsection{Andere Darstllung der Quantenmechanik}
+
+Im 'Ortsraum' sind die Operatoren gegeben wie in \cref{Impulsoperator} und
+\cref{Ortsoperator}. Wir können aber auch eine Definition im 'Impulsraum' geben.
+Die Impulsdarstellung einer Wellenfunktion ist gegeben durch die
+Fourier-Transformation:
+\begin{align*}
+    \tilde{\Psi} (p,t) = \frac{1}{\sqrt{2 \pi \hbar}} \intii dx \ \Psi(x,t) e^{-i p x / \hbar}
+\end{align*}
+Hier sind Impulsoperator und Ortsoperator wie folgt gegeben:
+\begin{align*}
+    \hat{p}: L^2(\R) \rightarrow L^2(\R)
+    \hspace{10pt} , \hspace{10pt}
+    f(q) \mapsto [\hat{p}(f)](p) = p f(p)
+    \\
+    \hat{x}: L^2(\R) \rightarrow L^2 (\R)
+    \hspace{10pt} , \hspace{10pt}
+    f(p) \mapsto [\hat{x} f](p) = i \hbar \frac{\partial f(p)}{\partial p}
+\end{align*}
+Der Kommutator zweier Operatoren $A$ und $B$ ist gegeben als
+\begin{align*}
+    [A,B] = A B - B A = i \hbar \geschwungeneklammer{A,B}
+\end{align*}
+Wobei $\geschwungeneklammer{.,.}$ die Poissonklammer ist.
+Für den Fall $A=x$ und $B=p$ gilt: $[x,p] = i \hbar$.

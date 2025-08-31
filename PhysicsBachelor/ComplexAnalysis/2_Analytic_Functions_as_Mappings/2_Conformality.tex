@@ -1,0 +1,89 @@
+\subsection{Conformality}
+
+\begin{definition}[Arc]
+    An \fat{arc} is a continuous function $\gamma$ that maps $t \in [\alpha,\beta]
+    \subseteq \R$ to a plane (or generally on a subset of $\R^n$). For an arc on $\C$
+    we can define $\gamma$ as $z(t) = x(t) + i y(t)$ with $x(t),y(t)$ continuous
+    functions.
+\end{definition}
+
+\begin{definition}[Differentiable Arc]
+    An arc is said to be \fat{differentiable} if $z'(t)$ exists and is continuous.
+    If $z'(t) \neq 0$, the arc is said to be \fat{regular}. An arc is \fat{piecewise
+    differentiable} or {piecewise regular} if the same conditions hold exept for a
+    finite number of values $t$. At these $t$ points $z(t)$ shall still be continuous
+    with left and right derivatives which are equal to the left and right limits of
+    $z'(t)$.
+\end{definition}
+
+\begin{definition}[Jordan Arc]
+    An arc is \fat{simple}, or a \fat{Jordan arc}, if $z(t_1) = z(t_2)$ only for
+    $t_1 = t_2$.
+\end{definition}
+
+\begin{definition}[Closed Curve]
+    An arc is a \fat{closed arc} if the endpoints coincide: $z(\alpha) = z(\beta)$.
+\end{definition}
+
+\begin{definition}[Opposite Arc]
+    The \fat{opposite arc} of $z(t)$ for $\alpha \leq t \leq \beta$ is the arc
+    $z = z(-t)$ for $-\beta \leq t \leq \alpha$. Opposite arcs are sometimes donated by
+    $\gamma$ and $-\gamma$, sometimes $\gamma$ and $\gamma^{-1}$, depending on the
+    connection.
+\end{definition}
+
+\begin{definition}[Analytic Function]
+    A complex-valued function $f(z)$, defined on an open set $\Omega$, is said to be
+    \fat{analytic} or \fat{holomorphic} in $\Omega$ if it has a derivative at each
+    point of $\Omega$.
+\end{definition}
+
+\begin{theorem}
+    An analytic function $f: \Omega \rightarrow \C$ in a region $\Omega$ with
+    $f'(z) = 0 \ \forall z \in \Omega$, then $f$ is constant in $\Omega$. The same
+    is true if either the real part, the imaginary part, the modulus, or the argument
+    is constant.
+\end{theorem}
+
+\begin{definition}[Image of Arcs]
+    Suppose that an arc $\gamma$ with the equation $z=z(t)$ for $\alpha \leq t \leq \beta$
+    is contained in a region $\Omega$, and let $f(z)$ be defined and continuous in
+    $\Omega$. Then the equation $w=w(t)=f(z(t))$ defines an arc $\gamma'$ in the
+    $w$-plane which may be called the \fat{image of $\gamma$}.
+\end{definition}
+
+\begin{theorem}
+    If $z'(t)$ exists, we find that $w'(t)$ also exists and is determined by
+    $w'(t) = f'(z(t)) z'(t)$.
+\end{theorem}
+
+\begin{theorem}
+    Let $f: \Omega \rightarrow \C$ be analytic and $z_0 \in \Omega$ such that $f'(z_0)
+    \neq 0$ and $z'(t_0) \neq 0$. Then $f$ takes tangent arcs at $z_0$ into tangent
+    arcs at $f(z_0)$. The function $f$ takes two arcs at a relativ angle $\theta$ at
+    $t_0$ to arcs with the same relative error.
+
+    \begin{proof}
+        Let $z_1$ and $z_2$ be two arcs that cross $z_0$ at $t_0$. Then the following
+        is true.
+        \begin{align*}
+            z_1(t_0) &= z_2(t_0)
+            \\
+            f(z_1(t_0)) &= w_1(t_0)
+            \\
+            f(z_2(t_0)) &= w_2(t_0)
+            \\
+            \arg \klammer{w_2'(t_0)} - \arg(w_1'(t_0)) &=
+            \arg(f'(z_2(t_0)) z_2'(t_0)) - \arg(f'(z_1(t_0)) z_1'(t_0))
+            \\
+            &= \arg(f'(z_2(t_0))) + \arg(z_2'(t_0)) - \arg(f'(z_1(t_0)))
+                - \arg(z_1'(t_0))
+            \\
+            &= \arg(z_2'(t_0)) - \arg(z_1'(t_0))
+        \end{align*}
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    If $f$ is analytic and $f'(z_0) \neq 0$, then $f$ is conformal at $z_0$. 
+\end{theorem}

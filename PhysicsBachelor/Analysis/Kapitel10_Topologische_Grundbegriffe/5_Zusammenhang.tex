@@ -1,0 +1,182 @@
+\subsection{Zusammenhang}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ ein topologischer Raum. Ein \fat{Weg} oder \fat{Pfad} in $X$ ist eine stetige
+    Abbildung $\gamma: [0,1] \rightarrow X$. Wir nennen $\gamma(0)$ den \fat{Startpunkt}
+    und $\gamma(1)$ den \fat{Endpunkt}. Dabei sagen wir auch, dass $\gamma$ ein Weg
+    von $\gamma(a)$ nach $\gamma(b)$ ist. Einen Pfad $\gamma$ mit $\gamma(0) = \gamma(1)$
+    nennen wir \fat{geschlossen}, oder auch eine \fat{Schlaufe}.
+}
+
+\pagebreak
+
+\Definition{ (Geometrisch)
+
+    Ein topologischer Raum $X$ heisst \fat{wegzusammenhängend}, falls für alle
+    $x_1,x_2 \in X$ eine Pfad $\gamma:[0,1] \rightarrow X$ mit
+    $\gamma(0)=x_1$ und $\gamma(1)=x_2$ existiert.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Topologisch)
+
+    Ein topologischer Raum $X$ heisst \fat{zusammenhängend}, falls $\emptyset$ und
+    $X$ die einzigen Teilmengen von $X$ sind, die offen und abgeschlossen sind.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Alternativ)
+
+    Ein topologischer Raum $X$ heisst \fat{zusammenhängend}, falls für alle
+    $U_1 \subseteq X$ und $U_2 \subseteq X$ offen, mit $U_1 \cap U_2 = \emptyset$
+    und $U_1 \cup U_2 = 0$ direkt folgt, dass $U_1 = \emptyset$ und $U_2 = X$,
+    oder $U_2 = \emptyset$ und $U_1 = X$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Teilmenge $U \subseteq X$ eines topologischen Raumes $X$ heisst
+    \fat{Zusammenhangskomponente} von $X$, falls $U$ nichtleer, offen, abgeschlossen
+    und zusammenhängend ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Teilmenge $Y \subseteq X$ eines topologischen Raumes heisst \fat{zusammenhängend},
+    falls $Y$ bezüglich der Unterraumtopologie als eigenständiger topologischer Raum
+    zusammenhängend ist. Im gleichen Sinn sprechen wir von Zusammenhangskomponenten
+    von $Y$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $X$ ein topologischer Raum und seien $Y_1$ und $Y_2$ zusammenhängende Teilräume.
+    Falls der Durchschnitt $Y_1 \cap Y_2$ nicht-leer ist, dann ist die Vereinigung
+    $Y_1 \cup Y_2$ zusammenhängend.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $X$ ein topologischer Raum und seien $Y_1$ und $Y_2$ wegzusammenhängende Teilräume.
+    Falls der Durchschnitt $Y_1 \cap Y_2$ nicht-leer ist, dann ist die Vereinigung
+    $Y_1 \cup Y_2$ wegzusammenhängend.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Eine nichtleere Teilmenge $X \subseteq \R$ ist genau dann zusammenhängend, wenn
+    $X$ ein Intervall ist.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $X$ und $Y$ topologische Räume und $f: X \rightarrow Y$ eine stetige
+    Funktion. Ist $A \subseteq X$ zusammenhängend, dann ist $f(A) \subseteq Y$
+    zusammenhängend.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Zwischenwertsatz)
+
+    Sei $I \subseteq \R$ ein Intervall, $f: I \rightarrow \R$ eine stetige Funktion
+    und $a,b \in I$. Für jedes $c \in \R$ zwischen $f(a)$ und $f(b)$ gibt es ein
+    $x \in I$ zwischen $a$ und $b$, so dass $f(x) = c$ gilt. 
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Jeder zusammenhängender topologische Raum ist zusammenhängend.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^d$ eine offene Teilmenge. Dann ist $U$ genau dann wegzusammenhängend,
+    wenn $U$ zusammenhängend ist.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für alle $n \geq 1$ und $r>0$ sind der topologische Raum $\R^n$, sowie die
+    Teilräume $B(x,r)$ und $\overline{B(x,r)}$ von $\R^n$, zusammenhängend.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Für alle $n \geq 2$ ist der topologische Raum $\R^n \backslash \geschwungeneklammer{0}$
+    zusammenhängend.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ ein topologischer Raum und seien $\gamma_0$ und $\gamma_1$ Pfade in $X$
+    mit demselben Anfangspunkt $x_0 = \gamma_0 (0) = \gamma_1 (0)$ und demselben
+    Endpunkt $x_1 = \gamma_0 (1) = \gamma_1 (1)$. Eine \fat{Homotopie} von $\gamma_0$
+    nach $\gamma_1$ ist eine stetige Abbildung 
+    
+    $H: [0,1] \times [0,1] \rightarrow X$ mit folgenden Eigenschaften:
+    \begin{align*}
+        H(0,t) = \gamma_0(t), \quad H(1,t) = \gamma_1 (t)
+        \quad \quad \text{   und   } \quad \quad
+        H(s,0) = x_0 , \quad H(s,1) = x_1
+    \end{align*}
+    für alle $t \in [0,1]$ und alle $s \in [0,1]$. Wir sagen $\gamma_1$ sei \fat{homotop}
+    zu $\gamma_0$, falls es eine Homotopie von $\gamma_0$ nach $\gamma_1$ gibt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein topologischer Raum $X$ heisst \fat{einfach zusammenhängend}, falls er
+    wegzusammenhängend ist und falls für alle $x_0 , x_1 \in X$ alle Pfade von
+    $x_0$ nach $x_1$ homotop zueinander sind.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subset \R^n$ eine nichtleere Teilmenge. Wir sagen, dass $U$ \dots
+    \begin{enumerate}[{(1)}]
+        \item \fat{zusammenhängend} ist, wenn sich die Menge $U$ nicht als disjuknkte
+                Vereinigung zweier offener, nichtleerer Teilmengen von $U$ schreiben
+                lässt.
+        \item \fat{wegzusammenhängend} ist, wenn zu je zwei Punkten $x_0 , x_1 \in U$
+                ein Weg in $U$ von $x_0$ nach $x_1$ existiert.
+        \item \fat{einfach zusammenhängend} ist, wenn zu je zwei Punkten $x_0 , x_1 \in U$
+                ein Weg in $U$ von $x_0$ nach $x_1$ existert, und zwischen zwei solchen
+                Wegen eine Homotopie existiert.
+        \item \fat{sternförmig} ist, wenn ein $x_0 \in U$ existiert, so dass für alle
+                $x_1 \in U$ und $t \in [0,1]$ auch $(1-t)x_0 + t x_1 \in U$ gilt.
+        \item \fat{konvex} ist, wenn für alle $x_0 , x_1 \in U$ und alle $t \in [0,1]$
+                auch $(1-t)x_0 + tx_1 \in U$ gilt.
+    \end{enumerate}
+}

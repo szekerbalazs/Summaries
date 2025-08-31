@@ -1,0 +1,34 @@
+\documentclass[a4paper,leqno,twocolumn]{article}
+\input{header}
+\input{macros.tex}
+
+\renewcommand*{\figurename}{Abb.}
+\renewcommand{\epsilon}{\varepsilon}
+\clubpenalty = 10000
+\widowpenalty = 10000
+
+\theoremstyle{definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{beispiel}{Beispiel}
+\newtheorem*{korollar}{Korollar}
+\newtheorem*{bemerkung}{Bemerkung}
+\newtheorem*{beweis}{Beweis}
+
+\setcounter{section}{-1}
+
+\begin{document}
+
+\input{Kapitel/0_Grundlagen.tex}
+
+\input{Kapitel/1_Hauptsaetze_der_Thermodynamik.tex}
+
+\input{Kapitel/2_Die_thermodynamischen_Potentiale.tex}
+
+\input{Kapitel/3_Mehrstoffsysteme.tex}
+
+\input{Kapitel/4_Statistische_Mechanik.tex}
+
+\end{document}

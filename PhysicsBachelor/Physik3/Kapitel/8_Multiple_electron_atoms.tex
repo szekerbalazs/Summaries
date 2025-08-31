@@ -1,0 +1,101 @@
+\section{Multiple-electron atoms}
+
+\subsection{Helium}
+
+\paragraph{Hamiltonian for a neutral atom with atomic number $Z$}
+$\hat{H} = \sum_{j=1}^Z \eckigeklammer{- \frac{\hbar^2}{2m} \nabla_j^2 -
+\klammer{\frac{1}{4 \pi \epsilonnull}} \frac{Z e^2}{r_j}} + \frac{1}{2}
+\klammer{\frac{1}{4 \pi \epsilonnull} \sum_{k \neq j}^Z \frac{e^2}{\abs{\vec{r}_j - \vec{r}_k}}}$
+
+\paragraph{Hydtogen like-atoms}
+effective Bohr-radius: $a/Z$ and energies become $Z^2 E_n$.
+
+\paragraph{Complete spatial wavefunction of the helium atom}
+$\psi(\vec{r}_1 , \vec{r}_2) = \psi_{nlm} (\vec{r}) \psi_{n' l' m'} (\vec{r}_2)$
+
+\paragraph{Exchange operator}
+$\hat{X} \psi(\vec{r}_1 , \vec{r}_2) = \psi (\vec{r}_2 , \vec{r}_1)$,
+$\hat{X}$ has eigenvalues $\pm 1$. Eigenstates with eigenvalue $+1$ are
+\fat{symmetric} and eigenstates with eigenvalue $-1$ are \fat{antisymmetric}.
+
+Construct symmetric and anti-symmetric eigenstates:
+$\psi_{ab}^\pm = (\vec{r}_1 , \vec{r}_2) = A \eckigeklammer{\psi_a(\vec{r}_1)
+\psi_b(\vec{r}_2) \pm \psi_a (\vec{r}_2) \psi_b (\vec{r}_1)}$ with
+$A = \begin{cases}
+    \frac{1}{\sqrt{2}} \hspace{5pt} &\text{for } a \neq b
+    \\
+    \frac{1}{2} \hspace{5pt} &\text{for } a = b
+\end{cases}$
+
+% \paragraph{Ground state of helium}
+% $| \psi_{100} , \chi_- \rangle$
+
+\subsection{Bosons and Fermions}
+
+\paragraph{Spin-statistics theorem}
+Particles whose states are symmetric under exchange have integer spin values.
+They are called \fat{bosons}. Particles whose states are antisymmetric under
+exchange have half-integer spin value. They are called \fat{fermions}.
+
+\paragraph{Pauli exclusion principle}
+No two identical fermions can be simultaneously in the same single-particle state.
+
+% \paragraph{General state condition}
+% $| \psi \rangle = \sum_{\sigma \in \stackrel{\text{Spin}}{\text{states}}}
+% | \psi_{\sigma} , \sigma \rangle$ The state $| \psi \rangle$ for a single particlecan
+% can be factorized into spatial and spin components. Thus, for two particles we can
+% write $| \psi \rangle = | \psi_{ab} , \chi \rangle$ with $\psi_{ab}$ a state with
+% wavefunction $\psi_{ab} (\vec{r}_1 , \vec{r}_2)$ and $\chi$ the spin state of the
+% two particles. $| \psi_{ab} \rangle$ and $| \chi \rangle$ have to be eigenstates
+% of $\hat{X}$. Triplet states are symmetric and singlet states are antisymmetric.
+
+\subsection{Many electron atoms}
+
+\paragraph{Central field approximation}
+Write $\hat{H}$ as $\hat{H}_c + \hat{H}_{nc}$ with $\hat{H}_c$ the spherically
+symmetric part of $\hat{H}$ for each electron:
+$\hat{H}_c = \sum_{j=1}^Z \eckigeklammer{- \frac{\hbar^2}{2m} \nabla_j^2 + U(r_j)}
+= \sum_{j=1}^Z \hat{H}_{cj}$ with $U(r_j)$ the central potential that is identical
+for each electron. $\hat{H}_{nc}$ is the rest of the Hamiltonian:
+$\hat{H}_{nc} = \sum_{j=1}^Z \eckigeklammer{- \frac{Z e^2}{4 \pi \epsilonnull r_j} - U(r_j)}
++ \frac{1}{2} \klammer{\frac{1}{4 \pi \epsilonnull} \sum_{k \neq j}^Z \frac{e^2}{\abs{\vec{r}_j - \vec{r}_k}}}$.
+We have $U(r \rightarrow 0) = \frac{- Z e^2}{4 \pi \epsilonnull r}$ and
+$U(r \rightarrow \infty) = \frac{-e^2}{4 \pi \epsilonnull r}$.
+Energy increases with $l$. A lower value of $n$ gives a lower energy.
+
+\paragraph{Electron Configurations}
+The number of single electron states if given by $2(2l+1)$
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    Value of $l$ & Letter symbol & Number of single electron states \\
+    \hline
+    0 & s & 2 \\ \hline
+    1 & p & 6 \\ \hline
+    2 & d & 10 \\ \hline
+    3 & f & 14 \\ \hline
+    4 & g & 18 \\ \hline
+\end{tabular}
+
+Total Spin: $\hat{S} = \sum_{j=1}^N \hat{S}_j$ with eigenvalues $\hbar^2 S(S+1)$.
+Total angular momenta: $\hat{L} = \sum_{j=1}^N \hat{L}_j$ with eigenvalues
+$\hbar^1 L(L+1)$. In general, since states with different $L$ and $S$ quantum numbers
+can have different energies, it's also useful to specify what they are in the form
+of an additional label called a term symbol, which is written as $^{2S+1}L$.
+
+\paragraph{L-S coupling}
+Energy depends on the value of $L$ and $S$.
+
+\paragraph{Spin-orbit coupling}
+Total angular momentum $\hat{L}$ couples to the total spin $\hat{S}$ to produce
+a perturbation Hamiltonian: $\hat{H}_{so} = \xi \vec{L} \cdot \vec{S}$ with $\xi$
+a constant. Perturbation requires us to work with total angular momentum
+$\vec{J} = \vec{L} + \vec{S}$. Eigenvalues of $J^2$ are $\hbar^2 J(J+1)$ and the
+eigenvalues of $J_z$ are $\hbar M_j$. Term symbol can be modified to specify
+$J$: $^{2S+1}L_J$
+
+
+
+
+
+

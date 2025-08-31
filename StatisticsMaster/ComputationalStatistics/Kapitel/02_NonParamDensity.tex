@@ -1,0 +1,42 @@
+\section{Non Parametric Density Estimation}
+
+\vspace{-5pt}
+
+\fat{Histogram} Origin $x_0$ \& class width $h$: $I_j = (x_0 + j h,x_0+(j+1)h]$
+$f_{x_0,h} = \sum_{j \in \Z} \hat{g}_j \id_{x \in I_j}$ where $\hat{g}_j = \frac{\# \geschwungeneklammer{i \in \geschwungeneklammer{1,\dots,n}: x_i \in I_j}}{n \cdot h}$
+
+\vspace{4pt}
+
+\fat{Kernel Estimator}
+Def Kernel: $K: \R \rightarrow \R_{\geq 0}$ s.t. $\intii K(x) dx = 1$, $K$ is bounded and $\forall x \in \R: K(-x) = K(x)$. 
+
+Fix $K$ and $h$. Def: $\hat{f}_h (x) := \frac{1}{n \cdot h} \sum_{i=1}^n K \klammer{\frac{x-x_i}{h}}$
+
+\vspace{4pt}
+
+\fat{Role of Bandwidth}
+$h$ large: $\hat{f}_h (x)$ "smooth" and slowly varying, $h$ small: $\hat{f}_h (x)$ more wiggly
+
+\vspace{4pt}
+
+\fat{K-Nearest Neighbors}
+Variable bandwidth: $h = h(x)$.
+
+\vspace{4pt}
+
+\fat{Bias-Variance Trade-off}
+As $h \nearrow$: $\abs{Bias} \nearrow$ and $\Var \searrow$.
+$\MSE(x) = \Expec \eckigeklammer{\klammer{\hat{f}(x) - f(x)}^2} = \klammer{\Expec\eckigeklammer{\hat{f}(x)} - f(x)}^2 + \Var\klammer{\hat{f}(x)}$
+Goal: Chose $h$ s.t. $IMSE = \int \MSE(x) dx$ is minimized.
+
+$h_{opt} (x) = n^{-1/5} \klammer{\frac{f(x) \int K(z)^2 dz}{\klammer{f''(x) \int z^2 K(z)}^2}}^{1/5}$ and
+$h_{opt} = n^{-1/5} \klammer{\frac{R(K)}{\sigma_K^4 \cdot R(f'')}}^{1/5}$
+where $R(g) = \int g^2(x) dx$ and $\sigma_K^2 = \int x^2 K(x) dx$.
+Estimate $h$ iteratively: 1) take $h_{init}$, 2) estimate $f''$ by $f_{h_{init}}''$, 3) calculate $\hat{h}$, 4) repeat.
+Conclusion: MSE and IMSE $\sim \mathcal{O} (n^{-4/5})$
+
+\vspace{4pt}
+
+\fat{Higher Dimensions}
+Setup: $X_1,\dots,X_n \stackrel{iid}{\sim} f(x_1,\dots,x_d)$. Model: $\hat{f} (\vec{x}) = \frac{1}{n h^d} \sum_{i=1}^n K \klammer{\frac{\vec{X} - \vec{X}_i}{h}}$. Properties of $K$: $K(\vec{u}) \geq 0$, $\int_{\R^d} K(\vec{u}) d \vec{u} = 1$, $\int_{\R^d} \vec{u} K(\vec{u}) d \vec{u} = \vec{0}$, $\int_{\R^d} \vec{u} \vec{u}^T K(\vec{u}) d \vec{u} = \id_d$.
+Curse of Dimensionality: Best possible MSE Rate: $\mathcal{O} \klammer{n^{- \frac{4}{4+d}}}$

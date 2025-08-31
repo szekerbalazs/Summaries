@@ -1,0 +1,24 @@
+\section{Reproducing Kernel Hilbert Spaces}
+
+\vspace{-5pt}
+
+\fat{Def (Kernel)} Let $\mathcal{X} \subseteq \R^d$. We call $k: \mathcal{X} \times \mathcal{X} \rightarrow \R$ a kernel iff $\forall m \ \forall x_1,\dots,x_m \in \mathcal{X}: \ K \in \R^{m \times m}$ with $K_{ij} := k(x_i,x_j)$ is psd and symm. (psd: $\forall c \in \R^m: c^T K c \geq 0$, symm: $\forall x,y \in \mathcal{X}: \ k(x,y) = k(y,x)$)
+
+\vspace{5pt}
+
+\fat{Def (RKHS)} Let $\mathcal{H}$ be a hilbert space of fcts $f: \mathcal{X} \rightarrow \R$. $\mathcal{H}$ is a Reproducing Kernel Hilbert Space (RKHS) iff $\exists k : \mathcal{X} \times \mathcal{X} \rightarrow \R$ s.t. $\forall x \in \mathcal{X}: k(x,.) \in \mathcal{H}$ and $\forall f \in \mathcal{H} \forall x \in \mathcal{X}: \scalprod{f(.)}{k(x,.)} = f(x)$
+
+\vspace{5pt}
+
+\fat{Median Heuristic}
+Gaussian kernel: $2 \sigma^2 = \text{median} \klammer{\Norm{x_i - x_j}^2}_{i \neq j}$
+
+\vspace{-13pt}
+
+\subsection{Support Vector Machines (SVM)}
+Assume $\mathcal{D}$ is linearly seperable. Goal: separate $\mathcal{D}$ into two classes with a hyperplane: find $w \in \R^d$ and $b \in \R$ s.t. $\min_{i \in \geschwungeneklammer{1,\dots,n}} \abs{\scalprod{w}{x_i} + b} = 1$ (canonical form). The distance of the hyperplane to the closest $x_i$ is called the \fat{margin}. If in canonical form: margin$=\frac{1}{\Norm{w}_2}$.
+
+\vspace{5pt}
+
+\fat{Algorithm} \textcolor{blue}{Soft}/\textcolor{purple}{Hard} SVM:
+$\textcolor{purple}{\min_{w,b} \frac{1}{2} \Norm{w}_2^2} \textcolor{blue}{+ c \cdot \sum_{i=1}^n \xi_i}$ s.t. $\textcolor{purple}{\forall i \in \geschwungeneklammer{1,\dots,n} \ y_i \klammer{\scalprod{w}{x_i} + b} \geq 1} \textcolor{blue}{-\xi_i}$.

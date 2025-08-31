@@ -1,0 +1,279 @@
+\subsection{Wegintegrale}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ eine offene Teilmenge und $\gamma: [a,b] \rightarrow U$
+    ein stetig differenzierbarer Weg. Wir definieren die \fat{Länge} von $\gamma$ als
+    \begin{align*}
+        L(\gamma) = \intab \Norm{\gamma'(t)} dt
+    \end{align*}
+    Hier soll $\Norm{\gamma'(t)}$ als \fat{Geschwindigkeit} des Weges zur Zeit $t$
+    gelesen werden.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine stetige Funktion $\gamma:[a,b] \rightarrow \R^n$ heisst \fat{stückweise
+    stetig differenzierbar}, falls eine Zerlegung von $[a,b]$: $a=s_0 < s_1 < \dots < s_N = b$
+    existiert, so, dass $\gamma |_{[s_{k-1},s_k]}$ für alle
+    $k \in \geschwungeneklammer{1,\dots,N}$ stetig differenzierbar ist. Wir sagen
+    in dem Fall $\gamma$ sei \fat{stückweise stetig differenzierbar bezüglich}
+    dieser Zerlegung, und definieren die \fat{Länge} von $\gamma$ durch
+    \begin{align*}
+        L(\gamma) = \sum_{k=1}^{\N} \int_{S_{k-1}}^{s_k} \Norm{(\gamma |_{[s_{k-1},s_k]})'(t)} dt
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: U \rightarrow \R$ eine stetige reellwertige Funktion. Entlang eines
+    stetigen differenzierbaren Weges $\gamma:[a,b] \rightarrow U$ definieren wir
+    das \fat{skalare Wegintegral} als
+    \begin{align*}
+        \intab f(\gamma(t)) \Norm{\gamma'(t)} dt
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wie benutzen den Term \fat{Gebiet} für offene zusammenhängende Teilmengen
+    von $\R^n$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen. Ein \fat{Vektorfeld} auf $U$ ist eine Funktion
+    $F: U \rightarrow \R^n$. Stetige, stetig differenzierbare oder glatte
+    Vektorfelder sind dementsprechend Funktionen $F: U \rightarrow \R^n$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ ein offene Teilmenge und sei $F: U \rightarrow \R^n$ ein
+    stetiges Vektorfeld. Wir definieren das \fat{Arbeitsintegral/Wegintegral des
+    Vektorfeldes} $F$ entlang eines stückweise stetig differenzierbaren Weges
+    $\gamma: [a,b] \rightarrow U$ durch
+    \begin{align*}
+        \int_{\gamma} F dt = \intab \scalprod{F(\gamma(t))}{\gamma'(t)} dt
+    \end{align*}
+    Ist $\gamma$ stückweise stetig differenzierbar bezüglich einer Zerlegung
+    $a = t_0 < t_1 < \dots < t_N = b$, so ist das Integral als Summe von
+    Integralen über Intervalle $[t_{k-1} , t_k]$ zu lesen.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine stetige, orientierungserhaltende Reparametrisierung von $\gamma:[a,b]
+    \rightarrow U$ ist eine Verknüpfung $\gamma \circ \psi$ mit
+    \begin{align*}
+        [c,d] \stackrel{\psi}{\longrightarrow} [a,b] \stackrel{\gamma}{\longrightarrow} U
+    \end{align*}
+    wobei $\psi$ stetig ist und $\psi(c) = a$ und $\psi(d) = b$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $U \subseteq \R^n$ eine offene Teilmenge, $f: U \rightarrow \R^n$ ein
+    stetiges Vektorfeld und sei $\gamma:[a,b] \rightarrow \R^d$ ein stetig
+    differenzierbarer Weg. Dann ändert sich der Wert des Wegintegrals
+    $\int_{\gamma} F dt$ nicht unter orientierungserhaltenden Reparametrisierungen
+    von $\gamma$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $U \subset \R^n$ offen und sei $\gamma:[0,1] \rightarrow U$ ein stückweise
+    stetig differenzierbarer Weg. Dann gibt es eine stetig differenzierbare
+    Reparametrisierung $\varphi = \gamma \circ \psi$. Darüberhinaus kann man
+    $\varphi'(0) = \varphi'(1)=0$ einrichten.
+
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen und $F: U \rightarrow \R^n$ ein stetiges
+    Vektorfeld. Eine stetige differenzierbare Funktion $f: U \rightarrow \R$
+    heisst \fat{Potential} für $F$, falls $F = \grad (f)$ gilt.
+    Ist $f$ ein Potential, so ist auch $f+c$ für $c \in \R$ ein Potential. Ist $U$
+    zusammenhängend, so ist jedes weitere Potential von dieser Form.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^n$ offen und sei $F:U \rightarrow \R^n$ ein stetiges
+    Vektorfeld. Angenommen es existiert ein Potential $f:U \rightarrow \R$ für $F$.
+    Dann gilt:
+    \begin{align*}
+        \int_{\gamma} F dt = f(\gamma(1)) - f(\gamma(0))
+    \end{align*}
+    für jeden stückweise stetig differenzierbaren Pfad $\gamma:[0,1] \rightarrow U$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen und sei $F:U \rightarrow \R^n$ ein stetiges
+    Vektorfeld. Dann heisst $F$ \fat{konservativ}, falls für alle stückweise
+    stetig differenzierbaren Wege $\gamma:[0,1] \rightarrow U$ und
+    $\eta:[0,1] \rightarrow U$ die Implikation
+    \begin{align*}
+        \gamma(0) = \eta(0)
+        \quad \text{   und   } \quad
+        \gamma(1) = \eta(1)
+        \quad \Longrightarrow \quad
+        \int_{\gamma} F dt = \int_{\eta} F dt
+    \end{align*}
+    gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $U \subseteq \R^n$ ein Gebiet und $F: U \rightarrow \R^n$ ein stetiges
+    Vektorfeld. Dann ist $F$ genau dann konservativ, wenn $F$ ein Potential besitzt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $U \subseteq \R^n$ offen, und sei $F$ ein stetig differenzierbares
+    konservatives Vektorfeld auf $U$, mit Komponenten $F_1 , \dots , F_n$.
+    Dann gilt
+    \begin{align*}
+        \partial_j F_k = \partial_k F_j
+    \end{align*}
+    für alle $j,k \in \geschwungeneklammer{1,\dots,n}$. Man nennt diese Gleichung
+    auch \fat{Integrabilitätsbedingung}. Ausgeschrieben gilt dann
+    \begin{align*}
+        \partial_j F_k = \partial_j \partial_k f
+        = \partial_k \partial_j f = \partial_k F_j
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $U \subseteq \R^n$ offe, und sei $F: U \rightarrow \R^n$ ein stetig
+    differenzierbares Vektorfeld, das den Integrabilitätsbedingung
+    \begin{align*}
+        \partial_k F_j = \partial_k F_j
+    \end{align*}
+    für alle $j,k \in \geschwungeneklammer{1,\dots,n}$ genügt. Seien
+    $\gamma_0 :[0,1] \rightarrow U$ und $\gamma_1 : [0,1] \rightarrow U$ stückweise
+    stetig differenzierbare Pfade mti dem selben Anfangspunkt $x_0$ und dem selben
+    Endpunkt $x_1$. Sind $\gamma_0$ und $\gamma_1$ homotop, so gilt
+    \begin{align*}
+        \int_{\gamma_0} F dt = \int_{\gamma_1} F dt
+    \end{align*}
+}
+
+\pagebreak
+
+\Korollar{
+
+    Sei $U \subseteq \R^n$ offen und einfach zusammenhängend. Ein stetig differenzierbares
+    Vektorfeld auf $U$ ist genau dann konservativ, falls es den Integrabilitätsbedingungen
+    genügt.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $U \subseteq \R^n$ offen und konvex, und sei $F: U \rightarrow \R^n$ ein
+    stetig differenzierbar Vektorfeld, das den Integrabilitätsbedingungen genügt.
+    Dann ist $F$ konservativ.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen und $F:U \rightarrow \R^n$ ein stetiges Vektorfeld.
+    Sei $V \subseteq \R^m$ offen und $\varphi:V \rightarrow U$ eine stetig
+    differenzierbare Funktion. Das Vektorfeld $\varphi^{*} F$ auf $V$, gegeben durch
+    \begin{align*}
+        \varphi^{*}F : x \mapsto \sum_{k=1}^{m} \scalprod{\partial_k \varphi (x)}{F(\varphi(x))} e_k
+    \end{align*}
+    heisst \fat{Pullback} von $F$, oder das entlang $\varphi$ \fat{zurückgezogene}
+    Vektorfeld. Die dadurch entstehende Abbildung
+    \begin{align*}
+        \varphi^{*}: \geschwungeneklammer{\text{Stetige Vektorfelder auf } U}
+        \rightarrow \geschwungeneklammer{ \text{Stetige Vektorfelder auf } V}
+    \end{align*}
+    nennen wir \fat{Zurückziehen} von Vektorfeldern.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $U \subseteq \R^n$ und $V \subseteq \R^m$ und $\varphi: V \rightarrow U$
+    offen und sei $\varphi:V \rightarrow U$ eine stetig differenzierbare Funktion.
+    \begin{enumerate}[{(1)}]
+        \item Die vorher betrachtete Abbildung $\varphi^{*}$ ist linear.
+        \item Sei $W \subseteq \R^p$ offen und $\psi:W \rightarrow V$ stetig differenzierbar.
+                Dann gilt $\psi^{*} \varphi^{*} F = (\varphi \circ \psi)^{*} F$ für jedes
+                stetige Vektorfeld $F$ auf $U$. Ausserdem gilt $\text{id}_U^{*} F = F$.
+        \item Sei $\gamma:[0,1] \rightarrow V$ ein stückweise stetig differenzierbarer Weg.
+                Dann gilt für jedes stetige Vektorfeld $F$ auf $U$
+                \begin{align*}
+                    \int_{\gamma} \varphi^{*} F dt = \int_{\varphi \circ \gamma} F dt
+                \end{align*}
+        \item Ist $F$ ein Vektorfeld von Klasse $C^k$ auf $U$ und $\varphi:V \rightarrow U$
+                von Klasse $C^{k+1}$, dann ist $\varphi F$ von Klasse $C^k$.
+        \item Sei $F$ ein Vektorfeld von Klasse $C^1$ auf $U$ und $\varphi:V \rightarrow U$
+                von Klasse $C^2$. Erfüllt $F$ die Integrabilitätsbedingungen, dann erfüllt
+                $\varphi^{*}F$ ebenfalls die Integrabilitätsbedingungen.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $f:\R^n \rightarrow \R^m$ stetig mit kompaktem Träger $K =
+    \geschwungeneklammer{x \in \R \ | \ f(x) \neq 0}$, sei $\epsilon>0$ und $\delta>0$.
+    Es existiert eine glatte Funktion $\tilde{f}:\R^n \rightarrow \R^m$ derart, dass
+    für alle $x \in \R^n$ folgendes gilt
+    \begin{align*}
+        \Norm{f(x)-\tilde{f}(x)} < \epsilon
+        \quad \quad \text{     und     } \quad \quad
+        B(x,\delta) \cap K = \emptyset \Longrightarrow \tilde{f}(x) = 0
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Seien $\gamma_0 , \gamma_1 \in \Omega$. Sind die Pfade $\gamma_0$ und $\gamma_1$
+    homotop, so existiert ein Pfad $\varpi: [0,1] \rightarrow \Omega$ mit
+    $\varphi(0) = \gamma_0$ und $\varphi(1) = \gamma_1$.
+}

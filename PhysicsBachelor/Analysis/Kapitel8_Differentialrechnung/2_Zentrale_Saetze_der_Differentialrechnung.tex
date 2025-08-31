@@ -1,0 +1,164 @@
+\subsection{Zentrale Sätze der Differentialrechnung}
+
+\vspace{1\baselineskip}
+
+\Definition{
+ 
+    Sei $D \subseteq \R$ eine Teilmenge und $x_0 \in D$. Wir sagen, dass eine Funktion
+    $f: D \rightarrow \R$ in $x_0$ ein \fat{lokales Maximum} hat, falls es ein $\delta >0$ gibt,
+    so dass für alle $x \in D \cap (x_0 - \delta , x_0 + \delta)$ gilt $f(x) \leq f(x_0)$.
+    Falls es sich um eine strikte Ungleichung handelt, also $f(x) < f(x_0)$, dann hat $f$ in
+    $x_0$ ein \fat{isoliertes lokales Maximum}. Der Wert $f(x_0)$ wird auch ein \fat{lokaler
+    Maximalwert} von $f$ genannt. Ein \fat{lokales Minimum}, ein \fat{isoliertes lokales Minimum}
+    und ein \fat{lokaler Minimalwert} von $f$ sind analog definiert. Des Weiteren nennen wir
+    $x_0$ ein \fat{lokales Extremum} von $f$ und $f(x_0)$ einen \fat{lokalen Extremwert} von $f$,
+    falls $f$ ein lokales Minimum oder ein lokales Maximum in $x_0$ hat.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $D \subseteq \R$ eine Teilmenge und $f$ eine reellwertige Funktion auf $D$.
+    Angenommen $f$ ist in einem lokalen Extremum $x_0 \in D$ differenzierbar und $x_0$
+    ist sowohl ein rechtsseitiger als auch ein linksseitiger Häufungspunkt von $D$.
+    Dann gilt $f'(x_0) = 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $I \subseteq \R$ ein Intervall und $f: I \rightarrow \R$ eine Funktion. Sei $x_0 \in I$
+    ein lokales Extremum von $f$. Dann ist mindestens eine der folgenden Aussagen wahr.
+
+    (1) $x_0$ ist ein Randpunkt von $I$.
+
+    (2) $f$ ist nicht ableitbar bei $x_0$.
+
+    (3) $f$ ist bei $x_0$ differenzierbar und $f'(x_0) = 0$. 
+
+    Insbesondere sind alle lokalen Extrema einer differenzierbaren Funktion auf einem offenen
+    Intervall Nullstellen der Ableitung.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Mittelwertsatz, Rolle)
+
+    Seien $a<b \in \R$ und $f: [a,b] \rightarrow \R$ eine stetige Funktion, die auf dem offenen
+    Intervall $(a,b)$ differenzierbar ist. Falls $f(a) = f(b)$ gilt, so existert ein
+    $\xi \in (a,b)$ mit $f'(\xi) = 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Mittelwertsatz)
+
+    Seien $a<b \in \R$ und $f: [a,b] \rightarrow \R$ eine stetige Funktion, die auf dem offenen
+    Intervall $(a,b)$ differenzierbar ist. Dann gibt es ein $\xi \in (a,b)$ mit
+    \begin{align*}
+        f'(\xi) = \frac{f(b)-f(a)}{b-a}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Mittelwertsatz nach Cauchy)
+
+    Seien $f$ und $g$ stetige Runktionen auf einem Intervall $[a,b]$ mit $a<b$, so dass $f$
+    und $g$ auf $(a,b)$ differenzierbar sind. Dann existert ein $\xi \in (a,b)$ mit
+    \begin{align*}
+        g'(\xi) \klammer{f(b) - f(a)} = f'(\xi) \klammer{g(b) - g(a)}
+        \ \Leftrightarrow \
+        \frac{g'(\xi)}{f'(\xi)} = \frac{g(b) - g(a)}{f(b) - f(a)}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $I \subseteq \R$ ein Intervall das nicht leer ist und nicht aus einem einzigen Punkt
+    besteht. Sei $f: I \rightarrow \R$ eine differenzierbare Funktion. Dann gilt
+    \begin{align*}
+        f' \geq 0 \ \Leftrightarrow \ f \text{ ist monoton wachsend}
+    \end{align*}
+    Die Funktion $f$ ist genau dann streng monoton wachsend, wenn es kein nichtleeres, offenes
+    Intervall $J \subseteq I$ gibt mit $f'|_J = 0$. Dies ist äquivalent dazu, dass bei der obigen
+    Äquivalenz ein striktes ungleich Zeichen steht.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $I \subseteq \R$ ein Intervall mit Endpunkten $a<b$ und $f: I \rightarrow \R$ eine
+    Funktion. Dann ist $f$ genau dann konstant, wenn $f$ differenzierbar ist und $f'(x) = 0$
+    für alle $x \in I$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $I \subseteq \R$ ein Interfall und $f: I \rightarrow \R$ eine Funktion. Dann heisst
+    $f$ \fat{konvex}, falls für alle $a<b \in I$ und alle $t \in (0,1)$ die Ungleichung
+    \begin{align*}
+        f \klammer{(1-t) a + t b} \leq (1-t) f(a) + t f(b)
+    \end{align*}
+    gilt. Wir sagen, dass $f$ \fat{streng konvex} ist, falls in der obigen Ungleichung
+    eine strikte Ungleichung gilt. Eine Funktion $g: I \rightarrow \R$ heisst
+    \fat{(streng) konkav}, wenn $f = -g$ (streng) konvex ist.
+
+    Merksatz:
+    "Hat die Katze Sex, wird der Bauch konvex."
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Eine Funktion $f: I \rightarrow \R$ ist genau dann konvex, wenn für alle $a<x<b \in I$
+    die folgende Ungleichung gilt:
+    \begin{align*}
+        \frac{f(x) - f(a)}{x-a} \leq \frac{f(b) - f(x)}{b-x}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $I \subseteq \R$ ein Intervall mit Endpunkten $a<b$ und $f: I \rightarrow \R$ eine
+    differenzierbare Funktion. Dann ist $f$ genau dann (streng) konvex, wenn $f'$ (streng)
+    monoton wachsend ist.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $I \subseteq \R$ ein Intervall mit Endpunkten $a<b$ und $f: I \rightarrow \R$ eine
+    zweimal differenzierbare Funktion. Falls $f''(x) \geq 0$ für alle $x \in I$, dann ist $f$
+    konvex. Falls $f''(x) > 0$ für alle $x \in I$, dann ist $f$ streng konvex.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Regel von de l'Hôpital)
+
+    Seien $a<b$ reelle Zahlen und $f,g : (a,b) \rightarrow \R$ Funktionen. Angenommen
+    die folgenden Hypothesen sind erfüllt.
+
+    (1) Die Funktion $f$ und $g$ sind stetig.
+
+    (2) Es gilt $g(x) \neq 0$ und $g'(x) \neq 0$ für alle $x \in (a,b)$
+
+    (3) Es gilt $\limes{x \rightarrow a} g(x) = 0$ und $\limes{x \rightarrow a} = 0$.
+
+    (4) Der Grenzwert $A = \limes{x \rightarrow a} \frac{f'(x)}{g'(x)}$ existert.
+
+    Dann existert auch der Grenzwert $\limes{x \rightarrow a} \frac{f(x)}{g(x)}$ und es gilt
+    $\limes{x \rightarrow a} \frac{f(x)}{g(x)} = A$. 
+}

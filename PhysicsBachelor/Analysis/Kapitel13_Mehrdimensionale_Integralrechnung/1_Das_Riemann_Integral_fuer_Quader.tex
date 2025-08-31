@@ -1,0 +1,274 @@
+\subsection{Das Riemann-Integral für Quader}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Unter einem \fat{Quader} verstehen wir eine Teilmenge $Q$ von $\R^n$ die ein
+    Produkt von Intervallen ist, also
+    \begin{align*}
+        Q = I_1 \times \dots \times I_n
+    \end{align*}
+    für Intervalle $I_1 , \dots , I_n \subseteq \R$. Falls die Länge der Intervalle
+    $I_1 , \dots , I_n$ alle übereinstimmen, so nennen wir $Q$ euch einen \fat{Würfel}.
+    Für $n=2$ sprechen wir auch von Rechtecken.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Für beschränkte nichtleere Intervalle $I_1 , \dots , I_n$ ist das \fat{Volumen}
+    des Quaders $Q = I_1 \times \dots \times I_n$ in $\R^n$ durch
+    \begin{align*}
+        \vol (Q) = \prod_{k=1}^{n} (b_k - a_k)
+    \end{align*}
+    definiert, mit $a_k = \inf I_k$ und $b_k = \sup I_k$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $Q = I_1 \times \dots \times I_n$ ein beschränkter, abgeschlossener
+    Quader mit $I_k = [a_k , b_k]$. Unter einer \fat{Zerlegung} von $Q$ verstehen
+    wir die Vorgabe einer Zerlegung für jedes Intervall $I_k$. Ist so eine Zerlegung
+    gegeben, also
+    \begin{align*}
+        a_k = x_{k,0} < \dots < x_{k,l(k)} = b_k
+    \end{align*}
+    für jedes $k$, dann nennen wir für ein $\alpha =
+    \klammer{\alpha_1 , \dots , \alpha_n} \in \N^n$ mit $1 \leq \alpha_k \leq l(k)$
+    eine \fat{Adresse} zu dieser Zerlegung. Für jede solche Adresse schreiben wir
+    \begin{align*}
+        Q_{\alpha} = \prod_{k=1}^{n} [x_{k,\alpha_{k}-1} , x_{k,\alpha_k}]
+    \end{align*}
+    für den entsprechenden abgeschlossenen Teilquader von $Q$. Mit anderen Worten ist
+    $Q_{\alpha} \subseteq Q \subseteq \R^n$ die Teilmenge aller jener $(t_1 , \dots , t_n)
+    \in \R^n$ für die $x_{k,\alpha_k -1} \leq t_k \leq x_{k,\alpha_k}$ für alle
+    $k=1,2,\dots,n$ gilt. Mittels vollständiger Induktion zeigt man die \fat{Additionsformel}
+    \begin{align*}
+        \vol (Q) = \sum_{\alpha} \vol (Q_{\alpha})
+    \end{align*}
+    wobei die Summe sich über alle Adressen zur gegebenen Zerlegung erstreckt. Eine
+    \fat{Verfeinerung} der Zerlegung ist eine Zerlegung
+    \begin{align*}
+        a_k = y_{k,0} \leq \dots \leq y_{k,m(k)} = b_k
+        \quad \quad \quad k=1,\dots,n
+    \end{align*}
+    so, dass für jedes fixe $k$ die Zerlegung $a_k = y_{k,0} \leq \dots \leq
+    y_{k,m(k)} = b_k$ von $I_k$ eine Verfeinerung von
+    $a_k = x_{k,0} \leq \dots \leq x_{k,l(k)} = b_k$ ist. Zu zwei beliebigen
+    Zerlegungen von $Q$ existiert stets eine gemeinsame Verfeinerung.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sie $Q \subseteq \R^n$ ein Quader. Eine \fat{Treppenfunktion} auf $Q$ ist eine
+    beschränkte Funktion $f: Q \rightarrow \R$ derart, dass die Zerlegung von $Q$
+    existiert, so, dass für jede Adresse $\alpha$ die Funktion $f$ konstant auf dem
+    offenen Teilquader $Q_{\alpha}^{\circ}$ ist. Wir sagen in dem Fall auch, $f$ sei
+    eine Treppenfunktion bezüglich dieser Zerlegung von $Q$. Ist $c_{\alpha}$ der
+    konstante Wert von $f$ auf dem offenen Teilquader $Q_{\alpha}^{\circ}$, so
+    schreiben wir
+    \begin{align*}
+        \int_{Q} f(x) dx = \sum_{\alpha} c_{\alpha} \vol (Q_{\alpha})
+    \end{align*}
+    wobei die Summe sich über alle Adressen zur gegebenen Zerlegung erstreckt.
+    Wir nennen diese Zahl \fat{Integral} von $f$ über $Q$.
+}
+
+\pagebreak
+
+\Definition{
+
+    Sei $Q \subseteq \R^n$ ein Quader, $\mathcal{T F}$ bezeichne den Vektorraum
+    der Treppenfunktionen auf $Q$, und $f: Q \rightarrow \R$ sei eine Funktion.
+    Dann definieren wir die Menge der \fat{Untersummen} $\mathcal{U}(f)$ und
+    \fat{Obersummen} $\mathcal{O}(f)$ von $f$ durch
+    \begin{align*}
+        \mathcal{U} (f) = \geschwungeneklammer{\int_Q u \ dx \ | \ u \in \mathcal{TF} \text{ und } u \leq f}
+        \quad \quad \quad \quad
+        \mathcal{O} (f) = \geschwungeneklammer{\int_Q o \ dx \ | \ o \in \mathcal{TF} \text{ und } f \leq o}
+    \end{align*}
+    Falls $f$ beschränkt ist, so sind die Mengen nicht leer. Aufgrund der Monotonie
+    des Integrals für Treppenfunktionen gilt, falls $f$ beschränkt ist, die Ungleichung
+    \begin{align*}
+        \sup \mathcal{U} (f) \leq \inf \mathcal{O} (f)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $Q \subseteq \R^n$ ein Quader und $f: Q \rightarrow \R$ sei eine beschränkte
+    Funktion. Wir nennen $\sup \mathcal{U} (f)$ das \fat{untere}, und
+    $\inf \mathcal{O} (f)$ das \fat{obere Integral} von $f$. Die Funktion $f$ heisst
+    \fat{Riemann-integrierbar}, falls $\sup \mathcal{U} (f) = \inf \mathcal{O} (f)$
+    gilt. Der gemeinsame Wert wird in diesem Fall als das \fat{Riemann-Integral}
+    von $f$ bezeichnet, und wird wie folgt geschrieben
+    \begin{align*}
+        \int_Q f(x) dx = \sup \mathcal{U} (f) = \inf \mathcal{O} (f)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $f: Q \rightarrow \R$ beschränkt. Die Funktion $f$ ist genau dann
+    Riemann-integrierbar, wenn es zu jedem $\epsilon>0$ Treppenfunktionen $u$
+    und $o$ auf $Q$ gibt, die folgendes erfüllen
+    \begin{align*}
+        u \leq f \leq o
+        \quad \quad \quad \text{     und     } \quad \quad \quad
+        \int_Q (o-u) dx \ < \epsilon
+    \end{align*}
+}
+
+\Proposition{
+
+    Sie $Q \subseteq \R^n$ ein Quader, und es beizeichne $\mathcal{R}(Q)$ die
+    Menge aller Riemann-integrierbaren Funktionen auf $Q$. Dann ist $\mathcal{R}(Q)$
+    ein $\R$-Vektorraum bezüglich der Punktweisen Addition und Multiplikation, und
+    Integration
+    \begin{align*}
+        \int_Q : \mathcal{R}(Q) \rightarrow \R
+    \end{align*}
+    ist eine $\R$-lineare Abbildung. Die Integration ist ausserdem monoton und
+    erfüllt die Dreiecksungleichung: Es gilt
+    \begin{align*}
+        f \leq g \ \Longrightarrow \int_Q f(x) dx \leq \int_Q g(x) dx
+        \quad \quad \quad \text{     und     } \quad \quad \quad
+        \abs{\int_Q f(x) dx} \leq \int_Q \abs{f(x)} dx
+    \end{align*}
+    für alle $f,g \in \mathcal{R} (Q)$. Insbesondere ist $\abs{f}$ Riemann-integrierbar.
+    Des Weiteren gilt $\mathcal{TF}(Q) \subseteq \mathcal{R}(Q)$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Teilmenge $N \subseteq \R^n$ wird \fat{Lebesgue-Nullmenge} oder einfach
+    \fat{Nullmenge} genannt, falls es zu jedem $\epsilon>0$ eine abzählbare
+    Familie von offenen Quadern $(Q_k)_{k \in \N}$ in $\R^n$ gibt, so dass
+    folgendes gilt
+    \begin{align*}
+        N \subset \bigcup_{k=0}^{\infty}
+        \quad \quad \quad \text{     und     } \quad \quad \quad
+        \sum_{k=0}^{\infty} \vol (Q_k) \ < \epsilon
+    \end{align*}
+}
+
+\Bemerkung{
+
+    Wir sagen, dass eine Aussage $A$ über Elemente $x \in \R^n$ für \fat{fast alle}
+    $x \in \R^n$ wahr ist, falls
+    \begin{align*}
+        \geschwungeneklammer{x \in \R^n \ | \ \neg A (x)}
+    \end{align*}
+    eine Nullmenge ist.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Eine Teilmenge einer Nullmenge ist eine Nullmenge. Eine abzählbare Vereinigung
+    von Nullmengen ist wiederum eine Nullmenge.
+}
+
+\pagebreak
+
+\Proposition{
+
+    Eine Menge $X \subseteq \R^n$ mit nichtleerem Inneren ist keine Nullmenge.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $Q \subseteq \R^{n-1}$ ein abgeschlossener Quader und $f: Q \rightarrow \R$
+    eine Riemann-integrierbare Funktion. Dann ist der Graph
+    $\geschwungeneklammer{(x,f(x)) \ | \ x \in Q} \subseteq \R^n$ von $f$ eine
+    Nullmenge. 
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Lebesgue-Kriterium)
+
+    Eine reellwertige, beschränkte Funktion auf einem abgeschlossenen Quader $Q$ ist
+    genau dann Riemann-integrierbar, wenn sie fast überall stetig ist, das heisst,
+    falls die folgende Menge eine Nullmenge ist
+    \begin{align*}
+        N = \geschwungeneklammer{x \in Q \ | \ f \text{ ist unstetig in } x}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $Q$ ein abgeschlossener Quader mit nicht-leerem Inneren. Dann ist jede
+    stetige Funktion $f: Q \rightarrow \R$ Riemann-integrierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Oszillationsmass)
+
+    Sei $f: Q \rightarrow \R$ eine beschränkte Funktion, $x \in \Q$ und $\delta>0$.
+    Wir definieren
+    \begin{align*}
+        \omega(f,x,\delta) := \sup \geschwungeneklammer{f(y) \ | \ y \in B_{\infty} (x,\delta)}
+                                - \inf \geschwungeneklammer{f(y) \ | \ y \in B_{\infty} (x,\delta)}
+    \end{align*}
+    wobei $B_{\infty} (y,\delta)$ für den Ball bezüglich der Supremumsnorm steht.
+    So ein Ball ist ein offener achsenparalleler Würfel mit Zentrum $x$ und
+    Kantenlänge $2 \delta$. Es gilt $\delta' < \delta \Rightarrow \omega(f,x,\delta')
+    \leq \omega(f,x,\delta)$. Wir definieren den Grenzwert
+    \begin{align*}
+        \omega(f,x) := \limes{\delta \rightarrow 0} \omega(f,x,\delta)
+    \end{align*}
+    als das \fat{Oszillationsmass}. Es gilt ausserdem $\omega(f,x) = 0 \Leftrightarrow$
+    $f$ ist stetig bei $x$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $f: X \rightarrow \R$ eine beschränkte Funktion auf einem metrischen Raum $X$.
+    Für jedes $\eta \geq 0$ ist die Teilmenge $N_{\eta} = \geschwungeneklammer{
+    x \in X \ | \ \omega(f,x) \geq \eta} \subseteq \X$ abgeschlossen. 
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $K \subseteq Q$ kompakt und sei $\eta >0$ mit $\omega(f,x) \leq \eta \
+    \forall x \in K$. Dann existiert für alle $\epsilon>0$ ein $\delta>0$ mit
+    $\omega(f,x,\delta) \leq \eta + \epsilon$ für alle $x \in K$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $Q \subseteq \R^n$ ein abgeschlossener Quader. Eine beschränkte Funktion
+    $f:Q \rightarrow \R$ ist genau dann Riemann-integrierbar, wenn es für jedes
+    $\epsilon>0$ stetige Funktionen $f_- , f_+ : Q \rightarrow \R$ gibt, die
+    folgendes erfüllen
+    \begin{align*}
+        f_- \leq f \leq f_+
+        \quad \quad \quad \text{     und     } \quad \quad \quad
+        \int_Q (f_+ - f_-) dx < \epsilon
+    \end{align*}
+}

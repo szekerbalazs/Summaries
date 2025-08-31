@@ -1,0 +1,124 @@
+\section{Darstellungen von Gruppen}
+
+\subsection{Definitionen}
+
+\begin{definition}[Darstellung]
+    Eine Darstellung einer Gruppe $G$ auf einem VR $V \neq 0$ ist ein Homomorphismus
+    $\rho: G \rightarrow \GL(V)$. Der VR $V$ heisst dann Darstellungsraum
+    der Darstellung $\rho$. Also ordnet eine Darstellung $\rho$ jedem Element
+    $g \in G$ eine invertierbare lineare Abbildung $\rho(g): V \rightarrow V$
+    zu, so dass $\forall g,h \in G$ die Darstellungseigenschaft
+    $\rho(g h) = \rho(g) \rho(h)$ gilt.
+\end{definition}
+
+\begin{definition}[reguläre Darstellung]
+    Die reguläre Darstellung einer endlichen Gruppe $G$ ist die Darstellung
+    auf dem Raum $\C(G)$ aller Funktionen $G \rightarrow \C$,
+    \begin{align*}
+        (\rho_{reg}(g)f)(h) = f(g^{-1} h)
+        \hspace{15pt} , \hspace{15pt}
+        f \in \C(G) , g,h \in G
+    \end{align*}
+    Alternativ: $\C(G)$ hat eine Basis $\geschwungeneklammer{\delta_g}_{g \in G}$ mit
+    $\delta_g(g) = 1$ und $\delta_g(h) = 0$ wenn $h \neq g$. Dann ist
+    $\rho_{reg}$ die Darstellung, s.d. $\rho_{reg}(g) \delta_h = \delta_{gh}$.
+\end{definition}
+
+\paragraph{Notation}
+Wir notieren Darstellungen als $(\rho,V)$ oder $\rho$ oder $V$ falls keine
+Verwirrung entsteht.
+
+\begin{definition}[Homomorphismus von Darstellungen]
+    Ein Homomorphismus von Darstellungen $(\rho_1,V_1) \rightarrow (\rho_2,V_2)$
+    ist eine lineare Abbildung $\varphi: V_1 \rightarrow V_2$ s.d.
+    $\varphi \rho_1(g) = \rho_2(g)\varphi \ \forall g \in G$.
+\end{definition}
+
+\begin{definition}[Äquivalent]
+    Zwei Darstellungen $(\rho_1,V_1)$, $(\rho_2,V_2)$ sind äquivalent (oder isomorph)
+    falls ein bijektiver Homomorphismus von Darstellungen $\varphi: V_1 \rightarrow
+    V_2$ existiert.
+\end{definition}
+
+\begin{korollar}
+    Der Vektorraum aller Homomorphismen $(\rho_1,V_1) \rightarrow
+    (\rho_2,V_2)$ wird mit $\Hom_G(V_1,V_2)$ oder $\Hom_G((\rho_1,V_1),(\rho_2,V_2))$
+    bezeichnet.
+\end{korollar}
+
+\begin{definition}[invarianter Unterraum]
+    Ein invarianter Unterraum einer Darstellung $(\rho,V)$ ist ein UVR
+    $W \subset V$ mit $\rho(g)W \subset W \ \forall g \in G$. 
+\end{definition}
+
+\begin{definition}[(Ir-)reduzibel]
+    Eine Darstellung $(\rho,V)$ heisst irreduzibel, falls sie keine invarianten
+    Unterräume ausser $V$ und $\geschwungeneklammer{0}$ besitzt, sonst
+    reduzibel.
+\end{definition}
+
+\begin{lemma}
+    Ist $W \neq \geschwungeneklammer{0}$ ein invarianter
+    Unterraum, so ist die Einschränkung $\rho_{|W}: G \rightarrow \GL(W)$,
+    $g \mapsto \rho(g)_{|W}$ eine Darstellung: $(\rho_{|W} , W)$ ist eine
+    Unterdarstellung von $(\rho,V)$.
+\end{lemma}
+
+\begin{definition}[vollständig reduzibel]
+    Eine Darstellung $(\rho,V)$ heisst vollständig reduzibel, falls
+    invariante UVR $V_1,\dots,V_n$ existieren, s.d.
+    $V = V_1 \oplus \dots \oplus V_n$ und die Unterdarstellungen
+    $(\rho_{|V_i},V_i)$ irreduzibel sind. Eine solche Zerlegung von $V$
+    heisst Zerlegung in irreduzible Darstellungen.
+\end{definition}
+
+\begin{bemerkung}
+    Nicht jede reduzible Darstellung ist vollständig reduzibel.
+\end{bemerkung}
+
+\begin{lemma}
+    Sei $(\rho,V)$ eine endlichdimensionale Darstellung s.d. $\forall$
+    invarianten UVR $W \subset V$ $\exists$ ein invarianter UVR $W'$ mit
+    $V = W \oplus W'$. Dann ist $(\rho,V)$ vollständig reduzibel.
+\end{lemma}
+
+\subsection{Unitäre Darstellungen}
+
+\begin{definition}[unitäre Darstellung]
+    Eine Darstellung $\rho$ auf einem VR $V$ mit Skalarprodukt heisst
+    unitär falls $\rho(g)$ unitär ist $\forall g \in G$.
+    Sei $\rho(g)$ unitär, dann: $\rho(g)^\ast = \rho(g)^{-1} \ \forall g \in G$
+    bzw. $\rho(g^{-1}) = \rho(g)^\ast$
+\end{definition}
+
+\begin{satz}
+    Endliche unitäre Darstellungen sind vollständig reduzibel.
+\end{satz}
+
+\begin{satz}
+    Sei $(\rho,V)$ eine endliche Darstellung einer endlichen Gruppe $G$.
+    Dann $\exists$ ein Skalarprodukt $( \ , \ )$ auf $V$, s.d. $(\rho,V)$
+    unitär ist.
+\end{satz}
+
+\begin{korollar}
+    Darstellungen von endlichen Gruppen sind vollständig reduzibel.
+\end{korollar}
+
+\subsection{Das Lemma von Schur}
+
+\begin{satz}[Lemma von Schur]
+    Seien $(\rho_1,V_1),(\rho_2,V_2)$ irreduzible komplexe endlichdimensionale
+    Darstellungen von $G$.
+    \begin{enumerate}[(i)]
+        \item $\varphi \in \Hom_G(V_1,V_2) \Rightarrow \varphi \equiv 0$ oder
+            $\varphi$ ist ein Isomorphismus.
+        \item $\varphi \in \Hom_G (V_1,V_1)$. Dann ist $\varphi = \lambda \text{Id}_{V_1}$
+            für $\lambda \in \C$.
+    \end{enumerate}
+\end{satz}
+
+\begin{korollar}
+    Jede irreduzible endlichdimensionale komplexe Darstellung einer abelschen
+    Gruppe ist eindimensional.
+\end{korollar}

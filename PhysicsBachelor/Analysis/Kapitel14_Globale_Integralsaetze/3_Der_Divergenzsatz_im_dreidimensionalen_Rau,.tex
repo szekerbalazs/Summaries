@@ -1,0 +1,30 @@
+\subsection{Der Divergenzsatz im dreidimensionalen Raum}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R^3$ offen und $F:U \rightarrow \R^3$ ein stetig differenzierbares
+    Vektorfeld. Sei $Q \subseteq \R^2$ ein abgeschlossenes Rechteck, $z_0 \in \R$ und
+    $\varphi: Q \rightarrow [z_0,\infty)$ eine stetig differenzierbare Funktion, so
+    dass der abgeschlossene Bereich under dem Graphen von $\varphi$
+    \begin{align*}
+        B = \geschwungeneklammer{(x,y,z) \in \R^3 \ | \ (x,y) \in \Q \ , \ z_0 \leq z \leq \varphi(x,y)}
+    \end{align*}
+    in $U$ liegt. Dann gilt
+    \begin{align*}
+        \int_B \div (F) \ dx \ = \ \int_{\partial B} F \ dn
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Divergenzsatz/ Satz von Gauss)
+
+    Sei $B \subseteq \R^3$ ein kompakter, glatt berandeter Bereich und $F$ ein stetig
+    differenzierbares Vektorfeld, definiert auf einer offenen Umgebung von $B$. Dann
+    gilt
+    \begin{align*}
+        \int_B \div (F) \ dx \ = \ \int_{\partial B} F \ dn
+    \end{align*}
+}

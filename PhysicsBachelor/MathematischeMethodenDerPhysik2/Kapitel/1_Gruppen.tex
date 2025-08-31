@@ -1,0 +1,274 @@
+\section{Gruppen}
+
+\subsection{Grundbegriffe}
+
+\begin{definition}[Gruppe]
+    Eine Gruppe $G$ ist eine Menge mit einem Produkt (Multiplikation)
+    $G \times G \rightarrow G$, $(g,h) \mapsto gh$, sodass
+    \begin{enumerate}[(i)]
+        \item $(g h)k = g (h k) \ \forall g,h,k \in G$ (Assoziativgesetz)
+        \item $\exists$ neutrales Element $1 \in G$ mit $1 g = g 1 = g \ \forall g \in G$
+        \item $\forall g \in G \ \exists$ ein Inverses $g^{-1} \in G$, sodass
+            $g g^{-1} = g^{-1} g = 1$
+    \end{enumerate}
+    Eine Gruppe heisst \fat{abelsch}, falls $gh = hg \ \forall g,h \in G$
+\end{definition}
+
+\begin{definition}[Untergruppe]
+    Eine Untergruppe $H$ einer Gruppe $G$ ist eine nichtleere Teilmenge
+    von $G$, so dass $h_1 , h_2 \in H \Rightarrow h_1 h_2 \in H$ und
+    $h \in H \Rightarrow h^{-1} \in H$. Eine Untergruppe einer Grupppe
+    ist selbst eine Gruppe.
+\end{definition}
+
+\begin{definition}[Direktes Produkt]
+    Das direkte Produkt $G_1 \times G_2$ zweier Gruppen ist das kartesische
+    Produkt mit Multiplikation $(g_1,g_2)(h_1,h_2) = (g_1 h_1 , g_2 h_2)$.
+    Es ist eine Gruppe mit neutralem Element $(1,1)$ und Inversem
+    $(g_1,g_2)^{-1} = (g_1^{-1} , g_2^{-1})$
+\end{definition}
+
+\begin{definition}[Diedergruppen $D_n$]
+    $D_n$ für $n \geq 3$ besteht aus den orthogonalen Transformationen der
+    Ebene die ein reguläres im Ursprung zentriertes $n$-Eck invariant lassen.
+    Es enthält eine Drehung $R$ mit Winkel $\frac{2 \pi}{n}$ und eine Spiegelung
+    $S$ um eine fixe Achse durch den Ursprung. Falls
+    $\geschwungeneklammer{v_i}_{i \in \geschwungeneklammer{0,\dots,n-1}}$
+    die Eckpunkte sind, dann gilt: $R v_i = v_{i+1}$ und $S v_i = v_{n-i}$.
+\end{definition}
+
+\begin{lemma}
+    Es gilt: $\abs{D_n} = 2n$ und die Elemente von $D_n$ sind
+    $1,R,R^2,\dots R^{n-1},S,RS,R^2S,\dots R^{n-1} S$.
+\end{lemma}
+
+\begin{definition}[Skalarprodukt]
+    \begin{align*}
+        (x,y) = \sum_{i=1}^n \overline{x}_i y_i
+        \hspace{20pt} , \hspace{20pt}
+        (x,y)_{p,q} = \sum_{i=1}^p x_i y_i - \sum_{i=p+1}^{p+q} x_i y_j
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Verschiedene Gruppen]
+    \begin{align*}
+        GL(n,\R) &= \geschwungeneklammer{\text{invertierbare reelle } n \times n \text{ Matrizen}}
+        \\
+        GL(n,\C) &= \geschwungeneklammer{\text{invertierbare komplexe } n \times n \text{ Matrizen}}
+        \\
+        GL(V) &= \geschwungeneklammer{\text{invertierbare lineare Abbildung } V \rightarrow V}
+        \\
+        O(n) &= \geschwungeneklammer{A \in GL(n,\R) \ \big| \ A^T A = 1} \ \text{(Orthogonale Gruppe)}
+        \\
+        &= \geschwungeneklammer{A \ \big| \ (Ax,Ay) = (x,y) \ \forall x,y \in \R^n}
+        \\
+        O(p,q) &= \geschwungeneklammer{A \in GL(p+q,\R) \ \big| \ (A x, A y)_{p,q} = (x,y)_{p,q}}
+        \\
+        U(n) &= \geschwungeneklammer{A \in GL(n,\C) \ \big| \ A^* A = 1}
+        \\
+        &= \geschwungeneklammer{A \in GL(n,\C) \ \big| \ (Az,Aw) = (z,w) \ \forall z,w \in \C^n}
+        \\
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Sympeplektische Gruppe]
+    Sei $\omega$ die folgende antisymmetrischen Bilinearform auf $\R$
+    \begin{align*}
+        \omega(X,Y) = \sum_i^n \klammer{X_{2i-1} Y_{2i} - X_{2i} Y_{2i-1}}
+    \end{align*}
+    wobei $X_i$ die $i$-te Komponente von $X \in \R^{2n}$ bezeichnet. Die
+    sympeplektische Gruppe ist dann
+    \begin{align*}
+        Sp(2n) = \geschwungeneklammer{A \in GL(n,\R) \ \big| \
+        \omega(Ax,Ax') = \omega(x,x') \ \forall x,x' \in \R^{2n}}
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Spezielle Gruppen]
+    Sei $G$ eine Untergruppe von $GL(n,\R)$ oder $GL(n,\C)$.
+    \begin{align*}
+        SG &= \geschwungeneklammer{A \in G \ \big| \ \det A = 1} \subseteq G
+        \\
+        SL &= \klammer{SGL(n,K)} = \geschwungeneklammer{A \in GL(n,K) \ \big| \ \det A = 1}
+        \\
+        SO(n) &= \geschwungeneklammer{A \in SL(n,\R) \ \big| \ A^T A = 1} = \geschwungeneklammer{A \in O(n) \ \big| \ \det A = 1}
+        \\
+        SU(n) &= \geschwungeneklammer{A \in SL(n,\C) \ \big| \ A^* A = 1} = \geschwungeneklammer{A \in U(n) \ \big| \ \det A = 1}
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Gruppenwirkung / Gruppenoperation]
+    Eine Gruppenwirkung/ Gruppenoperation von $G$ auf eine Menge $M$ ist eine
+    Abbildung $G \times M \rightarrow M$, $(g,x) \mapsto gx$ sodass
+    $g_1 (g_2 x) = (g_1 g_2) x \ \forall g_1 , g_2 \in G$, $x \in M$. Man sagt
+    $G$ wirkt/ operiert auf $M$.
+\end{definition}
+
+\begin{definition}[Gruppenhomomorphismus]
+    Ein (Gruppen-) Homomorphismus $\varphi: G \rightarrow H$ ist eine Abbildung
+    zwischen Gruppen $G$ und $H$ sodass $\varphi(g,h) = \varphi(g) \varphi(h)
+    \ \forall g,h \in G$. Ist $\varphi$ bijektiv, so heisst $\varphi$
+    Isomorphismus und $G$ und $H$ isomorph. Verknüpfungen von Homomorphismen
+    sind wieder Homomorphismen.
+\end{definition}
+
+\begin{definition}[Kern und Bild]
+    \begin{align*}
+        \ker(\varphi) &= \geschwungeneklammer{g \in G \ | \ \varphi(g) = 1} \subset G
+        \\
+        \Im(\varphi) &= \geschwungeneklammer{\varphi(g) \ | \ g \in G} \subset H
+    \end{align*}
+\end{definition}
+
+\begin{satz}
+    Sei $\varphi: G \rightarrow H$ ein Homomorphismus.
+    \begin{enumerate}[(i)]
+        \item $\varphi(1) = 1$, $\varphi(g)^{-1} = \varphi(g^{-1})$
+        \item $\varphi$ ist genau dann injektiv wenn $\ker(\varphi) = \geschwungeneklammer{1}$
+    \end{enumerate}
+\end{satz}
+
+\begin{definition}[Linksnebenklassen]
+    Sei $H$ eine Untergruppe einer Gruppe $G$. Die Menge $G/H$ der
+    (Links-)Nebenklassen von $H$ in $G$ ist die Menge der Äquivalenzklassen
+    bezüglich der Äquivalenzrelation \
+    $g_1 \sim g_2 \Leftrightarrow \exists h \in H$ mit $g_2 = g_1 h$
+\end{definition}
+
+\begin{definition}[Normalteiler]
+    Ein Normalteiler von $G$ ist eine Untergruppe $H$ mit der Eigenschaft,
+    dass $g h g^{-1} \in H \ \forall g \in G, h \in H$.
+\end{definition}
+
+\begin{satz}
+    Sei $H$ ein Normalteiler von $G$ und es bezeichne $[g]$ die Klasse
+    von $g$ in $G/H$. Dann ist für alle $g_1,g_2$ das Produkt
+    $[g_1][g_2] = [g_1 g_2]$ wohldefiniert, und $G/H$ ist mit diesem
+    Produkt eine Gruppe, welche Faktorgruppe von $G$ mod $H$ heisst.
+\end{satz}
+
+\begin{satz}
+    Für jeden Homomorphismus $\varphi: G \rightarrow H$ ist $\ker(\varphi)$
+    ein Normalteiler von $G$, denn $\varphi(1) = 1 \Rightarrow \varphi(g h g^{-1})
+    = \varphi(g) \varphi(h) \varphi(g^{-1}) = \varphi(g) \varphi(g)^{-1} = 1$
+\end{satz}
+
+\begin{satz}
+    Sei $\varphi: G \rightarrow H$ ein Homomorphismus von Gruppen. Dann gilt
+    $G/ \ker(\varphi) \cong \Im(\varphi)$. Der Isomorphismus ist
+    $[g] \mapsto \varphi(g)$ für beliebige Wahl der Representanten g.
+\end{satz}
+
+\begin{definition}[Automorphismus]
+    Sei $H$ eine Gruppe. Dann ist
+    $\text{Aut}(H) = \geschwungeneklammer{\varphi: H \rightarrow H \ | \ \text{Gruppenisomorphismus}}$
+    die Gruppe der Gruppenisomorphismen von $H$.
+\end{definition}
+
+\begin{definition}[Semidirektes Produkt]
+    Seien $G$ und $H$ Gruppen und $\rho : G \rightarrow \text{Aut}(H)$,
+    $g \mapsto \rho_g$, ein Homomorphismus, wobei $\rho_g = \rho(g) \in
+    \text{Aut}(H)$. Dann ist $G \times H$ mit Multiplikation
+    $(g_1 , h_1)(g_2 , h_2) = (g_1 g_2 , h_1 \rho_{g_1}(h_2))$ eine Gruppe,
+    das semidirekte Produkt $G \ltimes_\rho H$.
+\end{definition}
+
+\subsection{Lie-Gruppen}
+
+\begin{definition}[Lie-Gruppen]
+    Eine Lie-Gruppe ist eine Gruppe, die gleichzeitig eine $C^\infty$-Mannigfaltigkeit
+    ist, so dass Multiplikation und Inversion $C^\infty$-Abbildungen sind.
+\end{definition}
+
+\begin{definition}[Stetigkeit für Untergruppen von $GL(n)$]
+    Wir fassen $G \subset GL(n,\R)$, $GL(n,\C)$ als Teilmenge von
+    $\C^{n^2}$ auf, indem wir die Matrixelemente einer Matrix $A \in G$
+    als Punkt $(A_{11} , A_{12} , \dots , A_{nn})$ in $\R^{n^2}$ bzw.
+    $\C^{n^2}$ schreiben. Diese Identifikation definiert die Struktur
+    eines Metrischen Raumes auf $G$. Der Abstand $d(A,B)$ zwischen zwei
+    Matrizen aus $G$ ist
+    \begin{align*}
+        d(A,B)^2 = \sum_{i,j}^n \abs{A_{ij} - B_{ij}}^2 = \tr(A-B)^\ast (A-B)
+    \end{align*}
+\end{definition}
+
+\begin{satz}
+    Sei $G$ eine Untergruppe von $GL(n,\K)$. Dann sind Multiplikation
+    $G \times G \rightarrow G$, $(A,B) \mapsto AB$ und die Inversion
+    $G \rightarrow G$, $A \mapsto A^{-1}$ stetige Abbildungen.
+\end{satz}
+
+\begin{definition}[Weg]
+    Ein Weg in einem metrischen Raum $X$ ist eine stetige Abbildung
+    $w: [0,1] \rightarrow X$. Er verbindet $w(0)$ mit $w(1)$. $X$ ist
+    wegzusammenhängend, falls $\forall x,y \in X \ \exists$ ein Weg, der
+    $x$ mit $y$ verbindet.
+\end{definition}
+
+\begin{satz}
+    Die Wegzusammenhangskomponenten von $X$ sind die Äquivalenzklassen
+    bezüglich \ $x \sim y \Leftrightarrow \exists \text{Weg } w:[0,1] \rightarrow X$
+    mit $w(0) = x$ und $w(1) = y$.
+\end{satz}
+
+\begin{definition}[(Weg-)Zusammenhangskomponente]
+    Sei $\K = \C$ oder $\R$. Die (Weg-)Zusammenhangskomponenten von $G \subset \GL(n,\K)$
+    sind die Äquivalenzklassen bezüglich $\sim$. Besteht $G$ aus einer einzigen
+    Zusammenhangskomponente, so heisst $G$ (weg-)zusammenhängend.
+\end{definition}
+
+\begin{satz}
+    Sei $G \subset GL(n,\K)$ eine Untergruppe/ Lie-Gruppe und $G_0 \subset G$
+    die Wegzusammenhangskomponente der 1. Dann ist $G_0$ ein Normalteiler von
+    $G$ und $G/G_0$ ist isomorph zu der Gruppe der Wegzusammenhangskomponenten.
+\end{satz}
+
+\begin{satz}
+    \begin{enumerate}[(i)]
+        \item $SO(n), SU(n), U(n)$ sind zusammenhängend.
+        \item $O(n)$ besteht aus zwei Zusammenhangskomponenten:
+            $\geschwungeneklammer{A \in O(n) \ | \ \det(A) = 1}$ und
+            $\geschwungeneklammer{A \in O(n) \ | \ \det(A) = -1}$.
+    \end{enumerate}
+\end{satz}
+
+\begin{theorem}[Spektralsatz]
+    Für einen Endomorphismus $F$, mit Darstellungsmatrix $A \in M(n \times n ; \C)$,
+    eines unitären $\C$-VR $V$ sind folgende Aussagen äquivalent:
+    \begin{enumerate}[i)]
+        \item Es gibt eine Orthonormalbasis von $V$ bestehend aus Eigenvektoren
+        von $F$.
+        \item $F$ ist normal.
+        \item $\exists S \in U(n)$ s.d. $S A S^{-1} = D$ für $D$ eine Diagonalmatrix.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Bahnformel}
+
+\begin{definition}[Bahn]
+    Sei $G$ eine endliche Gruppe, die auf der Menge $X$ operiert. Zu $x \in X$
+    definieren wir die Bahn von $x$
+    \begin{align*}
+        G x := \geschwungeneklammer{g x \ | \ g \in G} \subset X
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Stabilisator]
+    Sei $G$ und $X$ wie oben. Dann:
+    \begin{align*}
+        \text{Stab}_x := \geschwungeneklammer{g \in G \ | \ g x = x} \subset G
+    \end{align*}
+    Stab$_x$ ist eine Untergruppe.
+\end{definition}
+
+\begin{satz}[Bahnensatz und Bahnenformel]
+    Wirkt die Gruppe $G$ auf der Menge $X$, dann ist für jedes $x \in X$
+    die Abbildung
+    \begin{align*}
+        G / \text{Stab}_x \rightarrow G x
+        \hspace{15pt} , \hspace{15pt}
+        [g] \mapsto g x
+    \end{align*}
+    wohldefiniert und eine Bijektion. Insbesondere gilt für endliches $G$
+    die Bahnenformel $\abs{G} = \abs{\text{Stab}_x} \abs{G x}$
+\end{satz}

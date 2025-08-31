@@ -1,0 +1,123 @@
+\subsection{Topologie auf metrischen Räumen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum, \xinX und $r>0$ eine reelle Zahl, so schreiben wir
+    \begin{align*}
+        B(x,r) = \geschwungeneklammer{y \in X \ | \ d(x,y) < r}
+    \end{align*}
+    und nennen die Menge $B(x,r)$ \fat{offener Ball} oder \fat{offene Kreisscheibe}
+    mit Zentrum $x$ und Radius $r$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum. Eine Teilmenge $U \subseteq \X$ heisst \fat{offen},
+    falls für jedes $x \in U$ ein $\epsilon>0$ existiert, derart, dass
+    $B(x,\epsilon) \subseteq U$ gilt. Die damit definierte Topologie $\tau_d$ auf der
+    Menge $X$ wird die von der Metrik \fat{induzierte Topologie} genannt.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $(X,d)$ ein metrischer Raum.
+    \begin{enumerate}
+        \item Eine Teilmenge $U \subset X$ ist genau dann offen, wenn für jede
+                konvergente Folge in $X$ mit Grenzwert in $U$ fast alle
+                Folgenglieder in $U$ liegen.
+        \item Eine Teilmenge $A \subset X$ ist genau dann abgeschlossen, wenn für
+                jede konvergente Folge $\xFolge$ in $A$ mit $x_n \in A$ für alle
+                \ninN auch der Grenzwert in $A$ liegt.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $d \in \N$. Jede abgeschlossene Teilmenge von $\R^d$ ist vollständig.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,d_X)$ und $(Y,d_Y)$ metrische Räume, und sei $f: X \rightarrow Y$ eine
+    Funktion.
+    \begin{enumerate}
+        \item Wir sagen, $f$ ist \fat{$\epsilon-\delta-$stetig}, falls für alle \xinX
+                und alle $\epsilon >0$ ein $\delta>0$ existiert, so dass
+                $d_X (x,y) < \delta \Longrightarrow d_Y (f(x),f(y)) < \epsilon$ für alle
+                \yinX gilt.
+        \item Wir sagen, dass $f$ \fat{folgenstetig} ist, falls für jede konvergente
+                Folge $\xFolge$ in $X$ mit Grenzwert $x = \limesninf x_n$ die Folge
+                $(f(x_n))_{n}$ konvergiert, mit $\limesninf f(x_n) = f(x)$.
+        \item Wir sagen, $f$ ist \fat{topologisch stetig}, falls für jede offene
+                Teilmenge $U \subseteq Y$ das Urbild $f^{-1} (U)$ offen in $X$ ist.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $X$ und $Y$ metrische Räume und sei $f: X \rightarrow Y$ eine Funktion. Dann
+    sind folgende Aussagen äquivalent:
+
+    (1) Die Funktion $f$ ist $\epsilon-\delta-$stetig.
+
+    (2) Die Funktion $f$ ist folgenstetig.
+
+    (3) Funktion $f$ ist topologisch stetig.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,d_X)$ und $(Y,d_Y)$ metrische Räume und $f:X \rightarrow Y$ eine Funktion.
+    Die Funktion $f$ heisst \fat{gleichmässig stetig}, falls es zu jedem $\epsilon>0$
+    ein $\delta>0$ gibt, so dass für alle $x_1,x_2 \in X$ mit $d_X (x_1,x_2) < \delta$
+    auch $d_Y (f(x_1),f(x_2)) < \epsilon$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,d_X)$ und $(Y,d_Y)$ metrische Räume und $f:X \rightarrow Y$ eine Funktion.
+    Die Funktion $f$ heisst \fat{Lipschitz-stetig}, falls es eine reelle Zahl $L \geq 0$
+    gibt, genannt \fat{Lipschitz-Konstante}, mit
+    \begin{align*}
+        d_Y (f(x_1),f(x_2)) \leq L d_X (x_1,x_2)
+    \end{align*}
+    für alle $x_1 , x_2 \in X$. Es gelten die Implikationen
+    \begin{align*}
+        f \text{ ist Lipschitz-stetig } \Longrightarrow
+        f \text{ ist gleichmässig stetig } \Longrightarrow
+        f \text{ ist stetig} 
+    \end{align*}
+    und im Allgemeinen sind die umgekehrten Implikationen falsch.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Banach'sche Fixpunktsatz)
+
+    Sei $(X,d)$ ein nicht-leerer, vollständiger metrischer Raum. Sei $T: X \rightarrow X$
+    eine Abbildung und $0 \leq \lambda < 1$ eine reelle Zahl mit der Eigenschaft, dass
+    \begin{align*}
+        d(T(x_1),T(x_2)) \leq \lambda d(x_1 , x_2)
+    \end{align*}
+    für alle $x_1 , x_2 \in X$ gilt. Dann existiert genau ein Element $a \in X$ mit
+    $T(a) = a$. Die Zahl $\lambda$ nennt man \fat{Lipschitz-Konstante} und die
+    Funktion $T$ eine \fat{Lipschitz-Kontraktion}. Ein Punkt \xinX mit $T(x) = x$
+    heisst \fat{Fixpunkt} der Abbildung $T$, und der Satz besagt also, dass eine
+    Lipschitz-Kontraktion genau einen Fixpunkt besitzt.
+}

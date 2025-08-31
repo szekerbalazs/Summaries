@@ -1,0 +1,138 @@
+\subsection{Komplexe Zahlen}
+
+\vspace{1\baselineskip}
+
+Es wird vorausgesetzt, dass der Leser, bzw die Leserin, bereits eine
+Vorstellung hat was komplexe Zahlen sind und wie die Notation funktioniert. 
+Falls dies nicht der Fall ist, muss sich mittels anderer Literatur 
+geholfen werden. Hier werden nur Operationen und mathematische Tools
+des Körpers der komplexen Zahlen thematisiert.
+
+Kurze erläuterung der Notation: Wir schreiben $z = (x,y)$ wobei
+$x$ der Realteil von $z$ und $y$ der Imaginärteil von $z$ ist.
+Die gängigere Schreibweise ist jedoch $z = x + yi$.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir nennen \fat{Addition} und \fat{Multiplikation} auf der Menge
+    $\C$ die folgenden Operationen.
+
+    \vspace{1\baselineskip}
+
+    Addition: $(x_1,y_1) + (x_2,y_2) = (x_1 + x_2, y_1 + y_2)$  
+
+    Multiplikation: $(x_1,y_1) \cdot (x_2,y_2) = (x_1 x_2 - y_1 y_2, x_1 y_2 + x_2 y_1)$
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Die Menge $\C$, zusammen mit dem Nullelement $(0,0)$, dem Einselement
+    $(1,0)$ und den vorher definierten Operationen, ist ein Körper.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $z = x + yi$ eine komplexe Zahl. Wir nennen $\overline{z} = x - yi$
+    die zu $z$ \fat{konjugierte} komplexe Zahl. Die Abbildung $\C \rightarrow \C$
+    gegeben durch $z \rightmapsto \overline{z}$ heisst \fat{komplexe Konjugation}.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Die komplexe Konjugation erfüllt folgende Eigenschaften:
+
+    \vspace{1\baselineskip}
+
+    1. Für alle \zinC ist $z \overline{z} \in \R$ und $z \overline{z} \geq 0$. 
+    Des Weiteren gilt für alle $z \in \C$, dass $z \overline{z} = 0$ genau dann wenn $z=0$.
+
+    2. Für alle $z,w \in \C$ gilt $\overline{z + w} = \overline{z} + \overline{w}$.
+
+    3. Für alle $z,w \in \C$ gilt $\overline{z \cdot q} = \overline{z} \cdot \overline{w}$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Es lässt sich keine Ordnung auf $\C$ definierten, die zur Addition
+    und zur Multiplikation kompatibel ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Der \fat{Absolutbetrag} oder die \fat{Norm} auf $\C$ ist die
+    Funktion $\abs{ \hspace*{2pt} . \hspace*{2pt} } : \C \rightarrow \R$ gegeben durch
+    \begin{align*}
+        \abs{z} = \sqrt{z \overline{z}} = \sqrt{x^2 + y^2}
+    \end{align*}
+    für $z = x + yi \in \C$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Der Ausolutbetrag ist positiv definit und multiplikativ, dh.
+    \begin{align*}
+        \abs{z w} = \sqrt{z w \overline{z w}} = \sqrt{z \overline{z}} \sqrt{w \overline{w}} = \abs{z} \abs{w}
+        \quad \forall z,w \in \C
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+    (Dreiecksungleichung)
+
+    Für alle $z,w \in \C$ gilt $\abs{z + w} \leq \abs{z} + \abs{w}$.
+}
+
+\pagebreak
+
+\Definition{
+    (\fat{Cauchy-Schwarz Ungleichung})
+
+    Für komplexe Zahlen $z = x_1 + y_1 i$ und $w = x_2 + y_2 i$ gilt
+    \begin{align*}
+        x_1 x_2 + y_1 y_2 \leq \abs{z} \abs{w}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{offene Kreisscheibe} mit Radius $r > 0$ um einen Punkt
+    \zinC ist die Menge 
+    \begin{align*}
+        B(z,r) = \geschwungeneklammer{w \in \C \ | \ \abs{z-w} < r}
+    \end{align*}
+    Die \fat{abgeschlossene Kreisscheibe} mit Radius $r > 0$ um 
+    \zinC ist die Menge
+    \begin{align*}
+        \overline{B(z,r)} = \geschwungeneklammer{w \in \C \ | \ \abs{z-w} \leq r}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Teilmenge $U \subseteq \C$ heisst \fat{offen} in $\C$, 
+    wenn zu jedem Punkt in $U$ eine offene Kreisscheibe um diesen Punkt
+    existert, die in $U$ enthalten ist. Formaler: Für alle $z \in U$ 
+    existert ein Radius $r > 0$, so dass $B(z,r) \subseteq U$. 
+    Eine Teilmenge $A \subseteq \C$ heisst \fat{abgeschlossen} in 
+    $\C$, falls ihr Komplement $\C \backslash A$ offen ist.
+}

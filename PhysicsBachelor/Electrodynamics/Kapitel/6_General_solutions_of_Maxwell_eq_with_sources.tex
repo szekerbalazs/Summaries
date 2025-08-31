@@ -1,0 +1,157 @@
+\section{General solution of Maxwell equations with sources}
+
+We want to find the solution to Maxwell equations in the presence of sources
+($\vec{J},\rho \neq 0$). In the Lorentz gauge we have:
+\begin{align*}
+    \Box \phi = \frac{\rho}{\epsilonnull}
+    \hspace{10pt} , \hspace{10pt}
+    \Box \vec{A} = \frac{\vec{J}}{c^2 \epsilonnull}
+\end{align*}
+
+Suppose we know a solution $\phi_{sol}$ such that $\Box \phi_{sol} =
+\frac{\rho}{\epsilonnull}$. Then $\phi' = \phi_{free} + \phi_{sol}$ with
+$\Box \phi_{free} = 0$ is also a solution. 
+
+\subsection{Green's functions}
+
+To solve above differential equations we seek functions $G(\vec{x},\vec{x}',t,t')$
+which satisfy
+\begin{align*}
+    \Box_{\vec{x},t} G(\vec{x},\vec{x}',t,t') = \delta^{(3)}(\vec{x}-\vec{x}') \delta(t-t')
+\end{align*}
+Then a solution for the scalar potential is:
+\begin{align*}
+    \phi(\vec{x},t) = \phi_{free}(\vec{r},t) +
+        \intii d^3 \vec{x}' d t' \ G(\vec{x},\vec{x}',t,t') \frac{\rho(\vec{x}',t')}{\epsilonnull}
+\end{align*}
+This violates causality because we need to know future states at times $t' > t$
+to determine the one at time $t$. Therefore, we say
+\begin{align*}
+    \Box = \limes{\delta \rightarrow 0} \Box_\delta
+    = \limes{\delta \rightarrow 0} \klammer{\frac{1}{c} \frac{\partial}{\partial t} + \delta}^2 - \vec{\nabla}^2
+\end{align*}
+
+\subsection{Fourier transformation}
+
+\begin{align*}
+    \tilde{f}(k) = \intii \frac{dt'}{\sqrt{2 \pi}} e^{i k t'} f(t')
+    \hspace{10pt} &, \hspace{10pt}
+    f(t) = \intii \frac{dk}{\sqrt{2 \pi}} e^{-i k t} \tilde{f}(k)
+    \\
+    \frac{1}{2 \pi} \intii d \omega \ e^{-i \omega t} = \delta(t)
+    = \partial_t \Theta(t) &= \partial_t \klammer{- \frac{1}{2 \pi i}
+    \limes{\epsilon \rightarrow 0^+} \intii d \omega \frac{e^{-i \omega t}}{\omega + i \epsilon}}
+\end{align*}
+
+\subsection{Fourier transformation and Green's functions}
+
+We want Green's functions which are only dependent on space-time differences
+\begin{align*}
+    G(\vec{x},\vec{x}',t,t') &= G(\vec{x} - \vec{x}' , t - t')
+    = G(\Delta \vec{x} , \delta t)
+    \\
+    \Box G(\Delta \vec{x},\Delta t) &= \delta(\Delta \vec{x}) \delta(\Delta t)
+\end{align*}
+If we calculate $\Box_\delta G(\Delta \vec{x},\Delta t)$ and compare with
+the expected result, we obtain:
+\begin{align*}
+    \tilde{G}(E,\vec{k}) = \frac{-c}{(E + i \delta)^2 - \vec{k}^2}
+\end{align*}
+From this we calculate:
+\begin{align*}
+    G(\Delta \vec{x} , \Delta t) &= \limes{\delta \rightarrow 0^+}
+        - c \int \frac{d^3 \vec{k} dE}{(2 \pi)^4} \frac{e^{-i (E c \Delta t - \vec{k} \cdot \Delta \vec{x})}}{(E + i \delta)^2 - \vec{k}^2}
+    \\
+    &= \frac{1}{4 \pi \abs{\vec{x} - \vec{x}'}} \delta \klammer{t - t' - \frac{\abs{\vec{x} - \vec{x}'}}{c}} \Theta(t>t')
+\end{align*}
+So we obtain:
+\begin{align*}
+    \phi(\vec{x},t) = \frac{1}{4 \pi \epsilonnull} \int d^3 \vec{x}'
+        \frac{\rho \klammer{\vec{x}' , t - \frac{\abs{\vec{x} - \vec{x}'}}{c}}}{\abs{\vec{x} - \vec{x}'}}
+\end{align*}
+If $c \rightarrow \infty$ we obtain Coulomb's law.
+For the vector potential we obtain:
+\begin{align*}
+    \vec{A} (\vec{x},t) = \frac{1}{4 \pi \epsilon_0 c^2} \int d^3 \vec{x}'
+        \frac{\vec{J}\klammer{\vec{x}' , t - \frac{\abs{\vec{x} - \vec{x}'}}{c}}}{\abs{\vec{x} - \vec{x}'}}
+\end{align*}
+The retarded Green's function is given as:
+\begin{align*}
+    G(\vec{x} - \vec{x}' , t - t') = \frac{1}{2 \pi} \delta
+    \klammer{(t - t')^2 - \frac{\abs{\vec{x} - \vec{x}'}^2}{c^2}} \Theta(t>t')
+\end{align*}
+
+\subsection{Potential of a moving charge with a constant velocity}
+
+We calculate the scalar and vector potential of a point-like charge $q$,
+moving with a velocity $\vec{v}$. The charge density is
+\begin{align*}
+    \rho(\vec{x}',t') = q \delta (\vec{x}' - \vec{v} t')
+\end{align*}
+So the scalar potential is:
+\begin{align*}
+    \Phi(\vec{x},t) = \frac{q}{2 \pi \epsilonnull} \int dt' \delta \klammer{(t - t')^2 - \frac{\abs{\vec{x} - \vec{v} t}^2}{c^2}} \Theta(t>t')
+\end{align*}
+We want to find the zeros of the argument of the delta funciton. Therefore,
+we decompose $\vec{x}$ into $\vec{x} = \vec{x}_{\parallel} + \vec{x}_{\perp}$.
+\begin{align*}
+    0 = (t-t')^2 - \frac{\abs{\vec{x} - \vec{v} t'}^2 }{c^2}
+    = t'^2 - 2 t' t + t^2 - \frac{(x_\parallel - v t')^2 + x_{\perp}^2}{c^2}
+\end{align*}
+We can now define "boosted variables"
+\begin{align*}
+    x_b = \gamma \klammer{x_\parallel - v t}
+    \hspace{10pt} , \hspace{10pt}
+    t_b = \gamma \klammer{t - \frac{x_\parallel v}{c^2}}
+    \hspace{10pt} , \hspace{10pt}
+    \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{align*}
+We introduce:
+\begin{align*}
+    \tau^2 = c^2 t^2 - \klammer{x_\parallel^2 + x_\perp^2}
+    = c^2 t_b^2 - (x_b^2 + x_\perp^2)
+    \hspace{10pt} , \hspace{10pt}
+    r_b^2 = x_b^2 + x_\perp^2
+\end{align*}
+Then:
+\begin{align*}
+    \frac{t'^2}{\gamma^2} - 2 \frac{t'}{\gamma} + \frac{\tau^2}{c^2} = 0
+    \hspace{10pt} , \hspace{10pt}
+    \Delta = \frac{4 (t_b^2 - \tau^2 / c^2)}{\gamma^2} = \frac{4 r_b^2}{\gamma^2 c^2}
+\end{align*}
+Now the solutions are:
+\begin{align*}
+    t_{\pm} = \gamma \klammer{t_b \pm \frac{r_b}{c}}
+\end{align*}
+The delta function becomes:
+\begin{align*}
+    \delta \klammer{(t - t')^2 - \frac{\abs{\vec{x} - \vec{v} t}^2}{c^2}} \Theta(t>t')
+    = \frac{c \gamma}{2 r_b} \Theta(t>t') \delta(t' - t_-)
+\end{align*}
+In conclusion we obtain:
+\begin{align*}
+    \Phi(\vec{x},t) &= \frac{q}{4 \pi \epsilonnull} \frac{\gamma}{r_b}
+    = \frac{q}{4 \pi \epsilonnull} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+        \frac{1}{\eckigeklammer{\klammer{\frac{x_\parallel - v t}{\sqrt{1 - \frac{v^2}{c^2}}}}^2 + x_\perp^2}^{\frac{1}{2}}}
+    \\
+    \vec{A}(\vec{x},t) &= \frac{\vec{v}}{c^2} \Phi(\vec{x},t)
+\end{align*}
+In a reference frame where the charge is at rest, the scalar and vector
+potentials are:
+\begin{align*}
+    \Phi(\vec{x},t)|_{rest} = \frac{q}{4 \pi \epsilonnull} \frac{1}{\eckigeklammer{x_\parallel^2 + x_\perp^2}}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{A}(\vec{x},t)|_{rest} = 0
+\end{align*}
+We have the following transformations:
+\begin{align*}
+    x_\parallel \rightarrow \gamma \klammer{x_\parallel - v t}
+    \hspace{10pt} , \hspace{10pt}
+    x_\perp \rightarrow x_\perp
+\end{align*}
+And we define the following "four-vector":
+\begin{align*}
+    \begin{pmatrix}
+        \Phi \\ \vec{A}
+    \end{pmatrix} \equiv A^\mu
+\end{align*}

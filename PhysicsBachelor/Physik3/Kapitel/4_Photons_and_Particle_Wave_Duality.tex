@@ -1,0 +1,112 @@
+\section{Photons and Particle-Wave Duality}
+
+\paragraph{The Photoelectric Effect}
+Under some circumstances, light causes negative charges (electrons) to be ejected
+from a metal plate. Will not work if the plate has too much positive charge or if
+the frequencies of the light are too low.
+For each frequency of light there is a different voltage $V_{max}$ at which
+electrons are ejected from the emitter plate are no longer able to reach the
+the collector plate. We have $E_{kin}^{max} = e V_{max}$, and
+$E_{max} = h \nu - \Phi$ with $\Phi$ the work function. Thus, \textit{The energy
+contained in light with frequency $\nu$ can be absorbed only in multiples of
+$h \nu$. This quantum of light is called a photon}.
+
+\paragraph{The Inverse Photoelectric Effect and X-Rays}
+Take an energetic free electron and bring it into a metal, thereby producing a
+photon. The maximum frequency $\nu$ of photons emitted in this way is given by
+the kinetic energy $E_{kin} = e V_0$ of the electrons that hit the anode, by the
+relation $h \nu_{max} = e V_0 + \Phi$, where $\Phi$ is the work function.
+In practice $\Phi \ll e V_0$, so $\nu_{max} = e V_0 / h$ and $\lambda_{min} =
+h c / e V_0$.
+
+\subsection{Scattering of photons with atoms}
+
+% \paragraph{Rayleigh scattering}
+% Photon-atom interaction. Elastic scattering of a photon with an atom or molecule.
+% Elastic means, frequency of the photon does not change. If an electric field is
+% present, nucleus and electron cloud shift in opposite directions. Separation is result
+% of balance of forces from electric field $\vec{F}_{field} = -q \vec{E}$ versus
+% attractive bonding interaction between nucleus and electrons, which can be approximated
+% with Hook's Law $\vec{F}_{bond} = - k \vec{x}$. So, $m \frac{d^2 x}{d t^2} = - q E - k x$. 
+% For light wave with angular frequency $\omega$, electric field oscillates as
+% $E = E_0 \cos(\omega t)$, resulting in $\frac{d^2 x}{d t^2} + \frac{k}{m} x =
+% - \frac{q}{m} E_0 \cos(\omega t)$. Define $\omega_0 = \sqrt{k/m}$ and use ansatz
+% $x(t) = x_0 \cos(\omega t)$ with $x_0 = \frac{q E_0}{m (\omega^2 - \omega_0^2)}$.
+% Harmonic motion of electon results in an oscillating dipole moment.
+% Emitted electric field: $E_{emitted} \propto x_0 \cos(\omega t)$.
+% Intensity emitted: $I_{emitted} \propto \langle \abs{E_{emitted}}^2 \rangle
+% \propto \frac{q^2 E_0^2 \omega^4}{m^2 (\omega^2 - \omega_0^2)^2}$.
+% This implies that the interaction of light field with an atom will result in the
+% reemission of light from the atom as a new point source of light.
+
+\subparagraph{X-Ray diffraction}
+Constructive interference occurs if the optical path
+length of the two paths differ by an integer multiple of the x-ray wavelength
+$\lambda$. This results in the \fat{Bragg condition} $2 d \sin(\theta) = n \lambda$ with
+$d$ the distance between planes of atoms. 
+
+\paragraph{Compton Scattering}
+Inelastic scattering, meaning, scattered light has a different energy
+than the incident light. Consider photons as particles with energy $E = h \nu$
+and momentum $p = E / c = h \nu / c = h / \lambda$. Consider interaction of a
+single photon with an electron. Assume, electron initially at rest and photon moves
+along positive $x$-direction. Let $\theta$ be the deflection angle of the photon
+and $\phi$ be the deflection angle of the electron (with respect to the $x$-axis).
+Goal: study relation between $\theta$ and $\Delta \lambda$ of the photon.
+Conservation conditions yield:
+$h \nu + m_e c^2 = h \nu' + \sqrt{m_e^2 c^4 + p^2 c^2}$,
+$\frac{h \nu}{c} + 0 = \frac{h \nu'}{c} \cos(\theta) + p \cos(\phi)$
+and $0 + 0 = \frac{h \nu'}{c} \sin(\theta) - p \sin(\phi)$. Thus:
+$p^2 \cos^2 (\phi) = \frac{h^2}{c^2} (\nu - \nu' \cos(\theta))^2$,
+$p^2 \sin^2 (\phi) = \frac{h^2 (\nu')^2}{c^2} \sin^2(\theta)$
+$\Rightarrow p^2 c^2 = h^2 \klammer{\nu^2 - 2 \nu \nu' \cos(\theta) + (\nu')^2
+\cos^2(\theta) + (\nu')^2 \sin^2(\theta)} = h^2 (\nu-\nu')^2 + 2 h^2 \nu \nu' (1-\cos(\theta))
+= \klammer{h(\nu - \nu') + m_e c^2}^2 - m_e^2 c^4
+= h^2 (\nu - \nu')^2 + 2 h (\nu - \nu') m_e c^2$. Further
+$h \nu \nu' (1-\cos(\theta)) = (\nu - \nu') m_e c^2$
+$\Rightarrow \Delta \nu = \frac{h \nu \nu'}{m_e c^2} (1-\cos(\theta))$.
+Therefore:
+$\Delta \lambda = \frac{c \Delta \nu}{\nu \nu'}
+= \lambda_c (1-\cos(\theta))$ with $\lambda_c = \frac{h}{m_e c}$
+the so called \fat{Compton wavelength}.
+
+
+\subsection{Matter Waves}
+
+\paragraph{De Broglie Wavelength}
+$\lambda_{dB} = h / p = \frac{h}{\sqrt{2 m_e E_{kin}}}$ with $p$ the momentum of
+the massiv particle. Equivalent: $p = \hbar k_{dB}$. Constructive interference: $d \sin(\phi) = n \lambda_{dB}$
+with $d$ the distance between atoms, $n$ the order of the maximum and $\phi$ the
+deflection angle.
+
+$\langle E_{kin} \rangle = \frac{p^2}{2m} = \frac{3}{2} k_B T
+\Rightarrow \lambda_{dB} = \frac{h}{\sqrt{3 m k_B T}}$
+
+% \paragraph{Wavepackets}
+% Superposition of waves for stationary wave:
+% $\psi(x,t) = \int_{k_0 - \Delta k}^{k_0 + \Delta k} A e^{i (k x - \omega(k) t)} \ dk$
+% For light: $\omega_{light} (k) = c k = E_{photon} / \hbar$. For matter waves:
+% $\omega(k) = E_{kin} / \hbar$. For non relativistic particles:
+% $\omega(k) = \frac{p^2}{2 m \hbar} = \frac{\hbar k^2}{2 m}$. If wavepackets only
+% contain wavevectors very close to an average value $k_0$:
+% $\omega(k) \approx \frac{\hbar k_0^2}{2 m} + \frac{\hbar k_0}{m} (k - k_0)$.
+% Define $\omega_0 \equiv \frac{\hbar k_0^2}{2 m}$. Now:
+% $\psi(x,t) \approx 2 A \Delta k e^{i(k_0 x - \omega_0 t)} \text{sinc}
+% \eckigeklammer{\Delta k \klammer{x - \frac{\hbar k_0 t}{m}}}$. Peak of envelope
+% of $\psi$ in $x$ is at $x_{max} = \frac{\hbar k_0 t}{m}$. \fat{Group velocity}:
+% $\frac{d x_{max}}{dt} = \frac{\hbar k_0}{m} = \frac{p_0}{m} = v_0$. Width of
+% envelope: $\Delta x = \frac{2 \pi}{\Delta k} = \frac{2 \pi \hbar}{\Delta p}$.
+% Thus $\Delta x \Delta p = h$.
+
+% \subparagraph{Physical meaning}
+% The function $\psi(x,t)$ can be interpreted as giving the probability $P(x,t) dx$
+% to find a particle at a position between $x$ and $x + dx$ at a time $t$ via
+% $P(x,t) dx = \abs{\psi(x,t)}^2 dx$. Normalization condition:
+% $\intii P(x,t) dx = 1$.
+
+% \paragraph{Heisenberg Uncertainty Principle}
+% % If $\Delta p_x$ and $\Delta x$ are standard deviations of the momentum and position,
+% % then $\Delta p_x \Delta x \geq \frac{h}{2}$. This means, position and momentum
+% % uncertainties of a particle along one axis are never known simultaneously to
+% % arbitrary precision.
+% $\Delta p_x \Delta x \geq \frac{h}{2}$

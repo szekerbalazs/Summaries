@@ -1,0 +1,40 @@
+\section{Felder bewegter Ladungen}
+
+\vspace{1\baselineskip}
+
+\fat{Transformationen von elektrischen Feldern an einem Plattenkondensator}
+\begin{itemize}
+    \item \fat{Elektrisches Feld, senkrecht}: $E'_{\perp} = \frac{\sigma'}{\epsilonnull} =
+            \frac{\gamma \sigma}{\epsilonnull} = \gamma E_{\perp}$
+    \item \fat{Elektrisches Feld, parallel}: $E'_{\parallel} = \frac{\sigma}{\epsilonnull}
+            = E_{\parallel}$
+\end{itemize}
+
+\pagebreak
+
+\fat{Transformation von elektrischen Felder einer bewegten Punktladung}
+
+Angenommen wir haben eine Punktladung, die sich mit $v_x$ entlang der $x$-Achse bewegt.
+Das elektrische Feld sei in der $xz$-Ebene, also parallel, bzw senkrecht zur Bewegung.
+Im mitbewegten Inertialsystem, in dem sich die Ladung im Ursprung und in Ruhe befindet
+sind die Komponenten des elektrischen Feldes:
+\begin{align*}
+    E_x (x,0,z) = \frac{q}{4 \pi \epsilonnull} \frac{x}{(x^2 + z^2)^{\nicefrac{3}{2}}}
+    \\
+    E_z (x,0,z) = \frac{q}{4 \pi \epsilonnull} \frac{z}{(x^2 + z^2)^{\nicefrac{3}{2}}}
+\end{align*}
+Mit $r'^2 = x'^2 + z'^2$ und $z' = r' \sin(\theta')$ erhalten wir:
+\begin{align*}
+    E' = \sqrt{{E'}_x^2 + {E'}_z^2} = \frac{q}{4 \pi \epsilonnull r'^2} \frac{1-\beta^2}{\klammer{1-\beta^2 \sin^2(\theta')}^{\nicefrac{3}{2}}}
+\end{align*}
+wobei die Striche die Koordinaten im Laborsystem kennzeichnen, welches sich mit
+Relativgeschwindigkeit $-v_x$ bewegt.
+
+\vspace{1\baselineskip}
+
+\fat{Kräfte auf bewegte Ladungen}:
+\begin{align*}
+    F_{\parallel} = F'_{\parallel} = q E'_{\parallel} = q E_{\parallel}
+    \quad \quad \quad \quad
+    F_{\perp} = \frac{1}{\gamma} F'{\perp} = \frac{1}{\gamma} q E'_{\perp} = q E_{\perp}
+\end{align*}

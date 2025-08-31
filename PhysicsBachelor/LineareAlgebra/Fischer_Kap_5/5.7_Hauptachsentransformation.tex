@@ -1,0 +1,321 @@
+\section{Hauptachsentransformation}
+
+\vspace{1\baselineskip}
+
+\fat{Hauptachsentransformation symmetrischer Matrizen}
+
+\vspace{1\baselineskip}
+
+Sei $A \in M(n \times n \ ; \R)$ symmetrisch und $s$ die durch $A$ beschriebene Bilinearform
+auf $\R^n$. Dann gilt:
+\begin{enumerate}[{1)}]
+    \item Ist $\mathcal{B} = (w_1,\dots,w_n)$ eine Orthonormalbasis des $\R^n$ bezüglich des
+            Standardskalarpdoduktes bestehend aus Eigenvektoren des Endomorphimsus $A$, so ist
+            \begin{align*}
+                M_{\mathcal{B}} (s) = \begin{pmatrix}
+                    \lambda_1 & & 0 \\
+                    & \ddots & \\
+                    0 & & \lambda_n
+                \end{pmatrix}
+                \quad \text{, dh. } s(w_i , w_j) = \lambda_i \cdot \delta_{ij}
+            \end{align*}
+            wobei $\lambda_1,\dots,\lambda_n$ die Eigenwerte von $A$ sind.
+    \item Es gibt eine Basis $\mathcal{B}'$ des $\R^n$, so dass
+            \begin{align*}
+                M_{\mathcal{B}'} (s) = \begin{pmatrix}
+                    E_k & & 0 \\
+                    & - E_k & \\
+                    0 & & 0 
+                \end{pmatrix}
+                = D'
+            \end{align*}
+            d.h. es gibt ein $T' \in \GL (n;\R)$ mit $D' = (T')^T \cdot A \cdot T^T$
+\end{enumerate}
+
+\vspace{1\baselineskip}
+
+\fat{Vorsicht!}
+Die Eigenwerte von $A$ sind nur Invarianten des Endomorphimsus, für eine Bilinearform
+ist der Begriff Eigenwert sinnlos.
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Betrachte die quadratische Gleichung $q(x) = s(x,x) = x^T A x = 1$ mit $x \in \R^n$.
+    Die Lösungsmenge nennt man \fat{Quadrik}. Falls $A$ positiv definit ist, so ist dies ein
+    Elipsoid. Die Hauptachsen entsprechen gerade den Eigenvektoren von $A$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Eine symmetrische Matrix $A \in M(n \times n \ ; \R)$ ist genau dann positiv definit,
+    wenn ihre Eigenwerte $\lambda_1,\dots,\lambda_n$ positiv sind.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $A \in M(n \times n \ ; \R)$ eine symmetrische Matrix und
+    $P_A = (-1)^n t^n + \alpha_{n-1} t^{n-1} + \dots + a_1 t + \alpha_0$ ihr charakteristisches
+    Polynom. Dann gilt: $A$ positiv definit $\Leftrightarrow$ $(-1)^j \alpha_j > 0$ für
+    $j=0,\dots,(n-1)$.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Das reelle Polynom $f(t) = t^n + \alpha_{n-1} t^{n-1} + \dots + \alpha_1 t + \alpha_0$
+    hat reelle NST $\lambda_1 , \dots , \lambda_n$, also
+    $f(t) = (t-\lambda_1) \cdot \dots \cdot (t-\lambda_n)$, also
+    \begin{enumerate}[{a)}]
+        \item $(\lambda_i < 0 \ \forall i) \Leftrightarrow (\alpha_i > 0 \ \forall i)$
+        \item $(\lambda_i > 0 \ \forall i) \Leftrightarrow ((-1)^{n-i} \alpha_i > 0 \ \forall i)$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir definieren den \fat{Ausartungsraum} von $s$ als:
+    \begin{align*}
+        V_0 := \geschwungeneklammer{v \in V \ : \ s(v,w) = 0 \ \forall w \in V} \subset V
+    \end{align*}
+    Wir definieren den \fat{Rang} von $s$ als    
+    $\rang (s) := \dim V - \dim V_0$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $V = \R^n$ und $A = M (s)$, so ist
+    \begin{align*}
+        V_0 &= \ker A = \geschwungeneklammer{v \in V \ | \ A v = 0}
+        \\ &= \geschwungeneklammer{v \in V \ | \ w^T A v = 0 \ \forall w \in V}        
+    \end{align*}
+    und $\rang (A) = \rang (s)$. Ist für allgemeine $V$ die Matrix $A = M (s)$ bzgl irgendeiner
+    Basis, so ist $\rang (s) = \rang (A)$.
+}
+
+\vspace{1\baselineskip}
+
+\fat{Diagonalisierung einer quadratischen Form}
+
+\vspace{1\baselineskip}
+
+Sei $V$ ein $\R$-VR mit $n:= \dim V$ und $s$ eine symmetrische Bilinearform mit der zugehörigen
+quadratischen Form $q$ auf $V$. Dann gibt es eine Basis
+
+$\B = (v_1,\dots,v_k,v_{k+1},\dots,v_r,v_{r+1},\dots,v_n)$
+
+von $V$ mit folgenden Eigenschaften: Es ist $r = \rang (s)$ und für
+\begin{align*}
+    v=\sum_{i=1}^n \alpha_i v_i \in V
+    \quad \text{  gilt  } \quad
+    q(v) = \sum_{i=1}^k \alpha_i^2 - \sum_{i=k+1}^r \alpha_i^2
+\end{align*}
+Insbesondere hat man eine Zerlegung $V = V_+ \oplus V_- \oplus V_0$ mit $q(v) > 0$ für
+$0 \neq v \in V_+$, $q(v)<0$ für $0 \neq v \in V_-$ und $q(v)=0$ für $v \in V_0$.
+
+\vspace{1\baselineskip}
+
+\Satz{ (Trägheitssatz von Sylvester)
+
+    Hat man für eine quadratische Form $q$ auf einem $\R$-VR $V$ zwei Zerlegungen
+    $V = V_+ \oplus V_- \oplus V_0 = V_+' \oplus V_-' \oplus V_0'$ mit
+    $q(v)>0$ für $0 \neq v \in V_+$ und $0 \neq v \in V_+'$, sowie
+    $q(v)<0$ für $0 \neq v \in V_-$ und $0 \neq v \in V_-'$ so folgt:
+    $\dim V_+' = \dim V_+$ und $\dim V_-' = \dim V_-$.
+
+    Die Zahlen $r_+ (q) := \dim V_+$ und $r_- (q) := \dim V_-$ sind also neben dem Rang weitere
+    Invarianten der quadratischen Form. Das Paar $(r_+ (q) , r_- (q))$ wird auch
+    \fat{Signatur} von $q$ genannt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $A \in M(n \times n \ ;\R)$ symmetrisch und $S \in \GL (n:\R)$. Dann haben
+    $A$  und $S^T A S$ mit Vielfachheit gezählt die gleichen Anzahl positiver und negativer
+    Eigenwerte. Insbesondere ist $S^T S = S^T E_n S$ positiv definit.
+}
+
+\vspace{1\baselineskip}
+
+\fat{Vorsicht!}
+Beachte, dass die Eigenwerte von $S^{-1} A S$ gleich denen von $A$ sind. Die von $S^T A S$
+sind im Allgemeinen unterschiedlich, aber das Korollar sagt, dass zumindest die Vorzeichen
+erhalten bleiben.
+
+\vspace{1\baselineskip}
+
+\Satz{ \fat{(Orthogonalisierungssatz)}
+
+    Sei $V$ ein endlichdimensionaler VR über einem Körper $K$ mit char$(K) \neq 2$ und
+    $s: V \times V \rightarrow K$ eine symmetrische Bilinearform. Dann gibt es eine
+    Basis $\B = (v_1,\dots,v_n)$ von $V$ mit $s(v_i , v_j) = 0$ für $i \neq j$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $q: V \rightarrow K$ die zur Bilinearform $s: V \times V \rightarrow K$ gehörige
+    quadratische Form, und $\B = (v_1,\dots,v_n)$ wie im obigen Satz, so folgt, mit
+    $\alpha_j = q(v_j)$, dass für $v=x_1 v_1 + \dots + x_n v_n \in V$ gilt:
+    $q(v) = \alpha_1 x_1^2 + \dots + \alpha_n x_n^2$. Die $\alpha_j$ sind dabei nicht
+    eindeutig durch $s$ festgelegt. Ersetzt man zB. $v_j$ durch $\beta v_j$, so muss man
+    $\alpha_j = q(v_j)$ ersezen durch $\beta^2 \alpha_j$. Insbesondere, falls $K = \C$,
+    kann man so alle $\alpha_j$ zu $1$ oder $0$ werden lassen.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Zu einer symmetrischen Matrix $A \in M(n \times n \ ; K)$ gibt es ein $S \in \GL(n;K)$,
+    so dass
+    \begin{align*}
+        S^T A S = \begin{pmatrix}
+            \alpha_1 & & 0 \\
+            & \ddots & \\
+            0 & & \alpha_n
+        \end{pmatrix}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\large \fat{Algorithmus zur Bestimmung von $S$ und $D$ im reellen Fall} \normalsize
+
+\begin{enumerate}[{1)}]
+    \item Wir schreiben die Matrix $A$ und die Einheitsmatrix $E_n$ übereinander. Also $\frac{A}{E_n}$
+    \item Wir führen in beiden Matrizen jeweils elementare Spaltenumformung durch, und dann,
+            \underline{nur in A} noch die zugehörige Zeilentransformation. Dies ergibt mit
+            $C_1 , \dots , C_r$ die entsprechenden Elementarpatrizen.
+            $\frac{C_r^T \cdot \dots C_1^T \cdot A \cdot C_1 \cdot \dots \cdot C_r}{C_1 \cdot \dots \cdot C_r}
+            = \frac{D}{S}$
+    \item Hat man die Diagonalmatrix $D$ erzeugt, so gilt
+    
+            $S^T \cdot A \cdot S = D$
+\end{enumerate}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $A \in M(n \times n \ ; \R)$ und $S \in \GL(n;\R)$, so dass
+    \begin{align*}
+        S^T A S = \begin{pmatrix}
+            \alpha & & 0 \\
+            & \ddots & \\
+            0 & & \alpha_n
+        \end{pmatrix}
+    \end{align*}
+    so folt: $A$ positiv definit $\Leftrightarrow$ $\alpha_i >0 \ \forall i = 1,\dots,n$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $A_k$ die linke obere $k$-reihige und $k$-spaltige Teilmatrix von $A$. Ihre
+    Determinante $\det A_k$ heisst \fat{Hauptminor} von $A$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ \fat{(Hauptminoren-Kriterium für Definitheit)}
+
+    Für eine symmetrische Matrix $A \in M(n \times n \ ; \R)$ gilt:
+
+    $A$ positiv definit $\Leftrightarrow$ $\det A_k > 0$ für $k = 1,\dots,n$
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Sei $A \in M(n \times n \ ; \C)$ eine hermitische Matrix, also $A^{\dagger} =
+    \overline{(A^T)} = A$. Sei $s$ die entsprechende hermitische Sesquilinearform auf dem
+    $\C^n$, also $s(x,y) = x^T A \overline{y}$. Dann gilt:
+    \begin{enumerate}[{(1)}]
+        \item Es gibt eine Orthonormalbasis $\B$ des $\C^n$ (bzgl. des kanonischen Skalarproduktes),
+                so dass
+                \begin{align*}
+                    M_{\B} (s) = \begin{pmatrix}
+                        \lambda_1 & 0 & \dots & 0 \\
+                        0 & \lambda_2 & \ddots & \vdots \\
+                        \vdots & \ddots & \ddots & 0 \\
+                        0 & \dots & 0 & \lambda_n
+                    \end{pmatrix}
+                    =: D
+                \end{align*}
+                diagonal ist, mit $\lambda_1,\dots,\lambda_n \in \R$ den Eigenwerten von $A$.
+                Äquivalent in Matrixform: Es gibt eine unitäre Matrix $U \in U(n)$ so dass
+                $U^T A \overline{U}$.
+        \item Es gibt eine Basis $\B'$ des $\C^n$ und Zahlen $k,l$, so dass
+                    \begin{align*}
+                        M_{\B'} (s) = \begin{pmatrix}
+                            E_k & 0 & 0 \\
+                            0 & - E_l & 0 \\
+                            0 & 0 & 0
+                        \end{pmatrix}
+                    \end{align*}
+                    Äquivalent, in Matrixform: Es gibt eine invertierbare Matrix $S \in \GL(n,\C)$
+                    so dass $S^T A \overline{S} = D'$.
+        \item Die Zahlen $k,l$ aus $(2)$ sind die Anzahl der positiven bzw negativen Eigenwerte von
+                $A$, mit Vielfachheit gezählt, und unabhängig von der Wahl von $\B'$. Alternativ,
+                in Matrixform: Für jede invertierbare Matrix $S \in \GL(n,\C)$ sodass $S^T A \overline{S}$
+                die diagonal ist, befinden sich genau $k$ positive und genau $l$ negative Enträge auf der
+                Diagonalen von $S^T A \overline{S}$.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Sei $A \in M(n \times n , \C)$ eine hermitische Matrix. Dann sind äquivalent:
+    \begin{enumerate}[{(1)}]
+        \item $A$ ist positiv definit, also $x^T A \overline{x} > 0$ für alle $0 \neq x \in \C^n$
+        \item Alle Eigenwerte von $A$ sind positiv.
+        \item Es gibt eine Matrix $S \in \GL(n,\C)$, so dass $S^T A \overline{S}$ diagonal ist mit
+            positiven Diagonaleinträgen.
+        \item Es gibt eine Matrix $T \in \GL(n,\C)$ so dass $A = T^{\dagger} T$
+        \item Sei $P_A (t) = (-t)^n + \alpha_{n-1} t^{n-1} + \dots + \alpha_1 t + \alpha_0 \in \R [t]$
+            das charakteristische Polynom von $A$. Dann gilt $(-1)^j \alpha_j > 0$ für $j=0,\dots,n-1$
+        \item Sei $A_k \in M(k \times k , \C)$ die $k \times k$ Untermatrix von $A$ "oben links".
+            Dann gilt $\det A_k > 0$ für $k=1,\dots,n$
+    \end{enumerate}
+}
+
+\large \fat{Algorithmus zur Bestimmung von $S$ und $D$ im komplexen Fall} \normalsize
+
+\vspace{1\baselineskip}
+
+Analog zum reellen Fall, nur, dass man bei der Zeilentransformation von $A$ jeweils
+die Koeffizienten komplex konjugieren muss.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Man nennt eine Bilinearform bzw. Sesquilinearform $s$ auf dem $\K$-VR $V$ \fat{positiv
+    semidefinit}, falls $s(v,v) \geq 0 \ \forall v \in V$. Man nennt $s$ \fat{negativ definit},
+    falls $s(v,v) < 0 \ \forall v \neq 0 \in V$ und negativ semidefinit, falls $s(v,v) \leq 0
+    \forall v \in V$. Eine symmetrische bzw. hermitische Matrix $A$ ist positiv oder negativ
+    (semi)definit, falls entsprechendes für die zugehörige Bilinearform $s(x,y) =
+    x^T A \overline{y}$ auf $\K^n$ gilt. Es gilt:
+    \begin{enumerate}[{(1)}]
+        \item $A$ negativ definit $\Leftrightarrow$ $-A$ positiv definit
+        \item $A$ negativ semidefinit $\Leftrightarrow$ $-A$ positiv semidefinit
+    \end{enumerate}
+}

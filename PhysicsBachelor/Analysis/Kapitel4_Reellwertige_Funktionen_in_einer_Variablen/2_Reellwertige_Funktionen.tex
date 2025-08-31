@@ -1,0 +1,174 @@
+\subsection{Reellwertige Funktionen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Als \fat{reellwertige} Funktion bezeichnet man jede Funktion mit Wertebereich $\R$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Für eine beliebige, nicht-leere Menge $D$ definieren wir die Menge
+    der \fat{reellwertigen} Funktionen auf $D$ als
+    \begin{align*}
+        \mathcal{F}(D) = \R^D = \geschwungeneklammer{f \ | \ f: D \rightarrow \R}
+    \end{align*}
+    Die Menge $\mathcal{F}(D)$ bildet einen Vektorraum über $\R$, wobei Addition
+    und skalare Multiplikation durch
+    \begin{align*}
+        (f_1 + f_2)(x) = f_1(x) + f_2(x)
+        \quad \text{    und    } \quad
+        (\alpha f_1)(x) = \alpha f_1 (x)
+    \end{align*}
+    für alle $f_1 , f_2 \in \mathcal{F}(D)$ und $x \in D$. Die Menge 
+    $\mathcal{F}(D)$ bildet mit dieser Operation einen kommutativen Ring.
+
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir definieren eine Ordnungsrelation auf $\mathcal{F}(D)$ durch
+    \begin{align*}
+        f_1 \leq f_2 \Leftrightarrow \forall x \in D : f_1(x) \leq f_2 (x)
+    \end{align*}
+    für $f_1 , f_2 \in \mathcal{F}(D)$. Wir sagen, dass $f \in \mathcal{F}(D)$ 
+    \fat{nicht-negativ} ist, falls $f \geq 0$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D$ eine nicht-leere Menge und sei $f:D \rightarrow \R$ eine Funktion.
+    Wir sagen die Funktion $f$ sei \fat{von oben beschränkt}, falls die 
+    Wertemenge $f(D)$ von oben beschränkt ist, und wir sagen $f$ sei
+    \fat{von unten beschränkt}, falls die Wertemenge $f(D)$ von 
+    unten beschränkt ist. Wir sagen $f$ sei \fat{beschränkt} falls $f$ von
+    unten und von oben beschränkt ist.
+}
+
+\pagebreak
+
+\Definition{
+
+    Analog zu den reellwertigen Funktionen, können auch die \fat{komplexwertigen Funktionen}
+    definiert werden als
+    \begin{align*}
+        \mathcal{F}(D) = \geschwungeneklammer{f \ | \ f: D \rightarrow \C}
+    \end{align*}
+    Es gelten die analogen Definitionen für die Beschränktheit.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D$ eine Teilmenge von $\R$. Eine Funktion $f : D \rightarrow \R$ heisst
+
+    \vspace{1\baselineskip}
+
+    \fat{monoton wachsend}, falls
+    \begin{align*}
+        \forall x,y \in D : x \leq y \Rightarrow f(x) \leq f(y)
+    \end{align*} 
+
+    \fat{streng monoton wachsend}, falls 
+    \begin{align*}
+        \forall x,y \in D : x < y \Rightarrow f(x) < f(y)
+    \end{align*}
+
+    \fat{monoton fallend}, falls
+    \begin{align*}
+        \forall x,y \in D : x \leq y \Rightarrow f(x) \geq f(y)
+    \end{align*} 
+
+    \fat{streng monoton fallend}, falls
+    \begin{align*}
+        \forall x,y \in D : x < y \Rightarrow f(x) > f(y)
+    \end{align*} 
+
+    \vspace{1\baselineskip}
+
+    Wir nennen eine Funktion $f: D \rightarrow \R$ \fat{monoton}, falls sie 
+    monoton wachsend oder monoton fallend ist, und \fat{streng monoton},
+    falls sie streng monoton wachsend oder streng monoton fallend ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Streng monoton $\Rightarrow$ injektiv.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D \subseteq \R$ eine Teilmenge und sei $f: D \rightarrow \R$ eine 
+    Funktion. Wir sagen, dass $f$ \fat{stetig bei einem Punkt} $x_0 \in D$
+    ist, falls es für alle $\varepsilon > 0$ ein $\delta > 0$ gibt, so dass 
+    für alle $x \in D$ die Implikation
+    \begin{align*}
+        \abs{x - x_0} < \delta \Rightarrow \abs{f(x)-f(x_0)} < \varepsilon
+    \end{align*}
+    gilt. Die Funktion $f$ ist \fat{stetig auf} $D$, falls sie bei jedem Punkt
+    von $D$ stetig ist. Formal ist Stetigkeit von $f$ auf $D$ also durch
+    \begin{align*}
+        \forall x_0 \in D : \forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x \in D: \abs{x - x_0} < \delta \Rightarrow \abs{f(x)-f(x_0)} < \varepsilon
+    \end{align*}
+    definiert.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $D \subseteq \R$, und seien $f_+ , f_2 : D \rightarrow \R$, die bei
+    einem Punkt $x_0 \in D$ stetig sind. Dann sind auch die Funktionen 
+    $f_1 + f_2, f_1 \cdot f_2$ und $a f_1$ für ein $a \in \R$ stetig bie 
+    $x_0$. Insbesondere bildet die Menge der stetigen Funktionen 
+    \begin{align*}
+        \mathcal{C}(D) = \geschwungeneklammer{f \in \mathcal{F}(D) \ | \ f \text{ ist stetig}}
+    \end{align*}
+    einen Untervekorraum des Vektorraums $\mathcal{F}(D)$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Verknüpfungen stetiger Funktionen sind wierderum stetig.
+}
+
+\pagebreak
+
+\Korollar{
+
+    Polynomfunktionen sind stetig, das heisst, $\R[x] \subseteq \mathcal{C}(\R)$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (\fat{Zwischenwertsatz})
+
+    Sei $D \subseteq \R$ eine Tielmenge, $f: D \rightarrow \R$ eine stetige
+    Funktion und $[a,b]$ ein in $D$ enthaltenes Intervall. Für jede reelle Zahl $c$
+    mit $f(a) \leq c \leq f(b)$ gibt es ein $x \in [a,b]$, so dass $f(x) = c$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Umkehresatz)
+
+    Sei $I$ ein Intervall und $f: I \rightarrow \R$ eine stetige, streng monotone
+    Funktion. Dann ist $f(I) \subset \R$ ein Intervall und die Abbildung $f:I \rightarrow f(I)$
+    hat eine stetige, streng monotone inverse Abbildung $f^{-1} : f(I) \rightarrow I$. 
+}

@@ -1,0 +1,102 @@
+\section{Potenzen eines Endomorphismus}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Das Einsetzen eines Endomorphismus in Polynome ist beschrieben durch die
+    Abbildung
+    \begin{align*}
+        \Phi_F : K [t] &\rightarrow \text{End} (V) \\
+        P(t) &\mapsto P(F)
+    \end{align*}
+    Dies ist ein Homomorphismus von Ringen und auch von $K$-VR. Das Bild
+    \begin{align*}
+        K[F] = \geschwungeneklammer{P(F): P(t) \in K[t]} \subset \text{End} (V)
+    \end{align*}
+    ist ein kommutativer Unterring des (nicht kommutativen) Ringes End$(V)$, und der
+    Kern
+    \begin{align*}
+        \mathcal{I}_F := \geschwungeneklammer{P(t) \in K[t]: \ P(F) = 0} \subseteq K[t]
+    \end{align*}
+    heisst \fat{Ideal} von $F$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Satz von Cayley-Hamilton)
+
+    Sei $V$ ein endlichdimensionaler $K$ Vektorraum, $F \in \text{End} (V)$ und
+    $P_F \in K[t]$ sein charakteristisches Polynom. Dann ist
+    \begin{align*}
+        P_F (F) = 0 \in \text{End} (V)
+    \end{align*}
+    Insbesondere gilt für jede Matrix $A \in M(n \times n ; K)$
+    \begin{align*}
+        P_A (A) = 0 \in M(n \times n ; K)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Teilmenge $\mathcal{I}$ eines kommutativen Ringes $R$ heisst \fat{Ideal},
+    wenn gilt:
+    \begin{enumerate}[{\fat{I1)}}]
+        \item $P,Q \in \mathcal{I} \Rightarrow P - Q \in \mathcal{I}$
+        \item $P \in \mathcal{I}$, $Q \in R \Rightarrow Q \cdot P \in \mathcal{I}$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Zu jedem Ideal $\mathcal{I} \subseteq K[t]$ mit $\mathcal{I} \neq \geschwungeneklammer{0}$
+    gibt es ein eindeutiges Polynom $M$ mit folgenden Eigenschaften:
+    \begin{enumerate}[{1)}]
+        \item $M$ ist normiert, d.h. $M = t^d + \dots$, wobei $d = \deg M$.
+        \item Für jedes $P \in \mathcal{I}$ gibt es ein $Q \in K[t]$ mit $P = Q \cdot M$.
+    \end{enumerate}
+    $M$ heisst \fat{Minimalpolynom} von $\mathcal{I}$, im Fall $\mathcal{I} = \mathcal{I}_F$
+    Minimalpolynom von $F$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $V$ ein $n$-dimensionaler $K$-Vektorraum, $F \in$ End$(V)$. Dann gilt:
+    \begin{enumerate}[{1)}]
+        \item $M_F$ teilt $P_F$
+        \item $P_F$ teilt $M_F^n$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Man nennt $F \in$ End$_K (V)$ \fat{nilpotent}, wenn $F^k = 0$ für ein $k \geq 1$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Ist $F \in$ End$_K (V)$ und $n = \dim V$, so sind folgende Aussagen äquivalent:
+    \begin{enumerate}[i)]
+        \item $F$ ist nilpotent
+        \item $F^d = 0$ für ein $d$ mit $1 \leq d \leq n$
+        \item $P_F = \pm t^n$
+        \item Es gibt eine Basis $\mathcal{B}$ von $V$, so dass
+            \begin{align*}
+                M_{\mathcal{B}} (F) = \begin{pmatrix}
+                    0 & & * \\
+                    & \ddots & \\
+                    0 & & 0
+                \end{pmatrix}
+            \end{align*}
+    \end{enumerate}
+}

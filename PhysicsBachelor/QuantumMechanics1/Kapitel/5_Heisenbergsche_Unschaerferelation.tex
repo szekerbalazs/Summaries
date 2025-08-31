@@ -1,0 +1,112 @@
+\section{Heisenberg'sche Unschärferelation}
+
+Die heisenberg'sche Unschärferelation tritt dann auf, wenn zwei selbtst-adjungierte
+Observabelen $A$ und $B$ nicht vertauschen, also $\eckigeklammer{A,B} \neq 0$.
+
+\subsection{Nicht-vertauschende Observablen}
+
+Wir betrachten ein 'toy model' in $2$D. Seien $\chi_1$ und $\chi_2$ zwei
+orthogonale Eigenvektoren des Hamilton operators s.d. $H \chi_1 = E_1 \chi_1$,
+$H \chi_2 = E_2 \chi_2$, $S \chi_1 = \chi_2$ und $S \chi_2 = \chi_1$ für eine
+observable $S$. In Matrixschreibweise:
+\begin{align*}
+    H = \begin{pmatrix}
+        E_1 & 0 \\ 0 & E_2
+    \end{pmatrix}
+    \hspace{9pt} , \hspace{9pt}
+    S = \begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \eckigeklammer{H,S} = (E_1 - E_2) \begin{pmatrix}
+        0 & 1 \\ -1 & 0
+    \end{pmatrix}
+\end{align*}
+Wie nehmen an, dass der Kommutator nicht verschwindet, d.h. $E_1 - E_2 \neq 0$.
+Wir wollen die Wsk. einer $S$-Messung ausrechnen. Dazu bestimmen wir die EW und EV
+von $S$. Es ist leicht zu sehen, dass $\lambda = \pm 1$ die EW von $S$ sind. Man
+findet somit die folgenden EV:
+\begin{align*}
+    \psi_1 = \frac{1}{\sqrt{2}} \klammer{\chi_1 + \chi_2}
+    \hspace{15pt} , \hspace{15pt}
+    \psi_2 = \frac{1}{\sqrt{2}} \klammer{\chi_1 - \chi_2}
+\end{align*}
+Wir betrachten nun das folgende Problem: Bei $t=0$ wird $S$ gemessen und der
+Wert $s=1$ wird gefunden. Was ist die Wsk $s=1$ zu messen zu einem späteren Zeitpunkt
+$t$?
+
+Die Lösunge ist: Das System wird zur Zeit $t=0$ beschrieben durch
+\begin{align*}
+    \Psi(t=0) = \psi_1 = \frac{1}{\sqrt{2}} \klammer{\chi_1 + \chi_2}
+\end{align*}
+Lösen der zeit-abhängigen SG führt für $t>0$ auf:
+\begin{align*}
+    \Psi(t) = \frac{1}{\sqrt{2}} \klammer{\chi_1 e^{-i \frac{E_1}{\hbar} t} + \chi_2 e^{-i \frac{E_2}{\hbar} t}}
+\end{align*}
+Wir wollen nun zur Zeit $t$ wiederum $S$ bestimmen. Wir nehmen den Ansatz
+\begin{align*}
+    \Psi(t) = a_1 (t) \psi_1 + a_2 (t) \psi_2
+    \hspace{20pt} \text{wobei} \hspace{10pt}
+    a_i (t) = \langle \psi_i | \Psi(t) \rangle
+\end{align*}
+Es ergibt sich:
+\begin{align*}
+    a_1 (t) &= e^{-i \frac{\klammer{E_1 + E_2} t}{2 \hbar}} \cos \klammer{\frac{\klammer{E_1 - E_2} t}{2 \hbar}}
+    \\
+    a_2 (t) &= -i e^{-i \frac{\klammer{E_1 + E_2} t}{2 \hbar}} \sin \klammer{\frac{\klammer{E_1 - E_2} t}{2 \hbar}}
+\end{align*}
+Die Wsk. $S=\pm 1$ zu messen bei $t>0$ ist dann gegeben durch
+\begin{align*}
+    P(S=1,t) &= \abs{a_1 (t)}^2 = \cos^2 \klammer{\frac{\klammer{E_1 - E_2} t}{2 \hbar}}
+    \\
+    P(S=-1,t) &= \abs{a_2 (t)}^2 = \sin^2 \klammer{\frac{\klammer{E_1 - E_2} t}{2 \hbar}}
+\end{align*}
+
+\subsection{Die Unschärfe einer Observablen}
+
+Der Erwartungswert einer Observablen $A$ im Zustand $\psi$ ist
+$\langle A \rangle = \langle \psi | A \psi \rangle$. Die Unschärfe der Observablen
+$A$ ist definiert als:
+\begin{align*}
+    \Delta A = \sqrt{\left\langle \klammer{A - \langle A \rangle}^2 \right\rangle}
+    = \sqrt{\left\langle A^2 \right\rangle - \langle A \rangle^2}
+\end{align*}
+
+Betrachte das Beispiel der eindimensionalen Box. Die Eigenfunktionen des Hamiltonoperators
+sind gegeben durch
+\begin{align*}
+    \psi_n (x) = \sqrt{\frac{2}{a}} \sin \klammer{\frac{n \pi x}{a}}
+    \hspace{20pt} \text{mit} \hspace{10pt}
+    E_n = \frac{n^2 \pi^2 \hbar^2}{2 m a^2}
+\end{align*}
+Für dieses System ergibt sich:
+\begin{align*}
+    \langle x \rangle = \frac{a}{2}
+    \hspace{5pt} , \hspace{5pt}
+    (\Delta x)^2 = \frac{a^2}{12} \klammer{1 - \frac{6}{n^2 \pi^2}}
+    \hspace{5pt} , \hspace{5pt}
+    \langle p \rangle = 0
+    \hspace{5pt} , \hspace{5pt}
+    (\Delta p)^2 = \frac{n^2 \pi^2 \hbar^2}{a^2}
+\end{align*}
+\begin{align*}
+    \Rightarrow \ \ (\Delta p)^2 (\Delta x)^2 = \frac{n^2 \pi^2 \hbar^2}{12} - \frac{\hbar^2}{2}
+    \geq \hbar^2 \frac{\pi^2 - 6}{12} = 0.32 \hbar^2
+\end{align*}
+Ganz allgemein gilt $(\Delta p)^2 (\Delta x)^2 \geq \frac{\hbar^2}{4}$.
+
+\subsection{Die Heisenberg'sche Unschärferelation}
+
+\begin{theorem}
+    Seien $A$ und $B$ zwei Observable eines physikalischen Systems. Dann erfüllen
+    die Unschärfen $\Delta A$ und $\Delta B$ in jedem Zustand die Ungleichung
+    \begin{align*}
+        \Delta A \Delta B \geq \frac{1}{2} \abs{\langle i \eckigeklammer{A,B} \rangle}
+    \end{align*}
+\end{theorem}
+
+Für $A = x$ und $B = p$ ergibt sich gerade $\Delta x \Delta p \geq \frac{\hbar}{2}$.
+Diese untere Schranke wird für das Gauss'sche Wellenpaket angenommen.
+\begin{align*}
+    \psi(x) = \frac{\sqrt{a}}{\pi^{1/4}} e^{- \frac{a^2 (x - x_0)^2}{2}}
+\end{align*}

@@ -1,0 +1,194 @@
+\subsection{Konvergenz von Folgen in einem metrischen Raum}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ eine Menge. Eine \fat{Folge} in $X$ ist eine Abbildung $a: \N \rightarrow X$.
+    Das Bild $a(n)$ von \ninN schreibt man auch als $a_n$ und bezeichnet es als
+    das $n$-te \fat{Folgenglied} von $a$. Anstatt $a:N \rightarrow X$ schreibt
+    man oft $(a_n)_{n \in \N}$ oder auch $(a_n)_{n=0}^{\infty}$. Eine Folge
+    $(a_n)_{n=0}^{\infty}$ heisst \fat{konstant}, falls $a_n = a_m$ für alle
+    $m , n \in \N$, und \fat{schliesslich konstant}, falls ein $N \in \N$
+    existiert mit $a_n = a_m$ für alle $m,n \in \N$ mit $m,n \geq N$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum, und sei $(x_n)_{n=0}^{\infty}$ eine Folge in $X$.
+    Ein Element $a \in X$ heisst \fat{Grenzwert} oder \fat{Limes} falls
+    \begin{align*}
+        \forall \varepsilon > 0 \ \exists N \in \N  \text{ mit }
+        n \geq N \Rightarrow d(x_n , a) < \varepsilon
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $(X,d)$ ein metrischer Raum, $(x_n)_{n=0}^{\infty}$ eine Folge in $X$.
+    Sind $a,b \in X$ Grenzwerte dieser Folge, so gilt $a = b$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Folge $(x_n)_{n=0}^{\infty}$ heisst \fat{konvergent}, falls ein
+    Grenzwert $a \in X$ für diese Folge existiert. Wir schreiben
+    $a = \limes{n \rightarrow \infty} x_n$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Folgen, die nicht konvergieren, nennt man \fat{divergent}.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Folge $(x_n)_{n=0}^{\infty}$ in einem metrischen Raum $(X,d)$ heisst
+    \fat{beschränkt}, falls eine reelle Zahl $R > 0$ gibt, so dass $d(x_n,x_m) \leq R$
+    für alle $n,m \in \N$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Jede konvergente Folge ist beschränkt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum und $(x_n)_{n=0}^{\infty}$ eine Folge
+    in $X$. Ein Element $a \in X$ heisst \fat{Häufungspunkt} der Folge,
+    falls
+    \begin{align*}
+        \forall \varepsilon > 0 \ \forall N \in \N \exists n \geq N \text{ mit } d(x_n, a) < \varepsilon
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Häufungspunkte einer Folge sind im Allgemeinen nicht das selbe wie
+    Häufungspunkte des Bildes $\geschwungeneklammer{x_n \ | \ n \in \N}$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Eine Folge kann mehrere Häufungspunkte haben, aber nur einen Grenzwert.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $(x_n)_{n=0}^{\infty}$ eine konvergierende Folge in $(X,d)$ mit
+    Grenzwert $a \in X$. Dann ist $a$ der einzige Häufungspunkt dieser Folge.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(x_n)_{n=0}^{\infty}$ eine Folge in einer Menge $X$. Eine \fat{Teilfolge}
+    von $(x_n)_{n=0}^{\infty}$ ist eine Folge der Form $(x_{f(n)})_{n=0}^{\infty}$,
+    wobei $f: \N \rightarrow \N$ eine strend monoton steigende Funktion ist.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $(x_n)_{n=0}^{\infty}$ eine konvergente Folge in einem metrischen Raum.
+    Jede Teilfolge von $(x_n)_{n=0}^{\infty}$ konvergiert, und hat den selben
+    Grenzwert wie $(x_n)_{n=0}^{\infty}$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $(x_n)_{n=0}^{\infty}$ eine Folge in einem metrischen Raum $(X,d)$.
+    Ein Element $a \in X$ ist genau dann ein Häufungspunkt von $(x_n)_{n=0}^{\infty}$,
+    wenn es eine konvergente Teilfolge von $(x_n)_{n=0}^{\infty}$ mit
+    Grenzwert $a$ gibt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Eine konvergierende Folge hat genau einen Häufungspunkt, und zwar ihren
+    Grenzwert.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Folge $(x_n)_{n=0}^{\infty}$ in einem metrischen Raum ist eine
+    \fat{Cauchy-Folge}, falls
+    \begin{align*}
+        \forall \varepsilon > 0 \ \exists N \in \N \text{ mit } d(x_n,x_m) < \varepsilon \ \forall m,n \geq N
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Jede konvergente Folge ist eine Cauchy-Folge.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein metrischer Raum $(X,d)$ heisst \fat{vollständig}, falls jede
+    Cauchy-Folge in $(X,d)$ konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Die Räume $\R$ und $\C$ sind vollständig. $\Q$ jedoch nicht.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Als \fat{kanonische Einbettung} $\iota : \Q \rightarrow \R$ bezeichnen
+    wir die injektive, lineare Abbildung die $q \in \Q$ die Klasse der
+    konstanten Folgen mit Wert $q$ zuordnet.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Banach'scher Fixpunktsatz)
+
+    Sei $(X,d)$ ein nicht leerer, vollständiger metrischer Raum,
+    seien $x,y \in X$ und sei
+    $T : X \rightarrow X$ eine Abbildung mit der Eigenschaft: Für eine reelle
+    Zahl $0 \leq \lambda < 1$ gilt
+    \begin{align*}
+        d(T(x),T(y)) \leq \lambda \cdot d(x,y)
+    \end{align*}
+    Dann existiert ein eindeutiges Element $a \in X$ mit $T(a) = a$.
+}

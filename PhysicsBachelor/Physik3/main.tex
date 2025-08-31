@@ -1,0 +1,33 @@
+\documentclass[a4paper,leqno,twocolumn]{article}
+\input{header}
+\input{macros.tex}
+
+\renewcommand{\epsilon}{\varepsilon}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\usepackage[skins,theorems]{tcolorbox}
+
+\begin{document}
+
+\tcbset{highlight math style={enhanced, sharp corners=uphill,
+  colframe=red!75!black,colback=red!5!white,arc=0pt,boxrule=1pt}}
+
+\input{Kapitel/1_Optics.tex}
+
+\input{Kapitel/2_Statistical_Physics.tex}
+
+\input{Kapitel/3_Atoms.tex}
+
+\input{Kapitel/4_Photons_and_Particle_Wave_Duality.tex}
+
+\input{Kapitel/5_Quantum_Mechanics.tex}
+
+\input{Kapitel/6_Hydrogen.tex}
+
+\input{Kapitel/7_Spin.tex}
+
+\input{Kapitel/8_Multiple_electron_atoms.tex}
+
+\input{Kapitel/X_Useful_Maths.tex}
+
+\end{document}

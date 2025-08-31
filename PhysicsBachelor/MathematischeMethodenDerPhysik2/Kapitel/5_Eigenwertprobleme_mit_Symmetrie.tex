@@ -1,0 +1,270 @@
+\section{Eigenwertprobleme mit Symmetrie}
+
+\subsection{Eigenwerte und Eigenvektoren}
+
+\begin{satz}
+    Sei $\rho: G \rightarrow \GL(V)$ eine endlichdimensionale komplexe
+    Darstellung einer komplexen endlichen Gruppe $G$, und $A: V \rightarrow V$
+    eine diagonalisierbare lineare Selbstabbildung, so dass $\rho(g) A =
+    A \rho(g) \ \forall g \in G$. Sei $V = V_1 \oplus \dotsb \oplus V_n$
+    eine Zerlegung von $V$ in irreduzible Darstellungen. Dann hat $A$
+    höchstens $n$ verschiedene Eigenwerte. Bezeichnet $d_i$ die
+    Dimension von $V_i$, so hat $A$ bezüglich einer passenden Basis die
+    Diagonalform
+    \begin{align*}
+        \text{diag} (\underbrace{\lambda_1,\dots,\lambda_1}_{d_1 \text{ mal}}
+            ,\dots,\underbrace{\lambda_n,\dots,\lambda_n}_{d_n \text{ mal}})
+    \end{align*}
+    für gewisse (nicht notwendigerweise verschiedene) komplexe Zahlen
+    $\lambda_1,\dots,\lambda_n$.
+\end{satz}
+
+\begin{satz}
+    Seien $G,V,A$ wie im vorherigen Satz. Seien $\forall \ i \neq j$ die
+    Darstellungen $V_i, V_j$ nicht äquivalent. Dann ist, $\forall \ i$,
+    $A V_i \subset V_i$ und die Einschränkung von $A$ auf $V_i$ ist
+    $A_{| V_i} = \lambda_i 1_{V_i}$ für ein $\lambda_i \in \C$.
+    Also ist $A$ bezüglich einer Basis $V$ mti Basisvektoren in $\bigcup_i V_i$
+bereits diagonal.
+\end{satz}
+
+\begin{bemerkung}
+    Im allgemeinen Fall können die Eigenvektoren wie folgt
+    bestimmt werden. Sei $V = W_1 \oplus \dotsb \oplus W_k$ die kanonische
+    Zerlegung der Darstellung $\rho$. Nach dem Lemma von Schur ist $A W_i
+    \subset W_i$. Also können wir $A$ separat in jedem $W_i$ diagonalisieren,
+    und wir haben das Problem auf den Fall reduziert, wo $V$ eine direkte
+    Summe von zueinander äquivalenten irreduziblen Darstellungen ist.
+    Der allgemeine Fall, wo $V$ eine direkte Summe von $n$ zueinander
+    äquivalenten Derstellungen $V_\alpha$ wird wie folgt behandelt.
+    Die Isomorphismen zwischen den Darstellungen erlauben und für jedes
+    $\alpha = 1,\dots,n$ eine Basis $(e_i^\alpha)_{i=1,\dots,d}$ von $V_\alpha$
+    zu wählen, so dass die Matrix von $\rho(g)$ bezüglich der Basis
+    $e_1^1,\dots,e_d^1,\dots,e_1^n,\dots,e_d^n$ kästchendiagonalform mit
+    gleichen diagonalen $d \times d$ Kästchen hat. Nach Schur hat dann die
+    Matrix von $A$ bezüglich der umnummerierten Basis $e_1^1,\dots,e_1^n,\dots,
+    e_d^1,\dots,e_d^n$ die folgende Form
+    \begin{align*}
+        \begin{pmatrix}
+            a & & \\
+            & \ddots & \\
+            & & a
+        \end{pmatrix}
+        \hspace{20pt} , \text{ mit } a = (a_{ij})_{\stackrel{i=1,\dots,n}{j=1,\dots,n}}
+        \in \Mat(n \times n)
+    \end{align*}
+    mit $n \times n$ Kästchen $a=(a_{\alpha \beta})$ gegeben durch
+    \begin{align*}
+        A e_i^\alpha = \sum_{\beta} a_{\beta \alpha} e_i^\beta
+    \end{align*}
+\end{bemerkung}
+
+
+\subsection{Kleine Schwingungen von Molekülen}
+
+Wir betrachten kleine Schwingungen eines Moleküls (bzw eines Systems
+von $N$ Teilchen) aus einer Ruhelage. Die $N$ Teilchen haben Massen
+$m_i \ (i=1,\dots,N)$ und Koordinaten $y = (\vec{y}_1,\dots,\vec{y}_N) \in
+\R^{3 N}$, mit $\vec{y}_i \in \R^3$ der Position der $i$-ten Teilchens.
+Die potentielle Energie sei $V(y) = (\vec{y}_1,\dots,\vec{y}_N)$. Die
+Bewegungsgleichung ist
+\begin{align*}
+    m_i \ddot{\vec{y}}_i \stackrel{(\ast)}{=} - \frac{\partial V}{\partial \vec{y}_i} (y(t))
+     \ \forall i = 1,\dots,N
+\end{align*}
+Sei $y^\ast \in \R^{3 N}$, $y^\ast = (\vec{y}_1^\ast,\dots,\vec{y}_N^\ast)$
+ein Gleichgewichtspunkt, d.h. $\vec{\nabla} V(y^\ast) = 0$ und betrachte
+kleine Auslenkungen $y(t) = y^\ast + x(t)$. Entwickeln in eine Taylorreihe
+um $y^\ast$ ergibt aus $(\ast)$:
+\begin{align*}
+    m_i \ddot{\vec{x}}_i^\alpha &=
+    \sum_{j,\beta} \frac{\partial^2 V}{\partial y_i^\alpha \partial y_j^\beta} (y^\ast) x_j^\beta
+    + \underbrace{\mathcal{O}(\abs{x}^2)}_{\text{Vernachlässigen für kleine $x$}}
+    \\
+    \Leftrightarrow \ddot{\vec{x}}(t) &= - A x(t)
+\end{align*}
+mit $A$ der Matrix mit Matrixelementen
+\begin{align*}
+    \frac{1}{m_i} \frac{\partial^2 V}{\partial y_i^\alpha \partial y_j^\beta} (y^\ast)
+\end{align*}
+$A$ ist diagonalisierbar. Zur Lösung der DGL verwenden wir den Ansatz
+$x(t) = e^{i \omega t} x_0$ mit $x_0 \in \R^{3 N}$. Dann folgt:
+$\omega^2 x_0 = A x_0$. Die positiven Wurzeln der Eigenwerte von $A$
+heissen Eigenfrequenzen des Systems. Nun zu den Symmetrien:
+
+\begin{itemize}
+    \item Zunächst soll $V$ invariant sein unter orthogonaler Transformaion,
+        d.h. $\forall \ R \in O(3): \ V(R \vec{y}_1 , \dots , R \vec{y}_N)
+        = V(\vec{y}_1 ,\dots,\vec{y}_N)$ (und Invarianz unter Translation).
+    \item Ausserdem soll $V$ invariant sein unter Vertauschung gleichartiger
+        Teilchen, d.h. $V(\vec{y}_{\sigma(1)},\dots,\vec{y}_{\sigma(N)}) =
+        V(\vec{y}_1,\dots,\vec{y}_N) \ \forall \sigma \in S \subset S_N$ mit
+        $S$ einer geeigneten Untergruppe von $S_N$. Ausserdem $m_{\sigma(i)}
+        = m_i \ \forall \sigma \in S$.
+    \item Vor der Wahl von $y^\ast$ ist die Symmetriegruppe des Systems
+        $O(3) \times S$ mit der Darstellung $\rho: O(3) \times S \rightarrow
+        \GL(\R^{3N})$ gegeben durch $\rho(R,\sigma)(\vec{y}_1,\dots,\vec{y}_N)
+        = \klammer{R y_{\sigma^{-1}(1)},\dots,R \vec{y}_{\sigma^{-1}(N)}}$
+    \item Wir betrachten den Unterraum $G = \geschwungeneklammer{g \in 
+        O(3) \times S \ | \ \rho(g)(y^\ast) = y^\ast} \subset O(3) \times S$,
+        die wieder durch Einschränkung von $\rho$ auf $\R^{3 N}$ wirkt. Es
+        folgt, dass $\forall g \in G: \ \rho(g) A = A \rho(g)$, also
+        $A \in \Hom_{G} (\R^{3 N},\R^{3 N})$.
+\end{itemize}
+
+\subsection{Beispiel: Eigenfrequenzen von $CH_4$}
+
+Seien $\vec{y}_1,\dots,\vec{y}_4$ die Koordinaten der $H$-Atome und
+$\vec{y}_C$ die des $C$-Atoms. Sei die Gleichgewichtlage
+$\vec{y}^\ast = (\vec{y}_1^\ast , \dots,\vec{y}_4^\ast , \vec{y}_C^\ast)$
+so, dass $\vec{y}_C^\ast = 0$ und die $\vec{y}_j^\ast$ die Eckpunkte eines
+regulären Tetraeders bilden mit Zentrum $\vec{y}_C^\ast$. In diesem Fall ist
+$G \cong T \cong S_4$ die Tetraedergruppe. Wir betrachten die Charaktertafel
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c c c c c}
+        $24 T$ & $[1]$ & $8 [r_3]$ & $3 [r_2]$ & $6 [s_4]$ & $6 [\tau]$ \\ \hline
+        $\chi_1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\
+        $\chi_2$ & $2$ & $-1$ & $2$ & $0$ & $0$ \\
+        $\chi_3$ & $1$ & $1$ & $1$ & $-1$ & $-1$ \\
+        $\chi_4$ & $3$ & $0$ & $-1$ & $1$ & $-1$ \\
+        $\chi_5$ & $3$ & $0$ & $-1$ & $-1$ & $1$    
+    \end{tabular}
+\end{table}
+
+$1$ ist die Identität; $r_3$ ist die Drehung um eine Achse durch eine Ecke
+mit Winkel $2 \pi / 3 = 120^\circ$; $r_2$ ist eine Drehung um eine Achse, die
+senkrecht durch eine Kante geht, mit winkel $2 \pi / 2 = \pi = 180^\circ$;
+$s_4$ ist die Zusammensetzung einer $120^\circ$ Drehung $r_3$ um eine Achse
+durch eine Ecke, sagen wir $\vec{v}_4$, und den Mittelpunkt mit einer Spiegelung
+um eine Ebene die durch zwei andere Ecken $\vec{v}_1,\vec{v}_2$ und den
+Mittelpunkt geht; schliesslich ist $\tau$ die Spiegelung bezüglich einer
+durch eine Kante und den Mittelpunkt gehenden Ebene. Die entsprechende
+Permutation der Ecken $1,2,3,4$ und des Mittelpunktes $C$ sind
+\begin{align*}
+    r_3 : \begin{pmatrix}
+        1 & 2 & 3 & 4 & C \\ 1 & 3 & 4 & 2 & C
+    \end{pmatrix}
+    \hspace{10pt} &, \hspace{10pt}
+    r_2 : \begin{pmatrix}
+        1 & 2 & 3 & 4 & C \\ 2 & 1 & 4 & 3 & C
+    \end{pmatrix}
+    \\
+    s_4 : \begin{pmatrix}
+        1 & 2 & 3 & 4 & C \\ 4 & 1 & 2 & 3 & C
+    \end{pmatrix}
+    \hspace{10pt} &, \hspace{10pt}
+    \tau : \begin{pmatrix}
+        1 & 2 & 3 & 4 & C \\ 1 & 2 & 4 & 3 & C
+    \end{pmatrix}
+\end{align*}
+Weiter gilt:
+\begin{align*}
+    \chi_1: \
+    \begin{ytableau}
+        \ & \ & \ & \
+    \end{ytableau}
+    \hspace{10pt} &, \hspace{10pt}
+    \chi_2: \
+    \begin{ytableau}
+        \ & \ \\ \ & \
+    \end{ytableau}
+    \hspace{10pt} , \hspace{10pt}
+    \chi_3 : \
+    \begin{ytableau}
+        \ \\ \ \\ \ \\ \
+    \end{ytableau}
+    \\
+    \chi_4 : \
+    \begin{ytableau}
+        \ & \ \\ \ \\ \
+    \end{ytableau}
+    \hspace{10pt} &, \hspace{10pt}
+    \chi_5 : \
+    \begin{ytableau}
+        \ & \ & \ \\ \
+    \end{ytableau}
+\end{align*}
+
+Für $\rho(\tau)$ gilt:
+\begin{align*}
+    \rho(\tau) = \begin{pmatrix}
+        \tau & 0 & 0 & 0 & 0 \\
+        0 & \tau & 0 & 0 & 0 \\
+        0 & 0 & 0 & \tau & 0 \\
+        0 & 0 & \tau & 0 & 0 \\
+        0 & 0 & 0 & 0 & \tau
+    \end{pmatrix}
+    \ \in \Mat(15 \times 15)
+    \hspace{10pt} \text{ mit } \tau \in \Mat(3 \times 3)
+\end{align*}
+Es gilt $\tr(\rho(g)) = \tr(R) \cdot N_R$ mit $g = (R,\sigma_R) \in G$
+und $N_R$ der Anzahl Diagonalblöcke $\neq 0$, d.h. $\geschwungeneklammer{
+i \ | \ \sigma_R (i) = i}$. Für $\tau$: $\tr(\rho(\tau,\sigma_\tau)) = 3 \cdot
+\tr(\tau)$. Rechnungen:
+\begin{enumerate}[]
+    \item Eine Drehung $R$ um $\theta$ hat bzgl einer Basis die Form
+        \begin{align*}
+            R(\theta) =
+            \begin{pmatrix}
+                \cos(\theta) & - \sin(\theta) & 0 \\
+                \sin(\theta) & \cos(\theta) & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}
+            \ \rightarrow \ \tr(R) = 2 \cos(\theta) + 1
+        \end{align*}
+        \begin{align*}
+            \Rightarrow
+            \tr(r_3) = 2 \cos \klammer{\frac{2 \pi}{3}} + 1 = 0
+            \hspace{10pt} , \hspace{10pt}
+            \tr(r_2) = 2 \cos(\pi) + 1 = -1
+        \end{align*}
+    \item Eine Drehspiegelung um $\theta$:
+        \begin{align*}
+            \begin{pmatrix}
+                \cos(\theta) & - \sin(\theta) & 0 \\
+                \sin(\theta) & \cos(\theta) & 0 \\
+                0 & 0 & -1
+            \end{pmatrix}
+            \ \rightarrow \ \tr(R) = 2 \cos(\theta) - 1
+        \end{align*}
+        \begin{align*}
+            \tr(s_4) = 2 \cos \klammer{\frac{\pi}{2}} - 1 = -1
+            \hspace{10pt} , \hspace{10pt}
+            \tr(\tau) = 2 \cdot 1 - 1 = 1
+        \end{align*}
+    \item $N_1 = 5$ , $N_{r_3} = 2$ , $N_{r_2} = 1$ , $N_{s_4} = 1$ , $N_\tau = 3$
+    \item Es folgt:
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{c|ccccc}
+                 & $[1]$ & $[r_3]$ & $[r_2]$ & $[s_4]$ & $[\tau]$ \\ \hline
+                $\chi_\rho$ & $15$ & $0$ & $-1$ & $-1$ & $3$ 
+            \end{tabular}
+        \end{table}
+    \item Berechne Vielfachheiten:
+        $n_j = \scalprod{\chi_\rho}{\chi_j} \ \Rightarrow \ $
+        $n_1 = 1$ , $n_2 = 1$ , $n_3 = 0$ , $n_4 = 1$ , $n_5 = 3$
+    \item Somit: $\rho \cong \rho_1 \oplus \rho_2 \oplus \rho_4 \oplus \rho_5 \oplus \rho_5 \oplus \rho_5$.
+        D.h. es gibt höchstens $6$ Eigenfrequenzen (d.h. EW von $A$).
+\end{enumerate}
+Nicht alle EW von $A$ entsprechen Schwingungen. Manche sind $=0$ wegen der
+Translationsinvarianz (T) und Drehinvarianz (D).
+\begin{enumerate}[]
+    \item \underline{(T)}: Entspricht $x = (\vec{a},\dots,\vec{a})$. Dies
+        wird durch $\rho(R)$ abgebildet auf $(R\vec{a},\dots,R\vec{a})$.
+        Entspricht Darstellung $R \mapsto R$ von (T) mit Charakter $\chi_5$.
+    \item \underline{(D)}: Entspricht $x = (\vec{b} \wedge \vec{y}_1^\ast,\dots,
+        \vec{b} \wedge \vec{y}_c^\ast)$ mit $b \in \R^3$. Es gilt:
+        $\rho(R) x = \klammer{R(\vec{b} \wedge y_{\sigma_R^{-1} (1)}),\dots,
+        R (\vec{b} \wedge y_{\sigma_R^{-1} (c)})}$ mit $\wedge$ dem Kreuzprodukt.
+        $R(x \wedge y) = \det(R) (R x \wedge R y) \ \forall R \in O(3)$. Somit:
+        $\rho(R) x = \det(R) \klammer{R b \wedge \vec{y}_1^\ast ,\dots, R b \wedge
+        \vec{y}_c^\ast}$ entspricht der Darstellung $R \mapsto \det(R) \cdot R$
+        auf $\R^3$ entspricht $\chi_4$.
+\end{enumerate}
+Auf dem orthogonalen Komplement von $\rho_4$ und $\rho_5$ zerlegt sich unsere
+Darstellung als $\rho \cong \rho_1 \oplus \rho_2 \oplus \rho_5 \oplus \rho_5$.
+Somit erhält man höchstens $4$ verschiedene Eigenfrequenzen.
+

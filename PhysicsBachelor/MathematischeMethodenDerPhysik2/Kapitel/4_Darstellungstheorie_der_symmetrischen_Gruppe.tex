@@ -1,0 +1,302 @@
+\section{Darstellungstheorie der symmetrischen Gruppe}
+
+\subsection{Partitionen}
+
+\begin{definition}[Partition]
+    Sei $n \geq 1$ eine natürliche Zahl. Eine Partition von $n$ ist eine
+    Zerlegung von $n$ in eine Summe positiver ganzer Zahlen
+    $n = \lambda_1 + \lambda_2 + \dots + \lambda_k$. Reihenfolge der Summanden
+    ist nicht wichtig. Jede Partition ist eindeutig bestimmt durch die Anzahlen
+    $i_1,i_2,\dots$ der Zahlen $1,2,\dots$ in der Zerlegung, wobei
+    \begin{align*}
+        n = \sum_{j \geq 1} j i_j
+    \end{align*}
+    Wir schreiben $\underline{i}$ für $(i_1,i_2,\dots)$
+\end{definition}
+
+\begin{definition}[Young-Diagramm]
+    Ein graphischer Weg eine Partition $n = \lambda_1 + \dots + \lambda_k$
+    darzustellen ist durch ein Young-Diagramm. Zuerst muss man die $\lambda_j$
+    so sortieren, dass $\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_k$.
+    Dann ist das zugehörige Young-Diagramm eine Anordnung von $n$ Kästli,
+    mit $\lambda_i$ Kästli in der $i$-ten Zeile.
+\end{definition}
+
+\begin{definition}
+    Seien $\lambda,\lambda'$ Young-Diagramme mit jeweils $n$ Kästli, dann
+    sagen wir $\lambda \geq \lambda'$ genau dann wenn $\lambda = \lambda'$,
+    oder falls die erste nicht verschwindende Zahl $\lambda_i - \lambda_i'$
+    positiv ist. Entsprechend sagen wir $\lambda > \lambda'$, falls
+    $\lambda \geq \lambda'$ und $\lambda \neq \lambda'$. Hierbei ist $\lambda_i$
+    die Anzahl der Kästli in der $i$-ten Zeile.
+\end{definition}
+
+\subsection{Permutationen der Konjugationsklassen}
+
+Wir können ein Element $\sigma \in S_n = \text{Bij}\klammer{\geschwungeneklammer{1,\dots,n}}$
+auf verschiedene Arten aufschreiben. Als Wertetabelle oder Zyklenschreibweise:
+\begin{align*}
+    \sigma = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 \\ 4 & 1 & 5 & 2 & 3
+    \end{pmatrix}
+    = (142)(35)
+    = (53)(421)
+\end{align*}
+Die Längen der Zyklen bestimmen eine Partition von $n$. Die einzelnen Zyklen
+kann man auch verstehen als die Bahn in $\geschwungeneklammer{1,\dots,n}$
+unter der Wirkung der von $\sigma$ erzeugten Untergruppe von $S_n$, wobei
+die zyklische Ordnung auf den Zyklen unberücksichtigt bleibt. Wir schreiben
+$i_k (\sigma)$ für die Anzahl der Zyklen der Länge $k$ in der Zyklenschreibweise
+von $\sigma$, und $\underline{i}(\sigma) = \klammer{i_1 (\sigma),i_2(\sigma),\dots}$.
+Offensichtlich gilt $\sum_{k \geq 1} k i_k (\sigma) = n$ und damit bestimmt
+$\underline{i}(\sigma)$ eine Partition von $n$.
+
+\begin{lemma}
+    Sei $\tau \in S_n$ eine Permutation. In Zyklenschreibweise:
+    $\tau = (i_{1,1} \dotsb i_{1,\lambda_1}) (i_{2,1} \dotsb i_{2,\lambda_2}) \dotsb (i_{k,1} \dots i_{k,\lambda_k})$.
+    Sei $\sigma \in S_n$ beliebig. Dann gilt in Zyklenschreibweise:
+    $\sigma \tau \sigma^{-1} = \klammer{\sigma(i_{1,1}) \dotsb \sigma(i_{1,\lambda_1})}
+    \klammer{\sigma(i_{2,1}) \dotsb \sigma(i_{2,\lambda_2})} \dotsb
+    \klammer{\sigma(i_{k,1}) \dotsb \sigma(i_{k,\lambda_k})} =: \tau'$
+\end{lemma}
+
+\begin{korollar}
+    \begin{enumerate}[(1)]
+        \item $\forall k =1,2,\dots$ ist die Anzahl $i_k (\tau)$ der Zyklen
+            der Länge $k$ in der Zyklendartellung von $\tau \in S_n$ eine
+            Klassenfunktion, d.h. $i_k(\sigma \tau \sigma^{-1}) = i_k(\tau) \
+            \forall \sigma,\tau \in S_n$.
+        \item Zwei Permutationen $\tau,\tau' \in S_n$ sind genau dann in der gleichen
+            Konjugationsklasse, wenn $\underline{i}(\tau) = \underline{i}(\tau')$.
+        \item Die Konjugationsklassen von $S_n$ sind also in $1-1$-Korrespondenz zu
+            den Partitionen von $n$.
+    \end{enumerate}
+\end{korollar}
+
+\subsection{Die Gruppenalgebra einer endlichen Gruppe}
+
+\begin{definition}[Gruppenalgebra]
+    Sei $G$ eine endliche Gruppe. Dann ist die Gruppenalgebra $\C[G]$ der
+    VR der formalen Linearkombinationen $\sum_{g \in G} a_g g$ mit
+    $a_g \in \C$. Insbesondere ist $G \subset \C[G]$ eine Basis von
+    $\C[G]$. Die Gruppenalgebra ist ein Ring mit dem biliniaren, assoziativen
+    Produkt $\C[G] \otimes \C[G] \rightarrow \C[G]$:
+    \begin{align*}
+        \klammer{\sum_{g \in G} a_g g} \klammer{\sum_{g' \in G} a_{g'}' g'}
+        = \sum_{g \in G} \klammer{\sum_{\stackrel{h,h' \in G}{hh' = g}} a_h a_{h'}'} g
+        = \sum_{g \in G} \sum_{g' \in G} a_g a_{g'}' (g \cdot g')
+    \end{align*}
+    und dem Einselement dem neutralen Element der Gruppe $1 \in G \subset
+    \C[G]$. Der VR $\C[G]$ der komplexwertigen Funktionen auf der Gruppe $G$
+    ist der Dualraum von $\C[G]$, also $\C(G) = \C[G]^\ast$. Die Gruppenalgebra
+    trägt eine Darstellung der Gruppe $G$ durch Linksmultiplikation,
+    $\rho_{GA}(g) p = g p$, wobei $G \subset \C[G]$ verstenden ist. Diese
+    Darstellung ist äquivalent zur regulären Darstellung auf $\C(G)$, wobei
+    der Isomorphismus $\C[G] \rightarrow \C(G)$ das Basiselement $g \in G$
+    abbildet auf $\delta_g$.
+\end{definition}
+
+\begin{theorem}
+    Sei $\rho: G \rightarrow \GL(V) \subset \End(V)$ eine Darstellung. Dann
+    können wir diese linear fortsetzen zu einer linearen Abbildung
+    \begin{align*}
+        \rho: \C[G] \rightarrow \End(V)
+        \hspace{10pt} , \hspace{10pt}
+        \rho \klammer{\sum_{g \in G} a_g g} = \sum_{g \in G} a_g \rho(g)
+    \end{align*}
+    Diese Abbildung erfüllt $\rho(xy) = \rho(x) \rho(y) \ \forall x,y \in \C[G]$,
+    ist also auch ein Ringhomomorphismus.
+\end{theorem}
+
+\begin{satz}
+    Sei $\rho_1,\dots,\rho_k$ eine Liste der inäquivalenten irreduziblen
+    komplexen Darstellungen von $G$ mit Darstellungsräumen $V_1,\dots,V_k$.
+    Dann ist die direkte Summe $\bigoplus_{j=1}^k \End(V_j)$ wieder ein
+    Ring. Wählen wir Basen auf den $V_j$, so können wir $\bigoplus_{j=1}^k \End(V_j)$
+    identifizieren mit dem Ring der Blockdiagonalmatrizen
+    \begin{align*}
+        \begin{pmatrix}
+            A_1 & & \\
+            & \ddots & \\
+            & & A_k
+        \end{pmatrix}
+    \end{align*}
+    mit Diagonalblöcken $A_j$ der Grösse $\dim(V_j) \times \dim(V_j)$
+\end{satz}
+
+\begin{satz}
+    Die folgende Abbildung von VR ist ein Isomorphismus von Ringen.
+    \begin{align*}
+        \phi: \C[G] &\rightarrow \bigoplus_{j=1}^{k} \End(V_j)
+        \\
+        x &\mapsto \klammer{\rho_1(x),\rho_2(x),\dots,\rho_k(x)}
+    \end{align*}
+\end{satz}
+
+\subsection{Irreduzible Darstellungen}
+
+\begin{definition}[Young-Schema]
+    Ein Young-Schema ist ein Young-Diagramm, dessen $n$ Kästli mit den Zahlen
+    $1,\dots,n$ gefüllt sind, wobei jede Zahl genau einmal vorkommt. Zu jedem
+    Young-Diagramm $\lambda$ definieren wir das Young-Schema $\hat{\lambda}_{norm}$,
+    das aus $\lambda$ gewonnen wird durch füllen der Kästli mit den Zahlen
+    $1,2,\dots,n$ aufsteigend von links nach rechts und dann von oben nach unten.
+\end{definition}
+
+\begin{definition}
+    Für $\lambda$ (bzw. $\hat{\lambda}$) ein Young-Diagramm (bzw. Young-Schema)
+    sei $\lambda^T$ (bzw. $\hat{\lambda}^T$) das Young-Diagramm (bzw. Young-Schema),
+    dass durch Spiegelung von $\lambda$ (bzw. $\hat{\lambda}$) an der zweiten
+    Diagonale gewonnnen wird.
+\end{definition}
+
+\begin{definition}
+    Zu jedem Young-Schema $\hat{\lambda}$ definieren wir nun eine Untergruppe
+    $G_{\hat{\lambda}} \subset S_n$, wobei $\sigma \in G_{\hat{\lambda}}$ genau
+    dann wenn $\forall j \in \geschwungeneklammer{1,\dots,n}$ die Zahl
+    $\sigma(j)$ in der gleichen Zeile in $\hat{\lambda}$ steht wie $j$.
+\end{definition}
+
+\begin{definition}
+    Zu jedem Young-Schema $\hat{\lambda}$ ordnen wir nun die folgenden
+    beiden Elemente der Gruppenalgebra $\C[S_n]$ zu:
+    \begin{align*}
+        s_{\hat{\lambda}} := \sum_{\sigma \in G_{\hat{\lambda}}} \sigma
+        \hspace{10pt} , \hspace{10pt}
+        a_{\hat{\lambda}} := \sum_{\sigma \in G_{\hat{\lambda}^T}} \text{sgn}(\sigma) \sigma
+    \end{align*}
+\end{definition}
+Wir erweitern die Definitionen von $G_{\hat{\lambda}},s_{\hat{\lambda}},a_{\hat{\lambda}}$
+von Young-Schemata auf Young-Diagramme, indem wir definieren:
+\begin{align*}
+    G_{\lambda} := G_{\hat{\lambda}_{norm}}
+    \hspace{10pt} , \hspace{10pt}
+    s_\lambda := s_{\hat{\lambda}_{norm}}
+    \hspace{10pt} , \hspace{10pt}
+    a_{\lambda} := a_{\hat{\lambda}_{norm}}
+\end{align*}
+
+\begin{definition}
+    Zu einem Young-Diagramm $\lambda$ mit $n$ Kästli definieren wir den
+    invarianten Unterraum
+    \begin{align*}
+        V_{\lambda} = \C[S_n] s_\lambda a_\lambda
+        = \geschwungeneklammer{ x s_\lambda a_\lambda \ | \ x \in \C[S_n]}
+        \subset \C[S_n]
+    \end{align*}
+    Ferner definieren wir die Darstellung $\rho_\lambda$ von $S_n$ auf
+    $V_\lambda$ durch Einschränkung der Darstellung auf $\C[S_n]$ durch
+    Linksmultiplikation.
+\end{definition}
+
+\begin{satz}
+    Die Darstellungen $\rho_\lambda$ der vorherigen Definition sind
+    irreduzibel, und für $\lambda \neq \lambda'$ sind $\rho_\lambda$
+    und $\rho_{\lambda'}$ inäquivalent.
+\end{satz}
+
+\begin{definition}
+    $c_{\hat{\lambda}} = s_{\hat{\lambda}} a_{\hat{\lambda}}$ ,
+    $c_\lambda = s_\lambda a_\lambda$
+\end{definition}
+
+\begin{lemma}
+    Sei $\hat{\lambda}$ ein Young-Schema mit $n$ Kästli, mit unterliegendem
+    Young-Diagramm $\lambda$. Dann gilt:
+    \begin{enumerate}[(1)]
+        \item Das neutrale Element von $G$ hat Koeffizient $1$ in $c_{\hat{\lambda}}$.
+            Insbesondere gilt $c_{\hat{\lambda}} \neq 0$.
+        \item $\forall g \in G_{\hat{\lambda}}$ ist $g s_{\hat{\lambda}} = s_{\hat{\lambda}} = s_{\hat{\lambda}}$
+        \item $\forall h \in G_{\hat{\lambda}^T}$ ist $h a_{\hat{\lambda}} = a_{\hat{\lambda}} = \text{sgn}(h)a_{\hat{\lambda}}$
+        \item Für $\sigma \in S_n$ beliebig gilt
+            \begin{align*}
+                G_{\sigma \hat{\lambda}} = \geschwungeneklammer{\sigma g \sigma^{-1} \ | \ g \in G_{\hat{\lambda}}}
+            \end{align*}
+            wobei das Young-Schema $\sigma \hat{\lambda}$ aus $\hat{\lambda}$
+            durch Anwendungen von $\sigma$ auf die Einträge gewonnen ist.
+            Insbesondere gilt damit auch $\sigma s_{\hat{\lambda}} \sigma^{-1} =
+            s_{\sigma \hat{\lambda}}$ und $\sigma a_{\hat{\lambda}} \sigma^{-1}
+            = a_{\sigma \hat{\lambda}}$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+    Seien $\hat{\lambda} , \hat{\mu}$ Young-Schemata mit $n$ Kästli, mit
+    unterliegenden Young-Diagrammen $\lambda,\mu$.
+    \begin{enumerate}[(1)]
+        \item Sei $\lambda > \mu$ und $x \in \C[G]$ beliebig. Dann gilt
+            $s_{\hat{\lambda}} x a_{\hat{\mu}} = 0$, und damit insbesondere
+            $c_{\hat{\lambda}} c_{\hat{\mu}} = 0 = c_{\hat{\lambda}} x c_{\hat{\mu}}$
+        \item Sei $\lambda = \mu$. Dann gilt genau eine der beiden Aussagen:
+            \begin{enumerate}[(a)]
+                \item $\exists i \neq j$ Zahlen, die in $\hat{\lambda}$ in einer
+                    Zeile, und in $\hat{\mu}$ in einer Spalte vorkommen.
+                \item $\exists h_1 \in G_{\hat{\lambda}}$ und $h_2 \in G_{\hat{\mu}^T}$,
+                    so dass $h_1 \hat{\lambda} = h_2 \hat{\mu}$
+            \end{enumerate}
+        \item $\forall x \in \C[G]$ ist $s_{\hat{\lambda}} x a_{\hat{\lambda}}$
+            ein Vielfaches von $s_{\hat{\lambda}} a_{\hat{\lambda}} = c_{\hat{\lambda}}$.
+            Insbesondere ist $c_{\hat{\lambda}} x c_{\hat{\lambda}}$ ein Vielfaches
+            von $c_{\hat{\lambda}}$
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+    \begin{enumerate}[(1)]
+        \item Sei $A$ eine komplexe $n \times n$-Matrix so dass für alle $n \times n$-Matrizen
+            $X$ gilt, dass $A X A$ ein Vielfaches von $A$ ist. Dann gibt es Vektoren
+            $u,v \in \C^n$, so dass $A = u v^\dagger$.
+        \item Sei $A = \begin{pmatrix}
+            A_1 & & \\ & \ddots & \\ & & A_k
+        \end{pmatrix}$ eine Blockdiagonalmatrix mit Diagonalblöcken der Grösse
+        $d_j \times d_j$ mit $j = 1,\dots,k$. Es gelte für jede Blockdiagonalmatrix
+        $X = \begin{pmatrix}
+            X_1 & & \\ & \ddots & \\ & & X_k
+        \end{pmatrix}$ gleicher Form, dass $A X A$ ein Vielfaches von $A$ ist.
+        Dann existiert ein $j \in \geschwungeneklammer{1,\dots,k}$ und $u,v \in \C^{d_j}$,
+        so dass $A_i = 0$ für $i \neq j$ und $A_j = u v^\dagger$.
+    \end{enumerate}
+\end{lemma}
+
+\subsection{Die Charakterformel von Frobenius}
+
+\begin{satz}[Frobeniusformel]
+    Sei $\lambda$ ein Young-Diagramm mit $n$ Kästli. Sei $\underline{i} =
+    (i_1,i_2,\dots)$ eine Partition von $n$, und $C_{\underline{i}}$ die
+    zugehörige Konjugationsklasse von $S_n$. Dann gilt
+    \begin{align*}
+        \chi_{\rho_{\lambda}} \klammer{C_{\underline{i}}} =
+        \klammer{\Delta (x) \prod_k P_k^{i_k} (x)}_{x^{\lambda + \rho}}
+    \end{align*}
+    mit der Folgenden Notation:
+    \begin{itemize}
+        \item $x = (x_1,\dots,x_n)$, und für einen Multiindex $\lambda =
+            (\lambda_1,\dots,\lambda_n)$, $x^\lambda = x_1^{\lambda_1}
+            \dotsb x_n^{\lambda_n}$.
+        \item $\Delta(x) = \prod_{1 \leq i < j \leq n} (x_i - x_j)$ ist
+            die Vandermonde-Determinante.
+        \item $P_k (x) = x_1^k + x_2^k + \dotsb + x_n^k$
+        \item Die Notation $\klammer{Q}_{x^a}$ bezeichnet den Koeffizienten
+            von $x^a$ im Polynom $Q(x)$.
+        \item $\rho = (n-1,n-2,\dots,1,0)$
+    \end{itemize}
+\end{satz}
+
+\begin{definition}[Haken]
+    Der $i,j$-Haken des Young-Diagrammes $\lambda$ als die Menge der Kästli
+    die rechts neben, oder unter dem Kästli an der Stelle $i,j$ stehen,
+    inklusive des Kästli $i,j$ selbts.
+\end{definition}
+
+\begin{definition}[Hakenlänge]
+    Die Hakenlänge $h(i,j)$ ist die Anzahl Kästli im $i,j$-Haken.
+\end{definition}
+
+\begin{korollar}[Hakenlängenformel]
+    Die Dimension der irreduziblen Darstellung $\rho_\lambda$ von $S_n$ ist
+    \begin{align*}
+        \dim (\rho_\lambda) = \frac{n!}{\prod_{i,j} h(i,j)}
+    \end{align*}
+    wobei $h(i,j)$ die Länge des $i,j$-Hakens im Young-Diagramm $\lambda$ ist.
+    Das Produkt läuft über die Koordinaten $i,j$ von allen Kästli in $\lambda$.
+\end{korollar}

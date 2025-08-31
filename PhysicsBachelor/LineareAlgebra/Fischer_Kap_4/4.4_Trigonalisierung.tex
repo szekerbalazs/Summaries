@@ -1,0 +1,158 @@
+\section{Trigonalisierung}
+
+\Definition{
+    
+    Sei $F: V \rightarrow V$ ein Endomorphismus und $W \subset V$ ein UVR. $W$ heisst
+    \fat{$F$-invariant}, wenn $F(W) \subset W$ ($\Leftrightarrow \forall w \in W: \
+    F(w) \in W$)
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $W \subset V$ ein $F$-invarianter UVR, so ist $P_{F |_W}$ ein Teiler von $P_F$.
+    Also $P_F (t) = P_{F |_W} (t) \cdot Q(t)$.
+    (Erinnerung: $F |_W: W \rightarrow W$ mit $w \mapsto F(w)$.)
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Unter einer \fat{Fahne} $(V_r)$ in einem $n$-dimensionalen Vektorraum $V$ versteht
+    man eine Kette
+    \begin{align*}
+        \geschwungeneklammer{0} = V_0 \subset V_1 \subset \dots \subset V_n = V
+    \end{align*}
+    von UVR mit $\dim V_r = r$. Ist $F \in$ End$(V)$, so heisst die Fahne
+    $F$-invariant, wenn
+    \begin{align*}
+        F(V_r) \subset V_r \quad \text{   für alle } r \in \geschwungeneklammer{0,\dots,n}
+    \end{align*}
+}
+
+\Bemerkung{
+
+    Für $F \in$ End$(V)$ sind folgende Bedingungen gleichwertig:
+    \begin{enumerate}[i)]
+        \item Es gibt eine $F$-invariante Fahne in $V$.
+        \item Es gibt eine Basis $\mathcal{B}$ von $V$, so dass $M_{\mathcal{B}} (F)$
+                eine obere Dreiecksmatrix ist.
+    \end{enumerate}
+    Ist das der Fall, so heisst $F$ \fat{trigonalisierbar}.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Matrix $A \in M(n \times n ; K)$ heisst \fat{trigonalisierbar}, wenn
+    $A: K^n \rightarrow K^n$ mit $v \mapsto A v$ trigonalisierbar ist.
+    Das heisst, es existiert ein $S \in \text{GL}(n,K)$ sodass $S A S^{-1}$ eine obere
+    Dreiecksmatrix ist.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (\fat{Trigonalisierungssatz})
+
+    Für einen Endomorphismus $F$ eines $n$-dimensionalen $K$-VR sind folgende
+    Bedingungen äquivalent:
+    \begin{enumerate}[i)]
+        \item $F$ ist trigonalisierbar.
+        \item Das charakteristische Polynom $P_F$ zerfällt in Linearfaktoren, d.h.
+            \begin{align*}
+                P_F = \pm (t - \lambda_1) \cdot \dots \cdot (t - \lambda_n)
+                \quad \text{   mit } \lambda_1 , \dots , \lambda_n \in K
+            \end{align*}
+    \end{enumerate}
+}
+
+\Korollar{
+
+    Jeder Endomorphismus eines endlich-dimensionalen komplexen VR ist trigonalisierbar.
+}
+
+\vspace{1\baselineskip}
+
+\fat{\large Algorithmus zur Bestimmung der Trigonalform} \normalsize
+
+\vspace{1\baselineskip}
+
+\fat{1. Schritt}
+
+Wir betrachten $W_1 = K^n$ mit der Basis $\mathcal{B}_1 = \mathcal{K}$ und den
+Endomorphismus $A_1 = A$. Zu $\lambda_1$ berechnet man einen Eigenvektor $V_1 \in K^n$.
+Nach dem Austauschlemma bestimmt man ein $j_1 \in \geschwungeneklammer{1,\dots,n}$, so
+dass
+\begin{align*}
+    \mathcal{B}_2 := \klammer{v_1 , e_1 , \dots , \hat{e}_{j_1} , \dots , e_n}
+\end{align*}
+wieder eine Basis von $K^n$ ist. Das Zeichen $\hat{}$ bedeutet dabei, dass $e_{j_1}$
+ausgelassen wird. Wir betrachten die Transformationsmatrix $S_1^{-1} := T_{\mathcal{B}_1}^{\mathcal{B}_2}$
+mit der Basis $\mathcal{B}_2$ als Spalten. Dann ist
+\begin{align*}
+    A_2 := S_1 \cdot A \cdot S_1^{-1} = \begin{pmatrix}
+        \lambda_1 & * & \dots & * \\
+        0 & & & \\
+        \vdots & & A_2' & \\
+        0 & & & 
+    \end{pmatrix}
+\end{align*}
+
+\fat{2. Schritt}
+
+Wir betrachten $W_2$ mit der Basis
+\begin{align*}
+    \mathcal{B}_2' := \klammer{e_1 , \dots , \hat{e}_{j_1} , \dots , e_n}
+\end{align*}
+und den Endomorphismus $A_2'$. Es ist
+\begin{align*}
+    P_{A'_2} = \pm (t-\lambda_2) \cdot \dots \cdot (t-\lambda_n)
+\end{align*}
+Zu $\lambda_2$ berechnet man einen Eigenvektor $v_2 \in W_2$, und man wählt ein
+$j_2 \neq j_1$, so dass 
+\begin{align*}
+    \mathcal{B}_3' := \klammer{v_2 , e_1 , \dots , \hat{e}_{j_1} , \dots , \hat{e}_{j_2} , \dots , e_n}
+\end{align*}
+eine Basis von $W_2$ ist, also
+\begin{align*}
+    \mathcal{B}_3 := \klammer{v_1, v_2 , e_1 , \dots , \hat{e}_{j_1} , \dots , \hat{e}_{j_2} , \dots , e_n}
+\end{align*}
+eine Basis von $K^n$ ist. Mit der Transformationsmatrix $S_2^{-1} = T_{\mathcal{B}_1}^{\mathcal{B}_3}$
+erhält man
+\begin{align*}
+    A_3 = S_2 \cdot A \cdot S_2^{-1} = \begin{pmatrix}
+        \lambda_1 & * & \dots & \dots & * \\
+        0 & \lambda_2 & * & \dots & * \\
+        \vdots & 0 & & & \\
+        \vdots & \vdots & & A_3' & \\
+        0 & 0 & & &
+    \end{pmatrix}
+\end{align*}
+Bei der Berechnung von $S_2$ kann man benutzen, dass
+\begin{align*}
+    T_{\mathcal{B}_1}^{\mathcal{B}_3} = T_{\mathcal{B}_1}^{\mathcal{B}_2} \cdot T_{\mathcal{B}_2}^{\mathcal{B}_3}
+    \quad \text{   und   } \quad
+    T_{\mathcal{B}_2}^{\mathcal{B}_3} = \begin{pmatrix}
+        1 & 0 & \dots & 0 \\
+        0 & & & \\
+        \vdots & & T_{\mathcal{B}'_2}^{\mathcal{B}'_3} & \\
+        0 & & &
+    \end{pmatrix}
+\end{align*}
+Spätestens im $(n-1)$-ten Schritt erhält man eine obere Dreiecksmatrix $A_n$, denn
+$A_n'$ ist eine $(1 \times 1)$-Matrix. Also ist
+\begin{align*}
+    D := A_n = S_{n-1} \cdot A \cdot S_{n-1}^{-1}
+\end{align*}
+eine obere Dreiecksmatrix.
+
+
+
+
+
+
+
+

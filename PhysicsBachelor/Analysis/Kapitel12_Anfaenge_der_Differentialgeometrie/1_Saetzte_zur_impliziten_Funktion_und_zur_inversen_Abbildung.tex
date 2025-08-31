@@ -1,0 +1,80 @@
+\subsection{Sätze zur impliziten Funktion und zur Inversen Abbildung}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Satz der impliziten Funktionen)
+
+    Sei $U \subseteq \R^n \times \R^m$ offen, sei $(x_0 , y_0) \in U$ und sei
+    $F: U \rightarrow \R^m$ eine stetige Funktion, die die folgende Bedingungen erfüllt.
+    \begin{enumerate}
+        \item $F(x_0 , y_0) = 0$
+        \item Für alle $k = 1 ,\dots,m$ existiert die partielle Ableitung
+                $\partial_{y_k} F: U \rightarrow \R^m$ und ist stetig.
+        \item Die Matrix $A = \klammer{\partial_{y_k} F_j (x_0 , y_0)}_{j,k}
+                \in \Mat_{m,m} (\R)$ ist invertierbar.
+    \end{enumerate}
+    Dann existiert $r>0$ und $s>0$ und eine stetige Funktion $f:B(x_0,r) \rightarrow
+    B(y_0,s)$, so dass für alle $(x,y) \in B(x_0,r) \times B(y_0,s)$ die Gleichung
+    $F(x,y) = 0$ genau dann gilt, wenn $y = f(x)$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Ableitung der impliziten Funktionen)
+
+    Sei $U \subseteq \R^n \times \R^m$ offen, sei $(x_0 , y_0) \in U$ und sei
+    $F: U \rightarrow \R^m$ eine stetige Funktion mit den Eigenschaften aus dem
+    obigen Satz und sei $f: B(x_0,r) \rightarrow B(y_0,s)$ die stetige lokale
+    Lösungsfunktion aus dem obigen Satz. Angenommen $F$ ist $d$-mal stetig
+    differenzierbar für $d \geq 1$. Dann ist die Funktion $f$ ebenso $d$-mal
+    stetig differenzierbar und die Ableitung von $f$ bei $x \in B(x_0,r)$ ist durch
+    \begin{align*}
+        Df(x) = - \klammer{(D_y F)(x,f(x))}^{-1} \circ (D_x F)(x,f(x))
+    \end{align*}
+    gegeben. Hier bedeutet $D_x F(x_1 , y_1)$ die totale Ableitung der Funktion
+    $x \mapsto F(x,y_1)$ am Punkt $x_1$ und $D_y F(x_1,y_1)$ die totale Ableitung
+    der Funktion $y \mapsto F(x_1,y)$ am Punkt $y_1$. Es gilt:
+    $Df(x):\R^n \rightarrow \R^m$, $D_y F(x,f(x)): \R^m \rightarrow \R^m$ und
+    $D_x F(x,f(x)): \R^n \rightarrow \R^m$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Satz zur inversen Abbildung)
+
+    Sei $U \subseteq \R^n$ offen und $f: U \rightarrow \R^n$ eine $d$-mal stetig
+    differenzierbare Funktion mit $d \geq 1$. Sei $x_0 \in U$ so, dass $Df(x_0)$
+    invertierbar ist. Dann gibt es eine offene Umgebung $U_0 \subseteq U$ von $x_0$
+    und eine offene Umgebung $V_0 \subseteq \R^n$ von $y_0 = f(x_0)$, so dass
+    $f |_{U_0} : U_0 \rightarrow V_0$ bijektiv ist, und die Umkehrabbildung ebenso
+    $d$-mal stetig differenzierbar ist. Des weiteren gilt für alle $x \in U_0$ und
+    $y = f(x) \in V_0$
+    \begin{align*}
+        (Df^{-1})(y) = (Df(x))^{-1}
+    \end{align*}
+    ("Ableitung der Inverse = Inverse der Ableitung")
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $U,V \subseteq \R^n$ offen. Eine bijektive, glatte Funktion $f:U \rightarrow V$
+    mit glatter Inversen $f^{-1}: V \rightarrow U$ wird \fat{Diffeomorphismus} genannt.
+    Sind $f$ und $f^{-1}$ jeweils nur $d$-mal stetig differenzierbar für $d \geq 1$,
+    so nennen wir $f$ einen \fat{$C^d$-Diffeomorphismus}.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $U \subseteq \R^n$ offen und sei $f: U \rightarrow \R^n$ eine $d$-mal stetig
+    differenzierbare, injektive Funktion mit $d \geq 1$. Angenommen $Df(x)$ sei für
+    jeden Puntk $x \in U$ invertierbar. Dann ist $V = f(U) \subseteq \R^n$ offen
+    und $f: U \rightarrow V$ ist ein $C^d$-Diffeomorphismus mit
+    \begin{align*}
+        (Df^{-1})(y) = (Df(x))^{-1}
+    \end{align*}
+    für alle $x \in U$ und $y = f(x) \in V$.
+}

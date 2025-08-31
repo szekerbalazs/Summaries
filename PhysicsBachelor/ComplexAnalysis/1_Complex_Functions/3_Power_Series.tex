@@ -1,0 +1,64 @@
+\subsection{Sequences and Series}
+
+\begin{definition}
+    A sequence $\geschwungeneklammer{a_n}_1^\infty$ has the \fat{limit} $A$ if to
+    every $\epsilon > 0$ there exists an $N$ such that for $n \geq N$: $\abs{a_n - A}
+    < \epsilon$. A sequence with a finite limit is called
+    \fat{convergent} and if it is not convergent it is \fat{divergent}.
+\end{definition}
+
+\begin{definition}[Cauchy Sequence]
+    A sequence $\geschwungeneklammer{a_n}_1^\infty$ is called a \fat{Cauchy sequence}
+    if it satisfies the following:
+    \begin{align*}
+        \forall \epsilon > 0 \ \exists N \ : \ \forall n,m > N \ : \ \abs{a_n - a_m} < \epsilon
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Convergence]
+    We can define two different types of \fat{convergence}.
+    \begin{enumerate}[(i)]
+        \item \fat{pointwise:} $\forall \epsilon > 0 \ \forall x \ \exists N : \forall n > N : \abs{f_n(x) - f(x)} < \epsilon$
+        \item \fat{uniformal:} $\forall \epsilon > 0 \ \exists N : \forall x \ \forall n > N : \abs{f_n(x) - f(x)} < \epsilon$
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+    If $f_n$ are continuous and $f_n \rightarrow f$ converges uniformally than $f$
+    if continuous.
+\end{proposition}
+
+\begin{theorem}[Weierstrass M-Test]
+    Suppose that $(f_n)_n$ is a sequence of functions defined on a set $A$ and that
+    there is a sequence of non negative numbers $(M_n)_n$ satisfying
+    \begin{align*}
+        \forall n \geq 1 , \forall x \in A : \ \abs{f_n(x)} \leq M_n
+        \ \text{ and } \ \sum_{n=1}^\infty M_n < \infty
+    \end{align*}
+    Then the series $\sum_{n=1}^\infty f_n(x)$ converges absolutely and uniformaly
+    on $A$.
+\end{theorem}
+
+\begin{definition}[Radius of Convergence]
+    The \fat{radius of convergence} of a series $\geschwungeneklammer{a_n}_1^\infty$ is
+    defined as
+    \begin{align*}
+        R = \frac{1}{\limsup_{n \rightarrow \infty} \sqrt[n]{\abs{a_n}}}
+        = \limes{n \rightarrow \infty} \abs{\frac{a_n}{a_{n+1}}}
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Abel]
+    For every power series there exists a number $R$, $0 \leq R \leq \infty$, called
+    the radius of convergence, with the following properties:
+    \begin{enumerate}[(i)]
+        \item The series converges absolutely for every $z$ with $\abs{z} < R$. If
+            $0 \leq \rho < R$ the convergence is uniform for $\abs{z} \leq \rho$.
+        \item If $\abs{z} > R$ the terms of the series are unbounded, and the series
+            is consequently divergent.
+        \item In $\abs{z} < R$ the sum of the series is an analytic function. The
+            derivative can be obtained by termwise differentiation, and the derived
+            series has the same radius of convergence.
+    \end{enumerate}
+\end{theorem}
+

@@ -1,0 +1,158 @@
+\subsection{Die Ableitung}
+
+\vspace{1\baselineskip}
+
+In diesem Kapitel definieren wir eine allgemeine Teilmenge $D \subseteq \R$ ohne isolierte
+Punkte. Das heisst, jedes Element $x \in D$ ist ein Häufungspunkt von $D$.
+Ein Beispiel für solch eine Menge $D$ sind Intervalle.
+Falls nicht explizit anders erwähnt, sind alle Funktionen als reellwertig vorausgesetzt.
+
+\vspace{2\baselineskip}
+
+\Definition{
+
+    Sei $f: D \rightarrow \R$ eine Funktion und $x_0 \in D$. Wir sagen, dass $f$ bei $x_0$
+    \fat{differenzierbar} ist, falls der Grenzwert
+    \begin{align*}
+        f'(x_0) = \limes{\stackrel{x \rightarrow x_0}{x \neq x_0}} \frac{f(x) - f(x_0)}{x - x_0}
+        = \limes{\stackrel{h \rightarrow 0}{h \neq 0}} \frac{f(x_0 + h) - f(x_0)}{h}
+    \end{align*}
+    existiert. In diesem Fall nennen wir $f'(x_0)$ die \fat{Ableitung} von $f$ bei $x_0$.
+    Falls $f$ bei jedem Häufungspunkt von $D$ in $D$ differenzierbar ist, dann sagen wir
+    auch, dass $f$ auf $D$ \fat{differenzierbar} ist und nennen die daraus entstehende
+    Funktion $f': D \rightarrow \R$ die \fat{Ableitung} von $f$.
+    Alternative Notation für die Ableitung von $f$ sind $\frac{\partial}{\partial x} f$,
+    $\frac{df}{dx}$ oder auch $Df$. Falls $x_0 \in D$ ein rechtseitiger Häufungspunkt
+    von $D$ ist, dann ist $f$ bei $x_0$ \fat{rechtseitig differenzierbar}, wenn die
+    \fat{rechtseitige Ableitung}
+    \begin{align*}
+        f_+' (x_0) = \limes{\stackrel{x \rightarrow x_0}{x > x_0}} \frac{f(x) - f(x_0)}{x - x_0}
+        = \limes{\stackrel{h \rightarrow 0}{h > 0}} \frac{f(x_0 + h) - f(x_0)}{h}
+    \end{align*}
+    existiert. \fat{Linksseitige Differenzierbarkeit} und die \fat{Linksseitige Ableitung}
+    $f_-' (x_0)$ werden analog über die Bewegung $x \rightarrow x_0$ mit $x < x_0$ definiert.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine \fat{affine} Funktion ist eine Funktion der Form $x \mapsto sx + r$, für reelle
+    Zahlen $s$ und $r$. Der Graph einer affinen Funktion ist eine nichtvertikale
+    \fat{Gerade} in $\R^2$. Der Parameter $s$ in der Gleichung $y = sx + r$ wird die
+    \fat{Steigung} genannt. Ist $f: D \rightarrow \R$ differenzierbar an der Stelle
+    $x_0 \in D$, so wird die Funktion $x \mapsto f'(x_0)(x-x_0)$ \fat{lineare Approximation}
+    von $f$ bei $x_0$ oder \fat{Tangente} von $f$ bei $x_0$ genannt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: D \rightarrow \R$ eine Funktion. Wir definieren die \fat{höhere Ableitungen}
+    von $f$, sofern sei existieren, durch
+    \begin{align*}
+        f^{(0)} = f \ , \quad f^{(1)} = f' \ , \quad f^{(2)} = f'' \ , \ \dots \ , \quad f^{(n+1)} = (f^{n})'
+    \end{align*}
+    für alle $n \in \N$. Falls $f^{(n)}$ für ein \ninN existiert, heisst $f$ \fat{n-mal differenzierbar}.
+    Falls die $n$-te Ableitung $f^{n}$ zusätzlich stetig ist, heisst $f$ \fat{n-mal stetig
+    differenzierbar}. Die Menge der $n$-mal stetig differenzierbaren Funktionen auf $D$
+    bezeichnen wir mit $C^n (D)$. Rekursiv definieren wir für $n \geq 1$
+    \begin{align*}
+        C^n (D) = \geschwungeneklammer{f:D \rightarrow \R \ | \ f \text{ ist differenzierbar und } f' \in C^{n-1} (D)}
+    \end{align*}
+    und sagen $f \in C^n (D)$ sei von \fat{Klasse $C^n$}. Schliesslich definieren wir
+    \begin{align*}
+        C^{\infty} (D) = \bigcap_{n=0}^{\infty} C^n (D)
+    \end{align*}
+    und bezeichnen Funktionen $f \in C^{\infty} (D)$ als \fat{glatt} oder von \fat{Klasse $C^\infty$}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $f:D \rightarrow \R$ eine Funktion. Ist $f$ ableitbar bei $x_0 \in D$, dann ist
+    $f$ stetig bei $x_0$.
+}
+
+\pagebreak
+
+\Proposition{
+
+    Seien $f,g: D \rightarrow \R$ Funktionen und ableitbar an der Stelle $x_0 \in D$.
+    Dann sind $f+g$ und $f \cdot g$ ableitbar bei $x_0$ und es gilt:
+    \begin{align*}
+        (f + g)' (x_0) &= f' (x_0) + g' (x_0)
+        (f \cdot g)' (x_0) &= f' (x_0) \cdot g(x_0) + f (x_0) \cdot g(x_0)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Seien $f,g : D \rightarrow \R$ $n$-mal differenzierbar. Dann sind $f+g$ und $f \cdot g$
+    ebenso $n$-mal differenzierbar und es gilt $f^{(n)} + g^{(n)} = (f+g)^{(n)}$ sowie
+    \begin{align*}
+        (fg)^{(n)} = \sum_{k=0}^{n} \binom{n}{k} f^{(k)} g^{(n-k)}
+    \end{align*}
+    Insbesondere ist jedes skalare Vielfache $n$-mal differenzierbar und $(\alpha f)^{(n)}
+    = \alpha f^{(n)}$ für alle $\alpha \in \R$.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Polynomfunktionen sind auf ganz $\R$ differenzierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Kettenregel)
+
+    Seien $D,E \subseteq \R$ Teilmengen und sei $x_0 \in D$ ein Häufungspunkt. Sei
+    $f: D \rightarrow E$ ein bei $x_0$ differenzierbare Funktion, so dass $y_0 = f(x_0)$
+    ein Häufungspunkt von $E$ ist, und sei $g: E \rightarrow \R$ eine bei $y_0$
+    differenzierbare Funktion. Dann ist $g \circ f : D \rightarrow \R$ in $x_0$
+    differenzierbar und
+    \begin{align*}
+        (g \circ f)' (x_0) = g' (f(x_0)) f'(x_0)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Seien $D,E \subseteq \R$ Teilmengen, so dass jeder Punkt in $D$ respektive $E$ ein
+    Häufungspunkt von $D$ respektive $E$ ist. Seien $f: D \rightarrow E$ und
+    $g: E \rightarrow \R$ beides $n$-mal differenzierbare Funktionen. Dann ist
+    $g \circ f : D \rightarrow \R$ auch $n$-mal differenzierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{ (Quotientenregel)
+
+    Sei $d \subseteq \R$ eine Teilmenge, $x_0 \in D$ ein Häufungspunkt und seien
+    $f,g : D \rightarrow \R$ bei $x_0$ differenzierbar. Falls $g(x_0) \neq 0$ ist,
+    dann ist auch $\frac{f}{g}$ bei $x_0$ differenzierbar und es gilt:
+    \begin{align*}
+        \klammer{\frac{f}{g}}' (x_0) = - \frac{g(x_0) f' (x_0) - f(x_0) g'(x_0)}{g(x_0)^2}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Seien $D , E \subseteq \R$ Teilmengen und sei $f: D \rightarrow E$ eine stetige,
+    bijektive Abbildung, deren inverse Abbildung $f^{-1} : E \rightarrow D$ ebenfalls
+    stetig ist. Falls $f$ in dem Häufungspunkt $x_0 \in D$ differenzierbar ist und
+    $f'(x_0) \neq 0$ gilt, dann ist $f^{-1}$ in $y_0 = f(x_0)$ differenzierbar und es gilt
+    \begin{align*}
+        (f^{-1})'(y_0) = \frac{1}{f' (x_0)}
+    \end{align*}
+}

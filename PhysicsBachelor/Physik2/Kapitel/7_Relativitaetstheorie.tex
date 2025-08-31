@@ -1,0 +1,209 @@
+\section{Spezielle Relativitätstheorie}
+
+\vspace{1\baselineskip}
+
+\fat{Einstein'sche Postulate}:
+\begin{enumerate}
+    \item Absolute, gleichförmige Bewegung kann man nicht messen.
+    \item Die Geschwindigkeit des Lichts ist unabhängig von Bewegungszustand der Lichtquelle
+            Folglich misst jeder Beobachter die gleiche Lichtgeschwindigkeit.
+\end{enumerate}
+
+\vspace{1\baselineskip}
+
+\fat{Galilei-Transformation}
+
+Wir verwenden zwei Bezugssysteme $S_A$ und $S_B$ mit den jeweiligen Koordinaten
+$x^A , y^A , z^A$ resp. $x^B , y^B , z^B$. $S_B$ bewege sich entlang der positiven
+$x$-Achse mit $v_B^A$ relativ zu $S_A$. $S_A$ bewegt sich demnach mit $-v_B^A$ relativ zu
+$S_B$. Falls nun die Ursprünge zusammenfallen, so erhalten wir die klassischen Beziehungen:
+
+\begin{minipage}{0.25\textwidth}
+    \begin{align*}
+        x^A &= x^B + v_B^A t^B \\
+        y^A &= y^B \\
+        z^A &= z^B \\
+        t^A &= t^B
+    \end{align*}
+\end{minipage}
+\begin{minipage}{0.25\textwidth}
+    \begin{align*}
+        x^B &= x^A - v_B^A t^A \\
+        y^B &= y^A \\
+        z^B &= z^A \\
+        t^B &= t^A
+    \end{align*}
+\end{minipage}
+
+\vspace{1\baselineskip}
+
+Diese Transformationen verstossen aber gegen die Einstein'schen Postulate.
+
+\pagebreak
+
+\fat{Lorentztransformation}
+
+Die relativistische Transformationsvorschrift (entlang der $x$-Achste) lautet:
+\begin{align*}
+    x^A &= \gamma (x^B + v_B^{A} t^B) \\
+    y^{A} &= y^B \\
+    z^{A} &= z^B \\
+    t^{A} &= \gamma (t^B + \frac{v_B^{A} x^B}{c^2})
+\end{align*}
+Dabei ist $\gamma = \frac{1}{\sqrt{1- \beta^2}} > 1$ mit $\beta = \frac{v_B^{A}}{c}  =
+\frac{-v_A^B}{c}$
+
+In Matrizenschreibweise heisst das für ein ruhendes System $S$ und ein bewegtes
+(in $x$-Richtung) System $S'$:
+\begin{align*}
+    \begin{pmatrix}
+        ct' \\ x' \\ y' \\ z'
+    \end{pmatrix} = \begin{pmatrix}
+        \gamma (ct - \beta x) \\ \gamma (x- \beta c t) \\ y \\ z
+    \end{pmatrix} = \begin{pmatrix}
+        \gamma & - \beta \gamma & 0 & 0 \\
+        - \beta \gamma & \gamma & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1
+    \end{pmatrix} \begin{pmatrix}
+        ct \\ x \\ y \\ z
+    \end{pmatrix}
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{Zeitdilatation}:
+\begin{align*}
+    \Delta t^A = \gamma \Delta t^B
+    \quad \quad \Longrightarrow \quad \quad
+    \Delta t = \gamma \Delta t_{\text{eigen}}
+\end{align*}
+Das Zeitintervall $\Delta t$ in einem beliebigen Bezugssystem ist stets grösser als die
+Eigenzeit.
+
+\vspace{1\baselineskip}
+
+\fat{Längenkontraktion}:
+\begin{align*}
+    \Delta x^A = \frac{1}{\gamma} \Delta x^B
+    \quad \quad \Longrightarrow \quad \quad
+    \Delta x = \frac{1}{\gamma} \Delta x_{\text{eigen}}
+\end{align*}
+Die Länge $l$ in einem beliebigen Bezugssystem ist stets kleiner als die Eigenlänge $l_0$.
+
+\vspace{1\baselineskip}
+
+\fat{Gleichzeitigkeit}
+
+Zwei Ereignisse finden gleichzeitig statt, wenn die von den Ereignissen ausgesandten
+Lichtsignale einen Beobachter, der sich in der Mitte der Ereignisse befindet, zus selben
+Zeit erreichen.
+
+\vspace{1\baselineskip}
+
+\fat{Invarianz}
+
+Wir definieren das \fat{Raumzeit-Intervall $\Delta s$} als:
+\begin{align*}
+    \Delta s^2 = c^2 \Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2
+\end{align*}
+welches eine Invariante der Lorentztransformation ist.
+\begin{itemize}
+    \item \fat{Zeitartig}: $\Delta s^2 > 0$: Zeitintervalle am kleinsten, wo Ereignisse
+            am selben Ort stattfinden
+    \item \fat{Raumartig}: $\Delta s^2 < 0$: Länge am kleinsten, wo Raumkoordinate zur
+            selben Zeit gemessen
+    \item \fat{Lichtkegel}: $\Delta s^2 = 0$: Die Gleichung beschreibt die Ausbreitung
+            des Lichtes als Kugelwelle.
+\end{itemize}
+
+\vspace{1\baselineskip}
+
+\fat{Geschwindigkeitstransformationen}
+
+Es sei ein Teilchen in $S_B$ mit der Geschwindigkeit $\vec{v} = (v_x , v_y , v_z)^T$.
+Die Geschwindigkeit in $S_A$ ist:
+\begin{align*}
+    v_x^{A} &= \frac{dx^{A}}{dt^{A}} = \frac{\gamma (dx^B + v_B^{A} dt^B)}{\gamma (dt^B + \frac{v_B^{A}}{c^2} dx^B)}
+        = \frac{v_x^B + v_B^{A}}{1+\frac{v_B^{A} v_x}{c^2}}
+    \\
+    v_y^{A} &= \frac{dy^{A}}{dt^{A}} = \frac{v_y^B}{\gamma (1+ \frac{v_B^{A} v_x^B}{c^2})}
+    \\
+    v_z^{A} &= \frac{dz^{A}}{dt^{A}} = \frac{v_z^B}{\gamma (1+ \frac{v_B^{A} v_x^B}{c^2})}
+\end{align*}
+wobei $v_B^{A}$ die Geschw. von $B$ im Bezugssystem von $A$ ist.
+
+\vspace{1\baselineskip}
+
+\fat{Relativistischer Dopplereffekt}
+
+Der (longitudale) relativistische Dopplereffekt ist gegeben durch:
+\begin{align*}
+    \nu^{A} &= \sqrt{\frac{1+\beta}{1-\beta}} \nu^{B}
+    \quad \quad \text{für kleiner werdenden Abstand}
+    \\
+    \nu^{A} &= \sqrt{\frac{1-\beta}{1+\beta}} \nu^{B}
+    \quad \quad \text{für grösser werdenden Abstand}
+\end{align*}
+Der transversale Dopplereffekt ist geg. durch $\nu^{A} = \sqrt{1-\beta^2} \nu^B$
+
+\vspace{1\baselineskip}
+
+\fat{Relativistischer Impuls und relativistische Energie}
+\begin{itemize}
+    \item \fat{Impuls}: $\vec{p} = \gamma m \vec{v}$
+    \item \fat{Energie}: $\Etot = \Ekin + E_0 = \gamma m c^2$ mit $E_0 = mc^2$ der Ruheenergie.
+\end{itemize}
+Die Masse eines Teilchens ist Lorentz-invariant und es gilt:
+\begin{align*}
+    E^2 - \vec{p}^2 c^2 = m^2 c^4
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{Relativistische Kraft}
+\begin{align*}
+    m \gamma \vec{v} &= \vec{F} - \frac{1}{c^2} (\vec{F} \cdot \vec{v}) \cdot \vec{v}
+    \\
+    m \gamma^3 \vec{a} &= (\vec{F} \cdot \hat{v}) \cdot \hat{v}
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{Vierer-Impuls}
+
+Energie-Impuls Vektor in $4$er-Koordinaten
+\begin{align*}
+    P^{\nu} = \begin{pmatrix}
+        \nicefrac{\Etot}{c} \\ p_1 \\ p_2 \\ p_3
+    \end{pmatrix} = \begin{pmatrix}
+        \Etot \\ \vec{p}
+    \end{pmatrix}
+\end{align*}
+\begin{tcolorbox}
+    Für einen Vierer-Vektor gilt allgemein:    
+    \begin{align*}
+        x^\mu = \begin{pmatrix}
+        x^0 \\ x^1 \\ x^2\\ x^3
+        \end{pmatrix} = \begin{pmatrix}
+        x^0 \\ \Vec{x}
+        \end{pmatrix}
+        \quad \quad \quad
+        x_\mu = \begin{pmatrix}
+        x_0 \\ x_1 \\ x_2\\ x_3
+        \end{pmatrix} = \begin{pmatrix}
+        x^0 \\ -x^1 \\ -x^2\\ -x^3
+        \end{pmatrix} = \begin{pmatrix}
+        x^0 \\ -\Vec{x}
+        \end{pmatrix}
+    \end{align*}    
+    Für das 4er-Skalarprodukt gilt    
+    \begin{equation*}
+        x^\mu y_\mu = \begin{pmatrix}
+        x^0 \\ x^1 \\ x^2\\ x^3
+        \end{pmatrix} \cdot \begin{pmatrix}
+        y^0 \\ -y^1 \\ -y^2\\ -y^3
+        \end{pmatrix} = x^0y^0 - \Vec{x}\cdot \Vec{y}
+    \end{equation*}
+    Wir nennen $x^{\mu}$ kontravariant und $x_{\mu}$ kovariant.
+\end{tcolorbox}

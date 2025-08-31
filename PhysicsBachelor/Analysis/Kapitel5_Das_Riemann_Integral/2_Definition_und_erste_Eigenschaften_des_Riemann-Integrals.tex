@@ -1,0 +1,127 @@
+\subsection{Definition und erste Eigenschaften des Riemann-Integrals}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: [a,b] \rightarrow \R$ eine Funktion. Dann definieren wir die Menge
+    der \fat{Untersummen} $\mathcal{U}(f)$ und \fat{Obersummen} $\mathcal{O}(f)$
+    von $f$ durch
+    \begin{align*}
+        \mathcal{F}(f) = \geschwungeneklammer{ \intab u dx \ | \ u \in \mathcal{T F} \text{ und } u \leq f}
+        \quad
+        \text{      }
+        \quad
+        \mathcal{O}(f) = \geschwungeneklammer{ \intab o dx \ | \ o \in \mathcal{T F} \text{ und } f \leq o}
+    \end{align*}
+    Falls $f$ beschränkt ist, so sind diese Mengen nicht leer. Für $u,o \in \mathcal{T F}$
+    mit $u \leq f \leq o$ gilt auch 
+    \begin{align*}
+        \intab u dx \leq \intab o dx
+    \end{align*}
+    und deshalb gilt $s \leq t$ für alle $s \in \mathcal{U}(F)$ und $t \in \mathcal{O}(f)$.
+    Falls $f$ beschränkt ist, gilt insbesondere die Ungleichung
+    \begin{align*}
+        \text{sup } \mathcal{U} (f) \leq \text{inf } \mathcal{O} (f)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine beschränkte Funktion $f: [a,b] \rightarrow \R$ heisst
+    \fat{Riemann-integrierbar}, falls sup $\mathcal{U}(f)$ $=$ inf $\mathcal{O}(f)$
+    gilt. In diesem Fall wird dieser gemeinsame Wert das \fat{Riemann-Integral}
+    von $f$ genannt, und wird wie folgt geschrieben.
+    \begin{align*}
+        \intab f dx = \text{sup } \mathcal{U}(f) = \text{inf } \mathcal{O}(f)
+    \end{align*} 
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $f: [a,b] \rightarrow \R$ beschränkt. Die Funktion $f$ ist Riemann-integrierbar
+    genau dann, wenn es zu jedem $\varepsilon > 0$ Treppenfunktionen $u$ und 
+    $o$ gibt, die folgendes erfüllen:
+    \begin{align*}
+        u \leq f \leq o 
+        \quad
+        \text{     und     }
+        \quad
+        \intab (o-u)dx < \varepsilon
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir schreiben $\mathcal{R}([a,b])$ oder einfach $\mathcal{R}$ falls
+    $[a,b]$ klar aus dem Kontext ist, für die Menge der Riemann-integrierbaren
+    Funktionen auf $[a,b]$.
+    \begin{align*}
+        \mathcal{R}([a,b]) = \geschwungeneklammer{ f \in \mathcal{F}([a,b]) \ | \ f \text{ ist Riemann-integrierbar}}
+    \end{align*}
+}
+
+\pagebreak
+
+\Bemerkung{
+
+    Treppenfunktionen sind integrierbar, es gilt also
+    $\mathcal{T F}([a,b]) \subseteq \mathcal{R}([a,b]) \subseteq \mathcal{F}([a,b])$
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Die Menge der Riemann-integrierbaren Funktionen $\mathcal{R}([a,b])$
+    bildet einen linearen Unterraum von $\mathcal{F}([a,b])$ und das
+    Integral ist eine lineare Funktion auf $\mathcal{R}([a,b])$. Das heisst,
+    für $f,g \in \mathcal{R}([a,b])$ und $\alpha, \beta \in \R$ ist
+    $\alpha f + \beta g$ integrierbar, mit Integral
+    \begin{align*}
+        \intab (\alpha f + \beta g) dx = \alpha \intab f dx + \beta \intab g dx
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $f: [a,b] \rightarrow \R$ und $g: [a,b] \rightarrow \R$ integrierbare
+    Funktionen. Falls $f \leq g$, so gilt auch $\intab f dx = \intab g dx$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f:[a,b] \rightarrow \R$ eine Funktion. Wir definieren Funktionen
+    $f^+ , f^-$ und $\abs{f}$ auf $[a,b]$ durch
+    \begin{align*}
+        f^+ (x) = \text{max} \geschwungeneklammer{0,f(x)},
+        \quad
+        f^- (x) = -\text{min} \geschwungeneklammer{0,f(x)},
+        \quad
+        \abs{f}(x) = \abs{f(x)}
+    \end{align*}
+    für $x \in [a,b]$. Die Funktion $f^+$ ist der \fat{Positivteil},
+    $f^-$ ist der \fat{Negativteil} und $\abs{f}$ ist der \fat{Absolutbetrag}
+    der Funktion $f$. Es gilt $f = f^+ + f^-$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $f: [a,b] \rightarrow \R$ eine integrierbare Funktion. Dann sind auch
+    $f^+ , f^-$ und $\abs{f}$ integrierbar, und es gilt
+    \begin{align*}
+        \abs{\intab f dx} \leq \intab \abs{f} dx
+    \end{align*}
+}

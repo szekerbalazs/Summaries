@@ -1,0 +1,576 @@
+\section{Symmetrien in der Quantenmechanik}
+
+\subsection{Unitäre Darstellungen}
+
+Eine unitäre Darstellung einer Gruppe $G$ auf dem Hilbertraum $\H$ ist ein
+(Gruppen-) Homomorphismus von $G$ auf die Gruppe der unitären Operatoren auf $\H$.
+D.h. $\forall g \in G$ haben wir einen unitären Operator $U(g)$, s.d.
+\begin{align*}
+    U(g_1) \cdot U(g_2) = U(g_1 \cdot g_2)
+\end{align*}
+wobei der unitäre Operator $U(g): \H \rightarrow \H$ eine lineare Abbildung ist,
+die das Skalarprodukt erhält: $\left\langle U(g) \psi | U(g) \chi \right\rangle
+= \left\langle \psi | \chi \right\rangle \ \forall \psi,\chi \in \H$ und $g \in G$.
+Es folgt: $U(g)^\dagger = U(g)^{-1} = U(g^{-1})$.
+
+\vspace{1\baselineskip}
+
+Jede Gruppe besitzt die triviale Darstellung: $U(g) = \mathds{1} \ \forall g \in G$.
+Wir betrachten die Darstellung der Rotationsgruppe auf dem Raum der Wellenfunktionen
+$L^2(\R^3)$. Die Gruppe der Rotationen im $\R^3$ ist die spezielle orthogonale
+Gruppe $SO(3)$ ($\forall R \in SO(3): \ R^T R = \mathds{1}$ und $\det(R) = 1$).
+Eine unitäre Darstellung auf $L^2(\R^3)$ ist dann definiert durch
+\begin{align*}
+    (U(R) \psi)(\vec{x}) = \psi (R^{-1} x)
+\end{align*}
+Wir betrachten die Untergruppe von $O(3)$ welche nur $\pm \mathds{1}$ enthält.
+Diese Gruppe wird durch den Paritätsoperator $\mathcal{P}$ erzeugt, der zu der
+orthogonalen Transformation $-\mathds{1}$ gehört. Da $\mathcal{P}^2 = 1$, folgt
+dass die EW des Paritätsoperators gerade $\pm 1$ sind. Die EV erfüllen:
+\begin{align*}
+    \psi(-\vec{x}) = \klammer{\mathcal{P} \psi} (\vec{x}) = \pm \psi(\vec{x})
+\end{align*}
+D.h. sie entsprechen gerade den geraden, bzw. ungeraden Funktionen. In vielen
+Fällen ist der Hamiltonoperator $H$ eine gerade Fkt. von $x$. D.h. die beiden
+Operatoren $H$ und $\mathcal{P}$ vertauschen miteinander. Somit lassen sich gemeinsame
+Eigenfunktionen zu $H$ und $\mathcal{P}$ finden.
+
+\subsection{Die Drehgruppe $SO(3)$ und ihre Lie Algebra.}
+
+Kontinuierliche Gruppen werden statt Gruppentransformationen durch infinitesimale
+Transformationen betrachtet. Eine kontinuierliche Gruppe ist eine Lie-Gruppe; die
+infinitesimalen Transformationen einer Lie Gruppe bilden eine Lie Algebra. Sei
+$R(t)$ eine differenzierbare Kurve von Rotationen in $SO(3)$ durch $R(0) = \mathds{1}$.
+Die infinitesimale Rotation is dann:
+\begin{align*}
+    \Omega = \frac{d}{dt} \Big|_{t=0} R(t)
+\end{align*}
+Die Menge dieser infinitesimalen Rotationen bilden einen (reellen) VR, da
+für $\alpha_i \in \R$
+\begin{align*}
+    \alpha_1 \Omega_1 + \alpha_2 \Omega_2 =
+    \frac{d}{dt} \Big|_{t=0} R_1 (\alpha_1 t) R_2 (\alpha_2 t)
+\end{align*}
+Dieser VR ist der Lie Algebra zugrunde liegende VR, und wird mit $\so(3)$
+bezeichnet. Er bildet auch eine Darstellung der Lie Gruppe, da $\forall R \in SO(3)$
+\begin{align*}
+    R \Omega_1 R^{-1} = \frac{d}{dt} \Big|_{t=0} R R_1 (t) R^{-1}
+    \hspace{5pt} \in \so(3)
+\end{align*}
+Da die Lie Algebra $\so(3)$ ein VR ist, folgt:
+\begin{align*}
+    \eckigeklammer{\Omega_1,\Omega_2} = \frac{d}{dt} \Big|_{t=0}
+    R_1 (t) \Omega_2 R_1 (t)^{-1}
+    \hspace{5pt} \in \so(3)
+\end{align*}
+Die Lie Algebra $\so(3)$ ist somit nicht nur ein VR, sondern trägt eine Struktur,
+nämlich die Lie-Klammer $\eckigeklammer{\cdot,\cdot}$. Für die Matrix-Gruppe gilt:
+\begin{align*}
+    \eckigeklammer{\Omega_1,\Omega_2} = \Omega_1 \Omega_2 - \Omega_2 \Omega_1
+\end{align*}
+Die Lie-Klammer beschreibt also einfach den Kommutator, welcher anti-symmetrisch
+ist und die Jacobi Identität erfüllt:
+\begin{align*}
+    &\eckigeklammer{\Omega_1,\Omega_2} = - \eckigeklammer{\Omega_2,\Omega_1}
+    \\
+    &0 =
+    \eckigeklammer{\Omega_1,\eckigeklammer{\Omega_2,\Omega_3}} +
+    \eckigeklammer{\Omega_2,\eckigeklammer{\Omega_3,\Omega_1}} +
+    \eckigeklammer{\Omega_3,\eckigeklammer{\Omega_1,\Omega_2}}
+\end{align*}
+Für den Fall $R(t) \in SO(3)$ ist $R(t)^T R(t) = \mathds{1}$ und es folgt
+\begin{align*}
+    \Omega^T + \Omega = 0
+\end{align*}
+Somit besteht die Lie Algebra $\so(3)$ aus den anti-symmetrischen reellen
+$3 \times 3$ Matrizen. Jede solche Matrix ist von der Form
+\begin{align*}
+    \Omega(\vec{\omega}) = \begin{pmatrix}
+        0 & -\omega_3 & \omega_2 \\
+        \omega_3 & 0 & -\omega_1 \\
+        -\omega_2 & \omega_1 & 0
+    \end{pmatrix}
+\end{align*}
+D.h. $\Omega(\vec{\omega}) \vec{x} = \vec{\omega} \wedge \vec{x}$. Somit
+ist $\dim_{R} \so(3) = 3$. Bezeichne mit $\Omega_i := \Omega(\vec{e}_i)$.
+Für $\vec{\omega} = \omega \vec{e}$ mit $\abs{\vec{e}}=1$
+ist $e^{\Omega(\vec{\omega}) t} = R(e,\omega t)$ gerade die Drehung um die Achse
+$\vec{e}$ um den Winkel $\omega t$. Es folgt:
+\begin{align*}
+    R \Omega(\vec{\omega}) R^{-1} = \Omega(R \vec{\omega})
+    \hspace{10pt}
+    R \in SO(3)
+\end{align*}
+Weiter folgt:
+\begin{align*}
+    \eckigeklammer{\Omega(\omega_1),\Omega(\vec{\omega_2})} =
+    \Omega(\vec{\omega}_1 \wedge \vec{\omega}_2)
+    \hspace{10pt} , \hspace{10pt}
+    \eckigeklammer{\Omega_1,\Omega_2} = \Omega_3 \hspace{5pt}
+    \text{(und zyklisch)}
+\end{align*}
+Sei $U(R)$ eine unitäre Darstellung von $SO(3)$ auf einem Hilbertraum $\H$, dann
+erhält man daraus auch eine Darstellung der Lie Algebra $\so(3)$
+\begin{align*}
+    U(\Omega) = \frac{d}{dt} \Big|_{t=0} U(R(t))
+\end{align*}
+Diese Darstellung von $\so(3)$ ist auch ein VR-Homomorphismus von $\so(3)$ in den
+VR der Operatoren $\H$ die die Lie Algebra Klammer erhält:
+\begin{align*}
+    U(\eckigeklammer{\Omega_1,\Omega_2}) = \eckigeklammer{U(\Omega_1),U(\Omega_2)}
+\end{align*}
+Die Bedingung dass $U(R)$ unitär ist impliziert $U(\Omega)^\dagger = - U(\Omega)$.
+Falls dies erfüllt ist, nennen wir eine Darstellung der Lie Algebra unitär. 
+
+\vspace{1\baselineskip}
+
+Für jedes $\omega \in \R^3$ definieren wir den selbstadjungierten Drehumpulsoperator
+\begin{align*}
+    M(\vec{\omega}) := i \Omega(\omega) = \sum_{i=1}^3 M_i \omega_i
+\end{align*}
+wobei $M_i = M(e_i)$. Weiter gilt: $\eckigeklammer{M_1,M_2} = i M_3$
+
+\vspace{1\baselineskip}
+
+Die unitäre Darstellung der Lie Gruppe $SO(3)$ ist eindeutig durch die Darstellung
+ihrer Lie Algebra $\so(3)$ bestimmt. Man kann die Lie Gruppe durch 'Exponenzieren'
+aus der Lie Algebra rekonstruieren ($\exp : \so(3) \rightarrow SO(3)$, $\Omega
+\mapsto e^\Omega$). Weiterhin ist $\Omega$ gerade das Lie Algebra Element, das
+zu der Kurve $R(t) = e^{t \Omega}$ assoziiert ist. Die Produktstruktur der Lie
+Gruppe kann auch rekonstruiert werden:
+\begin{align*}
+    \exp(\Omega_1) \cdot \exp(\Omega_2) = \exp \klammer{\Omega_1 \star \Omega_2}
+\end{align*}
+Wobei $\Omega_1 \star \Omega_2$ durch die CBH Formel berechnet werden kann:
+\begin{align*}
+    \Omega_1 \star \Omega_2 = \Omega_1 &+ \Omega_2 + \frac{1}{2} \klammer{\Omega_1,\Omega_2}
+    + \frac{1}{12} \eckigeklammer{\Omega_1,\eckigeklammer{\Omega_1,\Omega_2}}
+    \\
+    &+ \frac{1}{12} \eckigeklammer{\Omega_2,\eckigeklammer{\Omega_2,\Omega_1}}
+    + \dotsb
+\end{align*}
+
+\subsection{Reduzible und irreduzible Darstellungen}
+
+Sei $\H$ ein Hilbertraum, auf dem eine unitäre Darstellung der Gruppe $G$
+definiert ist. (D.h. $\forall g \in G$ $U(g) \in V$ wobei $V \subseteq \H$).
+Wir nennen diese Darstellung reduzibel falls eine nicht triviale Unterdaratellung
+$V$ existiert und irreduzibel falls die einzigen Unterräume $V \subseteq \H$,
+die unter der Wirkung von $U(g)$ $\forall g \in G$ auf sich selbst abgebildet
+werden, $U(g) V \subseteq V$, einfach $V = \geschwungeneklammer{0}$ und $V = \H$
+sind. Für unitäre Darstellungen kann man jede reduzible Darstellung in
+irreduzible Darstellungen zerlegen. Falls die Darstellung unitär ist, kann die
+reduzible Darstellung geschrieben werden als direkte Summe:
+\begin{align*}
+    \exists V^\perp : \ V \oplus V^\perp = \H
+    \hspace{10pt} , \hspace{10pt}
+    V^\perp = \geschwungeneklammer{\psi \in \H \ | \ \scalprod{\chi}{\psi} = 0 \ \forall \chi \in V}
+\end{align*}
+Wegen Linearität des Skalarproduktes ist auch $V^\perp$ ein Unterraum von $\H$.
+Die Unitarität von $U$ impliziert, dass $V^\perp$ invariant ist unter der
+Wirkung von $G$. Mit diesem Verfahren können wir also die Darstellung $\H$ in
+kleinere Unterdarstellungen zerlegen. Jede reduzible unitäre Darstellung kann als
+Summe von irreduziblen Darstellungen geschrieben werden.
+
+\subsection{Irreduzible Darstellungen von $\so(3)$}
+
+Die Lie Algebra von $SO(3)$ wird durch die Generatoren $M_i, \ i = 1,2,3$
+aufgespannt, wobei die Kommutatoren durch
+\begin{align*}
+    \eckigeklammer{M_1,M_2} = i M_3
+    \hspace{10pt} \text{(und zyklisch)}
+\end{align*}
+gegeben sind. Wir definieren nun Auf- und Absteigeoperatoren
+\begin{align*}
+    M_{\pm} = M_1 \pm i M_2
+\end{align*}
+Es folgt:
+\begin{align*}
+    \eckigeklammer{M_3 , M_{\pm}} = \pm M_\pm
+    \hspace{10pt} , \hspace{10pt}
+    \eckigeklammer{M_+ , M_-} = 2 M_3
+\end{align*}
+Sei $\psi$ ein EV von $U(M_3) = M_3$ (wir unterscheiden im Folgenden nicht
+zwischen $U(M_i)$, der Wirkung von $M_i$ in der Darstellung, und $M_i$
+selbst)
+\begin{align*}
+    M_3 \psi = z \psi \ \ \ , \ z \in \C
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    M_3 M_{\pm} \psi = (z \pm 1) M_{\pm} \psi
+\end{align*}
+
+Da $\dim (\H) < \infty$, existiert ein EW $j \in \C$ mit EV $\psi_j$, derart dass
+\begin{align*}
+    M_3 \psi_j = j \psi_j
+    \hspace{10pt} , \hspace{10pt}
+    M_+ \psi_j = 0
+\end{align*}
+Wir setzten induktiv
+\begin{align*}
+    M_- \psi_m =: \psi_{m-1}
+    \hspace{10pt} \text{für } m = j,j-1,\dots
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    M_3 \psi_m = m \psi_m
+\end{align*}
+Da auch diese Folge abbrechen muss $\exists k \in \N$, s.d.
+\begin{align*}
+    \psi_{j-k} \neq 0
+    \hspace{10pt} , \hspace{10pt}
+    M_- \psi_{j-k} = 0
+\end{align*}
+Aus
+\begin{align*}
+    M_+ \psi_m &= \mu_0 \psi_{m+1}
+    \\
+    \Rightarrow \
+    M_+ \psi_{m-1} &= (2m+\mu_m) \psi_m
+    \equiv \mu_{m-1} \psi_m
+\end{align*}
+folgt
+\begin{align*}
+    \mu_m = (j-m)(j+m+1)
+    \hspace{10pt} , \hspace{10pt}
+    j = 0 , \frac{1}{2} , 1 , \frac{3}{2}
+\end{align*}
+Jede irreduzible Darstellung entspricht damit ein solches $j$. Aus folgender
+Zusammenfassung folgt, dass die $M_3,M_{\pm}$ eine Darstellung $\D_j$ der $\so(3)$
+liefern.
+\begin{align*}
+    M_3 \psi_m = m \psi_m
+    \hspace{10pt} , \hspace{10pt}
+    M_+ \psi_m = \mu_m \psi_{m+1}
+    \hspace{10pt} , \hspace{10pt}
+    M_- \psi_m = \psi_{m-1}
+\end{align*}
+Die Darstellung kann auch durch den Wert des Casimiroperators charakterisiert
+werden.
+\begin{align*}
+    C = \vec{M}^2 &= M_1^2 + M_2^2 + M_3^2
+    = M_3^2 + \frac{1}{2} \klammer{M_+ M_- + M_- M_+}
+    \\
+    \eckigeklammer{M_i,C} &= 0 \ \forall M_i \so(3)
+    \\
+    \vec{M}^2 \psi_j &= j(j+1) \psi_j
+    \hspace{10pt} , \hspace{10pt} C \psi = j(j+1) \psi \ \forall \psi \in \D_j
+\end{align*}
+Letzteres gilt weil $C$ mit allen $M_i$ vertauscht. Da dies auch für $\psi_{j-k}$
+gelten muss, folgt:
+\begin{align*}
+    j(j+1) = (j-k)(j-k-1)
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    k = -1 \text{ oder } k = 2j
+\end{align*}
+Die erste Lösung macht keinen Sinn da $k$ positiv sein muss. Aus der zweiten
+Lösung erhalten wir wieder $j = \frac{k}{2}$ für $k \in \N$. Es gilt
+$\dim(\D_j) = 2j+1$, $M_i = M_i^\dagger$ und $M_\pm^\dagger = M_{\mp}$.
+So ist eine ONB von $D_j$ gegeben durch
+\begin{align*}
+    \geschwungeneklammer{|j,m \rangle}_{m=-j}^j
+    \hspace{10pt} , \hspace{10pt}
+    |j,j \rangle := \frac{\psi_j}{\Norm{\psi_j}}
+    \hspace{10pt} , \hspace{10pt}
+    \sqrt{\mu_m} |j,m \rangle := M_- |j,m+1 \rangle
+\end{align*}
+Es folgt:
+\begin{align*}
+    C |j,m \rangle &= \vec{M}^2 |j,m \rangle = j(j+1) |j,m \rangle
+    \hspace{10pt} , \hspace{10pt}
+    M_3 | j,m \rangle = m |j,m \rangle
+    \\
+    M_{\pm} | j,m \rangle &= \sqrt{j(j+1) - m(m \pm 1)} | j,m \pm 1 \rangle
+\end{align*}
+Die triviale Darstellung entspricht $\D_0$. Die fundamentale Darstellung
+$U(R) = R$, $U(\Omega) = \Omega$ ist auf $\H = \R^3$ definiert. Sie ist
+irreduzibel und hat Dimension 3, und somit ist sie isomorph zu $\D_1$.
+Selbiges gilt für die adjungierte Darstellung auf $\H = \so(3)$ welche definiert
+ist durch
+\begin{align*}
+    U(R) \Omega = R \Omega R^{-1}
+    \hspace{10pt} \text{bzw.} \hspace{10pt}
+    U(\Omega_1) \Omega_2 = \eckigeklammer{\Omega_1,\Omega_2}
+\end{align*}
+Eine andere Klasse von Darstellungen sind Unterräume der Fkt. auf der Kugel,
+die durch die Kugelfunktionen erzeugt werden. Auf dem VR dieser Fkt. wirkt
+die Drehgruppe in Kugelkoordinaten wie folgt:
+\begin{align*}
+    M_3 = -i \frac{\partial}{\partial \phi}
+    \hspace{10pt} , \hspace{10pt}
+    M_\pm = e^{\pm i \phi} \klammer{\pm \frac{\partial}{\partial \theta} + i \cot(\theta) \frac{\partial}{\partial \phi}}
+\end{align*}
+Um die invarianten UR zu beschreiben führen wir die Kugelfkt.
+\begin{align*}
+    Y_{l,m} (\theta,\phi) = \sqrt{\frac{2l+1}{4 \pi} \frac{(l-m)!}{(l+m)!}} P_l^m (\cos(\theta)) e^{i m \phi}
+\end{align*}
+ein, wobei $m=-l,\dots,l$. $P_l^m$ sind die assoziierten Legendre-Fkt., die die
+folgende verallgemeinerte Legendre-Gleichung lösen.
+\begin{align*}
+    \frac{d}{dz} \eckigeklammer{(1-z^2) \frac{d P(z)}{dz}} +
+    \eckigeklammer{l(l+1) - \frac{m^2}{1-z^2}} P(z) = 0
+\end{align*}
+Die Explizite Lösung ist:
+\begin{align*}
+    P_l^m (z) = \frac{(-1)^m}{2^l l!} (1-z^2)^{m/2} \frac{d^{l+m}}{dz^{l+m}} (z^2 -1)^l
+\end{align*}
+Man sieht nun:
+\begin{align*}
+    M_3 Y_{l,m} = m Y_{l,m}
+    \hspace{10pt} , \hspace{10pt}
+    M_\pm Y_{l,m} = C_{l,m,\pm} Y_{l,m \pm 1}
+\end{align*}
+wobei $C_{l,m,\pm}$ eine Konstante ist. Wir sehen dass die Kugelfunktionen
+$\geschwungeneklammer{Y_{l,m} \ | \ m = -l,\dots,l}$
+eine irreduzible Darstellung der Lie Gruppe $SO(3)$ definieren.
+Sie stimmt gerade mit $D_j$ überein.
+$D_j \cong \geschwungeneklammer{Y_{l,m} \ | \ m = -l,\dots,l}$
+
+
+\subsection{SO(3) vs. SU(2)}
+
+Die Kugelfkt. beschreiben alle Darstellungen von $\so(3)$, für die $j \in \N$.
+Die übrigen Darstellungen von $\so(3)$, also jene für $j \in \N + \frac{1}{2}$,
+führen nicht zu Darstellungen von $SO(3)$ sondern ihrer Überlagerungsgruppe
+$SU(2)$.
+\begin{align*}
+    SU(2) &= \geschwungeneklammer{A \in U(2) \ | \ \det(A) = 1}
+    \\
+    &= \geschwungeneklammer{g = \begin{pmatrix}
+        a & b \\ -\overline{b} & \overline{a}
+    \end{pmatrix} \ \Big| \ \abs{a}^2 + \abs{b}^2 = 1}
+    \\
+    \su(2) &= \geschwungeneklammer{A \in \Mat(2,\C) \ | \ A + A^\dagger = 0 \ , \ \tr(A) = 0}
+\end{align*}
+Eine Basis von $\su(2)$ ist gegeben durch die Pauli Matrizen
+\begin{align*}
+    \sigma_1 = \begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \sigma_2 = \begin{pmatrix}
+        0 & -i \\ i & 0
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \sigma_3 = \begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}
+\end{align*}
+Jedes $A \in \su(2)$ kann geschrieben werden als
+\begin{align*}
+    A \equiv A(\vec{a}) = -\frac{i}{2} \begin{pmatrix}
+        a_3 & a_1 - i a_2 \\ a_1 + i a_2 & -a_3
+    \end{pmatrix}
+    \equiv - \frac{i}{2} \vec{\sigma} \cdot \vec{a}
+\end{align*}
+Somit hat $\su(2)$ eine (reelle) 3 dim. Basis
+\begin{align*}
+    A_j = -\frac{i}{2} \sigma_j
+    \hspace{10pt} j=1,2,3
+\end{align*}
+Es gelten die folgenden Eigenschaften für die Pauli Matrizen:
+\begin{align*}
+    \sigma_i \sigma_j = \delta_{ij} + i \epsilon_{ijk} \sigma_k
+    \hspace{10pt} &, \hspace{10pt}
+    \klammer{\vec{\sigma} \cdot \vec{a}} \klammer{\vec{\sigma} \cdot \vec{b}}
+    = \klammer{\vec{a} \cdot \vec{b}} \mathds{1} + i \vec{\sigma} \cdot \klammer{\vec{a} \wedge \vec{b}}
+    \\
+    \eckigeklammer{A(\vec{a}) , A(\vec{b})} = A(\vec{a} \wedge \vec{b})
+    \hspace{10pt} &, \hspace{10pt}
+    [A_1 , A_2] = A_3 \hspace{5pt} \text{(und zyklisch)}
+\end{align*}
+Die Lie Algebren $\so(3)$ und $\su(2)$ sind also isomorph, wobei der Isomorphismus
+gegeben ist durch
+\begin{align*}
+    \su(2) \rightarrow \so(3)
+    \hspace{5pt} , \hspace{5pt}
+    A(\vec{\omega}) \mapsto \Omega(\vec{\omega})
+\end{align*}
+Die irreduziblen Darstellungen der $\su(2)$ sind damit die $D_j$.
+
+Wir definieren für jeden Vektor $\vec{x} \in \R^3$ die Matrix
+\begin{align*}
+    \tilde{x} = \vec{x} \cdot \vec{\sigma} = \begin{pmatrix}
+        x_3 & x_1 - i x_2 \\ x_1 + i x_2 & -x_3
+    \end{pmatrix}
+\end{align*}
+Diese Abbildung ist invertierbar da $x_j = \frac{1}{2} \tr(\tilde{x} \cdot \sigma_j)$.
+Falls $\vec{x}$ ein reeller Vektor ist, dann ist $\tilde{x}$ eine hermitesche Matrix.
+Die Umkehrung gilt auch. Es gilt
+\begin{align*}
+    \det(\tilde{x}) = - \vec{x} \cdot \vec{x}
+\end{align*}
+Für jedes Element $A \in SU(2)$ betrachten wir die folgende Abbildung:
+\begin{align*}
+    \tilde{x} \mapsto \tilde{x}' = A \tilde{x} A^\dagger
+\end{align*}
+Dies ist eine lineare Abbildung. Sie definiert eine Drehung und nach
+Konstruktion einen Gruppenhomomorphismus
+\begin{align*}
+    SU(2) \rightarrow SO(3)
+\end{align*}
+Der Kern dieser Transformation ist gerade $\pm \mathds{1} \in SU(2)$.
+Da der Homomorphismus surjektiv ist, folgt
+\begin{align*}
+    SU(2) / \geschwungeneklammer{\pm \mathds{1}} \cong SO(3)
+\end{align*}
+Zu jedem Element in $SO(3)$ gibt es also zwei Elemente in der Überlagerungsgruppe
+$SU(2)$, die sich gerade um ein Vorzeichen unterscheidet. Jede Darstellung von
+$SO(3)$ definiert eine Darstellung von $SU(2)$ (indem man nämlich die Wirkung
+von $\pm \mathds{1} \in SU(2)$ trivial definiert), aber die Umkehrung ist nicht
+richtig: eine Darstellung von $SU(2)$ ist nur dann eine Darstellung von $SO(3)$,
+falls $\pm \mathds{1} \in SU(2)$ trivial wirkt.
+
+Im Allgemeinen gilt in $SO(3)$
+\begin{align*}
+    R(\vec{e}_3 , \varphi) =
+    \begin{pmatrix}
+        \cos(\varphi) & -\sin(\varphi) & 0 \\
+        \sin(\varphi) & \cos(\varphi) & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    = \exp \eckigeklammer{\varphi \begin{pmatrix}
+        0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0
+    \end{pmatrix}} = e^{-i M_3 \varphi}
+\end{align*}
+Insbesondere gilt für jeden Darstellungsvektor $|j,m\rangle$
+\begin{align*}
+    U(R(\vec{e}_3 , 2 \pi)) |j,m\rangle = e^{-2 \pi i M_3} |j,m\rangle
+    = e^{-2\pi i m} |j,m\rangle = e^{-2 \pi i j} |j,m\rangle
+\end{align*}
+da $m=j-n$ für $n \in \N$. Wir sehen dass die Rotation um $2 \pi$ nur für
+ganzzahlige $j$ trivial dargestellt wird. Diese Darstellungen werden durch die
+Kugelfunktionen realisiert und sind somit tatsächlich alle Darstellungen von $SO(3)$.
+Falls $j \in \N + \frac{1}{2}$ dann wird die Rotation um $2 \pi$ nicht trivial
+dargestellt: diese Darstellungen der Lie Algebra $\su(2) \equiv \so(3)$ definieren
+nur Darstellungen von $SU(2)$, aber nicht von $SO(3)$. Wir finden somit nicht auf
+den Raum der Kugelfunktionen.
+
+
+\subsection{Projektive Darstellungen}
+
+Bis jetzt haben wir nur unitäre Darstellungen der Symmetriegruppe studiert.
+Es gibt aber eine mögliche Abschwächung. Wir wissen, dass ein physikalischer
+Zustand nicht durch einen Vektor im Hilbertraum beschrieben wird, sondern lediglich
+durch einen Strahl. Alle Relationen auf dem Hilbertraum müssen deshalb nur bis auf
+Phasen richtig sein. Es genügt also wenn die Symmetriegruppe projektiv dargestellt
+wird, d.h. falls gilt
+\begin{align*}
+    U(g_1) U(g_2) = c(g_1,g_2)U(g_1 g_2)
+\end{align*}
+wobei $c(g_1 , g_2)$ eine Phase ist. Wegen der Assoziativität gilt die
+Kozyklenbedingung
+\begin{align*}
+    c(g_1 , g_2 g_3) c(g_2 , g_3) = c(g_1 g_2 , g_3) c(g_1 , g_2)
+\end{align*}
+Sei $U(g)$ eine echte Darstellung von $g$, dann definiere
+\begin{align*}
+    \hat{U}(g) = U(g) c(g)
+\end{align*}
+wobei $c(g) \ \forall g \in G$ eine Phase ist. $\hat{U} (g)$ definiert eine
+projektive Darstellung, wobei
+\begin{align*}
+    c(g,h) = \frac{c(g) c(h)}{c(g h)}
+\end{align*}
+Die projektiven Darstellungen einer Lie Gruppe $G$ stehen in eins zu eins
+Korrespondenz zu den echten Darstellungen der universellen Überlagerungsgruppe
+$\tilde{G}$ von $G$. Die Darstellungen von $SU(2)$ werden durch $\D_j$ parametrisiert.
+Falls $j \in \N$, definiert diese Darstellung tatsächlich eine echte Darstellung von
+$SO(3)$; andernfalls ist die Darstellung lediglich eine projektive Darstellung
+von $SO(3)$.
+
+\subsection{Der Spin des Elektrons}
+
+Die Möglichkeit dass $j \in \N + \frac{1}{2}$, wird vom Elektron realisiert.
+Evidenz dafür ist, dass der Eigenraum eines rotationssymmetrischen Hamiltonoperators
+es ebenfalls ist une es somit die projektive Darstellung der $SO(3)$ trägt.
+Die Vielfachheit (Entartung) des Eigenwertes ist $2j+1$; sie wird durch eine nicht
+rotationsinvariante Störung des Hamiltonoperators, wie z.B. infolge eines äusseren
+Magnetfeldes $\vec{B}$, aufgehoben.
+Um die Entartung zu erklären, führt man einen zusätzlichen Freiheitsgrad ein: den
+Spin. Der Hilbertraum eines einzelnen Elektrons ist dann
+\begin{align*}
+    \H = L^2 (\R^3) \otimes \C^2
+\end{align*}
+Auf diesem Raum wirkt $V \in SU(2)$ gemäss
+\begin{align*}
+    U(V) = U_0 (R(V)) \otimes V
+\end{align*}
+wobei $U_0(R)$ die Darstellung von $R \in SO(3)$ auf $L^2(\R^3)$ ist. Für den Fall
+des Elektrons transformiert sich der interne Freiheitsgrad also in der Darstellung
+$F_{\frac{1}{2}}$. In dieser Darstellung $\D_{1/2}$ ist $M_j = i U(A_j)$ gegeben
+durch
+\begin{align*}
+    M_j = \frac{\sigma_j}{2}
+\end{align*}
+Damit ist
+\begin{align*}
+    M_+ = \begin{pmatrix}
+        0 & 1 \\ 0 & 0
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    M_- = \begin{pmatrix}
+        0 & 0 \\ 1 & 0
+    \end{pmatrix}
+\end{align*}
+und die Basis ist gerade gegeben durch die Standardbasis für $\C^2$
+\begin{align*}
+    | \frac{1}{2} \rangle = \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix} \equiv | e_3 \rangle
+    \hspace{10pt} , \hspace{10pt}
+    | \frac{1}{2} \rangle = \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \equiv |-e_3 \rangle
+\end{align*}
+Spin nach oben, bzw. unten bzgl der Quantisierungsrichtung $e_3$. Eigenbasen für
+$M_1$ bzw. $M_2$ sind
+\begin{align*}
+    &M_1 : \hspace{5pt} |e_1\rangle = \frac{e^{-i \pi /4}}{\sqrt{2}} \begin{pmatrix}
+        1 \\ 1
+    \end{pmatrix} \hspace{10pt} , \hspace{10pt}
+    |-e_1 \rangle = \frac{e^{i \pi /4}}{\sqrt{2}} \begin{pmatrix}
+        -1 \\ 1
+    \end{pmatrix}
+    \\
+    &M_2 : \hspace{5pt} |e_2\rangle = \frac{e^{i \pi / 4}}{\sqrt{2}} \begin{pmatrix}
+        1 \\ i
+    \end{pmatrix} \hspace{10pt} , \hspace{10pt}
+    |-e_2\rangle = \frac{e^{-i \pi /4}}{\sqrt{2}} \begin{pmatrix}
+        i \\ 1
+    \end{pmatrix}
+\end{align*}
+
+\subsection{Wigners Theorem}
+
+Wir haben gesehen, dass es genügt dass Darstellung der Symmetriegruppe projektiv ist.
+Im Allgemeinen genügt es, wenn die Symmetrie durch anti-unitäre Operatoren $U(g)$
+dargestellt wird. Ein anti-unitärer Operator had die Eigenschaft, dass
+\begin{align*}
+    \left\langle U(g) \phi | U(g) \psi \right\rangle =
+    \overline{\left\langle \phi | \right\rangle}
+    = \left\langle \psi | \phi \right\rangle
+\end{align*}
+Das Wignersche Theorem besagt: 
+\begin{theorem}[Wigners Theorem]
+    Sei $G$ eine Gruppe die auf den Zuständen des
+    Hilbertraumes $\H$ so wirkt, dass die Wsk
+    $\frac{\abs{\left\langle \phi | \psi \right\rangle}^2}{\left\langle \phi | \phi \right\rangle \left\langle \psi | \psi \right\rangle}$
+    erhalten bleibt. Dann kann man die Wirkung von $g \in G$ als $\psi \mapsto U(g) \psi$
+    schreiben, wobei jedes $U(g)$ ein unitärer oder anti-unitärer Operator ist, und
+    \begin{align*}
+        U(g h) = c(g,h) U(g) U(h)
+    \end{align*}
+    gilt, wobei $c(g,h)$ die Kozyklenphasen sind.
+\end{theorem}
+
+Ein Beispiel von Symmetrien, die durch anti-unitäre Operatoren dargestellt wird,
+ist die Zeitumkehr. Wir definieren die Wirkung des Zeitumkehroperators $\T$ auf
+den Wellenfunktionen durch
+\begin{align*}
+    \klammer{\T \Psi} (t,\vec{x}) = \overline{\Psi} (-t,\vec{x})
+\end{align*}
+Die meisten Symmetrien werden aber durch unitäre Operatoren dargestellt.
+Es gilt:
+\begin{lemma}[Weyl'sches Lemma]
+    Der Operator $U(g^2)$ ist immer unitär $\forall g \in G$.
+\end{lemma}
+Aus diesem Resultat folgt, dass jede Rotation durch unitäre Operatoren dargestellt
+werden muss.

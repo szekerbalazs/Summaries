@@ -1,0 +1,103 @@
+\subsection{Topologische Vektorräume}
+
+\vspace{1\baselineskip}
+
+In diesem Kapitel bezeichnen wir mit $\K$ den Körper der reellen Zahlen, oder den
+Körper der komplexen Zahlen.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein \fat{topologischer Vektorraum} über $\K$ ist ein Vektorraum $V$ über $\K$
+    zusammen mit der Hausdorff'schen Topologie $\tau$ auf $V$, derart, dass die
+    Abbildungen
+    \begin{align*}
+        m: \K \times V \rightarrow V
+        \quad \quad \text{   und   } \quad \quad
+        s: V \times V \rightarrow V
+    \end{align*}
+    gegeben durch $m(a,v) = av$ und $s(v,w) = v+w$ stetig sind, bzgl. der
+    Produkttopologie auf $\K \times V$ bzw. auf $V \times V$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $V$ ein normierter $\K$-Vektorraum, versehen mit der Topologie die durch die
+    Metrik $d(v,w) = \Norm{v-w}$ induziert wird. Dann sind die obigen Abbildungen
+    stetig, und $V$ wird mit dieser Topologie zu einem topologischen Vektorraum.
+}
+
+\pagebreak
+
+\Proposition{
+
+    Sei $K$ ein kompakter metrischer Raum, und es bezeichne $\zweiNorm$ die
+    euklidische Norm auf $\R^d$. Dann definiert
+    \begin{align*}
+        \Norm{f}_{\infty} = \sup \geschwungeneklammer{\Norm{f(x)}_{2} \ | \ x \in K}
+    \end{align*}
+    eine Norm auf $C(K,\R^d)$ und $C(K,\R^d)$ ist bezüglich dieser Norm vollständig.
+    Eine Folge $\fFolge$ in $C(K,\R^d)$ konvergiert bezüglich der Norm $\standardNorm_{\infty}$
+    gegen $f \in C(K,\R^d)$ genau dann, wenn $\fFolge$ gleichmässig gegen $f$ konvergiert,
+    das heisst, wenn es zu jedem $\epsilon>0$ ein \NinN gibt, so dass für alle \ninN
+    mit $n \geq N$ und alle $x \in K$ die Abschätzung $\Norm{f_n (x) - f(x)}_2 < \epsilon$
+    gilt. Die Norm $\standardNorm_{\infty}$ wird \fat{Supremumsnorm} genannt. Die
+    davon induzierte Topologie auf $C(K)$ heisst \fat{Topologie der gleichmässigen
+    Konvergenz}.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D$ eine Menge, und sei $V$ ein Unterraum des Vektorraums aller $\R^d$-wertigen
+    Funktionen auf $D$. Die \fat{Topologie der punktweisen Konvergenz} ist die
+    Topologie auf $V$, deren offene Mengen $U \subseteq V$ wie folgt charakterisiert
+    sind: Für jedes $f \in U$ existiert eine endliche Teilmenge $T \subseteq D$ und
+    $\epsilon > 0$, so, dass die sogenannte \fat{Standardumgebung}
+    \begin{align*}
+        B(f,T,\epsilon) = \geschwungeneklammer{f' \in V \ | \ \Norm{f(x) - f'(x)}_2 < \epsilon \text{ für alle } x \in T}
+    \end{align*}
+    in U enthalten ist.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $D$ eine Menge, und sei $V$ der Vektorraum aller reellwertigen Funktionen
+    auf $D$. Die Topologie der punktweisen Konvergenz ist hausdorff'sch und
+    kompatibel mit der Skalarmultiplikation und Vektorsumme. Eine Folge $\fFolge$
+    konvergiert gegen $f \in V$ bezüglich dieser Topologie genau dann wenn die Folge
+    von Funktionen $\fFolge$ punktweise gegen $f$ konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ ein topologischer Raum und sei $V = C(X,\R^d)$ der Vektorraum aller
+    $\R^d$-wertigen, stetigen Funktionen auf $X$. Die \fat{Topologie der kompakten
+    Konvergenz} ist die Topologie auf $V$, deren offene Mengen $U \subseteq V$ wie
+    folgt charakterisiert sind: Für jedes $f \in U$ existiert eine kompakte Teilmenge
+    $T \subseteq X$ und $\epsilon>0$, so, dass die sogenannte \fat{Standardumgebung}
+    \begin{align*}
+        B(f,T,\epsilon) = \geschwungeneklammer{f' \in V \ | \ \Norm{f(x) - f'(x)}_2 < \epsilon \text{ für alle } x \in T}
+    \end{align*}
+    in $U$ enthalten ist.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $X$ ein topologischer Raum, und sei $V$ der Vektorraum aller stetigen 
+    reellwertigen Funktionen auf $X$. Die Topologie der kompakten Konvergenz ist
+    hausdorff'sch und kompatibel mit der Skalarmultiplikation und Vektorsumme. Eine
+    Folge $\fFolge$ konvergiert gegen $f \in V$ bezüglich dieser Topologie genau dann
+    wenn für jede kompakte Teilmenge $T \subseteq X$ die Folge von Funktionen
+    $(f_n |_T)_{n=0}^{\infty}$ auf $T$ gleichmässig gegen $f |_T$ konvergiert.
+}

@@ -1,0 +1,328 @@
+\section{Das Wasserstoffatom}
+
+\subsection{Relativkoordinaten}
+
+Der Hamiltonian für zwei wechselwirkende Teilchen ist
+\begin{align*}
+    H = \frac{\vec{p}_1^2}{2 m_1} + \frac{\vec{p}_2^2}{2 m_2} + V(\abs{\vec{r}_1 - \vec{r}_2})
+\end{align*}
+Wir definieren die Schwerpunkts- und Relativ-Koord. $\vec{X}$ und $\vec{x}$
+\begin{align*}
+    \vec{x} = \vec{r}_1 - \vec{r}_2
+    \hspace{10pt} , \hspace{10pt}
+    \vec{X} = \frac{m_1 \vec{r}_1 + m_2 \vec{r}_2}{m_1 + m_2}
+\end{align*}
+Entsprechend definieren wir die konjugierten Impulse
+\begin{align*}
+    \vec{p} = \frac{m_2 \vec{p}_1 - m_1 \vec{p}_2}{m_1 + m_2}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{P} = \vec{p}_1 + \vec{p}_2
+\end{align*}
+und die reduzierte Masse $\mu$, sowie die totale Masse $M$
+\begin{align*}
+    \mu = \frac{m_1 m_2}{m_1 + m_2}
+    \hspace{10pt} , \hspace{10pt}
+    M = m_1 + m_2
+\end{align*}
+Dann gilt:
+\begin{align*}
+    \frac{\vec{P}^2}{2 M} + \frac{\vec{p}^2}{2 \mu}
+    = \frac{\vec{p}_1^2}{2 m_1} + \frac{\vec{p}_2^2}{2 m_2}
+\end{align*}
+Und somit folgt:
+\begin{align*}
+    H = \frac{\vec{P}^2}{2 M} + \frac{\vec{p}^2}{2 \mu} + V(\abs{\vec{x}})
+\end{align*}
+Wir ersetzen die Impulse durch die entsprechenden Differentialoperatoren
+\begin{align*}
+    \vec{p}_1 \mapsto -i \hbar \vec{\nabla}_{\vec{r}_1}
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{p}_2 \mapsto -i \hbar \vec{\nabla}_{\vec{r}_2}
+    \\
+    \vec{\nabla}_{\vec{x}} = \frac{i}{\hbar} \vec{p}
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{\nabla}_{\vec{X}} = \frac{i}{\hbar} \vec{P}
+\end{align*}
+Somit folgt:
+\begin{align*}
+    H = - \frac{\hbar}{2 M} \Delta_X - \frac{\hbar^2}{2 \mu} \Delta_x + V(\abs{\vec{x}})
+\end{align*}
+Da das Potential von $\vec{X}$ unabhängig ist, machen wir folgenden Ansatz
+\begin{align*}
+    \Psi(\vec{x},\vec{X}) = e^{i \vec{K} \cdot \vec{X}} \psi(\vec{x})
+\end{align*}
+Somit erhalten wir für die zeit-unabhängige SG:
+\begin{align*}
+    H e^{i \vec{K} \cdot \vec{X}} \psi(\vec{x}) =
+    e^{i \vec{K} \cdot \vec{X}} \klammer{\frac{\hbar^2 \vec{K}^2}{2 M} + H_{\text{rel}}} \psi(\vec{x})
+\end{align*}
+wobei
+\begin{align*}
+    H_{\text{rel}} = - \frac{\hbar^2}{2 \mu} \Delta_x + V(\abs{\vec{x}})
+\end{align*}
+Also müssen wir nur das Relativproblem lösen
+\begin{align*}
+    \eckigeklammer{- \frac{\hbar^2}{2 \mu} \Delta_x + V(r)} \psi(\vec{x}) = E_{\text{rel}} \psi(\vec{x})
+\end{align*}
+Die totale Energie ist dann $E = E_{\text{rel}} + \frac{\hbar^2 \vec{K}^2}{2 M}$.
+
+
+\subsection{Coulomb-Problem}
+
+Wir betrachten den Fall wo das Potential die folgende Form hat
+\begin{align*}
+    V(r) = - \frac{Z e^2}{r}
+\end{align*}
+Das Potential beschreibt die Wechselwirkung eines Elektrons der Ladung $-e$ mit
+einem Atomkern der Ladung $Ze$. Da der Hamiltonoperator rotationssymmetrisch ist,
+vertauscht er mit den Generatoren von $\so(3)$, d.h. den infinitesimalen Rotationen.
+Auf dem Raum der Wellenfkt. wirken diese Generatoren als
+\begin{align*}
+    \vec{M} = -i \vec{x} \wedge \vec{\nabla}_x
+\end{align*}
+Infinitesimale Rotationen sind von der Form $\vec{x} \mapsto \vec{x} + \vec{\omega}
+\wedge \vec{x}$. Auf dem Raum der Funktionen wirken sie also wie
+\begin{align*}
+    f(\vec{x}) \mapsto f(\vec{x}) - \vec{\omega} \cdot \klammer{\vec{x} \wedge \vec{\nabla}_x f}
+\end{align*}
+Der Rotationsgenerator ist $\vec{M} = i \vec{U}$. Für den Drehimpulsoperator $\vec{L}$
+gilt
+\begin{align*}
+    \vec{L} = \hbar \vec{M}
+\end{align*}
+Auf dem Raum der Wellenfkt gilt:
+\begin{align*}
+    \vec{M}^2 &= - \vec{x}^2 \Delta + \klammer{r \frac{\partial}{\partial r}}^2 + r \frac{\partial}{\partial r}
+    = - \vec{x}^2 \Delta + r \frac{\partial^2}{\partial r^2} r
+    \\
+    \Rightarrow \hspace{5pt}
+    \Delta &= \frac{1}{r} \frac{\partial^2}{\partial r^2} r - \frac{1}{r^2} \vec{M}^2
+\end{align*}
+Die Eigenfkt von $\vec{M}^2$ sind gerage $Y_{lm}(\theta,\phi)$ mit eigenwerten $l(l+1)$.
+Wir machen also folgenden Ansatz
+\begin{align*}
+    \psi(\vec{x}) = Y_{lm}(\theta,\phi) \psi(r)
+\end{align*}
+Es folgt also für $m=\mu$
+\begin{align*}
+    \klammer{- \frac{\hbar^2}{2 m} \Delta + V(r)} \psi(\vec{x}) &= E \psi(\vec{x})
+    \\
+    - \frac{\hbar^2}{2 m} \klammer{\frac{1}{r} \frac{\partial^2}{\partial r^2} r \psi(r) - \frac{1}{r^2} l(l+1) \psi(r)} + V(r) \psi(r) &= E \psi(r)
+\end{align*}
+Wir wählen den Ansatz $\psi(r) = \frac{u(r)}{r}$ und es folgt
+\begin{align*}
+    \klammer{- \frac{d^2}{d r^2} + \frac{l(l+1)}{r^2} + \mathcal{V} (r)} u &= \epsilon u
+\end{align*}
+wobei $\mathcal{V}(r) = \frac{2m}{\hbar^2} V(r)$ und $\epsilon = \frac{2m}{\hbar^2} E$.
+
+\subsubsection{Das Verhalten bei $r=0$}
+
+Für $r \rightarrow 0$ vereinfacht sich die DGL zu
+\begin{align*}
+    -u'' + \frac{l(l+1)}{r^2} u = 0
+\end{align*}
+Die allgemeine Lösung ist
+\begin{align*}
+    u(r) = a r^{l+1} + b r^{-l}
+\end{align*}
+wobei oBdA $l \geq 0$. Da unsere Lösung quadratintegrabel sein sollte muss $b=0$.
+Die asymptotische Lösung für kleine $r$ ist also
+\begin{align*}
+    u(r) \approx r^{l+1}
+\end{align*}
+
+\subsubsection{Das Verhalten bei $r \rightarrow \infty$}
+
+Für $r \rightarrow \infty$ vereinfacht sich die DGL zu
+\begin{align*}
+    -u'' = \epsilon u
+\end{align*}
+Wir wollen nur gebundene Lösungen studieren. Diese treten nur dann auf, falls
+$E \sim \epsilon < 0$. Wir definieren $\kappa > 0$ durch
+\begin{align*}
+    \kappa^2 = - \epsilon = - \frac{2 m E}{\hbar^2}
+\end{align*}
+Die allgemeine Lösung ist
+\begin{align*}
+    u(r) = a^{- \kappa r} + b e^{\kappa r}
+\end{align*}
+Damit die Lösung quadratintegrabel ist, muss gelten $b=0$.
+
+\vspace{1\baselineskip}
+
+Wir betrachten nun den spezialfall wo das Potential durch das das Coulombpotential
+gegeben ist.
+\begin{align*}
+    \mathcal{V}(r) = - \frac{\gamma}{r}
+    \hspace{10pt} , \hspace{10pt}
+    \gamma = \frac{2m Z e^2}{\hbar^2}
+\end{align*}
+Obige Diskussion motiviert den Ansatz
+\begin{align*}
+    u(r) = e^{-\kappa r} \sum_{k = l+1}^\infty c_k r^k
+\end{align*}
+Dann gilt:
+\begin{align*}
+    u'(r) &= e^{-\kappa r} \sum_{k=l+1}^\infty c_k \klammer{-\kappa r^k + k r^{k-1}}
+    \\
+    u''(r) &= e^{-\kappa r} \sum_{k=l+1}^\infty c_k \klammer{\kappa^2 r^k - 2 \kappa k r^{k-1} + k(k-1)r^{k-2}}
+\end{align*}
+Einsetzen in die DGL führt zu der Gleichung
+\begin{align*}
+    \sum_{k=l+1}^\infty c_k \klammer{2 \kappa k - \gamma} r^{k-1} =
+    \sum_{k=l+1}^\infty c_{k+1} \klammer{(k+1)k - l(l+1)} r^{k-1}
+\end{align*}
+Dies führt zur Rekursionsformel
+\begin{align*}
+    c_{k+1} = c_k \frac{\gamma - 2 \kappa k}{l(l+1) - k(k+1)}
+    \hspace{10pt} , \hspace{5pt}
+    (k=l+1,l+2,\dots)
+\end{align*}
+Falls diese Reihe nicht abbricht ist die Lösung nicht quadratintegrabel.
+Das heisst für ein $n$ muss gelten $c_n \neq 0$ aber $c_{n+1} = 0$.
+So ist die Lösung eine Eigenfkt. Die Bedingung dafür ist
+\begin{align*}
+    \kappa_n &= \frac{\gamma}{2n} \hspace{10pt} , \hspace{5pt} (n=l+1,l+2,\dots)
+    \\
+    \Rightarrow \hspace{5pt}
+    E_n &= - \frac{\hbar^2}{2m} \kappa_n^2 = - \frac{m (Ze^2)^2}{2 \hbar^2} \frac{1}{n^2}
+\end{align*}
+Für jedes $l$ gibt es $2l+1$ verschiedene Eigenfunktionen $Y_{lm}$. Somit tritt
+jedes dieser Energieniveaus mit folgender Multiplizität auf.
+\begin{align*}
+    D_n = \sum_{l=0}^{n-1} (2l+1) = n^2
+\end{align*}
+Die Quantenzahlen $n,l,m$ heissen Haupt-Quantenzahl $n$, Neben- oder
+Bahndrehimpuls-Quantenzahl $l$, und magnetische Quantenzahl $m$. Wird der Spin
+berücksichtigt, verdoppelt sich die Entartung, $D_n = 2n^2$. Fundamental ist
+die Existenz eines energetisch tiefsten Zustandes. Die Energie des H-Atoms ist
+nach unten beschränkt und ist somit stabil. Die Wellenfkt des Grundzustandes ist
+also
+\begin{align*}
+    u(r) = e^{-\kappa_1 r} r
+    \hspace{10pt} , \hspace{10pt}
+    \kappa_1 = \frac{\gamma}{2} \frac{m e^2}{\hbar^2}
+\end{align*}
+Also bis auf Normierung:
+\begin{align*}
+    \psi(\vec{x}) = e^{-\abs{\vec{x}}/a}
+    \hspace{10pt} , \hspace{10pt}
+    a = \frac{\hbar^2}{m e^2}
+\end{align*}
+Hier ist $a$ der Bohr-Radius.
+
+\subsection{Dynamische Symmetrie}
+
+Die dynamische Symmetrie (die für die Unabhängigkeit der Energie von der
+Drehimpulszahl $l$ verantwortlich ist) liegt der besonderen Form des Potentials,
+hier $V(r) \propto 1/r$, zugrunde. Ein Potential $1/r^{1+\epsilon}$ mit $\epsilon
+\neq 0$ hat zwar die geometrische Rotationssymmetrie, nicht aber die dynamische
+Symmetrie. In der klassischen Mechanik entspricht die dynamische Symmetrie dem
+Runge-Lenzvektor.
+
+In der klassischen Mechanik ist das Kepler Problem
+\begin{align*}
+    H = \frac{p^2}{2 \mu} - \frac{\kappa}{r}
+\end{align*}
+mit $\mu$ der reduzierten Masse und $\kappa = Z e^2$. Die klassischen Bahnen
+sind geschlossene Ellipsen mit Halbachsen $a$ und $b$ und Exzentrizität
+$e = \sqrt{1-b^2/a^2}$. Erhaltungsgrössen sind Energie $E = -\kappa/2a$ und
+Drehimpuls $\vec{L}$. $\hat{L}$ legt die Bahnebene fest und $L^2 = \mu \kappa a
+(1-e^2)$. Zusätzlich zu $H$ und $\vec{L}$ ist auch der Runge Lenzvektor $\vec{J}$
+erhalten
+\begin{align*}
+    \vec{J} = \frac{1}{\mu} \vec{p} \wedge \vec{L} - \frac{\kappa}{r} \vec{x}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{J}^2 = \frac{2H}{\mu} L^2 + \kappa^2
+    \hspace{10pt} , \hspace{10pt}
+    \vec{J} \cdot \vec{L} = 0
+\end{align*}
+Dass $\vec{J}$ konstant ist, impliziert, dass der Perihel sich nicht bewegt.
+Dies ist eine Besonderheit des $1/r$-Potentials. Für $V \propto 1/r^{1+\epsilon}$
+resultiert eine Periheldrehung.
+
+Das quantenmechanische Analogon zum Runge-Lenzvektor ist der Pauli-Lenz Vektor
+\begin{align*}
+    \vec{J} = \frac{1}{2 \mu} \klammer{\vec{p} \wedge \vec{L} - \vec{L} \wedge \vec{p}}
+        - \kappa \frac{\vec{x}}{r}
+    \hspace{10pt} , \hspace{10pt}
+    \eckigeklammer{H,J_i} = 0
+\end{align*}
+Dieser Operator vertauschet mit dem Hamiltonoperator. Somit transformieren sich
+die Eigenzustände des Hamiltonoperators zu vorgegebenem Eigenwert ineinander
+unter der Wirkung von $\vec{J}$. Es gilt weiterhin
+\begin{align*}
+    \vec{J} \cdot \vec{L} = 0
+    \hspace{10pt} , \hspace{10pt}
+    \vec{L} = \vec{x} \wedge \vec{p}
+\end{align*}
+Man findet:
+\begin{align*}
+    \vec{J} = \frac{2H}{\mu} \klammer{\vec{L}^2 + \hbar^2} + \kappa^2
+\end{align*}
+Die Operatoren, die mit dem Hamiltonoperator vertauschen, beinhalten also die
+drei Generagoren der Drehgruppe $M_i$, die die Lie Algebra $\su(2)$ generieren.
+\begin{align*}
+    &\eckigeklammer{M_i , M_j} = i \epsilon_{ijk} M_k
+    \hspace{10pt} , \hspace{10pt}
+    \eckigeklammer{M_i,J_j} = i \epsilon_{ijk} J_k
+    \\
+    &\eckigeklammer{J_i,J_j} = - \frac{2H}{\mu} i \hbar^2 \epsilon_{ijk} M_k
+\end{align*}
+Wir betrachten den Fall, wo der Eigenwert von $H$ negativ ist. Wir definieren
+den immer noch selbst-adjungierten Operator $K_i$.
+\begin{align*}
+    K_i = \sqrt{\frac{\mu}{-2H}} \frac{1}{\hbar} J_i
+\end{align*}
+Es gelten folgende Relationen:
+\begin{align*}
+    \eckigeklammer{K_i,K_i} = i \epsilon_{ijk} M_k
+    \hspace{5pt} , \hspace{5pt}
+    \eckigeklammer{M_i,K_j} = i \epsilon_{ijk} K_k
+    \hspace{5pt} , \hspace{5pt}
+    \eckigeklammer{M_i,M_j} = i \epsilon_{ijk} M_k
+\end{align*}
+Wir definieren:
+\begin{align*}
+    \vec{S} = \frac{1}{2} \klammer{\vec{M} + \vec{K}}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{D} = \frac{1}{2} \klammer{\vec{M} - \vec{K}}
+\end{align*}
+Für diese Operatoren gilt:
+\begin{align*}
+    \eckigeklammer{S_i,D_j} = 0
+    \hspace{10pt} , \hspace{10pt}
+    \eckigeklammer{S_i,S_j} = i \epsilon_{ijk} S_k
+    \hspace{10pt} , \hspace{10pt}
+    \eckigeklammer{D_i,D_j} = i \epsilon_{ijk} D_k
+\end{align*}
+Die Lie Algebra dieser Operatoren ist also gerade $\su(2) \oplus \su(2)
+\cong \so(4)$. Falls wir die positiven Eigenwerte von $H$ betrachten, dann
+ist die resultierende Lie Algebra die Lie Algebra der Lorentzgruppe $\so(1,3)$.
+Für $E<0$ folgt:
+\begin{align*}
+    \vec{J}^2 &= \frac{2 \hbar^2 H}{\mu} \klammer{\vec{M}^2 + 1} + \kappa^2
+    = - \frac{2 \hbar^2 H}{\mu} \vec{K}^2
+    \\
+    \rightarrow \hspace{5pt}
+    H &= - \frac{\mu \kappa^2}{2 \hbar^2 \klammer{\vec{K}^2 + \vec{M}^2 + 1}}
+    = - \frac{\mu \kappa^2}{2 \hbar^2 \klammer{2 \vec{S}^2 + 2 \vec{D}^2 + 1}}
+\end{align*}
+Die möglichen Eigenwerte von $\vec{S}^2$ und $\vec{D}^2$ sind
+\begin{align*}
+    \vec{S}^2 = s(s+1) \
+    \hspace{10pt} , \hspace{10pt}
+    \vec{D}^2 = d(d+1)
+    \hspace{10pt} , \ \ s,d =0,\frac{1}{2},1,\frac{3}{2},\dots
+\end{align*}
+Da $\vec{K} \cdot \vec{M} = 0$ folgt $\vec{S}^2 = \vec{D}$ und somit $s=d$.
+Die möglichen Energieeigenwerte sind also
+\begin{align*}
+    E = - \frac{\mu \kappa^2}{2 \hbar^2 (2s+1)^2}
+    = - \frac{\mu \kappa^2}{2 \hbar^2 n^2}
+    \hspace{10pt} \text{mit } 2s+1 = n \in \N
+\end{align*}
+Die Dimension der Eigenräume ist
+\begin{align*}
+    \dim_{E_n} = (2s+1)^2 = n^2
+\end{align*}

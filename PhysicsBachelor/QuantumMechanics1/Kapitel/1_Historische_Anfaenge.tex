@@ -1,0 +1,199 @@
+\section{Historische Anfänge}
+
+\subsection{Das Plank'sche Strahlungsgesetz}
+
+Betrachte einen Würfel aus Materie der Seitenlänge $L$ mit Temperatur $T$.
+Dieses sei im Gleichgewicht mit elektrischer Strahlung. Die Lösung der
+Maxwellgleichungen im Inneren des Kubus liefert:
+\begin{align*}
+    \Box \vec{E} = 0
+    \hspace{5pt} , \hspace{5pt}
+    \Box = \frac{1}{c^2} \frac{\partial^2}{\partial t^2} - \Laplace
+    \hspace{5pt} , \hspace{5pt}
+    \div(\vec{E}) = 0
+    \hspace{5pt} , \hspace{5pt}
+    \vec{E}_{\parallel} = 0 \ , \ \frac{\partial \vec{E}_{\perp}}{\partial n} = 0
+\end{align*}
+Ansatz $\vec{E}(x,t) = f(t) \cdot \vec{E}(x)$. Dann
+\begin{align*}
+    f(t) = e^{i \omega t}
+    \hspace{10pt} , \hspace{10pt}
+    \Laplace E = - \frac{\omega^2}{c^2} \vec{E}(x)
+\end{align*}
+Für Kubus der Seitenlänge $L$ folgt:
+\begin{align*}
+    E_i (\vec{x}) = E_i \cos(k_i x_i) \sin(k_{i+1} x_{i+1}) \sin(k_{i+2} x_{i+2})
+    \hspace{5pt} , \hspace{5pt}
+    k_i = \frac{\pi}{L} n_i \ , \ n \in \N
+\end{align*}
+Weiter muss gelten $\vec{E} \cdot \vec{k} = 0$. Somit gibt es zu jedem $\vec{k}$
+zwei linear unabhängige Eigenschwingungen mit Eigenfrequenz $\omega = c \cdot
+\abs{\vec{k}}$. Die Zahl der Eigenschwingungen $\leq \omega$ ist für grosse
+$\omega$:
+\begin{align*}
+    N(\omega) = \frac{V}{\pi^2 c^3} \cdot \frac{\omega^3}{3}
+    \hspace{5pt} \Rightarrow \hspace{5pt}
+    \frac{d N}{d \omega} = V \frac{\omega^3}{\pi^2 c^3}
+    \hspace{5pt} , \hspace{5pt}
+    V = L^3
+\end{align*}
+Man stelle sich die Materie als aus Oszillatoren aller Frequenzen $\omega_0$
+bestehend vor. Ein harmonischer Oszillator in einer Dimension wird beschrieben
+durch den folgenden Hamiltonian.
+\begin{align}\label{1DHam}
+    H = \frac{p^2}{2m} + \frac{1}{2} m \omega^2 q^2
+\end{align}
+Die Wahrscheinlichkeit $w(p,q)$, ein System mit Phasenkoordinaten $p,q$ bei
+der Temperatur $T$ in $dp dq$ zu finden ist
+\begin{align*}
+    w(p,q) \ dp \ dq = \frac{e^{- \beta H(p,q)}}{Z(\beta)} \ dp \ dq
+    \hspace{5pt} , \hspace{5pt}
+    Z(\beta) = \int dp \ dq \ e^{-\beta H(p,q)}
+\end{align*}
+wobei $\beta = \frac{1}{k_B T}$. Die mittlere Energie ist:
+\begin{align*}
+    \overline{E} = \int dp \ dq \ H(p,q) w(p,q)
+    = - \frac{\partial}{\partial \beta} \log(Z(\beta))
+\end{align*}
+Für $H$ aus (\ref{1DHam}) folgt:
+\begin{align*}
+    Z(\beta) = \frac{2 \pi}{\beta \omega_0}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \overline{E} = \frac{\partial}{\partial \beta} \log(\beta) = k_B T
+\end{align*}
+Umgekehrt trägt das Elektromagnetische Feld der Frequenz $\omega$ die Energie
+$k_B T$. Es folgt die folgende Energiedichte pro Volumen:
+\begin{align*}
+    u(\omega,T) = \frac{\omega^2}{\pi^2 c^3} k_b T
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \int_0^\infty d \omega \ u(\omega,T) = \infty
+\end{align*}
+Dies ist die 'Ultraviolettkatastrophe'. Extrapolation mit experimentellen
+Daten führte zu der folgenden Formel für die Energiedichte:
+\begin{align*}
+    u(\omega,T) = \frac{\omega^2}{\pi^2 c^3} \frac{\hbar \omega}{e^{\frac{\hbar \omega}{k_B T}} - 1}
+    \hspace{10pt} , \hspace{10pt}
+    Z(\beta) = \sum_{n=0}^\infty e^{- \beta \hbar \omega n}
+\end{align*}
+Die Konsequenz ist, dass der Resonator nicht alle Energien $E$ annehmen kann
+und dass diese Energien quantisiert sind als $E_n = n \hbar \omega_0$ für
+$n \in \N$. Somit:
+\begin{align*}
+    \omega_n = \frac{e^{- \beta n \hbar \omega_0}}{Z(\beta)}
+    \hspace{5pt} , \hspace{5pt}
+    Z(\beta) = \sum_{n=0}^\infty e^{- \beta n \hbar \omega_0}
+    = \frac{1}{1 - e^{- \beta \hbar \omega_0}}
+    \hspace{5pt} , \hspace{5pt}
+    \overline{E} = \frac{\hbar \omega_0}{e^{\beta \hbar \omega_0} -1}
+\end{align*}
+
+\subsection{Die Bohr'sche Quantenhypothese}
+Atome weisen diskrete Lichtemissionsspektren auf. Für das Wasserstoff-Atom
+gilt nach Balmer
+\begin{align*}
+    \omega_{nm} = R \klammer{\frac{1}{m^2} - \frac{1}{n^2}}
+    \hspace{5pt} , \hspace{5pt} n>m = 1,2,\dots 
+\end{align*}
+Bohr nimmt an, dass das Atom nur in diskreten Energiezuständen existieren
+kann. Stralung der Frequenz $\omega_{nm} = \frac{1}{\hbar} (E_n E_m)$ wird
+emittiert bei Übergang $n \rightarrow m$, $E_m < E_n$. Auch das Umgekehrte ist
+möglich, falls ein Lichtquant dieser Frequenz absorbiert wird. Für das
+$H$-Atom ergibt sich $E_n = - \Ry \frac{1}{n^2}$ mit $\Ry = R \cdot \hbar$
+und $n \in \N$.
+
+Mit dem Rutherford'schen Atommodell wählt man die Quantenzustände unter den
+Kreisbahnen. Für diese gilt:
+\begin{align*}
+    m r \omega^2 = \frac{e^2}{r^2}
+    \hspace{10pt} &, \hspace{10pt}
+    L = m r^2 \omega
+    \hspace{10pt} , \hspace{10pt}
+    E = \frac{L^2}{2 m r^2} - \frac{e^2}{r}
+    \\
+    \Rightarrow
+    r = \frac{L^2}{m e^2}
+    \hspace{10pt} &, \hspace{10pt}
+    E = - \frac{m e^4}{2 L^2}
+    \hspace{10pt} , \hspace{10pt}
+    \omega = \frac{m e^4}{L^3}
+\end{align*}
+Es folgt die Quantisierungsbedingung $L_n = \hbar n$ und die folgenden Beziehungen:
+\begin{align*}
+    r_n = a_0 n^2
+    \hspace{5pt} , \hspace{5pt}
+    E_n = - \Ry \cdot \frac{1}{n^2}
+    \hspace{5pt} , \hspace{5pt}
+    \omega_n = \frac{2 \Ry}{\hbar n^3}
+    \hspace{5pt} , \hspace{5pt}
+    a_0 = \frac{\hbar^2}{m e^2}
+    \hspace{5pt} , \hspace{5pt}
+    \Ry = \frac{m e^4}{2 \hbar^2}
+\end{align*}
+Falls man die Mitbewegung des Kerns der Masse $M$ berücksichtigt, muss man
+$m$ durch die Reduzierte Masse ersetzen. Ebenso muss man die Ladung $e$ durch
+$Ze$ bei z.B. He$^+$ ersetzen. Es gilt:
+\begin{align*}
+    \omega_{n,n-1} = \frac{\Ry}{\hbar} \klammer{\frac{1}{(n-1)^2} - \frac{1}{n^2}}
+    \approx \frac{2 \Ry}{\hbar n^3}
+    \hspace{5pt} (\text{für } n \rightarrow \infty)
+\end{align*}
+
+\subsection{Bohr-Sommerfeld Quantisierung}
+Betrachte eine gebundene Bahn eines Hamilton'schen Systems mit einem
+Freiheitsgrad. Die Bedingung ist, dass die Wirkung quantisiert ist.
+\begin{align*}
+    \oint p \ dq = 2 \pi n \hbar = n h \ \ n \in \Z
+\end{align*}
+Für einen harmonischen Oszillator der Energie $E$, wobei $E = H$ aus
+(\ref{1DHam}), folgt $E_n = n \hbar \omega_0$.
+
+Für ein System mit $f$ Freiheitsgraden welches vollständig separabel ist, hat
+die zeitunabhängige H-J-Gl.
+\begin{align*}
+    H \klammer{q_1,\dots,q_f,\frac{\partial S}{\partial q_1},\dots,\frac{\partial S}{\partial q_f}}
+    = E \equiv \alpha_1
+\end{align*}
+eine vollständige Lösung der Form
+\begin{align*}
+    S(q_1,\dots,q_f,\alpha_1,\dots,\alpha_f) = \sum_{k=1}^f S_k (q_k,\alpha_1,\dots,\alpha_f)
+\end{align*}
+mit $(\alpha_1,\dots,\alpha_f) = \alpha$ Erhaltungsgrössen. Es gilt:
+\begin{align*}
+    p_k = \frac{\partial S}{\partial q_k}(q,\alpha)
+    = \frac{\partial S_k}{\partial q_k} (q_k,\alpha)
+\end{align*}
+Im $2f$-dimensionalen Phasenraum verläuft die Bewegung dann auf dem Schnitt
+von $f$ durch $\alpha$ bestimmete Flächen $p_k$. Falls die $f$-dimensionalen
+Schnittflächen topologische Tori sind, so ist die Sommerfeld-Bedingung anwendbar.
+Sie zeichnet als erlaubte diejenigen Tori aus, für welche
+\begin{align*}
+    W_k := \oint p_k \ dq_k = 2 \pi n_k \hbar \ ,
+    \hspace{10pt} n \in \Z \ , \ k = 1,\dots,f
+\end{align*}
+Dies bestimmt $(\alpha_1,\dots,\alpha_f)$ als Funktion der $n_k$ und
+insbesondere die möglichen Energien $E_{n_1,\dots,n_k}$. Wegen Symmetrie
+kann man die Sommerfeld-Bedingung nicht anwenden.
+
+\subsection{Der Photoeffekt und Comptoneffekt}
+Wird eine (metallische) Oberfläche durch Licht der Frequenz $\omega$
+bestrahlt, so treten Elektronen aus. Die Energie $T$ der emittierten
+Elektronen ist nur von der Frequenz abhängig und nicht von der Intensität
+der einfallenden Strahlung. Davon abhängig ist hingegen die Emissionsrate.
+Somit ist Licht quantisiert gemäss $E = \hbar \omega$. Ein Lichtquant $\hbar
+\omega$ kann dann an ein einziges Elektron übergegeben werden, das aus dem
+Metall mit der Energie $T = \hbar \omega - W$ ($W$: Austrittsarbeit) entweicht.
+Der Impuls $p^\mu$ eines Photons mit Wellenlänge $\lambda$ ist gegeben durch
+\begin{align*}
+    p^\mu = (\hbar k , \hbar \vec{k})
+    \hspace{10pt} , \hspace{10pt}
+    k = \abs{\vec{k}} = \frac{\omega}{c} = \frac{2 \pi}{\lambda}
+\end{align*}
+
+\subsection{Teilchen als Welle (de Broglie)}
+Idee: Teilchen besitzen Wellencharakter. Konkret: ein Teilchen mit Impuls $p$
+einer Welle mit Wellenlänge $\lambda$ und Kreisfrequenz $\omega$ entspricht.
+\begin{align}\label{deBroglie}
+    \lambda = \frac{h}{p} = \frac{2 \pi \hbar}{p}
+    \hspace{10pt} , \hspace{10pt}
+    \omega = \frac{E}{\hbar}
+\end{align}

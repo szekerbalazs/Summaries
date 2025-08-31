@@ -1,0 +1,82 @@
+\section{Elektrische und magnetische Felder im Materie}
+
+\vspace{1\baselineskip}
+
+\fat{Dielektrika}:
+
+In einem Material gilt für die Kapazität eines Plattenkondensators: $C = \epsilon C_{\text{Vak}}$
+mit $\epsilon$ der \fat{Dielektrizitätskonstante}. Falls Ladungs $Q_0$ konstant ist, gilt:
+$V = \frac{1}{\epsilon} V_{\text{Vak}}$. Falls die Spannung $V_0$ konstant ist, gilt:
+$Q = \epsilon Q_{\text{Vak}}$.
+
+\vspace{1\baselineskip}
+
+Materialien, welche unabhängig von externen Feldern magnetisch sind, heissen \fat{ferromagnetisch}.
+Während \fat{paramegnetische} Materialien das vorhandene Magnetfeld verstärken, wird es durch
+\fat{diamagnetische} Materialien abgeschwächt.
+
+\vspace{1\baselineskip}
+
+\fat{Nettokraft in einem inhomogenen Feld}:
+\begin{align*}
+    \vec{F} = - \vec{\nabla} U = \vec{\nabla} (\vec{p} \cdot \vec{E})
+    = \klammer{\vec{p} \cdot \vec{\nabla}} \cdot \vec{E}
+    = \begin{pmatrix}
+        p_x \ \partial_x E_x \\ p_y \ \partial_y E_y \\ p_z \ \partial_z E_z
+    \end{pmatrix}
+    = \vec{p} \cdot \begin{pmatrix}
+        \nabla E_x \\ \nabla E_y \\ \nabla E_z
+    \end{pmatrix}
+\end{align*}
+\begin{align*}
+    &F_x = \vec{p} \cdot \nabla E_x \\
+    \Longrightarrow \hspace{20pt} &F_y = \vec{p} \cdot \nabla E_y \\
+    &F_z = \vec{p} \cdot \nabla E_z
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\fat{Die elektrische Flussdichte und das Gauss'sche Gesetz im Dielektrikum}:
+
+\begin{align*}
+    \vec{\nabla} \cdot \vec{E} &= \frac{\rho_{\text{ges}}}{\epsilonnull} =
+    \frac{\rho_{\text{frei}} + \rho_{\text{geb}}}{\epsilonnull} =
+    \frac{1}{\epsilon} \vec{\nabla} \cdot \vec{E}_{\text{vak}} =
+    \frac{\rho_{\text{frei}}}{\epsilon \epsilonnull} =
+    \epsilon \vec{\nabla} \cdot \vec{E} + \frac{\rho_{\text{geb}}}{\epsilonnull}
+    \\ &=
+    \frac{- \rho_{\text{geb}}}{\epsilonnull \cdot (\epsilon -1)}
+    \\ \\
+    \Longrightarrow \vec{P} &= \epsilonnull (\epsilon -1) \vec{E}
+    \quad \quad \Longrightarrow \quad
+    \rho_{\text{geb}} = - \vec{\nabla} \cdot \vec{P}
+\end{align*}
+Wir definieren die \fat{elektrische Flussdichte} oder \fat{dielektrische Verschiebung $D$} durch:
+\begin{align*}
+    \vec{D} = \epsilonnull \vec{E} + \vec{P}
+\end{align*}
+Damit folgt das \fat{modifizierte Gauss'sche Gesetz}
+\begin{align*}
+    \vec{\nabla} \cdot \vec{D} = \rho_{\text{frei}}
+\end{align*}
+und $\vec{D} = \epsilon \epsilonnull \vec{E}$.
+
+\vspace{1\baselineskip}
+
+Die elektrischen Dipole ($\vec{p}$) erzeugen eine Polarisation $\vec{P}$ welche das externe
+$E$-Feld im Material schwächen: $\mathcal{E} = \frac{E_{\text{vak}}}{E_{\text{result}}} \geq 1$.
+
+\vspace{1\baselineskip}
+
+Mit der Teilchendichte $N$ und dem magnetischen Dipolmoment $\mu$ definieren wir die
+\fat{Magnetisierung} als $\vec{M} = N \cdot \vec{\mu}$.
+
+\vspace{1\baselineskip}
+
+Wir definieren das \fat{$H$-Feld} als $\vec{H} = \frac{\vec{B}}{\munull} - \vec{M}$.
+Es gilt:
+\begin{align*}
+    \vec{\nabla} \times \vec{H} &= \frac{\partial \vec{D}}{\partial t} + \vec{J}_{\text{frei}} \quad \quad \text{(Ampèr'sches Gesetz in Materie)}
+    \\
+    \vec{B} &= \munull \mu \vec{H}
+\end{align*}

@@ -1,0 +1,354 @@
+\section{Eigenwertprobleme}
+
+Code: w,V = scipy.linalg.eig(A)
+
+eigh für hermitische Matrizen
+
+w Vektor mit eigenwerten
+
+V Matrix mit V[:,i] (=i-te Spalte) EV zum EW w[i]
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Der \fat{Reyleigh-Quotient} von $x$ ist definiert als
+    \begin{align*}
+        \rho_A = \frac{x^H A x}{x^H x}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wenn $x$ ein Eigenvektor ist, dann ist $A x=\lambda x$ und $\rho_A (x) = \lambda$.
+    Wenn $x$ allgemein ist, dann ist
+    \begin{align*}
+        \rho_A = \text{argmin}_{\alpha} \Norm{Ax-\alpha x}_2
+    \end{align*}
+}
+
+\pagebreak
+
+\Bemerkung{
+
+    Für $A \in \R^{n \times n}$, $A^T = A$ und $\lambda_1,\dots,\lambda_n \in \R$,
+    $q_1,\dots,q_n \in \R^n$ sind orthogonale Eigenvektoren. Wir berechnen die Ableitung
+    von $\rho_A: \R^n \rightarrow \R^n$:
+    \begin{align*}
+        \frac{\partial \rho_A}{\partial x_j} = \frac{1}{x^T x} (Ax-\rho_A (x) x)
+    \end{align*}
+    sodass $\nabla \rho_A (x) = \frac{2}{\Norm{x}^2} (Ax - \rho_A (x) x)$.
+    Somit sind die Eigenwerte von $A$ die Stationärpunkte von $\rho_A$. Der Satz von
+    Taylor für $\rho_A$ gibt dann
+    \begin{align*}
+        \rho_A (x) - \rho_A (q_j) = O(\Norm{x-q_j}^2) \quad \quad \text{ für } x \rightarrow q_j
+    \end{align*}
+    was bedeutet, dass der Rayleigh-Quotient quadratisch akkurat ist.
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Direkte Potenzmethode}}
+
+Ziel: Finde dan Betragsgrössten EW von $A$ und ein EV dazu.
+
+Annahme: $A$ ist diagonalisierbar: $S^{-1} A S = \text{diag} (\lambda_1,\dots,\lambda_n)$
+mit 
+
+\hspace{45pt} $\abs{\lambda_1} > \abs{\lambda_1} \dots \geq \abs{\lambda_n}$
+($>$ und $\geq$ sind extra so)
+\begin{align*}
+    \frac{A^k x}{\Norm{A^k x}} \rightarrow S_1
+    \quad \text{ für } k \rightarrow \infty
+\end{align*}
+Idee: notiere $x_k = A^k x$ und berechne $\rho_A (x_k)$:
+\begin{align*}
+    \rho_A (x_k) = \frac{x_k^H A x_k}{x_k^H x_k}
+    = \frac{1}{x_k^H x_k} \klammer{x_k^H \sum_{j=1}^n a_j \lambda_j^{k+1} s_j}
+    = \lambda_1 + \mathcal{O} \klammer{\abs{\frac{\lambda_2}{\lambda_1}}^k}
+\end{align*}
+
+Code:
+
+Wähle $x_0$ zufällig, $\Norm{x_0} = 1$
+
+für $k=1,2,\dots$
+
+\hspace{12pt} $w=Ax_{k-1}$
+
+\hspace{12pt} $x_k = \frac{w}{\Norm{w}}$
+
+\hspace{12pt} $\lambda_k = x_k^H A x_k$
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Die Potenzmethode liefert eine Iteration die linear gegen $\lambda_1$ konvergiert
+    mit der Rate $\abs{\frac{\lambda_2}{\lambda_1}}$
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Falls $A$ normal $\Rightarrow$ EV orthogonal $\Rightarrow$ Fehler
+    $\mathcal{O} \klammer{\abs{\frac{\lambda_2}{\lambda_1}}^{2k}}$
+    $\Rightarrow$ quadratische Konvergenz
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Inverse Potenzmethode}}
+
+Ziel: Finde den kleinsten EW von $A$
+
+Annahme: $A$ ist invertierbar
+
+$Ax=\lambda x \Rightarrow x = \lambda A^{-1} x \Rightarrow \frac{1}{\lambda} x = A^{-1} x$
+
+$\Rightarrow$ betragskleinste EW $\lambda_n$ $\Rightarrow \frac{1}{\lambda_n} x = A^{-1} x$
+
+$\frac{1}{\lambda_n}$ ist der betragsgrösste EW von $A^{-1}$
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wir berechnen nicht $A^{-1}$ sondern nur einmal eine LU-Zerlegung von $A$
+    (strukturerhaltend). Dann löse GLS mit Matrizen L,U um $A^{-1} x$ zu
+    implementieren.
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Shifted Inverse Iteration}}
+
+Ziel: Finde den EW von $A$ am nächsten bei $\alpha$
+
+$\abs{\alpha - \lambda} = \min \geschwungeneklammer{\abs{\alpha - \mu} \text{ mit $\mu$ EW von $A$}}$
+
+$Ax-\lambda x \Leftrightarrow Ax-\alpha I x = (\lambda - \alpha) x \Leftrightarrow
+(A-\alpha I) x = (\lambda-\alpha)x \Leftrightarrow \frac{1}{\lambda - \alpha} x = 
+(A-\alpha I)^{-1} x$
+
+$\Rightarrow$ Potenzmethode für $(A-\alpha I)^{-1} \Rightarrow \frac{1}{\lambda-\alpha}
+\Rightarrow \lambda$
+
+\pagebreak
+
+\Bemerkung{
+
+    Die Potenzmethode ist schneller wenn $\alpha \approx \lambda_j$
+
+    Idee: wähle $\alpha$ adaptiv, zB. $\alpha = \rho_A (x_{k-1})$ im $k$-ten Schritt.
+
+    $\Rightarrow$ beschleunigte Konvergenz: \fat{Rayleigh-Quotienten-Iteration}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wir brauchen immer einen guten Startwert.
+
+    Konvergenzordnung $3$!
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{ (Courant-Fischer)
+    \begin{align*}
+        \lambda_k = \min_{\dim U = k} \max_{x \in U} \rho_A (x)
+        = \max_{\dim U = n-k+1} \min_{x \in U} \rho_A (x)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Krylov-Verfahren}}
+
+gut für kleine Matrizen.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Der $l$-te Krylov-Raum ist definiert als:
+    \begin{align*}
+        \mathcal{K}_{l} (A,z) = \text{span} \geschwungeneklammer{z,Az,\dots,A^{l-1}z}
+        = \geschwungeneklammer{p(A) z ; p = \text{ Polynom vom Grad } \leq l-1}
+    \end{align*}
+}
+Finde ONB von Krylov-Raum mittels Gram-Schmidt-Verfahren.
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Arnoldi-Verfahren}}
+(Code: Seite 284)
+
+\vspace{1\baselineskip}
+
+\begin{enumerate}[{1)}]
+    \item Wähle $l<n$ selber
+    \item Sei $\geschwungeneklammer{v_1,\dots,v_{l-1}}$ eine ONB von $K_{l-1} (A,z)$,
+            dann:
+            
+            $\tilde{v}_l = A v_{l-1} - \sum_{j=1}^{l-1} \scalprod{v_j}{A v_{l-1}}$
+
+            $v_l = \frac{\tilde{v}_l}{\Norm{\tilde{v}_l}}$
+    \item Eigentlich: (\fat{Vorgehen})
+    
+            $z$ beliebig
+
+            $v_1 = \frac{z}{\Norm{z}}$
+
+            für $l=1,2,...,k-1$
+
+            \hspace{12pt} $\tilde{v} = A v_l$
+
+            \hspace{12pt} $h_{jl} = v_j^H \tilde{v}$
+
+            \hspace{12pt} $\tilde{v} = \tilde{v} - h_{jl} v_j$
+
+            $h_{l+1,l} = \Norm{\tilde{v}}$
+
+            $v_{l+1} = \frac{\tilde{v}}{h_{l+1,l}}$
+\end{enumerate}
+
+\Bemerkung{
+
+    Falls $h_{l+1,l} = 0 \Rightarrow$ Abbruch der Iteration.
+    $Av_l \in \mathcal{K}_l (A,z)$
+}
+
+\vspace{1\baselineskip}
+
+Daraus definieren wir: $V_l := (v_1 \ | \ \dots \ | \ v_l)$ mit $\geschwungeneklammer{v_1,\dots,v_l}$
+ONB von $\mathcal{K}_l$ und Hessenbergmatrizen:
+\begin{align*}
+    &H_l := \begin{pmatrix}
+        h_{1,1} & h_{1,2} & \dots & h_{1,l} \\
+        h_{2,1} & \ddots & & \vdots \\
+        & \ddots & \ddots & \vdots \\
+        0 & & h_{l,l-1} & h_{l,l}
+    \end{pmatrix} \in \R^{l \times l}
+    \\
+    &\tilde{H} := \begin{pmatrix}
+        & & & \\
+        & & H_l & \\
+        & & & \\
+        0 & \dots & 0 & h_{l+1,l}
+    \end{pmatrix}
+    \quad \text{ mit }
+    \tilde{h}_{ij} = \begin{cases}
+        h_{ij} = v_i^H A v_j \text{ für } i \leq j \\
+        \Norm{\tilde{v}_j}_2 \text{ für } i = j+1 \\
+        0 \text{ sonst}
+    \end{cases}
+\end{align*}
+
+\pagebreak
+
+\Bemerkung{
+\begin{enumerate}[{1)}]
+    \item $V_l^H V_l = i_l$, da $v_1,\dots,v_l$ orthogonal sind.
+    \item $H_l = V_l^H A V_l$
+    \item Arnolli-Verfahren bricht ab, falls $h_{l+1,l} = 0$ und dann: $AV_l = V_l H_l$ und $\mathcal{K}_{l+1} = 0$
+    \item Falls $A$ Hermit-symmetrisch ist ($A^H = A$), dann gilt: $H_l^H = H_l$. Somit ist
+            $H_l$ eine tridiagonale Matrix.
+\end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+Code: Lanczos-Iteration: Seite 286
+
+\hspace{25pt} Arnoldi EWapproximation: Seite 288
+
+\vspace{1\baselineskip}
+
+\Theorem{ (Falls $V_l$ quadratisch)
+
+    Falls $h_{l+1,l} = 0$ und $h_{j+1,j} \neq 0$, dann:
+    \begin{enumerate}[{1)}]
+        \item Jeder Eigenwert von $H_l$ ist auh EW von $A$
+        \item Falls $A$ regulär ist, dann gibt es $y \in \C^l$, sodass $Ax=b$ mit
+                $x=V_l y$, wobei $V_l$ normal für $\mathcal{K}_l (A,b)$ konstruirt wurde.
+    \end{enumerate}
+}
+
+\Theorem{ (Falls $V_l$ nicht quadratisch)
+    \begin{enumerate}[{1)}]
+        \item EW von $H_l$ finden, Code: $ew,ev = eig(H_l)$
+        \item Achtung! ev $\neq$ EV von $A$. Man kann sie aber berechnen
+        \item Sei $u$ ein EV von $H_l$, dann ist der zugehörige EV von $A$: $V_l u$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{
+
+    Seien $\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n$ und
+    $\mu_1^{(l)} \geq \dots \geq \mu_l^{(l)}$ die EW der Hermit-symmetrischen
+    Matrix $A \in \C^{n \times n}$, bzw von $H_l = V_l^H A V_l$ für
+    $l=1,2,\dots$. Dann gelten für $1 \leq j \leq l$ die Ungleichungsketten:
+    \begin{align*}
+        \lambda_{n-j+1} \leq \mu_{l+1-j+1}^{(l+1)} \leq \mu_{l-j+1}^{(l)}
+        \quad \quad \text{ und } \quad \quad
+        \mu_j^{(l)} \leq \mu_j^{l+1} \leq \lambda_j
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\underline{\fat{Eigenwertprobleme in Zusammenhang mit DGL}}
+
+Approximation der Ableitungsoperatoren durch Differenzialquotienten. Zwei mögliche Varianten
+für die erste Ableitung:
+
+Vorwärts: $\frac{df}{dx} (x_i) \approx \frac{f(x_{i+1} - f(x_i))}{h}$
+
+Rückwärts: $\frac{df}{dx} (x_i) \approx \frac{f(x_i) - f(x_{i-1})}{h}$
+
+Mögliche Approximation der zweiten Ableitung
+
+$\frac{d^2 f}{dx^2} (x_i) \approx \frac{f(x_{i+1}) - 2 f(x_i) + f(x_{i+1})}{h^2}$
+
+\vspace{1\baselineskip}
+
+Bsp: $\frac{d^2}{dx^2} \Psi(x) = \lambda \Psi(x)$ mit unbekanntem $\lambda \in \R$
+
+Randbedingung: $\Psi(a) = \Psi(b) = 0$
+
+Idee: Partition $x_0,\dots,x_N$ von $[a,b] \Rightarrow \Psi(x_0) = \Psi(x_N) = 0$
+
+Noch zu bestimmen: $\Psi(x_1),\dots,\Psi(x_{N-1})$ und $\lambda$. Dazu:
+\begin{align*}
+    \frac{d^2}{dx^2} \begin{pmatrix}
+        \Psi(x_1) \\ \vdots \\ \vdots \\ \vdots \\ \Psi(x_{N-1})
+    \end{pmatrix}
+    \approx \frac{1}{h^2} \begin{pmatrix}
+        -2 & 1 & & & \\
+        1 & -2 & 1 & & \\
+        & \ddots & \ddots & \ddots & \\
+        & & 1 & -2 & 1 \\
+        & & & 1 & -2
+    \end{pmatrix} \begin{pmatrix}
+        \Psi(x_1) \\ \vdots \\ \vdots \\ \vdots \\ \Psi(x_{N-1})
+    \end{pmatrix}
+    = \lambda \begin{pmatrix}
+        \Psi(x_1) \\ \vdots \\ \vdots \\ \vdots \\ \Psi(x_{N-1})
+    \end{pmatrix}
+\end{align*}
+Die gesuchten Lösungen $\Psi(x_1),\dots,\Psi(x_{N-1})$ sind somit die EV der Matrix
+$A$ und die unbestimmten Werte $\lambda$ dia dazugehörigen EW.
+
+Bem: Dieses $A$ ist dünnbesetzt $\rightarrow$ Krylov für grosses $N$ nützlich.
+
+
+
+

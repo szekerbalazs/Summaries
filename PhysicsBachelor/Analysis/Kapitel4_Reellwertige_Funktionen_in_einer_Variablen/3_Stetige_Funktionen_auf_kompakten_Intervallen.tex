@@ -1,0 +1,100 @@
+\subsection{Stetige Funktionen auf kompakten Intervallen}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Seien $a,b \in \R$ reelle Zahlen mit $a<b$ und sei $f: [a,b] \rightarrow \R$
+    eine stetige Funktion. Dann ist $f$ beschränkt. Das heisst, es existiert
+    ein $M \in \R$ mit $\abs{f(x)} \leq M$ für alle $x \in [a,b]$. 
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D$ eine Menge und $f: D \rightarrow \R$ eine reellwertige Funktion
+    auf $D$. Wir sagen, dass die Funktion $f$ ihr \fat{Maximum} in einem Punkt
+    $x_0 \in D$ \fat{annimmt}, wenn $f(x) \leq f(x_0)$ gilt. Wir bezeichnen
+    $f(x_0)$ als das \fat{Maximum} von $f$. Analog \fat{nimmt} $f$ ihr 
+    \fat{Minimum} in $x_0 \in D$ \fat{an}, falls $f(x) \geq f(x_0)$ für alle
+    $x \in D$ gilt. In dem Fall nennen wir $f(x_0)$ das \fat{Minimum} von $f$.
+    Maaxima und Minima bezeichnet man summarisch als \fat{Extrama} oder
+    \fat{Extremwerte}.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Seien $a \leq b \in \R$ reelle Zahlen und sei $f: [a,b] \rightarrow \R$
+    eine stetige Funktion. Dann nimmt $f$ sowohl ihr Maximum als auch ihr 
+    Minimum an.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $D \subseteq \R$ eine Teilmenge. Eine Funktion $f: D \rightarrow \R$
+    heisst \fat{gleichmässig stetig}, falls es für alle $\varepsilon > 0$ ein
+    $\delta > 0$ gibt, so dass
+    \begin{align*}
+        \abs{x-y} < \delta \Rightarrow \abs{f(x) - f(y)} < \varepsilon
+    \end{align*}
+    für alle $x,y \in D$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+    (Unterschied stetig und gleichmässig stetig)
+
+    Sei $X \subseteq \R$ eine Teilmenge von $\R$ und sei $x_0 \in X$.
+    Dann sind stetig und gleichmässig stetig in Quantoren wie folgt
+    definiert:
+
+    \vspace{1\baselineskip}
+
+    Stetig: $\forall x_0 \in X \ \forall \varepsilon > 0 \ \exists \delta > 0$ mit $\abs{x - x_0} < \delta \Rightarrow \abs{f(x)-f(x_0)} < \varepsilon$
+
+    Gleichmässig Stetig: $\forall \varepsilon > 0 \ \exists \delta > 0$ mit $\abs{x-x_0} < \delta \Rightarrow \abs{f(x)-f(x_0)} > \varepsilon$
+
+    \vspace{1\baselineskip}
+
+    Der wesentliche Unterschied besteht darin, dass bei der gleichmässigen 
+    Stetigkeit das $\delta$ gleich bleibt für alle $x \in X$, 
+    und bei der "normalen" Stetigkeit ändert sich das $\delta$ für 
+    jedes $x \in X$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $[a,b]$ ein kompaktes Intervall für $a<b$ und $f: [a,b] \rightarrow \R$
+    eine stetige Funktion. Dann ist $f$ gleichmässig stetig.
+}
+
+\pagebreak
+
+\Definition{
+
+    Eine Funktion $f: X \rightarrow \R$ heisst \fat{Lipschitz stetig}, falls
+    ein $L \geq 0$ existiert mit
+    \begin{align*}
+        \abs{f(x) - f(y)} \leq L \abs{x-y}
+    \end{align*}
+    für alle $x,y \in X$. $L$ heisst Lipschitz-Konstante für $f$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Lipschitz stetig $\Rightarrow$ Gleichmässig stetig $\Rightarrow$ Stetige
+
+    \vspace{1\baselineskip}
+
+    \fat{Achtung!} Dies ist nur eine einseitige Implikation und keine Äquivalenz.
+}

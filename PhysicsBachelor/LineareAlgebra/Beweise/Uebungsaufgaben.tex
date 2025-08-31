@@ -1,0 +1,99 @@
+\subsection{Tensor mit Homomorphismen}
+
+
+Seien $U, V, W, Z$ endlich dimensionale $K$ -Vektorräume, $A \in \operatorname{Hom}(U, V), B \in$ $\mathrm{Hom}(W, Z)$ und betrachten Sie die lineare Abbildung $^{1}$
+$$
+\Psi: \operatorname{Hom}(V, W) \rightarrow \operatorname{Hom}(U, Z), F \mapsto B \circ F \circ A
+$$
+Zeigen Sie, dass unter der Identifikation Hom $(V, W) \cong V^{*} \otimes W$ aus der Vorlesung $\Psi$ identifiziert werden kann mit dem Homomorphismus
+$$
+\Phi: V^{*} \otimes W \rightarrow U^{*} \otimes Z, \quad \Phi=A^{*} \otimes B
+$$
+wobei $A^{*}$ die zu $A$ duale Abbildung ist.
+Lösung:
+Wir erinnern an die Identifikation
+$$
+f_{V, W}: V^{*} \otimes W \stackrel{\tilde{\rightarrow}}{\operatorname{Hom}}(V, W), \quad \varphi \otimes w \mapsto \varphi() \cdot w
+$$
+Wir wollen also argumentieren, dass folgendes Diagramm kommutiert
+Seien $u \in U$ und $\varphi \otimes w \in V^{*} \otimes W .$ Da $V^{*} \otimes W$ von Tensoren der Form $\varphi \otimes w$ erzeugt wird, genügt es die Behauptung hierfür zu zeigen. Es gilt
+$$
+\begin{aligned}
+\left(\left(\Psi \circ f_{V, W}\right)(\varphi \otimes w)\right)(u) &=\left(B \circ f_{V, W}(\varphi, w) \circ A\right)(u) \\
+&=B((\varphi \circ A)(u) \cdot w) \\
+&=\varphi(A(u)) \cdot B(w) \\
+&=A^{*}(\varphi)(u) \cdot B(w) \\
+&=f_{U, Z}\left(\left(A^{*} \otimes B\right)(\varphi \otimes w)\right)(u) \\
+&=\left(\left(f_{U, Z} \circ \Phi\right)(\varphi \otimes w)\right)(u)
+\end{aligned}
+$$
+
+\subsection{Symmetrisches Produkt}
+
+Sei $U=\operatorname{span}\left\{v \otimes v^{\prime}-v^{\prime} \otimes v \mid v, v^{\prime} \in V\right\} \subset V \otimes V .$ Wir definieren das symmetrische
+Produkt $V \vee V$ als den Quotientenvektorraum
+$$
+V \vee V=(V \otimes V) / U
+$$
+Die universelle Eigenschaft folgt nun direkt aus der universellen Eigenschaft des Quotienten: Die bilineare Abbildung $\xi$ induziert eine eindeutige Abbildung $\xi^{\prime}: V \otimes$ $V \rightarrow W,$ so dass $\xi$ genau die Komposition $V \times V \rightarrow V \otimes V \rightarrow W$ ist. Symmetrie der Abbildung $\xi$ bedeutet gerade, dass $U \subset \operatorname{Ker}\left(\xi^{\prime}\right) .$
+Um die Behauptung bzgl. der Basis zu beweisen, bemerken wir zunächst, dass
+$$
+U=\operatorname{span}\left\{v_{i} \otimes v_{j}-v_{j} \otimes v_{i} \mid i<j\right\}
+$$
+$\operatorname{Sei} \tilde{U}=\operatorname{span}\left\{v_{i} \otimes v_{j}\right\}_{i \leqslant j} \subset V \otimes V .$ Es genügt zu zeigen, $\operatorname{dass} U \oplus \tilde{U}=V \otimes V$
+Dann bildet $\tilde{U}$ isomorph auf $V \vee V$ ab und die Bilder der $v_{i} \otimes v_{j}$ bilden eine Basis des Quotienten.
+Nun ist für $i \leqslant j$ aber $v_{j} \otimes v_{i}=-\left(v_{i} \otimes v_{j}-v_{j} \otimes v_{i}\right)+v_{i} \otimes v_{j} \in U+\tilde{U},$ also ist die Basis
+$\left\{v_{i} \otimes v_{j}\right\}_{i, j}$ von $V \otimes V$ komplett in $U+\tilde{U}$ enthalten und folglich $U+U^{\prime}=V \otimes V$ Andererseits ist $\operatorname{dim} U \leqslant\left(\begin{array}{c}n \\ 2\end{array}\right)$ und $\operatorname{dim} \tilde{U} \leqslant\left(\begin{array}{c}n+1 \\ 2\end{array}\right),$ also $\operatorname{dim} U+\tilde{U} \leqslant n^{2}=\operatorname{dim} V \otimes V$
+Insgesamt daher $V \otimes V=U \oplus \tilde{U}$.
+
+
+\subsection{k-faches symmetrisches Produkt}
+
+Es sei $S_{k}$ die symmetrische Gruppe. Wir betrachten den Untervektorraum des $k$ -fachen Tensorprodukts
+$$
+S^{k}(V)=\operatorname{span}\left\{v_{1} \otimes \cdots \otimes v_{k}-v_{\sigma 1} \otimes \cdots \otimes v_{\sigma k} \mid v_{i} \in V, \sigma \in S_{k}\right\} \subset \bigotimes^{k} V
+$$
+Wir definieren das symmetrische Produkt als den Quotientenvektorraum
+$$
+\bigvee^{k} V=\bigotimes^{k} V / S^{k}(V)
+$$
+und bezeichnen mit $v_{1} \vee \cdots \vee v_{k}$ die Restklasse von $v_{1} \otimes \cdots \otimes v_{k}$ im Quotienten. Hierdurch ist ein $K$ -Vektorraum wohldefiniert. Die Abbildung
+$$
+\left(v_{1}, \ldots, v_{k}\right) \mapsto v_{1} \vee \cdots \vee v_{k}
+$$
+definiert die gesuchte symmetrische multilineare Abbildung
+$$
+\vee: \underbrace{V \times \cdots \times V}_{k-m a l} \rightarrow \bigvee^{k} V
+$$
+Die universelle Eigenschaft folgt nun ganz parallel zu Serie $9,$ Aufg. 3 unmittelbar aus der Definition einer symmetrischen multilinearen Abbildung, zusammen mit der universellen Eigenschaft des Quotientenvektorraums.
+
+Wir zeigen schließlich die Behauptung bzgl. der Basis. Da $v_{i_{1}} \otimes \cdots \otimes v_{i_{k}}$ eine Basis des Tensorprodukts bilden, erzeugen die Bilder, also $v_{i_{1}} \vee \cdots \vee v_{i_{k}}$ das symmetrische Produkt $\mathrm{V}^{k} V .$ Da aber für alle $\sigma \in S_{k}$
+$$
+v_{i_{1}} \vee \cdots \vee v_{i_{k}}=v_{\sigma i_{1}} \vee \cdots \vee v_{\sigma i_{k}}
+$$
+wird $V^{k} V$ erzeugt durch alle $v_{i_{1}} \vee \cdots \vee v_{i_{k}}$ mit $i_{1} \leqslant \cdots \leqslant i_{k} .$ Wir zeigen noch die lineare Unabhängigkeit. Sei hierfür
+$$
+N=\left(\begin{array}{c}
+n+k-1 \\
+k
+\end{array}\right)
+$$
+die Anzahl solcher $v_{i_{1}} \vee \cdots \vee v_{i_{k}} .$ Wir definieren eine Surjektion (tatsächlich ein Isomorphismus)
+$$
+\bigvee^{k} V \rightarrow K^{N}
+$$
+Sei $e_{i_{1}, \ldots, i_{k}}$ eine Basis von $K^{N} .$ Für $w_{i}=\sum_{j=1}^{n} a_{i j} v_{j} \in V$ definiert die Zuordnung
+$$
+\left(w_{1}, \ldots, w_{k}\right) \mapsto \sum_{i_{1} \leqslant \cdots \leqslant i_{k}}\left(\sum_{\sigma \in S_{k}} a_{1 \sigma i_{1}} \cdots a_{k \sigma i_{k}} \cdot e_{i_{1}, \ldots, i_{k}}\right)
+$$
+eine symmetrische multilineare Abbildung
+$$
+\underbrace{V \times \cdots \times V}_{k-m a l} \rightarrow K^{N}
+$$
+Aus der universellen Eigenschaft erhalten wir daher eine lineare Abbildung
+$$
+\bigvee^{k} V \rightarrow K^{N}
+$$
+$\operatorname{mit} v_{i_{1}} \vee \cdots \vee v_{i_{k}} \mapsto e_{i_{1}, \ldots, i_{k}} .$ Die Abbildung ist insbesondere surjektiv und die
+$v_{i_{1}} \vee \cdots \vee v_{i_{k}}$ daher linear unabängig.
+

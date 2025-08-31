@@ -1,0 +1,259 @@
+\subsection{Die Ableitung}
+
+\vspace{1\baselineskip}
+
+Für dieses Kapitel definieren wir eine offene Teilmenge $U \subseteq \R^n$ und eine
+Funktion $f: U \rightarrow \R^m$.
+Des Weiteren ist in diesem Kapitel $\standardNorm$ immer die euklidische Norm
+$\zweiNorm$ gemeint.
+Als letzte Vorbemerkung ist zu betonen, dass die Ableitung von $f$ an einer Stelle
+$x_0 \in U$ nicht eine Zahl sein wird, sondern eine lineare Abbildung
+$L: \R^n \R^m$.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ offen und $f: U \rightarrow \R^m$ eine Funktion. Dann heisst
+    $f$ bei $x_0 \in U$ \fat{differenzierbar} oder \fat{ableitbar}, falls es eine
+    lineare Abbildung $L: \R^n \rightarrow \R^m$ gibt, so dass
+    \begin{align} \label{4}
+        \limes{x \rightarrow 0} \frac{\Norm{f(x_0 + x) - f(x_0) - L(x)}}{\Norm{x}} = 0
+    \end{align}
+    gilt. Die lineare Abbildung $L$ wird die \fat{totale Ableitung}, das
+    \fat{Differential} oder die \fat{Tangentialabbildung} genannt. Wir schreiben
+    sie als
+    \begin{align*}
+        L = Df(x_0)
+    \end{align*}
+    Die Funktion $f$ heisst \fat{ableitbar} oder \fat{differenzierbar}, falls $f$ bei
+    jedem Punkt in $U$ differenzierbar ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    \begin{enumerate}
+        \item $L$ ist durch (\ref{4}) eindeutig bestimmt.
+        \item Ist $f$ in $x_0$ differenzierbar, so ist $f$ in $x_0$ auch stetig.
+        \item Die Ableitung von $f: U \subseteq \R \rightarrow \R$ ist
+                \begin{align} \label{5}
+                    f'(x_0) = \limes{h \rightarrow 0} \frac{f(x_0 +h) - f(x_0)}{h} \ \in \R
+                \end{align}
+                Dies kann man als lineare Abbildung auffassen, $L: \R \rightarrow \R$ mit
+                $L(h) \mapsto f'(x_0) \cdot h$ und es gilt:
+                \begin{align*}
+                    (\ref{5}) \Leftrightarrow
+                    0 = \limes{h \rightarrow 0} \abs{\frac{f(x_0 + h) - f(x_0)}{h} - f'(x_0)}
+                    = \limes{h \rightarrow 0} \abs{\frac{f(x_0 + h) - f(x_0) - L(h)}{h}}
+                \end{align*}
+        \item Beachte, dass $(Df)(x_0)$ jetzt eine lineare Abbildung $\R^n \rightarrow \R^m$ ist.
+        \item Ist $f$ in $x_0 \in U$ differenzierbar, so können wir folgendes schreiben
+                \begin{align*}
+                    f(x_0 + h) = f(x_0) + Df(x_0)(h) + R(h)
+                \end{align*}
+                mit $R(h) = f(x_0 + h) - f(x_0) - Df(x_0)(h)$ einem Restterm, der folgendes
+                erfüllt:
+                \begin{align*}
+                    \limes{h \rightarrow 0} \frac{R(h)}{\Norm{h}} = 0
+                \end{align*}
+                Also $\Norm{R(h)} = O(\Norm{h})$.
+    \end{enumerate}
+}
+
+\pagebreak
+
+\Definition{
+
+    Sei $U \subseteq \R^n$ eine offene Teilmenge und $f: U \rightarrow \R^m$ eine
+    Funktion. Die \fat{Ableitung} von $f$ \fat{entlang eines Vektors} $v \in \R^n$
+    ist an einer Stelle $x_0 \in U$ durch
+    \begin{align*}
+        \partial_v f(x_0) = \limes{s \rightarrow 0} \frac{f(x_0 + s v) - f(x_0)}{s}
+    \end{align*}
+    definiert, falls der Grenzwert existiert. Man spricht auch von der
+    \fat{Richtungsableitung} in die Richtung $v$ bei $x_0$. Im Spezialfall, wo
+    $v = e_j$ für ein $j \in \geschwungeneklammer{1, \dots , n}$ ist, wird der
+    obige Grenzwert
+    \begin{align*}
+        \partial_j f(x_0) = \partial_{x_j} f(x_0)
+        = \limes{s \rightarrow 0} \frac{f(x_0 + s e_j) - f(x_0)}{s}
+    \end{align*}
+    auch die \fat{partielle Ableitung} in der $j$-ten Koordinate (oder der Variable
+    $x_j$) bei $x_0 \in U$ genannt, falls er existiert. Wir schreiben mitunter auch
+    $\frac{\partial f}{\partial x_j}(x_0)$. Existiert die partielle Ableitung in der
+    $j$-ten Koordinate an jedem Punkt in $U$, so erhält man also eine Funktion
+    $\partial_j f: U \rightarrow \R^m$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $U \subseteq \R$ offen und sei $f: U \rightarrow \R^m$ bei $x_0 \in U$
+    differenzierbar. Dann existiert für jedes $v \in \R^n$ die Ableitung von $f$
+    in Richtung $v$, und es gilt:
+    \begin{align*}
+        \partial_v f(x_0) = Df(x_0)(v)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: U \subseteq \R^n \rightarrow \R^m$ eine Funktion, welche ableitbar ist an
+    einem Punkt $x \in U$. Dann ist für $a \in U$ die \fat{Jacobi-Matrix} im Punkt
+    $a$ definiert durch
+    \begin{align*}
+        J_f (a) := \klammer{\frac{\partial f_i}{\partial x_j} (a)}_{\stackrel{i = 1,\dots,m}{j = 1,\dots,n}}
+        = \begin{pmatrix}
+            \frac{\partial f_1}{\partial x_1} (a) & \dots & \frac{\partial f_1}{\partial x_n} (a) \\
+            \vdots & \ddots & \vdots \\
+            \frac{\partial f_m}{\partial x_1} (a) & \dots & \frac{\partial f_m}{\partial x_n} (a)
+        \end{pmatrix}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $U \subseteq \R^n$ offen und $f: U \rightarrow \R^m$ eine Funktion. Es
+    bezeichne $\pi_j: \R^m \rightarrow \R$ die Projektion auf die $j$-te Komponente.
+    Dann ist $f$ genau dann bei $x_0 \in U$ differenzierbar, wenn die Komponenten
+    $f_j = \pi_j \circ f$ für jedes $j \in \geschwungeneklammer{1,dots,m}$ bei $x_0$
+    differenzierbar sind. In diesem Fall gilt
+    \begin{align*}
+        \pi_j \circ Df(x_0) = D(\pi_j \circ f)(x_0) = Df_j (x_0)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $U \subseteq \R^n$ offen und $f:U \rightarrow \R^m$ eine Funktion. Falls für
+    jedes $j \in \geschwungeneklammer{1,\dots,n}$ die partielle Ableitung $\partial_j f$
+    auf ganz U existiert und eine stetige Funktion definiert, so ist $f$ auf ganz $U$
+    differenzierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir nennen eine Funktion $f: U \rightarrow \R^m$ auf einer offenen Teilmenge
+    $U \subseteq \R^m$ \fat{stetig differenzierbar}, wenn $f$ differenzierbar
+    ist und die Ableitung als Funktion von $x \in U$
+    \begin{align*}
+        Df:U \longrightarrow \Hom (\R^n , \R^m) \cong \Mat_{m,n} (\R)
+    \end{align*}
+    stetig ist.
+}
+
+\pagebreak
+
+\Proposition{
+
+    Eine Funktion $f: U \rightarrow \R^m$ ist genau dann stetig differenzierbar, wenn
+    alle partiellen Ableitungen von $f$ existieren und stetig sind.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Kettenregel)
+
+    Seien $k,m,n \geq 1$ und seien $U \subseteq \R^n$ und $V \subseteq \R^m$ offen.
+    Sei $f: U \rightarrow V$ bei $x_0 \in U$ differenzierbar und $g:V \rightarrow \R^k$
+    bei $f(x_0)$ differenzierbar. Dann ist $g \circ f$ bei $x_0$ differenzierbar,
+    und die totale Ableitung von $(g \circ f)$ bei $x_0$ ist gegeben durch:
+    \begin{align*}
+        D(g \circ f)(x_0) = Dg(f(x_0)) \circ Df(x_0)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Wir betrachten den Spezialfall $n=1$ für die Kettenregel. Sei $I \subseteq \R$
+    ein offenes Intervall und $\gamma : I \rightarrow V \subseteq \R^m$ eine
+    differenzierbare Funktion mit Werten in einer offenen Teilmenge $V \subseteq \R^m$.
+    Sei weiter $f:V \rightarrow \R^k$ differenzierbar. Dann ergibt die Kettenregel,
+    dass $f \circ \gamma$ differenzierbar ist, und dass die Formel
+    \begin{align*}
+        (f \circ \gamma)' (t) = D f(\gamma(t)) \cdot \gamma'(t)
+    \end{align*}
+    für alle $t \in I$ gilt. Sollte noch zusätzlich $k=1$ sein, so ist
+    $f \circ \gamma : I \rightarrow \R$ und $Df(\gamma(t)) \gamma'(t)$ in Matrixform
+    ausgedrückt das Matrixprodukt der $1 \times m$-Matrix $Df(\gamma(t))$ mit der
+    $m \times 1$-Matrix $\gamma'(t)$. Wir interpretieren in diesem Fall $Df(x)$
+    für $x \in V$ auch als Spaltenvektor
+    \begin{align*}
+        \grad f(x) = \nabla f(x) = (Df(x))^T \in \R^m
+    \end{align*}
+    und nennen dies den \fat{Gradienten der Funktion} $f$ bei der Stelle $x$.
+    In dieser Schreibweise erhalten wir die Formel
+    \begin{align*}
+        (f \circ \gamma)'(t) = Df(\gamma(t)) \cdot \gamma'(t) = \scalprod{\nabla f(\gamma(t))}{\gamma'(t)}
+    \end{align*}
+    für alle $t \in I$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $f: U \rightarrow \R$ eine differenzierbare Funktion auf einer offenen
+    Teilmenge $U \subseteq \R^n$, so gilt
+    \begin{align*}
+        \partial_v f(x) = Df(x)(v) = \scalprod{\nabla f(x)}{v} \leq \Norm{\nabla f(x)} \cdot \Norm{v}
+    \end{align*}
+    für jeden Vektor $v \in \R^n$, mit Gleichheit genau dann, wenn $\nabla f(x)$ und
+    $v$ linear abhängig sind. Dies bedeutet, dass der Gradient von $f$ an einem
+    Punkt in die Richtung der grössten Richtungsableitung zeigt, die Richtung
+    des grössten Anstiegs von $f$ um $x$ kennzeichnet. Des Weiteren gibt
+    $\Norm{\nabla f(x)}$ die Steigung in dieser Richtung an.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Mittelwertsatz)
+
+    Sei $U \subseteq \R^n$ offen und $f: U \rightarrow \R$ differenzierbar. Sei
+    $x_0 \in U$ und $h \in \R^n$ so, dass $x_0 + t h \in U$ für alle $t \in [0,1]$
+    gilt. Dann existiert ein $t \in (0,1)$ so, dass für $\xi = x_0 + t h$ die
+    folgende Gleichung erfüllt ist:
+    \begin{align*}
+        f(x_0 + h) - f(x_0) = Df(\xi)(h) = \partial_h f(\xi)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $U \subseteq \R^n$ offen und zusammenhängend, und sei $f: U \rightarrow \R^m$
+    differenzierbar mit $Df(x_0) = 0$ für alle $x \in U$. Dann ist $f$ konstant.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Funktion $f:X \rightarrow Y$ zwischen metrischen Räumen $X,Y$ heisst
+    \fat{lokal Lipschitz-stetig}, falls für jedes $x_0 \in X$ ein $\epsilon>0$
+    existiert, so dass $f |_{B(x_0 , \epsilon)}$ Lipschitz-stetig ist. 
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Sei $U \subseteq \R^n$ offen und sei $f: U \rightarrow \R^m$ eine stetige
+    differenzierbare Funktion. Dann ist $f$ lokal Lipschitz-stetig. Falls $U$
+    zusätzlich konvex und die Ableitung beschränkt ist, dann ist $f$ sogar
+    Lipschitz-stetig.
+}

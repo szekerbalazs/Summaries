@@ -1,0 +1,73 @@
+\section{Elektrische Leiter}
+
+\vspace{1\baselineskip}
+
+\fat{Leiter}:
+Einzelnen Ladungen sind sehr mobil. Daher ist das elektrische Feld überall im Leiter Null.
+Die Ladungen passen sich also an. Des Weiteren verschwindet die Ladungsdichte überall im
+Inneren der Leiters.
+
+\vspace{1\baselineskip}
+
+\fat{Isolator}: Es existieren keine freien Ladungen. Daher können wir das elektrische
+Feld und Potential berechnen.
+
+\vspace{1\baselineskip}
+
+\fat{Bedingungen an einen Leiter}:
+\begin{itemize}
+    \item Das elektrostatische Potential ist überall im Inneren des Leiters auf dessen
+            Oberfläche konstant. Insbesondere ist die Oberfläche eine Äquipotentialfläche.
+    \item Das elektrische Feld in der Nähe der Oberfläche verschwindet im Inneren und die
+            Feldlinien stehen orthogonal auf die Oberfläche.
+            $E = \frac{\sigma}{\epsilonnull} \vec{n}$ mit $\sigma =$ lokale Flächenladungsdichte
+            auf der Oberfläche und $\vec{n} = $ Normalenvektor.
+    \item Die Flächenladungsdichte $\sigma$ ist abhängig von der Form des Leiters.
+    \item Die Gesammtladung eines Leiters ist gegeben durch die Integration der Flächenladungsdichte
+            über die Oberfläche
+            \begin{align*}
+                Q = \int_S \sigma da = \epsilonnull \int_S E da
+            \end{align*}
+\end{itemize}
+
+\vspace{1\baselineskip}
+
+\fat{Das allgemeine elektrostatische Problem}
+
+Wir betrachten einen Leiter im Vakuum, sodass die \fat{Laplacegleichung} zu
+$\delta \phi = 0$ wird. Es gibt verschiedene Randbedingungen, die man betrachten kann:
+\begin{enumerate}
+    \item \fat{Dirichlet-Randbedingung}: Das Potential $\phi$ ist für alle Leiter definiert.
+    \item \fat{Neumann-Randbedingung}: Die Ladung $Q$ ist für alle Leiter definiert.
+    \item Eine Mischung der beiden.
+\end{enumerate}
+
+\vspace{1\baselineskip}
+
+\fat{Eindeutigkeitssatz}:
+Falls für eine gegebene Menge an Randbedingungen eine Lösung des elektrostatischen
+Problems existiert, so ist diese eindeutig.
+
+\vspace{1\baselineskip}
+
+\fat{Influenz}
+Verschiebung von Ladungen in einem Leiter durch eine externe Ladungsverteilung.
+
+\vspace{1\baselineskip}
+
+\fat{Faraday'sche Käfig}
+\begin{itemize}
+    \item \fat{Ein leerer von einen Leiter umgebener Raum}: Wir wissen, dass das Potential
+            auf der Leiteroberfläche konstant sein muss. Damit ist es konstant auf dem ganzen
+            Hohlraum, weil er ja keine Ladung einschliesst. Das dabei entstehende elektrische
+            Feld ist Null.
+    \item \fat{Eine von einem Leiter umgebene Ladung}: Man stelle sich vor, eine positive
+            Punktladung $Q$ sitze im Hohlraum eines Leiters. Wegen des Gauss'schen Gesetzes
+            muss die Ladung der inneren Oberfläche des Leiters gerade $-Q$ sein
+            (Damit das elektrische Feld im Inneren des Leiters wieder Null wird.)
+            Die äussere Oberfläche des Leiters trägt dann ebenfalls wieder eine Ladung $Q$,
+            damit die Gesammtladung des leiters verschwindet.
+    \item \fat{Allgemein}: Durch einen Leiter, der einen Hohlraum umschliesst, wird das
+            Innere von allen äussseren Einflüssen abgeschirmt und die Umgebung wird von
+            jeglicher Information über die Bewegung der Ladungen im Inneren abgeschnitten.
+\end{itemize}

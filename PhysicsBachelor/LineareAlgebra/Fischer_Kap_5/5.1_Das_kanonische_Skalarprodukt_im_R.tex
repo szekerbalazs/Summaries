@@ -1,0 +1,106 @@
+\section{Das kanonische Skalarprodukt im $\R^n$}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Das \fat{kanonische Skalarprodukt} ist eine Abbildung
+    \begin{align*}
+        \scalprod{ \ }{ \ } : \R^n \times \R^n &\longrightarrow \R
+        \\
+        (x,y) &\mapsto \scalprod{x}{y}
+    \end{align*}
+    mit $x = (x_1,\dots,x_n)$ und $y=(y_1,\dots,y_n)$ $\in \R^n$. Schreibt man $x$ und $y$ als
+    Spaltenvektoren, so ist:
+    \begin{align*}
+        \scalprod{x}{y} = x^T \cdot y = (x_1,\dots,x_n) \cdot \begin{pmatrix}
+            y_1 \\ \vdots \\ y_n
+        \end{pmatrix}
+        = \sum_{i=1}^n x_i y_i
+    \end{align*}
+    Formal muss folgendes erfüllt sein für $x,x',y,y' \in \R^n$ und $\lambda \in \R$:
+
+    (1) (Bilinearität) $\scalprod{x+x'}{y} = \scalprod{x}{y} + \scalprod{x'}{y}$
+
+        \hspace{17pt} $\scalprod{x}{y+y'} = \scalprod{x}{y} + \scalprod{x}{y'}$
+
+        \hspace{17pt} $\scalprod{\lambda x}{y} = \lambda \scalprod{x}{y}$
+
+        \hspace{17pt} $\scalprod{x}{\lambda y} = \lambda \scalprod{x}{y}$
+
+    (2) (Symmetrie) $\scalprod{x}{y} = \scalprod{y}{x}$
+
+    (3) (Positive Definitheit) $\scalprod{x}{x} \geq 0 \quad \text{   und   }  \quad 
+                \scalprod{x}{x} = 0 \Leftrightarrow$ 
+                
+                \hspace{17pt} $x=0$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Die \fat{Norm} ist definiert als eine Abbildung:
+    \begin{align*}
+        &\Norm{ \ } : \R^n \rightarrow \R_{\geq 0} \\
+        &x \mapsto \Norm{x} := \sqrt{\scalprod{x}{x}}
+    \end{align*}
+    mit folgenden Eigenschaften:
+    \begin{enumerate}[{\fat{N1}}]
+        \item $\Norm{x} = 0 \Leftrightarrow x=0$
+        \item $\lambda x = \abs{\lambda} \Norm{x}$
+        \item $\Norm{x+y} \leq \Norm{x} + \Norm{y}$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Analog zur Norm, kann man den \fat{Abstand} definieren
+    \begin{align*}
+        &d: \R^n \times \R^n \rightarrow \R_{\geq 0} \\
+        &d(x,y):= \Norm{y-x} = \sqrt{(y_1 - x_1)^2 + \dots + (y_n - x_n)^2}
+    \end{align*}
+    mit folgenden Eigenschaften
+    \begin{enumerate}[{\fat{D1}}]
+        \item $d(x,y) = 0 \Leftrightarrow x=y$
+        \item $d(x,y) = d(y-x)$
+        \item $d(x,z) \leq d(x,y) + d(y,z)$
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Ungleichung von Cauchy-Schwarz)
+
+    $\abs{\scalprod{x}{y}} \leq \Norm{x} \cdot \Norm{y}$
+    \ und \
+    $\abs{\scalprod{x}{y}} = \Norm{x} \cdot \Norm{y}$
+    \ genau dann, wenn $x$ und $y$ linear unabhängig sind.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir definieren den Winkel $\vartheta$ zwischen zwei Vektoren $x,y \in \R^n$ als
+    \begin{align*}
+        \vartheta = \angle (x,y) =
+        \arccos \klammer{\frac{\scalprod{x}{y}}{\Norm{x} \cdot \Norm{y}}}
+    \end{align*}
+    mit
+    \begin{align*}
+        &\angle (x,y) = \angle (y,x) \\
+        &\angle(x,y) = \angle(\alpha x, \beta y) \\
+        &\scalprod{x}{y} = \cos (\angle(x,y)) \cdot \Norm{x} \cdot \Norm{y}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir sagen $x,y \in \R^n$ sind \fat{orthogonal} zueinander, schreibe $x \perp y$, wenn
+    $\scalprod{x}{y} = 0$.
+}

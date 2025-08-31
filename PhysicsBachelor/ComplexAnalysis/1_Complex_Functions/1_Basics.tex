@@ -1,0 +1,47 @@
+\subsection{Basics}
+
+\begin{theorem}
+    $\klammer{\cos(\phi) + i \sin(\phi)}^n = \cos(n \phi) + i \sin(n \phi)$
+\end{theorem}
+
+\begin{theorem}[Riemann Sphere]
+    Represent $\C$ on the unit Sphere $S^2 \subseteq \R^3$ and vice versa.
+    Representation $S^2 \rightarrow \C$:
+    \begin{align*}
+        z = \frac{x_1 + i x_2}{1 - x_3}
+    \end{align*}
+    Representation $\C \rightarrow S^2$:
+    \begin{align*}
+        x_1 &= \frac{z - \overline{z}}{i \klammer{1+\abs{z}^2}}
+        \\
+        x_2 &= \frac{z + \overline{x}}{1+\abs{z}^2}
+        \\
+        x_3 &= \frac{\abs{z}^2 - 1}{\abs{z}^2 + 1}
+    \end{align*}
+\end{theorem}
+
+\begin{definition}[Limit]
+    The function $f(x)$ is said to have a \fat{limit} $A$ as $x$ tends to $a$
+    \begin{align*}
+        \limes{x \rightarrow a} f(x) = A
+    \end{align*}
+    if and only if the following is true:
+    For every $\epsilon >0$ there exists a number $\delta >0$ with the property that
+    for $x \neq a$: $\abs{x - a} < \delta \ \Rightarrow \ \abs{f(x) - A} < \epsilon$.
+\end{definition}
+
+\begin{theorem}[Limes Rules]
+    The following are true:
+    \begin{align*}
+        \limes{x \rightarrow a} \overline{f}(x) &= \overline{A}
+        \\
+        \limes{x \rightarrow a} \text{Re}(f(x)) &= \text{Re} (A)
+        \\
+        \limes{x \rightarrow a} \text{Im}(f(x)) &= \text{Im} (A)
+    \end{align*} 
+    We say $f$ is continuous at $a$ if
+    \begin{align*}
+        \limes{x \rightarrow a} f(x) = f(a)
+    \end{align*}
+\end{theorem}
+

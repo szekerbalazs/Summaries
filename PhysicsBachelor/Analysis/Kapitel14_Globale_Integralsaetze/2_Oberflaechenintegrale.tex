@@ -1,0 +1,245 @@
+\subsection{Oberflächenintegrale}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine \fat{Fläche} $S \subseteq \R^3$ ist eine zweidimensionale Teilmannigfaltigkeit.
+    Wir werden an zwei Arten von Flächen interessiert sein:
+    \begin{enumerate}[{(1)}]
+        \item Die Fläche $S$ ist der Rand eines kompakten, glatt berandeten Bereiches
+                $B \subset \R^3$. Beispielsweise können $S$ also eine Sphäre oder ein
+                Torus sein. Wir sprechen informell von einer \fat{geschlossenen
+                Fläche}
+        \item Die Fläche $S$ ist Teil einer Grösseren Fläche $M$, so, dass der Abschluss
+                von $S$ in $M$ kompakt ist, und der Rand von $S$ in $M$ eine glatte Kurve,
+                das heisst, eine Teilmannigfaltigkeit der Dimension $1$. Ein Beispiel für
+                so eine Fläche ist die obere Hemisphäre von $\eS^2$. Wir sprechen informell
+                von einer \fat{Fläche mit Rand}.
+    \end{enumerate}
+    Um eine Fläche $S \subseteq \R^3$ lokal zu beschreiben, werden wir Karten und
+    Parametrisierungen verwenden. Wir identifizieren im Folgenden $\R^2$ mit dem
+    Unterraum $\R^2 \times \geschwungeneklammer{0}$ von $\R^2$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $S \subseteq \R^3$ eine Fläche. Also existiert für jeden Punkt $p \in S$ eine
+    offene Umgebung $U \subseteq \R^3$ von $p$ und ein Diffeomorphismus
+    $\varphi: U \rightarrow V$ auf eine weitere Teilmenge $V \subseteq \R^3$, so dass
+    \begin{align*}
+        \varphi (U \cap S) = \geschwungeneklammer{x \in V \ | \ x_3 = 0} = V \cap \R^2
+    \end{align*}
+    gilt. Den Diffeomorphismus $\varphi_p$ bezeichnet man als \fat{Karte} für die
+    Teilmannigfaltigkeit $S$ von $\R^3$ um $p$ und den zu $\varphi$ inversen
+    Diffeomorphismus $\psi:V \rightarrow U$ als \fat{Parametrisierungen} von $S$ um $p$.
+    Die Diffeomorphismen $\varphi$ und $\psi$ schränken sich zu
+    \begin{align*}
+        \varphi:U \cap S \rightarrow V \cap \R^2
+        \quad \quad \text{   und   } \quad \quad
+        \psi: V \cap \R^2 \rightarrow U \cap S
+    \end{align*}
+    ein. Sind $\varphi_1 : U_1 \rightarrow V_1$ und $\varphi_2: U_2 \rightarrow V_2$
+    Karten für $S$, so bezeichnet man den Diffeomorphismus
+    \begin{align*}
+        \alpha_{12} : \varphi_1^{-1} (U_1 \cap U_2) \stackrel{\varphi_1}{\longrightarrow}
+        U_1 \cap U_2 \stackrel{\varphi_2^{-1}}{\longrightarrow} \varphi_2^{-1} (U_1 \cap U_2)
+    \end{align*}
+    als \fat{Kartenwechsel}, \fat{Transitionsabbildungen} oder auch \fat{Übergangsmorphismus}.
+    Dieser Diffeomorphismus schränkt sich zu
+    \begin{align*}
+        \alpha_{12}:\varphi_1^{-1} (U_1 \cap U_2) \cap \R^2 \rightarrow 
+    \varphi_2^{-1} (U_1 \cap U_2) \cap \R^2
+    \end{align*}    
+    ein. Wir werden die Terminologie nun leicht adaptieren, und Kartenbereiche nicht
+    als in $\R^3$ offene Mengen definieren, sondern als relativ offene Mengen von $S$,
+    mit Wertebereichen offene Teilmengen von $\R^2$.
+}
+
+\pagebreak
+
+\Definition{
+
+    Sei $S \subseteq \R^3$ eine Fläche. Wir nennen \fat{Atlas} für $S$ eine
+    Überdeckung $\geschwungeneklammer{U_i \ | \ i \in I}$ von $S$ durch relativ offene
+    Teilmengen $U_i \subseteq S$, genannt \fat{Kartenbereiche}, zusammen mit
+    Homeomorphismen $\varphi_i : U_i \rightarrow V_i$ auf offene Teilmengen
+    $V_i \subseteq \R^2$ genannt \fat{Kartenabbildungen}, so dass die
+    \fat{Parametrisierung} $\psi_i = \varphi_i^{-1}$
+    \begin{align*}
+        \psi_i : V_i \rightarrow U_i \subseteq \R^3
+    \end{align*}
+    glatt sind, und so, dass die \fat{Kartenwechsel} oder \fat{Transitionsabbildungen}
+    $\alpha_{ij}: V_i \rightarrow V_j$ gegeben durch
+    \begin{align*}
+        \alpha_{ij} : \varphi_i^{-1} (U_i \cap U_j) \stackrel{\varphi_i}{\longrightarrow}
+        U_i \cap U_j \stackrel{\varphi_j^{-1}}{\longrightarrow} \varphi_j^{-1} (U_i \cap U_j)
+    \end{align*}
+    glatt sind.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine \fat{zweidimensionale, reelle Mannigfaltigkeit} ist ein topologischer Raum
+    $X$, zusammen mit einer offenen Überdeckung $(U_i)_{i \in I}$ von $X$ und 
+    Homöomorphismen $\varphi_i : U_i \rightarrow V_i$ mit $V_i \subseteq \R^2$
+    offen, für alle $i \in I$ so, dass alle Transitionsabbildungen
+    \begin{align*}
+        \alpha_{ij} : \varphi_i (U_i \cap U_j) \rightarrow \varphi_j (U_i \cap U_j)
+    \end{align*}
+    glatt sind.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ eine $2$-dimensionale reelle Mannigfaltigkeit. Eine Funktion
+    $f:X\rightarrow \R^n$ heisst \fat{glatt} $(C^{\infty})$, falls für jede Karte
+    $\varphi: U \rightarrow V \subseteq \R^2$ von $X$ die Verknüpfung
+    $V \stackrel{\varphi^{-1}}{\longrightarrow} U \stackrel{f}{\longrightarrow} \R^n$
+    glatt ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Eine Mannigfaltigkeit $X$ mit Atlas
+    $(U_i \stackrel{\varphi}{\longrightarrow} V_i)_{i \in I}$
+    können wir uns vorstellen als
+    \Large
+    \begin{align*}
+        \nicefrac{\klammer{\bigcupdot V_i}}{\alpha_{ij}(X)}
+    \end{align*}
+    \normalsize
+    wobei $\bigcupdot V_i$ die disjunkte Vereinigung von allen $V_i$ ist.
+    Ist $X$ aus einer Teilmannigfaltigkeit von $\R^3$ gegben, so erhalten wir
+    \begin{align*}
+        \varphi_i^{-1} : V_i \rightarrow U_i \subseteq \R^3 
+    \end{align*}
+    welches kompatibel mit der obigen Verklebung ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ eine $2$-dimensionale reelle Teilmannigfaltigkeit mit Atlas
+    $(\varphi_i : U_i \rightarrow V_i \subseteq \R^2)_{i \in I}$. Eine \fat{Immersion}
+    von $X$ nach $\R^3$ ist eine injektive, abgeschlossene Abbildung
+    $h: X \rightarrow \R^3$ sodass für jedes $i \in I$ und $x \in V_i$
+    \begin{align*}
+        D(h \circ \varphi_i^{-1})(x)
+    \end{align*}
+    injektiv ist.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $h: X \rightarrow \R^3$ eine Immersion, dann ist $h(x) \subseteq \R^3$ eine
+    $2$-dimensionale Teilmannigfaltigkeit.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $S \subseteq \R^3$ eine Fläche, bzw eine $2$-dimensionale Mannigfaltigkeit.
+    Wir sagen ein Atlas $(\varphi_i : U_i \rightarrow V_i)_{i \in I}$ sei
+    \fat{orientiert}, falls für alle Kartenwechsel $\alpha_{ij}$ die Jacobi-Determinante
+    \begin{align*}
+        \det (D \alpha_{ij}) > 0
+    \end{align*}
+    positiv ist. Wir sagen $S$ sei \fat{orientierbar}, falls $S$ einen orientierten
+    Atlas besitzt.
+}
+
+\pagebreak
+
+\Definition{
+
+    Sei $S \subseteq \R^3$ eine Fläche, bzw eine $2$-dimensionale Teilmannigfaltigkeit.
+    Ein stetiges \fat{normiertes Normalenfeld} ist ein stetiger Schnitt des Normalenbündels
+    von $S$, also eine stetige Abbildung $n: S \rightarrow \R^3$ mit $n(p) \in (T_p S)^{\perp}$,
+    so, dass $\Norm{n(p)} = 1$ für alle $p \in S$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $S \subseteq \R^3$ eine Fläche, bzw eine $2$-dimensionale Teilmannigfaltigkeit.
+    $S$ ist genau dann orientierbar, wenn ein stetiges normiertes Normalenfeld existiert.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $B \subseteq \R^3$ ein kompakter, glatt berandeter Bereich. Dann ist der Rand
+    $S = \partial B$ orientierbar, und es gibt ein eindeutiges stetiges normiertes
+    Normalenfeld $n: S \rightarrow \R^3$ so, dass $p+ \epsilon n(p) \notin B$
+    für alle $p \in S$ und alle genügent kleinen $\epsilon>0$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $S \subseteq \R^3$ eine Fläche, und $f: S \rightarrow \R$ eine Funktion.
+    Es sei $(\varpi_i : U_i \rightarrow V_i)_{i \in I}$ ein endlicher Atlas von $S$
+    mit Parametrisierung $\psi_i = \varphi_i^{-1} : V_i \rightarrow U_i \subseteq S$,
+    und seien $(\eta_i : S \rightarrow [0,1])_{i \in I}$ stetige Funktionen mit
+    \begin{align*}
+        \supp (\eta_i) \subseteq U_i
+        \quad \quad \text{     und     } \quad \quad
+        \sum_{i \in I} \eta_i = 1
+    \end{align*}
+    also eine stetige Zerlegung der Eins auf $S$. Schreibe $f_i = \eta_i f$.
+    Wir definieren das \fat{skalare Oberflächenintegral} von $f$ auf $S$ als
+    \begin{align*}
+        \int_S f \ dA =
+        \sum_{i \in I} \int_{V_i} (f_i \circ \psi_i) \Norm{\partial_1 \psi_i \wedge \partial_2 \psi_i} dx
+    \end{align*}
+    falls die zweidimensionale Riemann-Integrale rechterhand existieren. Der
+    \fat{Flächeninhalt} von $F$ ist durch
+    \begin{align*}
+        \vol (S) = \int_S dA = \sum_{i \in I} \int_{V_i} \Norm{\partial_1 \psi_i \wedge \partial_2 \psi_i} dx
+    \end{align*}
+    definiert.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $X \subseteq \R^3$ eine Fläche. Falls $X$ durch Kartenbereiche $U_1 ,\dots,U_N$
+    abgedeckt ist, bis auf eine Vereinigung von Punkten und Kurven, mit
+    $U_1,\dots,U_N$ disjunkt, dann gilt
+    \begin{align*}
+        \int_X f \ dA = \sum_{i=1}^{N} \int_{U_i} f |_{U_i} dA
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $S \subseteq \R^3$ eine orientierbare Fläche und sei
+    $(\varphi_i : U_i \rightarrow V_i)_{i \in I}$ ein endlicher orientierter Atlas
+    von $S$ mit Parametrisierungen $\psi_i = \varphi_i^{-1}$, und sei $(\eta_i)_{i \in I}$
+    eine stetige Zerlegung der Eins auf $S$ mit $\supp (\eta_i) \subseteq U_i$.
+    Sei $U \subseteq \R^3$ eine offene Menge die $S$ enthält, und sei $F$ ein stetiges
+    Vektorfeld auf $U$. Dann definieren wir das \fat{Flussintegral} von $F$ über $S$
+    durch
+    \begin{align*}
+        \int_S F \ dn = \sum_{i \in I} \int_{V_i} \scalprod{\eta_i F \circ \psi_i}{\partial_1 \psi_i \wedge \partial_2 \psi_i} dx
+    \end{align*}
+}

@@ -1,0 +1,543 @@
+\section{Störungstheorie}
+
+\subsection{Nicht-entartete zeit-unabhängige ST}
+
+Ausgangslage:
+\begin{align*}
+    H \Psi = E \Psi
+    \hspace{10pt} , \hspace{10pt}
+    H = H_0 + H'
+    \hspace{10pt} , \hspace{10pt}
+    H_0 \varphi_n = \mathcal{E}_n \varphi_n
+\end{align*}
+Hamiltonoperator $H$ mit einem Teil $H_0$ der exakt lösbar ist. Die $\varphi_n$ für
+$n \in \N$ sind ein vollständiger Satz von orthonormierten Eigenfunktionen von
+$H_0$. Es gilt $\mathcal{E}_m \neq \mathcal{E}_n$ für $m \neq n$. Wir fassen
+$H'$ als kleine Störung auf und wir schreiben
+\begin{align*}
+    H = H_0 + \lambda H'
+\end{align*}
+und machen den Störungsansatz
+\begin{align*}
+    \Psi = \Psi_0 + \lambda \Psi_1 + \lambda^2 \Psi_2 + \dotsb
+    \hspace{10pt} , \hspace{10pt}
+    E = E_0 + \lambda E_1 + \lambda^2 E_2 + \lambda^3 E_3 + \dotsb
+\end{align*}
+Eingesetzt erhlaten wir für die $s$-te Ordnung von $\lambda$:
+\begin{align*}
+    (H_0 - E_0) \Psi_s = - H' \Psi_{s-1} + \sum_{j=1}^s E_j \Psi_{s-j}
+    \ \ \forall s \geq 1
+    \hspace{10pt} , \hspace{10pt}
+    (H_0 - E_0) \Psi_0 = 0
+\end{align*}
+In $0$-ter Ordnung:
+\begin{align*}
+    \Psi_0 = \varphi_n
+    \hspace{10pt} , \hspace{10pt}
+    E_0 = \mathcal{E}_n
+    \hspace{10pt}
+    \text{für geeignetes $n \in \N$}
+\end{align*}
+Die weiteren $\Psi_k$ für $k \geq 1$ können wir iterativ finden. Diese Gleichungen
+bestimmen $\Psi_k$ nur bis auf Vektoren, die im Kern von $(H_0 - E_0)$ liegen.
+Da die Eigenwerte von $H_0$ nicht entartet sind, sind solche Vektoren proportional
+zu $\varphi_n$. Wir legen diese Freiheit dadurch fest, dass wir verlangen, dass
+\begin{align*}
+    \left\langle \Psi_0 | \Psi_k \right\rangle = \delta_{0k}
+    \hspace{10pt} \Leftrightarrow \hspace{10pt}
+    \left\langle \varphi_n | \Psi \right\rangle = 1
+\end{align*}
+Damit folgt:
+\begin{align*}
+    \underbrace{\left\langle \Psi_0 | H_0 - E_0 | \Psi_s \right\rangle}_{=0}
+    = \underbrace{\left\langle \Psi_0 | E_1 - H' | \Psi_{s-1} \right\rangle}_{\delta_{s1} E_1 - \left\langle \Psi_0 | H' | \Psi_{s-1} \right\rangle}
+    + \sum_{j=2}^s E_j \underbrace{\left\langle \Psi_0 | \Psi_{s-j} \right\rangle}_{= \delta_{sj}}
+\end{align*}
+\begin{align*}
+    \Rightarrow \hspace{10pt}
+    E_s = \left\langle \varphi_n | H' | \Psi_{s-1} \right\rangle
+    \hspace{10pt} s \geq 1
+\end{align*}
+\begin{align*}
+    E = E_0 + \sum_{s=1}^\infty \lambda^s E_s
+    = E_0 + \lambda \sum_{s=1}^\infty \lambda^{s-1} \langle \varphi_n | H' | \Psi_{s-1} \rangle
+    = \mathcal{E}_n + \lambda \left\langle \varphi_n | H' | \Psi \right\rangle
+\end{align*}
+Um $\Psi_s$ zu finden, entwickeln wir für $s \geq 1$.
+\begin{align*}
+    |\Psi_s\rangle &= \sum_{l \neq n} \left\langle \varphi_l | \Psi_s \right\rangle |\varphi_l\rangle
+    \\
+    \left\langle \varphi_l | \Psi_s \right\rangle &=
+    \frac{1}{\E_n - \E_l} \eckigeklammer{\left\langle \varphi_l | H' | \Psi_{s-1} \right\rangle
+        - \sum_{j=1}^s E_j \left\langle \varphi_l | \Psi_{s-j} \right\rangle}
+\end{align*}
+Somit gilt:
+\begin{align*}
+    E_s &= \left\langle \varphi_n | H' | \Psi_{s-1} \right\rangle
+    \\
+    | \Psi_s \rangle &= \sum_{l \neq n} \frac{\left\langle \varphi_l | H' | \Psi_{s-1} \right\rangle - \sum_{j=0}^{s-1} E_j \left\langle \varphi_j | \Psi_{s-j} \right\rangle}{\E_n - \E_l} |\varphi_l \rangle
+\end{align*}
+Für $s \leq 2$ gilt explizit:
+\begin{align*}
+    E_0 &= \E_n
+    \hspace{5pt} , \hspace{5pt}
+    E_1 = \langle n | H' | n \rangle
+    \hspace{5pt} , \hspace{5pt}
+    E_2 = \sum_{l \neq n} \frac{\abs{\langle l | H' | n \rangle}^2}{\E_n - \E_l}
+    \\
+    % E_0 = \E_n
+    % \hspace{10pt} &, \hspace{10pt}
+    | \Psi_0 \rangle &= |n\rangle
+    % E_1 = \langle n | H' | n \rangle
+    \hspace{5pt} , \hspace{5pt}
+    | \Psi_1 \rangle = \sum_{l \neq n} \frac{\langle l | H' | n \rangle}{\E_n - \E_l} | l \rangle
+    \\
+    % E_2 = \sum_{l \neq n} \frac{\abs{\langle l | H' | n \rangle}^2}{\E_n - \E_l}
+    % \hspace{10pt} &, \hspace{10pt}
+    | \Psi_2 \rangle &= \sum_{l \neq n} \eckigeklammer{
+        \sum_{k \neq n} \frac{\langle l | H' | k \rangle \langle k | H' | n \rangle}{\klammer{\E_n - \E_l} \klammer{\E_n - \E_k}}
+        - \frac{\langle l | H' | n \rangle \langle n | H' | n \rangle}{\klammer{\E_n - \E_l}^2}
+    } |l\rangle
+\end{align*}
+
+Die Normierungsbedingung ist
+\begin{align*}
+    \left\langle \Psi | \Psi \right\rangle = 1 + \lambda^2
+    \sum_{l \neq n} \frac{\abs{\left\langle l | H' | n \right\rangle}^2}{\klammer{\E_n - \E_l}^2}
+\end{align*}
+
+\subsection{Entartete zeit-unabhängige ST}
+
+\subsubsection{Aufhebung einer zweifachen Entartung zu erster Ordnung}
+
+Angenommen $E_0 = \E_n = \E_m$ und $\E_k \neq E_n$ für $k \neq n,m$. Sei $\varphi_l$
+eine Orthonormalbasis der zugehörigen Eigenvektoren. In diesem Fall ist
+\begin{align*}
+    \Psi_0 = a_m | m \rangle + a_n | n \rangle
+    \hspace{5pt} , \hspace{5pt}
+    a_m , a_n \in \C
+\end{align*}
+Aus ST erster Ordnung und durch bilden der Matrixelemente mit $\langle m |$ und
+$\langle n |$ folgen die folgenden Gleichungen:
+\begin{align*}
+    \klammer{\langle m | H' | m \rangle - E_1} a_m + \langle m | H' | n \rangle a_n = 0
+    \\
+    \langle n | H' | m \rangle a_m + \klammer{ \langle n | H' | n \rangle - E_1 } a_n = 0
+\end{align*}
+Wir definieren nun
+\begin{align*}
+    \E_m' = \langle m | H' | m \rangle
+    \hspace{5pt} , \hspace{5pt}
+    \E_n' = \langle n | H' | n \rangle
+    \hspace{5pt} , \hspace{5pt}
+    \delta = \langle m | H' | n \rangle
+    \hspace{5pt} , \hspace{5pt}
+    \delta'^\ast = \langle n | H' | m \rangle
+\end{align*}
+Somit lässt sich obiges GLS schreiben als
+\begin{align*}
+    \begin{pmatrix}
+        \E_m' - E_1 & \delta' \\
+        \delta'^\ast & \E_n' - E_1
+    \end{pmatrix} \begin{pmatrix}
+        a_m \\ a_n
+    \end{pmatrix} = 0
+\end{align*}
+Eine Lsg $\Psi_0 \neq 0$ existiert falls die Determinante gleich Null ist.
+Somit folgt für $E_1$:
+\begin{align*}
+    E_1^\pm = \frac{\E_m' - \E_n'}{2} \pm
+    \sqrt{\klammer{\frac{\E_m' - \E_n'}{2}}^2 + \abs{\delta'}^2}
+\end{align*}
+Für die zugehörigen EV muss gelten $\frac{a_m^\pm}{a_n^\pm} = \frac{\delta'}{E_1^\pm - \E_m'}$.
+In niedrigster Ordnung ist $E_0 = \E$ und $| \Psi_0^\pm \rangle = a_m^\pm |m\rangle
++ a_n^\pm |n\rangle$. In nächster Ordnung ist $E_1 = E_1^\pm$. Falls $\E_m' \neq
+\E_n'$ oder $\delta' \neq 0$ ist $E_1^+ \neq E_1^-$ und die Entartung ist aufgehoben.
+Nun betrachten wir noch die Korrektur $| \Psi_1^\pm$ für den EV von $H$. Wir
+berechnen die Matrixelemente mit $\langle l |$, $l \neq m,n$.
+\begin{align*}
+    \langle l | H_0 - E_0 | \Psi_1^\pm \rangle &= \langle l | E_1^\pm - H' | \Psi_0^\pm \rangle
+    \\
+    \klammer{\E_l - \E} \langle l | \Psi_1^\pm \rangle &=
+        \underbrace{E_1^\pm \langle \Psi_0^\pm \rangle}_{=0}
+        - \langle l | H' | \Psi_0^\pm \rangle
+\end{align*}
+Wobei $\E \equiv \E_m = \E_n$. Die Komponenten von $\Psi_1^\pm$ im orthogonalen
+Komplement von span$\geschwungeneklammer{ |m\rangle , |n\rangle}$ ist
+\begin{align*}
+    | P \Psi_1^\pm \rangle = \sum_{l \neq m,n} \frac{\langle l | H' | \Psi_0^\pm}{\E - \E_l} | l \rangle
+    \hspace{10pt} \text{wobei} \hspace{10pt}
+    P = \mathds{1} - |m\rangle\langle m| - |n\rangle\langle n|
+\end{align*}
+$P$ ist der Projektor auf diesen Unterraum. Es gilt $\langle \Psi_n^\pm |
+\Psi_0^\pm \rangle = 0$ für $n \geq 1$. Wir wollen nun $\langle \psi_1^\pm |
+\Psi_0^\mp \rangle$ bestimmen. Wir betrachten zweite Ordnung ST.
+\begin{align*}
+    \underbrace{\langle \Psi_0^- | H_0 - E_0 | \Psi_2^+ \rangle}_{=0}
+    &= \langle \Psi_0^- | E_1^+ - H' | \Psi_1^+ \rangle +
+    E_2^+ \underbrace{\langle \Psi_0^- | \Psi_0^+ \rangle}_{=0}
+    \\
+    &\Rightarrow
+    \langle \Psi_1^+ | E_1^+ - H' | \Psi_0^- \rangle = 0
+\end{align*}
+Andererseits
+\begin{align*}
+    \klammer{E_1^+ - H'} | \Psi_0^- \rangle &=
+    \klammer{E_1^+ - P H'} | \Psi_0^- \rangle - \klammer{\mathds{1} - P} H' |\Psi_0^- \rangle
+    \\
+    &= \klammer{E_1^+ - E_1^-} | \Psi_0^- \rangle - P H' |\Psi_0' \rangle
+\end{align*}
+Wir multiplizieren mit $\langle \Psi_1^+ |$ und finden
+\begin{align*}
+    0 &= \klammer{E_1^+ - E_1^-} \langle \Psi_0^- | \Psi_1^+ \rangle
+    - \langle \Psi_0^- | H' P | \Psi_1^+ \rangle
+    \\
+    \langle \Psi_0^- | \Psi_1^+ \rangle &=
+    \sum_{l \neq m,n} \frac{\langle \Psi_0^- | H' | l \rangle \langle | H' | \Psi_0^+ \rangle}{\klammer{\E - \E_l} \klammer{E_1^+ - E_1^-}}
+\end{align*}
+Somit folgt:
+\begin{align*}
+    E_0 = \E
+    \hspace{10pt} , \hspace{10pt}
+    |\Psi_0^\pm \rangle = a_m^\pm |m\rangle + a_n^\pm |n\rangle
+    \hspace{10pt} , \hspace{10pt}
+    E_1 = E_1^\pm
+    \\
+    |\Psi_1^\pm \rangle = \sum_{l \neq m,n} \eckigeklammer{
+        \frac{\langle \Psi_0^\mp | H' | l \rangle \langle l | H' | \Psi_0^\pm \rangle}{\klammer{E_1^+ - E_1^-} \klammer{\E - \E_l}} | \Psi_0^\mp \rangle
+        + \frac{\langle l | H' | \Psi_0^\pm \rangle}{\E - \E_l} |l\rangle
+    }
+\end{align*}
+
+\subsubsection{Der allgemeine Fall}
+
+Betrachte den Eigenraum zu $\E_n$ der Dimension $k$. Sei $\geschwungeneklammer{
+\varphi_n^1 , \dots , \varphi_n^k}$ eine Orthonormalbasis dieses Eigenraumes.
+Für $\Psi_0$ machen wir den Ansatz
+\begin{align*}
+    \Psi_0 = \sum_{j=1}^k a_n^j \varphi_n^j
+\end{align*}
+Nun ist das EW-Problem gegeben durch
+\begin{align*}
+    \begin{pmatrix}
+        \langle \varphi_n^1 | H' | \varphi_n^1 \rangle - E_1 & \langle \varphi_n^1 | H' | \varphi_n^2 \rangle & \dotsb & \langle \varphi_n^1 | H' | \varphi_n^k \rangle \\
+        \langle \varphi_n^2 | H' | \varphi_n^1 \rangle & \klammer{\varphi_n^2 | H' | \varphi_n^2 \rangle - E_1} & \dotsb & \langle \varphi_n^2 | H' | \varphi_n^k \rangle \\
+        \vdots & \ddots & \ddots & \vdots \\
+        \langle \varphi_n^k | H' | \varphi_n' \rangle & \dotsb & \dotsb & \langle \varphi_n^k | H' | \varphi_n^k \rangle - E_1
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_n^1 \\ a_n^2 \\ \vdots \\ a_n^k
+    \end{pmatrix}
+    =0
+\end{align*}
+Wir bezeichnen die Eigenwerte mit $E_1^\alpha = \langle n^\alpha | H' | n^\alpha \rangle$,
+für $\alpha = 1,\dots,k$ wobei der zugehörige EV gegeben ist durch
+\begin{align*}
+    |n^\alpha \rangle = \sum_{l=1}^k a_n^l (\alpha) |\varphi_n^l \rangle
+\end{align*}
+Zu zweiter Ordnung für $E$ findet man
+\begin{align*}
+    E = \E_n + \langle n^\alpha | H' | n^\alpha \rangle
+    + \sum_{\E_l \neq E_n} \frac{\abs{\langle l | H' | n^\alpha \rangle}^2}{\E_n - \E_l}
+\end{align*}
+und in erster Ordnung für $\Psi$
+\begin{align*}
+    |\Psi^\alpha \rangle = |n^\alpha \rangle + \sum_{\alpha' \neq \alpha}
+    \sum_{\E_l \neq \E_n} \frac{\langle n^\alpha | H' | l \rangle \langle | H' | n^\alpha \rangle}{\klammer{\E_n - \E_l} \klammer{E_1^\alpha - E_1^{\alpha'}}}
+    + \sum_{\E_l \neq \E_n} \frac{\langle l | H' | n^\alpha \rangle}{\E_n - \E_l} |l\rangle
+\end{align*}
+Hier wurde angenommen, dass die Entartung in erster Ordnung aufgehoben wurde, d.h.
+$E_1^\alpha \neq E_1^\beta$ für $\alpha \neq \beta$.
+
+\subsubsection{Aufhebung der Entartung zu zweiter Ordnung}
+
+Die Entartung für den Fall der zweifachen Entartung ist nicht aufgehoben, falls
+\begin{align*}
+    \langle m | H' | m \rangle = \langle n | H' | n \rangle
+    \hspace{10pt} , \hspace{10pt}
+    \langle m | H' | n \rangle = 0
+\end{align*}
+Wir betrachten ST in zweiter Ordnung und nehmen Matrixelemetne mit $\langle m |$
+und $\langle n |$.
+\begin{align*}
+    \langle m | H_0 - E_0 | \Psi_2 \rangle = \langle m | E_1 - H' | \Psi_1 \rangle
+    + E_2 \langle m | \Psi_0 \rangle
+\end{align*}
+Wir benutzen die Resultate aus erster Ordnung
+\begin{align*}
+    |\Psi_0\rangle = a_m |m\rangle + a_n|n\rangle
+    \hspace{10pt} &, \hspace{10pt} E_0 = \E = \E_n = \E_m
+    \hspace{10pt} , \hspace{10pt} \langle n | H' | m \rangle = \E' \delta_{nm}
+    \\
+    P | \Psi_1 \rangle &= \sum_{l \neq m,n}
+    \frac{a_m \langle l | H' | m \rangle + a_n \langle l | H' | n \rangle}{\E - \E_l} |l\rangle
+\end{align*}
+Daraus folgt:
+\begin{align*}
+    0 = \langle m | E_1 - H' | P \Psi_1 \rangle +
+    \underbrace{\langle m | E_1 - H' | \klammer{\mathds{1} - P} \Psi_1 \rangle}_{=0}
+    + E_2 \langle m | \Psi_0 \rangle
+\end{align*}
+Somit $E_2 a_m = \langle m | H' | P \Psi_1 \rangle$ und schliesslich
+\begin{align*}
+    \Biggl[\underbrace{\sum_{l \neq m,n} \frac{\abs{\langle l | H' | m \rangle}^2}{\E - \E_l}}_{=\E_m'} - E_2 \Biggr] a_m
+    + \underbrace{\sum_{l \neq m,n} \frac{\langle m | H' | l \rangle \langle l | H' | n \rangle}{\E - \E_l}}_{= \delta'} a_n = 0
+\end{align*}
+Analog folgt für $\langle n |$:
+\begin{align*}
+    \klammer{\E_n' - E_2} a_n + \delta'^\ast a_m = 0
+    \hspace{10pt} , \hspace{10pt}
+    \E_n' = \sum_{l \neq m,n} \frac{\abs{\langle l | H' | n \rangle}^2}{\E - \E_l}
+\end{align*}
+Die Entartung wird zu zweiter Ordnung aufgehoben, falls entweder $\E_n' \neq \E_m'$
+oder $\delta' \neq 0$.
+
+\subsubsection{Der Stark Effekt}
+Betrachte ein elektrisches Feld $\vec{\E} = (0,0,\E)$ und die Störung
+$H' = e \E z$. Betrachte die Aufhebung der Entartung im $n=2$ Niveau
+($|n,l,m\rangle = |2s_0\rangle,|2p_1\rangle,|2p_0\rangle,|2p_{-1}\rangle$).
+Im Prinzip müsste man eine $4 \times 4$ Matrix betrachten, da aber $[L_z,z] =0$
+vertauscht $H'$ mit $L_z$ und es gilt:
+\begin{align*}
+    0 = \langle m' | [H',L_z] | m \rangle = (m-m') \langle m' | H' | m \rangle
+\end{align*}
+Somit $\langle m' | H' | m \rangle = 0$ falls $m \neq m'$. Somit bleiben nur
+die Matrixelemente $\langle 2s_0 | H' | 2p_0 \rangle = \delta'$ übrig und die
+Diagonaleinträge. Die Kugelfkt. sind Eigenfkt. des Paritätsoperators $P$ mit
+Parität $(-1)^l$. Andererseits hat der Operator $z$ Parität $-1$, und somit
+\begin{align*}
+    (-1)^l \langle Y_{lm} | H' | Y_{lm} \rangle
+    &= \langle Y_{lm} | H' P | Y_{lm} \rangle
+    = - \langle Y_{lm} | P H' | Y_{lm} \rangle
+    \\
+    &= - (-1)^l \langle Y_{lm} | H' | Y_{lm} \rangle
+\end{align*}
+Daher verschwinden alle Diagonaleinträge der Matrix $H'$. Die Matrixelemente
+von $H'$ auf dem entarteten Unterraum sind also durch folgende Matrix
+beschrieben:
+\begin{align*}
+    \begin{pmatrix}
+        0 & 0 & \delta & 0 \\
+        0 & 0 & 0 & 0 \\
+        \delta^\ast & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    \hspace{10pt} , \hspace{10pt}
+    \delta = \langle 2s_0 | H' | 2p_0 \rangle = - 3 a_0 e \E
+\end{align*}
+Es bleibt die $2 \times 2$ Matrix zu diagonalisieren
+\begin{align*}
+    3 a_0e \E \begin{pmatrix}
+        0 & -1 \\ -1 & 0
+    \end{pmatrix}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \text{EW} = \mp 3 a_0 e \E
+    \hspace{5pt} , \hspace{5pt}
+    \text{EV} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+        1 \\ \pm 1
+    \end{pmatrix}
+\end{align*}
+
+\subsection{Zeit-abhängige Störungstheorie}
+Wir nehmen im folgenden an, dass $H' = H'(t)$ zeit-abhängig ist, aber der
+ungestörte Hamiltonoperator $H_0$ immernoch zeit-unabhängig ist.
+
+\subsubsection{Der Propagator der Quantenmechanik}
+
+Im Schrödingerbild sind Operatoren zeit-unabhängig. Die Dynamik des Systems
+wird durch die Zeitabhängigkeit der Zustandsvektoren $\Psi(t)$ beschrieben.
+Dies wird durch die SG $i \hbar \partial_t \Psi(t) = H \Psi(t)$ bestimmt. Wir
+können die Lsg der SG durch einen Propagator beschreiben. Dazu definieren wir
+einen Operator $U(t,s)$ (den Propagator), der folgende Bedingungen erfüllt.
+\begin{enumerate}[(i)]
+    \item $U(t,t) = \mathds{1}$
+    \item Additivität: es gilt $U(t,s) U(s,r) = U(t,r)$
+    \item Der Operator $U(t,s)$ erfüllt die DGL $i \hbar \partial_t U(t,s) = H U(t,s)$
+\end{enumerate}
+Es gilt $\Psi(t) = U(t,s) \Psi(s)$. Falls $H$ zeit-unabhängig ist, so kann man
+$U(t,s)$ schreiben als
+\begin{align*}
+    U(t,s) = \exp \klammer{-i H \frac{(t-s)}{\hbar}}
+\end{align*}
+Da $H$ selbst-adjungiert ist, folgt dass $U(t,s)$ unitär ist. Im allgemeinen
+Fall lässt sich $U(t,s)$ wie folgt definieren.
+\begin{align*}
+    U(t,s) &= \mathds{1} \sum_{n=1}^\infty U^{(n)}(t,s)
+    \\
+    U^{(n)} (t,s) &= \klammer{\frac{1}{i \hbar}}^n \int_s^t dt_1
+        \int_s^{t_1} dt_2 \dotsb \int_{s}^{t_{n-1}} dt_n
+        H(t_1) H(t_2) \dotsb H(t_n)
+\end{align*}
+Es gilt $t \geq t_1 \geq t_2 \geq \dotsb \geq s$. Wir definieren den
+Zeitordnungs-Operator $\T$:
+\begin{align*}
+    \T \klammer{A(t_1) B(t_2)} = \begin{cases}
+        A(t_1) B(t_2) \hspace{10pt} &t_1 > t_2
+        \\
+        B(t_2) A(t_1) \hspace{10pt} &t_2 > t_1
+    \end{cases}
+\end{align*}
+Die Verallgemeinerung auf $n$ Operatoren ist
+\begin{align*}
+    \T \klammer{\prod_{i=1}^n A_i (t_i)} = A_{\pi_1} (t_{\pi_1}) \dotsb A_{\pi_n} (t_{\pi_n})
+\end{align*}
+wobei $\pi$ jene Permutation ist, welche die Zeiten ordnet $t_{\pi_1} \geq t_{\pi_2}
+\geq \dotsb \geq t_{\pi_n}$.
+Mit dieser Notation können wir schreiben:
+\begin{align*}
+    U(t,s) = \T \exp \eckigeklammer{- \frac{i}{\hbar} \int_s^t dt' H(t')}
+\end{align*}
+
+\subsubsection{Das Heisenbergbild}
+
+Im Heisenbergbild sind die Operatoren zeit-abhängig und nicht die Zustände. Die
+beiden Beschreibungen sind äquivalent und durch den unitären Operator $U(t,s)$
+miteinander verbunden. Konkret definieren wir die Zustände im Heisenbergbild durch
+\begin{align*}
+    \Psi_H \equiv \Psi(t_0)
+    \hspace{10pt} , \hspace{10pt}
+    \Psi_H = U(t_0,t) \Psi(t)
+\end{align*}
+Die Observablen im Schrödingerbild werden wie folgt zu den Observablen im
+Heisenbergbild transformiert.
+\begin{align*}
+    A_H = U(t_0,t) A U(t,t_0)
+\end{align*}
+Diese definition garantiert $\klammer{A \Psi(t)}_H = A_H \Psi_H$. Insbesondere
+\begin{align*}
+    \langle A \rangle = \langle \Psi(t) | A | \Psi(t) \rangle
+    = \langle \Psi_H | A_H (t) | \Psi_H \rangle
+\end{align*}
+Weiter gilt
+\begin{align*}
+    U(t,s)^\dagger = U(t,s{-1} = U(s,t)
+\end{align*}
+Die Bew.gl. im Heisenbergbild ist eine Bew.gl. für die Operatoren:
+\begin{align*}
+    i \hbar \frac{d}{dt} = \eckigeklammer{A_H,H_H} + i \hbar \partial_t A_H
+\end{align*}
+Falls $\partial_t H = 0$, so ist $[H,U(t_0,t)] = 0$ und damit
+$H_H(t) = H_H = H$. Dann ist $H_H$ zeit-unabhängig. Für die Operatoren gilt aber
+\begin{align*}
+    A_H (t) = e^{i H (t-t_0) / \hbar} A e^{-i H (t-t_0) / \hbar}
+\end{align*}
+$A_H$ ist eine Erhaltungsgrösse, falls $\partial_t A = 0$ und $[H,A] = 0$.
+Der Kommutator ist also genau das quantenmechanische Analogon von der
+Poissonklammer. Für zwei Operatoren gilt
+\begin{align*}
+    \geschwungeneklammer{A,B}
+    \hspace{2pt} \Rightarrow \hspace{2pt}
+    - \frac{i}{\hbar} \eckigeklammer{A,B}
+    \hspace{10pt} \text{somit} \hspace{10pt}
+    \geschwungeneklammer{q,p} = 1
+    \hspace{2pt} \Rightarrow \hspace{2pt}
+    - \frac{i}{\hbar} \eckigeklammer{q,p} = 1
+\end{align*}
+
+\subsubsection{Das Wechselwirkungsbild}
+
+Wir betrachten den Fall der zeit-abhängigen ST, also $H = H_0 + H'(t)$. Hierbei
+ist $H_0$ zeit-unabhängig und exakt lösbar und $H'(t)$ ist eine kleine Störung.
+Im Wechselwirkungsbild sind sowohl die Zustände als auch die Opservablen
+zeit-abhängig. Wir betrachten die unitäre Transformation mit $U_0 (t,t_0)$,
+wobei $U_0$ der Propagator des ungestörten Problems ist. Dann definieren wir
+\begin{align*}
+    \Psi_D (t) = U_0 (t_0,t) \Psi(t) = U_0 (t_0,t) U(t,t_0) \Psi(t_0)
+\end{align*}
+wobei $U$ der Propagator für $H = H_0 + H'$ ist. Entsprechend:
+\begin{align*}
+    A_D (t) = U_0(t_0,t) A U_0(t,t_0)
+    \hspace{10pt} \text{wobei} \hspace{10pt}
+    U_0 (t_0,t) = e^{i H (t-t_0) / \hbar}
+\end{align*}
+Die Zeitentwicklung der Zustände $\Psi_D$ ist dann gegeben durch
+\begin{align*}
+    \Psi_D (t) = U_D (t,t_0) \Psi_D (t_0)
+    \hspace{10pt} \text{wobei} \hspace{10pt}
+    U_D(t,t_0) = U_0 (t_0,t) U(t,t_0)
+\end{align*}
+Der zugehörige Hamiltonoperator ist
+\begin{align*}
+    i \hbar \partial_t U_D = H_D' U_D
+    \hspace{10pt} \text{wobei} \hspace{10pt}
+    H_D' = U_0(t_0,t) H' U_0(t,t_0)
+\end{align*}
+Als Neumann-Reihe gilt daher
+\begin{align*}
+    U_D (t,t_0) = \T \exp \eckigeklammer{- \frac{i}{\hbar} \int_{t_0}^t dt' H_D'(t')}
+\end{align*}
+
+\subsubsection{Erste Ordnung ST}
+
+Wir betrachten nun den Fall wo $H(t) = H_0 + H'(t)$ und $H'(t) = 0$ für
+$t < t_0$. Wir nehmen oBdA an, dass zur Zeit $t = t_0$, das System im
+Eigenzustand $| i \rangle$ von $H_0$ mit EW $\E_i$ ist. Wir wollen die Wsk
+berechnen, das das System für $t>t_0$ im Zustand $|f\rangle$ ist. Wir nehmen
+weiter an, dass $\langle f | i \rangle = 0$. Da $\Psi(t) = U_D (t,t_0) |i\rangle$,
+folgt
+\begin{align*}
+    \langle f | \Psi (t) \rangle &=
+    \langle f | U_D (t,t_0) | i \rangle
+    \simeq \langle f | i \rangle - \frac{i}{\hbar} \langle f | \int_{t_0}^t dt' H_D' (t') | i \rangle
+    \\
+    &= - \frac{i}{\hbar} \int_{t_0}^t dt' \langle f | e^{i \E_f (t'-t_0) / \hbar} H'(t') e^{-i \E_i (t' - t_0) / \hbar} | i \rangle
+\end{align*}
+Für die Übergangswahrscheinlichkeit erhalten wir zu erster Ordnung also
+\begin{align*}
+    P_{i \rightarrow f} = \frac{1}{\hbar^2} \abs{
+        \int_{t_0}^t dt' e^{i \klammer{\E_f - \E_i} t' / \hbar} \langle f | H'(t') | i \rangle
+    }^2
+\end{align*}
+Wir betrachten das Bsp $H'(t) = V \theta(t - t_0)$. Wir wählen oBdA $t_0 = 0$ und
+definieren $\omega_{if} = \klammer{\E_f - \E_i} / \hbar$. Dann gilt:
+\begin{align*}
+    P_{i \rightarrow f} = \abs{\frac{e^{i \omega_{if} t} - 1}{\hbar \omega_{if}} \langle f | V | i \rangle}
+    = \klammer{\frac{\sin(\omega_{if} t / 2)}{\hbar \omega_{if} / 2}}^2 \abs{\langle f | V | i \rangle}^2
+\end{align*}
+Diese Übergangswahrscheinlichkeit hat Nullstellen bei $\omega_{if} t = 2 \pi n$.
+Für $\omega_{if} \rightarrow 0$ und somit für $t \rightarrow \infty$ verhällt sich
+der zeitabhängige Vorfaktor wie
+\begin{align*}
+    \frac{\klammer{\omega_{if} t / 2}^2}{\klammer{\hbar \omega_{if} / 2}^2}
+    \approx \klammer{\frac{t}{\hbar}}^2
+\end{align*}
+Für $t \rightarrow \infty$ erhalten wir einen scharfen Peak bei $\omega_{if} = 0$
+mit Gewicht proportional zu $t$. Die Interpretation ist die folgende: Nach
+Einschalten der Störung können prinzipiell Übergänge zu allen Energien erfolgen.
+Die relevanten Übergänge, jene welche eine grosse Wsk haben und nicht in der Zeit
+oszillieren, sind diejenigen welche die Energie erhalten, $\omega_{if} = 0$,
+d.h. $\E_i = \E_f$. Das Gewicht dieser energieerhaltenden Prozesse nimmt linear
+mit der Zeit zu.
+\begin{align*}
+    \int_{- \frac{2 \pi}{t}}^{\frac{2 \pi}{t}} P_{i \rightarrow f} (\omega) d \omega
+    = \frac{2 t}{\hbar} \int_{-\pi}^\pi du \frac{\sin^2(u)}{u^2} \abs{\langle f | V | i \rangle}^2
+    \sim t
+\end{align*}
+Wir betrachtenn nun ein Kontinuum von Zuständen oder eine Gruppe von Finalzuständen
+welche dicht liegen. Die Dichte dieser Zustände im Energieraum sei beschrieben durch
+$\rho(\E_f)$. D.h. wir können die Summe über Zustände $|f\rangle$ ersetzen durch
+Integrale über $\E_f$: $\sum_f \rightarrow \int d \E_f \rho(\E_f)$. Die Wsk für
+einen Übergang in einen Zustand um $|f\rangle$ herum ist dann
+\begin{align*}
+    \Gamma t = \sum_f P_{i \rightarrow f} (t)
+    = \int d \E_f \rho(\E_f) \frac{\sin^2(\omega_{if} t / 2)}{\klammer{\hbar \omega_{if} / 2}^2} \abs{\langle f | V | i \rangle}^2
+    = \frac{2 \pi}{\hbar} t \rho(\E_f) \abs{\langle f | V | i \rangle}^2 \Big|_{\E_i = \E_f}
+\end{align*}
+Hierbei wurde benutzt, dass $\sin^2(\omega t) / \pi t \omega^2 \rightarrow
+\delta(\omega)$ für $t \rightarrow \infty$, sowie $d \E_f = \hbar d \omega_{if}$.
+Somit finden wir die Übergangsrate $dP_{i \rightarrow f} / dt = \Gamma$
+\begin{align*}
+    \Gamma = \frac{2 \pi}{\hbar} \abs{\langle f | V | i \rangle}^2 \rho(\E_f)
+\end{align*}
+Diese Relation nennt man Fermis Goldene Regel. Hierbei ist $2 \pi \hbar / \Delta \E_f
+< t \ll 2 \pi \hbar / \delta \epsilon$. Die Zeitrestriktionen haben folgenden Ursprung:
+\begin{itemize}
+    \item Der Peak in $P_{i \rightarrow f}$ muss innerhalb der Gruppe von Zuständen
+        um $f$ liegen. Wir bezeichnen die Breite dieser Gruppe mit $\Delta \E_f$,
+        insbesondere sei das Matrixelement $\abs{\langle i | V | f \rangle}$
+        innerhalb von $\Delta \E_f$ in etwa konstant. Dann muss $\Delta \E_f > 2 \pi
+        \hbar / t$ sein.
+    \item Die Dichte unter dem Peak muss genügend gross sein, d.h., die Energieseparation
+        $\delta \epsilon$ zwischen Zuständen klein, s.d. viele Zustände innerhalb des
+        Zentralen Peaks zu liegen kommen, $\delta \epsilon \ll 2 \pi \hbar / t$.
+\end{itemize}

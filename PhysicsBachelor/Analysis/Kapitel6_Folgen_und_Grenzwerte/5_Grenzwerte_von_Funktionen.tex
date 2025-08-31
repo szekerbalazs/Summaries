@@ -1,0 +1,297 @@
+\subsection{Grenzwerte von Funktionen}
+
+\vspace{1\baselineskip}
+
+In diesem ganzen Kapitel gilt folgendes:
+Es sei $D \subset \R$ und $x_0 \in \R$. Wir nehmen an, $x_0 \in D$ oder $x_0$ ist
+Häufungspunkt von $D$.
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: D \rightarrow \R$ eine Funktion. Eine reelle Zahl $A$ heisst \fat{Grenzwert von
+    $f(x)$ für $x \rightarrow x_0$}, falls für jedes $\epsilon > 0$ ein $\delta > 0$ existiert,
+    mit der Eigenschaft
+    \begin{align*}
+        x \in D \cap (x_0 - \delta , x_0 + \delta) \Rightarrow \abs{f(x) - A} < \epsilon
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Es sei $f: D \rightarrow \R$ eine Funktion. Falls es einen Grenzwert $a$ von $f$ bei
+    $x_0$ gibt, dann ist dieser Grenzwert eindeutig bestimmt und wir schreiben
+    \begin{align*}
+        a = \limes{x \rightarrow x_0} f(x)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sind $f$ und $g$ Funktionen auf $D$, derart, dass die Grenzwerte
+    \begin{align*}
+        \limes{x \rightarrow x_0} f(x) = A
+        \quad \text{   und   } \quad
+        \limes{x \rightarrow x_0} g(x) = B
+    \end{align*}
+    existieren, so existieren auch die Grenzwerte
+    \begin{align*}
+        \limes{x \rightarrow x_0} f(x) + g(x) = A + B
+        \quad \text{   und   } \quad
+        \limes{x \rightarrow x_0} f(x) g(x) = A B
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $f: D \rightarrow \R$ eine Funktion. Ist $x_0$ ein Element von $D$, so ist $f$ genau
+    dann stetig bei $x_0$, wenn $\limes{x \rightarrow x_0} f(x) = f(x_0)$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Es sei $f: D \rightarrow \R$ eine Funktion. Auch wenn $f$ unstetig ist bei $x_0$,
+    kann ein Grenzwert $A = \limes{x \rightarrow x_0} f^* (x)$ existieren, wobei
+    $f^*$ die einschränkung von $f$ ist auf die Menge $D \backslash \geschwungeneklammer{x_0}$.
+    Unter diesen Umständen nennt man den Punkt $x_0 \in D$ eine \fat{hebbare Unstetigkeitsstelle}
+    von $f$. Die Funktion definiert durch
+    \begin{align*}
+        &\overline{f}: D \cup {x_0} \rightarrow \R
+        \\
+        &\overline{f} (x) = \begin{cases}
+            f(x) \quad \text{  falls  } x \in D \\
+            a \quad \text{  falls  } x=x_0
+        \end{cases}
+    \end{align*}
+    ist stetig bei $x_0$. Somit wurde die Unstetigkeitsstelle von $\overline{f}$ behoben,
+    in dem wir den Wert der Funktion $f$ an der Stelle $x_0$ durch $A$ ersetzt haben.
+    Wir nennen $A$ auch einen Grenzwert von $f$ in einer \fat{punktierten Umgebung} von $x_0$.
+    Wir nennen $\overline{f}$ die \fat{stetige Fortsetzung} von $f$ auf $D \cup \geschwungeneklammer{x_0}$.  
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $f: D \rightarrow \R$ eine Funktion. Dann gilt $A = \limes{x \rightarrow x_0} f(x)$
+    genau dann, wenn für jede gegen $x_0$ konvergierende Folge $\yFolge$ in $D$ auch
+    $\limes{n \rightarrow \infty} f(y_n) = A$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $f: D rightarrow \R$ eine Funktion. Die folgenden Aussagen sind äquivalent
+    für $x_0 \in D$:
+
+    (1) Die Funktion $f$ ist stetig bei $x_0$
+
+    (2) $\limes{\stackrel{x \rightarrow x_0}{x \neq x_0}} f(x) = f(x_0)$
+    
+    (3) $\limes{x \rightarrow x_0}f(x) = f(x_0)$
+
+    (4) Für jede Folge $\yFolge$ in $D$ mit $x_0 = \limes{n \rightarrow \infty} y_n$ gilt
+        $\limes{n \rightarrow \infty} = f(x_0)$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $D,E \in \R$, sei $f: D \rightarrow E$ so, dass $\limes{x \rightarrow x_0} f(x) = a$
+    existeirt und $a \in E$ gilt. Sei $g : E \rightarrow \R$ eine Funktion, die bei $a \in E$
+    stetig ist. Dann gilt: $\limes{x \rightarrow x_0} g(f(x)) = g(a)$
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Wir können konventionen für uneigentliche Grenzwerte einführen. Wir sagen, dass
+    $f(x)$ gegen $+ \infty$ für $x \rightarrow x_0$ divergiert und schreiben
+    $\limes{x \rightarrow x_0 } f(x) = + \infty$, falls für jede reelle Zahl $R > 0$ ein
+    $\delta > 0$ existert, mit der Eigenschaft dass $\abs{x - x_0} < \delta \Rightarrow f(x) > R$
+    für alle $x \in D$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $D \subseteq \R$ und $x_0 \in \R$ derart, dass $D \cap [x_0 , x_0 + delta) \neq \emptyset$
+    für alle $\delta > 0$ gilt. Sei $f: D \rightarrow \R$ eine Funktion. Eine reelle Zahl
+    $A$ heisst \fat{rechtseitiger Grenzwert} von $f(x)$ bei $x_0$, falls jedes $\epsilon > 0$
+    ein $\delta > 0$ existiert, mit
+    \begin{align*}
+        x \in D \cap [x_0 , x_0 + \delta) \Rightarrow \abs{f(x) - A} < \epsilon
+    \end{align*}
+}
+
+\pagebreak
+
+\Bemerkung{
+
+    Existiert der rechtseitige Grenzwert $A$ von $f$ an der Stelle $x_0$, so benutzen wir
+    die Notation
+    \begin{align*}
+        A = \limes{\stackrel{x \rightarrow x_0}{x_0 \leq x}} f(x)
+    \end{align*}
+    um dies auszudrücken. Falls $x_0$ Häufungspunkt von $D \cap (x_0 , \infty)$ ist, so
+    können wir auch die punktierte Version des rechtseitigen Grenzwertes
+    \begin{align*}
+        A = \limes{\stackrel{x \rightarrow x_0}{x < x_0}} f(x)
+    \end{align*}
+    definieren. Analog zum rechtseitigen Grenzwert können wir auch den \fat{linksseitigen Grenzwert}
+    definieren.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $D \subseteq \R$ und $x_0 \in \R$ derart, dass $D \cap (R, \infty) \neq \emptyset$
+    für alle $R > 0$ gilt. Sei $f: D \rightarrow \R$ eine Funktion. Eine reelle Zahl $A$ heisst
+    \fat{Grenzwert von $f(x)$ für $x \rightarrow \infty$}, falls für jedes $\epsilon > 0$
+    ein $R > 0$ existiert, mit
+    \begin{align*}
+        x \in D \cap (R , \infty) \Rightarrow \abs{f(x) - A} < \epsilon
+    \end{align*} 
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+    \begin{center}
+        Tabelle 1: Echte Grenzwerte für $x \rightarrow x_{0}$
+    
+        \vspace{1\baselineskip}
+    
+    
+        \begin{tabular}{c|c|c} 
+        Notation & $U_{\delta},$ nichtleer für alle $\delta>0$ & Bedingung: $\forall \varepsilon>0 \exists \delta>0$ \\
+        \hline $\lim _{x \rightarrow x_{0}} f(x)=A$ & $\left(x_{0}-\delta, x_{0}+\delta\right) \cap D$ & $x \in U_{\delta} \Longrightarrow|f(x)-A|<\varepsilon$ \\
+        $\lim _{x \rightarrow x_{0}} f(x)=A$ & $\left(x_{0}-\delta, x_{0}+\delta\right) \cap\left(D \backslash\left\{x_{0}\right\}\right)$ & $x \in U_{\delta} \Longrightarrow|f(x)-A|<\varepsilon$ \\
+        $x \neq x_{0}$ & & \\
+        $\lim _{x \rightarrow x_{0}} f(x)=A$ & {$\left[x_{0}, x_{0}+\delta\right) \cap D$} & $x \in U_{\delta} \Longrightarrow|f(x)-A|<\varepsilon$ \\
+        $x \geq x_{0}$ & & \\
+        $\lim _{x \rightarrow x_{0}} f(x)=A$ & $\left(x_{0}, x_{0}+\delta\right) \cap D$ & $x \in U_{\delta} \Longrightarrow|f(x)-A|<\varepsilon$ \\
+        $x>x_{0}$ & & \\
+        $\lim _{x \rightarrow x_{0}} f(x)=A$ & $\left(x_{0}-\delta, x_{0}\right] \cap D$ & $x \in U_{\delta} \Longrightarrow|f(x)-A|<\varepsilon$ \\
+        $x \leq x_{0}$ & & \\
+        $\lim _{x \rightarrow x_{0}} f(x)=A$ & $\left(x_{0}-\delta, x_{0}\right) \cap D$ & $x \in U_{\delta} \Longrightarrow|f(x)-A|<\varepsilon$ \\
+        $x<x_{0}$ & &
+        \end{tabular}
+    
+        \vspace{1\baselineskip}
+    
+        Tabelle 2:
+        Uneigentliche Grenzwerte für $x \rightarrow x_{0}$
+    
+        \vspace{1\baselineskip}
+    
+    
+        \begin{tabular}{c|c|c} 
+        Notation & $U_{\delta},$ nichtleer für alle $\delta>0$ & Bedingung: $\forall M>0 \exists \delta>0$ \\
+        \hline $\lim _{x \rightarrow x_{0}} f(x)=+\infty$ & Entspr. $\star$ wie in Tabelle 1 & $x \in U_{\delta} \Longrightarrow f(x)>M$ \\
+        $\star$ & & \\
+        $\lim _{x \rightarrow x_{0}} f(x)=-\infty$ & Entspr. $\star$ wie in Tabelle 1 & $x \in U_{\delta} \Longrightarrow f(x)<-M$ \\
+        $\therefore$ &
+        \end{tabular}
+    
+        \vspace{1\baselineskip}
+    
+        Tabelle 3: Echte Grenzwerte für $x \rightarrow \pm \infty$
+    
+        \vspace{1\baselineskip}
+    
+    
+        \begin{tabular}{c|c|c} 
+        Notation & $U_{R},$ nichtleer für alle $R>0$ & Bedingung: $\forall \varepsilon>0 \exists R>0$ \\
+        \hline $\lim _{x \rightarrow+\infty} f(x)=A$ & $(R, \infty) \cap D$ & $x \in U_{R} \Longrightarrow|f(x)-A|<\varepsilon$ \\
+        $\lim _{x \rightarrow-\infty} f(x)=A$ & $(-\infty,-R) \cap D$ & $x \in U_{R} \Longrightarrow|f(x)-A|<\varepsilon$
+        \end{tabular}
+    
+        \vspace{1\baselineskip}
+    
+        Tabelle 4: Uneigentliche Grenzwerte für $x \rightarrow \pm \infty$
+        
+        \vspace{1\baselineskip}
+        
+        \begin{tabular}{c|c|l}
+        \multicolumn{1}{c|} { Notation } & $U_{R},$ nichtleer für alle $R>0$ & Bedingung: $\forall M>0 \exists R>0$ \\
+        \hline $\lim _{x \rightarrow \star} f(x)=+\infty$ & Entspr. $\star$ wie in Tabelle 3 & $x \in U_{R} \Longrightarrow f(x)>M$ \\
+        $\lim _{x \rightarrow \star} f(x)=-\infty$ & Entspr. $\star$ wie in Tabelle 3 & $x \in U_{R} \Longrightarrow f(x)<-M$
+        \end{tabular}
+    \end{center}
+}
+
+\pagebreak
+
+\Definition{
+
+    Sei $D \subseteq \R$ eine Teilmenge, sei $f: D \rightarrow \R$ eine Funktion, und
+    sei $x_0 \in D$. Falls der rechtseitige Grenzwert
+    \begin{align*}
+        A = \limes{\stackrel{x \rightarrow x_0}{x \geq x_0}} f(x)
+    \end{align*}
+    existiert, dann sagen wir, dass $f$ \fat{rechtseitig stetig} ist bei $x_0$. Analog dazu
+    definieren wir \fat{linksseitige Stetigkeit}. Wir nennen $x_0 \in D$ eine \fat{Sprungstelle},
+    falls die einseitigen Grenzwerte
+    \begin{align*}
+        \limes{\stackrel{x \rightarrow x_0}{x < x_0}} f(x)
+        \quad \text{   und   } \quad
+        \limes{\stackrel{x \rightarrow x_0}{x > x_0}} f(x)
+    \end{align*}
+    beide existieren, aber verschieden sind.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{ (Landau Notation)
+
+    Sei $D \subseteq \R$ eine Teilmenge und sei $x_0 \in \R$ ein Element von $D$ oder
+    ein Häufungspunkt von $D$. Seien $f,g: D \rightarrow \R$ Funktionen. Wir schreiben
+    \begin{align}
+        f(x) = O(g(x)) \ \ \text{   für } x \rightarrow x_0
+    \end{align}
+    falles ein $\delta > 0$ und eine reelle Zahl $M > 0$ existieren, mit
+    \begin{align*}
+        \abs{x - x_0} < \delta \Rightarrow \abs{f(x)} \leq M \abs{g(x)}
+    \end{align*}
+    für alle $x \in D$.
+    \begin{align}
+        f = O(g(x)) \ \ \text{   für } x \rightarrow - \infty
+    \end{align}
+    falls ein $R \in \R$ und ein $M > 0$ existeren, mit
+    \begin{align*}
+        x < R \Rightarrow \abs{f(x)} \leq M \abs{g(x)} 
+    \end{align*}
+    für ein $x \in D$.
+    \begin{align}
+        f(x) = o(g(x)) \ \ \text{   für } x \rightarrow x_0
+    \end{align}
+    falls für alle $\epsilon > 0$ ein $delta > 0$ existert, mit
+    \begin{align*}
+        \abs{x - x_0} \Rightarrow \abs{f(x)} \leq \epsilon \abs{g(x)}
+    \end{align*}
+    für ein $x \in D$.
+
+    Falls $g(x) \neq 0$ für $x \in D$ mit $\abs{x - x_0} < \delta$ gibt, dann ist die Aussage
+    $f(x) = o(g(x))$ für $x \rightarrow x_0$ äquivalent zu:
+    \begin{align*}
+        \limes{x \rightarrow x_0} \frac{f(x)}{g(x)} = 0
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+

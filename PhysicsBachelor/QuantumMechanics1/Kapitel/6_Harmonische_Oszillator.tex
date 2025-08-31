@@ -1,0 +1,168 @@
+\section{Der harmonische Oszillator}
+
+\subsection{Die Lösung}
+
+Die Hamiltonfunktion des harmonischen Oszillators ist
+\begin{align*}
+    H = \frac{p^2}{2m} + \frac{f}{2} q^2
+    = \frac{p^2}{2m} + \frac{1}{2} m \omega^2 q^2
+    = - \frac{\hbar^2}{2m} \partial_q^2 + \frac{1}{2} m \omega^2 q^2
+\end{align*}
+wobei $\omega^2 = f/m$. Die zeitunabhängige SG ist $H \psi = E \psi$ wobei $E$ eine
+Konstante ist. Damit die Wellenfunktion im $L^2(\R)$ liegt, müssen wir weiterhin
+verlangen, dass $\limes{q \rightarrow \pm \infty} \psi(x) = 0$. Wir führen
+dimensionslosen Variabeln ein.
+\begin{align*}
+    x = \sqrt{\frac{m \omega}{\hbar}} q
+    \hspace{10pt} , \hspace{10pt}
+    q = \sqrt{\frac{\hbar}{m \omega}} x
+    \hspace{10pt} , \hspace{10pt}
+    \partial_q = \sqrt{\frac{m \omega}{\hbar}} \partial_x
+\end{align*}
+In diesen variabeln vereinfacht sich der Hamiltonoperator und das EW-problem zu
+\begin{align*}
+    H = \frac{\hbar \omega}{2} \klammer{- \partial_x^2 + x^2}
+    \hspace{15pt} \Rightarrow \hspace{15pt}
+    \eckigeklammer{\partial_x^2 + \lambda - x^2} \psi = 0
+    \hspace{10pt} \text{wobei} \ \lambda = \frac{2E}{\hbar \omega}
+\end{align*}
+Diese Gleichung kann man auf verschiedene Weisen lösen.
+
+\subsubsection{Die konventionelle Lösung}
+
+Für $x \rightarrow \infty$ ist $x^2 \gg \lambda$ und somit lässt sich für dieses
+Regime die DGL schreiben als $\klammer{\partial_x^2 - x^2} \psi = 0$. Daher muss
+$\psi$ asymptotisch wie $\psi \propto e^{-x^2/2}$ gehen. Wir machen also den
+Ansatz $\psi(x) = H(x) e^{-x^2/2}$. Wir finden dann die DGL für $H(x)$:
+\begin{align*}
+    \eckigeklammer{\partial_x^2 - 2 x \partial_x + (\lambda-1)} H(x) = 0
+\end{align*}
+Wir verwenden den Fuchs'schen Ansatz $H(x) = x^s \sum_{n \geq 0} a_n x^n$ mit
+$a_0 \neq 0$ und $s \geq 0$. Durch Koeffizientenvergleich findet man $s=0$ oder $s=1$
+und $a_1 = 0$ und die Rekursionsformel:
+\begin{align*}
+    (s + n + 2)(s + n + 1) a_{n+2} - (2s + 2n + 1 - \lambda) a_n = 0
+\end{align*}
+Es ergibt sich:
+\begin{itemize}
+    \item für $s=0$ ist $H(x) = a_0 + a_2 x^2 + \dotsb$ gerade in $x$.
+    \item für $s=1$ ist $H(x) = x \klammer{a_0 + a_2 x^2 + \dotsb}$ ungerade in $x$.
+\end{itemize}
+Die Folge $a_n$ muss irgendwann abbrechen, weil ansonst $H(x) \sim \exp(x^2)$ für
+$x \rightarrow \infty$ und somit die Randbedingung $\limes{x \rightarrow \infty}
+\psi(x) = 0$ nicht erfüllt werden kann. Die Abbruchbedingung ist $\lambda_n = 2n+1$
+(für $s=0$, aber für $s=1$ analog). Dann erfüllt $H(x)$ die DGL:
+\begin{align*}
+    H'' - 2 x H' + 2 n H = 0
+\end{align*}
+und wird von dem $n$-ten Hermite Polynom $H_n (x)$ gelöst (z.B. $H_0 = 1, \ H_1 = 2x, \
+H_2 = 4 x^2 - 2, \ \dots)$. Wir finden also eine Folge von (normierbaren) Lösungen
+\begin{align*}
+    \psi_n (x) = N_n H_n (x) e^{- \frac{x^2}{2}}
+    \hspace{15pt} \text{wobei} \ \ N_n = \frac{N_0}{\sqrt{2^n n!}} \ \ , \ \
+    N_0 = \frac{1}{\pi^{1/4}}
+\end{align*}
+mit den zugehörigen Eigenwerten $\lambda_n = 2n+1$, also
+\begin{align*}
+    E_n = \hbar \omega \klammer{n + \frac{1}{2}}
+\end{align*}
+
+\subsubsection{Die elegante Lösung}
+
+Wir definieren die Auf- und Absteigeoperatoren:
+\begin{align*}
+    a &\equiv \frac{1}{\sqrt{2}} \klammer{x + \partial_x}
+    = \frac{1}{\sqrt{2}} \klammer{\sqrt{\frac{m \omega}{\hbar}} q + \frac{i}{\sqrt{m \hbar \omega}} p}
+    \\
+    a^\dagger &\equiv \frac{1}{\sqrt{2}} \klammer{x - \partial_x}
+\end{align*}
+Umgekehrt ist dann:
+\begin{align*}
+    x = \frac{1}{\sqrt{2}} \klammer{a + a^\dagger}
+    \hspace{15pt} , \hspace{15pt}
+    \partial_x = \frac{1}{\sqrt{2}} \klammer{a - a^\dagger}
+\end{align*}
+Somit folgt für den Hamiltonoperator:
+\begin{align*}
+    H = \frac{\hbar \omega}{2} \klammer{- \partial_x^2 + x^2}
+    = \frac{\hbar \omega}{2} \klammer{a^\dagger a + a a^\dagger}
+    = \hbar \omega \klammer{a^\dagger a + \frac{1}{2} \eckigeklammer{a,a^\dagger}}
+\end{align*}
+Da $\eckigeklammer{a,a^\dagger} = 1$ können wir weiter vereinfachen zu:
+\begin{align*}
+    H = \hbar \omega \klammer{N + \frac{1}{2}}
+\end{align*}
+Somit vereinfacht sich das EW-Problem $H \Psi = E \Psi$ zu $N |n\rangle = n |n\rangle$
+wobei $|n\rangle$ der Zustand $\Psi_n$ mit Energie $E_n$ ist. Wir bemerken:
+\begin{align*}
+    \eckigeklammer{N,a^\dagger} = a^\dagger
+    \hspace{15pt} , \hspace{15pt}
+    \eckigeklammer{N,a} = -a
+\end{align*}
+Somit definieren $a^\dagger |n\rangle$ und $a|n\rangle$ Eigenvektoren zu $N$
+mit eigenwerten $n+1$ und $n-1$:
+\begin{align*}
+    N a^\dagger |n\rangle = (n+1) a^\dagger |n\rangle
+    \hspace{15pt} , \hspace{15pt}
+    N a |n\rangle = (n-1) a |n\rangle
+\end{align*}
+Wir nennen $a^\dagger$ den Aufsteige- oder Erzeugungsoperator und $a$ einen
+Absteige- oder Vernichtungsoperator. Mit der Bedingung Normierungsbedindung
+$\langle n | n \rangle = 1$ erhalten wir normierte Eigenvektoren:
+\begin{align*}
+    |n-1\rangle = \frac{1}{\sqrt{n}} a |n\rangle
+    \hspace{15pt} , \hspace{15pt}
+    |n+1\rangle = \frac{1}{\sqrt{n+1}} a^\dagger |n\rangle
+\end{align*}
+Aus der Positivität des Skalarproduktes folgt, dass die EW $n$ nicht-negative
+ganze Zahlen sein müssen. Weiter gilt $a|0\rangle = 0$ und somit:
+\begin{align*}
+    |n\rangle = \frac{(a^\dagger)^n}{\sqrt{n!}} |0\rangle
+\end{align*}
+Der Eigenwert bestimmt die Energie:
+\begin{align*}
+    E_n = \hbar \omega \klammer{N + \frac{1}{2}} = \hbar \omega \klammer{n+\frac{1}{2}}
+\end{align*}
+Wir merken, dass die Anwendung von $a^\dagger$ einen zusätzlichen Energiequant
+$\hbar \omega$ erzeugt. Aufgrund der Heisenberg'schen Unschärferelation ist
+$E_0 = \frac{\hbar \omega}{2} \neq 0$. Nach Konstruktion ist $a|0\rangle = 0$.
+Somit folgt in der Ortsdarstellung:
+\begin{align*}
+    0 = \sqrt{2} \langle x|a|0\rangle = \klammer{x + \partial_x} \langle x|0\rangle
+    = \klammer{x+\partial_x} \psi_0 (x) = 0
+\end{align*}
+Die Lösung dieser DGL ist:
+\begin{align*}
+    \psi_0 (x) = \frac{1}{\sqrt[4]{\pi}} e^{-x^2/2}
+\end{align*}
+Die Zustände $\langle x|n\rangle$ folgen nun Iterativ:
+\begin{align*}
+    \langle x | n \rangle =
+    \frac{1}{\sqrt{2^n n! \sqrt{\pi}}} H_n (x) e^{-x^2/2}
+\end{align*}
+Mit $H_n (x)$ den Hermitpolynomen. Die ersten vier sind gegeben durch:
+\begin{align*}
+    H_0 &= 1
+    \hspace{10pt} , \hspace{10pt}
+    H_1 = 2x
+    \hspace{10pt} , \hspace{10pt}
+    H_2 = (2x)^2 - 2
+    \hspace{10pt} , \hspace{10pt}
+    H_3 = (2x)^3 - 6 (2x)
+    \\
+    H_4 &=  (2x)^4 - 12(2x^2) + 12
+\end{align*}
+In der Variablen $q = \sqrt{\hbar/m \omega}x$:
+\begin{align*}
+    \langle q | n \rangle = \sqrt{\sqrt{\frac{m \omega}{\pi \hbar}} \frac{1}{2^n n!}} H_n \klammer{\sqrt{\frac{m \omega}{\hbar}}q} e^{- \frac{(m \omega q)^2}{2 \hbar}}
+\end{align*}
+
+\subsection{Klassischer Limes}
+
+Für grosse Energien nähert sich die QM Lsg. der klassischen Lsg. an. Die klassischen
+Aufenthaltswahrscheinlichkeit und Energie sind gegeben durch:
+\begin{align*}
+    W_{kl} = \frac{1}{\pi q_0 \sqrt{1 - (q/q_0)^2}}
+    \hspace{10pt} , \hspace{10pt}
+    E_{kl} = \frac{1}{2} m \omega^2 q_0^2
+\end{align*}

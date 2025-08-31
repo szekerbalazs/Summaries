@@ -1,0 +1,120 @@
+\section{Time varying electromagnetic fields}
+
+\subsection{Charge conservation}
+
+When integrating the continuity equation over all of space, we obtain that
+the total charge in the universe has to be constant:
+$\frac{\partial Q_{\text{universe}}}{\partial t} = 0 \ \Rightarrow \
+Q_{\text{universe}} = \text{const}$.
+
+\subsection{Vector and scalar potential}
+
+\begin{align*}
+    \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+    \rightsquigarrow \vec{\nabla} \times \klammer{\vec{E} + \frac{\partial \vec{A}}{\partial t}} = 0
+\end{align*}
+This is satisfied if we introduce a scalar potential $\phi$ such that
+\begin{align*}
+    \vec{E} = - \frac{\partial \vec{A}}{\partial t} - \vec{\nabla} \phi
+\end{align*}
+We define $\Box \equiv \frac{1}{c^2} \frac{\partial^2}{\partial t^2} - \vec{\nabla}^2$.
+Then we have:
+\begin{align*}
+    \Box \vec{A} + \vec{\nabla} \eckigeklammer{\vec{\nabla} \cdot \vec{A} +
+        \frac{1}{c^2} \frac{\partial \phi}{\partial t}} &= \frac{\vec{J}}{c^2 \epsilonnull}
+    \\
+    \vec{\nabla}^2 \phi - \frac{\partial}{\partial t} \vec{\nabla} \cdot \vec{A} &= \frac{\rho}{\epsilonnull}
+    \\
+    \Box \phi - \frac{\partial}{\partial t} \eckigeklammer{\vec{\nabla} \cdot \vec{A} +
+    \frac{1}{c^2} \frac{\partial \phi}{\partial t}} &= \frac{\rho}{\epsilonnull}
+\end{align*}
+
+\subsection{Gauge Invariance}
+
+Electric and magnetic field remain invariant under the following transformation
+of the scalar and vector potential:
+\begin{align*}
+    \phi \rightarrow \phi' = \phi - \frac{\partial f}{\partial t}
+    \hspace{20pt} , \hspace{20pt}
+    \vec{A} \rightarrow \vec{A}' = \vec{A}' + \vec{\nabla} f
+\end{align*}
+with $f = f(\vec{x},t)$. We can not choose $f$ such that the potentials
+$\vec{A}_L$, $\phi_L$ satisfy
+\begin{align*}
+    \vec{\nabla} \cdot \vec{A}_L + \frac{1}{c^2} \frac{\partial \phi_L}{\partial t} = 0
+\end{align*}
+This is called the "Lorentz gauge". Now we have:
+\begin{align*}
+    \Box \phi_L = \frac{\rho}{\epsilonnull}
+    \hspace{20pt} , \hspace{20pt}
+    \Box \vec{A}_L = \frac{\vec{J}}{c^2 \epsilonnull}
+\end{align*}
+
+\subsection{Electromagnetic waves in empty space}
+
+In empty space $\vec{J} = 0$ and $\rho = 0$. In empty space, all fields
+satisfy the same equation:
+\begin{align*}
+    \Box f = 0
+    \hspace{10pt} , \hspace{10pt}
+    f \in \geschwungeneklammer{\phi,\vec{A},\vec{E},\vec{B}}
+\end{align*}
+A solution to this equation is
+\begin{align*}
+    f(\vec{x},t) = f(\hat{\eta} \cdot \vec{x} - c t)
+\end{align*}
+with $\hat{\eta}^2 = 1$. In this solution, $f$ depends on a single
+combination $u = \hat{\eta} \cdot \vec{x} - c t$. The solution $f$ is
+a travelling wave with a speed equal to the speed of light $c$, moving
+along the direction of the unit vector $\hat{\eta}$. We can now write:
+\begin{align*}
+    \vec{E} = \hat{e} E (\hat{\eta} \cdot \vec{x} - c t)
+    \hspace{10pt} , \hspace{10pt}
+    \vec{B} = \hat{b} B (\hat{\eta} \cdot \vec{x} - c t)
+\end{align*}
+We find: $\vec{E},\vec{B} \perp \hat{\eta}$ and $\vec{E} \perp \vec{B}$.
+Further: $\abs{\vec{E}} = c \cdot \abs{\vec{B}}$.
+
+\subsubsection{Spherical waves}
+
+If we are able to change the charge and current density at one point in
+the entire space only, we will generate an electromagnetic wave with
+spherical symmetry, i.e. no preferred direction. We still have:
+\begin{align*}
+    \Box f = 0
+    \hspace{10pt} , \hspace{10pt}
+    \forall f \in \geschwungeneklammer{\vec{A},\vec{B},\vec{E}}
+\end{align*}
+Now with spherical symmetry we have: $f(\vec{r},t) = f(r,t)$. So we have:
+\begin{align*}
+    &\Box f(r,t) =
+    \frac{1}{c^2} \frac{\partial^2 f}{\partial t^2} - \frac{1}{r} \frac{\partial^2 (r f)}{\partial r^2}
+    = 0
+    \\
+    &\Rightarrow
+    \eckigeklammer{\frac{1}{c^2} \frac{\partial^2}{\partial t^2} - \frac{\partial^2}{\partial r^2}} (r f) = 0
+    \\
+    &\Rightarrow
+    r f = A(r - c t) + B(r + c t)
+    \\
+    &\Rightarrow
+    f(r,t) = \frac{A(r - c t)}{r} + \frac{B(r + c t)}{r}
+\end{align*}
+The first term corresponds to a spherical wave propagating outwards and
+the second term is a spherical wave that propagates inwards. Typically
+only the outwards propagaion is realistic.
+
+\subsection{Moving charges in a homogeneous magnetic field}
+
+Consider a $\vec{B}$-field with $\vec{j}_{source}$ and far away at distance
+$\vec{r}_0$ a cloud of charges $\Omega$ with $\vec{j} (x) \neq 0$. The
+force of the $\vec{B}$-field acting on $\Omega$ is
+\begin{align*}
+    \vec{F} = (\vec{m} \cdot \vec{\nabla}) \vec{B} \big|_{x=0}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{m} = \frac{1}{2} \int_\Omega d^3 \vec{x} \ \vec{x} \times \vec{j}
+\end{align*}
+with $\vec{m}$ the magnetic dipole moment. The potential energy is then:
+\begin{align*}
+    U = - \vec{m} \cdot \vec{B}
+\end{align*}

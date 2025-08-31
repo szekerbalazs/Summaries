@@ -1,0 +1,180 @@
+\subsection{The Calculus of Residues}
+
+\begin{theorem}[Cauchy's Integral Formula]
+    If $f(z)$ is analytic in a region $\Omega$, then
+    \begin{align*}
+        \eta(\gamma,a) f(a) = \frac{1}{2 \pi i} \int_\gamma \frac{f(z)}{z - a} \ dz
+    \end{align*}
+    for every cycle $\gamma$ which is homologous to zero in $\Omega$.
+\end{theorem}
+
+\begin{definition}[Residue]
+    The \fat{residue} of $f(z)$ at an isolated singularity $a$ is the unique complex
+    number $R$ which makes $f(z) - \frac{R}{z-a}$ the derivative of a single valued
+    analytic function in an annulus $0 < \abs{z-a} < \delta$. Often $R$ is written as
+    $R = \text{Res}_{z=a} f(z)$ or $R_j = \text{Res}_{z=a_j} f(z)$.
+\end{definition}
+
+\begin{definition}[Residue]
+    Equivalent to the above definition is:
+    Let $f: D(z_0,r) \backslash \geschwungeneklammer{z_0} \rightarrow \C$ be
+    holomorphic with the Laurent expansion $f(z) = \sum_{n=-\infty}^\infty a_n
+    (z-z_0)^n$. Then the residue of $f$ at $z_0$ is Res$_{z_0} (f) := a_{-1}$.    
+\end{definition}
+
+\begin{theorem}
+    If $f(z) - \frac{R}{z-a}$ is the derivative of a single valued analytic function,
+    it itself is analytic and thus due to Cauchy's Theorem its integral evaluates to
+    zero for every cyclic $\gamma$ which is homologous to zero. Thus we obtain
+    \begin{align*}
+        \int_\gamma f(z) - \frac{R}{z-a} \ dz &= 0
+        \\
+        \Leftrightarrow
+        \int_\gamma f(z) \ dz = \int_\gamma \frac{R}{z-a} \ dz &= 2 \pi i R
+    \end{align*}
+    Therefore:
+    \begin{align*}
+        \text{Res}_{z=a} f(z) = \frac{1}{2 \pi i} \int_\gamma f(z) \ dz
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    Let $f(z)$ be analytic exept for isolated singularities $a_j$ in a region
+    $\Omega$. Then
+    \begin{align*}
+        \frac{1}{2 \pi i} \int_\gamma f(z) \ dz = \sum_j \eta(\gamma,a_j) \text{Res}_{z=a_j} f(z)
+    \end{align*}
+    for any cycle $\gamma$ which is homologous to zero in $\Omega$ and does not pass
+    through any of the points $a_j$. Often only the case $\eta(\gamma,a_j) = 1$ or
+    $\eta(\gamma,a_j) = 0$ is considered. Then the theorem simplyfies to
+    \begin{align*}
+        \frac{1}{2 \pi i} \int_\gamma f(z) \ dz = \sum_j \text{Res}_{z=a_j} f(z)
+    \end{align*}
+    where the sum is extended over all singularities enclosed by $\gamma$.
+\end{theorem}
+
+\begin{theorem}
+    Let's say that $f$ has a pole at $z=a$ of order $h$. Then: $(z-a)^{h} f(z)$ is
+    analytic in a neighborhood of $a$ and so
+    \begin{align*}
+        f(z) = B_h (z-a)^{-h} + B_{h-1} (z-a)^{-(h-1)} + \dots + B_1 (z-a)^{-1} + \varphi(z)
+    \end{align*}
+    with $\varphi (z)$ analytic in a neighborhood of $a$. Then $B_1$ is the residue
+    of $f$ at $a$ because $f(z) - \frac{B_1}{z-a}$ is the derivative of a function
+    in an annulus $0 < \abs{z-a} < \delta$.
+\end{theorem}
+
+\begin{definition}[Bound]
+    A cycle $\gamma$ is said to \fat{bound} the region $\Omega$ if and only if
+    $\eta(\gamma,a)$ is defined and equal to $1$ for all points $a \in \Omega$
+    and either undefined or equal to zero for all points $a \notin \Omega$. 
+\end{definition}
+
+\begin{theorem}
+    If $\gamma$ bounds $\Omega$ and $f(z)$ is analytic on the set $\Omega + \gamma$,
+    then
+    \begin{align*}
+        \int_\gamma f(z) \ dz = 0
+    \end{align*}
+    and
+    \begin{align*}
+        f(z) = \frac{1}{2 \pi i} \int_\gamma \frac{f(\xi)}{\xi - z} \ d \xi
+    \end{align*}
+    for all $z \in \Omega$. If $f(z)$ is analytic in $\Omega + \gamma$ exept for isolated
+    singularities in $\Omega$, then
+    \begin{align*}
+        \frac{1}{2 \pi i} \int_\gamma f(z) \ dz = \sum_j \text{Res}_{z=a_j} f(z)
+    \end{align*}
+    where the sum ranges over the singularities $a_j \in \Omega$.
+\end{theorem}
+
+\begin{theorem}[Argument Principle]
+    If $f(z)$ is meromorphic in $\Omega$ with the zeros $a_j$ and the poles $b_k$,
+    then
+    \begin{align*}
+        \frac{1}{2 \pi i} \int_\gamma \frac{f'(z)}{f(z)} \ dz =
+        \sum_j \eta(\gamma,a_j) - \sum_k \eta(\gamma,b_k)
+    \end{align*}
+    for every cycle $\gamma$ which is homologous to zero in $\Omega$ and does not
+    pass through any of the zeros or poles.
+\end{theorem}
+
+\begin{theorem}[Rouché]
+    Let $\gamma$ be homologous to zero in $\Omega$ and such that $\eta(\gamma,z)$
+    is either $0$ or $1$ for any point $z$ not on $\gamma$. Suppose that $f(z)$ and
+    $g(z)$ are analytic in $\Omega$ and satisfy the inequality
+    $\abs{f(z) - g(z)} < \abs{f(z)}$ on $\gamma$. Then $f(z)$ and $g(z)$ have the same
+    number of zeros enclosed by $\gamma$.
+\end{theorem}
+
+\begin{theorem}[Rouché]
+    Let $\gamma$ be a null-homologous cycle and Jordan bounding the region $D$. Let
+    $f,g : U \rightarrow \C$ be holomorphic in $U$ such that in $D \cup \gamma =
+    \overline{D} \subseteq U$:
+    \begin{align*}
+        \forall z \in \gamma: \ \abs{f(z) - g(z)} < \abs{f(z)} + \abs{g(z)}
+    \end{align*}
+    Then, $f$ and $g$ have the same numbers of zeros in $D$ (with multiplicity).
+\end{theorem}
+
+\begin{theorem}
+    If $g: \Omega \rightarrow \C$ analytic, then $g(z) \frac{f'(z)}{f(z)}$ has
+    residue $g(a) h$ if $a$ is a zero of order $h$ of $f$ and $-g(a) h$ if $a$
+    is a pole of order $h$ of $f$.
+\end{theorem}
+
+\begin{theorem}
+    Let $f(z_0) = w_0$, $f'(z_0) \neq 0$. Then there exists $\delta > 0$ such that
+    for $\abs{w - w_0} < \delta$, there exists only one solution to
+    $f(z) = w$ in $\abs{z-z_0} < \epsilon$ for an $\epsilon > 0$.
+\end{theorem}
+
+\paragraph{Tricks}
+\begin{enumerate}[a)]
+    \item $f$ has a removable singularity at $z_0$ $\Rightarrow R = 0$
+    \item $f$ has a simple pole at $z_0$ $\Rightarrow R = \limes{z \rightarrow z_0} (z-z_0) f(z)$
+    \item $f$ has a pole of order $k>1$ at $z_0$ $\Rightarrow R = \frac{1}{(k-1)!} \frac{d^{k-1}}{dz^{k-1}} \klammer{(z-z_0)^k f(z)}_{|_{z=z_0}}$
+    \item $f$ has a simple pole at $z_0$ and $g$ analytic in a neighborhood of $z_0$ $\Rightarrow R(f \cdot g) =$ Res$_{z_0} (f \cdot g) = g(z_0) \cdot$ Res$_{z_0} (f)$
+\end{enumerate}
+
+\paragraph{Remarks}
+\begin{itemize}
+    \item For essential singularities, compute the whole Laurent Series.
+    \item Res$(f,z_0) = 0 \nRightarrow z_0$ is a removable singularity.
+\end{itemize}
+
+\begin{theorem}[Existence of $\log(f)$]
+    Let $D$ be a simply connected domain and let $f$ be holomorphic on $D$ such that
+    $f(z) \neq 0 \ \forall z \in D$. Then, there exists a holomorphic function $g$
+    on $D$ such that $f(z) = e^{g(z)}$. (I.e. $\log$ is holomorphic.) Moreover,
+    if $z_0 \in D$ and $f(z_0) = e^{w_0}$, one can pick a function $g$ such that
+    $g(z_0) = w_0$.
+\end{theorem}
+
+\begin{theorem}
+    Let $f: D \rightarrow \C$ be holomorphic in the region $D$ and $f(z) \neq 0 \
+    \forall z \in D$. Then, there exists a branch of $\log(f)$ in $D$ such that
+    \begin{align*}
+        \int_\gamma \frac{f'(z)}{f(z)} \ dz = 0
+    \end{align*}
+    for all piecewise regular closed paths $\gamma \in \C$.
+    This theorem holds in particular for simply connected regions.
+\end{theorem}
+
+\begin{theorem}
+    Let $P$ and $Q$ be polynomials such that $\frac{P(x)}{Q(x)}$ has no poles in $\R$
+    and $\deg \klammer{\frac{P(x)}{Q(x)}} \leq -2$. Then:
+    \begin{align*}
+        \intii \frac{P(x)}{Q(x)} \ dx = 2 \pi i \sum_{\stackrel{a}{\text{Im}(a) > 0}} \text{res}_a \klammer{\frac{P(z)}{Q(z)}}
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    Let $P$ and $Q$ be polynomials and say $\frac{P(x)}{Q(x)}$ has no poles on
+    $(0,\infty)$ and at most a simple pole at $0$. Say $\deg \frac{P}{Q} \leq -2$
+    and let $0<\alpha<1$. Then:
+    \begin{align*}
+        \int_0^\infty x^\alpha \frac{P(x)}{Q(x)} \ dx = \frac{2 \pi i}{1 - e^{2 \pi i \alpha}} \sum_{b \neq 0} \text{Res} \klammer{z^\alpha \frac{P(z)}{Q(z)} , b}
+    \end{align*}
+\end{theorem}
+

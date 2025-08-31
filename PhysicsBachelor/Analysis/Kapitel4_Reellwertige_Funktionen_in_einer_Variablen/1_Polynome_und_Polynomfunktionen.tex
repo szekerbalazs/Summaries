@@ -1,0 +1,231 @@
+\subsection{Polynome und Polynomfunktionen}
+
+\vspace{1\baselineskip}
+
+In diesem Kapitel wird vom Leser, bzw von der Leserin, vorausgesetzt, dass er,
+bzw sie, bereits vertraut ist mit der \fat{Summennotation} $\sum$ und der 
+\fat{Produktnotation} $\prod$ und den dazugerörigen Konventionen der Indexierung.
+Eine Sache, die es dennoch wert ist zu erwähnen, ist, dass wir die folgende
+Konventionen brauchen werden.
+\begin{align*}
+    \sum_{j \in \emptyset} a_j = 0
+    \quad
+    \text{  und  }
+    \quad
+    \prod_{j \in \emptyset} a_j = 1
+\end{align*}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Die Summe ist linear. Das heisst:
+    \begin{align*}
+        \csum{k=1}{n} (a_k + b_k) = \csum{k=1}{n} a_k + \csum{k=1}{n} b_k
+        \quad
+        \text{  und  }
+        \quad
+        \csum{k=1}{n}(c a_k) = c \csum{k=1}{n} a_k
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für die sogenannte \fat{Teleskopsumme} gilt:
+    \begin{align*}
+        \csum{k=1}{n-1} (a_k - a_{k+1}) = a_1 - a_n
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Für das Produkt gilt:
+    \begin{align*}
+        \prod_{k=1}^n (a_k b_k) = \klammer{\prod_{k=1}^n a_k} \klammer{\prod_{k=1}^n b_k}
+        \quad
+        \text{  und  }
+        \quad
+        \prod_{k=1}^n (c a_k) = c^n \cdot \prod_{k=1}^n a_k
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+    (Bernoulli'sche Ungleichung)
+
+    Für alle reellen Zahlen $a \geq -1$ und \ninN gilt $(1+a)^n \geq 1 + n a$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+    (Geometrische Summenformel)
+
+    Sei \ninN und $q \in \C$. Dann gilt:
+    \begin{align*}
+        \csum{k=0}{n} q^k = \begin{cases}
+            n + 1 \quad &\text{ falls } q = 1
+            \\
+            \frac{q^{n+1} - 1}{q - 1} \quad &\text{ falls } q \neq 1
+        \end{cases}
+    \end{align*}
+
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $K$ ein beliebiger Körper. Ein \fat{Polynom} $f$ in einer Variable
+    $T$ und Koeffizienten in $K$ ist ein formaler Ausdruck der Form
+    \begin{align*}
+        f = a_0 + a_1 T + a_2 T^2 + \dots + a_n T^n = \csum{k=0}{n} a_k T^k
+    \end{align*}
+    für ein \ninN und Elementen $a_0, \dots a_n \in K$ die wir als 
+    \fat{Koeffizienten} bezeichnen. Hierbei ist $T$ die sogenannte
+    \fat{Variable}. Wir definieren den \fat{Polynomring} $K[T]$ als 
+    die Menge der Polynome mit Koeffizienten in $K$ in der Variablen
+    $T$, wobei Addition und Multiplikation formal durch Kommutativität
+    und Distributionsgesetz gegeben ist.
+}
+
+\pagebreak
+
+\Definition{
+
+    Sei $f \in K[T]$ ein Polynom, gegeben wie in der vorherigen Definition.
+    Falls $a_n \neq 0$, so nennen wir $a_n$ den \fat{Leitkoeffizienten}, und 
+    die natürliche Zahl $n$ den \fat{Grad} von $f$. Wir definieren den Grad
+    des Polynoms $f = 0$ formal als $- \infty$. Ein Polynom von Grad $\leq 0$
+    heisst \fat{konstant}, ein Polynom von Grad $\leq 1$ heisst \fat{affin},
+    und ein Polynom vom Grad $\leq 2$ heisst \fat{quadratisch.}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ein Polynom $f$ ist keine Funktion.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine \fat{Polynomfunktion} auf $\C$ ist eine Funktion $\C \rightarrow \C$
+    der Form $z \rightmapsto f(z)$ für ein Polynom $f \in \C[T]$. Analog
+    dazu definieren wir auch Polynomfunktionen auf $\R$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $f(T) \in \C [T]$ ein nicht-konstantes Polynom. Dann gibt es zu jeder
+    positiven reellen Zahl $M > 0$ eine reelle Zahl $R \geq 1$, so dass für 
+    alle \zinC mit $\abs{z} \geq R$ auch $\abs{f(z)} \geq M$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Die Zuordnung, die jedem Polynom $f(T) \in \C [T]$ die zugehörige
+    Polynomfunktion $z \in \C \rightmapsto f(z) \in \C$ zuweist bijektiv.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Nullstelle eines Polynoms $f \in K[T]$ ist eine Zahl $x \in K$
+    mit $f(x) = 0$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+    (Fundamentalsatz der Algebra)
+
+    Jedes nicht-konstante Polynom $f \in \C [T]$ mit komplexen Koeffizienten
+    hat eine komplexe Nullstelle.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir sagen, dass ein Polynom $g$ ein Polynom $f$ \fat{teilt} falls es ein
+    Polynom $q$ gibt mit $f = qg$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir sagen, dass eine Nullstelle $z \in K$ von $f(T) \in K[T]$ \fat{Vielfachheit}
+    $k \in \N$ hat, falls $(T-z)^k$ das Polynom $f$ teilt, aber $(T-z)^{k+1}$
+    das Polynom $f$ nicht teilt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Ein Polynom $f(T) \in K[T]$ vom Grad $n \geq 1$ hat $n$ Nullstellen in 
+    $K$ auch wenn man diese entsprechend ihrer Vielfachheit mehrfach zählt.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $n \geq 1$ eine ganze Zahl, $z_1 , \dots , z_n \in K$ paarweise verschiedene
+    Elemente, und $w_1, \dots , w_n \in K$ beliebige Elemente. Es gibt höchstens
+    ein Polynom $f \in K[T]$ von Grad $n-1$ mit der Eigenschaft
+    \begin{align*}
+        f(z_k) = w_k \ \forall k = 1,2, \dots ,n
+    \end{align*} 
+    Das Auffinden eines solchen Polynoms wird als \fat{Lagrange Interpolation}
+    bezeichnet. Wir beginnen damit, für jedes $k = 1,2, \dots , n$ das Polynom
+    \begin{align*}
+        Q_k(T) = \prod_{\substack{j=1 \\ j \neq k}}^n \frac{T - z_j}{z_k - z_j}
+    \end{align*}
+    zu definieren. Die Notation bedeutet hier, dass wir das Produkt über alle
+    $j \in \geschwungeneklammer{1,2, \dots , n} \backslash \geschwungeneklammer{k}$
+    nehmen. Das Polynom $Q_k (T)$ hat Grad $n-1$, und es gilt
+    \begin{align*}
+        Q_k (z_j) = \begin{cases}
+            1 \quad \text{  falls } j = k
+            \\
+            0 \quad \text{  falls } j \neq k
+        \end{cases}
+    \end{align*}
+    Das gesuchte Polynom $f \in K[T]$ erhalten wir als Linearkombination
+    \begin{align*}
+        f(T) = \sum_{k=1}^n w_k Q_k (T)
+    \end{align*}
+    wobei wir $f(z_k) = w_k$ wiederum direkt durch Einsetzen in die Formel sehen.
+    Da alle Polynome $Q_k$ vom Grad $n-1$ sind, ist $f$ höchstens vom Grad $n-1$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Für ein rationales Polynom $\frac{f}{g}$ nennt man die Nullstellen
+    von $g$ \fat{Pole}.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Zahl $\alpha \in \C$ heisst \fat{algebraisch}, falls es ein von 
+    Null verschiedenes Polynom $f \in \Q[x]$ gibt mit $f(\alpha) = 0$.  
+}

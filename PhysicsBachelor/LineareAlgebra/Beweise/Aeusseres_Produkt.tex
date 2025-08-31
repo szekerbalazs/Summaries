@@ -1,0 +1,81 @@
+\subsection{Das äussere Produkt}
+
+Wir erklären das äußere Produkt als Quotientenvektorraum des Tensorproduktes:
+\[
+V \wedge V:=(V \otimes V) / A(V)
+\]
+Bezeichnet
+\[
+\varrho: V \otimes V \rightarrow V \wedge V
+\]
+die kanonische Abbildung, so erklären wir $\wedge:=\varrho \circ \eta .$
+Für $v, v^{\prime} \in V$ ist also
+\[
+v \wedge v^{\prime}:=\wedge\left(v, v^{\prime}\right)=
+\varrho\left(\eta\left(v, v^{\prime}\right)\right)=
+\varrho\left(v \otimes v^{\prime}\right)
+\]
+Die Abbildung $\wedge$ ist bilinear und auch alternierend. Zum Beweis der
+universellen Eigenschaft betrachten wir das folgende Diagramm:
+\begin{center}
+    \begin{tikzcd}
+        V \times V \arrow{dddd}[swap]{\wedge} \arrow{rdd}[swap]{\eta} \arrow{rrrdd}{\xi} & & & \\
+        & & & & \\
+        & V \otimes V \arrow{rr}{\xi_{\otimes}} \arrow{ldd}[swap]{\varrho} & & W \\
+        & & & & \\
+        V \wedge V \arrow{rrruu}[swap]{\xi_{\wedge}} & & &
+    \end{tikzcd}
+    \hspace{10pt} $(*)$
+\end{center}
+Zu $\xi$ gibt es ein eindeutiges lineares $\xi_{\otimes}$ und nach der universellen
+
+Eigenschaft des Quotienten ein eindeutiges lineares
+$\xi_{\wedge} .$ Aus der Kommutativität des Diagramms $(*)$ folgt
+\[
+\xi_{\wedge}\left(v \wedge v^{\prime}\right)=\xi\left(v, v^{\prime}\right)
+\]
+Es bleibt die Behauptung über die Basis von $V \wedge V$ zu zeigen, das ist die
+einzige Schwierigkeit. Da $V \otimes V$ von Tensoren der Form
+$v_{i} \otimes v_{j}$ erzeugt wird, erzeugen die Produkte $v_{i} \wedge v_{j}$
+den Raum $V \wedge V .$ Wegen $v_{i} \wedge v_{i}=0$ und $v_{j} \wedge v_{i}=
+-v_{i} \wedge v_{j}$ sind schon die $\binom{n}{2}$ Produkte
+\[
+v_{i} \wedge v_{j} \quad \text { mit } i<j
+\]
+ein Erzeugendensystem, und es genügt, die lineare Unabhängigkeit zu beweisen.
+Dazu betrachten wir den Vektorraum $W=K^{N}$ mit $N=\binom{n}{2}$ und wir
+bezeichnen die kanonische Basis von $K^{N}$ mit
+\[
+\left(e_{i j}\right)_{1 \leq i<j \leq n}
+\]
+Eine alternierende Abbildung $\xi: V \times V \rightarrow K^{N}$ konstruieren
+wir wie folgt: sind
+\[
+v=\sum \lambda_{i} v_{i} \quad \text { und } \quad v^{\prime}=\sum \mu_{i} v_{i}
+\]
+in $V$ gegeben, so betrachten wir die Matrix
+\[
+A=\left(\begin{array}{lll}
+\lambda_{1} & \cdots & \lambda_{n} \\
+\mu_{1} & \cdots & \mu_{n}
+\end{array}\right)
+\]
+und bezeichnen mit $a_{i j}:=\lambda_{i} \mu_{j}-\lambda_{j} \mu_{i}$ den 
+entsprechenden 2 -Minor von $A$ Dann ist durch
+\[
+\xi\left(v, v^{\prime}\right):=\sum_{i<j} a_{i j} e_{i j}
+\]
+eine sehr gute alternierende Abbildung gegeben: wegen der universellen
+Eigenschaft muß
+\[
+\xi_{\wedge}\left(v_{i} \wedge v_{j}\right)=\xi\left(v_{i}, v_{j}\right)=e_{i j}
+\]
+sein, und aus der linearen Unabhängigkeit der $e_{i j}$ in $K^{N}$ folgt die
+Behauptung. Die so erhaltene Abbildung
+\[
+\xi_{\wedge}: V \wedge V \rightarrow K^{N}
+\]
+ist ein Isomorphismus. Er liefert eine etwas konkretere Beschreibung des
+äußeren Produktes.
+
+

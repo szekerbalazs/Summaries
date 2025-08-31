@@ -1,0 +1,203 @@
+% ==== General Commands ====
+
+\newcommand{\sframebox}[1]{
+        \framebox[500pt][l]{\parbox{490pt}{
+            #1
+        }
+    }
+
+}
+
+\newcommand{\cframebox}[2]{
+        \fbox{\parbox{#1pt}{
+            #2
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+% ====== Maths ======
+
+
+% ==== Formats ====
+\newcommand{\boldline}[1]{\textbf{\underline{#1}}}
+\newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand{\lowroman}[1]{\romannumeral#1\relax}
+\newcommand{\fat}[1]{\textbf{#1}}
+\newcommand{\Loesung}{\begin{center}\textbf{Lösung}\end{center}}
+
+\newcommand{\Korollar}[1]{\textbf{Korollar} \vspace{1\baselineskip} #1}
+\newcommand{\Beispiel}[1]{\textbf{Beispiel} \vspace{1\baselineskip} #1}
+\newcommand{\Beweis}[1]{\textbf{Beweis} \vspace{1\baselineskip} #1}
+\newcommand{\Proposition}[1]{\textbf{Proposition} \vspace{1\baselineskip} #1}
+\newcommand{\Satz}[1]{\textbf{Satz} \vspace{1\baselineskip} #1}
+\newcommand{\Definition}[1]{\textbf{Definition} \vspace{1\baselineskip} #1}
+\newcommand{\Lemma}[1]{\textbf{Lemma}\vspace{1\baselineskip} #1}
+\newcommand{\Bemerkung}[1]{\textbf{Bemerkung} \vspace{1\baselineskip} #1}
+
+
+\newcommand{\Titel}[1]{
+    \begin{center}
+        \fat{\LARGE #1} \normalsize
+    \end{center}
+}
+
+\newcommand{\Aufgabe}[1]{
+    \begin{center}
+        \fat{\Large Aufgabe #1} \normalsize
+    \end{center}
+}
+
+\newcommand{\Task}[1]{
+    \begin{center}
+        \fat{\Large Task #1} \normalsize
+    \end{center}
+}
+
+
+
+% ==== mathsymbols ====
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\eS}{\mathbb{S}}
+\newcommand{\X}{$X$ }
+\newcommand{\Y}{$Y$ }
+\newcommand{\x}{$x$ }
+\newcommand{\y}{$y$ }
+
+
+
+% ==== math operators ====
+\newcommand{\klammer}[1]{\left( #1 \right)} 
+\newcommand{\eckigeklammer}[1]{\left[ #1 \right]}
+\newcommand{\geschwungeneklammer}[1]{\left\{ #1 \right\}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\scalprod}[2]{\left\langle #1 , #2 \right\rangle}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert} 
+\newcommand{\Norm}[1]{\left\vert\left\vert #1 \right\vert\right\vert}
+\newcommand{\intab}{\int_a^b}
+\newcommand{\intii}{\int_{-\infty}^\infty} 
+\newcommand{\cint}[2]{\int_{#1}^{#2}}
+\newcommand{\csum}[2]{\sum_{#1}^{#2}}
+\newcommand{\limes}[1]{\lim\limits_{#1}}
+
+
+% ==== Analysis ====
+\newcommand{\supremum}{\text{sup}}
+\newcommand{\infimum}{\text{inf}}
+\newcommand{\maximum}{\text{max}}
+\newcommand{\minimum}{\text{min}}
+\newcommand{\oBdA}{\text{o.B.d.A}}
+
+\newcommand{\xinX}{$x \in X$ }
+\newcommand{\yinY}{$y \in Y$ }
+\newcommand{\xyinX}{$x,y \in X$ }
+\newcommand{\yinX}{$y \in X$ }
+\newcommand{\xinR}{$x \in \R$ }
+\newcommand{\xyinR}{$x,y \in \R$ }
+\newcommand{\zinC}{$z \in \C$ }
+\newcommand{\ninN}{$n \in \N$ }
+\newcommand{\angeordneterK}{$(K,\leq)$ }
+
+\newcommand{\XsubR}{$X \subset \R$ }
+\newcommand{\XsubeqR}{$X \subseteq \R$ }
+
+\newcommand{\XFam}{\mathcal{X}}
+\newcommand{\PFam}{\mathcal{P}}
+
+\newcommand{\offenesintervall}[2]{$\left( #1 , #2 \right)$ }
+\newcommand{\abgeschlossenesintervall}[2]{$\left( #1 , #2 \right)$ }
+
+
+% ==== Lineare Algebra ====
+\newcommand{\vinV}{$v \in V$ }
+\newcommand{\uinU}{$u \in U$ }
+\newcommand{\winW}{$w \in W$ }
+\newcommand{\vwinV}{$v,w \in V$ }
+
+\newcommand{\BasisV}{$v_1 , \dots , v_n$ }
+\newcommand{\BasisU}{$u_1 , \dots , u_n$ }
+\newcommand{\BasisW}{$w_1 , \dots , w_n$ }
+
+\newcommand{\transpose}[1]{#1^t}
+\newcommand{\inverse}[1]{#1^{-1}}
+\newcommand{\ddvec}[3]{\left( #1,#2,#3 \right)}
+\newcommand{\tdvec}[2]{\left( #1 , #2 \right)}
+
+\newcommand{\Edrei}{\begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{pmatrix}}
+
+
+
+
+
+
+% ====== Physics ======
+
+% ==== Physicssymbols ====
+\newcommand{\epsilonnull}{\varepsilon_0}
+\newcommand{\rn}{r_0}
+\newcommand{\Rn}{R_0}
+\newcommand{\rhonull}{\rho_0}
+\newcommand{\Rhonull}{\varrho_0}
+\newcommand{\munull}{\mu_0}
+
+
+% ==== Notation ====
+\newcommand{\Etot}{E_{Tot}}
+\newcommand{\Wtot}{W_{Tot}}
+\newcommand{\Ftot}{F_{Tot}}
+\newcommand{\vtot}{v_{Tot}}
+\newcommand{\atot}{a_{Tot}}
+\newcommand{\mtot}{m_{Tot}}
+\newcommand{\Mtot}{M_{Tot}}
+
+\newcommand{\Ekin}{E_{Kin}}
+\newcommand{\Epot}{E_{Pot}}
+\newcommand{\Edef}{E_{Def}}
+
+\newcommand{\Fg}{F_g}
+\newcommand{\FN}{F_N}
+\newcommand{\Fz}{F_z}
+\newcommand{\FC}{F_C}
+
+\newcommand{\xn}{x_0}
+\newcommand{\xN}{x_n}
+\newcommand{\vn}{v_0}
+\newcommand{\vN}{v_n}
+\newcommand{\an}{a_0}
+\newcommand{\aN}{a_n}
+
+\newcommand{\dt}{\Delta t}
+\newcommand{\dx}{\Delta x}
+\newcommand{\dv}{\Delta v}
+\newcommand{\da}{\Delta a}
+\newcommand{\dE}{\Delta E}
+\newcommand{\dW}{\Delta W}
+\newcommand{\dF}{\Delta F}
+
+
+% ==== Relativity ====
+\newcommand{\relsqrt}{\sqrt{1-\frac{v^2}{c^2}}}
+\newcommand{\relgamma}{\frac{1}{\relsqrt}}
+
+
+% ==== Constants ====
+\newcommand{\g}{9.81}
+
+
+

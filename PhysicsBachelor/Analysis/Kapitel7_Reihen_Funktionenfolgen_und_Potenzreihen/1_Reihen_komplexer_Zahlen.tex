@@ -1,0 +1,191 @@
+\subsection{Reihen komplexer Zahlen}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\aFolge$ eine Folge komplexer Zahlen, und sei $A$ eine komplexe Zahl. Die Notationen
+    \begin{align*}
+        A = \sum_{n=0}^{\infty} a_n
+        \quad \text{   und   } \quad
+        A = \limes{N \rightarrow \infty} \sum_{n=0}^{N} a_n
+    \end{align*}
+    sind gleichbedeutend. Im Zusammenhang, in dem wir uns für den Grenzwert der \fat{Partialsummen}
+    der Folge $(a_k)_k$ interessieren, sprechen wir üblicherweise nicht von einer Folge
+    $\aFolge$ sondern von der Reihe
+    \begin{align*}
+        \sum_{n=0}^{\infty} a_n
+    \end{align*}
+    und Konvergenz der Reihe. Wir nennen $a_n$ das \fat{$n$-te Glied} oder den
+    \fat{$n$-ten Summanden} der Reihe. Wir nenne die Reihe $\sum_{k=1}^{\infty} a_k$
+    \fat{konvergent}, falls der Grenzwert existiert, wobei wir diesen dann als
+    \fat{Wert der Reihe} bezeichnen. Ansonsten nennen wir die Reihe \fat{divergent}.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Falls die Reihe $\sum_{k=1}^{\infty} a_k$ konvergiert, dann ist die Folge $(a_n)_n$
+    eine \fat{Nullfolge}, das heisst, es gilt $\limesninf a_n = 0$.
+}
+
+\Bemerkung{
+
+    Die \fat{harmonische Reihe} divergiert. Sie ist wie folgt gegeben:
+    \begin{align*}
+        \sum_{k=1}^{\infty} \frac{1}{k} 
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Seien $sum_{k=1}^{\infty} a_k$ und $sum_{k=1}^{\infty} b_k$ konvergente Reihen und
+    $\alpha,\beta \in \C$. Dann gilt
+    \begin{align*}
+        \sum_{k=1}^{\infty} (\alpha a_k + \beta b_k)
+        = \alpha \sum_{k=1}^{\infty} a_k + \beta \sum_{k=1}^{\infty} b_k
+    \end{align*}
+    Insbesondere bilden konvergente Reihen einen Vektorraum über $\C$ und der Wert der Reihe
+    stellt eine lineare Abbildung auf diesen Vektorraum nach $\C$ dar.
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $\sum_{k=0}^{\infty}$ eine Reihe. Für jedes \NinN ist die Reihe $\sum_{k=N}^{\infty} a_k$
+    genau dann konvergent, wenn die Reihe $\sum_{k=0}^{\infty} a_k$ konvergent ist. In diesem
+    Fall gilt:
+    \begin{align*}
+        \sum_{k=0}^{\infty} a_k = \sum_{k=1}^{N-1} a_k + \sum_{k=N}^{\infty} a_k
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Sei $\sum_{n=1}^{\infty} a_n$ eine konvergente Reihe und $(n_k)_k$ eine streng monoton
+    wachsende Folge natürlicher Zahlen. Definiere $A_1 = a_1 + \dots + a_{n_1}$ und
+    $A_k = a_{n_{k-1}+1} + \dots + a_{n_k}$ für $k \geq 2$. Dann gilt
+    \begin{align*}
+        \sum_{k=1}^{\infty} A_k = \sum_{n=1}^{\infty} a_n
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Für eine Reihe $\sum_{k=1}^{\infty} a_k$ mit nicht-negativen Gliedern $a_k \geq 0$ für
+    alle $k \in \N$ bilden die Partialsummen $s_n = \sum_{k=1}^{n} a_k$ eine monoton
+    wachsende Folge. Falls diese Folge der Partialsummen beschränkt ist, dann konvergiert
+    die Reihe $\sum_{k=1}^{\infty} a_k$. Ansonsten gilt
+    \begin{align*}
+        \sum_{k=1}^{\infty} a_k = \limesninf s_n = \infty
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Seien $\sum_{k=1}^{\infty} a_k$ und $\sum_{k=1^{\infty} b_k}$ zwei Reihen mit der
+    Eigenschaft $0 \leq a_k \leq b_k$ für alle $k \in \N$. Dann gilt $\sum_{k=1}^{\infty} a_k
+    \leq \sum_{k=1}^{\infty} b_k$ und insbesondere gelten die Implikationen
+    \begin{align*}
+        \sum_{k=1}^{\infty} b_k \ \text{ konvergent } &\Longrightarrow \sum_{k=1}^{\infty} a_k \ \text{ konvergent}
+        \\
+        \sum_{k=1}^{\infty} a_k \ \text{ divertent } &\Longrightarrow \sum_{K=1}^{\infty} b_k \ \text{ divergent}
+    \end{align*}
+    Diese beiden Implikationen treffen auch dann zu, wenn $0 \leq a_n \leq b_n$ nur für
+    alle hinreichenden grossen $n \in \N$ gilt. Man nennt die Reihe $\sum_{k=1}^{\infty} b_k$
+    eine Majorante der Reihe $\sum_{K=1}^{\infty} a_k$, und die letztere eine Minorante
+    der Reihe $\sum_{K=1}^{\infty} b_k$. Daher spricht man auch vom \fat{Majoranten-}
+    und dem \fat{Minorantenkriterium}.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{ (Verdichtungskriterium)
+
+    Sei $\aFolge$ eine monoton fallende Folge nichtnegativer reeller Zahlen. Dann gilt:
+    \begin{align*}
+        \sum_{n=0}^{\infty} a_n \ \text{ konvergiert} \Longleftrightarrow \sum_{n=0}^{\infty} 2^n a_{2^n} \ \text{ konvergiert}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir sagen, dass eine Reihe $\sum_{n=1}^{\infty} a_n$ mit komplexen Summanden
+    \fat{absolut konvergiert}, falls die Reihe $\sum_{n=1}^{\infty} \abs{a_n}$ konvergiert.
+    Die Reihe $\sum_{n=1}^{\infty} a_n$ ist \fat{bedingt konvergent}, falls sie
+    konvergiert, aber nicht absolut konvergiert.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $\zFolge$ eine Folge in $\C$. Falls $\sum_{n=0}^{\infty} z_n$ absolut konvergiert,
+    dann konvergiert $\sum_{n=0}^{\infty}$ und es gilt die verallgemeinerte Dreiecksungleichung
+    \begin{align*}
+        \abs{\sum_{n=0}^{\infty} z_n} \leq \sum_{n=0}^{\infty} \abs{z_n}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Beispiel{
+
+    Die \fat{alternierende harmonische Reihe} konvergiert bedingt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Riemann'scher Umordnungssatz)
+
+    Sei $\sum_{n=1}^{\infty} a_n$ eine bedingte konvergente Reihe mit reellen Gliedern,
+    und sei $A \in \R$. Es existiert eine Bijektion $\varphi: \N \rightarrow \N$, so
+    dass folgendes gilt:
+    \begin{align*}
+        A = \sum_{n=0}^{\infty} a_{\varphi (n)}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Für eine Folge $\aFolge$ nichtnegativer Zahlen bezeichnen wir die Reihe
+    $\sum_{n=1}^{\infty} (-1)^{n+1} a_n$ als eine \fat{alternierende} Reihe.
+}
+
+\pagebreak
+
+\Proposition{ (Leibnitz-Kriterium)
+
+    Sei $\aFolge$ eine monoton fallende Folge nichtnegativer reeller Zahlen, die gegen
+    Null konvergiert. Dann konvergiert die alternierende Reihe $\sum_{k=0}^{\infty} (-1)^k a_k$
+    und es gilt für alle \ninN
+    \begin{align*}
+        \sum_{k=0}^{2n-1} (-1)^k a_k \leq \sum_{k=0}^{\infty} (-1)^k a_k \leq \sum_{k=0}^{2n} (-1)^k a_k
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Cauchy-Kriterium)
+
+    Die Reihe komplexer Zahlen $\sum_{k=1}^{\infty} a_k$ konvergiert genau dann, wenn es
+    zu jedem $\epsilon > 0$ ein \NinN gibt, so dass für $n \geq m \geq N$ folgendes
+    erfüllt ist:
+    \begin{align*}
+        \abs{\sum_{k=m}^{n} a_k} < \epsilon
+    \end{align*}
+}

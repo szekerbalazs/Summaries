@@ -1,0 +1,255 @@
+\section{R Code}
+
+\vspace{-5pt}
+
+%\subsection{Useful Functions}
+
+\begin{tabularx}{0.495\textwidth} {l|X}
+    \hline
+    Function & Description \\ \hline
+    \texttt{solve()} & invert Matrix \\
+    \texttt{t()} & transpose Matrix \\
+    \texttt{\%*\%} & matrix multiplication \\
+    \texttt{df[,-c(6)]} & remove column 6 from df \\
+    \texttt{seq(1,40,1)} & generate sequence of evenly spaced values \\
+    \texttt{rep(1,7)} & create a ones-vector of length 7 \\
+    \texttt{rnorm(n)} & generate $n$ random numbers based on normal distr \\
+    \texttt{rgamma()} & generate random numbers based on gamma distr \\
+    \texttt{factor()} & apply to a vector if it is categorical to be able to perform regression tasks \\
+    \texttt{which.max()} & returns index of maximal entry in a vector (/matrix) \\
+    \texttt{as.formula()} & takes a text ("y$\sim$.") as input and stores it as a formula \\
+    \texttt{scale(mat)} & center and scale columns of a matrix / df \\
+    \texttt{fitted(fit)} & returns fitted values of a model \\
+    \texttt{resid(fit)} & returns residuals of a model \\
+    \texttt{boxplot(a[])} & creates boxplot of vector a \\
+    \texttt{quantile(...)} & $x$=data, probs$=$0.75 (e.g.): computes 75\% quantile of x \\
+    \texttt{predict(...)} & args: \texttt{fit} (fitted model), \texttt{type}: e.g. \texttt{"response"} \\
+    \texttt{gam()} & package \texttt{mgcv}; generalized additive model. Used for adaptive models: e.g. smoothing-spline for log reg \\
+    \texttt{nnet()} & fits a feedforward NN \\
+    \texttt{ppr()} & projection pursuit regression (extension of additive models) \\
+    \texttt{rpart()} & package \texttt{rpart}; used for fitting classification and regressino trees; \texttt{type="class"} if classification tree \\
+    \texttt{sd()} & compute standard deviation \\
+    \texttt{glm} & package \texttt{glmnet}; generalized linear models (e.g. linear logistic regression) \\
+\end{tabularx}
+
+\begin{tabularx}{0.495\textwidth} {l|X}
+    \hline
+    Function & Description \\ \hline
+    \texttt{optim()} & can maximize/minimize a function \\
+    \texttt{choose(n,k)} & Binom Coeff \\
+    \texttt{plotcp()} & choose optimal tree pruning parameters (also \texttt{plotcp()}) \\
+    \texttt{prune.rpart()} & do pruning on tree \\
+    \texttt{density()} & density distribution; use \texttt{bw="SJ"} to get iteratively found optimal bandwidth \\
+    \texttt{ksmooth()} & Nadaraya-Watson kernel regression estimate; Returns Vector \\
+    \texttt{smooth.spline()} & smooth spline estimator \\
+    \texttt{loess()} & local polynomial regression \\
+    \texttt{boot.ci()} & \texttt{boot.ci(boot.out=res.boot,conf=0.95,} \\
+     & \texttt{type=c("basic","norm","perc"))} computes the reversed, normal approx. and quantile-quantile of the bootstrap \\
+    \texttt{coefficients()} & get coefficients of a fit, (e.g. \texttt{reg <- lm(y~x)} and then \texttt{coefficients(reg)[2]}) \\
+    \texttt{pairs()} & make a pair-plot \\
+    \texttt{\$sigma} & e.g. \texttt{summary(fit5)\$sigma} \\
+    \texttt{prp()} & plot a tree \\
+    \texttt{svm} & Kernel SVM \\
+    \texttt{med.heur <- } & \texttt{1/median(dist(iris[samp,1:4])$\wedge$2)} \\
+    \texttt{multinom} & (e.g. \texttt{multinom(Species~.,data=Iris)}) Multinomial regression
+\end{tabularx}
+
+\vspace{-5pt}
+
+% \subsection{Code Examples}
+
+% \vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Theoretical True distribution},numbers=none]
+X <- cbind(1, x)                ## design matrix
+XtXinv <- solve(crossprod(X))   ## theoretical s.d.
+tsd <- sqrt(5^2*XtXinv[2,2])
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Backward/Forward Selection},numbers=none]
+mortal.full <- lm(Mortality~.,data=mortality)
+mortal.empty <- lm(Mortality~1,data=mortality)
+mortal.bw <- step(mortal.full,dir="backward")
+mortal.fw <- step(mortal.empty,dir="forward",scope=list(upper=mortal.full,lower=mortal.empty))
+library(leaps)
+mortal.alls <- regsubsets(Mortality~.,data=mortality)
+p.regsubsets(mortal.alls,cex=0.8,cex.main=.8)
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Non-parametric Regression},numbers=none]
+bmwloess <- loess(y~x)      # local polynomial
+dgf <- bmwloess$trace.hat   # degrees of freedom
+bmwss <- smooth.spline(x,y,df=dgf)  # smooth spline
+ox <- order(x)              # k-smooth destroyes order
+bmwks <- ksmooth(x,y,kernel="normal",bandwidth=h,x.points=x) # Nadaraye-Watson
+bmwks$x <- bmwks$x[order(ox)]
+bmwks$y <- bmwks$y[order(ox)]
+plot(x,y)
+lines(x_new,bmwks$y)
+lines(x_new,predict(bmwloess,newdata=data.frame(x=x_new)))
+llines(x_new,predict(bmwss,x=x_new)$y)
+\end{lstlisting}
+
+% \vspace{-14pt}
+
+% \begin{lstlisting}[style=RStyle, caption={ANOVA},numbers=none]
+% fitfull<-lm(thorax~v1+v2+v3+v4)
+% fitintercept<-lm(thorax~1)
+% anova(fitintercept,fitfull)
+
+% fit_gFull <- lm((longevity) ~ thorax + dummy.1.p + dummy.1.v + dummy.8.p + dummy.8.v)
+% fit_gPart <- lm((longevity) ~ thorax + I(dummy.1.v + dummy.1.p) + I(dummy.8.p + dummy.1.p) + I(dummy.8.v - dummy.1.p))
+% anova(fit_gPart,fit_gFull)
+% \end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Hat Matrix},numbers=none]
+Snw <- Slp <- Sss <- matrix(0, nrow = n, ncol = n)
+## The j-th column is given by S_j = Snw[,j]
+In <- diag(n)
+for(j in 1:n) {
+    Snw[,j] <- ksmooth(x, In[,j], kernel = "normal", bandwidth = 0.2,x.points = x)$y
+}
+df.NW <- sum(diag(Snw))
+## Getting the span parameter for loess and spar parameter for smooth.spline such that the degrees of freedom are (approximately) the same with the ones for Nadaraya-Watson estimator
+dflp <- function(span, val) {
+    for(j in 1:n)
+        Slp[,j] <- loess(In[,j] ~ x, span = span)$fitted
+    sum(diag(Slp)) - val
+}
+span <- uniroot(dflp, c(0.2, 0.5), val = df.NW)$root
+for(j in 1:n) {
+    Slp[,j] <- predict(loess(In[,j] ~ x, span = span), newdata = x)
+    Sss[,j] <- predict(smooth.spline(x, In[,j], df = df.NW), x = x)$y
+}
+spar <- smooth.spline(x, In[,1], df = df.NW)$spar
+...
+estnw[,i] <- ksmooth(x, y, kernel = "normal", bandwidth = 0.2, x.points = x)$y
+sigmanw <- sum((y - estnw[,i])^2) / (length(y) - sum(diag(Snw)))
+senw[,i] <- sqrt(sigmanw * diag(Snw %*% t(Snw)))
+...
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Coverage Function},numbers=none]
+coverage <- function(x,est,se) {
+    pos <- x == 0.5
+    pw <- sum(abs(est[pos,] - m(x)[pos]) <= 1.96*se[pos,]) # pointwise coverate
+    simult <- sum(apply(abs(est - m(x)) <= 1.96 * se, 2, all)) # simultaneous coverage }
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Confidence Intervals},numbers=none]
+newcountry <- data.frame(l2tv=log2(50),l2dr=log2(3000))
+predict(fit,newdata=newcountry,interval="confidence")
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={LOOCV},numbers=none]
+loocv <- function(reg.data, reg.fcn){
+    loo.reg.value <- function(i, reg.data, reg.fcn)
+        return(reg.fcn(reg.data$x[-i], reg.data$y[-i], reg.data$x[i]))
+    n <- nrow(reg.data)
+    loo.values <- sapply(1:n, loo.reg.value, reg.data, reg.fcn)
+    mean((reg.data$y - loo.values)^2)
+}
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={CV},numbers=none]
+h <- 4
+reg.fcn.nw <- function(reg.x, reg.y, x)
+    ksmooth(reg.x, reg.y, x.points = x, kernel = "normal", bandwidth = h)$y
+(cv.nw <- loocv(reg, reg.fcn.nw))
+n <- nrow(reg)
+Id <- diag(n)
+S.nw <- matrix(0, n, n)
+for (j in 1:n)
+    S.nw[, j] <- reg.fcn.nw(reg$x, Id[, j], reg$x)
+(df.nw <- sum(diag(S.nw)))
+y.fit.nw <- reg.fcn.nw(reg$x, reg$y, reg$x)
+(cv.nw.hat <- mean(((reg$y - y.fit.nw)/(1 - diag(S.nw)))^2))
+library(sfsmisc)
+hatMat(reg$x,trace=TRUE,pred.sm=reg.fcn.nw,x=reg$x)
+S.nw.hatMat <- hatMat(reg$x,trace=FALSE,pred.sm=reg.fcn.nw,x=reg$x)
+(cv.nw.hatMat <- mean(((reg$y - y.fit.nw)/(1 - diag(S.nw.hatMat)))^2))
+...
+est.ssopt <- smooth.spline(reg$x, reg$y, cv = TRUE)
+cv.ssopt <- est.ssopt$cv.crit
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Bootstrapping},numbers=none]
+tIQR <- function(x, ind) IQR(x[ind])
+require("boot")
+res.boot <- boot(data = sample40, statistic = tIQR, R = 10000) # sim="ordinary"
+bci <- boot.ci(res.boot, conf = 0.95, type = c("basic", "norm", "perc"))
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={LDA, QDA, logistic regression and ROC Curve},numbers=none]
+class_lda <- lda(x = Iris[, c("Petal.Length", "Petal.Width")], grouping = Iris[, "Species"])
+predplot(class_lda, Iris, main = "Cl. w/ LDA")
+class_qda <- qda(x = Iris[ ,c("Petal.Length", "Petal.Width")],grouping = Iris[, "Species"])
+predplot(class_qda, Iris, main = "Cl. w/ QDA")
+## Use function multinom to fit data
+class_multinom <- multinom(Species ~ . , data = Iris)
+
+require(ROCR)
+fit <- glm(Survival ~ ., data = d.baby, family = "binomial")
+pred <- prediction(fit$fitted.values, d.baby$Survival)
+perf <- performance( pred, "tpr", "fpr" )
+plot(perf, main = "ROC")
+perf.cost <- performance(pred, "cost")
+plot(perf.cost, main = title)
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={GAMs},numbers=none]
+require(sfsmisc)
+form5 <- wrapFormula(logupo3~., data = d.ozone.e, wrapString="poly(*,degree=5)")
+fit5 <- lm(form5, data = d.ozone.e)
+require(mgcv)
+gamForm <- wrapFormula(logupo3~., data = d.ozone.e)
+g1 <- gam(gamForm, data = d.ozone.e)
+# Formula: logupo3 ~ s(vdht) + s(wdsp) + s(hmdt) + s(sbtp) + s(ibht) + s(dgpg) + s(ibtp) + s(vsty) + s(day)
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Trees and Forests},numbers=none]
+rp.veh0 <- rpart(Class~.,data=d.vehicle,control=rpart.control(cp=0.0,minsplit=2))
+preds = predict(rp.veh0,newdata=d.vehicle,type="class")
+table(d.vehicle$Class, preds)
+cp.opt <- rp.veh$cptable[7, "CP"]
+rp.veh.pruned <- prune.rpart(rp.veh, cp = cp.opt)
+library(randomForest)
+rf.model1 <-randomForest(factor(Class)~.,data=d.vehicle)
+\end{lstlisting}
+
+\vspace{-14pt}
+
+\begin{lstlisting}[style=RStyle, caption={Ridge and Lasso},numbers=none]
+require(glmnet)
+f.ridge <- glmnet(X, Y, alpha=0)
+f.lasso <- glmnet(X, Y, alpha=1)
+cv.eln <- cv.glmnet(X, Y, alpha=0.5, nfolds=10)
+lambda.min <- cv.eln$lambda.min
+lambda.1se <- cv.eln$lambda.1se
+plot(log(f.lasso$lambda),apply(coef(f.lasso), 2, function(x) sum(x != 0)), type = "l", ylab = "Nbr selected preds") # could also use f.lasso$beta for apply(...)
+first.lam.ind = min(which(f.lasso$df >= 16))
+# coef(f.lasso)[, first.lam.ind] gets coeffs for this lambda
+names(which(coef(f.lasso)[, first.lam.ind] != 0))
+\end{lstlisting}

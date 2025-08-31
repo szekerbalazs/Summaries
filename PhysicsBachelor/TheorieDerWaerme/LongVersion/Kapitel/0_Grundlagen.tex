@@ -1,0 +1,37 @@
+\section{Grundlagen}
+
+\begin{align*}
+    \frac{\partial x}{\partial y} \Big|_z
+    &= \klammer{\frac{\partial y}{\partial x} \Big|_z}^{-1}
+    \hspace{5pt} , \hspace{5pt}
+    - 1 = \frac{\partial x}{\partial y} \Big|_z \frac{\partial y}{\partial z} \Big|_x \frac{\partial z}{\partial x} \Big|_y
+    \hspace{5pt} , \hspace{5pt}
+    \frac{\partial x}{\partial w} \Big|_z = \frac{\partial x}{\partial y} \Big|_z \frac{\partial y}{\partial w} \Big|_z
+    \\
+    \frac{\partial x}{\partial z} \Big|_w &= \frac{\partial x}{\partial y} \Big|_w \frac{\partial y}{\partial z} \Big|_w
+    \hspace{5pt} , \hspace{5pt}
+    \frac{\partial x}{\partial y} \Big|_z = \frac{\partial x}{\partial y} \Big|_w + \frac{\partial x}{\partial w} \Big|_y \frac{\partial w}{\partial y} \Big|_z
+\end{align*}
+
+\begin{enumerate}[]
+    \item \underline{allgemein}: $dU = \delta Q + \delta W$
+    \item \underline{adiabatisch}: $\delta Q = 0 \ \Rightarrow \ dU = \delta W = - p dV$
+    \item \underline{isotherm}: $dT = 0 \ \Rightarrow \ dU = 0 \ \Rightarrow \ \delta Q = - \delta W = p dV$
+    \item \underline{isochor}: $d V = 0 \ \Rightarrow \ dU = \delta Q = C_V dT$
+    \item \underline{isobar}: $dp = 0 \ \Rightarrow \ \delta Q = C_p dT$ 
+\end{enumerate}
+
+\paragraph{Adiabatengleichung}
+Für ideale Gase gilt bei einem adiabatischen Prozess:
+($\gamma - 1 = \frac{R}{c_v}$, $\gamma = \frac{c_p}{c_v}$, $\alpha = 1 - \gamma^{-1} > 0$,
+$\alpha = \frac{\kappa - 1}{\kappa}$)
+\begin{align*}
+    T V^{\gamma - 1} = \text{const}
+    \hspace{5pt} , \hspace{5pt}
+    T p^{-\alpha} = \text{const}
+    \hspace{5pt} , \hspace{5pt}
+    p V^\kappa = \text{const}
+    \hspace{5pt} , \hspace{5pt}
+    T^\kappa p^{(1-\kappa)} = \text{const}
+\end{align*}
+

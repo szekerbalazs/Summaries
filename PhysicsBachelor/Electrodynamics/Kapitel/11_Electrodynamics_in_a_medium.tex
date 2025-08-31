@@ -1,0 +1,356 @@
+\section{Electromagnetics in a medium}
+
+We identify two types of motion of charged particles: fast currents within small
+distances, due to the motion of charges in atoms and molecules, and slow currents,
+which extend at distances much larger than the size of atoms due to free electrons
+or ions. In macroscopic measurements we are only interested in slow variations at
+the atomic level. We average over the currents within the atoms. We can write:
+\begin{align*}
+    j^\mu  \approx j_{slow}^\mu + \langle j_{atomic}^\mu \rangle
+\end{align*}
+We introduce an averaging of a function over some distances via
+\begin{align*}
+    \langle F(\vec{x},t) \rangle = \int d^3 \vec{y} f(\vec{y}) F(\vec{x}-\vec{y},t)
+\end{align*}
+where $f(\vec{y})$ is the weighting factor / probability density function. It
+is well behaved, smooth, positive, peaks at $0$ and has Norm $1$.
+
+\subsection{Average of the atomic charge density}
+
+The charge density $j_{atomic}^0 = \rho_{atomic}$ corresponds to the charge
+density of the charges inside molecules/atoms. We write
+\begin{align*}
+    \rho_{atomic} = \sum_{n \in \text{ atoms}} \rho_{(n)}
+    \hspace{10pt} , \hspace{10pt}
+    \rho_{(n)} = \sum_{j \in (n)} q_j \delta(\vec{x} - \vec{x}_n - \vec{x}_j)
+\end{align*}
+where $\rho_{(n)}$ is the charge density of the $n$-th atom/molecule,
+$\vec{x}_n$ is the position of the atom/molecule and $\vec{x}_j$ is the
+position of the charge with respect to the "centre" of the molecule.
+\begin{align*}
+    \langle \rho_{(n)} \rangle &= \sum_{j \in (n)} q_j f(\vec{x} - \vec{x}_n - \vec{x}_j)
+    \\
+    &= \sum_{j \in (n)} \eckigeklammer{q_j f(\vec{x} - \vec{x}_n) - (q_j \vec{x}_j) \cdot \vec{\nabla}f(\vec{x}-\vec{x}_n) + \dots}
+    \\
+    &= q_n f(\vec{x} - \vec{x}_n) - \vec{p}_n \cdot \vec{\nabla} f(\vec{x}-\vec{x}_n) + \dots
+    \\
+    &= q_n f(\vec{x}-\vec{x}_n) - \vec{\nabla} \klammer{\vec{p}_n \cdot f(\vec{x} - \vec{x}_n)} + \dots
+\end{align*}
+Where we taylor expanded in $\frac{\abs{\vec{x}_j}}{\abs{\vec{x}-\vec{x}_n}}$ and
+used that $\vec{\nabla}$ only differentiates with respect to $\vec{x}$. Summing
+over all atoms/molecules we can write:
+\begin{align*}
+    \langle \rho_{atomic} \rangle &\equiv \sum_n \langle \rho_{(n)} \rangle
+    = \langle \rho_{eff/atom} \rangle - \vec{\nabla} \cdot \vec{P} + \dots
+    \hspace{10pt} \text{with}
+    \\
+    \langle \rho_{eff/atom} \rangle
+    &= \sum_{n \in \text{ atoms}} q_n f(\vec{x} - \vec{x}_n)
+    \hspace{10pt} , \hspace{10pt}
+    \vec{P} \equiv \sum_{n \in \text{ atoms}} \vec{p}_n \cdot f(\vec{x}-\vec{x}_n)
+\end{align*}
+
+\subsection{Average of atomic current density}
+
+We restrict ourselves to non-relativistic velocities. The current density in an
+atom/molecule can be written as
+\begin{align*}
+    \vec{j}_{(n)} = \sum_{k \in n} q_k (\vec{v}_n + \vec{v}_k) \delta(\vec{x} - \vec{x}_n - \vec{x}_k)
+\end{align*}
+where $\vec{v}_n$ is the velocity of the atom/molecule and $\vec{v}_k$ is the
+relative velocity of the charge to the center of the atom.
+\begin{align*}
+    \langle \vec{j}_n \rangle = \sum_k q_k \klammer{\vec{v}_n + \vec{v}_k}
+    f(\vec{x} - \vec{x}_n - \vec{x}_k)
+\end{align*}
+For $\abs{\vec{x}_k} \ll \abs{\vec{x}_n}$ and $\abs{\vec{v}_n} \ll \abs{\vec{v}_k}$
+we can expand:
+\begin{align*}
+    f(\vec{x} - \vec{x}_n - \vec{x}_k) \approx
+    f(\vec{x} - \vec{x}_n) - \vec{x}_k \cdot \vec{\nabla} f(\vec{x} - \vec{x}_n) + \dots
+\end{align*}
+This yields:
+\begin{align*}
+    \langle \vec{j}_n \rangle = &\sum_k q_k \vec{v}_k f(\vec{x} - \vec{x}_n)
+    + \sum_k q_k \vec{v}_n f(\vec{x} - \vec{x}_n) - \sum_k q_k \vec{v}_k \vec{x}_k \cdot \vec{\nabla} f(\vec{x} - \vec{x}_n)
+    \\
+    &+ \mathcal{O} \klammer{x_k^2 , x_k v_n , v_n^2}
+\end{align*}
+We can rewrite:
+\begin{align*}
+    \sum_k q_k \vec{v}_k f(\vec{x} - \vec{x}_n)
+    &\approx \frac{d}{dt} \klammer{\vec{p}_n f(\vec{x} - \vec{x}_n)}
+    \\
+    \sum_k q_k \vec{v}_k \vec{x}_k \cdot \vec{\nabla} f(\vec{x} - \vec{x}_n)
+    &\approx - \vec{\nabla} \times \klammer{\vec{m}_n f(\vec{x} - \vec{x}_n)}
+\end{align*}
+With $\vec{m}_n$ the magnetic moment of the atom and $\vec{M}$ the magnetization
+of the material
+\begin{align*}
+    \vec{m}_n = \sum_j \frac{q_j}{2} \klammer{\vec{x}_j \times \vec{v}_j}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{M} = \sum_n \klammer{\vec{m}_n f(\vec{x} - \vec{x}_n)}
+\end{align*}
+we can write the sum of the average contribution from all atoms as
+\begin{align*}
+    \langle \vec{j}_{atomic} \rangle &= \sum \langle \vec{j}_{(n)} \rangle
+    = \vec{j}_{eff/atomic} + \frac{d \vec{P}}{dt} + \vec{\nabla} \times \vec{M}
+    \\
+    \vec{j}_{eff/aotmic} &= \sum_n q_n \vec{v}_n f(\vec{x} - \vec{x}_n)
+\end{align*}
+
+\subsection{Maxwell equations in a medium}
+
+We approximate the charge and current density as
+\begin{align*}
+    j^\mu &= j_{free}^\mu + j_{atomic}^\mu \approx j_{free}^\mu + \langle j_{atomic}^\mu \rangle
+    \\
+    j^0 &\approx \rho_{eff} - \vec{\nabla} \cdot \vec{P} + \dotsb
+    \\
+    \vec{j} &\approx \vec{j}_{eff} + \frac{\partial \vec{P}}{\partial t} + \vec{\nabla} \times \vec{M} + \dotsb
+\end{align*}
+With $\vec{M}$ the magnetisation vector. If we substitute into the Maxwell
+equations we obtain
+\begin{align*}
+    \vec{\nabla} \cdot \vec{B} = 0
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{\nabla} \times \klammer{\vec{B} - \frac{\vec{M}}{c^2 \epsilonnull}}
+    = \frac{\vec{j}_{eff}}{c^2 \epsilonnull} + \frac{1}{c^2} \frac{\partial}{\partial t} \klammer{\vec{E} + \frac{\vec{P}}{\epsilonnull}}
+    \\
+    \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{\nabla} \cdot \klammer{\vec{E} + \frac{\vec{P}}{\epsilonnull}} = \frac{\rho_{eff}}{\epsilonnull}
+\end{align*}
+with $\rho_{eff} = \rho_{free} + \rho_{eff/atomic}$ and
+$\vec{j}_{eff} = \vec{j}_{free} + \vec{j}_{eff/atomic}$.
+
+\paragraph{The $\vec{D}$ and $\vec{H}$ field}
+We define:
+\begin{align*}
+    \vec{D} \equiv \epsilonnull \vec{E} + \vec{P}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{H} \equiv \vec{B} - \frac{\vec{M}}{c^2 \epsilonnull}
+\end{align*}
+Now the Maxwell equations reduce to:
+\begin{align*}
+    \vec{\nabla} \cdot \vec{D} = \rho
+    \hspace{10pt} &, \hspace{10pt}
+    \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{\nabla} \cdot \vec{B} = 0
+    \\
+    \vec{\nabla} \times \vec{H} &= \frac{\vec{j}_{eff}}{\epsilonnull c^2} + \frac{1}{\epsilonnull c^2} \frac{\partial \vec{D}}{\partial t}
+\end{align*}
+
+\subsection{Maxwell equations inside a dielectric material}
+
+Assume $\vec{M} = 0$ and $\vec{P} \neq 0$. We find that $\vec{P}$ and $\vec{E}$
+are correlated. If we ignore non-linearities we obtain:
+\begin{align*}
+    \vec{P} = \chi \epsilonnull \vec{E}
+\end{align*}
+where $\chi$ is the "electric susceptibility". We define:
+\begin{align*}
+    c_m = \frac{c}{\sqrt{1 + \chi}}
+    \hspace{10pt} , \hspace{10pt}
+    \epsilon = (1+\chi) \epsilonnull
+\end{align*}
+Now we can write the Maxwell equations in a dielectric medium as:
+\begin{align*}
+    \vec{\nabla} \cdot \vec{E}
+    \hspace{7pt} , \hspace{7pt}
+    \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+    \hspace{7pt} , \hspace{7pt}
+    \vec{\nabla} \cdot \vec{B} = 0
+    \hspace{7pt} , \hspace{7pt}
+    \vec{\nabla} \times \vec{B} = \frac{\vec{j}_{eff}}{\epsilon c_m^2} + \frac{1}{c_m^2} \frac{\partial \vec{E}}{\partial t}
+\end{align*}
+
+\subsection{A model for the dielectric susceptibility $\chi$}
+
+For a dipole we have the differential equation
+\begin{align*}
+    q \vec{E} = m \klammer{\ddot{x} + \gamma \dot{x} + \omega_0^2 x}
+\end{align*}
+A solution on the microscopic level is
+\begin{align*}
+    \vec{x} = \frac{q \vec{E} / m}{\omega_0^2 - \omega^2 + i \omega \gamma}
+\end{align*}
+So for the dipole moment we obtain:
+\begin{align*}
+    \vec{P} &= q \vec{x} = \frac{q^2 / m}{\omega_0^2 - \omega^2 + i \omega \gamma} \vec{E}
+    \\
+    \langle \vec{P} \rangle &= N \vec{x} = \frac{N q^2 / m}{\omega_0^2 - \omega^2 + i \omega \gamma} \vec{E}
+\end{align*}
+Where $N$ is the density of charges.
+When comparing to $\vec{P} = \chi \epsilonnull \vec{E}$ we obtain:
+\begin{align*}
+    \chi = \chi(\omega) = \frac{\frac{N q^2}{m \epsilonnull}}{\omega_0^2 - \omega^2 + i \omega \gamma}
+    = n^2 - 1
+\end{align*}
+We see that $\chi$ is complex, which has physical consequences on $\epsilon$ and
+$c_m$.
+
+\subsection{Waves in a dielectric medium}
+
+If $\vec{j}_{eff} = \rho_{eff} = 0$ ina medium, then we obtain the wave equation
+from the Maxwell equations.
+\begin{align*}
+    \eckigeklammer{\frac{1}{c_m^2} \frac{\partial^2}{\partial t^2} - \vec{\nabla}^2} \vec{E} = 0
+\end{align*}
+A solution is
+\begin{align*}
+    \vec{E} = \vec{E}_0 e^{i\klammer{\omega t - \vec{k} \cdot \vec{x}}}
+\end{align*}
+with $k := \abs{\vec{k}}$:
+\begin{align*}
+    k^2 = \frac{\omega^2}{c_m^2} = \frac{\omega^2}{c^2} (1+\chi)
+    \hspace{10pt} , \hspace{10pt}
+    v_{phase} = \frac{\omega}{k} = \frac{c}{n}
+    \hspace{10pt} , \hspace{10pt}
+    n = \sqrt{1+\chi}
+\end{align*}
+We see that $n$, the refraction index, is complex.
+
+\subsection{The complex index of refraction}
+We can separate the complex and the real part or $n$ into a real and an
+imaginary part: $n = n_R - i n_I$. We find that the plane wave propagating
+in the dielectric is:
+\begin{align*}
+    \vec{E} = \vec{E}_0 e^{i \omega \eckigeklammer{t - n \hat{k} \cdot \vec{x}}}
+    = \vec{E}_0 e^{i \omega \eckigeklammer{t - \frac{n_R}{c} \hat{k} \cdot \vec{x}}}
+    e^{-\omega \frac{n_I}{c} \hat{k} \cdot \vec{x}}
+    \hspace{5pt} \Rightarrow \hspace{5pt}
+    \abs{\vec{E}} = \abs{\vec{E}_0} e^{- \omega \frac{n_I}{c} \hat{k} \cdot \vec{x}}
+\end{align*}
+
+\subsection{Waves in metals}
+
+In metals, electrons move freely at large distances. So we set $\omega_0 = 0$.
+\begin{align*}
+    \chi(\omega) = \frac{N q^2 / \epsilonnull m}{- \omega^2 + i \omega \gamma}
+\end{align*}
+The density $N$ can be obtained from macroscopic properties of the metal and
+the constant $\gamma$ is an intrinsic parameter of our model. It is related
+to the resistanve or its inverse, conductivity. If $\vec{E}$ is constant,
+we have a differential equation for $\vec{v}$.
+\begin{align*}
+    q \vec{E} = m (\dot{\vec{v}} + \gamma \vec{v})
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \vec{v} = \vec{v}_{drift} + \vec{v_0} e^{-\gamma t}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{v}_{drift} = \frac{q \vec{E}}{m \gamma}
+\end{align*}
+We further have the relation
+\begin{align*}
+    \vec{J} = \sigma \vec{E} = N q \vec{v}_{drift} = \frac{N q^2}{m \gamma} \vec{E}
+    \hspace{10pt} \Rightarrow \hspace{10pt}
+    \gamma = \frac{N q^2}{m \sigma} 
+\end{align*}
+
+\subsubsection{Low frequency approximation}
+
+$\omega \rightarrow 0$, so $\omega \gamma \gg \omega^2$. Thus
+$n^2 = -i \frac{\sigma}{\epsilonnull \omega} \ \Rightarrow \
+\sqrt{\frac{\sigma}{2 \epsilonnull \omega}} (1-i)$ and
+$\abs{\vec{E}} = \abs{\vec{E}_0} e^{-\frac{x}{\delta}} \ $ where
+$\ \delta = \sqrt{\frac{2 \epsilonnull}{\sigma \omega}} c$.
+
+\subsubsection{High frequency approximation}
+
+$\omega^2 \gg \omega \gamma \ \Rightarrow \ n^2 \approx 1 - \frac{\omega_P^2}{\omega^2} \ $
+where $\ \omega_P^2 = \frac{N q^2}{m \epsilonnull}$ is the so called "plasma
+frequency". If $\omega < \omega_P$, then $n \in i \R$ and therefore the waves
+die off after some length. If $\omega > \omega_P$, then $n \in \R$ and thus the
+metal becomes transparent to the electromagnetic wave.
+
+\subsection{Reflection and refraction}
+
+Consider two materials with refraction indices $n_1$ and $n_2$ separated by a
+boundary surface on the $yz$ plane. For the electromagnetic fields we have:
+% We want to analyse Maxwells equations on the
+% boundary to gain some insight on the fields.
+% \begin{align*}
+%     \partial_x E_x + \partial_y F_y + \partial_z E_z
+%     = \vec{\nabla} \cdot \vec{E}
+%     = - \frac{1}{\epsilonnull} \vec{\nabla} \cdot \vec{P}
+%     = - \frac{1}{\epsilonnull} \klammer{\partial_x P_x + \partial_y P_y + \partial_z P_z}
+% \end{align*}
+% The derivatives in $x$-direction are much bigger than the other ones, thus
+% we obtain:
+% \begin{align*}
+%     \partial_x E_x = - \frac{1}{\epsilonnull} \partial_x P_x
+%     \ &\Rightarrow \
+%     \frac{E_{x,2} - E_{x,1}}{\Delta x} = - \frac{1}{\epsilonnull} \frac{P_{x,2} - P_{x,1}}{\Delta x}
+%     \\ &\Rightarrow \
+%     \epsilonnull E_{x,2} + P_{x,2} = \epsilonnull E_{x,1} + P_{x,1}
+% \end{align*}
+% Further, with again using that the derivatives with respect to $x$ is much
+% larger than the other ones we obtain:
+% \begin{align*}
+%     \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+%     \ \Rightarrow \
+%     \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} = - \frac{\partial B_y}{\partial t}
+%     \ \rightsquigarrow \
+%     \frac{\partial E_z}{\partial x} = 0
+%     \ \rightarrow \
+%     E_{z,1} = E_{z,2}
+% \end{align*}
+% Similarly we obtain $E_{y,1} = E_{y,2}$ and from the other Maxwell eq we obtain
+% $\vec{B}_2 = \vec{B_1}$ so in conclusion:
+\begin{align*}
+    \vec{B}_1 = \vec{B}_2
+    \hspace{10pt} , \hspace{10pt}
+    \vec{E}_{1,\parallel} = \vec{E}_{2,\parallel}
+    \hspace{10pt} , \hspace{10pt}
+    \klammer{\epsilonnull \vec{E}_1 + \vec{P}_1}_\perp = \klammer{\epsilonnull \vec{E}_2 + \vec{P}_2}_{\perp}
+\end{align*}
+
+\subsubsection{Snell's law}
+
+Consider an incident electromagnetic plane-wave $(\vec{E}_I,\vec{B}_I)$ from
+a medium $n_1$ to a medium $n_2$, the reflected $(\vec{E}_R,\vec{B}_R)$ and transmitted
+electromagnetic field $(\vec{E}_T,\vec{B}_T)$. The following are true:
+\begin{align*}
+    \vec{E}_1 &= \vec{E}_I + \vec{E}_R
+    \hspace{10pt} , \hspace{10pt}
+    \vec{E}_2 = \vec{E}_T
+    \hspace{10pt} , \hspace{10pt}
+    \vec{B}_1 = \vec{B}_I + \vec{B}_R
+    \hspace{10pt} , \hspace{10pt}
+    \vec{B}_2 = \vec{B}_T
+    \\
+    \vec{E}_I &= \hat{e}_I E_I e^{i(\omega_I t - \vec{k}_I \cdot \vec{x})}
+    \hspace{5pt} , \hspace{5pt}
+    \vec{E}_R = \hat{e}_R E_R e^{i(\omega_R t - \vec{k}_R \cdot \vec{x})}
+    \\
+    \vec{E}_T &= \hat{e}_T E_T e^{i(\omega_T t - \vec{k}_T \cdot \vec{x})}
+    \\
+    \vec{B}_I &= \frac{\vec{k}_I \times \vec{E}_I}{\omega_I}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{B}_R = \frac{\vec{k}_R \times \vec{E}_R}{\omega_R}
+    \hspace{10pt} , \hspace{10pt}
+    \vec{B}_T = \frac{\vec{k}_T \times \vec{E}_T}{\omega_T}
+    \\
+    \vec{k}_I \cdot \hat{e}_I &= \vec{k}_R \cdot \hat{e}_R
+    = \vec{k}_T \cdot \hat{e}_T = 0
+    \\
+    \frac{k_I}{\omega_I} &= \frac{k_R}{\omega_R} = \frac{n_1}{c}
+    \hspace{10pt} , \hspace{10pt}
+    \frac{k_T}{\omega_T} = \frac{n_2}{c}
+\end{align*}
+With some boundary conditions we obtain:
+\begin{align*}
+    \omega_I = \omega_R = \omega_T = \omega
+    \hspace{10pt} \text{and} \hspace{10pt}
+    \vec{k}_{I,\parallel} = \vec{k}_{R,\parallel} = \vec{k}_{T,\parallel}
+    = \vec{k}_{\parallel}
+\end{align*}
+We also obtain Snell's law
+\begin{align*}
+    \theta_I = \theta_R
+    \hspace{10pt} , \hspace{10pt}
+    \sin(\theta_T) = \frac{n_1}{n_2} \sin(\theta_I)
+\end{align*}
+
+

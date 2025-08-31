@@ -1,0 +1,161 @@
+\section{Multilineare Algebra}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Abbildung $\xi: V_1 \times \dots \times V_k \rightarrow W$ heisst \fat{multilinear}
+    oder \fat{$k$-fach linear}, wenn für jedes $i \in \geschwungeneklammer{1,\dots,k}$ und fest
+    gewählnte $v_j \in V_j$ ($j=1,\dots,i-1,i+1,\dots,k$) die Abbildung
+    \begin{align*}
+        V_i \rightarrow W
+        \quad \text{mit} \quad
+        v \mapsto \xi(v_1,\dots,v_{i-1},v_{i+1},\dots,v_k)
+    \end{align*}
+    $K$-linear ist. Kurz ausgedrückt: $\xi$ heisst multilinear, wenn sie linear ist in jedem
+    Argument.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{}{
+
+    Zu $K$-VR $V_1,\dots,V_k$ gibt es einen $K$-VR $V_1 \otimes \dots \otimes V_k$ zusammen
+    mit einer universellen multilinearen Abbildung
+    \begin{align*}
+        \eta: V_1 \times \dots \times V_k &\rightarrow V_1 \otimes \dots \otimes V_k
+        \quad \text{mit}  \\
+        (v_1,\dots,v_k) &\mapsto v_1 \otimes \dots \otimes v_k
+    \end{align*}
+    dh. zu jeder multilinearen Abbildung $\xi: V_1 \times \dots \times V_k \rightarrow W$
+    gibt es genau eine lineare Abbildung $\xi_{\otimes}$ derart, dass das Diagramm
+    \begin{center}
+        \begin{tikzcd}
+            V_1 \times \dots \times V_k \arrow{d}[swap]{\eta} \arrow{rd}{\xi} & \\
+            V_1 \otimes \dots \otimes V_k \arrow{r}[swap]{\xi_{\otimes}} & W
+        \end{tikzcd}
+    \end{center}
+    kommutiert. Sind alle $V_j$ endlichdimensional mit Basen
+    $(v_1^{(j)},\dots,v_{r_j}^{(j)})$ für $j=1,\dots,k$, so ist eine Basis von
+    $V_1 \otimes \dots \otimes V_k$ gegeben durch die Produkte
+    $v_{i_1}^{(1)} \otimes \dots \otimes v_{i_k}^{(k)}$ mit $1 \leq i_j \leq r_j$.
+    Insbesondere ist $\dim (V_1 \otimes \dots \otimes V_k) = \dim V_1 \cdot \dots \cdot \dim V_k$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Sei $\B = (\BasisW)$ eine andere Basis von $V$. Sei $A = a_{ij} = T_{\B}^{\A}$ die
+    entsprechende Transformationsmatrix, so dass (mit $A^{-1} = a_{ji}$)
+    \begin{align*}
+        v_i = \sum_{j=1}^{n} a_{ji} w_j
+        \quad \text{  und  } \quad 
+        w_i = \sum_{j=1}^{n} \tilde{a}_{ji} v_j
+    \end{align*}
+    Dann gilt für die Dualbasis:
+    \begin{align*}
+        v_i^{*} = \sum_{j=1}^n \tilde{a}_{ij} w_j^{*}
+        \quad \text{  und  } \quad
+        w_i^{*} = \sum_{j=1}^n a_{ij} v_j^{*}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sind $V$ und $W$ $K$-VR, so heisst eine $k$-fach lineare Abbildung
+    $\xi: V^k \rightarrow W$
+    \begin{itemize}
+        \item \fat{symmetrisch}, wenn für jede Permutation $\sigma \in \fat{S}_k$        
+                $\xi (v_1,\dots,v_k) =\xi (v_{\sigma (1)},\dots,v_{\sigma (k)})$ gilt.                
+        \item \fat{antisymmetrisch}, wenn $\xi (v_1,\dots,v_k) = 0$, falls $v_i = v_j$ für ein
+                Paar $(i,j)$ mit $i \neq j$
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Ist $\xi$ alternierend und $\sigma \in \fat{S}_k$, so ist
+    $\xi(v_{\sigma (1)},\dots,v_{\sigma(k)}) = \sign (\sigma) \cdot \xi(v_1,\dots,v_k)$
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    In $\bigotimes^k V$ betrachten wir die folgenden UVR:
+    \begin{itemize}
+        \item $S^k (V) := \text{span} (v_1 \otimes \dots \otimes v_k - v_{\sigma (1)} \otimes \dots \otimes v_{\sigma (k)})$
+        
+                wobei $v_1 \otimes \dots \otimes v_k \in \bigotimes^k V$ und $\sigma \in \fat{S}_k$
+        \item $A^k (V) := \text{span} (v_1 \otimes \dots \otimes v_k)$
+        
+                wobei $v_i = v_j$ für ein $(i,j)$ mit $i \neq j$
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Für jedes $k$-fach lineare $\xi: V^k \rightarrow W$ gilt:
+    \begin{itemize}
+        \item $\xi$ symmetrisch $\Leftrightarrow \ S^k (V) \subset \ker \ \xi_{\otimes}$
+        \item $\xi$ alternierend $\Leftrightarrow \ A^k (V) \subset \ker \ \xi_{\otimes}$
+    \end{itemize}
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{}{
+
+    Zu einem $K$-VR $V$ und einer natürlichen Zahl $k \geq 1$ gibt es einen $K$-VR
+    $\bigwedge^k V$ zusammen mit einer universellen alternierenden Abbildung
+    $\wedge: V^k \rightarrow \bigwedge^k V$, dh. zu jeder alternierenden Abbildung
+    $\xi : V^k \rightarrow W$ gibt es genau eine lineare Abbildung $\xi_{\wedge}$
+    derart, dass das Diagramm
+    \begin{center}
+        \begin{tikzcd}
+            V^k \arrow{d}[swap]{\wedge} \arrow{rd}{\xi} & \\
+            \bigwedge^k V \arrow{r}[swap]{\xi_{\wedge}} & W 
+        \end{tikzcd}
+    \end{center}
+    kommutiert. Ist $(\BasisV)$ eine Basis von $V$, so ist eine Basis von
+    $\bigwedge^k V$ gegeben durch die Produkte
+    \begin{align*}
+        v_{i_1} \wedge \dots \wedge v_{i_k}
+        \quad \text{  mit } 1 \leq i_1 < \dots < i_k \leq n
+    \end{align*}
+    Insbesondere ist $\dim \bigwedge^k V = \binom{n}{k}$ für $1 \leq k \leq n = \dim V$.
+    Für $k>n$ setzt man $\bigwedge^k V = 0$. $\bigwedge^k V$ heisst \fat{$k$-te äussere
+    Potenz} oder \fat{äusseres Produkt} der Ordnung $k$ von $V$.
+}
+
+\vspace{1\baselineskip}
+
+\Theorem{}{
+
+    Zu jedem $K$-VR $V$ und einer natürlichen Zahl $k \geq 1$ gibt es einen $K$-VR
+    $\bigvee^k V$ zusammen mit einer symmetrischen Abbildung
+    $\vee: V^k \rightarrow \bigvee^k V$, sodass für jede symmetrische Abbildung
+    $\xi: V^k \rightarrow W$ genau ein $\xi_{\vee}$ existiert, sodass
+    \begin{center}
+        \begin{tikzcd}
+            V^k \arrow{d}[swap]{\vee} \arrow{rd}{\xi} & \\
+            \bigvee^k V \arrow{r}[swap]{\exists ! \ \xi_{\vee}} & W
+        \end{tikzcd}
+    \end{center}
+    kommutiert. Ist $(\BasisV)$ eine Basis von $V$, so ist eine Basis von $\bigwedge^k V$
+    gegeben durch die Produkte
+    \begin{align*}
+        v_{i_1} \vee \dots \vee v_{i_k}
+        \quad \text{   mit } 1 \leq i_i \leq \dots \leq i_k \leq n
+    \end{align*}
+    Insbesondere ist $\dim \bigvee^k V = \binom{n+k-1}{k}$. $\bigvee^k V$ heisst
+    \fat{$k$-te symmetrische Potenz} oder \fat{symmetrische Produkte} der Ordnung $k$
+    von $V$.    
+}

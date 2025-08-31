@@ -1,0 +1,56 @@
+\subsection{Integrierbarkeitssätze}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Jede monotone Funktion $f: [a,b] \rightarrow \R$ ist Riemann-integrierbar.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Funktion $f: [a,b] \rightarrow \R$ heisst \fat{stückweise monoton},
+    falls es eine Zerlegung $a = x_0 < x_1 < \dots < x_{n-1} < x_n = b$ von $[a,b]$
+    gibt, so dass $f|_{(x_{k-1} , x_k)}$ monoton ist für alle $k \in \geschwungeneklammer{1, \dots , n}$.
+    Jede monotone Funktion ist stückweise monoton.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Jede stückweise monotone, beschränkte Funktion $f: [a,b] \rightarrow \R$
+    ist Riemann-integrierbar.
+}
+
+\pagebreak
+
+\Lemma{
+
+    Sei $d \geq 0$ eine Ganze Zahl. Es existieren rationale Zahlen
+    $c_0 , c_1 , \dots , c_n \in \Q$ mit der Eigenschaft, dass
+    \begin{align*}
+        \csum{k=1}{n} k^d = \frac{n^{d+1}}{d+1} + c_d n^d + c_{d-1} n^{d-1} + \dots + c_0
+    \end{align*}
+    für alle $n \geq 1$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Polynomfunktionen auf $[a,b]$ sind Riemann-integrierbar. Für alle Monome
+    $x^d$ mit $d \geq 0$ gilt
+    \begin{align*}
+        \intab x^d dx = \frac{1}{d + 1} \klammer{b^{d+1} - a^{d+1}}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Jede stetige Funktion $f: [a,b] \rightarrow \R$ ist integrierbar.
+}

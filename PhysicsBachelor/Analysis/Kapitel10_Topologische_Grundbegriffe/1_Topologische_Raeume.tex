@@ -1,0 +1,198 @@
+\subsection{Topologische Räume}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein \fat{topologischer Raum} ist ein geordnetes Paar $(X,\tau)$ bestehend aus einer
+    Menge $X$ und einer Familie von Teilmengen $\tau$ von $X$ die den Axiomen $1,2,3$
+    genügt. Wir nennen die Familie $\tau$ eine \fat{Topologie} auf $X$ und Teilmengen
+    $U \subseteq X$ die zur Familie $\tau$ gehören \fat{offene} Mengen.
+    \begin{enumerate}
+        \item $\emptyset \subseteq X$ ist offen, und $X \subseteq X$ ist offen.
+        \item Beliebige Vereinigungen von offenen Mengen sind offen.
+        \item Endliche Durchschnitte von offenen Mengen sind offen.
+    \end{enumerate}
+    Wir nennen eine Teilmenge $F \subseteq X$ deren Komplement offen ist eine
+    \fat{abgeschlossene} Teilmenge. Sei $x \in X$. Eine Teilmenge $V \subseteq X$
+    heisst \fat{Umgebung} von $x$, falls eine offene Teilmenge $U \subseteq X$ mit
+    $x \in U$ und $U \subseteq V$ existiert. Ist $V$ offen, so nennen wir $V$ eine
+    \fat{offene Umgebung} von $x$, und ist $V$ abgeschlossen, so nennen wir $V$ eine
+    \fat{abgeschlossene Umgebung} von $x$.
+}
+
+\vspace{1\baselineskip}
+
+\Bemerkung{
+
+    Jeder metrischer Raum liefert einen topologischen Raum.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ eine Menge. Die Familie aller Teilmengen $\tau = \mathcal{P} (X)$ ist
+    eine Topologie. Bezüglich dieser Topologie sind also alle Teilmengen von $X$ offen.
+    Sie heisst \fat{disktrete Topologie} auf $X$. Die Familie $\tau =
+    \geschwungeneklammer{\emptyset,X}$ ist ebenfalls eine Topologie. Sie wird
+    \fat{triviale Topologie} oder auch \fat{indiskrete Topologie} genannt.
+    Interessante Topologien sind etwa die bereits bekannten Topologie auf $\R$ oder
+    auf $\C$. Wir nennen diese Topologien \fat{Standardtopologien} auf $\R$, bzw $\C$.
+    Die Standardtopologie auf $\R^n$ ist analog definiert.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,\tau)$ ein topologischer Raum und $Y \subset X$ eine Teilmenge. Die
+    \fat{Einschränkung} von $\tau$ auf $Y$ ist die Topologie
+    \begin{align*}
+        \tau |_{Y} &= \geschwungeneklammer{Y \cap U \ | \ U \in \tau}
+        = \geschwungeneklammer{Y \cap U \ | \ U \subseteq X \text{ offen}}
+    \end{align*}
+    auf $Y$. Wir nennen sie auch \fat{induzierte Topologie} oder \fat{Unterraumtopologie}.
+    Eine für die Topologie $\tau |_{Y}$ offene Teilmenge $V \subseteq Y$ nennen wir
+    \fat{relativ offen}, und eine für die Topologie $\tau |_{Y}$ abgeschlossene
+    Teilmenge nennen wir auch \fat{relativ abgeschlossen} ("offen in der Teilmenge
+    wo es lebt").
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $(X,\tau)$ und $(Y, \sigma)$ topologische Räume. Eine \fat{stetige Abbildung}
+    von $(X,\tau)$ nach $(Y, \sigma)$ ist eine Abbildung $f: X \rightarrow Y$ so,
+    dass für jede offene Teilmenge $U \subseteq Y$ das Urbild $f^{-1} (U) \subseteq X$
+    offen ist.
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Seien $X,Y$ und $Z$ topologische Räume. Die Identitätsabbildung id$_{X} : X \rightarrow X$
+    ist stetig. Sind $f: X \rightarrow Y$ und $g: Y \rightarrow Z$ stetige Abbildungen,
+    so ist die Verknüpfung $g \circ f: X \rightarrow Z$ ebenfalls stetig.
+    Ist $f: X \rightarrow Y$ stetig und bijektiv, so ist die Umkehrabbildung
+    $f^{-1} : Y \rightarrow X$ im Allgemeinen nicht stetig.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine bijektive, stetige Abbildung deren inverses ebenfalls stetig ist, heisst
+    \fat{Homöomorphismus}.
+}
+
+\pagebreak
+
+\Proposition{
+
+    Sei $D \subseteq \R$ eine Teilmenge, und $f:D \rightarrow \R$ eine Funktion.
+    Die folgenden Aussagen sind äquivalent.
+    \begin{enumerate}
+        \item Für jedes $x_0 \in \R$ und jedes $\epsilon > 0$ existiert ein $\delta >0$
+                so, dass für alle $x \in D$ folgendes gilt:
+                \begin{align*}
+                    \abs{x-x_0} < \delta \Longrightarrow \abs{f(x)-f(x_0)} < \epsilon
+                \end{align*}
+        \item Für jede offene Teilmenge $U \subseteq \R$ ist $f^{-1} (U) \subseteq D$
+                offen, für die von der Standardtopologie auf $\R$ induzierte Topologie
+                auf $D$.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,\tau)$ ein topologischer Raum und $Y \subseteq X$ eine Teilmenge. Die Menge
+    \begin{align*}
+        Y^{\circ} = \geschwungeneklammer{x \in Y \ | \ \exists \text{ Umgebung } U \text{ von } x \text{ mit } U \subseteq Y}
+    \end{align*}
+    wird das \fat{Innere} von $Y$ genannt, die Menge
+    \begin{align*}
+        \overline{Y} = \geschwungeneklammer{ x \in Y \ | \ U \cap Y \neq \emptyset \text{ für jede Umgebung } U \text{ von } x}
+    \end{align*}
+    wird \fat{Abschluss} von $Y$ genannt. Der \fat{Rand} von $Y$ wird durch
+    $\partial Y = \overline{Y} \backslash Y^{\circ}$ definiert. Die Teilmenge
+    $Y \subseteq X$ heisst \fat{dicht}, falls $\overline{Y} = X$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\XTopRaum$ ein topologischer Raum, und sei $\xFolge$ eine Folge in $X$.
+    Ein Punkt $x \in X$ heisst \fat{Grenzwert} der Folge $\xFolge$, falls für jede
+    Umgebung $U$ von $x$ ein \NinN mit
+    \begin{align*}
+        n \geq N \Rightarrow x_n \in U
+    \end{align*}
+    existiert. Ein Punkt \xinX heisst \fat{Häufungspunkt} der Folge, falls für jede
+    Umgebung $U$ von $x$ und jedes \NinN ein $n \geq N$ mit $x_n \in U$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $\XTopRaum$ ein topologischer Raum. Wir nennen $\XTopRaum$ einen
+    \fat{Hausdorff-Raum}, falls alle Punkte $x_1 neq x_2$ von $X$ Umgebungen
+    $x_1 \in U_1$ und $x_2 \in U_2$ mit $U_1 \cap U_2 = \emptyset$ existiert.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $\XTopRaum$ ein Hausdorff'scher topologischer Raum und $\xFolge$ eine Folge in
+    $X$. Dann hat $\xFolge$ höchstens einen Grenzwert $a \in X$. In dem Fall, schreibe
+    $a = \limesninf x_n$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Eine Abbildung $f: X \rightarrow Y$ zwischen Hausdorff'schen topologischen
+    Räumen heisst \fat{folgenstetig}, falls für jede konvergente Folge $\xFolge$
+    in $X$ mit $\limesninf x_n = x$ folgendes folgt:
+    \begin{align*}
+        \limesninf f \xFolge = f(x)
+    \end{align*}
+}
+
+\Bemerkung{
+
+    Stetig impliziert folgenstetig. Die Umkehrung gilt im Allgemeinen aber nicht.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Seien $X$ und $Y$ topologische Räume. Wir bezeichnen als \fat{Produkttopologie}
+    die Topologie auf $X \times Y$, deren offene Menge gerade diejenigen Teilmengen
+    $U \subseteq X \times Y$ sind, die folgende Eigenschaften erfüllen:
+    Für jedes $(x,y) \in U$ existiert eine offene Umgebung $V \subseteq X$ von $x$
+    und eine offene Umgebung $W \subseteq Y$ von $y$, mit $V \times W \subseteq U$.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $X,Y$ und $Z$ topologische Räume. Eine Abbildung $f: Z \rightarrow X \times Y$
+    ist genau dann stetig für die Produkttopologie auf $X \times Y$, wenn die
+    folgenden beiden Verknüpfung stetig sind.
+    \begin{align*}
+        f_X : Z \stackrel{f}{\longrightarrow} X \times Y \stackrel{\pi_X}{\longrightarrow} X
+        \quad \text{   und   } \quad
+        f_Y : Z \stackrel{f}{\longrightarrow} X \times Y \stackrel{\pi_Y}{\longrightarrow} Y
+    \end{align*}
+}

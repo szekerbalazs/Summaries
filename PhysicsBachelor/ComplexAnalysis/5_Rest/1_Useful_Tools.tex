@@ -1,0 +1,51 @@
+\section{Useful Tools}
+
+\vspace{1\baselineskip}
+
+\subsection{Infinite Product}
+
+\begin{definition}[Infinite Product]
+    The infinite product is given as
+    \begin{align*}
+        \prod_{n=0}^\infty P_n = P_1 \cdot \dots \cdot P_n \cdot \dots
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    We say that $\prod_{n=0}^\infty P_n$ converges if
+    \begin{enumerate}[(i)]
+        \item $P_n = \prod_{k=1}^n P_k$, $P_n \rightarrow P \neq 0$
+        \item There are finitely many zero factors.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    With the necessary condition $a_n \rightarrow 0$
+    we can write $\prod_{n=0}^\infty P_n$ as
+    \begin{align*}
+        \prod_{n=1}^\infty (1+a_n)
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If no factor is zero, we can understand $\prod_{n=0}^\infty P_n$ as follows.
+    \begin{align*}
+        S_M &= \sum_{n=1}^M \log \klammer{1+a_n}
+        \\
+        P_M &= \prod_{n=1}^M (1+a_n)
+        \\
+        P_M &= \exp(S_M)
+    \end{align*}
+    If $S_M$ converges, so does $P_M$. In particular:
+\end{theorem}
+
+\begin{theorem}
+    The finite product $\prod_{n=1}^\infty (1+a_n)$ with $1+a_n \neq 0$ converges
+    if and only if $\sum_n \log (1+a_n)$ converges.
+\end{theorem}
+
+\begin{theorem}
+    $\sum_n \log(1+a_n)$ converges absolutely if and only if $\sum_n a_n$ converges
+    absolutely.
+\end{theorem}
+

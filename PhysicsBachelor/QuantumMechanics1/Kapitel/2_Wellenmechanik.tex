@@ -1,0 +1,253 @@
+\section{Wellenmechanik}
+
+\subsection{Die Schrödinger-Gleichung}
+
+Nach de Broglie kann man einem Teilchen mit Impuls $p^\mu = (E,\vec{p})$ eine
+Welle zuordnen deren Wellenlänge $\lambda$ und Kreisfrequenz $\omega$ gemäss
+(\ref{deBroglie}) gegeben sind. Eine Welle mit diesen Parametern ist die
+Funktion
+\begin{align*}
+    \Psi(x,t) = \Psi(0,0) e^{\frac{2 \pi i}{\lambda} x} e^{-i \omega t}
+\end{align*}
+wobei $\Psi(0,0)$ eine Konstante ist. Es gilt:
+\begin{align*}
+    \frac{\partial}{\partial x} \Psi(x,t)
+        &= \frac{2 \pi i}{\lambda} \Psi(x,t)
+        = i \frac{p}{\hbar} \Psi(x,t)
+    \\
+    \frac{\partial}{\partial t} \Psi(x,t)
+        &= -i \omega \Psi(x,t)
+        = -i \frac{E}{\hbar} \Psi(x,t)
+\end{align*}
+Somit auch:
+\begin{align*}
+    p \Psi (x,t) = -i \hbar \frac{\partial}{\partial x} \Psi(x,t)
+    \hspace{10pt} , \hspace{10pt}
+    E \Psi(x,t) = i \hbar \frac{\partial}{\partial t} \Psi(x,t)
+\end{align*}
+Für ein freies Teilchen mit Energie $E$ und und Impuls $p$ gilt $E = \frac{p^2}{2m}$.
+Es folgt:
+\begin{align*}
+    i \hbar \frac{\partial}{\partial t} \Psi(x,t)
+    = - \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \Psi(x,t)
+\end{align*}
+Falls das Teilchen nicht frei ist, sondern sich im Einfluss des Potentials
+$V(x,t)$ bewegt, folgt die (zeit-abhängige) Schrödinger-Gleichung:
+\begin{align}\label{ZeitunabhaengigeSG}
+    i \hbar \frac{\partial}{\partial t} \Psi(x,t) =
+    \klammer{- \frac{\hbar^2}{2 m} \frac{\partial^2}{\partial x^2} + V(x,t)} \Psi(x,t)
+    \equiv H \Psi(x,t)
+\end{align}
+$H$ ist der Hamiltonoperator. $\Psi(x,t)$ ist eine komplexe Funktion von
+$(x,t)$. $\abs{\Psi(x,t)}^2$ ist die Wahrscheinlichkeit mit der sich das
+Teilchen zur Zeit $t$ am Punkt $x$ befindet. Es gilt die
+Normalisierungsbedingung:
+\begin{align}\label{NormalisierungPsi}
+    \intii dx \ \abs{\Psi(x,t)}^2 = 1 \ \forall t
+\end{align}
+Die wichtigsten Postulate im Überblick:
+\begin{enumerate}[(i)]
+    \item Die Wahrscheinlichkeit das Teilchen zur Zeit $t$ am Ort $x$
+        anzutreffen, ist durch das Normquadrat $\abs{\Psi(x,t)}^2$ der
+        Wellenfunktion gegeben.
+    \item Die Wellenfunktion $\Psi(x,t)$ ist für jedes $t$ quadrat-integrabel
+        in $x$; insbesondere ist sie gemässt (\ref{NormalisierungPsi}) normalisiert.
+    \item Die Wellenfunktion $\Psi(x,t)$ ist eine komplexe Funktion, die der
+        zeit-unabhängigen SG (\ref{ZeitunabhaengigeSG}) genügt.
+\end{enumerate}
+
+Klassische Observable werden durch Operatoren dargestellt. Sie sind im
+Allgemeinen nicht vertauschbar. Der Impulsoperator ist gegeben als:
+\begin{align*}
+    p = -i \hbar \frac{\partial}{\partial x}
+\end{align*}
+
+\subsection{Wahrscheinlichkeitsstrom und die Kontinuitätsgleichung}
+
+Wie bereits erwähnt beschreibt $\abs{\Psi(x,t)}^2 \equiv \rho(x,t)$ eine
+Wahrscheinlichkeitsdichte. Durch ableiten erhalten wir eine Kontinuitätsgleichung:
+\begin{align*}
+    \frac{d}{dt} \rho(x,t) + \frac{\partial}{\partial x} j(x,t) = 0
+\end{align*}
+wobei $j(x,t)$ der Wahrscheinlichkeitsstrom ist.
+\begin{align*}
+    j(x,t) = \frac{i \hbar}{2m} \klammer{
+        \Psi(x,t) \frac{\partial}{\partial x} \Psi(x,t)^\ast
+        - \Psi(x,t)^\ast \frac{\partial}{\partial x} \Psi(x,t)
+    }
+\end{align*}
+Wir integrieren die Wahrscheinlichkeitsdichte über ein kleines Intervall
+\begin{align*}
+    P(x_0;\delta) &= \int_{x_0 - \delta}^{x_0 + \delta} dx \ \rho(x,t)
+    \\ \Rightarrow
+    \frac{d}{dt} P(x_0;\delta)
+    &= j(x_0 - \delta,t) - j(x_0 + \delta,t)
+\end{align*}
+Insbesondere folgt wegen $j \rightarrow 0$ für $x \rightarrow \pm \infty$:
+\begin{align*}
+    \frac{d}{dt} \intii dx \ \rho(x,t)
+    = \eckigeklammer{- j(x,t)}_{-\infty}^\infty
+    = 0
+\end{align*}
+
+\subsection{Das Ehrenfest'sche Theorem}
+
+Der Erwartungswert einer Ortsmessung ist
+\begin{align*}
+    \langle x \rangle = \intii dx \ x \ \abs{\Psi(x,t)}^2
+\end{align*}
+Mit einigem Rechenaufwand bekommt man:
+\begin{align*}
+    \frac{d}{dt} \langle x \rangle = \frac{1}{m} \langle p \rangle
+    \hspace{10pt} , \hspace{10pt}
+    m \frac{d^2}{dt^2} \langle x \rangle = - \langle \partial_x V(x,t) \rangle
+\end{align*}
+Dies wird Ehrenfest'sches Theorem genannt.
+
+\subsection{Realität der physikalischen Observablen}
+
+Es gilt $\langle p \rangle^\ast = \langle p \rangle$ und $\langle H \rangle^\ast
+= \langle H \rangle$ und somit $\langle p \rangle \in \R$ und $\langle H \rangle
+\in \R$.
+
+\subsection{Zeit-unabhängige Schrödinger-Gleichung}
+
+Wir betrachten nun den Fall wo das Potential $V(x,t) = V(x)$ zeitunabhängig ist.
+In diesem Fall können wir einen Separationsansatz machen: $\Psi(x,t) = \psi(x) \chi(t)$.
+Die Schrödinger-Gleichung impliziert dann:
+\begin{align*}
+    \psi(x) i \hbar \dot{\chi}(t) &=
+    \chi(t) \klammer{-\frac{\hbar^2}{2 m} \psi''(x) + V(x) \psi(x)}
+    \\
+    \Rightarrow
+    i \hbar \frac{\dot{\chi}(t)}{\chi(t)} &= \frac{1}{\psi(x)}
+    \klammer{-\frac{\hbar^2}{2m} \psi''(x) + V(x) \psi(x)} = E
+\end{align*}
+Wobei $E$ eine Konstante ist und der Energie entspricht. Es folgt:
+\begin{align}\label{EWGl}
+    i \hbar \dot{\chi}(t) = E \chi(t)
+    \hspace{10pt} , \hspace{10pt}
+    H \psi(x) = E \psi(x) 
+\end{align}
+wobei $H$ der Hamiltonoperator ist. Es folgt:
+\begin{align*}
+    \chi(t) = \exp \klammer{- \frac{i E}{\hbar} t}
+\end{align*}
+Falls $\psi(x)$ die Eigenwertgleichung in (\ref{EWGl}) erfüllt, dann löst
+\begin{align*}
+    \Psi(x,t) = \psi(x) \exp \klammer{- i \frac{E}{\hbar} t}
+\end{align*}
+die (zeit-abhängige) Schrödinger-Gleichung. Die Eigenvektorgleichung
+\begin{align*}
+    H \psi(x) = E \psi(x)
+    \hspace{10pt} \text{ mit } \hspace{10pt}
+    H = \klammer{- \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + V(x)}
+\end{align*}
+wird zeit-unabhängige Schrödinger-Gleichung genannt. Da $\abs{\Psi(x,t)} =
+\abs{\psi(x,t)}$ muss gelten:
+\begin{align*}
+    \intii dx \ \abs{\psi(x)}^2 = 1
+\end{align*}
+Benutze die zeit-unabhängige Hamilton-Jakobi Gleichung und den folgenden
+Ansatz für 3 Dimensionen:
+\begin{align*}
+    \Psi(\vec{x},t) = \psi(\vec{x}) e^{- i \frac{E}{\hbar} t}
+    \hspace{10pt} , \hspace{10pt}
+    \psi(\vec{x}) = A(\vec{x}) e^{i \frac{S(\vec{x})}{\hbar}}
+\end{align*}
+wobei $A(\vec{x})$ und $S(\vec{x})$ reelle Funktionen sind. Die 3D zeit-unabhängige
+SG lautet:
+\begin{align*}
+    \eckigeklammer{- \frac{\hbar^2}{2 m} \Laplace + V(\vec{x})}\psi(\vec{x}) = E \psi(\vec{x})
+\end{align*}
+Wenn wir nach Real- und Imaginärteil zerlegen, erhalten wir:
+\begin{align*}
+    \frac{\klammer{\vec{\nabla} S}^2}{2 m} + \klammer{V(\vec{x}) - E}
+    = \frac{\hbar^2}{2m} \frac{\Laplace A}{A}
+    \hspace{15pt} , \hspace{15pt}
+    (\vec{\nabla} A) \cdot (\vec{\nabla} S) + \frac{A}{2} \Laplace S = 0
+\end{align*}
+Im klassischen Limes, wo $\hbar \rightarrow 0$ wird aus der ersten Gleichung:
+\begin{align*}
+    \frac{\klammer{\vec{\nabla} S}^2}{2 m} + V(\vec{x}) = E
+\end{align*}
+was gerade die zeit-unabhängige HJ-Gl. ist. Die Phase der Welle $\Psi$ kann
+mit der Grüsse $S/\hbar$ identifiziert werden wobei $S$ die erzeugende
+Funktion der kanonishcen Transformation ist. Ausserdem gilt: $\vec{p} = m
+\dot{\vec{x}} = \vec{\nabla} S$. Die physikalische Bahn ist also immer
+Senkrecht zu der Fläche $S =$const. Diese Flächen sind jedoch gerade die
+Wellenfronten der Welle $\Psi$, da $S$ die Phase der Welle ist.
+
+\subsection{Energie Eigenzustände}
+Bezeichne mit $\psi_n$, $n \in \N$ einen vollständigen Satz normalisierter
+Eigenfunktionen des Hamiltonoperators mit Eigenwerten $H \psi_n = E_n \psi_n$.
+Nehme an, dass jede quadrat-integrierbare Funktion sich als Lin.komb dieser
+$psi_n$ schreiben lässt. Angenommen wir kennen die Wellenfunktion zur Zeit
+$t=0$, $\Psi(x,0)$. Wir wollen die Lösung $\forall t \geq 0$ bestimmen. Da
+die $\psi_n$ eine Basis des VR bilden gilt:
+\begin{align*}
+    \Psi(x,0) = \sum_{n=0}^\infty a_n \psi_n (x)
+    \hspace{15pt} , \hspace{10pt} a_n \in \C
+\end{align*}
+Somit folgt für die Zeitentwicklung die allgemeine Lösung:
+\begin{align}\label{SolSGgeneral}
+    \Psi(x,t) = \sum_{n=0}^\infty a_n \psi_n (x) \exp \klammer{-i \frac{E_n}{\hbar} t}
+\end{align}
+Dies ist eine Lösung der zeit-abhängigen SG da jeder einzelne Term eine Lsg ist.
+
+\subsection{Energiemessung}
+Es gelten die selben Annahmen für die $\psi_n$ wie oben und es seien alle
+Eigenwerte diskret, d.h. $E_n \neq E_m$ für $n \neq m$. Es gilt:
+\begin{align}\label{deltamn}
+    \intii dx \ \psi_n^\ast (x) \psi_m (x) = \delta_{mn}
+\end{align}
+Denn es gilt:
+\begin{align*}
+    E_m \int_\R dx \ \psi_n^\ast (x) \psi_m(x)
+    = E_n^\ast \int_\R dx \ \psi_n^\ast (x) \psi_m (x)
+\end{align*}
+Für $m=n$ folgt: $E_n = E_n^\ast$ und somit $E_n \in \R$. Und falls $n \neq m$
+folgt aus $E_n - E_m \neq 0$ die Gl. (\ref{deltamn}).
+Wenn man die allgemeine Lösung (\ref{SolSGgeneral}) einsetzt im Integral
+erhält man für den Erwartungswert des Hamiltonians das folgende:
+\begin{align*}
+    \langle H \rangle = \int_\R \Psi(x,t)^\ast H \Psi(x,t)
+    = \sum_{n=0}^\infty \abs{a_n}^2 E_n
+\end{align*}
+Wir sehen, dass der Erwartungswert unabhängig ist von der Zeit.
+Dieses Resultat lässt sich wie folgt interpretieren: die möglichen Messergebnisse
+einer Energiemessung sind die Eigenwerte $E_n$, und die Wahrscheinlichkeit,
+mit der der Wert $E_n$ gemessen wird, ist gleich $\abs{a_n}^2$.
+
+Weitere Annahmen/Postulate der Wellenmechanik im Überblick:
+\begin{enumerate}[(i)]
+    \setcounter{enumi}{3}
+    \item Die möglichen Messergebnisse einer Energiemessung eines Systems
+        sind die Eigenwerte des Hamilton-Operators $H$.
+    \item Falls die Eigenwerte alle voneinander verschieden sind, so ist die
+        Wahrscheinlichkeit, den Eigenwert $E_n$ zu messen, gerade
+        \begin{align*}
+            \abs{a_n}^2 = \abs{\int_{\R} dx \ \psi_n (x)^\ast \Psi(x,t)}^2
+        \end{align*}
+\end{enumerate}
+Es muss weiter gelten: $\sum_{n=0}^\infty \abs{a_n}^2 = 1$. Wir sehen, dass
+nur diskrete Energiewerte zulässig sind. Ein weiteres Postulat ist:
+\begin{enumerate}[(i)]
+    \setcounter{enumi}{5}
+    \item Die Energie eines Quantensystems sei zur Zeit $t=t_0$ mit dem
+        Ergebnis $E_n$ gemessen worden. Dann 'kollabiert' die Wellenfunktion
+        des Systems zu der Eigenfunktion $\psi_n$ mit $H \psi_n = E_n$, d.h.
+        es gilt
+        \begin{align*}
+            \Psi(x,t) = A \psi_n (x) \exp \klammer{-i \frac{E_n}{\hbar} t}
+            \hspace{15pt} \forall t > t_0
+        \end{align*}
+        Hierbei ist $A$ eine Konstante mit $\abs{A} = 1$, und wir haben
+        wiederum angenommen, dass die EW von $H$ alle unterschiedlich sind.
+\end{enumerate}
+Die physikalische Interpretation dieser Tatsache ist, dass es unmöglich ist,
+eine Messung durchzuführen, ohne dabei das System zu beeinflussen. Äquivalent:
+Nachdem die Energie des Systems einmal als $E_n$ gemessen wurde, wird jede
+zukünftige Energiemessung immer wieder $E_n$ finden und zwar mit
+Wahrscheinlichkeit $1$. Hierbei ist aber nicht klar wie man eine 'Messung'
+präzise definieren soll.

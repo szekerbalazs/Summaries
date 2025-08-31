@@ -1,0 +1,283 @@
+\section{Lie-Algebren}
+
+\subsection{Die Exponentialabbildung}
+
+Sei $\Mat(n,\K)$, für $\K = \R$ oder $\C$, der Vektorraum aller $n \times n$
+Matrizen mit Elementen in $\K$.
+
+\begin{definition}[Frobeniusnorm]
+    \begin{align*}
+        \Norm{x} = \klammer{\sum_{i,j} \abs{x_{ij}}^2}^{1/2}
+        = \klammer{\tr \klammer{X^\ast X}}^{1/2}
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    $\Norm{X Y} \leq \Norm{X} \Norm{Y} \ , \ \ \forall X,Y \in \Mat(n,\K)$
+\end{lemma}
+
+\begin{lemma}
+    Die folgende Reihe konvergiert absolut (normal)
+    \begin{align*}
+        \exp(X) = \sum_{k=0}^\infty \frac{1}{k!} X^k
+    \end{align*}
+    $\forall X \in \Mat(n,\K)$.
+    Normal heisst hier $\sum_{k=0}^\infty \Norm{\frac{1}{k!} X^k} < \infty$.
+\end{lemma}
+
+\begin{bemerkung}
+    Es folgt, dass die Matrixelemente von $\exp(X)$ absolut konvergente Reihen
+    in den Matrixelementen $X_{ij}$ von $X$ sind, und somit analytisch von
+    $X_{ij}$ abhängen.
+\end{bemerkung}
+
+\begin{lemma}
+    Seien $X,Y \in \Mat(n,\K)$ für $\K = \R$ oder $\C$.
+    \begin{enumerate}[(i)]
+        \item $\exp(X) \exp(Y) = \exp(X+Y)$ falls $XY = YX$
+        \item $\exp(X)$ ist invertierbar mit $\exp(X)^{-1} = \exp(-X)$
+        \item $A \exp(X) A^{-1} = \exp(A X A^{-1})$, $A \in \GL(n,\K)$
+        \item $\det(\exp(X)) = \exp(\tr(X))$
+        \item $\exp(X^\ast) = \klammer{\exp(X)}^\ast$ , $\exp(X^T) = (\exp(X))^T$
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}[Exponentialabbildung]
+    Die Abbildung $\Mat(n,\K) \rightarrow \GL(n,\K)$, $X \mapsto \exp(X)$
+    heisst Exponentialabbildung.
+\end{definition}
+
+\begin{bemerkung}
+    Für Nilpotente Matrizen $N$ ($N^{k+1} = 0$) gilt:
+    \begin{align*}
+        \exp(N) = \mathds{1} + N + \frac{N^2}{2!} + \dotsb + \frac{N^k}{k!}
+    \end{align*}
+\end{bemerkung}
+
+\begin{lemma}
+    Die Abbildung $\exp: \Mat(n,\K) \rightarrow \GL(n,\K)$ ist in einer
+    Umgebung von $0$ invertierbar, d.h. es existiert eine Umgebung $U$ von
+    $0$ so dass die Abbildung $\exp: U \mapsto \exp(U)$ invertierbar ist. Die
+    inverse Abbildung ist durch die folgende absolut konvergente Potenzreihe
+    gegeben für $\Norm{X - \mathds{1}} < 1$.
+    \begin{align*}
+        \log(X) = \sum_{n=1}^\infty (-1)^{n+1} \frac{(X - \mathds{1})^n}{n}
+    \end{align*}
+\end{lemma}
+
+\subsection{Einparametergruppen}
+
+\begin{definition}[Einparametergruppe]
+    Eine Abbildung $\R \rightarrow \GL(n,\K)$, $t \mapsto X(t)$, $\K = \R$ oder
+    $\C$, heisst Einparametergruppe falls sie stetig differenzierbar ist und
+    ein Gruppenhomomorphismus ist, d.h. $X(0) = \mathds{1}$ und für alle
+    $t,s \in \R$ gilt: $X(s+t) = X(s) X(t)$.
+\end{definition}
+
+\begin{bemerkung}
+    Das Bild einer solchen Abbildung ist eine Untergruppe mit $X(t)^{-1} = X(-t)$.
+\end{bemerkung}
+
+\begin{satz}
+    \begin{enumerate}[(i)]
+        \item $\forall X \in \Mat(n,\K)$ ist $t \mapsto \exp(t X)$ eine
+            Einparametergruppe.
+        \item Alle Einparametergruppen sind von dieser Form.
+    \end{enumerate}
+\end{satz}
+
+\subsection{Matrix-Lie-Gruppen}
+
+\begin{definition}[Lie-Algebra/Lie-Gruppe]
+    Sei $G \subset \GL(n,\K)$ eine abgeschlossene Untergruppe von $\GL(n,\K)$
+    (abgeschlossen heisst: Für jede Folge $(g_j)$ in $G$, die in $\GL(n,\K)$
+    konvergiert, liegt der Grenzwert $\limes{j \rightarrow \infty} g_j$ auch
+    in $G$). Wir definieren
+    \begin{align*}
+        \Lie(G)= \geschwungeneklammer{X \in \Mat(n,\K) \ | \ \exp(t X) \in G \ \forall t \in \R}
+    \end{align*}
+    $\Lie(G)$ heisst Lie-Algebra der Lie-Gruppe $G$.
+\end{definition}
+
+\begin{definition}[(Matrix-)Lie-Gruppe]
+    Eine (Matrix-)Lie-Gruppe ist eine abgeschlossene Untergruppe von $\GL(n,\K)$.
+\end{definition}
+
+\begin{satz}
+    Sei $G$ eine abgeschlossene Untergruppe von $\GL(n,\K)$, $\K = \R$ oder $\C$.
+    Dann ist $\Lie(G)$ ein reeller VR, und $\forall X,Y \in \Lie(G)$,
+    $X Y - Y X \in \Lie(G)$.
+\end{satz}
+
+\begin{lemma}
+    $\Lie(G)$ besteht aus allen Tangentialvektoren $\dot{X}(0) = \frac{d}{dt}
+    X(t) |_{t=0}$ von glatten Kurven $]-\epsilon,\epsilon[ \rightarrow G$ mit
+    $X(0) = \mathds{1}$ und $\epsilon > 0$. Also ist $\Lie(G) = T_{\mathds{1}} G$
+    der Tangentialraum an der Stelle $\mathds{1}$. Also insb. ein VR.
+\end{lemma}
+
+\begin{bemerkung}
+    Die Gruppen $(S)U(n,m)$, $(S)O(n,m)$, $\GL(n,\K)$, $SL(n,\K)$, $Sp(2n)$
+    sind alle Matrix-Lie-Gruppen. Sie werden nämlich als Mengen von gemeinsamen
+    Nullstellen von stetigen Funktionen $f: \GL(n,\K) \rightarrow \K$ definiert.
+\end{bemerkung}
+
+\begin{definition}[Kommutator]
+    Für $X,Y \in \Mat(n,\K)$ definieren wir den Kommutator als
+    \begin{align*}
+        [X,Y] = XY - YX
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    Eigenschaften des Kommutators sind:
+    \begin{enumerate}[(i)]
+        \item $[\lambda X + \mu Y,Z] = \lambda[X,Z] + \mu[Y,Z]$
+        \item $[X,Y] = - [Y,Z]$
+        \item $[[X,Y],Z] + [[Z,X],Y] + [[Y,Z],X] = 0$
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}[Lie-Algebra]
+    Eine Lie-Algebra ist ein $\K$-VR $\g$, versehen mit einer bilinearen
+    Abbildung ("Lie-Klammer") $[ \ , \ ]: \g \times \g \rightarrow \g$,
+    welche die obigen Eigenschaften (i)-(iii) erfüllt.
+\end{definition}
+
+\begin{definition}[Homomorphismus]
+    Ein Homomorphismus $\varphi: \g_1 \rightarrow \g_2$ von Lie-Algebren $\g_1,
+    \g_2$ ist eine lineare Abbildung, die erfüllt:
+    \begin{align*}
+        \varphi \klammer{[X,Y]} = [\varphi(X),\varphi(Y)]
+    \end{align*}
+    Ist $\varphi$ bijektiv, so nennt man $\varphi$ einen Isomorphismus.
+\end{definition}
+
+\begin{beispiel}
+    $\Lie(GL(n,\K)) = \Mat(n,\K)$ als reeller VR betrachtet. Diese
+    Lie-Algebra wird mit $\gl(n,\K)$ bezeichnet. Eine Basis von $\gl(n,\R)$
+    ist durch die matrizen $E_{ij}$, $i,j=1,\dots,n$ mit Matrixelementen
+    $(E_{ij})_{kl} = \delta_{ik} \delta_{jl}$. Die Lie-Algebra Struktur
+    ist in dieser Basis durch die Kommutationsrelationen
+    \begin{align*}
+        [E_{ij},E_{kl}] = E_{il} \delta_{jk} - E_{jk} \delta_{il}
+    \end{align*}
+    gegeben. Die Dimension ist $n^2$. In $\gl(n,\C)$ hat man die Basis
+    $\klammer{E_{kl},i E_{kl}}_{k,l=1}^n$. $\dim(\gl(n,\C)) = 2 n^2$.
+\end{beispiel}
+
+\begin{lemma}
+    \begin{align*}
+        \u(n) &:= \Lie(U(n)) = \geschwungeneklammer{X \in \Mat(n,\C) \ | \ X^\ast = -X}
+        \\
+        \sl(n,\C) &:= \Lie(SL(n,\C)) = \geschwungeneklammer{A \in \Mat(n,\C) \ | \ \tr(A) = 0}
+        \\
+        \su(n) &:= \Lie(SU(n)) = \geschwungeneklammer{X \in \Mat(n,\C) \ | \ X^\ast = -X \ , \ \tr(X) = 0}
+        \\
+        &= \geschwungeneklammer{A \in \sl(n,\C) \ | \ A^\ast = - A}
+    \end{align*}
+    Es gilt: $\dim(\u(n)) = n^2$ , $\dim(\su(n)) = n^2 - 1$.
+\end{lemma}
+
+\begin{lemma}
+    \begin{align*}
+        &\o(n) := \Lie(O(n))
+        \hspace{10pt} , \hspace{10pt}
+        \so(n) := \Lie(SO(n))
+        \\
+        &\o(n) = \so(n) = \geschwungeneklammer{X \in \Mat(n,\R) \ | \ X^T = - X}
+    \end{align*}
+\end{lemma}
+
+\begin{beispiel}[$\su(2)$]
+    Eine Basis ist durch die Pauli Matrizen gegeben.
+    \begin{align*}
+        t_1 = i \sigma_1
+        \hspace{10pt} , \hspace{10pt}
+        t_2 = i \sigma_2
+        \hspace{10pt} , \hspace{10pt}
+        t_3 = i \sigma_3
+    \end{align*}
+    Es gilt $[t_j,t_k] = - \sum_{l=1}^3 2 \epsilon_{jkl} t_l$
+\end{beispiel}
+
+\subsection{Die Campbell-Baker-Hausdorff Formel}
+
+\begin{satz}[CBH]
+    Seien $X,Y \in \Mat(n,\K)$. Für $t$ klein genug gilt
+    \begin{align*}
+        \exp(tX) \exp(tY) = \exp \klammer{t X + t Y + \frac{t^2}{2} [X,Y] + O(t^3)}
+    \end{align*}
+\end{satz}
+
+\begin{satz}[CBH vollständig]
+    Für kleine $t$ gilt
+    \begin{align*}
+        \exp(tX) \exp(tY) = \exp \klammer{\sum_{k=1}^\infty t^k Z_k}
+    \end{align*}
+    wobei $Z_k$ eine Linearkombination von $k$-fachen Kommutatoren ist, d.h.
+    von Ausdrücken, die aus $X$ und $Y$ durch $(k-1)$-fache Anwendung der
+    Operatoren $[X,\cdot],[Y,\cdot]$ erzeugt werden. Bsp:
+    \begin{align*}
+        Z_1 = X + Y
+        \hspace{10pt} &, \hspace{10pt}
+        \frac{1}{2} [X,Y]
+        \\
+        Z_3 = \frac{1}{12} \klammer{[X,[X,Y]] + [Y,[y,X]]}
+        \hspace{10pt} &, \hspace{10pt}
+        Z_4 = - \frac{1}{24} [X,[Y,[X,Y]]]
+    \end{align*}
+\end{satz}
+
+\begin{definition}[Unter-/Teilmannigfaltigkeit]
+    Folgende Aussagen sind äquivalent:
+    \begin{enumerate}[(i)]
+        \item $M \subseteq \R^n$ ist eine $k$-dim Unter-/Teilmannigfaltigkeit.
+        \item $\forall p \in M \ \exists U_p \subseteq \R^n$ offene Umgebung von $p$
+            und ein Diffeomorphismus $\Phi_p : U_p \rightarrow V_p \subseteq \R^n$ offen
+            sodass $\Phi_p (U_p \cap M) = V_p \cap \R^k$
+        \item $\forall p \in M \ \exists U_p \in \R^n$ (offene Umgebung von $p$)
+            und $f_p : \R^k \supseteq \tilde{U}_p \rightarrow \R^{n-k}$ glatt und
+            $\sigma \in S_n$ sodass $M \cap U_p = \sigma \text{Graph}(f_p)$.
+        \item $\forall p \in M \ \exists U_p \subseteq \R^n$ (offene Umgebung von $p$)
+            und $\varphi_p : \R^k \supseteq \tilde{U}_p \rightarrow \R^n$ glatte
+            Einbettung mit Bild $V = U_p \cap G$
+    \end{enumerate}
+    $\tilde{U}_p$ ist offen.
+    Eine Glatte Einbettung ist eine glatte Abbildung mit
+    \begin{itemize}
+        \item $d \varphi_p$ hat in jedem Punkt maximal Rang $k$.
+        \item $\varphi_p$ ist ein Homöomorphismus auf ihr Bild.
+    \end{itemize}
+\end{definition}
+
+\begin{satz}
+    Sei $G \subseteq \GL(n,\K)$ eine Matrix-Lie-Gruppe mit Lie-Algebra
+    $\mathfrak{g}$ und Exponentialabbildung $\exp: \mathfrak{g} \rightarrow G$.
+    Dann gibt es eine offene Umgebung $U \subseteq \mathfrak{g}$ von $0$ und
+    eine offene Umgebung $V \subseteq G$ von $\mathds{1}$ so dass
+    $\exp: U \rightarrow \GL(n,\K)$ eine glatte Einbettung ist mit Bild
+    $\exp(U) = V \cap G$ 
+\end{satz}
+
+\begin{satz}
+    $G \subseteq \GL(n,\K) \subseteq \R^{n^2}$ ist eine Untermannigfaltigkeit.
+\end{satz}
+
+\begin{satz}
+    Sei $G \subseteq \GL(n,\K)$ eine Lie-Gruppe mit Lie-Algebra $\mathfrak{g}
+    \subseteq \gl(n,\K)$. Die Gruppe aller Matrizen der Form
+    $\exp(X_1) \dotsb \exp(X_k)$ mit $X_1,\dots,X_k \in \mathfrak{g}$ und
+    $k \geq 1$ ist die Zusammenhangskomponente von $\mathds{1} \in G$.
+\end{satz}
+
+\begin{beispiel}
+    Jede unitäre Matrix ist von der Form
+    \begin{align*}
+        U = A \text{diag} (e^{i \varphi_1},\dots,e^{i \varphi_n}) A^{-1}
+        \hspace{10pt} , \hspace{10pt} A \in U(n)
+    \end{align*}
+    Also ist $U = \exp(X)$, $X = A \text{diag}(i \varphi_1,\dots,i \varphi_n) A^{-1}$
+    und $\exp(t X)$ ist eine Einparametergruppe in $U(n)$. Es folgt, dass
+    $\exp: \u(n) \rightarrow U(n)$ surjektiv ist.
+\end{beispiel}

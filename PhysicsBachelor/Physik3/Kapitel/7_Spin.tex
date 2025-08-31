@@ -1,0 +1,106 @@
+\section{Spin}
+
+\paragraph{Magnetic Moment}
+$\vec{\mu} = \pi r^2 I \hat{n}$ with $\hat{n}$ the unit vector perpendicular to
+the plane. In Bohr model where the electron has a circular orbit
+$I = - e \frac{v}{2 \pi r}$ thus $\vec{\mu} = - \frac{e}{2 m_e} \vec{L}$.
+If an atom is placed into e homogeneous magnetic field along the $z$-direction,
+the force is given by $\vec{F} = - \vec{\nabla} (-\vec{\mu} \cdot \vec{B}) = \mu_z
+\frac{\partial B_z}{\partial z} \hat{z} \propto L_z \frac{\partial B_z}{\partial z} \hat{z}$
+
+\subsection{Spin Hypothesis}
+The spin is an intrinsic angular momentum of the electron. It is proportional
+to the magnetic moment. The spin is represented by a vector operator
+$\hat{\vec{s}} = \begin{pmatrix} \hat{s}_x & \hat{s}_y & \hat{s}_z \end{pmatrix}^T$.
+Components obey commutation relations: $\eckigeklammer{\hat{s}_x , \hat{s}_y} = i \hbar \hat{s}_z$,
+$\eckigeklammer{\hat{s}_y , \hat{s}_z} = i \hbar \hat{s}_x$,
+$\eckigeklammer{\hat{s}_x , \hat{s}_z} = - i \hbar \hat{s}_y$ and
+$\eckigeklammer{\hat{s}^2 , \hat{s}_z} = 0$.
+$S^2 |s,m_s \rangle = \hbar^2 s(s+1) |s,m_s \rangle$ and
+$S_z |s,m_s \rangle = \hbar m |s,m_s \rangle$.
+$s = 0,\frac{1}{2},1,\frac{3}{2},\dots$ and $m_s = -s,-s+1,\dots,s-1,s$.
+Spin $1/2$ particles have only two eigenstates with $m = \pm 1/2$.
+In that case, there are only two eigenstates which form a basis of $\R^2$.
+$|s=\frac{1}{2},m_s = \frac{1}{2} \rangle = \begin{pmatrix}
+    1 \\ 0
+\end{pmatrix}$ and $|s=\frac{1}{2},m_s = - \frac{1}{2} \rangle = \begin{pmatrix}
+    0 \\ 1
+\end{pmatrix}$
+So a general state can be written as
+$| \psi \rangle = \alpha |\frac{1}{2},\frac{1}{2} \rangle + \beta |\frac{1}{2},-\frac{1}{2} \rangle
+= \begin{pmatrix}
+    \alpha \\ \beta
+\end{pmatrix}$
+Operators can be defined as $2 \times 2$ matrices. E.g. $\hat{s}_z = \frac{\hbar}{2}
+\begin{pmatrix}
+    1 & 0 \\ 0 & -1
+\end{pmatrix} = \frac{\hbar}{2} \sigma_z$,
+$\hat{s}_x = \frac{\hbar}{2} \begin{pmatrix}
+    0 & 1 \\ 1 & 0
+\end{pmatrix} = \frac{\hbar}{2} \sigma_x$,
+$\hat{s}_y = \frac{\hbar}{2} \begin{pmatrix}
+    0 & -i \\ i & 0
+\end{pmatrix} = \frac{\hbar}{2} \sigma_y$
+
+\subsection{Magnetic moment of spin}
+Total magnetic dipole moment operator $\hat{\vec{\mu}}$ of an electron is the sum
+of orbital and spin contributions: $\hat{\vec{\mu}} = \hat{\vec{\mu}}_l + \hat{\vec{\mu}}_s$
+with $\hat{\vec{\mu}}_l = - \frac{e}{2 m_e} \hat{L} = - \frac{\mu_B}{\hbar} \hat{L}$
+where $\mu_B \equiv \frac{e \hbar}{2 m_e}$ is a constant called the \fat{Bohr magneton}.
+$\hat{\vec{\mu}} = - g_s \frac{\mu_B}{\hbar} \hat{\vec{s}}$ with $g_s$ the \fat{
+electron g-factor}, $g_s \approx 2$. The magnetic moment of the proton and neutron
+are given by $\mu_{p,n} = g_{p,n} \frac{\mu_k}{\hbar} \hat{\vec{s}}$ with
+$\mu_k = \frac{e \hbar}{2 m_p} = \mu_B \cdot \frac{m_e}{m_p}$
+
+
+\subsection{Spin-Orbit coupling}
+Consider electron at rest and proton orbiting it. Then the current is given as
+$I = \frac{e \cdot v}{2 \pi r} = \frac{e}{2 \pi r^2 m_e} L$ ($L = \abs{\vec{L}}$).
+Using Biot-savart we obtain a magnetic field
+$\vec{B} = \frac{e}{8 \pi \epsilonnull c^2 r^3 m_e} \vec{L}$.
+
+\paragraph{Spin-orbit interaction}
+% $H_{so} = - \vec{\mu}_s \cdot \vec{B} = \frac{g_s e^2}{16 \pi \epsilonnull c^2 m_e^2 r^3} \vec{S} \times \vec{L}$.
+$\vec{L}$ and $\vec{S}$ commute. $\eckigeklammer{\hat{L}^2 , \vec{S} \cdot \vec{L}} = 0$
+and $\eckigeklammer{\hat{S}^2 , \vec{S} \cdot \vec{L}} = 0$ but
+$\eckigeklammer{\hat{L}_z , \vec{S} \cdot \vec{L}} = i \hbar \klammer{\hat{s}_x \hat{L}_y - \hat{s}_y \hat{L}_x} \neq 0$
+and $\eckigeklammer{\hat{s}_z , \vec{s} \cdot \vec{L}} = i \hbar \klammer{\hat{s}_y \hat{L}_x - \hat{s}_x \hat{L}_y} \neq 0$.
+Goal: find eigenstates that commute with $\vec{S} \cdot \vec{L}$ and $\hat{H}$.
+Define $\hat{A} = \hat{L}_z + \hat{S}_z \equiv \hat{J}_z$. This commutes with both
+$\vec{S} \cdot \vec{L}$ and $\hat{H}$. The states $| \psi_{nlm} , m_s \rangle$ are
+eigenstates of $\hat{J}_z$ since $\hat{J} | \psi_{nlm} , m_s \rangle = (m+m_s) | \psi_{nlm} ,m_s \rangle$.
+Define quantum number $m_j = m + m_s$. $J^2$ commutes with $L^2$, $S^2$ and $\vec{S} \cdot \vec{L}$.
+In fact: $J^2 = (\vec{L} + \vec{S}) \cdot (\vec{L} + \vec{S}) = \hat{L}^2 + \hat{S}^2 + 2 \vec{S} \vec{L}
+\Leftrightarrow \vec{S} \cdot \vec{L} = \frac{1}{2} \klammer{J^2 - L^2 - S^2}$.
+Thus, simultaneous eigenstates of $J^2,L^2,S^2$ and $J_z$ are also the eigenstates
+of $\vec{S} \cdot \vec{L}$. Let's call these $| nlj , m_j \rangle$.
+$J^2 | n l j m_j \rangle = \hbar^2 j (j+1) | n l j m_j \rangle$ and
+$\vec{S} \cdot \vec{L} | n l j m_j \rangle = \frac{\hbar^2}{2} \eckigeklammer{j(j+1) -
+l(l+1) - s(s+1)}$. Allowed values of $j$: for $l=0$: $j=s=\frac{1}{2}$ and for
+$l>0$: $j = l \pm \frac{1}{2}$.
+Now we have 5 quantum numbers $n,l,m,s,m_s$ where $m$ and $m_s$ correspond to
+$L_z$ and $S_z$ which no longer commute with hamiltonian after adding the spin-orbit
+coupling term proportional to $\vec{S} \cdot \vec{L}$. We replace these with new
+quantum numbers $j$ and $m_j$, corresponding to $J^2$ and $J_z$ which are conserved
+quantities.
+% In the end we obtain:
+% $\langle \hat{H}_{so} \rangle = \frac{g_s Z e^2}{16 \pi \epsilonnull c^2 m_e^2}
+% \langle \frac{1}{r^3} \rangle \cdot \langle \vec{S} \cdot \vec{L} \rangle$ with
+$\langle \vec{S} \cdot \vec{L} \rangle = \frac{\hbar^2}{2} \eckigeklammer{j(j+1) - l(l+1) - s(s+1)}$
+% and $\langle \frac{1}{r^3} \rangle = \frac{1}{l(l+1/2) (l+1) n^3 a^3}$.
+% So first-order energy shift due to the spin-orbit interaction is then
+% $E_{so}^1 = \langle \hat{H}_{so} \rangle = \frac{g_s e^2}{16 \pi \epsilonnull c^2 m_e^2}
+% \frac{\hbar^2}{2} \frac{j(j+1) - l(l+1) - s(s+1)}{l(l+1/2)(l+1) n^3 a^3}$.
+Unperturbed energies are $E_n = - \eckigeklammer{\frac{m_e}{2 \hbar^2} \klammer{\frac{e^2}{4 \pi \epsilonnull}}^2} \frac{1}{n^2}$.
+Define $\alpha = \frac{e^2}{4 \pi \epsilonnull \hbar c}$. Then $E_n = - \frac{1}{2} m_e c^2 \alpha^2 \frac{1}{n^2}
+= \frac{E_1}{n^2}$. Thus: $E_{so}^1 = - \frac{g_s}{4} \frac{\alpha^2}{n} E_n \eckigeklammer{\frac{j(j+1) - l(l+1) - s(s+1)}{l(l+1/2)(l+1)}}$.
+First order correction of the kinetic energy due to relativity:
+$E_{rel}^1 = \frac{\alpha^2}{4 n^2} E_n \klammer{\frac{4 n}{l+1/2} - 3}$.
+The \fat{fine structure correction} is $E_{fs}^1 = \frac{\alpha^2}{n} E_n
+\klammer{\frac{1}{j+1/2} - \frac{3}{4n}}$. In the end, \fat{total energies of
+the hydrogen atom}: $E_{nj} = E_n \eckigeklammer{1+\frac{\alpha^2}{n} \klammer{\frac{1}{j+1/2} - \frac{3}{4n}}}
+\approx \frac{-13.66 \mathrm{eV}}{n^2} \eckigeklammer{1+\frac{\alpha^2}{n} \klammer{\frac{1}{j+1/2} - \frac{3}{4n}}}$
+
+
+
+

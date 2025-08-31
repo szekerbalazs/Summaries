@@ -1,0 +1,186 @@
+\subsection{Kompaktheit}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ ein topologischer Raum, und sei $A \subseteq X$ eine Teilmenge. Eine
+    \fat{offene Überdeckung} von $A$ ist eine Familie offener Mengen $\mathcal{U}$
+    von $X$, so, dass
+    \begin{align*}
+        A \subseteq \bigcup_{U \in \ \mathcal{U}} U
+    \end{align*}
+    gilt. Eine \fat{Teilüberdeckung} der Überdeckung $\mathcal{U}$ von $A$ ist eine
+    offene Überdeckung $\mathcal{V}$ von $A$ mit $\mathcal{V} \subseteq \mathcal{U}$.
+    Eine \fat{endliche offene Überdeckung} ist eine offene Überdeckung durch eine
+    endliche Familie offener Mengen.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ ein topologischer Raum und $A \subseteq X$ eine Teilmenge. Wir sagen,
+    $A$ sei \fat{kompakt}, falls jedde offene Überdeckung von $A$ eine endliche
+    Teilüberdeckung besitzt. Wie nennen $X$ einen kompakten Topologischen Raum
+    wenn $X$ als Teilmenge von $X$ kompakt ist.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Ein topologischer Raum $X$ ist genau dann kompakt, wenn $X$ das folgende
+    \fat{Schachtelungsprinzip} erfüllt: Für jede Kollektion $\mathcal{A}$
+    abgeschlossener Teilmengen von $X$ mit der Eigenschaft, dass
+    $A_1 \cap \dots \cap A_n \neq \emptyset$ für alle \ninN und
+    $A_1 , \dots , A_n \in \mathcal{A}$ gilt, gilt auch
+    \begin{align*}
+        \bigcap_{A \in  \mathcal{A}} A \neq \emptyset
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Korollar{
+
+    Ist $X$ kompakt und $A \subseteq X$ abgeschlossen, so ist $A$ kompakt.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $X$ und $Y$ topologische Räume und sei $f:X \rightarrow Y$ eine stetige
+    Abbildung und sei $A \subseteq X$ eine kompakte Teilmenge. Dann ist $f(A)$
+    eine kompakte Teilmenge von $Y$.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ ein topologischer Raum. Wir sagen, $X$ sei \fat{folgenkompakt}, falls jede
+    Folge in $X$ einen Häufungspunkt in $X$ besitzt. (Alternativ: ... falls jede
+    Folge in $X$ eine konvergente Teilfolge besitzt.) Ein Teilraum $Y \subseteq X$
+    heisst folgenkompakt, falls $Y$ als eigenständiger topologischer Raum folgenkompakt
+    ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Wir nennen einen metrischen Raum $(X,d)$ \fat{kompakt}, wenn $X$ als topologischer
+    Raum, also $X$ bezüglich der von der Metrik $d$ induzierten Topologie, kompakt
+    ist.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Ein metrischer Raum $(X,d)$ heisst \fat{beschränkt}, falls es ein $R>0$ gibt
+    mit der Eigenschaft, dass $d(x,y) \leq R$ für alle $x,y \in X$ gilt.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $X$ ein metrischer Raum. Wir sagen, dass $X$ \fat{total beschränkt} ist,
+    falls es für jedes $r>0$ endlich viele $x_1 , \dots , x_n \in X$ gibt mit
+    \begin{align*}
+        X = \bigcup_{j=0}^{n} B(x_j , r)
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $(X,d)$ ein metrischer Raum und $\mathcal{U} = (U_i)_{i \in I}$ eine offene
+    Überdeckung von $X$. Eine reelle Zahl $\lambda>0$ heisst \fat{Lebesgue Zahl} zu
+    dieser Überdeckung, falls für alle \xinX ein $i \in I$ existiert mit
+    $B(x,\lambda) \subseteq U_i$.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{
+
+    Sei $X$ ein metrischer Raum. Dann sind folgende Aussagen äquivalent.
+    \begin{enumerate}[{(1)}]
+        \item Mit der von der Metrik induzierten Topologie ist $X$ ein kompakter topologischer Raum.
+        \item Jede Folge in $X$ hat einen Häufungspunkt, das heisst, $X$ ist folgenkompakt.
+        \item Jede unenendliche Teilmenge von $X$ besitzt einen Häufungspunkt.
+        \item Jede stetige, reellwertige Funktion auf $X$ ist beschränkt.
+        \item Jede stetige, reellwertige Funktion auf $X$ nimmt ein Maximum und ein Minimum an.
+        \item Jede offene Überdeckung von $X$ besitzt eine Lebesgue-Zahl und $X$ ist total beschränkt.
+        \item Der metrische Raum $X$ ist total beschränkt und vollständig.
+    \end{enumerate}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Seien $X$ und $Y$ metrische Räume und $f: X \rightarrow Y$ eine stetige Funktion.
+    Falls $X$ kompakt ist, so ist $f$ gleichmässig stetig.
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $X$ ein metrischer Raum, $A \subseteq X$. Ist A kompakt, so ist $A$ beschränkt
+    und abgeschlossen. Die Umkehrung gilt im Allgemeinen nicht.
+}
+
+\vspace{1\baselineskip}
+
+\Definition{
+
+    Sei $f: X \rightarrow \R$ eine beschränkte, reellwertige Funktion auf einem
+    metrischen Raum $X$. Für \xinX und $\delta>0$ ist die \fat{Oszillation} oder
+    \fat{Schwankung} von $f$ bei $x$ wie folgt definiert.
+    \begin{align*}
+        \omega(f,x,\delta) = \limes{\delta \rightarrow 0} \klammer{\sup f(B(x,\delta)) - \inf f(B(x,\delta))}
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Proposition{
+
+    Sei $X$ ein kompakter metrischer Raum und sei $f: X \rightarrow \R$ eine beschränkte
+    Funktion. Angenommen es gibt $\eta \geq 0$, so dass $\omega(f,x) \leq \eta$ für
+    alle $x \in X$. Dann existiert für jedes $\epsilon > 0$ ein $\delta > 0$, so
+    dass für alle \xinX folgendes gilt:
+    \begin{align*}
+        \omega(f,x,\delta) < \eta + \epsilon
+    \end{align*}
+}
+
+\vspace{1\baselineskip}
+
+\Lemma{
+
+    Eine folgenkompakte Teilmenge eines metrischen Raumes ist abgeschlossen und
+    beschränkt.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Heine-Borel)
+
+    Eine Teilmenge $A \subseteq \R^d$ für $d \geq 0$ ist genau dann kompakt, wenn
+    sie abgeschlossen und beschränkt ist.
+}
+
+\vspace{1\baselineskip}
+
+\Satz{ (Fundamentalsatz der Algebra)
+
+    Jedes nicht-konstante Polynom $f \in \C [T]$ hat eine Nullstelle in $\C$.
+}

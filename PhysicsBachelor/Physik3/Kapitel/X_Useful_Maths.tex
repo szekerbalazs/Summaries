@@ -1,0 +1,135 @@
+\section{Useful Tools}
+
+\paragraph{Important Physics Identities}
+\begin{align*}
+    \omega = 2 \pi \nu = \frac{2 \pi c}{\lambda}
+\end{align*}
+
+\paragraph{Approximations}
+
+\begin{enumerate}[(i)]
+    \item When $\abs{\epsilon} \ll 1$, $(1+\epsilon)^\alpha \approx 1 + \alpha \epsilon$
+    \item Stirling's Theorem: For large $x$: $\ln(x!) \approx x \ln(x) - x$
+    \item $\sqrt{1+x} \approx 1 + \frac{x}{2} - \frac{x^2}{8} + \frac{x^3}{16} - \frac{5 x^4}{128} + \dots$
+    \item $(1+x)^{-1} = 1 - x + x^2 - \dots$ for $\abs{x} < 1$
+    \item $1-e^x = x$ for $x \rightarrow 0$
+\end{enumerate}
+
+\paragraph{Trigonometry}
+\begin{align*}
+    \sin(x) &= \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}
+    \hspace{10pt} , \hspace{10pt}
+    \cos(x) = \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}
+    \\
+    c^2 &= a^2 + b^2 - 2 a b \cos(\gamma)
+    \hspace{10pt} , \hspace{10pt}
+    \sin(2x) = 2 \sin(x) \cos(x)
+    \\
+    \cos(2x) &= \cos^2(x) - \sin^2(x) = 1 - 2 \sin^2(x) = 2 \cos^2(x) - 1
+\end{align*}
+
+\paragraph{Laplacian} (Spherical and polar)
+\begin{align*}
+    \Delta \psi &= \frac{1}{r^2} \frac{\partial}{\partial r} \klammer{r^2  \frac{\partial \psi}{\partial r}} +
+        \frac{1}{r^2 \sin(\theta)} \frac{\partial}{\partial \theta} \klammer{\sin(\theta) \frac{\partial \psi}{\partial \theta}}
+        + \frac{1}{r^2 \sin^2(\theta)} \frac{\partial^2 \psi}{\partial \phi^2}
+    \\
+    \Delta \psi &= \frac{\partial^2 \psi}{\partial r^2} + \frac{1}{r} \frac{\partial \psi}{\partial r} + \frac{1}{r^2} \frac{\partial \psi}{\partial \phi^2}
+    \hspace{10pt} (2 D)
+    \\
+    \Delta &= \frac{\partial^2}{\partial r^2} + \frac{n-1}{r} \frac{\partial}{\partial r} + \frac{1}{r^2} \Delta_{S^{n-1}}
+    \hspace{10pt} (n D)
+\end{align*}
+
+\paragraph{Fourier Transform} $\alpha \in \R$
+\begin{align*}
+    \mathcal{F} \eckigeklammer{f(t)} &= \tilde{f}(\omega) = \frac{1}{\sqrt{2 \pi}} \intii f(t) e^{-i \omega t} \ dt
+    \\
+    \mathcal{F}^{-1} \eckigeklammer{\tilde{f}(\omega)} &= f(t) = \frac{1}{\sqrt{2 \pi}} \intii \tilde{f}(\omega) e^{i \omega t} \ dt
+    \\
+    \mathcal{F}[f(t-t_0)] &= \mathcal{F}[f(t)] \cdot e^{-i \omega t_0}
+    \\
+    \mathcal{F}{f(\alpha t)} &= \frac{1}{\abs{\alpha}} \tilde{f}(\omega/\alpha)
+\end{align*}
+
+\paragraph{Derivatives}
+\begin{align*}
+    \frac{d}{dx} \arcsin(x) &= \frac{1}{\sqrt{1-x^2}}
+\end{align*}
+
+\paragraph{Combinatorics}
+\tiny
+\begin{align*}
+    &\text{\fat{Arrangement}}
+    \begin{cases}
+        \text{All $n$ elements distinguishable: } P = n!
+        \\
+        \text{$n_1 , n_2,...$ of total $n$ elements, indistinguishable: }
+        P = \frac{n!}{n_1 ! n_2 ! \dots}
+    \end{cases}
+    \\
+    &\text{\fat{Selection}}
+    \begin{cases}
+        \text{order does not matter}
+        \begin{cases}
+            \text{not chosen more than once: } N = \frac{n!}{r! (n-r)!} = \binom{n}{r}
+            \\
+            \text{chosen repetedly: } N = \binom{n+r-1}{r}
+        \end{cases}
+        \\
+        \text{order matters}
+        \begin{cases}
+            \text{not chosen more than once: } N = \frac{n!}{(n-r)!}
+            \\
+            \text{chosen repetedly: } N = n^r
+        \end{cases}
+    \end{cases}
+\end{align*}
+
+\paragraph{Probability Distribution}
+\footnotesize
+\begin{align*}
+    P(k) \approx \int_{k-0.5}^{k+0.5} \frac{1}{\sqrt{2 \pi N \sigma^2}}
+        \exp \klammer{- \frac{(x-N \mu)^2}{2 N \sigma^2}}
+    \approx
+    \frac{1}{\sqrt{2 \pi N \sigma^2}}
+        \exp \klammer{- \frac{(k-N \mu)^2}{2 N \sigma^2}}
+\end{align*}
+
+\normalsize
+
+\paragraph{Integrals}
+\begin{align*}
+    \intii e^{-ax^2 \pm bx)} \ dx = \sqrt{\frac{\pi}{a}} \exp \klammer{\frac{b^2}{4 a}}&
+    \hspace{10pt} , \hspace{10pt}
+    \intii e^{-a x^2} \ dx = \sqrt{\frac{\pi}{a}}
+    \\
+    \intii x^2 e^{-a x^2} \ dx = \sqrt{\frac{\pi}{4 a^3}}
+    \hspace{10pt} &, \hspace{10pt}
+    \intii x e^{-a x^2} \ dx = 0
+    \\
+    \int_0^\infty x e^{-a x^2} \ dx = \frac{1}{2a}
+    \hspace{10pt} &, \hspace{10pt}
+    \int_0^\infty x^3 e^{-a x^2} \ dx = \frac{1}{2 a^2}
+    \\
+    \int_0^\infty x^n e^{- \alpha x} \ dx = n! \alpha^{-(n+1)}
+    \hspace{10pt} &, \hspace{10pt}
+    \int_0^\pi \cos(\theta) \sin(\theta) \ d \theta = 0
+    \\
+    \int_0^\pi \cos^2(\theta) \sin(\theta) \ d \theta = \frac{2}{3}
+    \hspace{10pt} &, \hspace{10pt}
+    \int_0^\pi \cos^3(x) \ dx  = 0
+    \\
+    \int_0^\pi \sin^3 (x) \ dx = \frac{4}{3}
+    \hspace{10pt} &, \hspace{10pt}
+    \int_0^{2 \pi} \cos^2(x) \ dx = \pi
+    \\
+    \int_0^{2 \pi} \sin^2(x) \ dx = \pi 
+    \hspace{10pt} , \hspace{10pt}
+    &\int \frac{1}{e^x + 1} \ dx = x - \log(1+e^x)
+    \\
+    \int d \Omega = \int_0^{2 \pi} d \phi \int_0^\pi d \theta \sin(\theta)
+    \hspace{10pt} &, \hspace{10pt}
+    d \Omega = \sin(\theta) d \phi d \theta
+\end{align*}
+

@@ -1,0 +1,106 @@
+\documentclass[a4paper]{article}
+\input{header}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{5cm} % Adjust vertical space from top
+      {\Huge\@title\par} % Title size
+      \vspace{0cm} % Adjust vertical space between title and author
+      {\large
+        \lineskip 0.75em % Adjust line spacing here
+        \begin{tabular}[t]{c}
+          \@author \\
+          \@date
+        \end{tabular}\par}
+      \vspace{1cm} % Adjust vertical space between author/date and bottom
+    \end{center}
+  \end{titlepage}
+}
+\makeatother
+
+\title{Big Data for Engineers}
+\author{\\ Summary \\ \\ \\ Balázs Szekér \\ \href{mailto:szekerb@ethz.ch}{szekerb@ethz.ch} \\ \\ Summary of the Lecture Big Data for Engineers \\ held in the Spring Semester 2024 by
+Ghislain Fourny \\ \\ Swiss Federal Institute of Technology, ETH Zürich \\} 
+
+
+\begin{document}
+\begin{titlepage}
+    \maketitle
+    \thispagestyle{empty}
+\end{titlepage}
+\pagebreak
+\pagenumbering{Roman} 
+\thispagestyle{myplain}
+\begin{abstract}
+    This is a summary of the topics dealt with in the lecture \textit{Big Data for Engineers} in the spring semester 2024 given by Ghislain Fourny at ETH Zürich. Everything that is being mentioned in this script originates either from the lectures and lecture notes, or from the script.\footnote[1]{\url{https://ghislainfourny.github.io/big-data-textbook/}}\footnote[2]{\url{https://www.researchgate.net/publication/361334530_The_Big_Data_Textbook_-_teaching_large-scale_databases_in_universities}} The list of topics in this summary is not exhaustive. Many things were left out and only the topics which the author regarded as important are mentioned. This summary should neither be considered as a replacement of the lecture nor as a sufficient preparation for the exam. This summary should only be a reminder to which you can resort in case you quickly want to look something up. No liability is accepted in the event of failure to pass the examination.
+
+    \vspace{1\baselineskip}
+
+    If you stumble over mistakes, be it linguistic or thematic, or if you have suggestions what to add or how to improve this script, do not hesitate to contact me at
+    \href{mailto:szekerb@ethz.ch}{szekerb@ethz.ch}.
+
+    \vspace{1\baselineskip}
+
+    Many Thanks
+    
+    \vspace{1\baselineskip}
+
+    Balázs Szekér
+\end{abstract}
+\newpage
+\thispagestyle{myplain}
+\tableofcontents
+\pagebreak
+\pagenumbering{arabic}
+
+\textcolor{red}{The only languages in which we need to code in the exam are: PostgreSQL,SQL,PySpark,SparkSQL and JSONiQ. The rest will be theoretical questions. However, in these theoretical questions, questions about other languages may appear.}
+
+\input{Chapters/1_Introduction.tex}
+
+\pagebreak
+
+\input{Chapters/2_Lessons_Learned_from_the_past.tex}
+
+\pagebreak
+
+\input{Chapters/3_Cloud_Storage.tex}
+
+\pagebreak
+
+\input{Chapters/4_Distributed_File_Systems.tex}
+
+\pagebreak
+
+\input{Chapters/5_Syntax.tex}
+
+\pagebreak
+
+\input{Chapters/6_WideColumnStores.tex}
+
+\pagebreak
+
+\input{Chapters/7_Data_Models_and_Validation.tex}
+
+\pagebreak
+
+\input{Chapters/8_Massive_Parallel_Processing.tex}
+
+\pagebreak
+
+\input{Chapters/9_Resource_Management.tex}
+
+\pagebreak
+
+\input{Chapters/10_Generic_Dataflow_Management.tex}
+
+\pagebreak
+
+\input{Chapters/11_Document_Stores.tex}
+
+\pagebreak
+
+\input{Chapters/12_Querying_Denormalized_Data.tex}
+
+\end{document}

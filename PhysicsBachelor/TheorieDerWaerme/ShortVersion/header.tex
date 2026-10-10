@@ -34,14 +34,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{datetime}
 
+\usepackage{setspace}
+\setstretch{0.8}
+\setlength{\parskip}{-3pt}
+
 
 
 % ==== Page Settings ====
 
-\hoffset = -87pt
-\voffset = -25pt
-\textwidth = 591pt
-\textheight = 805pt
+\hoffset = -88pt
+\voffset = -40pt
+\textwidth = 593pt
+\textheight = 835pt
 \headheight = 20pt
 \headwidth = 591pt
 \marginparwidth = 0 pt
@@ -49,15 +53,18 @@
 \parindent = 0pt
 \headsep = 5pt
 \footskip = 20pt
+% \columnwidth = 200pt
+\columnsep = 5pt
+\setlength{\columnseprule}{0.2pt}
 
 
 % ==== Presettings for files ====
 
-\newdateformat{myformat}{\THEDAY{ten }\monthname[\THEMONTH], \THEYEAR}
+% \newdateformat{myformat}{\THEDAY{ten }\monthname[\THEMONTH], \THEYEAR}
 
-\pagestyle{fancy}
+\pagestyle{empty}
 
-\cfoot{\thepage}
-\lfoot{\href{mailto:szekerb@student.ethz.ch}{szekerb@student.ethz.ch}}
-\rfoot{Balázs Szekér, \today}
-\lhead{Theorie der Wärme Zusammenfassung}
+% \cfoot{\thepage}
+% \lfoot{\href{mailto:szekerb@student.ethz.ch}{szekerb@student.ethz.ch}}
+% \rfoot{Balázs Szekér, \today}
+% \lhead{Theorie der Wärme Zusammenfassung}
